@@ -1,0 +1,103 @@
+\BOOKMARK [-1][-]{part.1}{I Group Theory}{}% 1
+\BOOKMARK [0][-]{chapter.1}{\247\247Basic Definitions and Examples: Groups}{part.1}% 2
+\BOOKMARK [1][-]{section.1.1}{\247Initial Definitions}{chapter.1}% 3
+\BOOKMARK [1][-]{section.1.2}{\247The Group of Symmetries}{chapter.1}% 4
+\BOOKMARK [2][-]{subsection.1.2.1}{\247Notation: Cycles}{section.1.2}% 5
+\BOOKMARK [1][-]{section.1.3}{\247General Properties}{chapter.1}% 6
+\BOOKMARK [0][-]{chapter.2}{\247\247Group Homomorphisms}{part.1}% 7
+\BOOKMARK [1][-]{section.2.1}{\247Basic Definitions and Examples: Group Homomorphisms}{chapter.2}% 8
+\BOOKMARK [2][-]{subsection.2.1.1}{\247Group Isomorphisms}{section.2.1}% 9
+\BOOKMARK [1][-]{section.2.2}{\247Automorphisms}{chapter.2}% 10
+\BOOKMARK [0][-]{chapter.3}{\247\247Subgroups}{part.1}% 11
+\BOOKMARK [1][-]{section.3.1}{\247Basic Definitions and Examples: Subgroups}{chapter.3}% 12
+\BOOKMARK [2][-]{subsection.3.1.1}{\247Center}{section.3.1}% 13
+\BOOKMARK [1][-]{section.3.2}{\247Cyclic Subgroups}{chapter.3}% 14
+\BOOKMARK [1][-]{section.3.3}{\247Dihedral Groups}{chapter.3}% 15
+\BOOKMARK [1][-]{section.3.4}{\247Lattice Subgroups of a Group}{chapter.3}% 16
+\BOOKMARK [0][-]{chapter.4}{\247\247Free Groups}{part.1}% 17
+\BOOKMARK [1][-]{section.4.1}{\247Basic Definitions and Examples: Free Groups}{chapter.4}% 18
+\BOOKMARK [1][-]{section.4.2}{\247Presentations}{chapter.4}% 19
+\BOOKMARK [0][-]{chapter.5}{\247\247Quotient Groups}{part.1}% 20
+\BOOKMARK [1][-]{section.5.1}{\247Cosets}{chapter.5}% 21
+\BOOKMARK [1][-]{section.5.2}{\247Lagrange's Theorem and Applications}{chapter.5}% 22
+\BOOKMARK [2][-]{subsection.5.2.1}{\247Classification of Groups of Order 2p for p a prime}{section.5.2}% 23
+\BOOKMARK [1][-]{section.5.3}{\247The Alternating Group}{chapter.5}% 24
+\BOOKMARK [1][-]{section.5.4}{\247The Quotient Group Definition and Construction}{chapter.5}% 25
+\BOOKMARK [1][-]{section.5.5}{\247Isomorphism Theorems and Correspondence}{chapter.5}% 26
+\BOOKMARK [0][-]{chapter.6}{\247\247Group Actions}{part.1}% 27
+\BOOKMARK [1][-]{section.6.1}{\247Basic Definitions and Examples: Group Actions}{chapter.6}% 28
+\BOOKMARK [2][-]{subsection.6.1.1}{\247Application to Cycle Decompositions}{section.6.1}% 29
+\BOOKMARK [1][-]{section.6.2}{\247Counting and Combinatorial Formulas}{chapter.6}% 30
+\BOOKMARK [1][-]{section.6.3}{\247Conjugacy Actions and Actions on Subgroups}{chapter.6}% 31
+\BOOKMARK [2][-]{subsection.6.3.1}{\247Conjugation in Special groups}{section.6.3}% 32
+\BOOKMARK [2][-]{subsection.6.3.2}{\247Right Group Actions}{section.6.3}% 33
+\BOOKMARK [1][-]{section.6.4}{\247P-Groups}{chapter.6}% 34
+\BOOKMARK [1][-]{section.6.5}{\247Sylow's Theorem}{chapter.6}% 35
+\BOOKMARK [2][-]{subsection.6.5.1}{Applications of Sylow's Theorem}{section.6.5}% 36
+\BOOKMARK [0][-]{chapter.7}{\247\247Product Groups}{part.1}% 37
+\BOOKMARK [1][-]{section.7.1}{\247Basic Definitions and Examples: Product Groups}{chapter.7}% 38
+\BOOKMARK [1][-]{section.7.2}{\247Semi-Direct Products}{chapter.7}% 39
+\BOOKMARK [2][-]{subsection.7.2.1}{Classifications of Certain Finite Groups}{section.7.2}% 40
+\BOOKMARK [0][-]{chapter.8}{\247\247Nilpotent and Solvable Groups}{part.1}% 41
+\BOOKMARK [1][-]{section.8.1}{\247p-Groups}{chapter.8}% 42
+\BOOKMARK [1][-]{section.8.2}{\247Nilpotent Groups}{chapter.8}% 43
+\BOOKMARK [1][-]{section.8.3}{\247Composition Series and Solvable Groups}{chapter.8}% 44
+\BOOKMARK [2][-]{subsection.8.3.1}{The H\366lder Program}{section.8.3}% 45
+\BOOKMARK [-1][-]{part.2}{II Ring Theory}{}% 46
+\BOOKMARK [0][-]{chapter.9}{\247\247Basic Definitions and Examples: Rings}{part.2}% 47
+\BOOKMARK [1][-]{section.9.1}{\247Initial Definitions and Examples}{chapter.9}% 48
+\BOOKMARK [2][-]{subsection.9.1.1}{\247Integral Domains}{section.9.1}% 49
+\BOOKMARK [2][-]{subsection.9.1.2}{\247Subrings}{section.9.1}% 50
+\BOOKMARK [1][-]{section.9.2}{\247Ring Homomorphisms}{chapter.9}% 51
+\BOOKMARK [1][-]{section.9.3}{\247Domains and Fields of Fractions}{chapter.9}% 52
+\BOOKMARK [1][-]{section.9.4}{\247Special Definitions and Facts}{chapter.9}% 53
+\BOOKMARK [1][-]{section.9.5}{\247The Gaussian Integers}{chapter.9}% 54
+\BOOKMARK [0][-]{chapter.10}{\247\247Ideals and Quotient Rings}{part.2}% 55
+\BOOKMARK [1][-]{section.10.1}{\247Basic Definitions and Examples: Ideals}{chapter.10}% 56
+\BOOKMARK [2][-]{subsection.10.1.1}{\247Simple Ideals}{section.10.1}% 57
+\BOOKMARK [2][-]{subsection.10.1.2}{\247Maximal and Prime Ideals}{section.10.1}% 58
+\BOOKMARK [1][-]{section.10.2}{\247Ideal Arithmetic and the Chinese Remainder Theorem}{chapter.10}% 59
+\BOOKMARK [1][-]{section.10.3}{\247Adjunctions}{chapter.10}% 60
+\BOOKMARK [1][-]{section.10.4}{\247Isomorphism Theorems and Correspondence}{chapter.10}% 61
+\BOOKMARK [0][-]{chapter.11}{\247\247Adjunction of Elements}{part.2}% 62
+\BOOKMARK [0][-]{chapter.12}{\247\247Unique Factorization Domains}{part.2}% 63
+\BOOKMARK [1][-]{section.12.1}{\247Basic Definitions and Examples: UFDs}{chapter.12}% 64
+\BOOKMARK [1][-]{section.12.2}{\247Unique Factorization in F[x]}{chapter.12}% 65
+\BOOKMARK [0][-]{chapter.13}{\247\247Principal Ideal Domains}{part.2}% 66
+\BOOKMARK [1][-]{section.13.1}{\247Basic Definitions and Examples: PIDs}{chapter.13}% 67
+\BOOKMARK [0][-]{chapter.14}{\247\247Euclidean Domains}{part.2}% 68
+\BOOKMARK [1][-]{section.14.1}{\247Basic Definitions and Examples: Euclidean Domains}{chapter.14}% 69
+\BOOKMARK [0][-]{chapter.15}{\247\247Polynomial Rings}{part.2}% 70
+\BOOKMARK [1][-]{section.15.1}{\247Basic Definitions and Examples: Polynomial Rings}{chapter.15}% 71
+\BOOKMARK [1][-]{section.15.2}{\247Division Algorithm}{chapter.15}% 72
+\BOOKMARK [2][-]{subsection.15.2.1}{\247Solutions to Polynomials}{section.15.2}% 73
+\BOOKMARK [1][-]{section.15.3}{\247Substitution Principle}{chapter.15}% 74
+\BOOKMARK [1][-]{section.15.4}{\247Roots and Factorization}{chapter.15}% 75
+\BOOKMARK [2][-]{subsection.15.4.1}{\247}{section.15.4}% 76
+\BOOKMARK [2][-]{subsection.15.4.2}{\247Parallels between the Integers and Polynomials over a Field}{section.15.4}% 77
+\BOOKMARK [1][-]{section.15.5}{\247Polynomials over a Field}{chapter.15}% 78
+\BOOKMARK [2][-]{subsection.15.5.1}{\247Field Extensions}{section.15.5}% 79
+\BOOKMARK [1][-]{section.15.6}{\247GCD of Polynomials}{chapter.15}% 80
+\BOOKMARK [-1][-]{part.3}{III Field Theory}{}% 81
+\BOOKMARK [0][-]{chapter.16}{\247\247Basic Definitions and Examples: Fields}{part.3}% 82
+\BOOKMARK [0][-]{chapter.17}{\247\247Field Extensions}{part.3}% 83
+\BOOKMARK [1][-]{section.17.1}{\247Initial Definitions and Examples}{chapter.17}% 84
+\BOOKMARK [1][-]{section.17.2}{\247Algebraic Extensions}{chapter.17}% 85
+\BOOKMARK [0][-]{chapter.18}{\247\247Galois Theory}{part.3}% 86
+\BOOKMARK [-1][-]{part.4}{IV Modules}{}% 87
+\BOOKMARK [0][-]{chapter.19}{\247\247General Definitions and Examples}{part.4}% 88
+\BOOKMARK [1][-]{section.19.1}{\247Basic Definitions and Examples: Modules}{chapter.19}% 89
+\BOOKMARK [1][-]{section.19.2}{\247Module Homomorphisms}{chapter.19}% 90
+\BOOKMARK [2][-]{subsection.19.2.1}{\247Isomorphism Theorems for Modules}{section.19.2}% 91
+\BOOKMARK [2][-]{subsection.19.2.2}{\247Evaluation Bijections}{section.19.2}% 92
+\BOOKMARK [1][-]{section.19.3}{\247Submodules}{chapter.19}% 93
+\BOOKMARK [1][-]{section.19.4}{\247Free Modules and Generators}{chapter.19}% 94
+\BOOKMARK [0][-]{chapter.20}{\247\247Linear Transformations}{part.4}% 95
+\BOOKMARK [0][-]{chapter.21}{\247\247Matrix Theory for Free Modules}{part.4}% 96
+\BOOKMARK [0][-]{chapter.22}{\247\247Modules over PIDs}{part.4}% 97
+\BOOKMARK [0][-]{chapter.23}{\247\247Tensor Products}{part.4}% 98
+\BOOKMARK [1][-]{section.23.1}{\247Module Tensor Products}{chapter.23}% 99
+\BOOKMARK [2][-]{subsection.23.1.1}{Motivation/Special Case}{section.23.1}% 100
+\BOOKMARK [2][-]{subsection.23.1.2}{General Construction}{section.23.1}% 101
+\BOOKMARK [0][-]{section*.22}{Appendices}{part.4}% 102
+\BOOKMARK [1][-]{section.1..1}{\247Semi-Groups and Monoids}{section*.22}% 103

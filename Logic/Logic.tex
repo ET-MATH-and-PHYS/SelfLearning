@@ -1,0 +1,2147 @@
+\documentclass[12pt, a4paper, twoside, openright, titlepage]{book}
+\usepackage[utf8]{inputenc}
+\raggedbottom
+\input{../book_packages}
+
+\usepackage{fitch}
+\usepackage{forallpackages}
+\usepackage{tabu}
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
+
+%%%%%%%% BEGIN %%%%%%%%
+
+
+\begin{document}
+
+%%%%%% TITLE PAGE %%%%%
+
+\begin{titlepage}
+    \centering
+    \scshape
+    \vspace*{\baselineskip}
+    \rule{\textwidth}{1.6pt}\vspace*{-\baselineskip}\vspace*{2pt}
+    \rule{\textwidth}{0.4pt}
+    
+    \vspace{0.75\baselineskip}
+    
+    {\LARGE Logic: A Complete Guide}
+    
+    \vspace{0.75\baselineskip}
+    
+    \rule{\textwidth}{0.4pt}\vspace*{-\baselineskip}\vspace{3.2pt}
+    \rule{\textwidth}{1.6pt}
+    
+    \vspace{2\baselineskip}
+    Logic \\
+    \vspace*{3\baselineskip}
+    \monthdayyeardate\today \\
+    \vspace*{5.0\baselineskip}
+    
+    {\scshape\Large Elijah Thompson, \\ Physics and Math Honors\\}
+    
+    \vspace{1.0\baselineskip}
+    \textit{Solo Pursuit of Learning}
+\end{titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Part 1
+\part{Basic Notions}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%% - P1.Chapter 1
+\chapter{\textsection\textsection Arguments}
+
+
+\section{\textsection Definitions and Examples: Arguments}
+
+\begin{defn}{}{}
+    An \Emph{argument} (or \Emph{deductive argument}) is any collections of premises, together with a conclusion.
+
+    To be completely general, we can define an argument as a series of sentences. The sentences at the beginning are premises, and the final sentence in the series is the conclusion.
+\end{defn}
+
+\begin{defn}{}{}
+    A \Emph{statement} is a sentence which is either true or false.
+\end{defn}
+
+
+\begin{rmk}{}{}
+    Questions, imperative sentences, and exclamatory sentences are all not statements. Commands are often phrased as imperative sentences.
+\end{rmk}
+
+
+
+\section{\textsection Validity}
+
+\begin{defn}{Informal Validity}{}
+    An argument is said to be \Emph{valid} if the conclusion follows from the premises.
+\end{defn}
+
+\begin{defn}{IInformal Invalidity}{}
+    If in an argument the conclusion does not follow from the premises, then the argument is said to be \Emph{invalid}.
+\end{defn}
+
+
+\begin{defn}{Consequence}{}
+    A sentence $A$ is a \Emph{consequence} of sentences $B_1,...,B_n$ if and only if there is no case where $B_1,...,B_n$ are all true and $A$ is not true. (We then say that $A$ follows from $B_1,...,B_n$, or that $B_1,...,B_n$ \Emph{entail} $A$)
+\end{defn}
+
+
+\begin{defn}{Informal Validity 2}{}
+    An argument is \Emph{valid} if and only if the conclusion is a consequence of the premises.
+\end{defn}
+
+\begin{defn}{Informal Invalidity 2}{}
+    An argumnt is \Emph{invalid} if and only if it is not valid, i.e., it has a counter-example.
+\end{defn}
+
+
+\begin{rmk}{}{}
+    An argument is \Emph{nomologically valid} if there are no counter-examples which obey the laws of physics. An argument is \Emph{conceptually valid} if there are no counter-examples that don't violate conceptual connections between words.
+\end{rmk}
+
+
+\begin{rmk}{}{}
+    An argument is \Emph{formally valid} if we can describe the ``form" of the argument as a logical pattern.
+\end{rmk}
+
+\section{\textsection Other Notions}
+
+\begin{defn}{}{}
+    An argument is said to be \Emph{sound} if and only if it is valid and its premises are true.
+\end{defn}
+
+
+\begin{defn}{}{}
+    An \Emph{inductive argument} is an argument which generalises from observations about many past cases to a conclusion about all future cases. Inductive arguments are not deductively valid.
+\end{defn}
+
+\begin{defn}{Jointly Possible}{}
+    Sentences are \Emph{jointly possible} if and only if there is a case where they are all true together.
+\end{defn}
+
+\begin{defn}{Contingent}{}
+    A sentence which is capable of being true in one case and capable of being false in another case is called \Emph{contingent}.
+\end{defn}
+
+\begin{defn}{}{}
+    A sentence is a \Emph{necessary truth} if it is true in all cases.
+\end{defn}
+
+\begin{defn}{}{}
+    A sentence is a \Emph{necessary falsehood} if it is false in all cases.
+\end{defn}
+
+\begin{defn}{}{}
+    If two sentences have the same truth value in every case, we say that they are \Emph{necessarily equivalent}.
+\end{defn}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%% - P1.Chapter 3
+\chapter{\textsection\textsection Language and Structure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%% - P1.Chapter 4
+\chapter{\textsection\textsection Deductions}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Part 2
+\part{Truth-Functional Logic}
+
+
+%%%%%%%%%%%%%%%%%%%%%%% - P2.Chapter 1
+\chapter{\textsection\textsection Symbolization and Ambiguity}
+
+\section{\textsection Atomic Sentences}
+
+\begin{defn}{}{}
+    TFL \Emph{symbolizes} basic sentences, or sentence components, as sentence letters such as $A,P_1,P_2,P_{432}$ etc. These sentence letters are \Emph{atomic sentences} of TFL, and when symbolizing a sentence in terms of sentence letters we provide a symbolization key, for instance:\begin{enumerate}
+        \item[$\drsh$] $A$: I am a cat.
+    \end{enumerate}
+\end{defn}
+
+\section{\textsection Connectives}
+
+\begin{table}[H]
+    \centering
+    \caption{Logical Connectives of TFL}
+    \begin{tabular}{ccc}
+        \textbf{Symbol} & \textbf{Name} & \textbf{Rough meaning} \\
+        $\lnot$ & Negation & `It is not the case that...' \\
+        $\wedge$ & Conjunction & `Both... and...'\\
+        $\lor$ & Disjunction & `Either... or...' \\
+        $\rightarrow$ & Conditional & `If ... then ...' \\
+        $\leftrightarrow$ & Biconditional & `... if and only if ...'
+    \end{tabular}
+\end{table}
+
+
+\begin{defn}{}{}
+    Consider formulas $\metav{A}$ and $\metav{B}$. In $\lnot \metav{A}$ $\metav{A}$ is said to be the \Emph{negatum}. For $(\metav{A} \wedge \metav{B})$, $\metav{A}$ and $\metav{B}$ are called the \Emph{conjuncts}. For $(\metav{A} \lor \metav{B})$, $\metav{A}$ and $\metav{B}$ are called the \Emph{disjuncts}. For $(\metav{A} \rightarrow \metav{B})$, $\metav{A}$ is called the \Emph{antecedent} and $\metav{B}$ is called the \Emph{consequent}.
+\end{defn}
+
+
+\section{\textsection TFL Sentences}
+
+\begin{defn}{}{}
+    The symbols of TFL are the atomic sentences ($A,B,...,Z,P_{453},...$), the connectives $\lnot,\wedge,\lor,\rightarrow,\leftrightarrow$, and brackets $(,)$.
+\end{defn}
+
+\begin{defn}{}{}
+    An \Emph{expression of TFL} is any string of symbols of TFL.
+\end{defn}
+
+
+\begin{defn}{}{}
+    The following are the only sentences of TFL:
+    \begin{enumerate}
+        \item Every sentence letter is a sentence.
+        \item If $\metav{A}$ is a sentence, then $\lnot \metav{A}$ is also a sentence.
+        \item If $\metav{A}$ and $\metav{B}$ are sentences, then $(\metav{A}\wedge \metav{B})$ is a sentence.
+        \item If $\metav{A}$ and $\metav{B}$ are sentences, then $(\metav{A}\lor \metav{B})$ is a sentence.
+        \item If $\metav{A}$ and $\metav{B}$ are sentences, then $(\metav{A}\rightarrow \metav{B})$ is a sentence.
+        \item If $\metav{A}$ and $\metav{B}$ are sentences, then $(\metav{A}\leftrightarrow \metav{B})$ is a sentence.
+        \item Nothing else is a sentence.
+    \end{enumerate}
+    The last sentential connective used in constructing a TFL sentence is called the \Emph{main logical operator}.
+\end{defn}
+
+
+\begin{defn}{}{}
+    The \Emph{scope} of a connective (in a sentence) is the subsentence for which that connective is the main logical operator.
+\end{defn}
+
+
+
+
+\section{\textsection Ambiguity}
+
+\begin{defn}{}{}
+    \Emph{Lexical ambiguity} is when a sentence contains words which have more than one meaning.
+\end{defn}
+
+\begin{defn}{}{}
+    \Emph{Structural ambiguity} occurs when a sentence can be interpreted in different ways, and depending on the interpretation, a different meaning is selected.
+\end{defn}
+
+
+\section{\textsection Object and Meta languages}
+
+\begin{rmk}{}{}
+    When we want to talk about things in the world we just \emph{use} words. When we talk about words we typically have to \emph{mention} the words. Usually, \emph{mentioning} is done using single quotation marks `' (or double quotes if encasing single quotes).
+\end{rmk}
+
+
+\begin{defn}{}{}
+    When we talk about a language the language we are talking about is called the \Emph{object language}. The language that we use to talk about the object language is called the \Emph{metalanguange}.
+\end{defn}
+
+\begin{rmk}{}{}
+    In TFL sentence letters are sentences of the object language. When refering to a sentence letter in the metalanguage of English (supplemented with some symbols), we may write something along the lines of: `D' is a sentence letter of TFL.
+\end{rmk}
+
+
+\begin{defn}{}{}
+    We define \Emph{metavariables} for our augmented metalanguage English to talk about any expression of TFL: \begin{equation}
+        \metav{A},\metav{B},\metav{C},\metav{D},...
+    \end{equation}
+    In particular, `$\metav{A}$' is a symbo (called a \Emph{metavariable}) in the augmented English we use to talk about expressions of TFL.
+\end{defn}
+
+\begin{defn}{}{}
+    Suppose we wish to symbolize the premises of an argument by $\metav{A}_1,...,\metav{A}_n$, and the conclusion of the argument by $\metav{C}$. Then we will write:\begin{equation}
+        \metav{A}_1,...,\metav{A}_n \therefore \metav{C}
+    \end{equation}
+    The purpose of the `$\therefore$' symbol is to indicate which sentences are premises and which are conclusions. Strictly speaking `$\therefore$' is a part of our metalanguage, but we shall take the convention to not include quotation marks around the TFL sentences which flank it.
+\end{defn}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%% - P2.Chapter 3
+\chapter{\textsection\textsection Truth Tables}
+
+\section{\textsection Characteristic Truth Tables}
+
+
+\begin{table}[H]
+    \centering
+    \caption{\Emph{Negation}}
+    \begin{tabular}{c|c}
+        $\metav{A}$ & $\lnot \metav{A}$ \\ \hline
+        \textbf{T} & \textbf{F} \\
+        \textbf{F} & \textbf{T}
+    \end{tabular}
+\end{table}
+
+
+\begin{table}[H]
+    \centering
+    \caption{\Emph{Conjunction}}
+    \begin{tabular}{cc|c}
+        $\metav{A}$ & $\metav{B}$ & $\metav{A} \wedge \metav{B}$\\ \hline
+        \textbf{T} & \textbf{T} & \textbf{T} \\
+        \textbf{T} & \textbf{F} & \textbf{F} \\
+        \textbf{F} & \textbf{T} & \textbf{F} \\
+        \textbf{F} & \textbf{F} & \textbf{F}
+    \end{tabular}
+\end{table}
+
+
+\begin{table}[H]
+    \centering
+    \caption{\Emph{Disjunction}}
+    \begin{tabular}{cc|c}
+        $\metav{A}$ & $\metav{B}$ & $\metav{A}\lor \metav{B}$ \\ \hline
+        \textbf{T} & \textbf{T} & \textbf{T} \\
+        \textbf{T} & \textbf{F} & \textbf{T} \\
+        \textbf{F} & \textbf{T} & \textbf{T} \\
+        \textbf{F} & \textbf{F} & \textbf{F}
+    \end{tabular}
+\end{table}
+
+
+\begin{table}[H]
+    \centering
+    \caption{\Emph{Conditional}}
+    \begin{tabular}{cc|c}
+        $\metav{A}$ & $\metav{B}$ & $\metav{A} \rightarrow \metav{B}$ \\ \hline
+        \textbf{T} & \textbf{T} & \textbf{T} \\
+        \textbf{T} & \textbf{F} & \textbf{F} \\
+        \textbf{F} & \textbf{T} & \textbf{T} \\
+        \textbf{F} & \textbf{F} & \textbf{T}
+    \end{tabular}
+\end{table}
+
+
+\begin{table}[H]
+    \centering
+    \caption{\Emph{Biconditional}}
+    \begin{tabular}{cc|c}
+        $\metav{A}$ & $\metav{B}$ & $\metav{A} \leftrightarrow \metav{B}$\\ \hline
+        \textbf{T} & \textbf{T} & \textbf{T} \\
+        \textbf{T} & \textbf{F} & \textbf{F} \\
+        \textbf{F} & \textbf{T} & \textbf{F} \\
+        \textbf{F} & \textbf{F} & \textbf{T}
+    \end{tabular}
+\end{table}
+
+\section{\textsection Using Truth Tables}
+
+\begin{defn}{}{}
+    A \Emph{valuation} is any assignment of truth values to particular sentences of TFL.
+\end{defn}
+
+\begin{rmk}{}{}
+    Each row of a truth table represents a possible valuation.
+\end{rmk}
+
+\begin{defn}{}{}
+    A \Emph{complete truth table} has a line for every possible valuation of the relevant sentence letters.
+\end{defn}
+
+
+\begin{prop}{}{}
+    If a complete truth table has $n$ different sentence letters, then it must have $2^n$ rows.
+\end{prop}
+
+
+\begin{rmk}{}{}
+    Truth tables can be used to test the validity of an argument. Simply check if there is any line in the truth table where all the premises are true and the conclusion is false - if this occurs then the argument is invalid, and if it doesn't the argument is valid.
+\end{rmk}
+
+\begin{rmk}{}{}
+    If every line of a truth table is true for a sentence, then it is a tautology. Similarly, if every line is false then the sentence is a contradiction.
+\end{rmk}
+
+\begin{rmk}{}{}
+    Two sentences are equivalent if their truth values on every line of a truth table are equivalent.
+\end{rmk}
+
+
+\begin{rmk}{}{}
+    A set of sentences is jointly satisfiable if there is a line in their truth table for which all sentences are true. If no such line exists, the sentences are jointly insatisfiable.
+\end{rmk}
+
+In summary we have the following table:
+
+\begin{table}[H]
+    \centering
+    \caption{Truth table requirements for demonstrating logical properties}
+    \begin{tabular}{c|cc}
+        & \textbf{Yes} & \textbf{No} \\ \hline
+        Tautology? & complete table & one-line table \\
+        Contradiction? & complete table & one-line table \\
+        Equivalent? & complete table & one-line table \\
+        Satisfiable? & one-line table & complete table \\
+        Valid? & complete table & one-line table \\
+        Entailment? & complete table & one-line table
+    \end{tabular}
+\end{table}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%% - P2.Chapter 4
+\chapter{\textsection\textsection Semantics}
+
+\section{\textsection Truth-functional}
+
+
+\begin{defn}{}{}
+    A connective is \Emph{truth-functional} iff the truth value of the sentence with that connective as a main logical operator is uniquely determined by the truth value(s) of the constituent sentence(s).
+\end{defn}
+
+\begin{rmk}{}{}
+    Truth functional connectives simply map us between truth values. When we \Emph{symbolize} an English sentence in TFL we ignore everything besides the contribution that the truth values of a component make to the truth value of the whole. It is important to note that TFL is unequipped to deal with meaning.
+\end{rmk}
+
+
+\begin{defn}{}{}
+    When we treat a TFL sentence as \Emph{symbolizing} an English sentence, we are stipulating that the TFL sentence is to take the same truth value as the English sentence.
+\end{defn}
+
+\subsection{\textsection Indicative versus Subjunctive Connectives}
+
+\begin{defn}{}{}
+    TFL strictly uses \Emph{indicative conditionals}, as these are truth-functional.
+\end{defn}
+
+
+\begin{defn}{}{}
+    A \Emph{subjunctive conditional} is a sentence of the form `If it were the case that $P$, then it would be the case that $Q$'.
+\end{defn}
+
+\section{\textsection Tautologies and Contradictions}
+
+\begin{defn}{}{}
+    The TFL sentence $\metav{A}$ is a \Emph{tautology} (in TFL) iff it is true on every valuation.
+\end{defn}
+
+\begin{rmk}{}{}
+    Tautology is a surrogate for necessary truth in TFL. There are necessary truths that cannot be adequately symbolized in TFL. Nonetheless, if we can adequately symbolize an English sentence in TFL and the resulting sentence is a tautology, then the English sentence expresses a necessary truth.
+\end{rmk}
+
+
+\begin{defn}{}{}
+    A TFL sentence $\metav{A}$ is a \Emph{contradiction} (in TFL) iff it is false on every valuation.
+\end{defn}
+
+\section{\textsection Equivalence}
+
+
+\begin{defn}{}{}
+    $\metav{A}$ and $\metav{B}$ are \Emph{equivalent} (in TFL) iff, for every valuation, their truth values agree, i.e., if there is no valuation in which they have opposite truth values.
+\end{defn}
+
+\section{\textsection Satisfiability}
+
+\begin{defn}{}{}
+    $\metav{A}_1,\metav{A}_2,...,\metav{A}_n$ are \Emph{jointly satisfiable} (in TFL) iff there is some valuation which makes them all true.
+\end{defn}
+
+
+\begin{defn}{}{}
+    $\metav{A}_1,\metav{A}_2,...,\metav{A}_n$ are \Emph{jointly unsatisfiable} (in TFL) iff there is no valuation which makes them all true. 
+\end{defn}
+
+\section{\textsection Entailment and Validity}
+
+
+\begin{defn}{}{}
+    The sentences $\metav{A}_1,\metav{A}_2,...,\metav{A}_n$ \Emph{entail} (in TFL) the sentence $\metav{C}$ iff no valuation of the relevant sentence letters makes all of $\metav{A}_1,\metav{A}_2,...,\metav{A}_n$ true and $\metav{C}$ false.
+\end{defn}
+
+\begin{thm}{}{}
+    If $\metav{A}_1,\metav{A}_2,...,\metav{A}_n$ entail $\metav{C}$, in TFL, then $\metav{A}_1,\metav{A}_2,...,\metav{A}_n\therefore \metav{C}$ is valid.
+\end{thm}
+
+\subsection{\textsection Double Turnstile}
+
+\begin{defn}{}{}
+    We abbreviate the sentence `$\metav{A}_1,\metav{A}_2,...,\metav{A}_n$ entail $\metav{C}$' by:\begin{equation}
+        \metav{A}_1,\metav{A}_2,...,\metav{A}_n\vDash\metav{C}
+    \end{equation}
+    The symbol `$\vDash$' is called the \Emph{double turnstile}, and it is a symbol of our metalanguage.
+\end{defn}
+
+\begin{defn}{}{}
+    When we write \begin{equation}
+        \vDash\metav{C}
+    \end{equation}
+    we are saying there is no valuation which makes $\metav{C}$ false, so in particular every valuation makes it true. Thus $\metav{C}$ is a tautology. Equally, to say that $\metav{A}$ is a contradiction we may write \begin{equation}
+        \metav{A}\vDash
+    \end{equation}
+    For this says that no valuation makes $\metav{A}$ true.
+\end{defn}
+
+
+\begin{defn}{}{}
+    To say that $\metav{A}_1,\metav{A}_2,...,\metav{A}_n$ do not entail $\metav{C}$ we write \begin{equation}
+        \metav{A}_1,\metav{A}_2,...,\metav{A}_n \nvDash \metav{C}
+    \end{equation}
+\end{defn}
+
+
+\begin{rmk}{}{}
+    Note that `$\rightarrow$' is a sentential connective of TFL while `$\vDash$' is a symbol of our metalanguage, augmented English. Now, observe that $\metav{A} \rightarrow \metav{C}$ is a tautology if and only if $\metav{A} \vDash \metav{C}$.
+\end{rmk}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%% - P2.Chapter 5
+\chapter{\textsection\textsection Natural Deduction}
+
+\section{\textsection Initial Definitons and Reasoning}
+
+\begin{defn}{}{}
+    A \Emph{formal proof} is a sequence of sentences, some of which are marked as being initial assumptions (or premises). The last line of the formal proof is the conclusion.
+\end{defn}
+
+\begin{eg}{}{}
+    Our first example will be to prove the statement \begin{equation*}
+        \lnot(A\lor B)\therefore \lnot A \wedge \lnot B
+    \end{equation*}
+    Let us begin with how we start such proofs\begin{fitchproof}
+        \hypo{a1}{\enot (A\eor B)}
+	\end{fitchproof}
+    The horizontal line indicates a separation between the assumptions and main body of the proof. Before we complete this proof we need to determine some laws of inference we can use.
+\end{eg}
+
+\section{\textsection Rules of Inferences for TFL Natural Deduction}
+
+\begin{defn}{Reiteration Rule}{}
+    If you have already shown something in the course of a proof, the \Emph{reiteration rule} allows you to repeat it on a new line. For example: 
+    \begin{fitchproof}
+        \have[n]{a1}{\metav{A}}
+        \have[$\vdots$]{}{\vdots}
+        \have[k]{a2}{\metav{A}} \by{R}{a1}
+    \end{fitchproof}
+    This indicates that we have written $\metav{A}$ on line $n$. We write `R' to indicate we are using the reiteration rule. Note that both `$\metav{A}$' and `$n$',`$k$' are symbols of our metalanguage
+\end{defn}
+
+
+\begin{defn}{Conjunction Introduction}{}
+    Our conjunction introduction rule states that for any sentences $\metav{A}$ and $\metav{B}$ of TFL: \begin{fitchproof}
+        \have[m]{a1}{\metav{A}}
+        \have[n]{a2}{\metav{B}}
+        \have[\ ]{a3}{\metav{A} \eand \metav{B}} \ai{a1, a2}
+    \end{fitchproof}
+    When introducing a conjuction we reference the line number of the first conjunct first, and the second conjunct second.
+\end{defn}
+
+\begin{defn}{Conjunction Elimination}{}
+    Our conjunction elimination rule states that for any sentences $\metav{A}$ and $\metav{B}$ of TFL: \begin{fitchproof}
+        \have[m]{a1}{\metav{A}\eand \metav{B}}
+        \have[\ ]{a2}{\metav{A}} \ae{a1}
+    \end{fitchproof}
+    or \begin{fitchproof}
+        \have[m]{a1}{\metav{A}\eand \metav{B}}
+        \have[\ ]{a2}{\metav{B}} \ae{a1}
+    \end{fitchproof}
+\end{defn}
+
+
+\begin{rmk}{}{}
+    There is no reason that we have to apply conjunction introduction to two separate lines. Indeed: \begin{fitchproof}
+        \hypo{a1}{A}
+        \have{a2}{A\eand A} \ai{a1, a1}
+    \end{fitchproof}
+\end{rmk}
+
+\begin{defn}{Modus Ponens}{}
+    \Emph{Modus Ponens} is a conditional elimination rule which states that \begin{fitchproof}
+        \have[m]{a1}{\metav{A}\eif \metav{B}}
+        \have[n]{a2}{\metav{A}}
+        \have[\ ]{a3}{\metav{B}} \ce{a1,a2}
+    \end{fitchproof}
+    In citing we always cite the conditional's line number first.
+\end{defn}
+
+\begin{defn}{Conditional Introduction}
+    First, we make an additional assumption $\metav{A}$ (in a subproof); from the additional assumption we prove $\metav{B}$. From this, we know that if $\metav{A}$ is true, then $\metav{B}$ is true. This is wrapped up in the following rule: \begin{fitchproof}
+        \open
+                \hypo[i]{A}{\metav{A}}
+                \have[j]{B}{\metav{B}}
+                \close
+        \have[\ ]{AB}{\metav{A}\eif\metav{B}}\ci{A-B}
+    \end{fitchproof}
+\end{defn}
+
+
+\begin{rmk}{}{}
+    Once we have closed a subproof, we cannot use any of the assumptions or results shown in it. In particular, to cite an individual line when applying rule: \begin{enumerate}
+        \item the line must come before the line where the rule is applied, but
+        \item not occur within a subproof that has been closed before the line where the rule is applied.
+    \end{enumerate}
+    When we close a subproof we say we have discharged the assumptions of the subproof.
+\end{rmk}
+
+
+\begin{rmk}{}{}
+    To cite a subproof when applyiing a rule: \begin{enumerate}
+        \item the cited subproof must come entirely before the application of the rule where it is cited,
+        \item the cited subproof must not lie within some other closed subproof which is closed at the line it is cited, and 
+        \item the last line of the cited subproof must not occur inside a nested subproof.
+    \end{enumerate}
+\end{rmk}
+
+\begin{defn}{Biconditional Introduction}{}
+    The biconditional introduction rule is similar to two conditional introductions: \begin{fitchproof}
+        \open
+                \hypo[i]{a1}{\metav{A}}
+                \have[j]{a2}{\metav{B}}
+        \close
+        \open 
+                \hypo[k]{a3}{\metav{B}}
+                \have[l]{a4}{\metav{A}}
+        \close
+        \have[\ ]{a5}{\metav{A} \eiff\metav{B}} \bi{a1-a2,a3-a4}
+    \end{fitchproof}
+\end{defn}
+
+\begin{defn}{Biconditional Elimination}{}
+    The biconditional elimination rule works like the conditional elimination rule, but in two ways: \begin{fitchproof}
+        \have[m]{a1}{\metav{A}\eiff\metav{B}}
+        \have[n]{a2}{\metav{B}}
+        \have[\ ]{a3}{\metav{A}} \be{a1,a2}
+    \end{fitchproof}
+    and \begin{fitchproof}
+        \have[m]{a1}{\metav{A}\eiff\metav{B}}
+        \have[n]{a2}{\metav{A}}
+        \have[\ ]{a3}{\metav{B}} \be{a1,a2}
+    \end{fitchproof}
+    Note that we always cite the line of the biconditional first when eliminating it.
+\end{defn}
+
+
+\begin{defn}{Disjunction Introduction}{}
+    As disjunctions are inherently weaker than initial statements of truth, we have the following disjunction rules: \begin{fitchproof}
+        \have[m]{a1}{\metav{A}}
+        \have[\ ]{a2}{\metav{A} \eor \metav{B}}\oi{a1}
+    \end{fitchproof}
+    and \begin{fitchproof}
+        \have[m]{a1}{\metav{A}}
+        \have[\ ]{a2}{\metav{B} \eor \metav{A}}\oi{a1}
+    \end{fitchproof}
+\end{defn}
+
+
+\begin{defn}{Disjunction Elimination}{}
+    The disjunction elimintation rule requires subproofs, and is as follows: \begin{fitchproof}
+        \have[m]{a1}{\metav{A} \eor \metav{B}}
+        \open
+                \hypo[i]{a2}{\metav{A}}
+                \have[j]{a3}{\metav{C}}
+        \close
+        \open
+                \hypo[k]{a4}{\metav{B}}
+                \have[l]{a5}{\metav{C}}
+        \close
+        \have[\ ]{a6}{\metav{C}} \oe{a1, a2-a3, a4-a5}
+    \end{fitchproof}
+\end{defn}
+
+
+\begin{defn}{Negation Elimination}{}
+    With negation elimination we introduce The False, $\ered$: \begin{fitchproof}
+        \have[m]{a1}{\enot\metav{A}}
+        \have[n]{a2}{\metav{A}}
+        \have[\ ]{a3}{\ered} \ne{a1,a2}
+    \end{fitchproof}
+    The order of the negation and statement do not matter, but we always cite the line number of the negation first.
+\end{defn}
+
+
+\begin{defn}{Negation Introduction}{}
+    In introducing a negation we start a subproof with an assumption, and show that it leads to a contradiction (The False): \begin{fitchproof}
+        \open
+                \hypo[i]{a1}{\metav{A}}
+                \have[j]{a2}{\ered}
+        \close
+        \have[\ ]{a3}{\enot \metav{A}} \ni{a1-a2}
+    \end{fitchproof}
+\end{defn}
+
+
+\begin{defn}{Indirect Proof}{}
+    This rule stems from the argument that if the assumption that $\metav{A}$ is false leads to a contradiction, then $\metav{A}$ cannot be false, so it must be true: \begin{fitchproof}
+        \open
+                \hypo[i]{a1}{\enot \metav{A}}
+                \have[j]{a2}{\ered}
+        \close
+        \have[\ ]{a3}{\metav{A}} \ip{a1-a2}
+    \end{fitchproof}
+\end{defn}
+
+
+\begin{defn}{Explosion Rule}{}
+    The explosion rule allows you to derive anything from a contradiction (The False): \begin{fitchproof}
+        \have[m]{a1}{\ered}
+        \have[\ ]{a2}{\metav{A}} \re{a1}
+    \end{fitchproof}
+    where $\metav{A}$ is any sentence whatsoever. This rule is also known as \Emph{ex contradictione quod libet}, ``from contradiction, anything." We can rephrase this as a contradiction entails everything: \begin{equation*}
+        \ered \entails \metav{A}
+    \end{equation*}
+\end{defn}
+
+
+
+\subsection{\textsection Additional and Derived Rules}
+
+\begin{defn}{}{}
+    The following is a natural argument form called a \Emph{disjunctive syllogism}: \begin{fitchproof}
+        \have[m]{a1}{\metav{A}\eor\metav{B}}
+        \have[n]{a2}{\enot\metav{A}}
+        \have[\ ]{a3}{\metav{B}} \by{DS}{a1,a2}
+    \end{fitchproof}
+    and \begin{fitchproof}
+        \have[m]{a1}{\metav{A}\eor\metav{B}}
+        \have[n]{a2}{\enot\metav{B}}
+        \have[\ ]{a3}{\metav{A}} \by{DS}{a1,a2}
+    \end{fitchproof}
+    When citing we always place the disjunction first.
+\end{defn}
+\begin{proof*}{}{}
+    Let $\metav{A}$ and $\metav{B}$ be formulas of TFL, and I shall show that $\metav{A}\eor\metav{B},\enot\metav{A}\entails \metav{B}$:
+    \begin{fitchproof}
+        \have{a1}{\metav{A}\eor\metav{B}}
+        \hypo{a2}{\enot\metav{A}}
+        \open
+            \hypo{a3}{\metav{B}}
+            \have{a4}{\metav{B}} \by{R}{a3}
+        \close
+        \open 
+            \hypo{a5}{\metav{A}}
+            \have{a6}{\ered} \ne{a2,a5}
+            \have{a7}{\metav{B}} \re{a6}
+        \close
+        \have{a8}{\metav{B}} \oe{a1,a3-a4,a5-a7}
+    \end{fitchproof}
+\end{proof*}
+
+\begin{defn}{}{}
+    The following is a natural argument form called \Emph{modus tollens}: \begin{fitchproof}
+        \have[m]{a1}{\metav{A}\eif \metav{B}}
+        \have[n]{a2}{\enot \metav{B}}
+        \have[\ ]{a3}{\enot \metav{A}} \by{MT}{a1,a2}
+    \end{fitchproof}
+    When citing we always place the conditional first.
+\end{defn}
+\begin{proof*}{}{}
+    Let $\metav{A}$ and $\metav{B}$ be formulas of TFL, and I shall show that $\metav{A}\eif\metav{B},\enot\metav{B}\entails \enot\metav{A}$:
+    \begin{fitchproof}
+        \have{a1}{\metav{A}\eif\metav{B}}
+        \hypo{a2}{\enot\metav{B}}
+        \open
+            \hypo{a3}{\metav{A}}
+            \have{a4}{\metav{B}} \ce{a1,a3}
+            \have{a5}{\ered} \ne{a2,a4}
+        \close
+        \have{a8}{\enot\metav{A}} \ni{a3-a5}
+    \end{fitchproof}
+\end{proof*}
+
+
+\begin{defn}{}{}
+    The \Emph{double-negation elimination} rule states that: \begin{fitchproof}
+        \have[m]{a1}{\enot\enot\metav{A}}
+        \have[\ ]{a2}{\metav{A}} \by{DNE}{a1}
+    \end{fitchproof}
+\end{defn}
+\begin{proof*}{}{}
+    Let $\metav{A}$ be a formula of TFL, and I shall show that $\enot\enot\metav{A}\entails \metav{A}$:
+    \begin{fitchproof}
+        \hypo{a1}{\enot\enot\metav{A}}
+        \open
+            \hypo{a2}{\enot\metav{A}}
+            \have{a3}{\ered} \ne{a1,a2}
+        \close
+        \have{a4}{\metav{A}} \by{IP}{a2-a3}
+    \end{fitchproof}
+\end{proof*}
+
+
+\begin{defn}{}{}
+    The \Emph{law of excluded middle} states that: \begin{fitchproof}
+        \open
+            \hypo[i]{a1}{\metav{A}}
+            \have[j]{a2}{\metav{B}}
+        \close
+        \open 
+            \hypo[m]{a3}{\enot\metav{A}}
+            \have[n]{a4}{\metav{B}}
+        \close
+        \have[\ ]{a5}{\metav{B}} \by{LEM}{a1-a2,a3-a4}
+    \end{fitchproof}
+\end{defn}
+\begin{proof*}{}{}
+    Let $\metav{A}$ and $\metav{B}$ be formulas of TFL, and I shall show that $\metav{A}\eif\metav{B},\enot\metav{A}\eif\metav{B}\entails \metav{B}$:
+    \begin{fitchproof}
+        \have{a1}{\metav{A}\eif\metav{B}}
+        \hypo{a2}{\enot\metav{A}\eif\metav{B}}
+        \open
+            \hypo{a3}{\enot\metav{B}}
+            \have{a4}{\enot\metav{A}} \by{MT}{a1,a3}
+            \have{a5}{\enot\enot\metav{A}} \by{MT}{a2,a3}
+            \have{a6}{\ered} \ne{a5,a4}
+        \close
+        \have{a7}{\metav{B}} \by{IP}{a3-a6}
+    \end{fitchproof}
+\end{proof*}
+
+
+\begin{defn}{}{}
+    \Emph{De Morgan's Laws} state that: \begin{fitchproof}
+        \have[m]{a1}{\enot(\metav{A}\eor\metav{B})}
+        \have[\ ]{a2}{\enot\metav{A}\eand\enot\metav{B}} \by{DeM}{a1}
+    \end{fitchproof}
+    \begin{fitchproof}
+        \have[m]{a1}{\enot(\metav{A}\eand\metav{B})}
+        \have[\ ]{a2}{\enot\metav{A}\eor\enot\metav{B}} \by{DeM}{a1}
+    \end{fitchproof}
+     \begin{fitchproof}
+        \have[m]{a1}{\enot\metav{A}\eor\enot\metav{B}}
+         \have[\ ]{a2}{\enot(\metav{A}\eand\metav{B})} \by{DeM}{a1}
+    \end{fitchproof}
+    and
+    \begin{fitchproof}
+        \have[m]{a1}{\enot\metav{A}\eand\enot\metav{B}}
+        \have[\ ]{a2}{\enot(\metav{A}\eor\metav{B})} \by{DeM}{a1}
+    \end{fitchproof}
+\end{defn}
+
+
+\begin{rmk}{}{}
+    All of the `proofs' in this section are not proofs of TFL, but rather proof schemes as they use the metavariables $\metav{A}$ and $\metav{B}$. Nonetheless, they show how any of this rules can be derived from our basic rules for specific formulas of TFL.
+\end{rmk}
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%% - P2.Chapter 6
+\chapter{\textsection\textsection Soundness and Completeness}
+
+\section{\textsection Basic Proof-Theoretic Concepts}
+
+\begin{defn}{}{}
+    The following expression: \begin{equation*}
+        \metav{A}_1,\metav{A}_2,...,\metav{A}_n\proves\metav{C}
+    \end{equation*}
+    means that there \Emph{exists} some proof which ends with $\metav{C}$ whose undischarged assumptions are among $\metav{A}_1,\metav{A}_2,...,\metav{A}_n$. When we want to say that no such proof exists, we write \begin{equation*}
+        \metav{A}_1,\metav{A}_2,...,\metav{A}_n\nproves\metav{C}
+    \end{equation*}
+    The symbol `$\proves$' is called the \Emph{single turnstile}.
+\end{defn}
+
+\begin{rmk}{}{}
+    Note that `$\proves$' and `$\entails$' are \emph{very} different things: `$\proves$' concerns with the existence of proofs, while `$\entails$' concerns the existence of valuations.
+\end{rmk}
+
+\begin{defn}{}{}
+    $\metav{A}$ is a \Emph{theorem} if and only if $\proves \metav{A}$; that is, there is a proof of $\metav{A}$ with no undischarged assumptions.
+\end{defn}
+
+
+\begin{defn}{}{}
+    Two sentences $\metav{A}$ and $\metav{B}$ are \Emph{provably equivalent} if and only if each can be proved from the other; i.e., both $\metav{A} \proves \metav{B}$ and $\metav{B}\proves\metav{A}$.
+\end{defn}
+
+\begin{defn}{}{}
+    The sentences $\metav{A}_1,\metav{A}_2,...,\metav{A}_n$ are \Emph{provably inconsistent} if and only if a contradiction can be proved from the, i.e., $\metav{A}_1,\metav{A}_2,...,\metav{A}_n\proves\ered$. If they are not \Emph{inconsistent}, we call them \Emph{provably consistent}.
+\end{defn}
+
+
+In summary we have the following table:
+
+\begin{table}[H]
+    \centering
+    \caption{Proof requirements for demonstrating proof theoretic properties}
+    \begin{tabular}{c|cc}
+        & \textbf{Yes} & \textbf{No} \\ \hline
+        Theorem? & one proof & all possible proofs \\
+        Inconsistent? & one proof & all possible proofs \\
+        Equivalent? & two proofs & all possible proofs \\
+        consistent? & all possible proofs & one proof 
+    \end{tabular}
+\end{table}
+
+
+\subsection{\textsection Other Syntactic Concepts}
+
+\begin{defn}{}{}
+    A sentence $\metav{A}$ is a \Emph{syntactic contradiction} in TFL if $\enot\metav{A}$ is a \Emph{theorem} (or syntactic tautology).
+\end{defn}
+
+\begin{defn}{}{}
+    A sentence $\metav{A}$ is \Emph{syntactically contingent} in TFL if it is not a theorem or a contradiction.
+\end{defn}
+
+\begin{defn}{}{}
+    An argument $\metav{A}_1,\metav{A}_2,...,\metav{A}_n,\therefore \metav{C}$ is \Emph{provably valid} in TFL if and only if there is a derivation of its conclusion from its premises.
+\end{defn}
+
+\subsection{\textsection Semantic versus Syntactic Definitions}
+
+\begin{table}[H]
+\tabulinesep=1ex
+\begin{tabu}{X[.5,c,m] ||X[1,l,m] |X[1,l,m]}
+\textbf{Concept} 		&	\textbf{Truth table (semantic) definition} 	&	\textbf{Proof-theoretic (syntactic) definition} \\ \hline \hline
+
+Tautology   &	A sentence whose truth table only has Ts under the main connective & A sentence that can be derived without any premises.	 \\ \hline
+ 
+Contradiction		&	A sentence whose truth table only has Fs under the main connective  &	A sentence whose negation can be derived without any premises\\ \hline
+
+Contingent sentence	&	A sentence whose truth table contains both Ts and Fs under the main connective & A sentence that is not a theorem or contradiction \\ \hline
+
+Equivalent sentences &	The columns under the main connectives are identical.& The sentences can be derived from each other	\\ \hline
+
+Unsatisfiable/ inconsistent sentences	&	Sentences which do not have a single line in their truth table where they are all true.	& Sentences  from which one can derive a contradiction \\ \hline
+
+Satisfiable/ Consistent sentences	&	Sentences which have at least one line in their truth table where they are all true. & Sentences from which one cannot derive a contradiction	\\ \hline
+
+Valid argument		&	An argument whose truth table has no lines where there are all Ts under main connectives for the premises and an F under the main connective for the conclusion.  & An argument where one can derive the conclusion from the premises	\\ 
+\end{tabu}
+\caption{Two ways to define logical concepts.}
+\label{table:truth_tables_or_derivations}
+\end{table}
+
+\subsection{\textsection Proving Logical Properties}
+
+\begin{table}[H]
+\tabulinesep=1ex
+\begin{tabu}{X[.5,c,m] ||X[1,l,m] |X[1,l,m]}
+\textbf{Logical Property} 		&	\textbf{To prove it present} 	&	\textbf{To prove it absent} \\ \hline \hline
+
+Being a Theorem   &	Derive the sentence & Find a false line in the truth table for the sentence	 \\ \hline
+ 
+Being a Contradiction		&	Derive the negation of the sentence  & Find a true line in the truth table for the sentence \\ \hline
+
+Contingency &	Find a false line and a true line in the truth table for the sentence & Prove the sentence or its negation \\ \hline
+
+Equivalence &	Derive each sentence from the other & Find a line in the truth tables for the sentences where they have different values	\\ \hline
+
+Consistency &	Find a line in the truth table for the sentences where they are all true	& Derive a contradiction from the sentences \\ \hline
+
+Validity	&	Derive the conclusion from the premises & Find a line in the truth table where the premises are true and the conclusion false \\ 
+\end{tabu}
+\caption{When to provide a truth table and when to provide a proof.}
+\label{table:prove_present_or_absent}
+\end{table}
+
+
+
+\section{\textsection Soundness}
+
+\begin{defn}{}{}
+    A proof system is \Emph{sound} if there are no derivations of arguments that can be shown to be invalid by truth tables. Demonstrating that a proof system is sound consists of showing that every possible proof is the proof of a valid argument. Symbolically, we wish to show valid$_{\proves}$ implies valid$_{\entails}$.
+\end{defn}
+
+
+\subsection{\textsection Proof Sketch: Soundness}
+
+
+Consider a base class of one-line proofs, one for each of our eleven rules of inference. The members of this class would look like $\metav{A},\metav{B}\proves\metav{A}\eand\metav{B}; \metav{A}\eand\metav{B}\proves\metav{A};\metav{A}\eor\metav{B},\enot\metav{A}\proves\metav{B},...$ etc. Note that this proof is in our metalanguage, since TFL does not have the capability to talk about itself. 
+
+One can use truth tables to show that each of these one-line proofs in this base class are valid$_{\entails}$.
+
+Next, we must show that adding lines to a valid$_{\entails}$ proof will not change it into a invalid$_{\entails}$ one. This would need to be done for each of our eleven rules of inference. Completing this process also completes are proof that valid$_{\proves}$ implies valid$_{\entails}$. 
+
+
+\section{\textsection Completeness}
+
+\begin{defn}{}{}
+    A proof system has the property of \Emph{completeness} if and only if there is a derivation of every semantically valid argument. This is in general very difficult to prove, and amounts to showing that the rules of inference we have defined for our proof system are sufficient.
+\end{defn}
+
+\begin{rmk}{}{}
+    TFL is an example of a proof system which has both the property of soundness and the property of completeness.
+\end{rmk}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Part 3
+\part{First-Order Logic}
+
+%%%%%%%%%%%%%%%%%%%%%%% - P3.Chapter 1
+\chapter{\textsection\textsection Building Blocks of FOL}
+
+\section{\textsection Names}
+
+\begin{defn}{}{}
+    In English, a \Emph{singular term} is a word or phrase that refers to a \emph{specific} person, place, or thing.
+\end{defn}
+
+\begin{defn}{}{}
+    In FOL, our \Emph{names} are lower-case letters `$a$' through to `$r$', possibly with the addition of subscripts. Each name must pick out \Emph{exactly} on thing (like a function).
+\end{defn}
+
+\section{\textsection Predicates}
+
+\begin{defn}{}{}
+    In FOL, \Emph{predicates} are captical letters $A$ through $Z$, with or without subscripts. They can be thought of as representing things which combine with singular terms to make sentences.
+\end{defn}
+
+
+\section{\textsection Quantifiers}
+
+\begin{defn}{}{}
+    In FOL, the symbol `$\forall$' is called the \Emph{universal quantifier}.
+\end{defn}
+
+\begin{rmk}{}{}
+    A quantifier must always be followed by a \Emph{variable}. In FOL, variables are italic lowercase letters `$s$' through `$z$', with or without subscripts.
+\end{rmk}
+
+
+\begin{defn}{}{}
+    In FOL, the symbol `$\exists$' is called the \Emph{existential quantifier}.
+\end{defn}
+
+\begin{rmk}{}{}
+    In general, $\forall x\enot \metav{A}$ is logically equivalent to $\enot \exists x\metav{A}$, and $\enot\forall x \metav{A}$ is logically equivalent to $\exists x \enot \metav{A}$.
+\end{rmk}
+
+
+\section{\textsection Domains}
+
+\begin{defn}{}{}
+    In FOL, the \Emph{domain} is the collection of things that we are talking about. The quantifiers in an argument \emph{range over} its domain. A domain must have \emph{at least} one member. Every name must pick out \emph{exactly} one member of the domain, but a member of the domain may be picked out by one name, many names, or none at all.
+\end{defn}
+
+\begin{defn}{}{}
+    A predicate that applies to nothing in the domain is called an \Emph{empty predicate}.
+\end{defn}
+
+\begin{rmk}{}{}
+    When $\metav{F}$ is an empty predicate, any sentence $\forall x(\metav{F}\eif...)$ is vacuously true.
+\end{rmk}
+
+\begin{defn}{}{}
+    A $k$-place predicate is a predicate $P(x_1,...,x_k)$ which can take in $k$ sentence letters.
+\end{defn}
+
+\section{\textsection Identity}
+
+\begin{defn}{}{}
+    The symbol `$=$' is a two-place predicate of meaning: \begin{equation*}
+        x=y: \text{\gap{x} is identical to \gap{y}}
+    \end{equation*}
+\end{defn}
+
+
+%%%%%%%%%%%%%%%%%%%%%%% - P3.Chapter 2
+\chapter{\textsection\textsection Sentences of FOL and Ambiguity}
+
+\section{\textsection Expressions}
+
+\begin{defn}{}{}
+    There are six types of symbols in FOL: \begin{enumerate}
+        \item \textbf{Predicates}: $A,B,C,...,Z,$ or with subscripts, as needed: $A_1,B_1,Z_1,A_2,A_{25},...$
+        \item \textbf{Names}: $a,b,c,...,r,$ pr wotj subscripts, as needed $a_1,b_{224},h_7,m_{32},...$
+        \item \textbf{Variables} $s,t,u,v,w,x,y,z$, or with subscripts, as needed $x_1,y_1,z_1,x_2,...$
+        \item \textbf{Connectives} $\enot, \eand, \eor, \eif, \eiff$
+        \item \textbf{Brackets} $(,)$
+        \item \textbf{Quantifiers} $\forall,\exists$
+    \end{enumerate}
+    We define an \Emph{expression of FOL} as any string of symbols of FOL.
+\end{defn}
+
+
+\section{\textsection Terms and Formulas}
+
+\begin{defn}{}{}
+    A \Emph{term} is any name or any variable.
+\end{defn}
+
+
+\begin{defn}{}{}
+    We define the \Emph{atomic formulas} of FOL as follows: \begin{enumerate}
+        \item Any sentence letter is an atomic formula.
+        \item If $\metav{R}$ is an $n$-place predicate and $\metav{t}_1,\metav{t}_2,...,\metav{t}_n$ are terms, then $\metav{R}(\metav{t}_1,\metav{t}_2,...,\metav{t}_n)$ is an atomic formula.
+        \item If $\metav{t}_1$ and $\metav{t}_2$ are terms, then $\metav{t}_1 = \metav{t}_2$ is an atomic formula.
+        \item Nothing else is an atomic formula.
+    \end{enumerate}
+\end{defn}
+
+
+\begin{defn}{}{}
+    We define formulas in FOL recursively as follows: \begin{enumerate}
+        \item Every atomic formula is a formula
+        \item If $\metav{A}$ is a formula, then $\enot \metav{A}$ is a formula.
+        \item If $\metav{A}$ and $\metav{B}$ are formulas, then $(\metav{A}\eand\metav{B})$ is a formula.
+        \item If $\metav{A}$ and $\metav{B}$ are formulas, then $(\metav{A} \eor \metav{B})$ is a formula.
+        \item If $\metav{A}$ and $\metav{B}$ are formulas, then $(\metav{A} \eif \metav{B})$ is a formula.
+        \item If $\metav{A}$ and $\metav{B}$ are formulas, then $(\metav{A} \eiff \metav{B})$ is a formula.
+        \item If $\metav{A}$ is a formula and $x$ is a variable, then $\forall x\metav{A}$ is a formula.
+        \item If $\metav{A}$ is a formula and $x$ is a variable, then $\exists x \metav{A}$ is a formula.
+        \item Nothing else is a formula.
+    \end{enumerate}
+\end{defn}
+
+
+\begin{defn}{}{}
+    The \Emph{main logical operator} in a formula is the operator that was introduced most recently, when that formula was constructed using the recursion rules.
+
+    The \Emph{scope} of a logical operator in a formula is the subformula for which that operator is the main logical operator.
+\end{defn}
+
+
+\section{\textsection Sentences and Free Variables}
+
+
+\begin{defn}{}{}
+    An occurrence of a variable $x$ is \Emph{bound} if and only if it falls within the scope of either $\forall x$ or $\exists x$. An occurrence of a variable which is not bound is \Emph{free}.
+\end{defn}
+
+
+\begin{defn}{}{}
+    A \Emph{sentence} of FOL is any formula of FOL that contains no free variables.
+\end{defn}
+
+\section{\textsection Definite Descriptions}
+
+\begin{defn}{}{}
+    \Emph{Definite descriptions} are meant to pick out a \emph{unique} object.
+\end{defn}
+
+
+\begin{defn}{}{}
+    Russel's Analysis treats definite descriptions in FOL as follows \begin{align*}
+            \text{the $F$ is $G$ } \textbf{iff }& \text{there is at least one $F$, and }\\
+            &\text{there is at most one $F$, and} \\
+            &\text{every $F$ is $G$}
+    \end{align*}
+\end{defn}
+
+
+%%%%%%%%%%%%%%%%%%%%%%% - P3.Chapter 3
+\chapter{\textsection\textsection Extensionality and Interpretations}
+
+
+\section{\textsection Extensionality}
+
+\begin{rmk}{}{}
+    FOL has no resources for dealing with nuances of meaning. When we interpret FOL, all we are considering is what the predicates are true of, regardless of whether we specify these things directly or indirectly.
+\end{rmk}
+
+
+\begin{defn}{}{}
+    The things a predicate is true of are known as the \Emph{extension} of that predicate. We say that FOL is an \Emph{extensional language} because FOL does not represent differences of meaning between predicates that have the same extension.
+\end{defn}
+
+\begin{rmk}{}{}
+    The \Emph{identity of indiscernibles} is a philosophical claim that if two objects are true of exactly the same sentences, then they are the very same object. Our logic will not subscribe to this claim-we will leave the possibility that distinct objects can be true of the same things.
+\end{rmk}
+
+
+\section{\textsection Interpretations}
+
+\begin{defn}{}{}
+    In FOL, we define an \Emph{interpretation} as consisting of four things: \begin{enumerate}
+        \item the specification of a domain
+        \item for each sentence letter we care to consider, a truth value
+        \item for each name that we care to consider, an assignment of exactly one object within the domain
+        \item for each predicate that we care to consider (apart from `$=$'), a specification of what things (in what order) the predicate is to be true of. (We don't specify an interpretation of `$=$', since it has a \emph{fixed} interpretation.)
+    \end{enumerate}
+\end{defn}
+
+
+\begin{rmk}{}{}
+    One way to specify an interpretation is with a symbolization key. We can also present interpretations diagrammatically. Suppose we want to consider just a single two-place predicate, `$R(x,y)$'. THen we can represent it just by drawing an arrow between two objects, and stipulate that `$R(x,y)$' is to hold of $x$ and $y$ just in case there is an arrow running from $x$ to $y$ in our diagram. As an example we may offer: 
+	\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,310); %set diagram left start at 0, and has height of 310
+
+%Curve Lines [id:da4085264026586757] 
+\draw    (377,99) .. controls (375.03,62.55) and (333.28,100.82) .. (371.21,106.75) ;
+\draw [shift={(373,107)}, rotate = 186.95] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Curve Lines [id:da07333979302693061] 
+\draw    (467,172) .. controls (504.24,176.9) and (477.13,209.65) .. (463.8,181.78) ;
+\draw [shift={(463,180)}, rotate = 427.25] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+
+% Text Node
+\draw (371,97.4) node [anchor=north west][inner sep=0.75pt]    {$1$};
+% Text Node
+\draw (458,97.4) node [anchor=north west][inner sep=0.75pt]    {$2$};
+% Text Node
+\draw (458,164.4) node [anchor=north west][inner sep=0.75pt]    {$3$};
+% Text Node
+\draw (373,163.4) node [anchor=north west][inner sep=0.75pt]    {$4$};
+% Connection
+\draw    (464.5,117) -- (464.5,158) ;
+\draw [shift={(464.5,160)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+% Connection
+\draw    (387,105) -- (453,105) ;
+\draw [shift={(455,105)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+% Connection
+\draw    (387,112.32) -- (453.42,163.46) ;
+\draw [shift={(455,164.68)}, rotate = 217.6] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+% Connection
+\draw    (377.86,117) -- (379.08,157) ;
+\draw [shift={(379.14,159)}, rotate = 268.26] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+% Connection
+\draw    (389,171.11) -- (453,171.86) ;
+\draw [shift={(455,171.89)}, rotate = 180.67] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+\end{tikzpicture}
+\end{rmk}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%% - P3.Chapter 4
+\chapter{\textsection\textsection Truth and Models}
+
+
+\section{\textsection Truth}
+
+\subsection{\textsection Atomic Sentences}
+
+\begin{defn}{}{}
+    When $\metav{R}$ is an $n$-place predicate and $\metav{a}_1,\metav{a}_2,...,\metav{a}_n$ are names, the sentence $\metav{R}(\metav{a}_1,\metav{a}_2,...,\metav{a}_n)$ is true in an interpretation if and only if $\metav{R}$ is true of the objects named by $\metav{a}_1,\metav{a}_2,...,\metav{a}_n$ (in that order) in that interpretation.
+\end{defn}
+
+
+\begin{defn}{}{}
+    For any names $\metav{a}$ and $\metav{b}$, $\metav{a} = \metav{b}$ is true in an interpretation if and only if $\metav{a}$ and $\metav{b}$ name the very same object in that interpretation.
+\end{defn}
+
+\subsection{\textsection Sentential Connectives}
+
+\begin{defn}{}{}
+    Given any sentences $\metav{A}$ and $\metav{B}$ of FOL, \begin{enumerate}
+        \item $\metav{A}\eand \metav{B}$ is true in an interpretation if and only if both $\metav{A}$ is true and $\metav{B}$ is true in that interpretation
+        \item $\metav{A}\eor \metav{B}$ is true in an interpretation if and only if either $\metav{A}$ is true or $\metav{B}$ is true in that interpretation
+        \item $\enot \metav{A}$ is true in an interpretation if and only if $\metav{A}$ is false in that interpretation
+        \item $\metav{A}\eif \metav{B}$ is true in an interpretation if and only if either $\metav{A}$ is false or $\metav{B}$ is true in that interpretation
+        \item $\metav{A}\eiff \metav{B}$ is true in an interpretation if and only if $\metav{A}$ has the same truth value as $\metav{B}$ in that interpretation
+    \end{enumerate}
+\end{defn}
+
+
+\subsection{\textsection Quantifiers as the Main Logical Operator}
+
+\begin{defn}{}{}
+    Suppose that $\metav{A}$ is a formula containing at least one occurence of the variable $x$, and that $x$ is \Emph{free} in $\metav{A}$. We will write this thus:\begin{equation*}
+        \metav{A}(...x...x...)
+    \end{equation*}
+    Suppose also that $\metav{c}$ is a name. Then we will write:\begin{equation*}
+        \metav{A}(...\metav{c}...\metav{c}...)
+    \end{equation*}
+    for the formula we obtain by replacing \emph{every} occurrence of $x$ in $\metav{A}$ with $\metav{c}$. The resulting formula is called a \Emph{substitution instance} of $\forall x\metav{A}$ and $\exists x\metav{A}$. Also, $\metav{c}$ is called the \Emph{instantiating name}.
+\end{defn}
+
+
+\begin{defn}{}{}
+    Take any object in the domain, say, d, and a name $\metav{c}$ which is not already assigned by the interpretation. If our interpretation is $\mathbf{I}$, then we can consider the interpretation $\mathbf{I}[d/\metav{c}]$ which is just like $\mathbf{I}$ except it \emph{also} assigns the name $\metav{c}$ to the object $d$. Then we can say that $d$ \Emph{satisfies} the formula $\metav{A}(...x...x...)$ in the interpreation $\mathbf{I}$ if, and only if, $\metav{A}(...\metav{c}...\metav{c}...)$ is true in $\mathbf{I}[d/\metav{c}]$. (We also say that $\metav{A}(...x...x...)$ is \Emph{true of $d$})
+\end{defn}
+
+
+\begin{defn}{}{}
+    The interpretation $\mathbf{I}[d/\metav{c}]$ is just like the interpretation $\mathbf{I}$ except it also assigns the name $\metav{c}$ to the object $d$.
+
+
+    An object $d$ \Emph{satisfies} $\metav{A}(...x...x...)$ in interpretation $\mathbf{I}$ if and only if $\metav{A}(...\metav{c}...\metav{c}...)$ is true in $\mathbf{I}[d/\metav{c}$.
+\end{defn}
+
+\begin{defn}{}{}
+    $\forall x\metav{A}(...x...x...)$ is true in an interpretation if and only if every object in the domain \Emph{satisfies} $\metav{A}(...x...x...)$.
+
+
+    $\exists x \metav{A}(...x...x...)$ is true in an interpretation if and only if at least one object in the domain satisfies $\metav{A}(...x...x...)$.
+\end{defn}
+
+\section{\textsection Semantic Concepts}
+
+\begin{defn}{}{}
+    In FOL the symbolization \begin{equation*}
+        \metav{A}_1,\metav{A}_2,...,\metav{A}_n\entails \metav{C}
+    \end{equation*}
+    means that there is no interpretation in which all of $\metav{A}_1,\metav{A}_2,...,\metav{A}_n$ are true and in which $\metav{C}$ is false.
+\end{defn}
+
+
+\begin{defn}{}{}
+    Derivatively to the last definition, \begin{equation*}
+        \entails \metav{A}
+    \end{equation*}
+    means that $\metav{A}$ is true in every interpretation. 
+\end{defn}
+
+\begin{defn}{}{}
+    An FOL sentence $\metav{A}$ is a \Emph{validity} if and only if $\metav{A}$ is true in every interpretation; i.e., $\entails \metav{A}$.
+\end{defn}
+
+\begin{defn}{}{}
+    An FOL sentence $\metav{A}$ is a \Emph{contradiction} if and only if $\metav{A}$ is false in every interpretation; i.e., $\entails \enot\metav{A}$.
+\end{defn}
+
+\begin{defn}{}{}
+    $\metav{A}_1,\metav{A}_2,...,\metav{A}_n\therefore \metav{C}$ is \Emph{valid in FOL} if and only if there is no interpretation in which all of the premises are true and the conclusion is false; e.e., $\metav{A}_1,\metav{A}_2,...,\metav{A}_n\entails\metav{C}$. It is \Emph{invalid in FOL} otherwise.
+\end{defn}
+
+
+\begin{defn}{}{}
+    Two FOL sentences $\metav{A}$ and $\metav{B}$ are \Emph{equivalent} if and only if they are true in exactly the same interpretations as each other; i.e., both $\metav{A}\entails \metav{B}$ and $\metav{B}\entails \metav{A}$.
+\end{defn}
+
+\begin{defn}{}{}
+    The FOL sentences $\metav{A}_1,\metav{A}_2,...,\metav{A}_n$ are \Emph{jointly satisfiable} if and only if some interpretation makes all of them true. They are \Emph{jointly unsatisfiable} if and only if there is no such interpretation.
+\end{defn}
+
+\section{\textsection Working with Interpretations}
+
+\begin{rmk}{}{}
+    To show that $\metav{A}$ is not a validity, it suffices to find an interpretation where $\metav{A}$ is false.
+
+    TO show that $\metav{A}$ is not a contradiction, it suffices to find an interpretation where $\metav{A}$ is true.
+\end{rmk}
+
+
+\begin{rmk}{}{}
+    To show that $\metav{A}$ and $\metav{B}$ are not logically equivalent, it suffices to find an interpretation where oen is true and the other is false.
+\end{rmk}
+
+
+\begin{rmk}{}{}
+    If some interpretation makes all of $\metav{A}_1,\metav{A}_2,...,\metav{A}_n$ true and $\metav{C}$ false, then: \begin{enumerate}
+        \item $\metav{A}_1,\metav{A}_2,...,\metav{A}_n\therefore\metav{C}$ is invalid; and
+        \item $\metav{A}_1,\metav{A}_2,...,\metav{A}_n\nentails \metav{C}$; and
+        \item $\metav{A}_1,\metav{A}_2,...,\metav{A}_n,\enot\metav{C}$ are jointly consistent (satisfiable).
+    \end{enumerate}
+\end{rmk}
+
+
+\begin{defn}{}{}
+    An interpretation which refutes a claim (to logical truth, say, or to entailment) is called a \Emph{counter-interpretation}, or a \Emph{counter-model}.
+\end{defn}
+
+\begin{rmk}{}{}
+    If you want to infer from the absence of an entailment in FOL to the invalidity of some English argument, then you need to argue that nothing important is lost in the way you have symbolized the English argument.
+\end{rmk}
+
+
+
+\begin{rmk}{}{}
+    We must reason about all interpretations if we wish to show: \begin{enumerate}
+        \item that a sentence is a contradiction; for this requires that it is false in \emph{every} interpretation.
+        \item that two sentences are logically equivalent; for this requires that they have the same truth value in \emph{every} interpretation. 
+        \item that some sentences are jointly unsatisfiable; for this requires that there is no interpretation in which all of those sentences are true together; i.e. that, in \emph{every} interpretaation, at least one of those sentences is false.
+        \item that an argument is valid; for this requires that the conclusion is true in \emph{every} interpretation where the premises are true.
+        \item that some sentences entail another sentence.
+    \end{enumerate}
+\end{rmk}
+
+
+\begin{table}[H]
+    \centering
+    \caption{Interpretation requirements for demonstrating FOL semantic properties}
+    \begin{tabular}{c|cc}
+        & \textbf{Yes} & \textbf{No} \\ \hline
+        Validity? & all interpretations & one counter-interpretation \\
+        Contradiction? & all interpretations & one counter-interpretation \\
+        Equivalent? & all interpretations & one counter-interpretation \\
+        Satisfiable? & one interpretation & all interpretations \\
+        Valid? & all interpretations & one counter-interpretation \\
+        Entailment? & all interpretations & one counter-interpretation \\
+    \end{tabular}
+\end{table}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%% - P3.Chapter 5
+\chapter{\textsection\textsection Natural Deduction in FOL}
+
+
+\section{\textsection Basic Rules of FOL}
+
+\begin{defn}{}{}
+    The universal elimination rule ($\forall E$) is given by:
+    \begin{fitchproof}
+        \have[m]{a1}{\forall x \metav{A}(...x...x...)} 
+        \have[\ ]{a2}{\metav{A}(...\metav{c}...\metav{c}...)} \Ae{a1}
+    \end{fitchproof}
+\end{defn}
+
+The point of this rule of inference is that you can obtain any \emph{substitution instance} of a universally quantified formula: replace \emph{every} instance of the quantified variable with any name you like.
+
+Recall, that as with any rule of inference, it can only be applied if the universal quantifier is the main logical operator.
+
+\begin{defn}{}{}
+    Where $\metav{A}$ is a sentence containing the name $\metav{c}$, we can emphasize this by writing `$\metav{A}(...\metav{c}...\metav{c})$'. We write `$\metav{A}(...x...\metav{c}...)$' to indicate any formula obtained by replacing \emph{some or all} of the instances of the name $\metav{c}$ with the variable $x$.
+\end{defn}
+
+\begin{defn}{}{}
+    Using the previously defined notation, we write the existential introduction rule as: 
+    \begin{fitchproof}
+        \have[m]{a1}{\metav{A}(...\metav{c}...\metav{c}...)} 
+        \have[\ ]{a2}{\exists x\metav{A}(...x...\metav{c}...)} \Ei{a1}
+    \end{fitchproof}
+    where $x$ must \emph{not} occur in $\metav{A}(...\metav{c}...\metav{c}...)$.
+\end{defn}
+
+\begin{rmk}{}{}
+    It is clear from these rules of inference that if we want them to always apply and be valid, we must accept that as a matter of logic alone, there exists something rather than nothing. However, this is completely reasonable as we have already stipulated that domains be non-empty.
+
+    In order to consider notions involving empty domains, we would need a more complicated proof system than FOL gives us.
+\end{rmk}
+
+\begin{defn}{}{}
+    Note that if we know a statement holds of an \emph{arbitrary} name, we can conclude it holds of everything. This motivates the rule of inference for universal introduction: 
+    \begin{fitchproof}
+        \have[m]{a1}{\metav{A}(...\metav{c}...\metav{c}...)}
+        \have[\ ]{a2}{\forall x\metav{A}(...x...x...)} \Ai{a1}
+    \end{fitchproof}
+    where $\metav{c}$ must not occur in any undischarged assumption, and $x$ must not occur in $\metav{A}(...\metav{c}...\metav{c}...)$. Note also that we are replacing \emph{all} instances of $\metav{c}$ in $\metav{A}(...\metav{c}...\metav{c}...)$ with $x$ in this rule.
+\end{defn}
+
+The name in the above rule of inference may occur in \emph{discharged} assumptions, even though it is not allowed to occur in any \emph{undischarged} assumptions.
+
+
+
+\begin{defn}{}{}
+    Noting that if we know something satisfies $F$, and every $F$ is $G$, we can conclude something satisfies $G$. This reasoning inspires our rule of inference for existential elimintation: 
+    \begin{fitchproof}
+        \have[m]{a1}{\exists x\metav{A}(...x...x...)}
+        \open
+            \hypo[i]{a2}{\metav{A}(...\metav{c}...\metav{c}...)}
+            \have[j]{a3}{\metav{B}}
+        \close
+        \have[\ ]{a4}{\metav{B}} \Ee{a1,a2-a3}
+    \end{fitchproof}
+    where $\metav{c}$ must not occur in any assumption undischarged before line $i$, $\metav{c}$ must not occur in $\exists x\metav{A}(...x...x...)$, and $\metav{c}$ must not occur in $\metav{B}$.
+\end{defn}
+
+If we want to squeeze information out of an existential quantifier, it is advisable choose a new name for our substitution instance (in general), to operate in the utmost generality.
+
+
+\begin{defn}{}{}
+    The identity introduction rule is given by:
+    \begin{fitchproof}
+        \have[\ ]{a1}{\metav{c}=\metav{c}} \by{=I}{}
+    \end{fitchproof}
+    Notice that this rule does not require referring to any prior lines.
+\end{defn}
+
+\begin{defn}{}{}
+    The identity elimination rule is given by:\begin{fitchproof}
+        \have[m]{a1}{\metav{a}=\metav{b}}
+        \have[n]{a2}{\metav{A}(...\metav{a}...\metav{a}...)}
+        \have[\ ]{a3}{\metav{A}(...\metav{b}...\metav{a}...)} \by{=E}{a1, a2}
+    \end{fitchproof}
+    Note the notation implies we can replace one or more `$\metav{a}$''s in the sentencewith `$\metav{b}$''s. Symmetrically we have:\begin{fitchproof}
+        \have[m]{a1}{\metav{a}=\metav{b}}
+        \have[n]{a2}{\metav{A}(...\metav{b}...\metav{b}...)}
+        \have[\ ]{a3}{\metav{A}(...\metav{a}...\metav{b}...)} \by{=E}{a1, a2}
+    \end{fitchproof}
+    which is sometimes called \Emph{Leibniz's Law}.
+\end{defn}
+
+
+\section{\textsection Derived Rules in FOL}
+
+\begin{defn}{}{}
+    We can pass negations through quantified sentences as follows:
+    \begin{fitchproof}
+        \have[m]{a1}{\forall x\enot \metav{A}}
+        \have[\ ]{a2}{\enot \exists x \metav{A}} \by{CQ}{a1}
+    \end{fitchproof}
+    and \begin{fitchproof}
+        \have[m]{a1}{\enot\exists x \metav{A}}
+        \have[\ ]{a2}{\forall x\enot \metav{A}} \by{CQ}{a1}
+    \end{fitchproof}
+    as well as \begin{fitchproof}
+        \have[m]{a1}{\exists x\enot \metav{A}}
+        \have[\ ]{a2}{\enot \forall x \metav{A}} \by{CQ}{a1}
+    \end{fitchproof}
+    and \begin{fitchproof}
+        \have[m]{a1}{\enot\forall x \metav{A}}
+        \have[\ ]{a2}{\exists x\enot \metav{A}} \by{CQ}{a1}
+    \end{fitchproof}
+\end{defn}
+
+
+
+\section{\textsection Proof Theory Semantics in FOL}
+
+\begin{defn}{}{}
+    Given sentences $\metav{A}_1,\metav{A}_2,...,\metav{A}_n,\metav{C}$ of FOL, we write \begin{equation*}
+        \metav{A}_1,\metav{A}_2,...,\metav{A}_n\proves\metav{C}
+    \end{equation*}
+    to mean that there \emph{exists} some proof which ends with $\metav{C}$ and whose only undischarged assumptions are among $\metav{A}_1,\metav{A}_2,...,\metav{A}_n$. This is a \Emph{proof-theoretic notion}.
+\end{defn}
+
+\begin{defn}{}{}
+    Conversely to the last definition, the notation \begin{equation*}
+        \metav{A}_1,\metav{A}_2,...,\metav{A}_n\entails \metav{C}
+    \end{equation*}
+    means that no valuation (or interpretation) makes all of $\metav{A}_1,\metav{A}_2,...,\metav{A}_n$ true and $\metav{C}$ false. This is a \Emph{semantic notion} - it concerns the assignments of truth and falsity to sentences.
+\end{defn}
+
+\Emph{THESE ARE DIFFERENT NOTIONS}.
+
+\begin{thm}{}{}
+    In FOL we have the following result: \begin{equation*}
+        \metav{A}_1,\metav{A}_2,...,\metav{A}_n\proves\metav{B}\;\textbf{iff}\;\metav{A}_1,\metav{A}_2,...,\metav{A}_n\entails\metav{B}
+    \end{equation*}
+    This shows that, whilst provability and entailment are \emph{very different} notions, they are \emph{extensionally} equivalent. As such: \begin{enumerate}
+        \item An argument is \emph{valid} iff the conclusion can be proved from the premises (i.e. it is a theorem)
+        \item Two sentences are \emph{logically equivalent} iff they are \emph{provably equivalent}
+        \item Sentences are \emph{satisfiable} iff they are \emph{not provably inconsistent}
+    \end{enumerate}
+\end{thm}
+
+
+\begin{table}[H]
+\tabulinesep=1ex
+\begin{tabu}{X[.5,c,m] ||X[1,l,m] |X[1,l,m]}
+\textbf{Question} 		&	\textbf{Yes} 	&	\textbf{No} \\ \hline \hline
+
+    Is $\metav{A}$ a \Emph{validity}?  &	give a proof which shows $\proves \metav{A}$ & give an interpretation in which $\metav{A}$ is false	 \\ \hline
+ 
+Is $\metav{A}$ a \Emph{contradiction}?  &	give a proof which shows $\proves\enot \metav{A}$ & give an interpretation in which $\metav{A}$ is true	 \\ \hline
+
+    Are $\metav{A}$ and $\metav{B}$ \Emph{equivalent}? &	give two proofs; one for $\metav{A}\proves \metav{B}$ and one for $\metav{B}\proves\metav{A}$ & give an interpretation in which $\metav{A}$ and $\metav{B}$ have different truth values	 \\ \hline
+
+
+    Are $\metav{A}_1,\metav{A}_2,...,\metav{A}_n$ \Emph{jointly satisfiable}? &	give an interpretation in which all of $\metav{A}_1,\metav{A}_2,...,\metav{A}_n$ are true & prove a contradiction from the assumptions $\metav{A}_1,\metav{A}_2,...,\metav{A}_n$ (that is give a proof for $\metav{A}_1,\metav{A}_2,...,\metav{A}_n\proves \ered$)	 \\ \hline
+    Is $\metav{A}_1,\metav{A}_2,...,\metav{A}_n\therefore\metav{C}$ \Emph{valid}? &	give a proof with assumptions $\metav{A}_1,\metav{A}_2,...,\metav{A}_n$ and concluding with $\metav{C}$ & give an interpretation in which all of $\metav{A}_1,\metav{A}_2,...,\metav{A}_n$ are true and $\metav{C}$ is false \\ \hline
+\end{tabu}
+\caption{Methods of showing logical concepts}
+\label{table:proofs_or_interpretations}
+\end{table}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%% - P3.Chapter 6
+\chapter{\textsection\textsection Soundness and Completeness}
+
+
+%%%%%%%%%%%%%%%%%%%%%%% - P3.Chapter 7
+\chapter{\textsection\textsection Models of Theories and Interpretations}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Part 4
+\part{Modal Logic}
+
+%%%%%%%%%%%%%%%%%%%%%%% - P4.Chapter 1
+\chapter{\textsection\textsection General Concepts}
+
+\section{\textsection Introduction to Modal Logic}
+
+Modal logic (ML) is the logic of \Emph{modalities}, ways in which a statement can be true.
+
+\begin{eg}{}{}
+    \Emph{Necessity} and \Emph{possibility} are two such modalities: a statement can be true, but it can also be necessarily true (true no matter how the world might have been). A possible statement may not actually be true, but it might have been true. We use $\square$ to express necessity, and $\diamond$ to express possibility. So $\square\metav{A}$ can be read as ``\emph{it is necessarily the case that $\metav{A}$}," and $\diamond\metav{A}$ as ``\emph{it is possibly the case that $\metav{A}$}."
+\end{eg}
+
+There are also many kinds of necessity. ML is able to deal with any of these kinds of necessary truth. We start with a basic set of rules that govern $\square$ and $\diamond$, and then we add more rules as needed to fit the kind of modality we are interested in. 
+
+
+We actually do not nead to read $\square$ and $\diamond$ as necessity and possibility. All we need is choose the right rules for different readings of $\square$ and $\diamond$.
+
+\begin{defn}{}{}
+    A \Emph{modal formula} is one that includes modal operators such as $\square$ and $\diamond$. Depending on the interpretation we assign to $\square$ and $\diamond$, different modal formulas will be provable or valid.
+\end{defn}
+
+
+\section{\textsection The Language of Modal Logic}
+
+The language of ML is an extension of the language of TFL. If we build off of FOL, we would have \Emph{Quantified Modal Logic (QML)}. 
+
+\begin{defn}{}{}
+    ML has an infinite stock of \Emph{atoms} (just like in TFL). These are written as capital letters, with or without numerical subscripts: $A,B,...,A_1,B_1,...$.
+\end{defn}
+
+\begin{defn}{}{}
+    For the rules of ML we take all of the rules of TFL, and add two more for $\square$ and $\diamond$: \begin{enumerate}
+        \item Every atom of ML is a sentence of ML
+        \item If $\metav{A}$ is a sentence of ML, then $\enot \metav{A}$ is a sentence of ML
+        \item If $\metav{A}$ and $\metav{B}$ are sentences of ML, then $(\metav{A}\eand \metav{B})$ is a sentence of modal logic
+        \item If $\metav{A}$ and $\metav{B}$ are sentences of ML, then $(\metav{A}\eor \metav{B})$ is a sentence of ML
+        \item If $\metav{A}$ and $\metav{B}$ are sentences of ML, then $(\metav{A}\eif \metav{B})$ is a sentence of ML
+        \item If $\metav{A}$ and $\metav{B}$ are sentences of ML, then $(\metav{A}\eiff \metav{B})$ is a sentence of ML
+        \item If $\metav{A}$ is a sentence of ML, then $\square\metav{A}$ is a sentence of ML
+        \item If $\metav{A}$ is a sentence of ML, then $\diamond\metav{A}$ is a sentence of ML
+        \item Nothing else is a sentence of ML
+    \end{enumerate}
+\end{defn}
+
+\begin{eg}{}{}
+    \begin{align*}
+        &A, (P\eor Q), \square A, (C\eor \square D),\\
+        &\square\square(A\eif R), \square\diamond(S\eand(Z\eiff (\square W\eor \diamond Q)))
+    \end{align*}
+\end{eg}
+
+
+\section{\textsection Natural Deduction for ML}
+
+As before, we will write $\metav{A}_1,...,\metav{A}_n \proves \metav{C}$ to express that $\metav{C}$ can be proven from $\metav{A}_1,...,\metav{A}_n$. However, since we will be looking at many different systems of ML, we will add a subscript to `$\proves$' to indicate which system we are working with.
+
+\subsection{\textsection System \textbf{K}}
+
+First, the system \textbf{K} includes all of the natural deduction rules of TFL, including the derived rules as well as the basic ones. We then add two additional rules for $\square$ and a special kind of subproof:
+
+\begin{defn}{}{}
+    A \Emph{strict subproof} is one of the form:
+    \begin{fitchproof}
+        \open
+            \hypo[m]{a1}{\square} 
+            \have[n]{a2}{\metav{A}}
+        \close
+        \have[\ ]{a3}{\square\metav{A}} \by{$\square$I}{a1-a2}
+    \end{fitchproof}
+    No line above $m$ may be cited by any rule within the strict subproof begun at line $m$, unless the rule explicitly allows it.
+\end{defn}
+
+These allow us to reason and prove things about alternate possibilities. What we can prove inside a strict subproof holds in any alternate possibility, in particular, in alternate possibilities where the assumptions in force in our proof may not hold. 
+
+Due to this formulation, the idea is that if $\metav{A}$ is a theorem, then $\square\metav{A}$ should be a theorem too.
+
+\begin{defn}{}{}
+    The $\square$ elimination rule is given by: 
+    \begin{fitchproof}
+        \have[m]{a1}{\square\metav{A}}
+        \open
+            \hypo[\ ]{a2}{\square}
+            \have[n]{a3}{\metav{A}} \by{$\square$E}{a1}
+        \close
+    \end{fitchproof}
+    $\square E$ can only be applied if the line $m$ (containing $\square \metav{A}$) lies \emph{outside} of the strict subproof in which line $n$ falls, and this strict subproof is not itself part of a strict subproof not containing $m$ (i.e. you can't apply it in nested strict subproofs in which $\square\metav{A}$ is not in the one right before where we apply $\square E$)
+\end{defn}
+
+\begin{eg}{}{}
+    The following is known as the distribution rule: 
+    \begin{fitchproof}
+        \hypo{a1}{\square(A\eif B)} 
+        \open
+            \hypo{a2}{\square A}
+            \open
+                \hypo{a3}{\square}
+                \have{a4}{A} \by{$\square$E}{a2}
+                \have{a5}{A\eif B} \by{$\square$E}{a1}
+                \have{a6}{B} \ce{a4,a5}
+            \close
+            \have{a7}{\square B}
+        \close
+        \have{a8}{\square A\eif \square B} \ci{a2-a7}
+    \end{fitchproof}
+\end{eg}
+
+
+\subsection{\textsection Possibility}
+
+\begin{defn}{}{}
+    We can \emph{define} possibility in terms of necessity: \begin{equation*}
+        \diamond \metav{A} =_{df} \enot\square\enot\metav{A}
+    \end{equation*}
+    In other words, to say that $\metav{A}$ is \emph{possibly true}, is to say that $\metav{A}$ is \emph{not necessarily false}.
+\end{defn}
+
+
+\begin{defn}{}{}
+    TO introduce $\diamond$ into the system \textbf{K}, we introduce the following definitional rules: 
+    \begin{fitchproof}
+        \have[m]{a1}{\enot\square\enot\metav{A}}
+        \have[\ ]{a2}{\diamond \metav{A}} \by{Def$\diamond$}{a1}
+    \end{fitchproof}
+    \begin{fitchproof}
+        \have[m]{a1}{\diamond \metav{A}}
+        \have[\ ]{a2}{\enot\square\enot\metav{A}} \by{Def$\diamond$}{a1}
+    \end{fitchproof}
+\end{defn}
+
+We could leave our rules for \textbf{K} here, but for convenience we shall add some \emph{Modal Conversion} rules: 
+
+\begin{defn}{}{}
+    \begin{fitchproof}
+        \have[m]{a1}{\enot\square\metav{A}}
+        \have[\ ]{a2}{\diamond \enot\metav{A}} \by{MC}{a1}
+    \end{fitchproof}
+    \begin{fitchproof}
+        \have[m]{a1}{\diamond \enot\metav{A}}
+        \have[\ ]{a2}{\enot\square\metav{A}} \by{MC}{a1}
+    \end{fitchproof}
+    \begin{fitchproof}
+        \have[m]{a1}{\enot\diamond\metav{A}}
+        \have[\ ]{a2}{\square \enot\metav{A}} \by{MC}{a1}
+    \end{fitchproof}
+    \begin{fitchproof}
+        \have[m]{a1}{\square \enot\metav{A}}
+        \have[\ ]{a2}{\enot\diamond\metav{A}} \by{MC}{a1}
+    \end{fitchproof}
+\end{defn}
+
+It can be proven that $\diamond A \eiff \enot\square\enot A$. So in particular, we could have started with $\diamond$ and defined $\square$ as $\square \metav{A} =_{df} \enot\diamond\enot \metav{A}$.
+
+In other words, necessity and possibility are exactly as fundamental as each other.
+
+
+\section{\textsection System \textbf{T}}
+
+The system \textbf{T} is obtained by adding the following rule to \textbf{K}:
+
+\begin{defn}{}{}
+    \begin{fitchproof}
+        \have[m]{a1}{\square\metav{A}}
+        \have[n]{a2}{\metav{A}} \by{R\textbf{T}}{a1}
+    \end{fitchproof}
+    The lien $n$ on which the rule R\textbf{T} is applied must \Emph{not} lie in a strict subproof that begins after line $m$.
+\end{defn}
+
+Adding this rule allows us to prove things like $\square A \eif A$ in \textbf{T}, which was previously impossible to prove in \textbf{K}.
+
+
+\section{System \textbf{S4}}
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%% - P4.Chapter 2
+\chapter{\textsection\textsection Models}
+
+
+%%%%%%%%%%%%%%%%%%%%%%% - P4.Chapter 3
+\chapter{\textsection\textsection Frames}
+
+
+%%%%%%%%%%%%%%%%%%%%%%% - P4.Chapter 4
+\chapter{\textsection\textsection Completeness}
+
+
+%%%%%%%%%%%%%%%%%%%%%%% - P4.Chapter 5
+\chapter{\textsection\textsection Algebras}
+
+
+%%%%%%%%%%%%%%%%%%%%%%% - P4.Chapter 6
+\chapter{\textsection\textsection First-Order Modal Logic}
+
+
+%%%%%%%%%%%%%%%%%%%%%%% - P4.Chapter 7 - more to come
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Part 5
+\part{Computability}
+
+
+%%%%%%%%%%%%%%%%%%%%%%% - P5.Chapter 1
+\chapter{\textsection\textsection Turing Computability}
+
+
+%%%%%%%%%%%%%%%%%%%%%%% - P5.Chapter 2
+\chapter{\textsection\textsection Uncomputability}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%% - P5.Chapter 3
+\chapter{\textsection\textsection Recursion and Recursive Functions}
+
+
+%%%%%%%%%%%%%%%%%%%%%%% - P5.Chapter 4
+\chapter{\textsection\textsection Undecidability}
+
+
+%%%%%%%%%%%%%%%%%%%%%%% - P5.Chapter 5
+\chapter{\textsection\textsection First-Order Logic Revisited}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%% - P5.Chapter 6
+\chapter{\textsection\textsection Second-Order Logic}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%% - P5.Chapter 7
+\chapter{\textsection\textsection Definability}
+
+
+%%%%%%%%%%%%%%%%%%%%%%% - P5.Chapter 8 - more to come
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Part 6
+\part{Metatheory}
+
+
+%%%%%%%%%%%%%%%%%%%%%%% - P6.Chapter 1
+\chapter{\textsection\textsection Normal Forms}
+
+\section{\textsection Disjunctive Normal Form}
+
+\begin{defn}{}{}
+    We will say that a sentence is in \Emph{disjunctive normal form} if and only if it meets all of the following requirements: \begin{itemize}[leftmargin=+1in]
+        \item[(DNF1)] No connectives occur in the sentence other than negations, conjunctions, and disjunctions;
+        \item[(DNF2)] Every occurence of negation has minimal scope (i.e. any `$\enot$' is immediately followed by an atomic sentence);
+        \item[(DNF3)] No disjunction occurs within the scope of any conjunction.
+    \end{itemize}
+\end{defn}
+
+\begin{eg}{}{}
+    \leavevmode
+    \begin{enumerate}
+        \item $A$
+        \item $(A\eand (\enot B\eand C))$
+        \item $(A\eand B)\eor (A\eand \enot B)$
+        \item $(A\eand B)\eor(A\eand (B\eand(C\eand(\enot D\eand\enot E))))$
+        \item $A\eor (C\eand(\enot P_{234}\eand (P_{233}\eand Q)))\eor \enot B$
+    \end{enumerate}
+\end{eg}
+
+\begin{nota*}{}{}
+    We write `$\pm\metav{A}$' to indicate that $\metav{A}$ is an atomic sentence which may or may not be prefaced with an occurence of negation. 
+\end{nota*}
+
+\begin{rmk}{}{}
+    From the previous notation, a sentence in disjunctive normal form has the following shape: \begin{equation*}
+        (\pm\metav{A}_1\eand ...\eand\pm\metav{A}_i)\eor(\pm\metav{A}_{i+1}\eand ...\eand\pm\metav{A}_j)\eor...\eor(\pm\metav{A}_{m+1}\eand ...\eand\pm\metav{A}_n)
+    \end{equation*}
+\end{rmk}
+
+\begin{namthm}{Disjunctive Normal Form Theorem}{}
+    For any sentence, there is a logically equivalent sentence in disjunctive normal form.
+\end{namthm}
+\begin{proof*}{Truth Tables Proof}{}
+    Pick any arbitrary sentence, $\metav{S}$, and let $\metav{A}_1,...,\metav{A}_n$ be the atomic sentences that occur in $\metav{S}$. To obtain a sentence in DNF that is logically equivalent to $\metav{S}$, we consider $\metav{S}$'s truth table. There are two cases to consider: \begin{enumerate}
+        \item $\metav{S}$ is false on every line of its truth table. Then, $\metav{S}$ is a contradiction. In that case, the contradiction $(\metav{A}_1\eand\enot\metav{A}_1)$ is in DNF and logically equivalent to $\metav{S}$.
+        \item $\metav{S}$ is true on at least one line of its truth table. For each line $i$ of the truth table, let $\metav{B}_i$ be a conjunction of the form \begin{equation*}
+                (\pm\metav{A}_1\eand...\eand\pm\metav{A}_n)
+        \end{equation*}
+            where the following rules determine whether or not to include a negation in front of each atomic sentence: \begin{enumerate}
+                \item $\metav{A}_m$ is a conjunct of $\metav{B}_i$ if and only if $\metav{A}_m$ is true on line $i$.
+                \item $\enot \metav{A}_m$ is a conjunct of $\metav{B}_i$ if and only if $\metav{A}_m$ is false on line $i$.
+            \end{enumerate}
+            Given these rules, $\metav{B}_i$ is true on and only on line $i$ of the truth table which considers all possible valuations of $\metav{A}_1,...,\metav{A}_n$ (i.e. $\metav{S}'$s truth table).
+
+            Next, let $i_1,...,i_m$ be the numbers of the lines of the truth table where $\metav{S}$ is true. Now let $\metav{D}$ be the sentence: \begin{equation*}
+                \metav{B}_{i_1}\eor\metav{B}_{i_2}\eor ...\eor \metav{B}_{i_m}
+            \end{equation*}
+            Since $\metav{S}$ is true on at least one line of its truth table, $\metav{D}$ is indeed well-defined. 
+
+
+            By construction, $\metav{D}$ is in DNF. Moreover, by construction, for each line $i$ of the truth table: $\metav{S}$ is true on line $i$ of the truth table if and only if one of $\metav{D}$'s disjuncts (namely, $\metav{B}_i$) is true on, and only on, line $i$. Hence $\metav{S}$ and $\metav{D}$ have the same truth table, and so are logically equivalent.
+    \end{enumerate}
+\end{proof*}
+
+\section{\textsection Conjunctive Normal Form}
+
+\begin{defn}{}{}
+    A sentence is in \Emph{conjunctive normal form} if and only if it meets all of the following requirements: \begin{itemize}[leftmargin=+1in]
+        \item[(CNF1)] No connectives occur in the sentence other than negations, conjunctions and disjunctions;
+        \item[(CNF2)] Every occurence of negation has minimal scope;
+        \item[(CNF3)] No conjunction occurs within the scope of any disjunction.
+    \end{itemize}
+\end{defn}
+
+\begin{rmk}{}{}
+    Generally, a sentence in CNF is of the shape \begin{equation*}
+        (\pm\metav{A}_1\eor ...\eor\pm\metav{A}_i)\eand(\pm\metav{A}_{i+1}\eor ...\eor\pm\metav{A}_j)\eand...\eand(\pm\metav{A}_{m+1}\eor ...\eor\pm\metav{A}_n)
+    \end{equation*}
+    where each $\metav{A}_k$ is an atomic sentence.
+\end{rmk}
+
+\begin{namthm}{Conjunctive Normal Form Theorem}{}
+    For any sentence, there is a logically equivalent sentence in conjunctive normal form.
+\end{namthm}
+\begin{proof*}{Truth Table proof}{}
+    Given a TFL sentence, $\metav{S}$, we first write down the complete truth table for $\metav{S}$. If $\metav{S}$ is true on every line of the truth table, then $\metav{S}$ and $(\metav{A}_1\eor\metav{A}_1)$ are logically equivalent.
+
+    If $\metav{S}$ is false on at least one line of the truth table then, for every line on the truth table where $\metav{S}$ is false, write down a disjunction $(\pm\metav{A}_1\eor...\eor\pm\metav{A}_n)$ which is also false on (and only on) that line. Let $\metav{C}$ be the conjunction of all of these disjuncts; by construction, $\metav{C}$ is in CNF and $\metav{S}$ and $\metav{C}$ are logically equivalent.
+\end{proof*}
+
+
+
+\chapter{\textsection\textsection Functional Completeness}
+
+\section{\textsection Definitions and Main Theorem}
+
+\begin{defn}{}{}
+    We say that some set of connectives are \Emph{jointly functionally complete} if and only if, for any possible truth table, there is a sentence containing only those connectives with that truth table.
+\end{defn}
+
+\begin{namthm}{Functional Completeness Theorem}{}
+    The connectives of TFL are jointly functionally complete. Indeed, the following pairs of connective are jointly functionally complete: \begin{enumerate}
+        \item `$\enot$' and `$\eor$'
+        \item `$\enot$' and `$\eand$'
+        \item `$\enot$' and `$\eif$'
+    \end{enumerate}
+\end{namthm}
+\begin{proof*}{}{}
+    \emph{Subsidiary Result 1: functional completeness of `$\enot$' and `$\eor$'}. Observe that the scheme that we generate, using the truth table method of proving the DNF Theorem, will only contain the connectives `$\enot$', `$\eand$', and `$\eor$'. So it suffices to show that there is an equivalent scheme which contains only `$\enot$' and `$\eor$'. To show this we simply consider that \begin{equation*}
+        (\metav{A}\eand\metav{B}) \;\;\text{ and }\;\;\enot(\enot\metav{A}\eor\enot\metav{B})
+    \end{equation*}
+    are logically equivalent.
+
+    \emph{Subsidiary Result 2: functional completeness of `$\enot$' and `$\eand$'}. Exactly as in Subsidiary Result 1, making use of the fact that \begin{equation*}
+        (\metav{A}\eor\metav{B}) \;\;\text{ and }\;\;\enot(\enot\metav{A}\eand\enot\metav{B})
+    \end{equation*}
+    are logically equivalent.
+
+    \emph{Subsidiary Result 3: functional completeness of `$\enot$' and `$\eif$'}. Exactly as in Subsidiary Result 1, making use of the equivalences: \begin{align*}
+        (\metav{A}\eor\metav{B})\;\;&\text{ and }\;\;(\enot\metav{A}\eif \metav{B}) \\
+        (\metav{A}\eand\metav{B})\;\;&\text{ and }\;\;\enot(\metav{A}\eif\enot\metav{B})
+    \end{align*}
+\end{proof*}
+
+\section{\textsection Individually Functionally Complete Connectives}
+
+\begin{defn}{}{}
+    A connective is \Emph{individually functionally complete} if any truth table can be constructed using only it and valuations of atomic sentences.
+\end{defn}
+
+\begin{defn}{}{}
+    The connective `$\uparrow$' is truth functionally complete, with characteristic truth table: 
+        \begin{table}[H]
+            \centering
+            \caption{\Emph{`$\uparrow$'}}
+            \begin{tabular}{cc|c}
+                $\metav{A}$ & $\metav{B}$ & $\metav{A} \uparrow \metav{B}$\\ \hline
+                \textbf{T} & \textbf{T} & \textbf{F} \\
+                \textbf{T} & \textbf{F} & \textbf{T} \\
+                \textbf{F} & \textbf{T} & \textbf{T} \\
+                \textbf{F} & \textbf{F} & \textbf{T}
+            \end{tabular}
+        \end{table}
+        This is often called `the Sheffer stroke'. It is also commonly called `nand' as its characteristic truth table is the negation of the truth table for `$\eand$'.
+\end{defn}
+\begin{proof*}{}{}
+    It is sufficicent to show that `$\enot$' and `$\eor$' can be represented by `$\uparrow$', which indeed they can as seen in the the following equivalences: 
+    \begin{align*}
+        \enot\metav{A}\;\;&\text{ and }\;\;(\metav{A}\uparrow \metav{A}) \\
+        (\metav{A}\eor\metav{B})\;\;&\text{ and }\;\;((\metav{A}\uparrow\metav{A})\uparrow(\metav{B}\uparrow\metav{B}))
+    \end{align*}
+\end{proof*}
+
+
+\begin{defn}{}{}
+    The connective `$\downarrow$' is truth functionally complete, with characteristic truth table: 
+        \begin{table}[H]
+            \centering
+            \caption{\Emph{`$\downarrow$'}}
+            \begin{tabular}{cc|c}
+                $\metav{A}$ & $\metav{B}$ & $\metav{A} \downarrow \metav{B}$\\ \hline
+                \textbf{T} & \textbf{T} & \textbf{F} \\
+                \textbf{T} & \textbf{F} & \textbf{F} \\
+                \textbf{F} & \textbf{T} & \textbf{F} \\
+                \textbf{F} & \textbf{F} & \textbf{T}
+            \end{tabular}
+        \end{table}
+        This is often called `Peirce arrow'. It is also commonly called `nor' as its characteristic truth table is the negation of the truth table for `$\eor$'.
+\end{defn}
+\begin{proof*}{}{}
+    It is sufficicent to show that `$\enot$' and `$\eand$' can be represented by `$\downarrow$', which indeed they can as seen in the the following equivalences: 
+    \begin{align*}
+        \enot\metav{A}\;\;&\text{ and }\;\;(\metav{A}\downarrow \metav{A}) \\
+        (\metav{A}\eand\metav{B})\;\;&\text{ and }\;\;((\metav{A}\downarrow\metav{A})\downarrow(\metav{B}\downarrow\metav{B}))
+    \end{align*}
+\end{proof*}
+
+
+\begin{thm}{}{}
+    `$\eor$', `$\eand$', `$\eif$', and `$\eiff$' are not functionally complete by themselves. The \Emph{only} two-place connectives which are individually functionally complete are `$\uparrow$' and `$\downarrow$'.
+\end{thm}
+
+
+
+\chapter{\textsection\textsection Soundness}
+
+The aim of this chapter is to prove that the TFL proof system is sound
+
+\section{\textsection Definitions and Proof}
+
+\begin{defn}{}{}
+    Let $\Gamma$ be a list of sentences. A formal proof system is \Emph{sound} (relative to a given semantics) if and only if, whenever there is a formal proof of $\metav{C}$ from assumptions among $\Gamma$, then $\Gamma$ genuinely entails $\metav{C}$ (given that semantics). 
+\end{defn}
+
+
+\begin{namthm}{Soundness Theorem}{}
+    For any sentences $\Gamma$ and $\metav{C}$: if $\Gamma \proves \metav{C}$, then $\Gamma \entails \metav{C}$.
+\end{namthm}
+
+\begin{defn}{}{}
+    Say that a line of a proof is \Emph{shiny} if and only if the assumptions on which that line depends tautologically entail the sentence on that line. (this terminology is not necessarily standard)
+\end{defn}
+
+
+\begin{lem}{Shininess Lemma}{}
+    Every line of every TFL-proof is shiny.
+\end{lem}
+
+
+
+\begin{proof*}{Proof of Soundness Theorem}{}
+    Suppose $\Gamma \proves \metav{C}$. Then there is a TFL-proof, which $\metav{C}$ appearing on its last line, whose only undischarged assumptions are among $\Gamma$. The Shininess Lemma tells us that every line on every TFL-proof is shiny. So this last line is shiny, i.e. $\Gamma \entails \metav{C}$.
+\end{proof*}
+
+\begin{defn}{}{}
+    We say a rule of inference is \Emph{rule-sound} if and only if for all TFL-proofs, if we obtain a line on a TFL-proof by applying that rule, and every earlier line in the TFL-proof is shiny, then our new line is also shiny.
+\end{defn}
+
+
+\begin{proof*}{Shininess Lemma}{}
+    Fix any line, say line $n$, on any TFL-proof. The sentence written on line $n$ must be obtained using a formal inference rule which is rule-sound. This is to say that, if every earlier line is shiny, then line $n$ itself is shiny. Hence, by strong induction on the length of TFL-proofs every line of every TFL-proof is shiny.
+\end{proof*}
+
+\begin{rmk}{}{}
+    We shall use `$\delta_i$' to abbreviate the assumptions on which line $i$ depends in a TFL-proof.
+\end{rmk}
+
+\begin{proof*}{Proof of Rule-Soundness}{}
+    \begin{claim*}{1}{}
+        Introducing an assumption is rule-sound.
+    \end{claim*}
+    If $\metav{A}$ is introduced as an assumption on line $n$, then $\metav{A}$ is among $\Delta_n$, and so $\delta_n \entails \metav{A}$.
+
+    \begin{claim*}{2}{}
+        $\eand I$ is rule-sound.
+    \end{claim*}
+    Consider any application of $\eand I$ in any TFL-proof. To show that $\eand I$ is rule-sound, we assume that every line before line $n$ is shiny; and we aim to show that line $N$ is shiny, i.e. that $\Delta_n \entails \metav{A}\eand \metav{B}$.
+
+    So, let $v$ be any valuation that makes all of $\Delta_n$ true. We first show that $v$ makes $\metav{A}$ true. Note that all $\Delta_i$ are among $\Delta_n$ for $i< n$. By hypothesis, line $i$ is shiny. So any valuation that makes all of $\Delta_i$ true makes $\metav{A}$ true. Since $v$ makes all of $\Delta_i$ true, it makes $\metav{A}$ true too. Similarly, we see that $v$ makes $\metav{B}$ true. Consequently, $v$ makes $\metav{A} \eand\metav{B}$ true. So any valuation that makes all of the sentences among $\Delta_n$ true also makes $\metav{A}\eand\metav{B}$ true. That is: line $n$ is shiny.
+
+
+    \begin{claim*}{3}{}
+        $\eand E$ is rule-sound.
+    \end{claim*}
+    Assume that every line before line $n$ on some TFL-proof is shiny, and that $\eand E$ is used on line $n$. Let $v$ be any valuation that makes all of $\Delta_n$ true. Note that all of $\Delta_i$ are among $\Delta_n$ for $i < n$. By hypothesis, line $i$ is shiny. So any valuation that makes all of $\Delta_i$ true makes $\metav{A}\eand\metav{B}$ true. So $v$ makes $\metav{A}\eand \metav{B}$ true, and hence makes $\metav{A}$ and $\metav{B}$ true. So $\Delta_n\entails \metav{A}$ (or $\metav{B}$)
+
+    \begin{claim*}{4}{}
+        $\eor I$ is rule-sound.
+    \end{claim*}
+    Assume that every line before line $n$ on some TFL-proof is shiny, and that $\eor I$ is used on line $n$. Let $v$ be any valuation that makes all of $\Delta_n$ true. Since $\Delta_i$ are among $\Delta_n$ for $i < n$, line $i$ is shiny by hypothesis. So any valuation that makes all $\Delta_i$ true makes either $\metav{A}$ or $\metav{B}$ true. So $v$ makes either $\metav{A}$ or $\metav{B}$ true. So $\Delta_n\entails \metav{A}\eor\metav{B}$.
+    
+
+    \begin{claim*}{5}{}
+        $\eor E$ is rule-sound.
+    \end{claim*}
+    Assume that every line before line $n$ on some TFL-proof is shiny, and that $\eor E$ is used on line $n$.
+	\begin{fitchproof}
+	   \have[m]{aob}{\metav{A}\eor\metav{B}}
+	   \open
+		   \hypo[i]{a}{\metav{A}} %\by{want \metav{C}}{}
+		   \have[j]{c1}{\metav{C}}
+	   \close
+	   \open
+		   \hypo[k]{b}{\metav{B}} %\by{want \metav{C}}{}
+		   \have[l]{c2}{\metav{C}}
+	   \close
+	   \have[n]{ab}{\metav{C}}\oe{aob, a-c1,b-c2}
+   \end{fitchproof}i
+    Let $v$ be any valuation that makes all of $\Delta_n$ true. Note that all $\Delta_m$ are among $\Delta_n$ for $m < n$. By hypothesis, line $m$ is shiny. So any valuation that makes $\Delta_n$ true makes $\metav{A}\eor\metav{B}$ true. So in particular, $v$ makes $\metav{A}\eor \metav{B}$ true, and hence either $v$ makes $\metav{A}$ true, or $v$ makes $\metav{B}$ true. \begin{itemize}[leftmargin=+1in]
+        \item[Case 1:] $v$ makes $\metav{A}$ true. All of the $\Delta_i$ are among $\Delta_n$, with the possible exception of $\metav{A}$. Since $v$ makes all of $\Delta_n$ true, and also makes $\metav{A}$ true, $v$ makes all of $\Delta_i$ true. Now, by assumption, line $j < n$ is shiny (in the subproof); so $\Delta_j\entails \metav{C}$. But the sentences $\Delta_i$ are just the sentences $\Delta_j$, so $\Delta_i \entails \metav{C}$. So, any valuation that makes all of $\Delta_i$ true makes $\metav{C}$ true. But $v$ is just such a valuation. So $v$ makes $\metav{C}$ true.
+        \item[Case 2:] $v$ makes $\metav{B}$ true. Reasoning in exactly the same way, considering lines $k$ and $l$ (in the subproof), $v$ makes $\metav{C}$ true.
+    \end{itemize}
+    Either way, $v$ makes $\metav{C}$ true. So $\Delta_n\entails \metav{C}$.
+
+
+    \begin{claim*}{6}{}
+        $\enot E$ is rule-sound.
+    \end{claim*}
+    Assume that every line before line $n$ on some TFL-proof is shiny, and that $\enot E$ is used on line $n$.
+    \begin{fitchproof}
+        \have[i]{a1}{\metav{A}}
+        \have[j]{a2}{\enot\metav{A}}
+        \have[n]{a3}{\ered} \ne{a1,a2}
+    \end{fitchproof}
+    Note that all of $\Delta_i$ and $\Delta_j$ are among $\Delta_n$. By hypothesis, lines $i$ and $j$ are shiny. So any valuation which makes all of $\Delta_n$ true would have to make both $\metav{A}$ and $\enot\metav{A}$ true. But no valuation can do that. So no valutaion makes all of $\Delta_n$ true. So $\Delta_n \entails \ered$, vacuously.
+
+
+    \begin{claim*}{7}{}
+        $X$ is rule-sound.
+    \end{claim*}
+    Assume that every line before line $n$ on some TFL-proof is shiny, and that $X$ is used on line $n$.
+    \begin{fitchproof}
+        \have[i]{a1}{\ered}
+        \have[n]{a2}{\metav{A}} \by{X}{a1}
+    \end{fitchproof}
+    Note that $\Delta_i$ is among $\Delta_n$. By hypothesis, line $i$ is shiny. So any valuation which makes all of $\Delta_n$ true would have to make $\ered$ true. But no valuation can do that. So no valutaion makes all of $\Delta_n$ true. So $\Delta_n \entails \metav{A}$, vacuously.
+
+
+    \begin{claim*}{8}{}
+        $\enot I$ is rule-sound.
+    \end{claim*}
+    Assume that every line before line $n$ on some TFL-proof is shiny, and that $\enot I$ is used on line $n$.
+    \begin{fitchproof}
+        \open
+            \hypo[i]{a1}{\metav{A}}
+            \have[j]{a2}{\ered}
+        \close
+        \have[n]{a3}{\enot\metav{A}} \ni{a1-a2}
+    \end{fitchproof}
+    Let $v$ be any valutation that makes all of $\Delta_n$ true. Note that all of $\Delta_i$ are among $\Delta_n$, with the possible exception of $\metav{A}$ itself. By hypothesis, line $j$ is shiny. But no valutation can make `$\ered$' true, so no valutation can make all of $\Delta_j$ true. Since the sentences $\Delta_i$ are just the sentences $\Delta_j$, no valuation can make all of $\Delta_i$ true. Since $v$ makes all of $\Delta_n$ true, it must therefore make $\metav{A}$ false, and so make $\enot \metav{A}$ true. So $\Delta_n\entails \enot\metav{A}$.
+
+    \begin{claim*}{9}{}
+        $IP$ is rule-sound.
+    \end{claim*}
+    (To be completed)
+
+    \begin{claim*}{10}{}
+        $\eif I$ is rule-sound.
+    \end{claim*}
+    (To be completed)
+
+
+    \begin{claim*}{11}{}
+        $\eif E$ is rule-sound.
+    \end{claim*}
+    (To be completed)
+
+
+    \begin{claim*}{12}{}
+        $\eiff I$ is rule-sound.
+    \end{claim*}
+    (To be completed)
+
+
+    \begin{claim*}{13}{}
+        $\iff E$ is rule-sound.
+    \end{claim*}
+    (To be completed)
+
+
+    \begin{claim*}{14}{}
+        All of the derived rules of our proof system are rule-sound.
+    \end{claim*}
+    Suppose that we used a derived rule to obtain some sentence, $\metav{A}$, on line $n$ of some TFL-proof, and that every earlier line is shiny. Every use of a derived rule can be replaced with multiple uses of basic rules. That is to say, we could have used basic rule to write $\metav{A}$ on some line $n+k$, without introducing any further assumptions. So, applying our individual results that all basic rules are rule-sound sever times ($k+1$ times, in fact), we can see that line $n+k$ is shiny. Hence, the derived rule is rule-sound.
+\end{proof*}
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%% - Appendix
+\begin{appendices}
+
+\end{appendices}
+
+\end{document}
+
+
+%%%%%% END %%%%%%%%%%%%%u
