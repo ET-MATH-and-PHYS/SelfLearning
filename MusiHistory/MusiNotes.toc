@@ -146,4 +146,9 @@
 \contentsline {subsection}{\numberline {7.9.8}Mixing}{72}{subsection.7.9.8}%
 \contentsline {section}{\numberline {7.10}``Where Did Our Love Go" Stereogum article}{72}{section.7.10}%
 \contentsline {section}{\numberline {7.11}``My Girl" Stereogum article}{73}{section.7.11}%
+\contentsline {chapter}{\numberline {8}The Psychadelic 60s}{75}{chapter.8}%
+\contentsline {chapter}{\numberline {9}A to Zep}{77}{chapter.9}%
+\contentsline {section}{\numberline {9.1}``Brown Sugar" Stereogum article}{77}{section.9.1}%
+\contentsline {section}{\numberline {9.2}``Heart Of Gold" Stereogum Article}{77}{section.9.2}%
+\contentsline {section}{\numberline {9.3}``Fame" Stereogum Article}{78}{section.9.3}%
 \contentsfinish 
