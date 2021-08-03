@@ -57,5 +57,19 @@
 \BOOKMARK [0][-]{chapter.8}{Properties of Point Estimators and Methods of Estimation}{}% 57
 \BOOKMARK [1][-]{section.8.1}{\247Relative Efficiency}{chapter.8}% 58
 \BOOKMARK [1][-]{section.8.2}{\247Consistency}{chapter.8}% 59
-\BOOKMARK [1][-]{section.8.3}{The Method of Moments}{chapter.8}% 60
-\BOOKMARK [1][-]{section.8.4}{The Method of Maximum Likelihood}{chapter.8}% 61
+\BOOKMARK [1][-]{section.8.3}{\247The Method of Moments}{chapter.8}% 60
+\BOOKMARK [1][-]{section.8.4}{\247The Method of Maximum Likelihood}{chapter.8}% 61
+\BOOKMARK [0][-]{chapter.9}{Hypothesis Testing}{}% 62
+\BOOKMARK [1][-]{section.9.1}{\247Common Large-Sample Tests}{chapter.9}% 63
+\BOOKMARK [1][-]{section.9.2}{\247Common Confidence Intervals}{chapter.9}% 64
+\BOOKMARK [1][-]{section.9.3}{\247The Power of a Statistical Test}{chapter.9}% 65
+\BOOKMARK [1][-]{section.9.4}{\247Power of Tests and the Neyman-Pearson Lemma}{chapter.9}% 66
+\BOOKMARK [1][-]{section.9.5}{\247Likelihood Ratio Test}{chapter.9}% 67
+\BOOKMARK [0][-]{chapter.10}{Linear Models and Estimation by Least Squares}{}% 68
+\BOOKMARK [1][-]{section.10.1}{\247Linear Statistical Models}{chapter.10}% 69
+\BOOKMARK [1][-]{section.10.2}{\247Method of Least Squares}{chapter.10}% 70
+\BOOKMARK [2][-]{subsection.10.2.1}{Evaluating the Quality of the Linear Relationship}{section.10.2}% 71
+\BOOKMARK [1][-]{section.10.3}{\247Inferences Concerning the Parameters}{chapter.10}% 72
+\BOOKMARK [1][-]{section.10.4}{\247Simple Linear Regression}{chapter.10}% 73
+\BOOKMARK [1][-]{section.10.5}{\247Correlation}{chapter.10}% 74
+\BOOKMARK [1][-]{section.10.6}{\247Simple Linear Regressio: Bivariate Data}{chapter.10}% 75
