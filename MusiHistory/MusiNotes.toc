@@ -151,4 +151,10 @@
 \contentsline {section}{\numberline {9.1}``Brown Sugar" Stereogum article}{77}{section.9.1}%
 \contentsline {section}{\numberline {9.2}``Heart Of Gold" Stereogum Article}{77}{section.9.2}%
 \contentsline {section}{\numberline {9.3}``Fame" Stereogum Article}{78}{section.9.3}%
+\contentsline {chapter}{\numberline {10}Black Pop, Funk, and the Roots of Rap}{79}{chapter.10}%
+\contentsline {section}{\numberline {10.1}``Everyday People" Stereogum Article}{79}{section.10.1}%
+\contentsline {section}{\numberline {10.2}``I Want You Back" Stereogum Article}{79}{section.10.2}%
+\contentsline {section}{\numberline {10.3}``Theme From Shaft" Stereogum Article}{80}{section.10.3}%
+\contentsline {section}{\numberline {10.4}``Papa Was a Rollin' Stone" Stereogum Article}{80}{section.10.4}%
+\contentsline {section}{\numberline {10.5}``Superstition" Stereogum Article}{81}{section.10.5}%
 \contentsfinish 
