@@ -17,23 +17,23 @@
 \BOOKMARK [1][-]{section.5.2}{\247Using Truth Tables}{chapter.5}% 17
 \BOOKMARK [0][-]{chapter.6}{\247\247Semantics}{part.2}% 18
 \BOOKMARK [1][-]{section.6.1}{\247Truth-functional}{chapter.6}% 19
-\BOOKMARK [2][-]{subsection.6.1.1}{\247Indicative versus Subjunctive Connectives}{section.6.1}% 20
+\BOOKMARK [2][-]{subsection*.1}{\247Indicative versus Subjunctive Connectives}{section.6.1}% 20
 \BOOKMARK [1][-]{section.6.2}{\247Tautologies and Contradictions}{chapter.6}% 21
 \BOOKMARK [1][-]{section.6.3}{\247Equivalence}{chapter.6}% 22
 \BOOKMARK [1][-]{section.6.4}{\247Satisfiability}{chapter.6}% 23
 \BOOKMARK [1][-]{section.6.5}{\247Entailment and Validity}{chapter.6}% 24
-\BOOKMARK [2][-]{subsection.6.5.1}{\247Double Turnstile}{section.6.5}% 25
+\BOOKMARK [2][-]{subsection*.2}{\247Double Turnstile}{section.6.5}% 25
 \BOOKMARK [0][-]{chapter.7}{\247\247Natural Deduction}{part.2}% 26
 \BOOKMARK [1][-]{section.7.1}{\247Initial Definitons and Reasoning}{chapter.7}% 27
 \BOOKMARK [1][-]{section.7.2}{\247Rules of Inferences for TFL Natural Deduction}{chapter.7}% 28
-\BOOKMARK [2][-]{subsection.7.2.1}{\247Additional and Derived Rules}{section.7.2}% 29
+\BOOKMARK [2][-]{subsection*.3}{\247Additional and Derived Rules}{section.7.2}% 29
 \BOOKMARK [0][-]{chapter.8}{\247\247Soundness and Completeness}{part.2}% 30
 \BOOKMARK [1][-]{section.8.1}{\247Basic Proof-Theoretic Concepts}{chapter.8}% 31
-\BOOKMARK [2][-]{subsection.8.1.1}{\247Other Syntactic Concepts}{section.8.1}% 32
-\BOOKMARK [2][-]{subsection.8.1.2}{\247Semantic versus Syntactic Definitions}{section.8.1}% 33
-\BOOKMARK [2][-]{subsection.8.1.3}{\247Proving Logical Properties}{section.8.1}% 34
+\BOOKMARK [2][-]{subsection*.4}{\247Other Syntactic Concepts}{section.8.1}% 32
+\BOOKMARK [2][-]{subsection*.5}{\247Semantic versus Syntactic Definitions}{section.8.1}% 33
+\BOOKMARK [2][-]{subsection*.6}{\247Proving Logical Properties}{section.8.1}% 34
 \BOOKMARK [1][-]{section.8.2}{\247Soundness}{chapter.8}% 35
-\BOOKMARK [2][-]{subsection.8.2.1}{\247Proof Sketch: Soundness}{section.8.2}% 36
+\BOOKMARK [2][-]{subsection*.7}{\247Proof Sketch: Soundness}{section.8.2}% 36
 \BOOKMARK [1][-]{section.8.3}{\247Completeness}{chapter.8}% 37
 \BOOKMARK [-1][-]{part.3}{III First-Order Logic}{}% 38
 \BOOKMARK [0][-]{chapter.9}{\247\247Building Blocks of FOL}{part.3}% 39
@@ -52,9 +52,9 @@
 \BOOKMARK [1][-]{section.11.2}{\247Interpretations}{chapter.11}% 52
 \BOOKMARK [0][-]{chapter.12}{\247\247Truth and Models}{part.3}% 53
 \BOOKMARK [1][-]{section.12.1}{\247Truth}{chapter.12}% 54
-\BOOKMARK [2][-]{subsection.12.1.1}{\247Atomic Sentences}{section.12.1}% 55
-\BOOKMARK [2][-]{subsection.12.1.2}{\247Sentential Connectives}{section.12.1}% 56
-\BOOKMARK [2][-]{subsection.12.1.3}{\247Quantifiers as the Main Logical Operator}{section.12.1}% 57
+\BOOKMARK [2][-]{subsection*.8}{\247Atomic Sentences}{section.12.1}% 55
+\BOOKMARK [2][-]{subsection*.9}{\247Sentential Connectives}{section.12.1}% 56
+\BOOKMARK [2][-]{subsection*.10}{\247Quantifiers as the Main Logical Operator}{section.12.1}% 57
 \BOOKMARK [1][-]{section.12.2}{\247Semantic Concepts}{chapter.12}% 58
 \BOOKMARK [1][-]{section.12.3}{\247Working with Interpretations}{chapter.12}% 59
 \BOOKMARK [0][-]{chapter.13}{\247\247Natural Deduction in FOL}{part.3}% 60
@@ -68,8 +68,8 @@
 \BOOKMARK [1][-]{section.16.1}{\247Introduction to Modal Logic}{chapter.16}% 68
 \BOOKMARK [1][-]{section.16.2}{\247The Language of Modal Logic}{chapter.16}% 69
 \BOOKMARK [1][-]{section.16.3}{\247Natural Deduction for ML}{chapter.16}% 70
-\BOOKMARK [2][-]{subsection.16.3.1}{\247System K}{section.16.3}% 71
-\BOOKMARK [2][-]{subsection.16.3.2}{\247Possibility}{section.16.3}% 72
+\BOOKMARK [2][-]{subsection*.11}{\247System K}{section.16.3}% 71
+\BOOKMARK [2][-]{subsection*.12}{\247Possibility}{section.16.3}% 72
 \BOOKMARK [1][-]{section.16.4}{\247System T}{chapter.16}% 73
 \BOOKMARK [1][-]{section.16.5}{System S4}{chapter.16}% 74
 \BOOKMARK [0][-]{chapter.17}{\247\247Models}{part.4}% 75
@@ -94,4 +94,4 @@
 \BOOKMARK [1][-]{section.30.2}{\247Individually Functionally Complete Connectives}{chapter.30}% 94
 \BOOKMARK [0][-]{chapter.31}{\247\247Soundness}{part.6}% 95
 \BOOKMARK [1][-]{section.31.1}{\247Definitions and Proof}{chapter.31}% 96
-\BOOKMARK [0][-]{section*.1}{Appendices}{part.6}% 97
+\BOOKMARK [0][-]{section*.13}{Appendices}{part.6}% 97
