@@ -1,6 +1,6 @@
-\documentclass[12pt]{report}
+\documentclass[12pt, a4paper, oneside, openright, titlepage]{book}
 \usepackage[utf8]{inputenc}
-
+\raggedbottom
 \input{../../book_packages}
 
 
@@ -38,6 +38,11 @@
     
     \vspace{1.0\baselineskip}
     \textit{Solo Pursuit of Learning}
+    \vfill
+    \enlargethispage{1in}
+    \begin{figure}[b!]
+    \makebox[\textwidth]{\includegraphics[width=\paperwidth, height =10cm]{../../Crab.jpg}}
+    \end{figure}
 \end{titlepage}
 
 %%%%%%%%%%%%%%%%%%%%%%%
@@ -53,7 +58,7 @@
 
 
 
-\begin{namthm*}{Euclid's Postulates}
+\begin{namthm}{Euclid's Postulates}
     \leavevmode
     \begin{enumerate}
         \item To draw a straight line, from any point to any point.
@@ -78,15 +83,15 @@
             \end{tikzpicture}
         \end{center}
     \end{enumerate}
-\end{namthm*}
+\end{namthm}
 
-\begin{namthm}{Playfair's Postulate}{}
+\begin{namthm}[Playfair's Postulate]
     This postulate is equivalent to Euclid's fifth postulate: Given straight line $m$ and point $P$ not on $m$, there exists a unique line $n$ that contains $P$ and is parallel to $m$.
 \end{namthm}
 
 \subsection{Hyperbolic Geometry Introduction}
 
-\begin{defn}{Hyperbolic Plane}{}
+\begin{defn}[Hyperbolic Plane]
     We define the hyperbolic plane to be the set \begin{equation}
         \mathcal{H} := \{(x,y) \in \R^2:y>0\}
     \end{equation}
@@ -96,7 +101,7 @@
     where $\gamma$ is a curve.
 \end{defn}
 
-\begin{prop}{}{}
+\begin{prop}
     \leavevmode
     \begin{center}
         \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
@@ -144,7 +149,7 @@
     \end{equation}
 \end{prop}
 
-\begin{prop}{}{}
+\begin{prop}
     Euclidean angles are the same as hyperbolic angles.
 \end{prop}
 
@@ -154,15 +159,15 @@
 \begin{enumerate}
     \item[$\drsh$] A line is a \Emph{geodesic}, which is the shortest path with respect to the metric of the geometry (the distance function). 
 \end{enumerate}
-\begin{thm}{}{}
+\begin{thm}
     In the hyperbolic plane the geodesics are either vertical lines (rays from the Euclidean respective), or semi-circles, terminating asymptotically to the $x$-axis.
 \end{thm}
 
-\begin{rmk}{}{}
+\begin{rmk}
     Given a circle with center $(h,k)$ above the $x$-axis in the Euclidean plane, the image in the hyperbolic plane is a circle centered at $(H,K)$ with $H = \sqrt{k^2-r^2}$, $R = \frac{1}{2}\ln\left(\frac{k+r}{k-r}\right)$, and $K = k$.
 \end{rmk}
 
-\begin{rmk}{}{}
+\begin{rmk}
     The hyperbolic half-plane satisfies Euclid's first four axioms, but the fifth (e.i Playfair's Postulate) is not satisfied in the hyperbolic half-plane. 
 \end{rmk}
 
@@ -171,7 +176,7 @@
 
 \section{Notation}
 
-\begin{rmk}{}{}
+\begin{rmk}
     In $\R^n$ we shall write $(p+q)^i = p^i+q^i$ (component wise addition) with $i$ as an index and $(cp)^i = cp^i$. For $p \in \R^n$ we have\begin{align*}
         p &= (p^1,p^2,...,p^n) \\
         &=p^1(1,0,...,0) + p^2(0,1,...,0) + ... + p^n(0,...,0,1) \\
@@ -182,13 +187,13 @@
     \end{equation}
 \end{rmk}
 
-\begin{rmk}{}{}
+\begin{rmk}
     There exists a correspondence between points and vectors based at the origin $(0,0,...,0)$.
 \end{rmk}
 
 \section{Definitions and Examples}
 
-\begin{defn}{}{}
+\begin{defn}
     The \Emph{tangent space} to $\R^n$ at a point $p \in \R^n$ is defined as \begin{equation}
         T_p\R^n :=\{p\}\times \R^n = \{(p,v):v\in\R^n\}
     \end{equation} 
@@ -197,7 +202,7 @@
     \end{equation}
 \end{defn}
 
-\begin{rmk}{}{}
+\begin{rmk}
     We give $T_p\R^n$ a vector space structure by defining an addition \begin{equation}
         (p,v) + (p,w) := (p,v+w)
     \end{equation}
@@ -219,7 +224,7 @@
 \end{rmk}
 
 
-\begin{defn}{}{}
+\begin{defn}
     For a curve $C$, we can define the tangent space at a point $p$ on $C$ by \begin{equation}
         T_pC := \spn\{(p,v)\} \subset T_p\R^n
     \end{equation}
@@ -229,7 +234,7 @@
     For $n = 2$ we get the normal line, for $n = 3$ we get the normal plane, etc.
 \end{defn}
 
-\begin{eg}{}{}
+\begin{eg}
     $\alpha(t) = (t,t^2)$, $p = \alpha(1) = (1,1)$. Then $\alpha'(1) = \langle 1,2\rangle$, so $v = (p,\langle 1, 2\rangle)$. This parametrizes a parabola in $\R^2$.
 \end{eg}
 

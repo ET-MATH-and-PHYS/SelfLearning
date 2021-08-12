@@ -1,5 +1,12 @@
 %%%%%% PACKAGES %%%%%%%
-\usepackage{lipsum}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
 \usepackage{amsmath} % Math display options
 \usepackage{amssymb} % Math symbols
 \usepackage{amsfonts} % Math fonts
@@ -31,14 +38,7 @@
 \setcounter{secnumdepth}{1}  
   
   
-\usepackage{hyperref}
-\hypersetup{
-    colorlinks,
-    citecolor=black,
-    filecolor=black,
-    linkcolor=black,
-    urlcolor=black
-}
+
 \newcommand\numberthis{\refstepcounter{equation}\tag{\theequation}} % For equation labelling
 \usepackage[framemethod=tikz]{mdframed}
 
@@ -83,8 +83,8 @@
 %%%%%%%%%%%%% THEOREM STYLES
 
 \newtheoremstyle{BigTheorem}
-{5pt}
-{5pt}
+{20pt}
+{20pt}
 {\slshape}
 {}
 {\Large\color{purp}\bfseries}
@@ -95,8 +95,8 @@
 
 
 \newtheoremstyle{TheoremClassic}
-{10pt}
-{10pt}
+{15pt}
+{15pt}
 {\slshape}
 {}
 {\bfseries}
@@ -105,8 +105,8 @@
 {}
 
 \newtheoremstyle{Definitions}
-{10pt}
-{10pt}
+{15pt}
+{15pt}
 {\slshape}
 {}
 {\bfseries}
@@ -116,6 +116,16 @@
 
 
 \newtheoremstyle{Remarks}
+{10pt}
+{10pt}
+{\upshape}
+{}
+{\bfseries}
+{.}
+{.5em}
+{}
+
+\newtheoremstyle{Examples}
 {10pt}
 {10pt}
 {\upshape}
@@ -148,6 +158,9 @@
 \newtheorem{cons}[defn]{Construction}
 \newtheorem{props}[defn]{Properties}
 \newtheorem{proc}[defn]{Process}
+
+
+\theoremstyle{Examples}
 \newtheorem{eg}{Example}[section]
 \newtheorem{noneg}[eg]{Non-Example}
 \newtheorem{xca}[eg]{Exercise}

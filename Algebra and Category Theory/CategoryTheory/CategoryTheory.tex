@@ -1,7 +1,6 @@
-\documentclass[12pt]{report}
+\documentclass[12pt, a4paper, oneside, openright, titlepage]{book}
 \usepackage[utf8]{inputenc}
-
-
+\raggedbottom
 \input{../../book_packages}
 
 \usetikzlibrary{decorations.pathmorphing}
@@ -38,6 +37,11 @@
     
     \vspace{1.0\baselineskip}
     \textit{Solo Pursuit of Learning}
+    \vfill
+    \enlargethispage{1in}
+    \begin{figure}[b!]
+    \makebox[\textwidth]{\includegraphics[width=\paperwidth, height =10cm]{../../Crab.jpg}}
+    \end{figure}
 \end{titlepage}
 
 %%%%%%%%%%%%%%%%%%%%%%%
@@ -52,7 +56,7 @@
 
 \section{Category Definitions}
 
-\begin{defn}{}{}
+\begin{defn}
     A \Emph{category} $\catname{C}$ is given by the following data: \begin{enumerate}
         \item a class $\catname{Ob}(\catname{C})$ of objects of $\catname{C}$
         \item a family $\Hom_{\catname{C}}$ associating with each pair $A, B \in \catname{C}$ a class $\Hom_{\catname{C}}(A,B)$ of morphisms from $A$ to $B$
@@ -132,12 +136,12 @@
     That is, the composition law is associative and unital with the identity morphisms serving as two-sided identites.
 \end{defn}
 
-\begin{rmk}{}{}
+\begin{rmk}
     The objects of a category are in bijective correspondence with the identity morphisms, which are uniquely determined by the property that they serve as two-sided identities with composition. Thus, we can define a category as a collection of morphisms with a partially defined composition operation that has certain special morphisms which are used to recognize composable pairs and which serve as two-sided identites. 
 \end{rmk}
 
 
-\begin{eg}{}{}
+\begin{eg}
     \leavevmode
     \begin{enumerate}
         \item $\Set$ is the category with sets as its objections and set-theoretic functions, with specified domain and codomain, as its morphisms
@@ -150,7 +154,7 @@
         \item $\catname{Meas}$ is the category with measurable spaces as objects and measurable functions as morphisms. 
         \item $\catname{Poset}$ is the category with partially ordered sets as objects and order-preserving functions as morphisms.
         \item $\catname{Ch}_R$ is the category with chain complexes of $R$-modules as objects and chain homomorphisms as morphisms.
-            \begin{defn}{}{}
+            \begin{defn}
                 A \Emph{chain complex} $C_*$ is a collection $(C_n)_{n \in \Z}$ of $R$-modules equipped with $R$-module homomorphisms $d:C_n\rightarrow C_{n-1}$, called \Emph{boundary homomorphisms}, with the property that $d^2 = 0$, i.e., the composite of any two boundary maps is the zero homomorphism. A map of chain complexes $f:C_* \rightarrow C_*'$ is comprised of a collection of homomorphisms $f_n:C_n\rightarrow C_n'$ so that $df_n = f_{n-1}d$ for all $n \in \Z$.
             \end{defn}
         \item For any \Emph{signature} $\sigma$, specifying $n$-array relation symbols, and for any collection of well formed sentences $\mathbb{T}$ in the first order language associated to $\sigma$, there is a category $\catname{Model}_{\mathbb{T}}$ whose objects are $\sigma$-structures that \Emph{model} $\mathbb{T}$, i.e., sets equipped with appropriate $n$-array relations satisfying the axioms $\mathbb{T}$. Morphisms are functions that preserve the specified $n$-array relations in the ``usual sense." (4-6, 9, 10 are special cases of this)
@@ -159,7 +163,7 @@
 
 These are all examples of \Emph{concrete} categories, those whose objects have underlying sets and whose morphisms are functions between those underlying sets.
 
-\begin{eg}{}{}
+\begin{eg}
     \leavevmode
     \begin{enumerate}
         \item For a unital ring $R$, $\catname{Mat}_R$ is the category whose objects are positive integers and in which the set of morphisms from $n$ to $m$ is the set $m\times n$ with values in $R$. Composition is by matrix multiplication \begin{equation*}
@@ -183,11 +187,11 @@ These are all examples of \Emph{concrete} categories, those whose objects have u
 \end{eg}
 
 
-\begin{defn}{}{}
+\begin{defn}
     A category is \Emph{small} if it has only a set's worth of arrows.
 \end{defn}
 
-\begin{cor}{}{}
+\begin{cor}
     By our previous remark we have that a small category has only a set's worth of objects. If $\catname{C}$ is a small category, then there are functions \begin{equation*}
         \Hom_{\catname{C}}\;\begin{tikzpicture}[x=0.75pt,y=1.0pt,yscale=-1,xscale=1, baseline=(id.base)]
 %uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
@@ -218,21 +222,21 @@ These are all examples of \Emph{concrete} categories, those whose objects have u
 \end{cor}
 
 
-\begin{defn}{}{}
+\begin{defn}
     A category is \Emph{locally small} if between any pair of objects there is only a set's worth of morphisms. It is traditional to write $\catname{C}(X,Y)$ or $\Hom(X,Y)$ for the set of morphisms from $X$ to $Y$ in a locally small category $\catname{C}$. The set of arrows between a pair of fixed objects in a locally small category is typically called a \Emph{hom-set}.
 \end{defn}
 
 
-\begin{defn}{}{}
+\begin{defn}
     An \Emph{isomorphism} in a category is a morphism $f:X\rightarrow Y$ for which there exists a morphism $g:Y\rightarrow X$ such that $g\circ f = \id_X$ and $f\circ g = \id_Y$. The objects $X$ and $Y$ are said to be \Emph{isomorphic} whenever there exists an isomorphism between $X$ and $Y$, in which case one writes $X\cong Y$.
 \end{defn}
 
-\begin{defn}{}{}
+\begin{defn}
     An \Emph{endomorphism}, i.e., a morphism whose domain equals its codomain, that is an isomorphism is called an \Emph{automorphism}.
 \end{defn}
 
 
-\begin{eg}{}{}
+\begin{eg}
     \leavevmode
     \begin{enumerate}
         \item The isomorphisms in $\Set$ are precisely the \Emph{bijections}.
@@ -247,11 +251,11 @@ These are all examples of \Emph{concrete} categories, those whose objects have u
     In a concrete category, when are the isomorphisms precisely those maps in the category that induce bijections between the underlying sets? This requires some more constructions before we can answer it sufficiently.
 \end{qest}
 
-\begin{defn}{}{}
+\begin{defn}
     A \Emph{groupoid} is a category in whcih every morphism is an isomorphism.
 \end{defn}
 
-\begin{defn}{}{}
+\begin{defn}
     \leavevmode
     \begin{enumerate}
         \item A \Emph{group} is a groupoid with one object.
@@ -259,15 +263,15 @@ These are all examples of \Emph{concrete} categories, those whose objects have u
     \end{enumerate}
 \end{defn}
 
-\begin{defn}{}{}
+\begin{defn}
     A \Emph{subcategory} $\catname{D}$ of a category $\catname{C}$ is defined by restricting to a subcollection of objects and subcollection of morphisms subject to the requirements that the subcategory $\catname{D}$ contains the domain and codomain of any morphism in $\catname{D}$, the identity morphism of any object in $\catname{D}$, and the composite of any composable pair of morphisms in $\catname{D}$.
 \end{defn}
 
 
-\begin{lem}{}{}
+\begin{lem}
     Any category $\catname{C}$ contains a \Emph{maximal groupoid}, the subcategory containing all of the objects and only those morphisms that are isomorphisms.
 \end{lem}
-\begin{proof*}{}{}
+\begin{proof}
     Let $\catname{G}$ be the collection of isomorphisms with all objects in $\catname{C}$. First, since $\catname{G}$ contains all objects of $\catname{C}$, it contains all domains and codomains for its morphisms. Next, observe that for any object $X$ of $\catname{G}$, $\id_X\circ \id_X = \id_X$, so $\id_X$ is an isomorphism by definition, and is consequently in $\catname{G}$. Finally, let $f:A\rightarrow B$ and $g:B\rightarrow C$ be isomorphisms in $\catname{G}$ with inverse morphisms $f^{-1}:B\rightarrow A$ and $g^{-1}:C\rightarrow B$ (which are also in $\catname{G}$). Then, we consider the composite morphisms $g\circ f:A\rightarrow C$ and $f^{-1}\circ g^{-1}:c\rightarrow A$. It follows that \begin{equation*}
         (f^{-1}\circ g^{-1})\circ(g\circ f) = f^{-1}\circ g^{-1}\circ g\circ f = f^{-1}\circ \id_B\circ f = f^{-1}\circ f = \id_A
     \end{equation*}
@@ -275,10 +279,10 @@ These are all examples of \Emph{concrete} categories, those whose objects have u
         (g\circ f)\circ (f^{-1}\circ g^{-1}) = g\circ f\circ f^{-1}\circ g^{-1} = g\circ \id_B\circ g^{-1} = g\circ g^{-1} = \id_C
     \end{equation*}
     so by definition we have that $g\circ f$ and $f^{-1}\circ g^{-1}$ are isomorphisms, and hence in $\catname{G}$. Thus $\catname{G}$ is a subcategory in $\catname{C}$. Moreover, every isomorphism of $\catname{C}$ is in $\catname{G}$, so it is indeed the \Emph{maximal groupoid} of $\catname{C}$.
-\end{proof*}
+\end{proof}
 
 
-\begin{defn}{}{}
+\begin{defn}
     For any category $\catname{C}$ and object $c$ of $\catname{C}$: \begin{enumerate}
         \item There is a category $c/\catname{C}$ whose objects are morphisms $f:c\rightarrow x$ with domain $c$ in which a morphism from $f:c\rightarrow x$ to $g:c\rightarrow y$ is a map $h:x\rightarrow y$ (in $\catname{C}$) between the codomains so that the triangle: 
             \begin{center}
@@ -312,7 +316,7 @@ These are all examples of \Emph{concrete} categories, those whose objects have u
 
 Let us consider the notion of ``reversing the arrows" of a particular category.
 
-\begin{defn}{}{}
+\begin{defn}
     Let $\catname{C}$ be any category. The \Emph{opposite category} $\catname{C}^{op}$ has \begin{enumerate}
         \item the same objects as in $\catname{C}$, and 
         \item a morphism $f^{op}$ in $\catname{C}^{op}$ for each morphism $f$ in $\catname{C}$ such that the domain of $f^{op}$ is defined to be the codomain of $f$ and the codomain of $f^{op}$ is defined to be the domain of $f$: that is \begin{equation*}
@@ -335,7 +339,7 @@ Let us consider the notion of ``reversing the arrows" of a particular category.
     \end{enumerate}
 \end{defn}
 
-\begin{eg}{}{}
+\begin{eg}
     \leavevmode
     \begin{enumerate}
         \item $\catname{Mat}_R^{op}$ is the category whose objects are non-zero natural numbers and in which a morphism from $m$ to $n$ is an $m\times n$ matrix with values in $R$. 
@@ -346,11 +350,11 @@ Let us consider the notion of ``reversing the arrows" of a particular category.
     \end{enumerate}
 \end{eg}
 
-\begin{rmk}{}{}
+\begin{rmk}
     Any theorem containing a universal quantification of the form ``for all categories $\catname{C}$" also necessarily applies to the opposites of these categories. Interpreting the result in the dual context leads to a \Emph{dual theorem}, proven by the dual of the original proof, in which the direction of each arrow appearing in the argument is reversed.
 \end{rmk}
 
-\begin{lem}{}{}
+\begin{lem}
     The following are equivalent: \begin{enumerate}
         \item $f:x\rightarrow y$ is an isomorphism in $\catname{C}$
         \item For all objects $c \in \catname{C}$, post-composition with $f$ defines a bijection \begin{equation*}
@@ -362,7 +366,7 @@ Let us consider the notion of ``reversing the arrows" of a particular category.
     \end{enumerate}
     The is to say, isomorphisms in a locally small category are defined representably in terms of isomorphisms in the category of sets. However, this also applies to non-locally small categories given certain set theoretical foundations.
 \end{lem}
-\begin{proof*}{}{}
+\begin{proof}
     First we will prove the equivalence $1. \iff 2.$:
 
     Assuming 1., namely that $f:x\rightarrow y$ is an isomorphism with inverse $g:y\rightarrow x$, then, as an immediate application of the associativity and identity laws for composition in a category, post-composition with $g$ defines an inverse function \begin{equation*}
@@ -382,44 +386,44 @@ Let us consider the notion of ``reversing the arrows" of a particular category.
         f^*:\catname{C}(y,c)\rightarrow\catname{C}(x,c)
     \end{equation*}
     is an isomorphism for all $c \in \catname{C}$. That is: $\catname{C}^{op}(c,x) = \catname{C}(x,c)$, post composition with $f^{op}$ in $\catname{C}^{op}$ translates to pre-composition with $f$ in the opposite category $\catname{C}$. The notion of isomorphism is self-dual: $f^{op}:y\rightarrow x$ is an isomorphism in $\catname{C}^{op}$ if and only if $f:x\rightarrow y$ is an isomorphism in $\catname{C}$. So the equivalence $1.\iff 2.$ in $\catname{C}^{op}$ expresses the equivalence $1.\iff 3.$ in $\catname{C}$.
-\end{proof*}
+\end{proof}
 
-\begin{defn}{}{}
+\begin{defn}
     A morphism $f:x\rightarrow y$ in a category is \begin{enumerate}
         \item a \Emph{monomorphism} if for any parallel morphisms \begin{tikzcd} h,k:w \ar[r, shift left] \ar[r, shift right] & x \end{tikzcd}, $f\circ h = f\circ k$ implies that $h = k$ (left cancellable); or
         \item an \Emph{epimorphism} if for any parallel morphisms \begin{tikzcd} h,k:y \ar[r, shift left] \ar[r, shift right] & z \end{tikzcd}, $h\circ f = k\circ f$ implies that $h = k$ (right cancellable)
     \end{enumerate}
 \end{defn}
 
-\begin{rmk}{}{}
+\begin{rmk}
     Note that a monomorphism or epimorphism in $\catname{C}$ is, respectively, an epimorphism or monomorphism in $\catname{C}^{op}$.
 \end{rmk}
 
-\begin{nota*}{}{}
+\begin{nota}
     In adjectival form, a monomorphism is \Emph{monic}, or in shorthand \Emph{mono}, and is denoted by ``$\rightarrowtail$," whil a epimorphism is \Emph{epic}, or in shortand \Emph{epi}, and is denoted by ``$\twoheadrightarrow$."
-\end{nota*}
+\end{nota}
 
-\begin{defn}{Alternative Mono and Epi Definitions}{}
+\begin{defn}[Alternative Mono and Epi Definitions]
     A morphism $f:x\rightarrow y$:\begin{enumerate}
         \item is a monomorphism in $\catname{C}$ if and only if for all objects $c \in \catname{C}$, post-composition with $f$ defines an injection $f_*:\catname{C}(c,x)\rightarrow \catname{C}(c,y)$.
         \item is an epimorphism in $\catname{C}$ if and only if for all objects $c \in \catname{C}$, pre-composition with $f$ defines an injection $f^*:\catname{C}(y,c)\rightarrow \catname{C}(x,c)$.
     \end{enumerate}
 \end{defn}
 
-\begin{eg}{}{}
+\begin{eg}
     Suppose $f:X\rightarrow Y$ is a monomorphism in the category of sets. Then in particular, given any two maps \begin{tikzcd}x,x':\mathbf{1} \ar[r, shift left] \ar[r,shift right] & X\end{tikzcd}, whose domain is the singleton set, if $f\circ x = f\circ x'$ then $x = x'$. Thus, monomorphisms are injective functions. Conversely, any injective function can easily be seen to be a monomorphism.
 
 
     Similarly, a function $f:X\rightarrow Y$ is an epimorphism in the category of sets if and only if it is surjective. Given functions \begin{tikzcd} h,k:Y\ar[r,shift left]\ar[r,shift right] & Z\end{tikzcd}, the equation $h\circ f = k\circ f$ says exactly that $h$ is equal to $k$ on the image of $f$. This implies that $h = k$ in the case where the image is all of $Y$.
 \end{eg}
 
-\begin{eg}{}{}
+\begin{eg}
     Suppose that $x\xrightarrow{s}y\xrightarrow{r}x$ are morphisms so that $r\circ s = \id_x$. The map $s$ is a \Emph{section} or \Emph{right inverse} to $r$, while the map $r$ defines a \Emph{retraction} or \Emph{left inverse} to $s$. The maps $s$ and $r$ express the object $x$ as a \Emph{retract} of the object $y$.
 
     In this case, $s$ is always a monomorphism and, dually, $r$ is always an epimorphism. To acknowledge these one-sided inverses, $s$ is said to be a \Emph{split monomorphism} and $r$ is said to be a \Emph{split epimorphism}.
 \end{eg}
 
-\begin{lem}{}{}
+\begin{lem}
     \leavevmode
     \begin{enumerate}
         \item[(i)] If $f:x\rightarrowtail y$ and $g:y\rightarrowtail z$ are monomorphisms, then so is $g\circ f:x\rightarrowtail z$.
@@ -440,7 +444,7 @@ Let us consider the notion of ``reversing the arrows" of a particular category.
 
 Following the principles of Category Theory, we note that Categories are themselves mathematical objects, so what is a morphism between categories?
 
-\begin{defn}{}{}
+\begin{defn}
     A \Emph{functor} $F:\catname{C}\rightarrow\catname{D}$, between categories $\catname{C}$ and $\catname{D}$, consists of the following data:\begin{enumerate}
         \item An object $Fc \in \catname{D}$, for each object $c \in \catname{C}$.
         \item A morphism $Ff:Fc\rightarrow Fc' \in \catname{D}$, for each morphism $f:c\rightarrow c' \in \catname{C}$, so that the domain and the codomain of $Ff$ are, respectively, equal to $F$ applied to the domain or codomain of $f$.
@@ -453,11 +457,11 @@ Following the principles of Category Theory, we note that Categories are themsel
 
 Concisely a functor consists of a mapping on objects and a mapping on morphisms that preserves all of the structure of a category, namely domains and codomains, composition, and identitites.
 
-\begin{defn}{}{}
+\begin{defn}
     An \Emph{endofunctor} is a functor whose domain is equal to its codomain.
 \end{defn}
 
-\begin{eg}{}{}
+\begin{eg}
     \leavevmode
     \begin{enumerate}
         \item[(i)] There is an endofunctor $P:\Set\rightarrow \Set$ that sends a set $A$ to its power set $PA = \{A' \subseteq A\}$ and a function $f:A\rightarrow B$ to the direct image function $f_*:PA\rightarrow PB$ that sends $A' \subseteq A$ to $f(A') \subseteq B$.
@@ -472,10 +476,10 @@ Concisely a functor consists of a mapping on objects and a mapping on morphisms 
 
 To illustrate the useful of functoriality, we will apply the functoriality of the fundamental group construction $\pi_1:\catname{Top}_*\rightarrow \catname{Group}$ to prove the following theorem: 
 
-\begin{thm}{(Brouwer Fixed Point Theorem)}{}
+\begin{thm}[(Brouwer Fixed Point Theorem)]
     Any continuous endomorphisms of a $2$-dimensional disk $D^2$ has a fixed point.
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     Assuming $f:D^2\rightarrow D^2$ is such that $f(x) \neq x$ for all $x \in D^2$, there is a continuous function $r:D^2\rightarrow S^1$ that carries a point $x \in D^2$ to the intersection of the ray from $f(x)$ to $x$ with the boundary circle $S^1$. Note that $r$ fixe3s the points on the boundary circle $S^1\subseteq D^2$. Thus, $r$ defines a retraction of the inclusion $\iota:S^1\hookrightarrow D^2$, which is to say, the composite $S^1\xrightarrow{\iota} D^2\xrightarrow{r}S^1$ is the identity. 
 
     Pick any basepoint on the boundary circl $S^1$ and apply the functor $\pi_1$ to obtain a composable pair of group homomorphisms: \begin{equation*}
@@ -483,12 +487,12 @@ To illustrate the useful of functoriality, we will apply the functoriality of th
     \end{equation*}
     By the functoriality axioms, we must have $$\pi_1(r)\circ\pi_1(\iota) = \pi_1(r\circ\iota) = \pi_1(1_{S^1}) = 1_{\pi_1(S^1)}$$
     However, a computation involving covering spaces reveals that $\pi_1(S^1) = \Z$, while $\pi_1(D^2) = 0$, the trivial group. The composite endomorphism $\pi_1(r)\circ \pi_1(\iota)$ of $\Z$ must be zero, since it factors through the trivial group. Thus, it cannot equal the identity homomorphism, which carries the generator $1 \in \Z$ to itself ($0 \neq 1$). This contradiction proves that the retraction $r$ cannot exist, and so $f$ must have a fixed point.
-\end{proof*}
+\end{proof}
 
 
 The functors defined thus far are called \Emph{covariant} so as to distinguish them from another variety of functor now introduced: 
 
-\begin{defn}{}{}
+\begin{defn}
     A \Emph{contravariant functor} $F$ from $\catname{C}$ to $\catname{D}$ is a functor $F:\catname{C}^{op}\rightarrow \catname{D}$. Explicitly, this consists of the following data: \begin{enumerate}
         \item An object $Fc \in \catname{D}$, for each object $c \in \catname{C}$.
         \item A morphism $Ff:Fc'\rightarrow Fc\in \catname{D}$, for each morphism $f:c\rightarrow c' \in \catname{C}$, so that the domain and codomain of $Ff$ are, respectively, equal to $F$ applied to the codomain or domain of $f$.
@@ -520,7 +524,7 @@ The functors defined thus far are called \Emph{covariant} so as to distinguish t
 \end{defn}
 
 
-\begin{eg}{}{}
+\begin{eg}
     \leavevmode
     \begin{enumerate}
         \item[(i)] There is a functor $(-)^*:\catname{Vect}^{op}_{\mathbb{F}}\rightarrow \catname{Vect}_{\mathbb{F}}$ that carries a vector space to its \Emph{dual vector space} $V^* = \catname{Hom}(V,\mathbb{F})$. A vector in $V^*$ is a \Emph{linear functional} on $V$, i.e., a linear map $V\rightarrow \mathbb{F}$. This functor is contravariant, with a linear map $\phi:V\rightarrow W$ sent to the linear map $\phi^*:W^*\rightarrow V^*$ that pre-composes a linear functional $W\xrightarrow{\omega}\mathbb{F}$ with $\phi$ to obtain a linear functional $V\xrightarrow{\phi}W\xrightarrow{\omega}\mathbb{F}$
@@ -530,10 +534,10 @@ The functors defined thus far are called \Emph{covariant} so as to distinguish t
     \end{enumerate}
 \end{eg}
 
-\begin{lem}{}{}
+\begin{lem}
     Functors preserve isomorphisms.
 \end{lem}
-\begin{proof*}{}{}
+\begin{proof}
     Consider a functor $F:\catname{C}\rightarrow \catname{D}$ between categories $\catname{C}$ and $\catname{D}$. Suppose $f:c\rightarrow c'$ is an isomorphism in $\catname{C}$ with inverse isomorphisms $f^{-1}:c'\rightarrow c$. Then consider the image morphisms $Ff:Fc\rightarrow Fc'$ and $Ff^{-1}:Fc'\rightarrow Fc$. It follows by functoriality of $F$ that \begin{equation*}
         Ff\circ Ff^{-1} = F(f\circ f^{-1}) = F(1_{c'}) = 1_{Fc'}
     \end{equation*}
@@ -541,10 +545,10 @@ The functors defined thus far are called \Emph{covariant} so as to distinguish t
         Ff^{-1}\circ Ff = F(f^{-1}\circ f) = F(1_c) = 1_{Fc}
     \end{equation*}
     Thus $Ff$ is indeed an isomorphism in $\catname{D}$ with inverse $Ff^{-1}$.
-\end{proof*}
+\end{proof}
 
 
-\begin{eg}{}{}
+\begin{eg}
     Let $G$ be a group, regarded as a one-object category $\catname{B}G$. A functor $X:\catname{B}G\rightarrow \catname{C}$ specifies an object $X \in \catname{C}$ (the unique object in its image) together with an endomorphism $g_*:X\rightarrow X$ for each $g \in G$. This assignment must satisfy two conditions: \begin{enumerate}
         \item[(i)] $h_*g_* = (hg)_*$ for all $g,h \in G$.
         \item[(ii)] $e_* = 1_X$, where $e \in G$ is the identity element.
@@ -557,14 +561,14 @@ The functors defined thus far are called \Emph{covariant} so as to distinguish t
     Because the elements $g \in G$ are isomorphisms when regarded as morphisms in the $1$-object category $\catname{B}G$ that represents the group, their images under any such functor must also be isomorphisms in the target category. In particular, in the case of a $G$-representation $V:\catname{B}G\rightarrow \catname{Vect}_{\mathbb{F}}$, the linear map $g_*:V\rightarrow V$ must be an \emph{automorphism} of the vector space $V$. 
 \end{eg}
 
-\begin{cor}{}{}
+\begin{cor}
     When a group $G$ acts functorially on an object $X$ in a category $\catname{C}$, its elements $g$ must act by automorphisms $g_*:X\rightarrow X$ and, moreover, $(g_*)^{-1} = (g^{-1})_*$.
 \end{cor}
 
 A functor may or may not preserve monomorphisms or epimorphisms, but an argument similar to that employed previously shows that a functor necessarily preserves split monomorphisms (sections) and split epimorphisms (retracts).
 
 
-\begin{defn}{}{}
+\begin{defn}
     If $\catname{C}$ is locally small, then for any object $c \in \catname{C}$ we may define a pair of covariant and contravariant \Emph{functors represented by $c$}: 
     \begin{equation*}
         \catname{C}\xrightarrow{\catname{C}(c,-)}\catname{Set}\hspace{5pt}\catname{C}^{op}\xrightarrow{\catname{C}(-,c)}\catname{C}
@@ -602,7 +606,7 @@ A functor may or may not preserve monomorphisms or epimorphisms, but an argument
 
 A \Emph{bifunctor} is the name for a functor of two variables. Its domain is given by the product of a pair of categories: 
 
-\begin{defn}{}{}
+\begin{defn}
     For any categories $\catname{C}$ and $\catname{D}$, there is a category $\catname{C}\times \catname{D}$, their \Emph{product}, whose \begin{enumerate}
         \item objects are ordered pairs $(c,d)$, where $c$ is an object of $\catname{C}$ and $d$ is an object of $\catname{D}$,
         \item morphisms are ordered pairs $(f,g):(c,d)\rightarrow (c',d')$, where $f:c\rightarrow c' \in \catname{C}$ and $g:d\rightarrow d' \in \catname{D}$, and 
@@ -610,7 +614,7 @@ A \Emph{bifunctor} is the name for a functor of two variables. Its domain is giv
     \end{enumerate}
 \end{defn}
 
-\begin{defn}{}{}
+\begin{defn}
     If $\catname{C}$ is locally small, then there is a \Emph{two-sided represented functor} \begin{equation*}
         \catname{C}(-,-):\catname{C}^{op}\times\catname{C}\rightarrow \catname{Set}
     \end{equation*}
@@ -623,7 +627,7 @@ A \Emph{bifunctor} is the name for a functor of two variables. Its domain is giv
 
 We denote the category of small categories by $\catname{Cat}$, and the category of locally small categories by $\catname{CAT}$. Now, the notion of an \Emph{isomorphism of categories} arises naturally as a pair of inferse functors $F:\catname{C}\rightarrow \catname{D}$ and $G:\catname{D}\rightarrow \catname{C}$ so that the composites $GF$ and $FG$, respectively, equal the identity functors on $\catname{C}$ and $\catname{D}$.
 
-\begin{eg}{}{}
+\begin{eg}
     For instance: \begin{enumerate}
         \item[(i)] The functor $(-)^{op}:\catname{CAT}\rightarrow \catname{CAT}$ defines a non-trivial automorphism of the category of categories. Note that a functor $F:\catname{C}\rightarrow \catname{D}$ also defines a functor $F:\catname{C}^{op}\rightarrow \catname{D}^{op}$.
         \item[(ii)] For any group $G$, the categories $\catname{B}G$ and $\catname{B}G^{op}$ are isomorphic via the functor $(-)^{-1}$ that sends each morphism $g \in G$ to its inverse. Any right action can be converted into a left action by precomposing with this isomorphism, which has the effect of ``inserting inverses in the formula" defining the endomorphism associated to a particular group element.
@@ -638,7 +642,7 @@ Now, although we have defined the definition of isomorphisms of categories, it i
 
 \section{Naturality}
 
-\begin{defn}{}{}
+\begin{defn}
     Given categories $\catname{C}$ and $\catname{D}$ and functors $\begin{tikzcd} {F,G:\textbf{C}} & {\textbf{D}} \arrow[shift right=1, from=1-1, to=1-2] \arrow[shift left=1, from=1-1, to=1-2] \end{tikzcd}$, a \Emph{natural transformation} $\alpha:F\Rightarrow G$ consists of: \begin{itemize}
         \item an arrow $\alpha_c:Fc\rightarrow Gc$ in $\catname{D}$ for each object $c \in \catname{C}$, the collection of which define the \Emph{components} of the natural transformation,
     \end{itemize}
@@ -665,7 +669,7 @@ Now, although we have defined the definition of isomorphisms of categories, it i
 \end{defn}
 
 
-\begin{eg}{}{}
+\begin{eg}
     \leavevmode
     \begin{enumerate}
         \item[(i)] For vector spaces of any dimension, the map $\ev:V\rightarrow V^{**}$ that sends $v \in V$ to the linear function $\ev_v:V^*\rightarrow \mathbb{F}$ defines the components of a natural transformation from the identity endofunctor on $\catname{Vect}_{\mathbb{F}}$ to the double dual functor. To check that the naturality square 

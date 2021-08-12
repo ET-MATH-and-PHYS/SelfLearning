@@ -1,5 +1,6 @@
-\documentclass[12pt]{report}
+\documentclass[12pt, a4paper, oneside, openright, titlepage]{book}
 \usepackage[utf8]{inputenc}
+\raggedbottom
 \usepackage{import}
 
 
@@ -41,6 +42,11 @@
     
     \vspace{1.0\baselineskip}
     \textit{Solo Pursuit of Learning}
+    \vfill
+    \enlargethispage{1in}
+    \begin{figure}[b!]
+    \makebox[\textwidth]{\includegraphics[width=\paperwidth, height =10cm]{../../Crab.jpg}}
+    \end{figure}
 \end{titlepage}
 
 %%%%%%%%%%%%%%%%%%%%%%%
@@ -54,7 +60,7 @@
 
 \section{The Axiom of Completeness}
 
-\begin{defn}{The Reals}{}
+\begin{defn}[The Reals]
     The real number system $\R$ is an \Emph{ordered field} which contains $\Q$ as a subfield, which satisfies the \Emph{axiom of choice}. In particular, the real numbers is a set $\R$ with two binary operations $+$ and $\cdot$, two distinct elements $0$ and $1$, and a subset $\mathbb{P}$ of positive numbers satisfying the following $13$ postulates:
     \begin{enumerate}
         \item Addition is associative: $\forall a,b,c \in \R, a+(b+c) = (a+b)+c$
@@ -80,7 +86,7 @@
     Note in particular $a > 0$ if and only if $a \in \mathbb{P}$.
 \end{defn}
 
-\begin{rmk}{}{}
+\begin{rmk}
     A few points which follow from the postulates are:\begin{enumerate}
         \item Finite sums such as $a_1+a_2+...+a_n$ are well defined
         \item The additive identity is unique (also multiplicative)
@@ -95,20 +101,20 @@
 \end{rmk}
 
 
-\begin{axi*}{Axiom of Completeness}{}
+\begin{axi}[Axiom of Completeness]
     Every non-empty subset of the real numbers that is bounded above has a least upper bound.
-\end{axi*}
+\end{axi}
 
 \subsection{Upper and Lower Bounds}
 
-\begin{defn}{Bounds}{}
+\begin{defn}[Bounds]
     A set $A \subseteq \R$ is \Emph{bounded above} if there exists a number $b \in \R$ such that $a \leq b$ for all $a \in A$. The number $b$ is called an \Emph{upper bound} for $A$.
 
 
     Similarly, the set $A$ is \Emph{bounded below} if there exists a \Emph{lower bound} $l \in \R$ satisfying $l \leq a$ for every $a \in A$.
 \end{defn}
 
-\begin{defn}{Least Upper Bound}{}
+\begin{defn}[Least Upper Bound]
     A real number $s$ is the \Emph{least upper bound} for a set $A \subseteq \R$ if it meets the following two criteria: \begin{enumerate}
         \item $s$ is an upper bound for $A$;
         \item if $b$ is any upper bound for $A$, then $s \leq b$.
@@ -116,7 +122,7 @@
     The least upper bound of a set $A$ is also called the \Emph{supremum} of $A$, and denoted by $\sup A$.
 \end{defn}
 
-\begin{defn}{Greatest Lower Bound}{}
+\begin{defn}[Greatest Lower Bound]
     A real number $i$ is the \Emph{Greatest Lower bound} for a set $A \subseteq \R$ if it meets the following two criteria: \begin{enumerate}
         \item $i$ is a lower bound for $A$;
         \item if $b$ is any lower bound for $A$, then $b \leq i$.
@@ -125,84 +131,84 @@
 \end{defn}
 
 
-\begin{rmk}{}{}
+\begin{rmk}
     From the definitions we assert that the least upper bound and greatest lower bound of a set, if they exist, are unique.
 \end{rmk}
 
 
-\begin{eg*}{}{}
+\begin{eg}
     Consider the set $$A = \left\{\frac{1}{n}:n\in\N\right\} = \left\{1,\frac{1}{2},\frac{1}{3},...\right\}$$ The set $A$ is bounded above and below. Moreover, the least upper bound of $A$ is $\sup A = 1$, which is in $A$, while $\inf A = 0$, which is not in $A$.
-\end{eg*}
+\end{eg}
 
 
-\begin{defn}{Max and Min}{}
+\begin{defn}[Max and Min]
     A real number $a_0$ is a \Emph{maximum} of a set $A$ if $a_0$ is an element of $A$ and $a_0 \geq a$ for all $a \in A$. Similarly, a number $a_1$ is a \Emph{minimum} of $A$ if $a_1 \in A$ and $a_1 \leq a$ for all $a \in A$.
 \end{defn}
 
-\begin{eg*}{}{}
+\begin{eg}
     Consider the open interval $(0,2)$, and the closed interval $[0,2]$. Note both sets are bounded above and below, and both have the same infimum and supremum, namely $\inf = 0$ and $\sup = 2$. However, $[0,2]$ has both a maximum and a minimum, namely its infimum and supremum, while $(0,2)$ has neither.
-\end{eg*}
+\end{eg}
 
 
-\begin{eg*}{}{}
+\begin{eg}
     Let $A \subseteq \R$ be a non-empty and bounded above set, and let $c \in \R$. Define the set $c+A$ by $$c+A:=\{c+a:a \in A\}$$ Then I claim that $\sup(c+A) = c+\sup A$.
-    \begin{proof*}{}{}
+    \begin{proof}
         Let $\alpha = c+\sup A$. First let us show that $\alpha$ is an upper bound of $c+A$. Indeed, for $x \in c+A$ we can write $x = c+a$ for some $a \in A$ by definition. Then, by definition we have that $a \leq \sup A$. Thus, adding $c$ to both sides we obtain $$x = c+a \leq c+\sup A = \alpha$$
         Therefore, as $x$ was arbitrary $\alpha$ is indeed an upper bound of $c+A$. Now, suppose $b$ is an upper bound of $c+A$. Then, $c+a \leq b$ for all $c+a \in c+ A$, so in particular $a \leq b - c$ for all $a \in A$. Then, $b-c$ is an upper bound for $A$, so as $\sup A$ is the least upper bound of $A$ we have that $\sup A \leq b-c$. Hence, we conclude that $\alpha = c+\sup A \leq b$. Thus $\alpha$ satisfies the axioms of a least upper bound for $c+A$, and we conclude that $\sup(c+A) = c+\sup A$.
-    \end{proof*}
-\end{eg*}
+    \end{proof}
+\end{eg}
 
 
-\begin{lem}{}{}
+\begin{lem}
     Assume $s \in \R$ is an upper bound for a set $A \subseteq \R$. Then $s = \sup A$ if and only if, for every choice $\epsilon > 0$, there exists an element $a \in A$ satisfying $s-\epsilon < a$.
 \end{lem}
-\begin{proof*}{}{}
+\begin{proof}
     Let $s \in \R$ be an upper bound for a set $A \subseteq \R$. 
 
     ($\implies$) First, suppose that $s = \sup A$, and choose $\epsilon \in \R$ with $\epsilon > 0$. Then $s-\epsilon$ is not an upper bound of $A$. Indeed, if $s-\epsilon$ was an upper bound then $s \leq s - \epsilon$ which implies that $\epsilon \leq 0$, but by assumption $\epsilon > 0$. Thus, there must exist $a \in A$ such that $s - \epsilon < a$, satisfying the implication.
 
     ($\impliedby$) Conversely, suppose that for all $\epsilon > 0$ there exists $a \in A$ such that $s - \epsilon < a$. Now, suppose that $b$ is an upper bound of $A$, and towards a contradiction suppose $s > b$. Then $s - b > 0$, so there exists $a \in A$ such that $s - (s-b) < a$. In particular, $b < a$. However, $a \in A$ and $b$ is an upper bound of $A$ by assumption, so $b < a$ is a contradiction. Therefore we conclude that $s \leq b$, so $s$ is the supremum of $A$ by definition.
-\end{proof*}
+\end{proof}
 
 
-\begin{thm}{Archimedean Property for the Reals}{}
+\begin{thm}[Archimedean Property for the Reals]
     For all $x,y > 0$ in $\R$, there exists $n \in \N$ such that $nx > y$.
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     Towards a contradiction suppose $nx \leq y$ for all $n \in \N$. Then the set $\{nx: n \in \N\}$ is bounded above by $y$. Thus, by the least upper bound property of $\R$ we have a supremum $\alpha \in \R$. Then for all $n \in \N$ $\alpha \geq nx$. In particular, $\alpha \geq (n+1)x$ for all $n \in \N$, so $\alpha - x \geq nx$ for all $n \in \N$. But this implies that $\alpha - x$ is also an upper bound of the set, which contradicts the fact that $\alpha$ is the least upper bound. Thus, we must have that $nx > y$ for some $n \in \N$, as claimed.
-\end{proof*}
+\end{proof}
 
-\begin{cor}{}{}
+\begin{cor}
     $\N$ is not bounded above.
 \end{cor}
 
 
-\begin{cor}{}{}
+\begin{cor}
     For any $\epsilon > 0$ there is a natural number $n$ with $1/n < \epsilon$.
 \end{cor}
-\begin{proof*}{}{}
+\begin{proof}
     Consider $0<1/\epsilon \in \R$ and $1 \in \R$. Then by the Archimedean Property of $\R$ there exists $n \in \N$ such that $1\cdot n > 1/\epsilon$. In particular, we have that $n > 0$, so $\epsilon > 1/n$, completing the proof.
-\end{proof*}
+\end{proof}
 
 
 
 
 \section{Limits}
 
-\begin{rmk}{Motivating Definition}{}
+\begin{rmk}[Motivating Definition]
     The function $f$ approaches the limit $l \in \R$ near $a \in \R$, if we can make $f(x)$ as ``close as we like" to $l$ by requiring that $x$ be ``sufficiently close to," but unequal to, $a.$
 \end{rmk}
 
-\begin{defn}{Limit}{}
+\begin{defn}[Limit]
     A real valued function $f:\R\rightarrow \R$ \Emph{approaches the limit $l$ near $a$} if for every $\epsilon > 0$ there is some $\delta > 0$ such that, for all $x \in \R$, if $0 < |x-a| < \delta$, then $|f(x) - l| < \epsilon$.
 \end{defn}
 
-\begin{nota*}{}{}
+\begin{nota}
     We denote the number $l$ which a function $f$ approaches near $a \in \R$ by $\lim\limits_{x\rightarrow a}f(x)$, read \Emph{the limit of $f(x)$ as $x$ approaches $a$}.
-\end{nota*}
+\end{nota}
 
 
-\begin{lem}{}{}
+\begin{lem}
     \leavevmode
     \begin{enumerate}
         \item If $$|x-x_0| < \frac{\epsilon}{2}\;and\;|y-y_0| < \frac{\epsilon}{2}$$
@@ -213,7 +219,7 @@
             then $y\neq 0$ and $$\left|\frac{1}{y} - \frac{1}{y_0}\right|$$
     \end{enumerate}
 \end{lem}
-\begin{proof*}{}{}
+\begin{proof}
     (1) Suppose $|x-x_0| < \frac{\epsilon}{2}\;and\;|y-y_0| < \frac{\epsilon}{2}$. Then it follows that \begin{align*}
         |(x+y) - (x_0+y_0)| &= |(x-x_0)+(y-y_0)| \\
         &\leq |x-x_0| + |y-y_0| \\
@@ -238,17 +244,17 @@
         &= \epsilon
     \end{align*}
     as claimed.
-\end{proof*}
+\end{proof}
 
 
-\begin{thm}{Limit Laws}{limlaws}
+\begin{thm}[Limit Laws]\label{thm:limlaws}
     If $\lim\limits_{x\rightarrow a}f(x) = l$ and $\lim\limits_{x\rightarrow a}g(x) = m$, then \begin{enumerate}
         \item $\lim\limits_{x\rightarrow a}(f+g)(x) = l+m$;
         \item $\lim\limits_{x\rightarrow a}(f\cdot g)(x) = l\cdot m$;
         \item Moreover, if $m \neq 0$, then $\lim\limits_{x\rightarrow a}\left(\frac{1}{g}\right)(x) = \frac{1}{m}$
     \end{enumerate}
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     Suppose that $\lim\limits_{x\rightarrow a}f(x) = l$ and $\lim\limits_{x\rightarrow a}g(x) = m$. Let $\epsilon > 0$.
 
 
@@ -266,10 +272,10 @@
 
 
     (3) Now, suppose $m \neq 0$. Fix $\epsilon_1 = \min\left(\frac{|m|}{2},\frac{\epsilon|m|^2}{2}\right)$. Then as $\lim\limits_{x\rightarrow a}g(x) = m$, there exists $\delta > 0$ such that if $|x-a| < \delta$, $|g(x) - m| < \epsilon_1$. By the previous Lemma we have that if $|x-a| < \delta$, $g(x) \neq 0$ and $\left|\frac{1}{g(x)} - \frac{1}{m}\right| < \epsilon$. Hence, by definition $\lim\limits_{x\rightarrow a}\left(\frac{1}{g}\right)(x) = \frac{1}{m}$, as desired.
-\end{proof*}
+\end{proof}
 
 
-\begin{defn}{Limits from Above and Below}{}
+\begin{defn}[Limits from Above and Below]
     The \Emph{limit from above} for a function $f$ as $x$ goes to $a$ is denoted by $\lim\limits_{x\rightarrow a^+}f(x) = l$, which means for every $\epsilon > 0$ there is a $\delta > 0$ such that for all $x$, $$if\;0 < x-a < \delta,\;then\;|f(x) - l|< \epsilon$$
     where $0 < x-a < \delta$ is equivalent to $0 < |x-a| < \delta$ and $x > a$.
 
@@ -277,19 +283,19 @@
 \end{defn}
 
 
-\begin{rmk}{}{}
+\begin{rmk}
     For a function $f:\R\rightarrow \R$, $\lim_{x\rightarrow a}f(x)$ exists if and only if $\lim\limits_{x\rightarrow a^+}f(x)$ and $\lim\limits_{x\rightarrow a^-}f(x)$ both exist and are equal.
 \end{rmk}
 
 
-\begin{defn}{Limits at Infinity}{}
+\begin{defn}[Limits at Infinity]
     A \Emph{limit at infinity} is denoted by $\lim\limits_{x\rightarrow \infty}f(x) = l$, and means that for every $\epsilon > 0$ there is $M \in \R$ such that for all $x$, $$if\;x>M,\;then\;|f(x) - l| < \epsilon$$
 
     A limit at negative infinity is defined analogously, replacing $x> M$ with $x < M$.
 \end{defn}
 
 
-\begin{defn}{}{}
+\begin{defn}
     We define $\lim\limits_{x\rightarrow a}f(x) = \infty$ to mean that for all $N \in \R$, there exists $\delta > 0$ such that, for all $x \in \R$, if $0 < |x-a| < \delta$, then $f(x) > N$. (the case for $-\infty$ is defined similarly)
 \end{defn}
 
@@ -298,40 +304,40 @@
 \section{Continuous Functions}
 
 
-\begin{defn}{Continuity}{}
+\begin{defn}[Continuity]
     Let $f:\R\rightarrow \R$ be a real function. Then $f$ is said to be \Emph{continuous at a point $a$} if \begin{equation}
         \lim\limits_{x\rightarrow a}f(x) = f(a)
     \end{equation}
 \end{defn}
 
 
-\begin{thm}{}{}
+\begin{thm}
     If $f$ and $g$ are continuous at a point $a$, then \begin{enumerate}
         \item $f+g$ is continuous at $a$
         \item $f\cdot g$ is continuous at $a$
         \item Moreover, if $g(a) \neq 0$, then $1/g$ is continuous at $a$.
     \end{enumerate}
 \end{thm}
-\begin{proof*}{}{}
-    Suppose $f$ and $g$ are continuous at a point $a$. Then by the \nameref{thm:limlaws} theorem, we have that as $\lim\limits_{x\rightarrow a}f(x) = f(a)$ and $\lim\limits_{x\rightarrow a}g(x) = g(a)$, $$\lim\limits_{x\rightarrow a}(f+g)(x) = f(a) + g(a) = (f+g)(a)$$
-    Hence, $f+g$ is continuous at $a$. Similarly, again by the \nameref{thm:limlaws} theorem, we have that $$\lim\limits_{x\rightarrow a}(f\cdot g)(x) = f(a) \cdot g(a) = (f\cdot g)(a)$$
+\begin{proof}
+    Suppose $f$ and $g$ are continuous at a point $a$. Then by the \ref{thm:limlaws} theorem, we have that as $\lim\limits_{x\rightarrow a}f(x) = f(a)$ and $\lim\limits_{x\rightarrow a}g(x) = g(a)$, $$\lim\limits_{x\rightarrow a}(f+g)(x) = f(a) + g(a) = (f+g)(a)$$
+    Hence, $f+g$ is continuous at $a$. Similarly, again by the \ref{thm:limlaws} theorem, we have that $$\lim\limits_{x\rightarrow a}(f\cdot g)(x) = f(a) \cdot g(a) = (f\cdot g)(a)$$
     Thus, $f\cdot g$ is continuous at $a$.
     Finally, if $g(a) \neq 0$, the $$\lim\limits_{x\rightarrow a}(1/g)(x) = 1/g(a) = (1/g)(a)$$
     so $1/g$ is continuous at $a$.
-\end{proof*}
+\end{proof}
 
 
-\begin{thm}{}{}
+\begin{thm}
     If $g$ is continuous at $a$, and $f$ is continuous at $g(a)$, then $f\circ g$ is continuous at $a$.
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     Let $\epsilon > 0$. Then by continuity of $f$ there exists $\delta_1 > 0$ such that if $|g(x) - g(a)| < \delta_1$, then $$|f(g(x)) - f(g(a))| < \epsilon$$
     Then, by the continuity of $g$, there exists $\delta > 0$ such that if $|x-a| < \delta$, then $|g(x) - g(a)| < \delta_1$. Thus, if $|x-a| < \delta$ we have that $$|(f\circ g)(x) - (f\circ g)(a)| = |f(g(x)) - f(g(a))| < \epsilon$$
     proving continuity of $f\circ g$ at $a$.
-\end{proof*}
+\end{proof}
 
 
-\begin{defn}{}{}
+\begin{defn}
     A function $f$ is called \Emph{continuous on} an open interval $(a,b)$, if $f$ is continuous at $x$ for all $x \in (a,b)$.
 
     A function $f$ is called \Emph{continuous on} a closed interval $[a,b]$ if \begin{enumerate}
@@ -343,21 +349,21 @@
 \end{defn}
 
 
-\begin{thm}{}{}
+\begin{thm}
     Suppose $f$ is continuous at $a$, and $f(a) > 0$. Then $f(x) > 0$ for all $x$ in some interval containing $a$; more precisely, there is a number $\delta > 0$ such that $f(x) > 0$ for all $x$ satisfying $|x-a| < \delta$. Similarly, if $f(a) < 0$, then there is a number $\delta > 0$ such that $f(x) < 0$ for all $x$ satisfying $|x-a| < \delta$.
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     Suppose $f$ is continuous at $a$. Let $\epsilon = \frac{f(a)}{2} > 0$. Then by continuity there exists $\delta > 0$ such that if $|x-a| < \delta$, $|f(x) - f(a)| < \epsilon$. Then we have that $-\epsilon < f(x) - f(a) < \epsilon$, so $f(x) > \epsilon > 0$, satisfying the claim. The case for $f(a) < 0$ is proved analogously.
-\end{proof*}
+\end{proof}
 
 
 \subsection{Important Theorems and Results on Continuity}
 
 
-\begin{thm}{}{}
+\begin{thm}
     If $f$ is continuous on a closed interval $[a,b]$ (a compact set) and $f(a) < 0 < f(b)$, then there is some $x \in [a,b]$ such that $f(x) = 0$.
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     Consider an interval $[a,b]$ such that $f(a) < 0 < f(b)$. Define the set $$a := \{x\in \R:a\leq x \leq b,\text{and $f$ is negative on $[a,x]$}\}$$
     Clearly $A \neq \emptyset$ as $a \in A$. In fact, there exists some $\delta > 0$ such that $A$ contains all points $x \in \R$ satisfying $a \leq x < a+\delta$, since $f$ is continuous on $[a,b]$ and $f(a) < 0$. Similarly, $b$ is an upper bound for $A$ and, in fact, there is a $\delta > 0$ such that all points satisfying $b-\delta < x \leq b$ are upper bounds for $A$.
 
@@ -365,71 +371,71 @@
 
 
     Suppose, on the other hand, that $f(\alpha) > 0$. Then there is a number $\delta > 0$ such that $f(x) > 0$ for all $\alpha - \delta < x < \alpha + \delta$. Now there is some number $x_0 \in A$ such that $\alpha - \delta < x_0 < \alpha$ as $\alpha$ is presumed to be the supremum of $A$. This means that $f$ is negative on the whole interval $[a,x_0]$, which is impossible since $f(x_0) > 0$. Thus, the assumption $f(\alpha) > 0$ leads to a contradiction, leaving $f(\alpha) = 0$ as the only possible alternative. 
-\end{proof*}
+\end{proof}
 
-\begin{lem}{}{}
+\begin{lem}
     If $f$ is continuous at $a$, then there is a number $\delta > 0$ such that $f$ is bounded on the interval $(a-\delta, a+\delta)$.
 \end{lem}
-\begin{proof*}{}{}
+\begin{proof}
     Since $f$ is continuous at $a$ we have that $\lim\limits_{x\rightarrow a}f(x) = f(a)$. Then, fix $\epsilon = 1$. By continuity it follows that there exists $\delta > 0$ such that for all $x \in (a-\delta, a+\delta)$, $|f(x) - f(a)| < 1$. In particular, we have that $f(x) < f(a) + 1$, so $f$ is bounded above by $f(a)+1$ on $(a-\delta,a+\delta)$. Moreover, $f(x) > f(a) - 1$, so $f$ is bounded below by $f(a) -1$ on $(a-\delta, a+\delta)$. Thus $f$ is bounded on the interval $(a-\delta,a+\delta)$ as claimed.
-\end{proof*}
+\end{proof}
 
 
-\begin{cor}{}{}
+\begin{cor}
     If $\lim\limits_{x\rightarrow a^+}f(x) = f(a)$ then there exists $\delta > 0$ such that $f$ is bounded on the interval $[a,a+\delta)$. Moreover, if $\lim\limits_{x\rightarrow b^-}f(x) = f(b)$ then there exists $\delta > 0$ such that $f$ is bounded on the interval $(b-\delta, b]$.
 \end{cor}
 
 
-\begin{thm}{}{}
+\begin{thm}
     If $f$ is continuous on a closed interval $[a,b]$ (a compact set), then $f$ is bounded above on $[a,b]$, that is, there is some number $M \in \R$ such that $f(x) \leq M$ for all $x \in [a,b]$ (consequence of the continuous image of a compact set being compact and the Heine-Borel Theorem).
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     Define the set $$A:= \{x\in [a,b]:\text{$f$ is bounded above on $[a,x]$}\}$$
     Clearly $A \neq \emptyset$ as $a \in A$, and $A$ is bounded above by $B$, so $A$ has a least upper bound $\alpha \in \R$. We wish to show that $\alpha = b$. Suppose towards a contradiction that $\alpha < b$. Then there exists $\delta > 0$ such that $f$ is bounded on $(\alpha-\delta, \alpha + \delta)$ since $f$ is continuous on $[a,b]$, so in particular $f$ is continuous at $\alpha$. Since $\alpha$ is the least upper bound of $A$ there is some $x_0 \in A$ satisfying $\alpha - \delta < x_0 < \alpha$. This implies that $f$ is bounded on $[a,x_0]$. But, if $x_1$ is any number with $\alpha < x_1 < \alpha + \delta$, then $f$ is also bounded on $[x_0,x_1]$. Therefore $f$ is bounded on $[a,x_1]$ so $x_1 \in A$, contradicting the fact that $\alpha$ is an upper bound for $A$. This contradiction shows that $\alpha = b$. Now, there is a $\delta > 0$ such that $f$ is bounded on $(b-\delta, b]$. There is $x_0 \in A$ such that $b - \delta < x_0 < b$, since $\alpha = b$. Thus $f$ is bounded on $[a,x_0]$, and also on $[x_0,b]$, so $f$ is bounded on $[a,b]$, completing the proof.
-\end{proof*}
+\end{proof}
 
 
 
 
-\begin{thm}{}{}
+\begin{thm}
     If $f$ is continuous on a closed interval $[a,b]$, then there is some number $y \in [a,b]$ such that $f(y) \geq f(x)$ for all $x \in [a,b]$.
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     From the previous theorem we know that $f$ is bounded on $[a,b]$, so the set $\{f(x):x\in[a,b]\}$ is bounded. This set is obviously non-empty, so it has a least upper bound $\alpha \in \R$. Since $\alpha \geq f(x)$ for all $x \in [a,b]$, it suffices to show that $\alpha = f(y)$ for some $y \in [a,b]$. Suppose instead that $\alpha \neq f(y)$ for all $y \in [a,b]$. Then the function $g$ defined by $$g(x) = \frac{1}{\alpha - f(x)}, x \in [a,b]$$ is continuous on $[a,b]$ since the denominator is never zero and is the sum of continuous functions. On the other hand, $\alpha$ is the least upper bound of $\{f(x):x\in [a,b]\}$ so for every $\epsilon > 0$ there exists $x \in [a,b]$ such that $\alpha - \epsilon < f(x)$, so $\alpha - f(x) < \epsilon$. This in turn implies that for every $\epsilon > 0$ there exists $x \in [a,b]$ with $g(x) > 1/\epsilon$. But, this implies that $g$ is not bounded on $[a,b]$, contradicting the previous theorem as $g$ is assumed to be continuous. Hence, $g$ is not continuous, and i particular $\alpha - f(y) = 0$ for some $y \in [a,b]$.
-\end{proof*}
+\end{proof}
 
 
-\begin{namthm}{Intermediate Value Theorem}{intval}
+\begin{namthm}[Intermediate Value Theorem]\label{thmname:intval}
     If $f$ is continuous on $[a,b]$ and $f(a) < c < f(b)$, then there is some $x \in [a,b]$ such that $f(x) = c$ (continuous image of a connected set is connected).
 
     Moreover, if $f(a) > c > f(b)$, then there is some $x \in [a,b]$ such that $f(x) = c$.
 \end{namthm}
 
-\begin{thm}{}{}
+\begin{thm}
     If $f$ is continuous on $[a,b]$, then $f$ is bounded below on $[a,b]$, that is, there is some number $M \in \R$ such that $f(x) \geq M$ for all $x \in [a,b]$.
 \end{thm}
 
-\begin{thm}{}{}
+\begin{thm}
     If $f$ is continuous on $[a,b]$, then there is some $y \in [a,b]$ such that $f(y) \leq f(x)$ for all $x \in [a,b]$.
 \end{thm}
 
 
-\begin{cor}{}{}
+\begin{cor}
     For all $\alpha \in \mathbb{P}$, so $\alpha >0$, there exists $x \in \R$ such that $x^2 = \alpha$.
 \end{cor}
-\begin{proof*}{}{}
-    Consider the function $f(x) = x^2$, which is certainly continuous over $\R$. Consider $\alpha \in \mathbb{P}$. Then there exists $b > 0$ such that $f(b) > \alpha$. Indeed, if $\alpha > 1$ we can take $b = \alpha$, and if $\alpha < 1$ we can take $b = 1$. Then, $f$ is defined on the closed interval $[0,b]$ and $f(0) = 0 < \alpha < f(b)$. Therefore, by the \nameref{thmname:intval} there exists $c \in [0,b]$ such that $f(c) = \alpha$. In particular, $c^2 = \alpha$.
-\end{proof*}
+\begin{proof}
+    Consider the function $f(x) = x^2$, which is certainly continuous over $\R$. Consider $\alpha \in \mathbb{P}$. Then there exists $b > 0$ such that $f(b) > \alpha$. Indeed, if $\alpha > 1$ we can take $b = \alpha$, and if $\alpha < 1$ we can take $b = 1$. Then, $f$ is defined on the closed interval $[0,b]$ and $f(0) = 0 < \alpha < f(b)$. Therefore, by the \ref{thmname:intval} there exists $c \in [0,b]$ such that $f(c) = \alpha$. In particular, $c^2 = \alpha$.
+\end{proof}
 
 
 
-\begin{cor}{}{}
+\begin{cor}
     If $n$ is odd, then any equation \begin{equation}
         x^n + a_{n-1}x^{n-1} + ... + a_0 = 0
     \end{equation}
     has a solution, or root.
 \end{cor}
-\begin{proof*}{}{}
+\begin{proof}
     Consider the function $f(x) = x^n+a_{n-1}x^{n-1} + ... + a_0$. Write $$f(x) = x^n+a_{n-1}x^{n-1} + ... + a_0 = x^n\left(1 + \frac{a_{n-1}}{x} + ... + \frac{a_0}{x^n}\right)$$ 
     Then note that $$\left|\frac{a_{n-1}}{x} + \frac{a_{n-2}}{x^2} + ... + \frac{a_0}{x^n}\right|\leq \frac{|a_{n-1}|}{|x|} + ... + \frac{|a_0|}{|x^n|}$$
     Choose $x$ such that $$|x| > 1,2n|a_{n-1}|,...,2n|a_0|$$
@@ -439,63 +445,63 @@
     which implies that $$\frac{1}{2} < 1 + \frac{a_{n-1}}{x} + \frac{a_{n-2}}{x^2} + ... + \frac{a_0}{x^n}$$
     Choosing $x_1 > 0$ which satisfies our condition, we have $$\frac{x_1^n}{2} \leq x_1^n\left(1+\frac{a_{n-1}}{x} + \frac{a_{n-2}}{x^2} + ... + \frac{a_0}{x^n}\right) = f(x_1)$$
     so that $f(x_1) > 0$. On the other hand, choosing $x_2 < 0$ satisfying our condition, $x_2^n < 0$ as $n$ is odd and $$\frac{x_2^n}{2} \geq x_2^n\left(1+\frac{a_{n-1}}{x} + \frac{a_{n-2}}{x^2} + ... + \frac{a_0}{x^n}\right) = f(x_2)$$
-    so that $f(x_2) < 0$. Applying the \nameref{thmname:intval} to the interval $[x_2,x_1]$ we conclude that there exists $c \in [x_2,x_1]$ such that $f(c) = 0$.
-\end{proof*}
+    so that $f(x_2) < 0$. Applying the \ref{thmname:intval} to the interval $[x_2,x_1]$ we conclude that there exists $c \in [x_2,x_1]$ such that $f(c) = 0$.
+\end{proof}
 
 
-\begin{thm}{}{}
+\begin{thm}
     If $n$ is even and $f(x) = x^n+a_{n-1}x^{n-1} + ... + a_0$, then there is a number $y$ such that $f(y) \leq f(x)$ for all $x \in \R$.
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     Choose $M$ such that $$M = \max(1,2n|a_{n-1}|,...,2n|a_0)$$
     Then for all $x$ with $|x| \geq M$ we have $$\frac{1}{2} \leq 1 + \frac{a_{n-1}}{x} + \frac{a_{n-2}}{x^2} + ... + \frac{a_0}{x^n}$$
     Since $n$ is even, $x^n \geq 0$ for all $x$, so $$\frac{x^n}{2} \leq x^n\left(1 + \frac{a_{n-1}}{x} + \frac{a_{n-2}}{x^2} + ... + \frac{a_0}{x^n}\right) = f(x)$$
     provided that $|x| \geq M$. Now consider the number $f(0)$. Let $b > 0$ be a number such that $b^n \geq 2f(0)$ and also $b > M$. Then if $x \geq b$, we have $$f(x) \geq \frac{x^n}{2} \geq \frac{b^n}{2} \geq f(0)$$
     The same holds for $x \leq -b$. In particular, if $x \geq b$ or $x \leq -b$, then $f(x) \geq f(0)$. Applying the extreme value theorem to $f$ on the interval $[-b,b]$, we conclude that there is a number $y \in [-b,b]$ such that if $-b \leq x \leq b$, then $f(y) \leq f(x)$. In particular, $f(y) \leq f(0)$. Thus, if $x \leq -b$ or $x \geq b$, then $f(x) \geq f(0) \geq f(y)$. Combining these results we find that $f(y) \leq f(x)$ for all $x \in \R$.
-\end{proof*}
+\end{proof}
 
 
-\begin{cor}{}{}
+\begin{cor}
     Consider the equation \begin{equation}
         x^n +a_{n-1}x^{n-1} + ... + a_0 = c
     \end{equation}
     for $n$ even. Then there is a number $m$ such that the equation has a solution for $c \geq m$ and has no solution for $c < m$.
 \end{cor}
-\begin{proof*}{}{}
-    Let $f(x) = x^n + a_{n-1}x^{n-1} + ...+ a_0$. According to our previous theorem there exists $y \in \R$ such that $f(y) \leq f(x)$ for all $x \in \R$. Let $m = f(y)$. If $c < m$ then the equation above has no solutiion, since the left hand side has a value $\geq m$ always. If $c = m$, then $y$ is a solution of the equation. Finally, for $c > m$, let $b > y$ such that $f(b) > c$. Then the \nameref{thmname:intval} applied to the interval $[y,b]$ states that there exists $x \in [y,b]$ such taht $f(x) = c$, so $x$ is a solution of the equation.
-\end{proof*}
+\begin{proof}
+    Let $f(x) = x^n + a_{n-1}x^{n-1} + ...+ a_0$. According to our previous theorem there exists $y \in \R$ such that $f(y) \leq f(x)$ for all $x \in \R$. Let $m = f(y)$. If $c < m$ then the equation above has no solutiion, since the left hand side has a value $\geq m$ always. If $c = m$, then $y$ is a solution of the equation. Finally, for $c > m$, let $b > y$ such that $f(b) > c$. Then the \ref{thmname:intval} applied to the interval $[y,b]$ states that there exists $x \in [y,b]$ such taht $f(x) = c$, so $x$ is a solution of the equation.
+\end{proof}
 
 
 \subsection{Uniform Continuity}
 
 
-\begin{defn}{}{}
+\begin{defn}
     A function $f:\R\rightarrow \R$ is \Emph{uniformly continuous on an interval $I$} if for every $\epsilon > 0$ there is some $\delta > 0$ such that, for all $x,y \in I$, if $|x-y| < \delta$ then $|f(x) - f(y)| < \delta$.
 \end{defn}
 
 
-\begin{lem}{}{}
+\begin{lem}
     Let $a < b < c$ and let $f$ be continuous on the interval $[a,c]$. Let $\epsilon > 0$ and suppose that \begin{enumerate}
         \item if $x,y \in [a,b]$ and $|x-y| < \delta_1$, then $|f(x) - f(y)| < \epsilon$
         \item if $x,y \in [b,c]$ and $|x-y| < \delta_2$, then $|f(x) - f(y)| < \epsilon$
     \end{enumerate}
     Then there is a $\delta > 0$ such that if $x,y \in [a,c]$ and $|x-y| < \delta$, then $|f(x) - f(y)| < \epsilon$.
 \end{lem}
-\begin{proof*}{}{}
+\begin{proof}
     Fix $\epsilon > 0$. Since $f$ is continuous at $b$ there exists $\delta_3 > 0$ such that if $|x-b| < \delta_3$, then $|f(x) - f(b)| < \frac{\epsilon}{2}$. It follows that if $|x-b| < \delta_3$ and $|y-b| < \delta_3$ then $|f(x) - f(y)| < \epsilon$. Choose $\delta = \min(\delta_1,\delta_2,\delta_3)$. Let $x,y \in [a,c]$ with $|x-y| < \delta$. If $x$ and $y$ are both in $[a,b]$, then $|f(x) - f(y)| < \epsilon$ by assumption. Similarly, if $x,y \in [b,c]$, then again $|f(x) - f(y)| < \epsilon$ by assumption. Finally, without loss of generality suppose $x < b < y$. Since $|x-y| < \delta$ we have that $|x-b| = |b-x| = b-x < y-x = |y-x| < \delta$ and similarly $|y-b| < \delta$. Thus, we have that $|f(x) - f(y)| < \epsilon$, completing the proof.
-\end{proof*}
+\end{proof}
 
 
-\begin{thm}{Uniform Continuity Theorem}{}
+\begin{thm}[Uniform Continuity Theorem]
     If $f$ is continuous on $[a,b]$, then $f$ is uniformly continuous on $[a,b]$.
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     Consider $\epsilon > 0$. Define the set $$A(\epsilon) := \{x \in [a,b]:\exists \delta > 0;\forall y,z \in [a,x];|y-z| < \delta \implies|f(y) - f(z)| < \epsilon\}$$
     Then $A(\epsilon) \neq \emptyset$ since $a \in A(\epsilon)$, and $A(\epsilon)$ is bounded above by $b$, so $A(\epsilon)$ has a least upper bound $\alpha_{\epsilon} \in \R$. Suppose towards a contradiction that $\alpha < b$. Since $f$ is continuous at $\alpha$, there is some $\delta_0$ such that if $|y-\alpha| < \delta_0$, then $|f(y) - f(\alpha)| < \epsilon/2$. Consequently, if $|y-\alpha| < \delta_0$ and $|z-\alpha| < \delta_0$, then $|f(y) - f(z)| < \epsilon$. So, $f$ surely satisfies the condition for containment in $A(\epsilon)$ on the interval $[\alpha - \delta_0, \alpha + \delta_0$. On the other hand, since $\alpha$ is the least upper bound of $A$ it is also clear that the condition is satisfies on $[a,\alpha - \delta_0]$, namely $\alpha - \delta_0 \in A$. Then, the Lemma implies that $f$ satisfies the condition on $[a,\alpha+\delta_0]$ since it satisfies it on $[a,\alpha - \delta_0]$ and $[\alpha - \delta_0, \alpha + \delta_0]$. Hence, $\alpha + \delta_0 \in A$, contradicting the fact that $\alpha$ is an upper bound.
 
 
     To complete the proof we must show that $\alpha = b$ is in $A$. Since $f$ is continuous at $b$, there is some $\delta_0 > 0$ such that if $y \in (b-\delta_0, b)$, then $|f(y) - f(b)| < \epsilon/2$. So, for any $x,y \in [b-\delta_0,b]$, $|f(y) - f(x)| < \epsilon$. But, $f$ satisfies the condition for $A(\epsilon)$ on $[a,b-\delta_0]$ since $b$ is the least upper bound of $A(\epsilon)$, so the Lemma implies that $f$ satisfies the condition on $[a,b]$. Therefore, as $\epsilon > 0$ was arbitrary, we conclude that $f$ is uniformly continuous on $[a,b]$, completing the proof.
-\end{proof*}
+\end{proof}
 
 
 
@@ -509,50 +515,50 @@
 \section{Introduction to Derivatives}
 
 
-\begin{defn}{Differentiability}{}
+\begin{defn}[Differentiability]
     A function $f:\R\rightarrow \R$ is said to be \Emph{differentiable at $a$} if \begin{equation}
         \lim\limits_{h\rightarrow 0}\frac{f(a+h) - f(a)}{h}
     \end{equation}
     exists. In this case the limit is denoted by \Emph{$f'(a)$} and is called the \Emph{derivative of $f$ at $a$}. We also say that $f$ is \Emph{differentiable} if $f$ is differentiable at $a$ for all $a$ in its domain.
 \end{defn}
 
-\begin{defn}{}{}
+\begin{defn}
     We define the \Emph{tangent line} to the graph of $f$ at $(a,f(a))$ to be the line through $(a,f(a))$ with slope $f'(a)$. That is, the tangent line at $(a,f(a))$ is well defined if and only if $f$ is differentiable at $a$.
 \end{defn}
 
 
-\begin{rmk}{}{}
+\begin{rmk}
     Given a function $f$, we denote by $f'$ the function whose domain is the set of all numbers $a \in \R$ such that $f$ is differentiable at $a$, and whose value at such a number $a$ is \begin{equation}
         \lim\limits_{h\rightarrow 0}\frac{f(a+h) - f(a)}{h}
     \end{equation}
     The function $f'$ is called the \Emph{derivative} of $f$.
 \end{rmk}
 
-\begin{nota*}{}{}
+\begin{nota}
     For a given function $f:\R\rightarrow \R$, the derivative $f'$ is often denoted by \begin{equation}
         \frac{df(x)}{dx}
     \end{equation}
     and the number $f'(a)$ is denoted by \begin{equation}
         \left.\frac{df(x)}{dx}\right\vert_{x=a}
     \end{equation}
-\end{nota*}
+\end{nota}
 
 
-\begin{thm}{}{}
+\begin{thm}
     If $f$ is differentiable at $a$, then $f$ is continuous at $a$.
 \end{thm}
-\begin{proof*}{}{}
-    Suppose $f$ is differentiable at a point $a$. Then we have that the limit $$\lim\limits_{h\rightarrow 0}\frac{f(a+h) - f(a)}{h}$$ exists. It follows by \nameref{thm:limlaws} that \begin{align*}
+\begin{proof}
+    Suppose $f$ is differentiable at a point $a$. Then we have that the limit $$\lim\limits_{h\rightarrow 0}\frac{f(a+h) - f(a)}{h}$$ exists. It follows by \ref{thm:limlaws} that \begin{align*}
         \lim\limits_{h\rightarrow 0}f(a+h) - f(a) &= \lim\limits_{h\rightarrow 0}\frac{f(a+h)-f(a)}{h}\cdot h \\
         &= \lim\limits_{h\rightarrow 0}\frac{f(a+h) - f(a)}{h}\cdot \lim\limits_{h\rightarrow 0} h\\
         &= f'(a)\cdot 0\\
         &= 0
     \end{align*}
-    Thus, by \nameref{thm:limlaws} the result that $\lim\limits_{h\rightarrow 0}f(a+h) - f(a) = 0$ is equivalent to $\lim\limits_{h\rightarrow 0}f(a+h) = \lim\limits_{h\rightarrow 0} f(a) = f(a)$. Thus, $f$ is continuous at $a$, replacing $a+h$ with $x$ and $h\rightarrow 0$ with $x \rightarrow a$.
-\end{proof*}
+    Thus, by \ref{thm:limlaws} the result that $\lim\limits_{h\rightarrow 0}f(a+h) - f(a) = 0$ is equivalent to $\lim\limits_{h\rightarrow 0}f(a+h) = \lim\limits_{h\rightarrow 0} f(a) = f(a)$. Thus, $f$ is continuous at $a$, replacing $a+h$ with $x$ and $h\rightarrow 0$ with $x \rightarrow a$.
+\end{proof}
 
 
-\begin{defn}{Higher Order Derivatives}{}
+\begin{defn}[Higher Order Derivatives]
     Since the derivative of a function $f$ is also a function, we can take its derivative to obtain the function $(f')' = f''$. In general, we denote the $k+1$-th derivative of $f$ inductively by \begin{align*}
         f^{(1)} &= f' \\
         f^{(k+1)} &= (f^{(k)})'
@@ -564,27 +570,27 @@
 
 \section{Differentiation Results}
 
-\begin{thm}{}{}
+\begin{thm}
     If $f$ is a constant function, $f(x) = c$, then $f'(a) = 0$ for all $a \in \R$.
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     Observe that for $a \in \R$, $$f'(a) = \lim\limits_{h\rightarrow 0}\frac{f(a+h)-f(a)}{h} = \lim\limits_{h\rightarrow 0}\frac{c-c}{h} = 0$$
     as desired.
-\end{proof*}
+\end{proof}
 
 
-\begin{thm}{}{}
+\begin{thm}
     If $f$ is the identity function, $f(x) = x$, then $f'(a) = 1$ for all $a \in \R$.
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     Observe that for $a \in \R$, $$f'(a) = \lim\limits_{h\rightarrow 0}\frac{f(a+h)-f(a)}{h} = \lim\limits_{h\rightarrow 0}\frac{a+h-a}{h} = \lim\limits_{h\rightarrow 0} 1 = 1$$
     as desired.
-\end{proof*}
+\end{proof}
 
-\begin{thm}{Linearity}{}
+\begin{thm}[Linearity]
     If $f$ and $g$ are differentiable at $a$, then $f+cg$ is differentiable for all $c \in \R$
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     Observe that \begin{align*}
         (f+cg)'(a) &= \lim\limits_{h\rightarrow 0}\frac{(f+cg)(a+h) - (f+cg)(a)}{h} \\
         &= \lim\limits_{h\rightarrow 0}\frac{f(a+h)+cg(a+h)-[f(a)+cg(a)]}{h} \\
@@ -595,12 +601,12 @@
         &= f'(a)+cg'(a) 
     \end{align*}
     as desired.
-\end{proof*}
+\end{proof}
 
-\begin{thm}{Product Rule}{}
+\begin{thm}[Product Rule]
     If $f$ and $g$ are differentiable at $a$, then $f\cdot g$ is also differentiable at $a$ and $$(f\cdot g)'(a) = f'(a)\cdot g(a) + f(a) \cdot g'(a)$$
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     Observe that \begin{align*}
         (f\cdot g)'(a) &= \lim\limits_{h\rightarrow 0}\frac{(f\cdot g)(a+h) - (f\cdot g)(a)}{h} \\
         &= \lim\limits_{h\rightarrow 0}\frac{f(a+h)g(a+h) - f(a+h)g(a) + f(a+h)g(a) - f(a)g(a)}{h} \\
@@ -609,12 +615,12 @@
         &= f(a)\cdot g'(a) + f'(a)\cdot g(a)
     \end{align*}
     as claimed, where $\lim\limits_{h\rightarrow 0}f(a+h) = f(a)$ since $f$ is differentiable at $a$, which implies it is also continuous at $a$.
-\end{proof*}
+\end{proof}
 
-\begin{thm}{Power Rule}{}
+\begin{thm}[Power Rule]
     IF $f(x) = x^n$ for some natural number $n$, then $$f'(a) = na^{n-1}$$ for all $a$.
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     For the proof we will proceed by induction on $n$. For $n = 1$ we have shown that $f'(a) = 1 = 1\cdot a^0$, satisfying the base case. Assume that there exists $k \in \N$ such that if $n = k$, $f'(a) = ka^{k-1}$. Then, for the case of $n = k+1$ we may write $g(x) = x\cdot x^k = I(x)\cdot f(x)$. Hence, by the product rule we have that for all $a$ \begin{align*}
         g'(a) &= (I\cdot f)'(a) \\
         &= I'(a) \cdot f(a) + I(a) \cdot f'(a) \\
@@ -622,13 +628,13 @@
         &= (k+1)a^k
     \end{align*}
     as claimed. Hence, by mathematical induction we conclude that if $f(x) = x^n$ for $n \in \N$, then $f'(a) = na^{n-1}$ for all $a \in \R$.
-\end{proof*}
+\end{proof}
 
 
-\begin{thm}{Derivative of a Quotient}{}
+\begin{thm}[Derivative of a Quotient]
     If $g$ is differentiable at $a$, and $g(a) \neq 0$, then $1/g$ is differentiable at $a$ and $$\left(\frac{1}{g}\right)'(a) = \frac{-g'(a)}{|g(a)|^2}$$
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     Note that since $g$ is differentiable at $a$ it is continuous at $a$. Moreover, since $g(a) \neq 0$, there exists $\delta > 0$ such that $g(a+h) \neq 0$ for $|h| < \delta$. Therefore, $(1/g)(a+h)$ is well defined for small enough $h$, and we can write \begin{align*}
         \lim\limits_{h\rightarrow 0}\frac{(1/g)(a+h) - (1/g)(a)}{h} &= \lim\limits_{h\rightarrow 0}\frac{1/g(a+h) - 1/g(a)}{h} \\
         &= \lim\limits_{h\rightarrow 0}\frac{g(a) - g(a+h)}{h[g(a)\cdot g(a+h)]} \\
@@ -636,12 +642,12 @@
         &= -g'(a)\cdot \frac{1}{|g(a)|^2}
     \end{align*}
     where $\lim\limits_{h\rightarrow 0}1/g(a+h) = 1/g(a)$ by continuity of $g$.
-\end{proof*}
+\end{proof}
 
-\begin{thm}{Quotient Rule}{}
+\begin{thm}[Quotient Rule]
     If $f$ and $g$ are differentiable at $a$ and $g(a) \neq 0$, then $f/g$ is differentiable at $a$ and $$(f/g)'(a) = \frac{g(a)\cdot f'(a) - f(a) \cdot g'(a)}{|g(a)|^2}$$
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     Note that $f/g = f\cdot (1/g)$, so we have \begin{align*}
         (f/g)'(a) &= (f\cdot 1/g)'(a) \\
         &= f'(a)\cdot(1/g)(a) + f(a)\cdot(1/g)'(a) \tag{Product Rule}\\
@@ -649,12 +655,12 @@
         &= \frac{f'(a)g(a) - f(a)g'(a)}{|g(a)|^2}
     \end{align*}
     as claimed.
-\end{proof*}
+\end{proof}
 
-\begin{thm}{General Product Rule}{}
+\begin{thm}[General Product Rule]
     If $f_1,f_2,...,f_n$ are differentiable at $a$ for some $n \in \N$, then $f_1\cdot f_2\cdot ...\cdot f_n$ is differentiable at $a$ and $$(f_1\cdot...\cdot f_n)'(a) = \sum\limits_{i=1}^nf_1(a)\cdot...\cdot f_{i-1}(a)\cdot f'_i(a)\cdot f_{i+1}(a)\cdot...\cdot f_n(a)$$
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     We proceed by induction on $n$. If $n = 1$ then $f_1'(a) = f_1'(a)$, so the base case holds. Now, suppose the claim is true for some $k \in \N$. Then it follows that if $n = k+1$ \begin{align*}
         (f_1\cdot ... \cdot f_k\cdot f_{k+1})'(a) &= (f_1\cdot ...\cdot f_k)'(a)f_{k+1}(a) + (f_1\cdot...\cdot f_k)(a)f_{k+1}'(a) \tag{Product Rule} \\
         &= \left[\sum\limits_{i=1}^kf_1(a)\cdot...\cdot f_{i-1}(a)\cdot f'_i(a)\cdot f_{i+1}(a)\cdot...\cdot f_k(a)\right]f_{k+1}(a)\\
@@ -662,12 +668,12 @@
         &= \sum\limits_{i=1}^{k+1}f_1(a)\cdot...\cdot f_{i-1}(a)\cdot f'_i(a)\cdot f_{i+1}(a)\cdot...\cdot f_{k+1}(a)
     \end{align*}
     as desired. Thus by mathematical induction we conclude that the formula holds for all $n \in \N$.
-\end{proof*}
+\end{proof}
 
-\begin{thm}{Chain Rule}{}
+\begin{thm}[Chain Rule]
     If $g$ is differentiable at $a$ and $f$ is differentiable at $g(a)$, then $f\circ g$ is differentiable at $a$ and $$(f\circ g)'(a) = f'(g(a))\cdot g'(a)$$
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     Define a function $\phi$ as follows: \begin{equation}
         \phi(h) = \left\{\begin{array}{ll}
             \frac{f(g(a+h)) - f(g(a))}{g(a+h)-g(a)}, & \text{if } g(a+h)-g(a) \neq 0 \\
@@ -700,13 +706,13 @@
         &= f'(g(a))\cdot g'(a) 
     \end{align*}
     by continuity of $\phi(h)$ at $0$.
-\end{proof*}
+\end{proof}
 
 
 
 \section{Applications of Derivatives}
 
-\begin{defn}{Extrema}{}
+\begin{defn}[Extrema]
     Let $f$ be a function and $A$ a set of numbers contained in the domain of $f$. A point $x \in A$ is \Emph{maximum point} for $f$ on $A$ if \begin{equation}
         f(x) \geq f(y) \forall y \in A
     \end{equation}
@@ -719,10 +725,10 @@
 \end{defn}
 
 
-\begin{thm}{}{dirext}
+\begin{thm}\label{thm:dirext}
     Let $f$ be any function defined on $(a,b)$. If $x$ is an extremum point for $f$ on $(a,b)$, and $f$ is differentiable at $x$, then $f'(x) = 0$.
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     Consider the case where $f$ has a maximum at $x$. If $h$ is any number such that $x+h \in (a,b)$, then $$f(x) \geq f(x+h)$$
     since $f$ has a maximum on $(a,b)$ at $x$. This implies that $$f(x+h)-f(x) \leq 0$$
     Thus, if $h > 0$ we have that $$\frac{f(x+h) - f(x)}{h} \leq 0$$
@@ -732,22 +738,22 @@
     By hypothesis $f$ is differentiable at $x$, so these two limits must be equal, so in fact $f'(x) \leq 0$ and $f'(x) \geq 0$. Thus, $f'(x) = 0$.
 
     On the other hand, suppose $f$ has a minimum at $x$. Then $-f$ has a maximum at $x$. Indeed, for all $y \in (a,b)$ we have $f(y) \geq f(x)$, so $-f(y) \leq -f(x)$. Then, from our above argument and the differentiability of $f$ at $x$, we have $-f'(x) = 0$, which implies that $f'(x) = 0$.
-\end{proof*}
+\end{proof}
 
 
-\begin{defn}{Local Extrema}{}
+\begin{defn}[Local Extrema]
     Let $f$ be a function, and $A$ a set of numbers contained in the domain of $f$. A point $x$ in $A$ is a \Emph{local maximum [minimum] point} for $f$ on $A$ if there is some $\delta > 0$ such that $x$ is a maximum [minimum] point for $f$ on $A \cap(x-\delta,x+\delta)$.
 \end{defn}
 
 
-\begin{defn}{}{}
+\begin{defn}
     A \Emph{critical point} of a function $f$ is a number $x$ such that \begin{equation}
         f'(x) = 0
     \end{equation}
     The number $f(x)$ itself is called a \Emph{critical value} of $f$.
 \end{defn}
 
-\begin{rmk}{}{}
+\begin{rmk}
     Give a function continuous $f$, if $x$ is an extrumum of $f$ on $[a,b]$, then one of the following must be satisfied: \begin{enumerate}
         \item $x$ is a critical point of $f$ in $[a,b]$
         \item $x = a$ or $x = b$ so $x$ is an endpoint of $[a,b]$
@@ -756,24 +762,24 @@
 \end{rmk}
 
 
-\begin{namthm}{Rolle's Theorem}{rol}
+\begin{namthm}[Rolle's Theorem]\label{thmname:rol}
     If $f$ is continuous on $[a,b]$ and differentiable on $(a,b)$, and $f(a) = f(b)$, then there is a number $x \in (a,b)$ such that $f'(x) = 0$.
 \end{namthm}
-\begin{proof*}{}{}
+\begin{proof}
     It follows from continuity of $f$ on $[a,b]$ that $f$ has a maximum or minimum value on $[a,b]$ (by the Extreme Value Theorem).
 
     Suppose first that the maximum value occurs at a point $x \in (a,b0$. Then $f'(x) = 0$ by Theorem \ref{thm:dirext}. On the other hand suppose that the minimum value of $f$ occurs at some point $x$ in $(a,b)$. Then, again, $f'(x) = 0$ by Theorem \ref{thm:dirext}.
 
     Finally, suppose the maximum and minimum values both occur at the end points. Since $f(a) = f(b)$, the maximum and minimum values of $f$ are equal, so $f$ is a constant function, and for a constant function we can choose any $x \in (a,b)$ and have $f'(x) = 0$, completing the proof.
-\end{proof*}
+\end{proof}
 
 
-\begin{namthm}{The Mean Value Theorem}{meanval}
+\begin{namthm}[The Mean Value Theorem]\label{thmname:meanval}
     If $f$ is continuous on $[a,b]$ and differentiable on $(a,b)$, then there is a number $x \in (a,b)$ such that \begin{equation}
         f'(x) = \frac{f(b)-f(a)}{b-a} 
     \end{equation}
 \end{namthm}
-\begin{proof*}{}{}
+\begin{proof}
     Let \begin{equation*}
         h(x) = f(x) - \left[\frac{f(b) - f(a)}{b-a}\right](x-a)
     \end{equation*}
@@ -782,56 +788,56 @@
         h(b) &= f(b) - \left[\frac{f(b) - f(a)}{b-a}\right](b-a) \\
         &= f(a)
     \end{align*}
-    Consequently, we may apply \nameref{thmname:rol} to $h$ and conclude that there exists $x \in (a,b)$ such that \begin{equation*} 
+    Consequently, we may apply \ref{thmname:rol} to $h$ and conclude that there exists $x \in (a,b)$ such that \begin{equation*} 
         0 = h'(x) = f'(x) - \frac{f(b)-f(a)}{b-a}
     \end{equation*}
     so that \begin{equation*}
         f'(x) = \frac{f(b) - f(a)}{b-a}
     \end{equation*}
     as desired.
-\end{proof*}
+\end{proof}
 
-\begin{cor}{}{}
+\begin{cor}
     If $f$ is defined on an interval and $f'(x) = 0$ for all $x$ in the interval, then $f$ is constant on the interval.
 \end{cor}
-\begin{proof*}
+\begin{proof}
     Let $a$ and $b$ be any two points in the interval with $a \neq b$. Then there is some $x \in (a,b)$ such that \begin{equation*}
         0 = f'(x) = \frac{f(b) - f(a)}{b-a}
     \end{equation*}
     so $f(b) - f(a) = 0$ and consequently $f(a) = f(b)$. Thus the value of $f$ at any two points in the interval is the same, so $f$ is constant on the interval.
-\end{proof*}
+\end{proof}
 
-\begin{cor}{}{}
+\begin{cor}
     If $f$ and $g$ are defined on the same interval, and $f'(x) = g'(x)$ for all $x$ in the interval, then there is come number $c$ such that $f = g+c$.
 \end{cor}
-\begin{proof*}{}{}
+\begin{proof}
     For all $x$ in the interval we have $(f-g)'(x) = f'(x) - g'(x) = 0$, so by the previous corollary there is some number $c$ such that $f-g = c$.
-\end{proof*}
+\end{proof}
 
 
-\begin{defn}{}{}
+\begin{defn}
     A function is \Emph{increasing} on an interval $I$ if $f(a) < f(b)$ whenever $a,b \in I$ with $a < b$. The function $f$ is \Emph{decreasing} on an interval $I$ if $f(a) > f(b)$ for all $a,b \in I$ with $a < b$.
 \end{defn}
 
 
-\begin{cor}{}{}
+\begin{cor}
     If $f'(x) > 0$ for all $x$ in an interval, then $f$ is increasing on the interval; if $f'(x) < 0$ for all $x$ in the interval, then $f$ is decreasing on the interval.
 \end{cor}
-\begin{proof*}{}{}
-    Consider the case where $f'(x) > 0$. Let $a,b \in I$ with $a < b$. Then by \nameref{thmname:meanval} there exists $x \in (a,b)$ such that \begin{equation*}
+\begin{proof}
+    Consider the case where $f'(x) > 0$. Let $a,b \in I$ with $a < b$. Then by \ref{thmname:meanval} there exists $x \in (a,b)$ such that \begin{equation*}
         f'(x) = \frac{f(b) - f(a)}{b-a}
     \end{equation*}
     But, $f'(x) > 0$ for all $x \in (a,b)$, so $$\frac{f(b) - f(a)}{b-a} > 0$$
     Since $b-a > 0$ we conclude that $f(b) > f(a)$ so $f$ is increasing.
 
     Next, consider the case for $f'(x) < 0$. Then $-f'(x) > 0$ for all $x \in I$, so by the first case we have that for all $a,b \in I$ with $a < b$, $-f(a) < -f(b)$. Multiplying both sides by $-1$ we have that $f(a) > f(b)$ for all $a,b \in I$ such that $a < b$, so $f$ is decreasing, as desired.
-\end{proof*}
+\end{proof}
 
 
-\begin{thm}{Second Derivative Test}{}
+\begin{thm}[Second Derivative Test]
     Suppose $f'(a) = 0$. If $f''(a) > 0$, then $f$ has a local minimum at $a$; if $f''(a) < 0$ then $f$ has a local maximum at $a$.
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     By definition \begin{equation*}
         f''(a) = \lim\limits_{h\rightarrow 0} \frac{f'(a+h) - f'(a)}{h}
     \end{equation*}
@@ -841,50 +847,50 @@
     Suppose now that $f''(a) > 0$. Then there exists $\delta >0$ such that if $|h| < \delta$ $f'(a+h)/h > 0$. Thus, for $|h| < \delta$, if $h < 0$ we must have $f'(a+h) < 0$ and if $h > 0$ we must have $f'(a+h) > 0$. This means by our previous corollary that $f$ is increasing in the interval $(a,a+\delta)$, and decreasing in $(a-\delta, a)$. Thus, as $f'(a) = 0$, $f(a)$ must be a local minimum.
 
     If $f''(a) < 0$, then $-f''(a) > 0$ so $-f(a)$ is must be a local minimum. That is, there exists $\delta > 0$ such that if $x \in (a - \delta, a + \delta)$, then $-f(x) \geq -f(a)$. Hence, it follows that $f(x) \leq f(a)$ for all $x \in (a-\delta,a+\delta)$, so $f(a)$ is a local maximum of $f$.
-\end{proof*}
+\end{proof}
 
 
-\begin{thm}{}{}
+\begin{thm}
     Suppose $f''(a)$ exists. If $f$ has a local minimum at $a$, then $f''(a) \geq 0$; if $f$ has a local maximum at $a$, then $f''(a) \leq 0$.
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     Suppose $f$ has a local minimum at $a$. If $f''(a) < 0$ then by our previous result $f$ would have a local maximum at $a$. But, this implies that $f$ would be constant in some interval containing $a$, so that $f''(a) = 0$, which is a contradiction. Thus, we must have that $f''(a) \geq 0$.
 
     The case for a local maximum is analogous.
-\end{proof*}
+\end{proof}
 
 
-\begin{thm}{}{}
+\begin{thm}
     Suppose that $f$ is continuous at $a$, and that $f'(x)$ exists for all $x$ in some interval containing $a$, except perhaps for $x = a$. Suppose, moreover, that $\lim\limits_{x\rightarrow a}f'(x)$ exists. Then $f'(a)$ also exists and \begin{equation}
         f'(a) = \lim\limits_{x\rightarrow a}f'(x)
     \end{equation}
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     By definition \begin{equation*}
         f'(a) = \lim\limits_{h\rightarrow 0}\frac{f(a+h) - f(a)}{h}
     \end{equation*}
-    For sufficiently small $h > 0$ the function $f$ will be continuous on $[a,a+h]$, and differentiable on $(a,a+h)$, by assumption (similarly for sufficiently small $h < 0$). By \nameref{thmname:meanval} there is a number $\alpha_h \in (a,a+h)$ such that $$\frac{f(a+h) - f(a)}{h} = f'(\alpha_h)$$
+    For sufficiently small $h > 0$ the function $f$ will be continuous on $[a,a+h]$, and differentiable on $(a,a+h)$, by assumption (similarly for sufficiently small $h < 0$). By \ref{thmname:meanval} there is a number $\alpha_h \in (a,a+h)$ such that $$\frac{f(a+h) - f(a)}{h} = f'(\alpha_h)$$
     Now, $\alpha_h$ approaches $a$ as $h$ approaches $0$, because $\alpha_h$ is in $(a,a+h)$. Since $\lim\limits_{x\rightarrow a}f'(x)$ exists, it follows that $$f'(a) = \lim\limits_{h\rightarrow 0}\frac{f(a+h) - f(a)}{h} = \lim\limits_{h\rightarrow 0}f'(\alpha_h) = \lim\limits_{x\rightarrow a}f'(x)$$
     For this last equality write $\lim\limits_{x\rightarrow a}f'(x) = L \in \R$. Fix $\epsilon > 0$. Then there exists $\delta > 0$ such that for all $x \in (a-\delta, a+\delta)$, $|f'(x) - L| < \epsilon$. It follows that for $|h| < \delta$, if $h > 0$ and $\alpha_h \in (a,a+h) \subset (a-\delta,a+\delta)$ we have $|f'(\alpha_h) - L| < \epsilon$ and if $h < 0$ and $\alpha_h \in (a+h, a) \subset (a-\delta,a+\delta)$, then $|f'(\alpha_h) - L| < \epsilon$. Thus, by definition we have that $\lim\limits_{h\rightarrow 0^+}f'(\alpha_h) = \lim\limits_{h\rightarrow 0^-}f'(\alpha_h) = L$, so in particular $\lim\limits_{h\rightarrow 0}f'(\alpha_h) = L = \lim\limits_{x\rightarrow a}f'(x)$, completing the proof.
-\end{proof*}
+\end{proof}
 
 
-\begin{namthm}{The Cauchy Mean Value Theorem}{caumeanval}
+\begin{namthm}[The Cauchy Mean Value Theorem]\label{thmname:caumeanval}
     If $f$ and $g$ are continuous on $[a,b]$ and differentiable on $(a,b)$, then there is a number $x \in (a,b)$ such that \begin{equation}
         [f(b) - f(a)]g'(x) = [g(b) - g(a)]f'(x)
     \end{equation}
 \end{namthm}
-\begin{proof*}{}{}
+\begin{proof}
     Let $$h(x) = f(x)[g(b) - g(a)] - g(x)[f(b)-f(a)]$$
     Then $h$ is continuous on $[a,b]$, differentiable on $(a,b)$, and $$h(a) = f(a)g(b) - g(a)f(b) = h(b)$$
-    It follows by \nameref{thmname:rol} that $h'(x) = 0$ for some $x \in (a,b)$, which implies that \begin{equation*}
+    It follows by \ref{thmname:rol} that $h'(x) = 0$ for some $x \in (a,b)$, which implies that \begin{equation*}
         0 = h'(x) = f'(x)[g(b)-g(a)] - g'(x)[f(b) - f(a)]
     \end{equation*}
     completing the proof.
-\end{proof*}
+\end{proof}
 
 
-\begin{namthm}{L'H\^{o}pital's Rule}{}
+\begin{namthm}[L'H\^{o}pital's Rule]
     Suppose that \begin{equation}
         \lim\limits_{x\rightarrow a}f(x) = 0\;and\;\lim\limits_{x\rightarrow a}g(x) = 0
     \end{equation}
@@ -892,12 +898,12 @@
         \lim\limits_{x\rightarrow a}\frac{f(x)}{g(x)} = \lim\limits_{x\rightarrow a}\frac{f'(x)}{g'(x)}
     \end{equation}
 \end{namthm}
-\begin{proof*}{}{}
+\begin{proof}
     The hypothesis that $\lim\limits_{x\rightarrow a}f'(x)/g'(x)$ exists contains two implicit assumptions: \begin{enumerate}
         \item there is an interval $(a-\delta,a+\delta)$ such that $f'(x)$ and $g'(x)$ exist for all $x \in (a - \delta, a + \delta)$, except, perhaps, $x = a$,
         \item in this interval $g'(x) \neq 0$, with the possible exception of $x = a$
     \end{enumerate}
-    If we define $f(a) = g(a) = 0$, then $f$ and $g$ are continuous at $a$. If $x \in (a,a+\delta)$, then \nameref{thmname:meanval} and \nameref{thmname:caumeanval} apply to $f$ and $g$ on $[a,x]$ (a similar statement holds for $x \in (a-\delta, a)$). First, applying the \nameref{thmname:meanval} to $g$, we see that $g(x) \neq 0$, for if $g(x) = 0$ there would exist $x_1 \in (a,x)$ with $g'(x_1) = 0$, contradicting 2.. Now, applying \nameref{thmname:caumeanval} to $f$ and $g$, we see that there is a number $\alpha_x \in (a,x)$ such that \begin{equation*}
+    If we define $f(a) = g(a) = 0$, then $f$ and $g$ are continuous at $a$. If $x \in (a,a+\delta)$, then \ref{thmname:meanval} and \ref{thmname:caumeanval} apply to $f$ and $g$ on $[a,x]$ (a similar statement holds for $x \in (a-\delta, a)$). First, applying the \ref{thmname:meanval} to $g$, we see that $g(x) \neq 0$, for if $g(x) = 0$ there would exist $x_1 \in (a,x)$ with $g'(x_1) = 0$, contradicting 2.. Now, applying \ref{thmname:caumeanval} to $f$ and $g$, we see that there is a number $\alpha_x \in (a,x)$ such that \begin{equation*}
         [f(x)-0]g'(\alpha_x) = [g(x)-0]f'(\alpha_x)
     \end{equation*}
     or \begin{equation*}
@@ -910,13 +916,13 @@
         \lim\limits_{x\rightarrow a} \frac{f(x)}{g(x)} = \lim\limits_{x\rightarrow a} \frac{f'(\alpha_x)}{g'(\alpha_x)} =  \lim\limits_{y\rightarrow a} \frac{f'(y)}{g'(y)}
     \end{equation*}
     completing the proof.
-\end{proof*}
+\end{proof}
 
 
 \subsection{Convexity}
 
 
-\begin{defn}{}{}
+\begin{defn}
     A function $f$ is \Emph{convex} on an interval $I$, if for all $a,b \in I$, the line segment joining $(a,f(a))$ and $(b,f(b))$ lies above the graph of $f$.
 
     This is equivalent to stating that for all $x \in (a,b)$, \begin{equation}
@@ -925,7 +931,7 @@
 \end{defn}
 
 
-\begin{defn}{}{}
+\begin{defn}
     A function $f$ is \Emph{concave} on an interval $I$, if for all $a,b \in I$, the line segment joining $(a,f(a))$ and $(b,f(b))$ lies below the graph of $f$.
 
     This is equivalent to stating that for all $x \in (a,b)$, \begin{equation}
@@ -934,10 +940,10 @@
 \end{defn}
 
 
-\begin{thm}{}{}
+\begin{thm}
     Let $f$ be convex. If $f$ is differentiable at $a$, then the graph of $f$ lies above the tangent line through $(a,f(a))$, except at $(a,f(a))$ itself. If $a < b$ and $f$ is differentiable at $a$ and $b$, then $f'(a) < f'(b)$.
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     If $0 < h_1 < h_2$, then $a < a+h_1 < a+h_2$, and applying $f$'s convexity we have that \begin{equation*}
         \frac{f(a+h_1) - f(a)}{h_1} < \frac{f(a+h_2)-f(a)}{h_2}
     \end{equation*}
@@ -954,23 +960,23 @@
         f'(b) > \frac{f(b+(a-b))-f(b)}{a-b} = \frac{f(a)-f(b)}{a-b} = \frac{f(b)-f(a)}{b-a}
     \end{equation*}
     since $a-b < 0$. Combining these inequalities we obtain $f'(a) < f'(b)$, as desired.
-\end{proof*}
+\end{proof}
 
 
-\begin{lem}{}{}
+\begin{lem}
     Suppose $f$ is differentiable and $f'$ is increasing. If $a < b$ and $f(a) = f(b)$, then $f(x) < f(a) = f(b)$ for $a < x < b$.
 \end{lem}
-\begin{proof*}{}{}
-    Suppose towards a contradiction that $f(x) \geq f(a) = f(b)$ for some $x \in (a,b)$. Then the maximum of $f$ on $[a,b]$ occurs at some point $x_0 \in (a,b)$ with $f(x_0) \geq f(a)$ and, of course, $f'(x_0) = 0$. On the other hand, applying \nameref{thmname:meanval} to the interval $[a,x_0]$, we find that there is $x_1$ with $a < x_1 < x_0$ and \begin{equation*}
+\begin{proof}
+    Suppose towards a contradiction that $f(x) \geq f(a) = f(b)$ for some $x \in (a,b)$. Then the maximum of $f$ on $[a,b]$ occurs at some point $x_0 \in (a,b)$ with $f(x_0) \geq f(a)$ and, of course, $f'(x_0) = 0$. On the other hand, applying \ref{thmname:meanval} to the interval $[a,x_0]$, we find that there is $x_1$ with $a < x_1 < x_0$ and \begin{equation*}
         f'(x_1) = \frac{f(x_0) - f(a)}{x_0 - a}\geq 0
     \end{equation*}
     contradicting the fact that $f'$ is increasing (since $f'(x_0) = 0$ and $x_1 < x_0$).
-\end{proof*}
+\end{proof}
 
-\begin{thm}{}{}
+\begin{thm}
     If $f$ is differentiable and $f'$ is increasing, then $f$ is convex.
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     Let $a < b$. Define $g$ by \begin{equation*}
         g(x) = f(x) - \frac{f(b) - f(a)}{b-a}(x-a)
     \end{equation*}
@@ -982,13 +988,13 @@
         \frac{f(x) - f(a)}{x-a} < \frac{f(b) - f(a)}{b-a}
     \end{equation*}
     Hence, $f$ is convex.
-\end{proof*}
+\end{proof}
 
 
-\begin{thm}{}{}
+\begin{thm}
     If $f$ is differentiable and the graph of $f$ lies above each tangent line except at the point of contact, then $f$ is convex.
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     Let $a < b$. Since the tangent lien at $(a,f(a))$ is the graph of the function \begin{equation*}
         g(x) = f'(a)(x-a) + f(a)
     \end{equation*}
@@ -999,52 +1005,52 @@
         (2)\hspace{5pt}f(a) > f'(b)(a-b) + f(b)
     \end{equation*}
     It follows from $(1)$ and $(2)$ that $f'(a) < f'(b)$. Then, from our previous theorem we have that $f$ is convex.
-\end{proof*}
+\end{proof}
 
 
 
 \section{Inverse Functions}
 
 
-\begin{defn}{}{}
+\begin{defn}
     For any function $f$. the \Emph{inverse image} of $f$, denoted by $f^{-1}$, is the set of all pairs $(a,b)$ such that $(b,a) \in f$.
 \end{defn}
 
-\begin{rmk}{}{}
+\begin{rmk}
     $f^{-1}$ is a function if and only if $f$ is one-to-one.
 \end{rmk}
 
 
-\begin{thm}{}{}
+\begin{thm}
     If $f$ is increasing (decreasing) on an interval $I$, then $f$ is injective on $I$ so $f^{-1}$ is a function and in fact $f^{-1}$ is increasing (decreasing).
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     Consider the case that $f$ is increasing. Then suppose $a,b \in I$ with $a \neq b$. Without loss of generality suppose $a < b$. Then since $f$ is increasing $f(a) < f(b)$ so in particular $f(a) \neq f(b)$. Therefore, $f$ is injective as claimed, so $f^{-1}$ is a well-defined function on $I$. Now, consider $a' < b'$ in $f(I) = I'$. Then there exist $x,y \in I$ such that $f(x) = a'$ and $f(y) = b'$, so in particular $f^{-1}(a') = x$ and $f^{-1}(b') = y$. Since $f$ is increasing and $f(x) = a' < b' = f(y)$ we must have that $x < y$. Thus, $f^{-1}(a') = x < y = f^{-1}(b')$, so $f^{-1}$ is increasing as claimed.
 
     Consider the case that $f$ is decreasing. Then $-f$ is increasing so it is injective and $-f^{-1}$ is increasing by the first case. Hence, we have that $f^{-1}$ is decreasing as desired.
-\end{proof*}
+\end{proof}
 
 
-\begin{thm}{}{}
+\begin{thm}
     If $f$ is continuous and one-to-one on an interval $I$, then $f$ is either increasing or decreasing on $I$.
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     We proceed in three steps:
 
-    (1) If $a < b < c$ are three points in $I$, then I claim either $f(a) < f(b) < f(c)$ or $f(a) > f(b) > f(c)$. Indeed, suppose that $f(a) < f(c)$. If we have $f(b) < f(a)$, then the \nameref{thmname:intval} applied to $[b,c]$ gives an $x \in (b,c)$ such that $f(x) = f(a)$, contradicting the fact that $f$ is injective on $[a,c]$. Similarly, if $f(b) > f(c)$ we would find a contradiction, so $f(a) < f(b) < f(c)$. Similar argumentation leads to the result that $f(a) > f(b) > f(c)$ in the second case.
+    (1) If $a < b < c$ are three points in $I$, then I claim either $f(a) < f(b) < f(c)$ or $f(a) > f(b) > f(c)$. Indeed, suppose that $f(a) < f(c)$. If we have $f(b) < f(a)$, then the \ref{thmname:intval} applied to $[b,c]$ gives an $x \in (b,c)$ such that $f(x) = f(a)$, contradicting the fact that $f$ is injective on $[a,c]$. Similarly, if $f(b) > f(c)$ we would find a contradiction, so $f(a) < f(b) < f(c)$. Similar argumentation leads to the result that $f(a) > f(b) > f(c)$ in the second case.
 
 
     (2) If $a < b < c < d$ are four points in $I$, then I claim that either $f(a) < f(b) < f(c) < f(d)$ or $f(a) > f(b) > f(c) > f(d)$. Indeed we can apply (1) to $a<b<c$ and then to $b < c < d$.
 
 
     (3) Take any $a < b$ in $I$, and suppose $f(a) < f(b)$. Then $f$ is increasing, for if $c,d \in I$ are any two points, we can apply (2) to the collection $\{a,b,c,d\}$ after arranging them in increasing order.
-\end{proof*}
+\end{proof}
 
 
-\begin{thm}{}{}
+\begin{thm}
     If $f$ is continuous and one-to-one on an interval, then $f^{-1}$ is also continuous.
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     Since $f$ is continuous and injective on the interval, it is either increasing or decreasing. Consider the case that $f$ is increasing. We must show that \begin{equation*}
         \lim\limits_{x\rightarrow b}f^{-1}(x) = f^{-1}(b)
     \end{equation*}
@@ -1052,25 +1058,25 @@
     Consequently, if $$f(a) - \delta < x < f(a) + \delta$$ then $$f(a-\epsilon) < x < f(a+\epsilon)$$
     SInce $f$ is increasing, $f^{-1}$ is also increasing, and we obtain $$f^{-1}(f(a-\epsilon)) < f^{-1}(x) < f^{-1}(f(a+\epsilon))$$
     so $a-\epsilon < f^{-1}(x) < a+\epsilon$, which is precisely $|f^{-1}(x) - a| < \epsilon$, as desired.
-\end{proof*}
+\end{proof}
 
 
-\begin{thm}{}{}
+\begin{thm}
     If $f$ is a continuous one-to-one function defined on an interval $I$, and $f'(f^{-1}(a)) = 0$, then $f^{-1}$ is not differentiable at $a$.
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     We have $f(f^{-1}(x)) = x$. If $f^{-1}$ were differentiable at $a$, then the chain rule would imply that $$f'(f^{-1}(a))\cdot (f^{-1})'(a) = 1$$
     hence $$0\cdot (f^{-1})'(a) = 1$$
     which is impossible.
-\end{proof*}
+\end{proof}
 
 
-\begin{thm}{}{}
+\begin{thm}
     Let $f$ be a continuous one-to-one function defined on an interval $I$, and suppose that $f$ is differentiable at $f^{-1}(b)$, with derivative $f'(f^{-1}(b)) \neq 0$. Then $f^{-1}$ is differentiable at $b$, and \begin{equation}
         (f^{-1})'(b) = \frac{1}{f'(f^{-1}(b))}
     \end{equation}
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     Let $b = f(a)$. Then \begin{equation*}
         \lim\limits_{h\rightarrow 0}\frac{f^{-1}(b+h)-f^{-1}(b)}{h} = \lim\limits_{h\rightarrow 0}\frac{f^{-1}(b+h) - a}{h}
     \end{equation*}
@@ -1081,7 +1087,7 @@
     Since $b+h = f(a+k(h))$ we have $f^{-1}(b+h) = a+k(h)$, or $k(h) = f^{-1}(b+h)-f^{-1}(b)$. Now, since $f$ is continuous on $I$, $f^{-1}$ is also continuous on its domain, and in particular it is continuous at $b$. This means that $\lim\limits_{h\rightarrow 0}k(h) = 0$, so $k(h)$ goes to zero as $h$ goes to $0$. Hence, as $$\lim\limits_{k\rightarrow 0}\frac{f(a+k)-f(a)}{k} = f'(a) = f'(f^{-1}(b)) \neq 0$$ this implies that $f^{-1}$ is differentiable at $b$ and \begin{equation*}
         (f^{-1})'(b) = \frac{1}{f'(f^{-1}(b))}
     \end{equation*}
-\end{proof*}
+\end{proof}
 
 
 
@@ -1093,7 +1099,7 @@
 
 \section{Introduction to Definite Integrals}
 
-\begin{defn}{}{}
+\begin{defn}
     Let $a < b$. A \Emph{partition} of the interval $[a,b]$ is a finite collection of points in $[a,b]$, one of which is $a$, and one of        which is $b$.
 \end{defn}
 The points in a partition can be numbered $t_0,...,t_n$ so that \begin{equation}
@@ -1101,7 +1107,7 @@ The points in a partition can be numbered $t_0,...,t_n$ so that \begin{equation}
 \end{equation}
 we shall always assume that such a numbering has been assigned.
 
-\begin{defn}{}{}
+\begin{defn}
     Suppose $f$ is bounded on $[a,b]$ and $P = \{t_0,...,t_n\}$ is a partition of $[a,b]$. Let \begin{align}
         m_i &= \inf\{f(x):t_{i-1} \leq x \leq t_i\} \\
         M_i &= \sup\{f(x):t_{i-1}\leq x \leq t_i\}
@@ -1115,7 +1121,7 @@ we shall always assume that such a numbering has been assigned.
 \end{defn}
 
 
-\begin{rmk}{}{}
+\begin{rmk}
     If $P$ is any partition, then \begin{equation}
         L(f,P) \leq U(f,P)
     \end{equation}
@@ -1126,13 +1132,13 @@ we shall always assume that such a numbering has been assigned.
     and for each $i$ we have $m_i(t_i-t_{i-1}) \leq M_i(t_i-t_{i-1})$.
 \end{rmk}
 
-\begin{lem}{}{}
+\begin{lem}
     If $Q$ is a partition of $[a,b]$ which contains $P$, then \begin{align*}
         L(f,P) &\leq L(f,Q) \\
         U(f,P) &\geq U(f,Q)
     \end{align*}
 \end{lem}
-\begin{proof*}{}{}
+\begin{proof}
     Consider first the special case in which $Q$ contains just one more point than $P$;\begin{align*}
         P &=\{t_0,...,t_n\} \\
         Q &= \{t_0,...,t_{k-1},u,t_k,...,t_n\}
@@ -1191,22 +1197,22 @@ we shall always assume that such a numbering has been assigned.
         U(f,P) = U(f,P_1) \geq U(f,P_2) \geq ... \geq U(f,P_{\alpha}) = U(f,Q)
     \end{equation*}
     completing the proof.
-\end{proof*}
+\end{proof}
 
 \clearpage
 
-\begin{thm}{}{}
+\begin{thm}
     Let $P_1$ and $P_2$ be partitions of $[a,b]$, and let $f$ be a function which is bounded on $[a,b]$. Then \begin{equation}
         L(f,P_1) \leq U(f,P_2)
     \end{equation}
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     There is a partition $P$ which contains both $P_1$ and $P_2$ (let $P = P_1 \cup P_2$). According to the lemma \begin{equation*}
         L(f,P_1) \leq L(f,P) \leq U(f,P) \leq U(f,P_1)
     \end{equation*}
-\end{proof*}
+\end{proof}
 
-\begin{rmk}{}{}
+\begin{rmk}
     It follows that any upper sum $U(f,P')$ is an upper bound for the set of all lower sums $L(f,P)$. Consequently, any upper sum $U(f,P')$     is greater than or equal to the least upper bound of all lower sums:\begin{equation}
         \sup\{L(f,P):P\subset [a,b];\exists n \in \N,|P| = n\} \leq U(f,P')
     \end{equation}
@@ -1218,7 +1224,7 @@ we shall always assume that such a numbering has been assigned.
     \end{equation}
 \end{rmk}
 
-\begin{defn}{Definite Integral}{}
+\begin{defn}[Definite Integral]
     A function $f$ which is bounded on $[a,b]$ is \Emph{integrable} on $[a,b]$ if $$\sup\{L(f,P):P\text{ a partition of } [a,b]\} =
     \inf\{U(f,P):P\text{ a partition of } [a,b]\}$$
     In this case, this common number is called the \Emph{integral} of $f$ on $[a,b]$ and is denoted by \begin{equation}                             \int_a^bf
@@ -1227,10 +1233,10 @@ we shall always assume that such a numbering has been assigned.
 \end{defn}
 
 
-\begin{thm}{}{}
+\begin{thm}
     If $f$ is bounded on $[a,b]$, then $f$ is integrable on $[a,b]$ if and only if for every $\epsilon > 0$ there is a partition $P$ of $[a,    b]$ such that $$U(f,P) - L(f,P) < \epsilon$$
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     Suppose first that for every $\epsilon > 0$ there is such a partition $P$. Since \begin{align*}
         \inf\{U(f,P')\} &\leq U(f,P) \\
         \sup\{L(f,P')\} &\geq L(f,P)
@@ -1250,13 +1256,13 @@ we shall always assume that such a numbering has been assigned.
     Let $P = P' \cup P''$ be a partition. Then, according to the lemma $U(f,P) \leq U(f,P')$ and $L(f,P) \geq L(f,P'')$ so \begin{equation*}
 		U(f,P) - L(f,P) \leq U(f,P'') - L(f,P') <\epsilon
 	\end{equation*}
-\end{proof*}
+\end{proof}
 
 
-\begin{thm}{}{}
+\begin{thm}
     If $f$ is continuous on $[a,b]$, then $f$ is integrable on $[a,b]$.
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     Notice, first, that $f$ is bounded on $[a,b]$, because it is continuous on $[a,b]$. To prove that $f$ is integrable on $[a,b]$, we want to use our previous theorem, and show that for every $\epsilon > 0$ there is a partition $P$ of $[a,b]$ such that \begin{equation*}
         U(f,P) - L(f,P) < \epsilon
     \end{equation*}
@@ -1276,16 +1282,16 @@ we shall always assume that such a numbering has been assigned.
         &= \epsilon
     \end{align*}
     Thus, by our previous theorem $f$ is integrable.
-\end{proof*}
+\end{proof}
 
 
 
-\begin{thm}{}{}
+\begin{thm}
     Let $a < c < b$. If $f$ is integrable on $[a,b]$, then $f$ is integrable on $[a,c]$ and one $[c,b]$. Conversely, if $f$ is integrable on $[a,c]$ and on $[c,b]$, then $f$ is integrable on $[a.b]$. Finally, if $f$ is integrable on $[a,b]$, then \begin{equation}
         \int_a^bf = \int_a^cf + \int_c^bf
     \end{equation}
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
 
     (1) Suppose $f$ is integrable on $[a,b]$. Then $f$ is bounded on $[a,b]$, so it is bounded on $[a,c]$ and $[c,b]$. Indeed, $f$ being bounded implies that there exists $M \in \R$ such that for all $x \in [a,b]$ $|f(x)| \leq M$. Thus, as this applies for all $x \in [a,b]$ and $[a,c],[c,b] \subset [a,b]$, we have that it holds for all $x \in [a,c]$ and all $x \in [c,b]$. Now fix $\epsilon > 0$. Then there exists a partition $P$ of $[a,b]$ such that $$U(f,P) - L(f,P) < \epsilon$$
     Without loss of generality suppose $c=t_j$ for some $t_j \in P = \{t_0,t_1,...,t_n\}$. Then we have partitions $P' = \{t_0,...,t_j\}$ and $P'' = \{t_j,...,t_n\}$ for $[a,c]$ and $[c,b]$ respectively. Moreover, \begin{align*}
@@ -1324,22 +1330,22 @@ we shall always assume that such a numbering has been assigned.
     Therefore, this holds for all partitions of $[a,b]$, but $R$ is the unique number which does this so we must have that $R = R_1 + R_2$. Thus \begin{equation*}
         \int_a^bf = \int_a^cf + \int_c^bf
     \end{equation*}
-\end{proof*}
+\end{proof}
 
 
-\begin{defn}{}{}
+\begin{defn}
     Using the previous theorem, we defin \begin{equation}
         \int_a^af := 0 \;\;\;and\;\;\;\int_a^bf := -\int_b^af,\;for\;a>b
     \end{equation}
 \end{defn}
 
 
-\begin{thm}{}{}
+\begin{thm}
     If $f$ and $g$ are integrable on $[a,b]$, then $f+g$ is integrable on $[a,b]$ and \begin{equation}
         \int_a^b(f+g) = \int_a^bf+\int_a^bg
     \end{equation}
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     Let $P = \{t_0,...,t_n\}$ be a partition of $[a,b]$. Let \begin{align*}
         m_i &= \inf\{(f+g)(x):t_{i-1} \leq x \leq t_i\} \\
         m_i'&= \inf\{f(x):t_{i-1} \leq x \leq t_i\} \\
@@ -1382,16 +1388,16 @@ we shall always assume that such a numbering has been assigned.
     Consequently, we have that \begin{equation*}
         \int_a^b(f+g) = \int_a^bf + \int_a^bg
     \end{equation*}
-\end{proof*}
+\end{proof}
 
 
 
-\begin{thm}{}{}
+\begin{thm}
     If $f$ is integrable on $[a,b]$, then for any $c \in \R$, the function $cf$ is integrable on $[a,b]$ and \begin{equation}
         \int_a^bcf = c\cdot\int_a^bf
     \end{equation}
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     (1) Consider $c \geq 0$. Let $P = \{t_0,...,t_n\}$ be a partition of $[a,b]$, define \begin{align*}
         m_i &= \inf\{(cf)(x):t_{i-1} \leq x \leq t_i\} \\
         m_i' &= \inf\{f(x):t_{i-1} \leq x \leq t_i\} 
@@ -1439,9 +1445,9 @@ we shall always assume that such a numbering has been assigned.
         \int_a^bcf = c\int_a^bf
     \end{equation*}
     completing the proof.
-\end{proof*}
+\end{proof}
 
-\begin{thm}{}{boundint}
+\begin{thm}\label{thm:boundint}
     Suppose $f$ is integrable on $[a,b]$ and that \begin{equation}
         m \leq f(x) \leq M \forall x \in [a,b]
     \end{equation}
@@ -1449,29 +1455,29 @@ we shall always assume that such a numbering has been assigned.
         m(b-a) \leq \int_a^bf \leq M(b-a)
     \end{equation}
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     It is clear that $M \geq \sup\{f(x):x \in [a,b]\}$ and $m \leq \inf\{f(x):x\in [a,b]\}$, so \begin{equation*}
         m(b-a) \leq L(f,P)\;and\;M(b-a) \geq U(f,P)
     \end{equation*}
     for every partition $P$. Since $\int_a^bf = \sup\{L(f,P)\} = \inf\{U(f,P)\}$ we have that \begin{equation*}
         m(b-a) \leq \sup\{L(f,P)\} = \int_a^bf = \inf\{U(f,P)\} \leq M(b-a)
     \end{equation*}
-\end{proof*}
+\end{proof}
 
-\begin{rmk}{}{}
+\begin{rmk}
     If $f$ is integrable on $[a,b]$, we can define a new function $F$ on $[a,b]$ by \begin{equation}
         F(x) = \int_a^xf = \int_a^xf(t)dt
     \end{equation}
 \end{rmk}
 
 
-\begin{thm}{}{}
+\begin{thm}
     If $f$ is integrable on $[a,b]$ and $F$ is defined on $[a,b]$ by \begin{equation*}
         F(x) = \int_a^xf
     \end{equation*}
     then $F$ is continuous on $[a,b]$.
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     Suppose $c \in [a,b]$. Since $f$ is integrable on $[a,b]$ it is, by definition, bounded on $[a,b]$; let $M$ be a number such that \begin{equation*}
         |f(x)| \leq M,\forall x \in [a,b]
     \end{equation*}
@@ -1497,11 +1503,11 @@ we shall always assume that such a numbering has been assigned.
         \lim\limits_{h\rightarrow 0}F(c+h) = F(c)
     \end{equation*}
     so $F$ is continuous at $c$.
-\end{proof*}
+\end{proof}
 
 \section{Reimann Sums}
 
-\begin{defn}{}{}
+\begin{defn}
     Suppose $P = \{t_0,...,t_n\}$ is a partition of $[a,b]$, and for each $i$ choose $x_i \in [t_{i-1},t_i$. Then we clearly have that \begin{equation}
         L(f,P) \leq \sum\limits_{i=1}^nf(x_i)(t_i-t_{i-1}) \leq U(f,P)
     \end{equation}
@@ -1512,13 +1518,13 @@ we shall always assume that such a numbering has been assigned.
 \end{defn}
 
 
-\begin{thm}{}{}
+\begin{thm}
     Suppose that $f$ is integrable on $[a,b]$. Then for every $\epsilon > 0$ there is some $\delta > 0$ such that, if $P = \{t_0,...,t_n\}$ is any partition of $[a,b]$ with $t_i - t_{i-1} < \delta$ for all $i \in \{1,...,n\}$, then \begin{equation*}
         \left|\sum\limits_{i=1}^nf(x_i)(t_i-t_{i-1}) - \int_a^bf(x)dx\right| < \epsilon
     \end{equation*}
     for any Riemann sum formed by choosing $x_i \in [t_{i-1},t_i]$.
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     Note that for any partition $P$ both the integral and the Riemann sum lie between $L(f,P)$ and $U(f,P)$. Thus, it suffices to show that for any given $\epsilon > 0$, there exists a $\delta > 0$ such that $U(f,P) - L(f,P) < \epsilon$ for any partition $P$ with $t_i - t_{i-1} < \delta$ for all $i \in \{1,2,...,n\}$.
 
     Since $f$ is integrable on $[a,b]$ it is also bounded, so there exists $M \in \R$ such that $|f(x)| \leq M$ for all $x \in [a,b]$. First choose some particular partition $P^* = \{u_0,...,u_K\}$ for which \begin{equation*}
@@ -1531,12 +1537,12 @@ we shall always assume that such a numbering has been assigned.
         U(f,P) - L(f,P) = \sum_{i=1}^n(M_i-m_i)(t_i-t_{i-1})
     \end{equation*}
     as two sums. Let the first consist of those $i's$ forwhcih $[t_{i-1},t_i] \subseteq [u_{j-1},u_j]$ for some $j$. Evidently, this sum is $\leq U(f,P^*) - L(f,P^*) <\epsilon/2$. For all other $i$ we will have $t_{i-1} < u_j < t_i$ for some $j \in \{1,...,K-1\}$, so there are at most $K-1$ of them. Consequently, the sum for these terms is $< (K-1)\cdot 2M\cdot \delta M < \epsilon/2$. Then we have that $U(f,P) - L(f,P) < \epsilon$, completing the proof.
-\end{proof*}
+\end{proof}
 
 
 \section{The Fundamental Theorem of Calculus}
 
-\begin{namthm}{The Fundamental Theorem of Calculus}{FTC}
+\begin{namthm}[The Fundamental Theorem of Calculus]\label{thmname:FTC}
     Let $f$ be integrable on $[a,b]$, and define $F$ on $[a,b]$ by \begin{equation}
         F(x) = \int_a^xf = \int_a^xf(t)dt
     \end{equation}
@@ -1545,7 +1551,7 @@ we shall always assume that such a numbering has been assigned.
     \end{equation}
     (if $c = a$ or $b$, then $F'(c)$ is understood to mean the right or left hand derivative of $F$).
 \end{namthm}
-\begin{proof*}{}{}
+\begin{proof}
     First, consider $c \in (a,b)$. By definition,\begin{equation*}
         F'(c) = \lim\limits_{h\rightarrow 0}\frac{F(c+h)-F(c)}{h}
     \end{equation*}
@@ -1600,10 +1606,10 @@ we shall always assume that such a numbering has been assigned.
     \end{equation*}
     and $$F'(b) = \lim\limits_{h\rightarrow 0^-}\frac{F(b+h)-F(b)}{h} = f(b)$$
     completing the proof.
-\end{proof*}
+\end{proof}
 
 
-\begin{rmk}{}{}
+\begin{rmk}
     We may consider \begin{equation}
         F(x) = \int_a^xf
     \end{equation}
@@ -1617,12 +1623,12 @@ we shall always assume that such a numbering has been assigned.
 \end{rmk}
 
 
-\begin{cor}{}{}
+\begin{cor}
     If $f$ is continuous on $[a,b]$ and $f = g'$ for some function $g$, then \begin{equation}
         \int_a^bf = g(b) - f(a)
     \end{equation}
 \end{cor}
-\begin{proof*}{}{}
+\begin{proof}
     Let \begin{equation*}
         F(x) = \int_a^xf
     \end{equation*}
@@ -1635,20 +1641,20 @@ we shall always assume that such a numbering has been assigned.
     This is true, in particular, for $x = b$. THus \begin{equation*}
         \int_a^bf = F(b) = g(b) - g(a)
     \end{equation*}
-\end{proof*}
+\end{proof}
 
-\begin{rmk}{}{}
+\begin{rmk}
     It is important to note that this is merely a useful result for certain functiosn $f$, \Emph{not} a definition.
 \end{rmk}
 
 
-\begin{namthm}{Second Fundamental Theorem of Calculus}{FTC2}
+\begin{namthm}[Second Fundamental Theorem of Calculus]\label{thmname:FTC2}
     If $f$ is integrable on $[a,b]$ and $f = g'$ for some function $g$, then \begin{equation*}
         \int_a^bf = g(b) - g(a)
     \end{equation*}
 \end{namthm}
-\begin{proof*}{}{}
-    Let $P = \{t_0,...,t_n\}$ be any partition of $[a,b]$. By \nameref{thmname:meanval} there is a point $x_i \in [t_{i-1},t_i]$ such that \begin{align*}
+\begin{proof}
+    Let $P = \{t_0,...,t_n\}$ be any partition of $[a,b]$. By \ref{thmname:meanval} there is a point $x_i \in [t_{i-1},t_i]$ such that \begin{align*}
         g(t_i) - g(t_{i-1}) &= g'(x_i)(t_i-t_{i-1}) \\
         &= f(x_i)(t_i-t_{i-1})
     \end{align*}
@@ -1668,9 +1674,9 @@ we shall always assume that such a numbering has been assigned.
     for every partition $P$. This means that \begin{equation*}
         g(b) - g(a) = \int_a^bf
     \end{equation*}
-\end{proof*}
+\end{proof}
 
-\begin{rmk}{}{}
+\begin{rmk}
     If $f$ is any bounded function on $[a,b]$, then \begin{equation}
         \sup\{L(f,P)\}\;\;and\;\;\inf\{U(f,P)\}
     \end{equation}
@@ -1687,20 +1693,20 @@ we shall always assume that such a numbering has been assigned.
         \mathbf{L}\int_a^bf = \mathbf{U}\int_a^bf
     \end{equation}
 \end{rmk}
-\begin{proof*}{}{}
+\begin{proof}
     (Left to the reader)
-\end{proof*}
+\end{proof}
 
 
-\begin{rmk}{}{}
+\begin{rmk}
     We shall now demonstrate an alternate proof for the following theorem stated previously.
 \end{rmk}
 
 
-\begin{thm}{}{}
+\begin{thm}
     If $f$ is continuous on $[a,b]$, then $f$ is integrable on $[a,b]$.
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     Define function $L$ and $U$ on $[a,b]$ by \begin{equation*}
         L(x) = \mathbf{L}\int_a^xf\;\;and\;\;U(x) = \mathbf{U}\int_a^xf
     \end{equation*}
@@ -1721,7 +1727,7 @@ we shall always assume that such a numbering has been assigned.
         m_h &= \inf\{f(t):x+h\leq t \leq x\} \\
         M_h &= \sup\{f(t): x+h\leq t\leq x\} 
     \end{align*}
-    one obtains the same inequality, precisely as in the proof of \nameref{thmname:FTC}.
+    one obtains the same inequality, precisely as in the proof of \ref{thmname:FTC}.
 
     Since $f$ is continuous at $x$, we have \begin{equation*}
         \lim\limits_{h\rightarrow 0}m_h = \lim\limits_{h\rightarrow 0}M_h = f(x)
@@ -1739,26 +1745,26 @@ we shall always assume that such a numbering has been assigned.
         \mathbf{U}\int_a^bf = U(b) = L(b) = \mathbf{L}\int_a^bf
     \end{equation*}
     so $f$ is integrable on $[a,b]$.
-\end{proof*}
+\end{proof}
 
 
 \begin{subappendices}
     \section{Trigonometric Functions}
 
-    \begin{defn}{}{}
+    \begin{defn}
         We define the mathematical constant $\pi$ as the area of the unit circle, or in this case, twice the area of a semi-circle:\begin{equation}
             \pi:=2\cdot \int_{-1}^1\sqrt{1-x^2}dx
         \end{equation}
     \end{defn}
 
 
-    \begin{defn}{}{}
+    \begin{defn}
         If $-1 \leq x \leq 1$, then the area of the sector bounded between the upper unit circle from $[x,1]$ and the $x$-axis and radial arm is \begin{equation}
             A(x) := \frac{x\sqrt{1-x^2}}{2} + \int_x^1\sqrt{1-t^2}dt
         \end{equation}
     \end{defn}
 
-    \begin{rmk}{}{}
+    \begin{rmk}
         For $-1 < x < 1$, $A$ is differentiable at $x$ and \begin{align*}
             A'(x) &= \frac{1}{2}\left[\sqrt{1-x^2} +x\cdot\frac{-2x}{2\sqrt{1-x^2}}\right] -\sqrt{1-x^2} \\
             &= \frac{1}{2}\frac{1-x^2-x^2}{\sqrt{1-x^2}} - \frac{1-x^2}{\sqrt{1-x^2}} \\
@@ -1768,24 +1774,24 @@ we shall always assume that such a numbering has been assigned.
         Note that on $[-1,1]$, the function $A$ decreases from $A(-1) = \frac{\pi}{2}$ to $A(1) = 0$.
     \end{rmk}
 
-    \begin{defn}{}{}
+    \begin{defn}
         If $0 \leq x \leq \pi$, then $\cos x$ is the unique number in $[-1,1]$ such that \begin{equation}
             A(\cos x) = \frac{x}{2}
         \end{equation}
         and \begin{equation}
             \sin x := \sqrt{1-(\cos x)^2}
         \end{equation}
-        Note that such a $\cos x$ exists as $A$ is continuous on $[-1,1]$, and $A(-1) = \frac{\pi}{2}$ while $A(1) = 0$. Hence, by \nameref{thmname:intval} there exists $y \in [-1,1]$ such that $A(y) = \frac{x}{2}$ for all $x \in [0,\pi]$.
+        Note that such a $\cos x$ exists as $A$ is continuous on $[-1,1]$, and $A(-1) = \frac{\pi}{2}$ while $A(1) = 0$. Hence, by \ref{thmname:intval} there exists $y \in [-1,1]$ such that $A(y) = \frac{x}{2}$ for all $x \in [0,\pi]$.
     \end{defn}
 
 
-    \begin{thm}{}{}
+    \begin{thm}
         If $0 < x < \pi$, then \begin{align*}
             \cos'(x) &= -\sin x \\
             \sin'(x) &= \cos x
         \end{align*}
     \end{thm}
-    \begin{proof*}{}{}
+    \begin{proof}
         If $B = 2A$, then the definition $A(\cos x) = x/2$ can be written \begin{equation*}
             B(\cos x) = x
         \end{equation*}
@@ -1807,10 +1813,10 @@ we shall always assume that such a numbering has been assigned.
             &= \frac{-\cos x\cdot (-\sin x)}{\sin x}\\
             &= \cos x
         \end{align*}
-    \end{proof*}
+    \end{proof}
     
 
-    \begin{defn}{}{}
+    \begin{defn}
         Now, to define $\sin$ and $\cos$ on $\R$, we proceed as follows \begin{enumerate}
             \item If $\pi \leq x \leq 2\pi$, the \begin{align*}
                     \sin x &= -\sin(2\pi - x) \\
@@ -1824,7 +1830,7 @@ we shall always assume that such a numbering has been assigned.
     \end{defn}
 
 
-    \begin{lem}{}{}
+    \begin{lem}
         Suppose $f$ has a second derivative everywhere and that \begin{align*}
             f''+f&= 0\\
             f(0) &= 0\\
@@ -1832,7 +1838,7 @@ we shall always assume that such a numbering has been assigned.
         \end{align*}
         Then $f = 0$
     \end{lem}
-    \begin{proof*}{}{}
+    \begin{proof}
         Multiplying both sides of the first equation by $f'$ yields \begin{equation*}
             f'f'' + ff' = 0
         \end{equation*}
@@ -1845,9 +1851,9 @@ we shall always assume that such a numbering has been assigned.
         This implies that \begin{equation*}
             f(x) = 0 \forall x
         \end{equation*}
-    \end{proof*}
+    \end{proof}
 
-    \begin{thm}{}{}
+    \begin{thm}
         If $f$ has a second derivative everywhere and \begin{align*}
             f'' + f &= 0 \\
             f(0) &= a \\
@@ -1857,7 +1863,7 @@ we shall always assume that such a numbering has been assigned.
             f = b\cdot \sin + a \cdot \cos
         \end{equation*}
     \end{thm}
-    \begin{proof*}{}{}
+    \begin{proof}
         Let \begin{equation*}
             g(x) = f(x) - b\sin x - a \cos x
         \end{equation*}
@@ -1873,16 +1879,16 @@ we shall always assume that such a numbering has been assigned.
         which shows by the previous lemma that \begin{equation*}
             0 = g(x) = f(x) - b\sin x - a\cos x, \forall x
         \end{equation*}
-    \end{proof*}
+    \end{proof}
 
 
-    \begin{thm}{}{}
+    \begin{thm}
         If $x$ and $y$ are any two numbers, then \begin{align*}
             \sin(x+y) &= \sin x\cos y + \cos x \sin y \\
             \cos(x+y) &= \cos x\cos y - \sin x \sin y
         \end{align*}
     \end{thm}
-    \begin{proof*}{}{}
+    \begin{proof}
         For any particular $y \in \R$, we can define a function $f$ by \begin{equation*}
             f(x) = \sin(x+y)
         \end{equation*}
@@ -1904,13 +1910,13 @@ we shall always assume that such a numbering has been assigned.
             \cos(x+y) = \cos y\cos x - \sin y \sin x
         \end{equation*}
         proving the second formula.
-    \end{proof*}
+    \end{proof}
 
-    \begin{rmk}{}{}
+    \begin{rmk}
         Since \begin{equation*}
             \arcsin'(x) = \frac{1}{\sqrt{1-x^2}}, -1 < x < 1
         \end{equation*}
-        it follows from \nameref{thmname:FTC2} that \begin{equation*}
+        it follows from \ref{thmname:FTC2} that \begin{equation*}
             \arcsin x = \arcsin x - \arcsin 0 = \int_0^x\frac{1}{\sqrt{1-t^2}}dt
         \end{equation*}
         Using this definition of $\arcsin$ we could define $\sin$ as $\arcsin^{-1}$, and the formula for the derivative of an inverse function would show that \begin{equation*}
@@ -1922,19 +1928,19 @@ we shall always assume that such a numbering has been assigned.
 
     \section{The Logarithm and Exponential Functions}
     
-    \begin{defn}{}{}
+    \begin{defn}
         If $x > 0$, then define \begin{equation}
             \log x := \int_1^x\frac{1}{t}dt
         \end{equation}
     \end{defn}
 
-    \begin{thm}{}{}
+    \begin{thm}
         If $x.y > 0$, then \begin{equation}
             \log(xy) = \log x+ \log y
         \end{equation}
     \end{thm}
-    \begin{proof*}{}{}
-        Notice first that $\log'(x) = 1/x$, by \nameref{thmname:FTC}. Now, choose a number $y > 0$ and let \begin{equation*}
+    \begin{proof}
+        Notice first that $\log'(x) = 1/x$, by \ref{thmname:FTC}. Now, choose a number $y > 0$ and let \begin{equation*}
             f(x) = \log(xy)
         \end{equation*}
         Then\begin{equation*}
@@ -1947,14 +1953,14 @@ we shall always assume that such a numbering has been assigned.
             \log(xy) = \log x + \log y
         \end{equation*}
         for all $x$. Since this is true for all $y > 0$, the theorem is proved.
-    \end{proof*}
+    \end{proof}
 
-    \begin{cor}{}{}
+    \begin{cor}
         If $n$ is a natural number and $x > 0$, then \begin{equation}
             \log(x^n) = n\log x
         \end{equation}
     \end{cor}
-    \begin{proof*}{}{}
+    \begin{proof}
         We proceed by induction on $n \in \N$. If $n = 1$ we simply have $\log(x^1) = 1\cdot \log x$, so the base case holds. Now suppose inductively that there exists $k \geq 1$ such that if $n = k$, \begin{equation*}
             \log(x^k) = k\log x
         \end{equation*}
@@ -1965,54 +1971,54 @@ we shall always assume that such a numbering has been assigned.
             &= (k+1)\log x
         \end{align*}
         as desired. Thus by mathematical induction we conclude that for all $n \geq 1$, $\log(x^n) = n\log x$.
-    \end{proof*}
+    \end{proof}
 
 
-    \begin{cor}{}{}
+    \begin{cor}
         If $x,y > 0$, then \begin{equation*}
             \log\left(\frac{x}{y}\right) = \log x - \log y
         \end{equation*}
     \end{cor}
-    \begin{proof*}{}{}
+    \begin{proof}
         This result follows from the equation \begin{equation*}
             \log x = \log \left(\frac{x}{y}\cdot y\right) = \log\left(\frac{x}{y}\right) + \log y
         \end{equation*}
-    \end{proof*}
+    \end{proof}
 
-    \begin{defn}{}{}
+    \begin{defn}
         The \Emph{exponential function}, $\exp$, is defined as $\log^{-1}$.
     \end{defn}
 
-    \begin{thm}{}{}
+    \begin{thm}
         For all numbers $x$,\begin{equation*}
             \exp'(x) = \exp(x)
         \end{equation*}
     \end{thm}
-    \begin{proof*}{}{}
+    \begin{proof}
         Observe that \begin{align*}
             \exp'(x) &= (\log^{-1})'(x) \\
             &= \frac{1}{\log'(\log^{-1}(x))} \\
             &= \frac{1}{\frac{1}{\log^{-1}(x)}} \\
             &= \log^{-1}(x) = \exp(x)
         \end{align*}
-    \end{proof*}
+    \end{proof}
 
-    \begin{thm}{}{}
+    \begin{thm}
         If $x$ and $y$ are any two numbers, then \begin{equation*}
             \exp(x+y) = \exp(x)\cdot \exp(y)
         \end{equation*}
     \end{thm}
-    \begin{proof*}{}{}
+    \begin{proof}
         Let $x' = \exp(x)$ and $y' = \exp(y)$, so that $x = \log x'$ and $y = \log y'$. Then \begin{equation*}
             x+y = \log x' + \log y' = \log(x'y')
         \end{equation*}
         This means that \begin{equation*}
             \exp(x+y) = x'y' = \exp(x) \cdot \exp(y)
         \end{equation*}
-    \end{proof*}
+    \end{proof}
 
 
-    \begin{defn}{}{}
+    \begin{defn}
         We define \begin{equation}
             e := \exp(1)
         \end{equation}
@@ -2025,7 +2031,7 @@ we shall always assume that such a numbering has been assigned.
     \end{defn}
 
 
-    \begin{defn}{}{}
+    \begin{defn}
         If $a > 0$, then, for any real number $x$, \begin{equation}
             a^x := e^{x\log a}
         \end{equation}
@@ -2033,7 +2039,7 @@ we shall always assume that such a numbering has been assigned.
     \end{defn}
 
 
-    \begin{thm}{}{}
+    \begin{thm}
         If $a > 0$, then \begin{equation*}
             (1)\;\;(a^b)^c = a^{bc},\;\forall a,b\in\R
         \end{equation*}
@@ -2041,7 +2047,7 @@ we shall always assume that such a numbering has been assigned.
             (2)\;\;a^1=a\;and\;a^{x+y}=a^x\cdot a^y,\;\forall x,y\in\R
         \end{equation*}
     \end{thm}
-    \begin{proof*}{}{}
+    \begin{proof}
         First, observe that \begin{align*}
             (a^b)^c &= e^{c\log a^b} \\
             &= e^{c\log e^{b\log a}} \\
@@ -2057,9 +2063,9 @@ we shall always assume that such a numbering has been assigned.
             &= e^{x\log a} \cdot e^{y\log a} \\
             &= a^x \cdot a^y
         \end{align*}
-    \end{proof*}
+    \end{proof}
 
-    \begin{thm}{}{}
+    \begin{thm}
         If $f$ is differentiable and \begin{equation*}
             f'(x) = f(x),\;\forall x\in\R
         \end{equation*}
@@ -2067,22 +2073,22 @@ we shall always assume that such a numbering has been assigned.
             f(x) = ce^x,\;\forall x\in\R
         \end{equation*}
     \end{thm}
-    \begin{proof*}{}{}
+    \begin{proof}
         Let $g(x) = f(x)/e^x$, which is possible as $e^x \neq 0$ for all $x$. Then \begin{equation*}
             g'(x) = \frac{e^xf'(x) - f(x)e^x}{(e^x)^2} = 0
         \end{equation*}
         THerefore, there is a number $c$ such that \begin{equation*}
             g(x) = \frac{f(x)}{e^x} = c,\;\forall x
         \end{equation*}
-    \end{proof*}
+    \end{proof}
     
 
-    \begin{thm}{}{}
+    \begin{thm}
         For any natural number $n$, \begin{equation}
             \lim\limits_{x\rightarrow \infty}\frac{e^x}{x^n} = \infty
         \end{equation}
     \end{thm}
-    \begin{proof*}{}{}
+    \begin{proof}
         Step 1. We claim that $e^x > x$ for all $x$, and consequently $\lim\limits_{x\rightarrow \infty}e^x = \infty$.
 
         For $x \leq 0$ this is immediate. Now, it suffices to show $x > \log x$ for all $x > 0$. If $x < 1$ this clearly holds since $\log x < 0$. If $x > 1$, then $x-1$ is an upper sum for $f(t) = \frac{1}{t}$ on $[1,x]$, so $\log x < x-1 < x$.
@@ -2098,7 +2104,7 @@ we shall always assume that such a numbering has been assigned.
             \frac{e^x}{x^n} = \frac{(e^{x/n})^x}{\left(\frac{x}{n}\right)^n\cdot n^n} = \frac{1}{n^n}\cdot \left(\frac{e^{x/n}}{\frac{x}{n}}\right)^n
         \end{equation*}
         The expression in parentheses becomes arbitrarily large, by Step 2., so the $n$th power certainly becomes arbitrarily large.
-    \end{proof*}
+    \end{proof}
 
 
 
@@ -2112,24 +2118,24 @@ we shall always assume that such a numbering has been assigned.
 
 \section{Approximation by Polynomial Functions}
 
-\begin{defn}{}{}
+\begin{defn}
     Given a function $f$ that is $n$ times differentiable in a neighborhood of a point $a$, let \begin{equation*}
         a_k = \frac{f^{(k)}(a)}{k!},\;\;0\leq k \leq n,
     \end{equation*}
-    and define \begin{equation*}{}{}
+    and define \begin{equation*}
         P_{n,a}(x) = a_0 + a_1(x-a) + \hdots + a_x(x-a)^n
     \end{equation*}
     The polynomial $P_{n,a}$ is called the \Emph{Taylor polynomial of degree $n$ for $f$ at $a$}. 
 \end{defn}
 
-\begin{rmk}{}{}
-    The Taylor polynomial has been defined so that \begin{equation*}{}{}
+\begin{rmk}
+    The Taylor polynomial has been defined so that \begin{equation*}
         P_{n,a}^{(k)}(a) = f^{(k)}(a)\;\;\text{ for }\;0\leq k \leq n
     \end{equation*}
     in fact, it is evidently the only polynomial of degree $\leq n$ with this property.
 \end{rmk}
 
-\begin{eg*}{}{}
+\begin{eg}
     Consider the $\sin$ function. We have \begin{align*}
         \sin(0) &= 0 \\
         \sin'(0) &= \cos 0 = 1 \\
@@ -2148,10 +2154,10 @@ we shall always assume that such a numbering has been assigned.
     Via a similar derivation we find that the Taylor polynomial $P_{2n,0}$ of degree $2n$ for $\cos$ at $0$ is \begin{equation*}
         P_{2n,0} = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \hdots + (-1)^n\frac{x^{2n}}{(2n)!}
     \end{equation*}
-\end{eg*}
+\end{eg}
 
 
-\begin{eg*}{}{}
+\begin{eg}
     Note that for all $k \geq 0$, $\exp^{(k)}(0) = \exp(0) = 1$, so the Taylor polynomial of degree $n$ for $\exp$ at $0$ is \begin{equation*}
         P_{n,0}(x) = 1 + \frac{x}{1!} + \frac{x^2}{2!} + \frac{x^3}{3!} + \hdots + \frac{x^n}{n!}
     \end{equation*}
@@ -2169,10 +2175,10 @@ we shall always assume that such a numbering has been assigned.
     If we consider the function $f(x) = \log(1+x)$, then the Taylor polynomial of degree $n$ of $f$ at $0$ is \begin{equation*}
         P_{n,0}(x) = x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \hdots + \frac{(-1)^{n-1}x^n}{n}
     \end{equation*}
-\end{eg*}
+\end{eg}
 
 
-\begin{thm}{}{smoldiff}
+\begin{thm}\label{thm:smoldiff}
     Suppose that $f$ is a function and $a \in \R$ such that \begin{equation*}
         f'(a),...,f^{(n)}(a)
     \end{equation*}
@@ -2186,7 +2192,7 @@ we shall always assume that such a numbering has been assigned.
         \lim\limits_{x\rightarrow a}\frac{f(x)-P_{n,a}(x)}{(x-a)^n} = 0
     \end{equation*}
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     Weiting out $P_{n,a}(x)$ expliticly we obtain \begin{equation*}
         \frac{f(x) - P_{n,a}(x)}{(x-a)^n} = \frac{f(x) - \sum\limits_{i=0}^{n-1}\frac{f^{(i)}(a)}{i!}(x-a)^i}{(x-a)^n} - \frac{f^{(n)}}{n!}
     \end{equation*}
@@ -2209,10 +2215,10 @@ we shall always assume that such a numbering has been assigned.
         \lim\limits_{x\rightarrow a}\frac{f(x)-Q(x)}{(x-a)^n} = \lim\limits_{x\rightarrow a}\frac{f^{(n-1)}(x)-f^{(n-1)}(a)}{n!(x-a)} = \frac{f^{(n)}(a)}{n!}
     \end{equation*}
     by definition of $f^{(n)}(a)$, as desired.
-\end{proof*}
+\end{proof}
 
 
-\begin{thm}{}{}
+\begin{thm}
     Suppose that \begin{equation*}
         f'(a) = ... = f^{(n-1)}(a) = 0,\;\text{ and }\;f^{(n)}(a) \neq 0
     \end{equation*}
@@ -2222,7 +2228,7 @@ we shall always assume that such a numbering has been assigned.
         \item If $n$ is odd, then $f$ has neither a local maximum nor a local minimum at $a$.
     \end{enumerate}
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     Let $f$ be as in the hypothesis, and without loss of generality let $f(a) = 0$, as otherwise one can replace $f$ with $f-f(a)$ without affecting the hypothesis. THen, since the first $n-1$ derivatives of $f$ at $a$ are $0$, the Taylor polynomial$ P_{n,a}$ of $f$ is \begin{align*}
         P_{n,a}(x) &= \sum\limits_{i=0}^n\frac{f^{(i)}(a)}{i!}(x-a)^i \\
         &= \frac{f^{(n)}(a)}{n!}(x-a)^n 
@@ -2239,19 +2245,19 @@ we shall always assume that such a numbering has been assigned.
     for $x$ close to $a$, so $f$ has a local minimum at $a$.
 
     Conversely, suppose that $n$ is odd. Then if $x$ is sufficiently close to $a$ $f(x)/(x-a)^n$ always has the same sign, since it has the same sign as $f^{(n)}(a)/n!$ which is constant. But $(x-a)^n >0$ for $x >a$ and $(x-a)^n < 0$ for $x < a$. Therefore $f(x)$ has different signs for $x > a$ and $x <a$. Hence, $f$ has neither a local maximum nor a local minimum at $a$.
-\end{proof*}
+\end{proof}
 
-\begin{defn}{}{}
+\begin{defn}
     Two functions $f$ and $g$ are \Emph{equal up to order $n$ at $a$} if \begin{equation*}
         \lim\limits_{x\rightarrow a}\frac{f(x) - g(x)}{(x-a)^n} = 0
     \end{equation*}
 \end{defn}
 
 
-\begin{thm}{}{}
+\begin{thm}
     Let $P$ and $Q$ be two polynomials in $(x-a)$, of degree $\leq n$, and suppose that $P$ and $Q$ are equal up to order $n$ at $a$. Then $P = Q$.
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     Let $R= P-Q$. Since $R$ is a polynomial of degree $\leq n$, it is only necessariy to prove that if $R(x) = b_0+\hdots +b_n(x-a)^n$ satisfies \begin{equation*}
         \lim\limits_{x\rightarrow a}\frac{R(x)}{(x-a)^n} = 0
     \end{equation*}
@@ -2268,17 +2274,17 @@ we shall always assume that such a numbering has been assigned.
         b_0 = b_1 = ... = b_n = 0
     \end{equation*}
     so $R(x) = 0$ and $P = Q$.
-\end{proof*}
+\end{proof}
 
 
-\begin{cor}{}{}
+\begin{cor}
     Let $f$ be $n$-times differentiable at $a$, and suppose that $P$ is a polynomial in $(x-a)$ of degree $\leq n$, which equals $f$ up to order $n$ at $a$. Then $P = P_{n,a,f}$ (The Taylor polynomial of $f$ of degree $n$ at $a$).
 \end{cor}
-\begin{proof*}{}{}
+\begin{proof}
     Since $P$ and $P_{n,a,f}$ both equal $f$ up to order $n$ at $a$, using the triangle inequality and an epsilon-delta proof it can be shown that $P$ equals $P_{n,a,f}$ up to order $n$ at $a$. Consequently, $P = P_{n,a,f}$ by the preceding Theorem.
-\end{proof*}
+\end{proof}
 
-\begin{defn}{}{}
+\begin{defn}
     If $f$ is a function for which $P_{n,a}(x)$ exists, we define the \Emph{remainder term} $R_{n,a}(x)$ by \begin{equation*}
         R_{n,a}(x) = f(x) - P_{n,a}(x)
     \end{equation*}
@@ -2287,7 +2293,7 @@ we shall always assume that such a numbering has been assigned.
     \end{equation*}
 \end{defn}
 
-\begin{rmk}{}{}
+\begin{rmk}
     If $m$ and $M$ are the minimum and maximum of $f^{(n+1)}{n!}$ on $[a,x]$, then $R_{n,a}(x)$ satisfies \begin{equation*}
         m\in_a^x(x-t)^ndt\leq R_{n,a}(x)\leq M\int_a^x(x-t)^ndt
     \end{equation*}
@@ -2301,7 +2307,7 @@ we shall always assume that such a numbering has been assigned.
 \end{rmk}
 
 
-\begin{lem}{}{}
+\begin{lem}
     Suppose that the function $R$ is $(n+1)$-times differentiable on $[a,b]$, and \begin{equation*}
         R^{(k)}(a) = 0\;\;\text{ for } k =0,1,2,...,n
     \end{equation*}
@@ -2309,8 +2315,8 @@ we shall always assume that such a numbering has been assigned.
         \frac{R(x)}{(x-a)^{n+1}} = \frac{R^{(n+1)}(t)}{(n+1)!}\;\text{ for some $t$ in } (a,x)
     \end{equation*}
 \end{lem}
-\begin{proof*}{}{}
-    For $n = 0$, this is simply \nameref{thmname:meanval}, and we will proceed for the remaining $n$ by induction on $n$. To do this we use \nameref{thmname:caumeanval} to write \begin{equation*}
+\begin{proof}
+    For $n = 0$, this is simply \ref{thmname:meanval}, and we will proceed for the remaining $n$ by induction on $n$. To do this we use \ref{thmname:caumeanval} to write \begin{equation*}
         \frac{R(x)}{(x-a)^{n+2}} = \frac{R'(z)}{(n+2)(z-a)^{n+1}} = \frac{1}{n+2}\frac{R'(z)}{(z-a)^{n+1}}\;\;\text{ for some $z$ in } (a,x),
     \end{equation*}
     and then apply the induction hypothesis to $R'$ on the interval $[a,z]$ to get \begin{align*}
@@ -2318,9 +2324,9 @@ we shall always assume that such a numbering has been assigned.
         &= \frac{R^{(n+2)}(t)}{(n+2)!}
     \end{align*}
     as desired.
-\end{proof*}
+\end{proof}
 
-\begin{namthm}{Taylor's Theorem}{taythm}
+\begin{namthm}[Taylor's Theorem]\label{thmname:taythm}
     Suppose $f',...,f^{(n+1)}$ are defined on $[a,x]$, and that $R_{n,a}(x)$ is defined by \begin{equation*}
         R_{n,a}(x) = f(x) - P_{n,a}(x)
     \end{equation*}
@@ -2328,7 +2334,7 @@ we shall always assume that such a numbering has been assigned.
         R_{n,a}(x) = \frac{f^{(n+1)}(t)}{(n+1)!}(x-a)^{n+1}\;\;\text{ for some $t$ in } (a,x)
     \end{equation*}
 \end{namthm}
-\begin{proof*}{}{}
+\begin{proof}
     The function $R_{n,a}$ satisfies the conditions of the preceding Lemma by the definition of the Taylor polynomial, so \begin{equation*}
         \frac{R_{n,a}(x)}{(x-a)^{n+1}} = \frac{R_{n,a}^{(n+1)}(t)}{(n+1)!}
     \end{equation*}
@@ -2336,33 +2342,33 @@ we shall always assume that such a numbering has been assigned.
         R_{n,a}^{(n+1)} = f^{(n+1)}
     \end{equation*}
     since $R_{n,a} - f$ is a polynomial of degree $n$. Substituting gives the Lagrange form for the remainder, as desired.
-\end{proof*}
+\end{proof}
 
-\begin{eg*}{}{}
-    Applying \nameref{thmname:taythm} to the functions $\sin$, $\cos$, and $\exp$, with $a = 0$, we obtain the following formulas: \begin{align*}
+\begin{eg}
+    Applying \ref{thmname:taythm} to the functions $\sin$, $\cos$, and $\exp$, with $a = 0$, we obtain the following formulas: \begin{align*}
         \sin x &= \sum\limits_{i=0}^n\frac{(-1)^ix^{2i+1}}{(2i+1)!} + \frac{\sin^{(2n+2)}(t)}{(2n+2)!}x^{2n+2} \\
         \cos x &= \sum\limits_{i=0}^n\frac{(-1)^ix^{2i}}{(2i)!} + \frac{\cos^{(2n+1)}(t)}{(2n+1)!}x^{2n+1} \\
         \exp x &= \sum\limits_{i=0}^n\frac{x^n}{n!} + \frac{\exp t}{(n+1)!}x^{n+1}
     \end{align*}
     (of course, we could go one power higher in the remainder terms for $\sin$ and $\cos$)
-\end{eg*}
+\end{eg}
 
 
 \section{Infinite Sequences}
 
-\begin{defn}{}{}
+\begin{defn}
     An \Emph{infinite sequence} of real numbers is a real valued function whose domain is $\N$.
 \end{defn}
 
 
-\begin{defn}{}{}
+\begin{defn}
     A sequence $\{a_n\}$ \Emph{converges to $\ell \in \R$}, denoted by $\lim\limits_{n\rightarrow \infty}a_n = \ell$, if for every $\epsilon > 0$ there exists $N \in \N$ such that for all $n \in \N$, if $n \geq N$ then \begin{equation*}
         |a_n - \ell| < \epsilon
     \end{equation*}
     A sequence $\{a_n\}$ is said to \Emph{converge} if such an $\ell$ exists, and to \Emph{diverge} otherwise.
 \end{defn}
 
-\begin{thm}{Limit Laws}{}
+\begin{thm}[Limit Laws]
     If $\lim\limits_{n\rightarrow \infty}a_n$ and $\lim\limits_{n\rightarrow \infty}b_n$ both exist, then \begin{align*}
         \lim\limits_{n\rightarrow \infty}(a_n+b_n) &= \lim\limits_{n\rightarrow \infty}a_n + \lim\limits_{n\rightarrow \infty}b_n \\
         \lim\limits_{n\rightarrow \infty}a_n\cdot b_n &= \lim\limits_{n\rightarrow \infty}a_n\cdot \lim\limits_{n\rightarrow \infty} b_n 
@@ -2371,12 +2377,12 @@ we shall always assume that such a numbering has been assigned.
         \lim\limits_{n\rightarrow \infty}a_n/b_n = \lim\limits_{n\rightarrow \infty}a_n/\lim\limits_{n\rightarrow \infty}b_n
     \end{equation*}
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     (To be completed)
-\end{proof*}
+\end{proof}
 
 
-\begin{thm}{}{}
+\begin{thm}
     Let $f$ be a function defined in an open interval containing $c$, except perhaps at $c$ itself, with \begin{equation*}
         \lim\limits_{x\rightarrow c}f(x) = l
     \end{equation*}
@@ -2390,7 +2396,7 @@ we shall always assume that such a numbering has been assigned.
     \end{equation*}
     Conversely, if this is true for every sequence $\{a_n\}$ satisfying the above conditions, then $\lim\limits_{x\rightarrow c}f(x) = l$.
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     Suppose first that $\lim\limits_{x\rightarrow c}f(x) = l$. Then for every $\varepsilon > 0$ there is a $\delta > 0$ such that, for all $x$, \begin{equation*}
         \text{if } 0 < |x-c| < \delta, \text{ then } |f(x) - l| < \varepsilon
     \end{equation*}
@@ -2404,40 +2410,40 @@ we shall always assume that such a numbering has been assigned.
 
 
     Suppose, conversely, that $\lim\limits_{n\rightarrow \infty}f(a_n) = l$ for every sequence $\{a_n\}$ satisfying our three conditions. If $\lim\limits_{x\rightarrow c}f(x) = l$ were not true, there would be some $\varepsilon > 0$ such that for all $\delta > 0$ there exists $x$ such that $0 < |x-c| < \delta$ but $|f(x) - l| \geq \varepsilon$. In particular, for each $n$ there would exist $x_n$ such that $0<|x_n - c| < 1/n$, but $|f(x_n) - l| \geq \varepsilon$. Define a sequence $\{x_n\}$ using these $x_n$. Then $x_n$ is in the domain of $f$ for each $n$, and as $0 < |x_n-c|$ for each $n$, $x_n \neq c$ for all $n$. Moreover, for all $\varepsilon' > 0$ there exists $N \in \N$ such that $\varepsilon' > 1/N > 0$ (by the Archimedean Property of $\R$), so for all $n \geq N$, $0 < |x_n - c| < 1/n < \varepsilon'$. Consequently, $\lim\limits_{n\rightarrow \infty}x_n = c$, so the sequences satisfies all of our initial conditions. However, then by assumption $\lim\limits_{n\rightarrow \infty}f(x_n) = l$. But, by construction, for $\varepsilon$ we have that for all $n \in \N$, $0 < |x_n - c| < 1/n$ but $|f(x_n) - l| \geq \varepsilon$, so $f(x_n)$ does not converge to $l$, contradicting our hypothesis. Thus $\lim\limits_{x\rightarrow c}f(x) = l$ must be true.
-\end{proof*}
+\end{proof}
 
 
-\begin{defn}{}{}
+\begin{defn}
     A sequence $\{a_n\}$ is \Emph{increasing} if $a_{n+1} > a_n$ for all $n$, \Emph{nondecreasing} if $a_{n+1} \geq a_n$ for all $n$, and \Emph{bounded above} if there is a number $M$ such that $a_n \leq M$ for all $n$. Similarly, a sequence $\{a_n\}$ is \Emph{decreasing} if $a_{n+1} < a_n$ for all $n$, \Emph{nonincreasing} if $a_{n+1} \leq a_n$ for all $n$, and \Emph{bounded below} if there is a number $m$ such that $a_n \geq m$ for all $n$.
 \end{defn}
 
-\begin{thm}{}{}
+\begin{thm}
     If $\{a_n\}$ is nondecreasing and bounded above, then $\{a_n\}$ converges.
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     The set $A := \{a_n:n\in\N\}$ is, by assumption, bounded above, so $A$ has a least upper bound $\alpha \in \R$. We claim that $\lim\limits_{n\rightarrow \infty}a_n = \alpha$. If $\varepsilon > 0$, then $\alpha - \varepsilon$ is not an upper bound for $A$ so there exists $a_N$ in $A$ such that $a_N > \alpha - \varepsilon$, so $\alpha - a_N < \varepsilon$. Then for all $n \geq N$, $a_n \geq a_N$ since $\{a_n\}$ is nondecreasing so \begin{equation*}
         |\alpha - a_n| = \alpha - a_n \leq \alpha - a_N < \varepsilon
     \end{equation*}
     Consequently, we conclude that $\lim\limits_{n\rightarrow \infty}a_n = \alpha$.
-\end{proof*}
+\end{proof}
 
 
-\begin{defn}{}{}
+\begin{defn}
     A \Emph{subsequence} of a sequence $\{a_n\}$ is a sequence \begin{equation*}
         a_{n_1},a_{n_2},a_{n_3},...
     \end{equation*}
     where the $n_j$ are natural numbers with $n_1 < n_2 < n_3 < ...$.
 \end{defn}
 
-\begin{lem}{}{}
+\begin{lem}
     Any sequence $\{a_n\}$ contains a subsequence which is either nondecreasing or nonincreasing.
 \end{lem}
-\begin{proof*}{}{}
+\begin{proof}
     Call a natural number $n$ a ``peak point" of a sequence $\{a_n\}$ if $a_m < a_n$ for all $m > n$.\begin{itemize}[leftmargin=+1in]
         \item[Case 1.] The sequence has infinitely many peak points. In this case, if $n_1 < n_2 < n_3 < ...$ are the peak points, then $a_{n_1} > a_{n_2} > a_{n_3} > ...$, so $\{a_{n_j}\}$ is a nonincreasing subsequence of $\{a_n\}$.
         \item[Case 2.] THe sequence has only finitely many peak points. In this case, let $n_1$ be greater than all peak points. Since $n_1$ is not a peak point, there is some $n_2 > n_1$ such that $a_{n_2} \geq a_{n_1}$. Since $n_2$ is not a peak point, there is some $n_3 > n_2$ such that $a_{n_3} > a_{n_2}$. Suppose there exists $k \geq 3$ such that for all $1 \leq m < k$, $a_{n_m} \leq a_{n_{m+1}}$ and $n_m < n_{m+1}$. Then since $n_k$ is not a peak point, there is some $n_{k+1}$ such that $n_{k+1} > n_k$ and $a_{n_{k+1}} \geq a_{n_k}$. Thus, by recursive definition we have constructed a nondecreasing subsequence $\{a_{n_k}\}$ of $\{a_n\}$.
     \end{itemize}
-\end{proof*}
+\end{proof}
 
 
 \begin{cor}{The Bolzano-Weierstrass Theorem}{bolz}
@@ -2445,7 +2451,7 @@ we shall always assume that such a numbering has been assigned.
 \end{cor}
 
 
-\begin{defn}{}{}
+\begin{defn}
     A sequence $\{a_n\}$ is a \Emph{Cauchy sequence} if for every $\varepsilon > 0$ there is a natural number $N$ such that, for all $m,n \in \N$, if $m,n \geq N$, then \begin{equation*}
         |a_n-a_m| <\varepsilon
     \end{equation*}
@@ -2453,25 +2459,25 @@ we shall always assume that such a numbering has been assigned.
 \end{defn}
 
 
-\begin{thm}{}{}
+\begin{thm}
     A sequence $\{a_n\}$ converges if and only if it is a Cauchy sequence.
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     First assume that $\lim\limits_{n\rightarrow \infty}a_n = l$ for some $l \in \R$. Then given $\varepsilon > 0$, there exists $N \in \N$ such that if $n \geq N$, then $|a_n - l| < \varepsilon/2$. Hence, if $m,n \geq N$, then $$|a_n - a_m| \leq |a_n - l| + |a_m-l| < \varepsilon/2+\varepsilon/2 = \varepsilon$$
     Thus, $\{a_n\}$ is Cauchy.
 
     Conversely, suppose that $\{a_n\}$ is a Cauchy sequence. I claim that this implies $\{a_n\}$ is bounded. First, for $\varepsilon = 1 > 0$, there exists $N \in \N$ such that if $m,n \geq N$, then $|a_m-a_n| < \varepsilon = 1$. In particular, for all $n \geq N$, $|a_N - a_n| < 1$. Take $M = \max(a_N + 1, a_{N-1},...,a_1)$, and $m = \min(a_N - 1, a_{N-1},...,a_1)$. Then for all $k \leq N$ we have that $m \leq a_k \leq M$. On the other hand, for $k \geq N$, we have that $a_N - 1 < a_k < a_N + 1$, so $m < a_k < M$. Thus $\{a_n:n \in \N\}$ is bounded. 
 
-    Then, by \nameref{thmname:bolz} $\{a_n\}$ has a convergent subsequence $\{a_{n_k}\}$. Let $\lim\limits_{k\rightarrow \infty}a_{n_k} = l$, for some $l \in \R$. Then, fix $\varepsilon > 0$. It follows that there exist $K, K' \in \N$ such that for $m,n \geq K$ and $j \geq K'$, $|a_m - a_n| < \varepsilon/2$, while $|a_{n_j} - l| < \varepsilon/2$. Note that $n_j \geq j$, since the sequence $\{n_k\}$ is increasing. Then, for all $i \geq \max(K,K')$ we have that \begin{equation*}
+    Then, by \ref{thmname:bolz} $\{a_n\}$ has a convergent subsequence $\{a_{n_k}\}$. Let $\lim\limits_{k\rightarrow \infty}a_{n_k} = l$, for some $l \in \R$. Then, fix $\varepsilon > 0$. It follows that there exist $K, K' \in \N$ such that for $m,n \geq K$ and $j \geq K'$, $|a_m - a_n| < \varepsilon/2$, while $|a_{n_j} - l| < \varepsilon/2$. Note that $n_j \geq j$, since the sequence $\{n_k\}$ is increasing. Then, for all $i \geq \max(K,K')$ we have that \begin{equation*}
         |a_i - l| \leq |a_i - a_{n_i}| + |a_{n_i} - l| < \varepsilon/2 + \varepsilon/2 = \varepsilon
     \end{equation*}
     Therefore, by definition $\{a_n\}$ converges to $l$ as well.
-\end{proof*}
+\end{proof}
 
 
 \section{Infinite Series}
 
-\begin{defn}{}{}
+\begin{defn}
     The sequence $\{a_n\}$ is \Emph{summable} if the sequence $\{s_n\}$ converges, where \begin{equation*}
         s_n = \sum\limits_{i=1}^na_i
     \end{equation*}
@@ -2481,7 +2487,7 @@ we shall always assume that such a numbering has been assigned.
     and is called the \Emph{sum} of the sequence $\{a_n\}$.
 \end{defn}
 
-\begin{rmk}{}{}
+\begin{rmk}
     If $\{a_n\}$ and $\{b_n\}$ are summable, then \begin{align*}
         \sum\limits_{n=1}^{\infty}(a_n+b_n) &= \sum\limits_{i=1}^{\infty}a_n + \sum\limits_{i=1}^{\infty}b_n \\
         \sum\limits_{n=1}^{\infty}c\cdot a_n &= c\cdot\sum\limits_{i=1}^{\infty}a_n
@@ -2489,30 +2495,30 @@ we shall always assume that such a numbering has been assigned.
     for all $c \in \R$. 
 \end{rmk}
 
-\begin{namthm}{The Cauchy Criterion}{cauchcrit}
+\begin{namthm}[The Cauchy Criterion]\label{thmname:cauchcrit}
     The sequence $\{a_n\}$ is summable if and only if for all $\varepsilon > 0$ there exists $N \in \N$ such that for all $m \geq n \in \N$, if $m,n \geq N$, then \begin{equation*}
         \left|\sum\limits_{i=1}^ma_i - \sum\limits_{i=1}^na_i\right| = \left|\sum\limits_{i=n+1}^ma_i\right| <\varepsilon
     \end{equation*}
 \end{namthm}
 
-\begin{rmk}{}{}
+\begin{rmk}
     This result is a direct conseqeunce of the fact that a sequence in $\R$ is Cauchy if and only if it converges applied to the sequence of partial sums for $\{a_n\}$.
 \end{rmk}
 
 
-\begin{namthm}{The Vanishing Condition}{}
+\begin{namthm}[The Vanishing Condition]
     If $\{a_n\}$ is summable, then \begin{equation*}
         \lim\limits_{n\rightarrow \infty}a_n = 0
     \end{equation*}
 \end{namthm}
-\begin{proof*}{}{}
+\begin{proof}
     If $\lim\limits_{n\rightarrow \infty}s_n = l$, then \begin{align*}
         \lim\limits_{n\rightarrow \infty}a_n &= \lim\limits_{n\rightarrow \infty}(s_n - s_{n-1}) = \lim\limits_{n\rightarrow \infty}s_n - \lim\limits_{n\rightarrow \infty}s_{n-1} \\
         &= l - l = 0
     \end{align*}
-\end{proof*}
+\end{proof}
 
-\begin{eg*}{}{}
+\begin{eg}
     The \Emph{geometric series} are of the form \begin{equation*}
         \sum\limits_{n=0}^{\infty}r^n = 1+r+r^2+r^3+\hdots
     \end{equation*}
@@ -2521,51 +2527,51 @@ we shall always assume that such a numbering has been assigned.
         \sum\limits_{n=0}^{\infty}r^n = \lim\limits_{n\rightarrow \infty}s_n = \lim\limits_{n\rightarrow \infty}\frac{1-r^{n+1}}{1-r} = \frac{1}{1-r}
     \end{align*}
     as $|r| < 1$.
-\end{eg*}
+\end{eg}
 
-\begin{defn}{}{}
+\begin{defn}
     A sequence $\{a_n\}$ such that $a_n\geq 0$ for all $n \in \N$ is said to be \Emph{nonnegative}.
 \end{defn}
 
-\begin{namthm}{The Boundedness Criterion}{boundcrit}
+\begin{namthm}[The Boundedness Criterion]\label{thmname:boundcrit}
     A nonnegative sequence $\{a_n\}$ is summable if and only if the set of partial sums $s_n$ is bounded.
 \end{namthm}
-\begin{proof*}{}{}
+\begin{proof}
     Since $\{a_n\}$ is nonnegative, $\{s_n\}$ is nondecreasing. Hence from our previous results on monotone sequences, $\{s_n\}$ converges if and only if $\{s_n\}$ is bounded.
-\end{proof*}
+\end{proof}
 
 
-\begin{namthm}{The Comparison Test}{comptest}
+\begin{namthm}[The Comparison Test]\label{thmname:comptest}
     Suppose that $\{a_n\}$ and $\{b_n\}$ are sequences such that $0 \leq a_n \leq b_n$ for all $n \in \N$. Then if $\sum\limits_{n=1}^{\infty}b_n$ converges, so does $\sum\limits_{n=1}^{\infty}a_n$.
 \end{namthm}
-\begin{proof*}{}{}
-    Let $s_n$ denote the $n$-th partial sum of $\{a_n\}$, and let $t_n$ denote the $n$-th partial sum of $\{b_n\}$. Then $0 \leq s_n \leq t_n$ for all $n \in \N$. Now $\{t_n\}$ converges by assumption, so it is bounded. Hence, there exists $M \in \R$ such that $0 \leq s_n \leq t_n \leq M$ for all $n\in \N$, so $\{s_n\}$ is also bounded. Thus by \nameref{thmname:boundcrit} $\{a_n\}$ is summable, so by definition $\sum\limits_{n=1}^{\infty}a_n$ converges.
-\end{proof*}
+\begin{proof}
+    Let $s_n$ denote the $n$-th partial sum of $\{a_n\}$, and let $t_n$ denote the $n$-th partial sum of $\{b_n\}$. Then $0 \leq s_n \leq t_n$ for all $n \in \N$. Now $\{t_n\}$ converges by assumption, so it is bounded. Hence, there exists $M \in \R$ such that $0 \leq s_n \leq t_n \leq M$ for all $n\in \N$, so $\{s_n\}$ is also bounded. Thus by \ref{thmname:boundcrit} $\{a_n\}$ is summable, so by definition $\sum\limits_{n=1}^{\infty}a_n$ converges.
+\end{proof}
 
 
-\begin{namthm}{The Limit Comparison Test}{limcomptest}
+\begin{namthm}[The Limit Comparison Test]\label{thmname:limcomptest}
     If $a_n, b_n > 0$ for convergent sequences $\{a_n\}$ and $\{b_n\}$, and $\lim\limits_{n\rightarrow \infty}a_n/b_n = c \neq 0$, then $\sum\limits_{n=1}^{\infty}a_n$ converges if and only if $\sum\limits_{n=1}^{\infty}b_n$ converges.
 \end{namthm}
-\begin{proof*}{}{}
+\begin{proof}
     Suppose $\sum\limits_{n=1}^{\infty}b_n$ converges. Since $\lim\limits_{n\rightarrow \infty}a_n/b_n = c$, there is some $N$ such that \begin{equation*}
         a_n/b_n - c \leq c \implies a_n \leq 2cb_n,\;\;\text{ for } n\geq N
     \end{equation*}
-    But the sequence $2c\sum\limits_{n=N}^{\infty}b_n$ certainly converges. Then by \nameref{thmname:comptest} we have that $\sum\limits_{n=N}^{\infty}a_n$ converges, and this implies convergence of the whole series $\sum\limits_{n=1}^{\infty}a_n$, which only has finitely many additional terms.
+    But the sequence $2c\sum\limits_{n=N}^{\infty}b_n$ certainly converges. Then by \ref{thmname:comptest} we have that $\sum\limits_{n=N}^{\infty}a_n$ converges, and this implies convergence of the whole series $\sum\limits_{n=1}^{\infty}a_n$, which only has finitely many additional terms.
     
     Note that \begin{equation*}
         \lim\limits_{n\rightarrow \infty}b_n/a_n = \frac{1}{\lim\limits_{n\rightarrow\infty}a_n/b_n} = 1/c \neq 0
     \end{equation*}
     so the converse follows immediately.
-\end{proof*}
+\end{proof}
 
 
-\begin{namthm}{The Ratio Test}{ratio}
+\begin{namthm}[The Ratio Test]\label{thmname:ratio}
     Let $\{a_n\}$ be a positive sequence, and suppose that \begin{equation*}
         \lim\limits_{n\rightarrow \infty}\frac{a_{n+1}}{a_n} = r
     \end{equation*}
     for some $r \geq 0$. Then $\sum\limits_{n=1}^{\infty}a_n$ converges if $r < 1$. On the other hand, if $r > 1$, then the terms $a_n$ are unbounded, so $\sum\limits_{n=1}^{\infty}a_n$ diverges.
 \end{namthm}
-\begin{proof*}{}{}
+\begin{proof}
     Suppose first that $r<1$. Choose any number $s$ with $r < s < 1$. The hypothesis $\lim\limits_{n\rightarrow \infty}a_{n+1}/a_n = r < 1$ implies that there is some $N \in \N$ such that if $n \geq N$, \begin{equation*}
         a_{n+1}/a_n - r < s-r \implies a_{n+1}/a_n < s
     \end{equation*}
@@ -2575,7 +2581,7 @@ we shall always assume that such a numbering has been assigned.
         &\vdots \\
         a_{N+k} &< s^ka_N
     \end{align*}
-    Since $\sum\limits_{k=0}^{\infty}a_Ns^k = a_N\sum\limits_{k=0}^{\infty}s^k$ converges, since $|s| < 1$, \nameref{thmname:comptest} shows that \begin{equation*}
+    Since $\sum\limits_{k=0}^{\infty}a_Ns^k = a_N\sum\limits_{k=0}^{\infty}s^k$ converges, since $|s| < 1$, \ref{thmname:comptest} shows that \begin{equation*}
         \sum\limits_{n=N}^{\infty}a_n = \sum\limits_{k=0}^{\infty}a_{N+k}
     \end{equation*}
     converges as $a_{N+k} < a_Ns^k$ for all $k \geq 0$. This implies that $\sum\limits_{n=0}^{\infty}a_n$ as a whole converges.
@@ -2587,16 +2593,16 @@ we shall always assume that such a numbering has been assigned.
         a_{N+k} > a_Ns^k,
     \end{equation*}
     for all $k \in \N$, so the terms are unbounded.
-\end{proof*}
+\end{proof}
 
 
-\begin{namthm}{The Integral Test}{inttest}
+\begin{namthm}[The Integral Test]\label{thmname:inttest}
     Suppose that $f$ is positive and decreasing on $[1,\infty)$, and that $f(n) = a_n$ for all $n \in \N$. Then $\sum\limits_{n=1}^{\infty}a_n$ converges if and only if the limit \begin{equation*}
         \int_1^{\infty}f = \lim\limits_{A\rightarrow \infty}\int_1^Af
     \end{equation*}
     exists.
 \end{namthm}
-\begin{proof*}{}{}
+\begin{proof}
     The existence of $\lim\limits_{A\rightarrow \infty}\int_1^Af$ is equivalent to the convergence of the series \begin{equation*}
         \int_1^2f + \int_2^3f + \int_3^4f + ...
     \end{equation*}
@@ -2606,31 +2612,31 @@ we shall always assume that such a numbering has been assigned.
     The first half of this double inequality shows that the series $\sum\limits_{n=1}^{\infty}a_{n+1}$ may be compared to the series $\sum\limits_{n=1}^{\infty}\int_n^{n+1}$, proving that $\sum\limits_{n=1}^{\infty}a_{n+1}$ (and hence $\sum\limits_{n=1}^{\infty}a_n$) converges if $\lim\limits_{A\rightarrow \infty}\int_1^Af$ exists.
 
     The second half of the inequality shows that the series $\sum\limits_{n=1}^{\infty}\int_n^{n+1}f$ may be compared to the series $\sum\limits_{n=1}^{\infty}a_n$, proving that $\lim\limits_{A\rightarrow \infty}\int_1^Af$ must exist if $\sum\limits_{n=1}^{\infty}a_n$ converges.
-\end{proof*}
+\end{proof}
 
 
-\begin{cor}{}{}
+\begin{cor}
     The series $\sum\limits_{n=1}^{\infty}1/n^p$ converges if and only if $p > 1$.
 \end{cor}
-\begin{proof*}{}{}
-    If $p < 0$ then $\lim\limits_{n\rightarrow \infty}1/n^p \neq 0$. If $p > 0$, the convergence of $\sum\limits_{n=1}^{\infty}1/n^p$ is equivalent, by \nameref{thmname:inttest}, to the existence of \begin{equation*}
+\begin{proof}
+    If $p < 0$ then $\lim\limits_{n\rightarrow \infty}1/n^p \neq 0$. If $p > 0$, the convergence of $\sum\limits_{n=1}^{\infty}1/n^p$ is equivalent, by \ref{thmname:inttest}, to the existence of \begin{equation*}
         \lim\limits_{A\rightarrow\infty}\int_1^A\frac{1}{x^p}dx
     \end{equation*}
     Now, observe that \begin{equation*}
         \int_1^A\frac{1}{x^p}dx = \left\{\begin{array}{lc} -\frac{1}{p-1}\cdot\frac{1}{A^{p-1}} + \frac{1}{p-1}, & p \neq 1 \\ \log A, & p = 1\end{array}\right.
     \end{equation*}
     This shows that $\lim\limits_{A\rightarrow \infty}\int_1^A1/x^pdx$ exists if $p > 1$, but not if $p \leq 1$. Thus, $\sum\limits_{n=1}^{\infty}1/n^p$ converges precisely for $p > 1$. 
-\end{proof*}
+\end{proof}
 
-\begin{defn}{}{}
+\begin{defn}
     The series $\sum\limits_{n=1}^{\infty}a_n$ is \Emph{absolutely convergent} if the series $\sum\limits_{n=1}^{\infty}|a_n|$ is convergent. (In formal language, the sequence $\{a_n\}$ is said to be \Emph{absolutely summable} if the sequence $\{|a_n\}$ is summable.)
 \end{defn}
 
-\begin{thm}{}{absconv}
+\begin{thm}\label{thm:absconv}
     Every absolutely convergent series is convergent. Moreover, a series is absolutely convergent if and only if the series formed from its positive terms and the series formed from its negative terms both converge.
 \end{thm}
-\begin{proof*}{}{}
-    If $\sum\limits_{n=1}^{\infty}|a_n|$ converges, then, by \nameref{thmname:cauchcrit}, \begin{equation*}
+\begin{proof}
+    If $\sum\limits_{n=1}^{\infty}|a_n|$ converges, then, by \ref{thmname:cauchcrit}, \begin{equation*}
         \lim\limits_{m,n\rightarrow \infty}\sum\limits_{i=n+1}^m|a_i| = 0
     \end{equation*}
     Since \begin{equation*}
@@ -2658,20 +2664,20 @@ we shall always assume that such a numbering has been assigned.
         \sum\limits_{n=1}^{\infty}a_n^- = \sum\limits_{n=1}^{\infty}\frac{1}{2}[a_n - |a_n|] = \frac{1}{2}\left(\sum\limits_{n=1}^{\infty}a_n - \sum\limits_{n=1}^{\infty}|a_n|\right)
     \end{equation*}
     both converge.
-\end{proof*}
+\end{proof}
 
 
 
-\begin{rmk}{}{}
+\begin{rmk}
     A consequent of this result is that every convergent series with positive terms can be used to obtain infinitely many other convergent series simply by putting minus sings at random.
 \end{rmk}
 
-\begin{defn}{}{}
+\begin{defn}
     A convergent series which is not absolutely convergent is said to be \Emph{conditionally convergent}.
 \end{defn}
 
 
-\begin{namthm}{Leibniz's Theorem}{alttest}
+\begin{namthm}[Leibniz's Theorem]\label{thmname:alttest}
     Suppose that $\{a_n\}$ is a non-decreasing non-negative sequence such that \begin{equation*}
         \lim\limits_{n\rightarrow \infty} a_n = 0
     \end{equation*}
@@ -2680,7 +2686,7 @@ we shall always assume that such a numbering has been assigned.
     \end{equation*}
     converges.
 \end{namthm}
-\begin{proof*}{}{}
+\begin{proof}
     First, observe that \begin{enumerate}
         \item $s_2 \leq s_4 \leq s_6 \leq ...$
         \item $s_1 \geq s_3 \geq s_5 \geq ...$ 
@@ -2704,19 +2710,19 @@ we shall always assume that such a numbering has been assigned.
         s_{2n+1}-s_{2n} = a_{2n+1}\;\;\text{ and }\;\;\lim\limits_{n\rightarrow \infty}a_n = 0
     \end{equation*}
     it is actually the case that $\alpha = \beta$. This proves that $\alpha = \beta = \lim\limits_{n\rightarrow \infty} s_n$.
-\end{proof*}
+\end{proof}
 
 
-\begin{defn}{}{}
+\begin{defn}
     A sequence $\{a_n\}$ is a \Emph{rearrangement} of a sequence $\{a_n\}$ if each $b_n = a_{f(n)}$ where $f$ is a certain permutation on the natural numbers.
 \end{defn}
 
 
 
-\begin{thm}{}{}
+\begin{thm}
     If $\sum\limits_{n=1}^{\infty}a_n$ converges, but does not converge absolutely; then for any number $\alpha$ there is a rearrangement $\{b_n\}$ of $\{a_n\}$ such that $\sum\limits_{n=1}^{\infty}b_n = \alpha$.
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     Let $\sum\limits_{n=1}^{\infty}p_n$ denote the series formed from the positive terms of $\{a_n\}$ and let $\sum\limits_{n=1}^{\infty}q_n$ denote the series of negative terms. It follows from Theorem \ref{thm:absconv} that at least one of these series does not converge. As a matter of fact, both must fail to converge, for if one had bounded partial sums, and the other had unbounded partial sums, then the original series $\sum\limits_{n=1}^{\infty}a_n$ would also have unbounded partial sums, contradicting the assumption that it converges.
 
     Let $\alpha$ be any number. Assume, for simplicity, that $\alpha > 0$. Since the series $\sum\limits_{n=1}^{\infty}p_n$ there is a number $N$ such that \begin{equation*}
@@ -2732,16 +2738,16 @@ we shall always assume that such a numbering has been assigned.
         p_1,...,p_{N_1},q_1,...,q_{M_1},q_{N_1+1},...,p_{N_2},...
     \end{equation*}
     is a rearrangement of $\{a_n\}$. The partial sums of this rearrangement increase to $S_1$, then decrease to $T_1$, then increase to $S_2$, etc. To complete the proof we note that $|S_k -\alpha|$ and $|T_k - \alpha|$ are less that or equal to $p_{N_k}$ or $-q_{M_k}$, respectively, and that these terms, being numbers of the original sequence $\{a_n\}$, must decrease to $0$, since $\sum\limits_{n=1}^{\infty}a_n$ converges.
-\end{proof*}
+\end{proof}
 
 
 
-\begin{thm}{}{}
+\begin{thm}
     If $\sum\limits_{n=1}^{\infty}a_n$ converges absolutely, and $\{b_n\}$ is any rearrangement of $\{a_n\}$, then $\sum\limits_{n=1}^{\infty}b_n$ also converges (absolutely), and in particular \begin{equation*}
         \sum\limits_{n=1}^{\infty}a_n = \sum\limits_{n=1}^{\infty}b_n
     \end{equation*}
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     Denote the partial sums of $\{a_n\}$ by $s_n$, and the partial sums of $\{b_n\}$ by $t_n$. Suppose that $\varepsilon > 0$. Since $\sum\limits_{n=1}^{\infty}a_n$ converges, there is some $N$ such that \begin{equation*}
         \left|\sum\limits_{n=1}^{\infty}a_n - s_N\right| < \varepsilon
     \end{equation*}
@@ -2762,15 +2768,15 @@ we shall always assume that such a numbering has been assigned.
     Since this is true for every $\varepsilon > 0$, the series $\sum\limits_{n=1}^{\infty}b_n$ converges to $\sum\limits_{n=1}^{\infty}a_n$.
 
     To show that $\sum\limits_{n=1}^{\infty}b_n$ converges absolutely, note that $\{|b_n|\}$ is a rearrangement of $\{|a_n|\}$; since $\sum\limits_{n=1}^{\infty}|a_n|$ converges absolutely, $\sum\limits_{n=1}^{\infty}|b_n|$ converges by the first part of the theorem.
-\end{proof*}
+\end{proof}
 
 
-\begin{thm}{}{}
+\begin{thm}
     If $\sum\limits_{n=1}^{\infty}a_n$ and $\sum\limits_{n=1}^{\infty}b_n$ converge absolutely, and $\{c_n\}$ is any sequence containing the products $a_ib_j$ for each pair $(i,j) \in \N\times \N$, then \begin{equation*}
         \sum\limits_{n=1}^{\infty}c_n = \sum\limits_{n=1}^{\infty}a_n\cdot\sum\limits_{n=1}^{\infty}b_n
     \end{equation*}
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     Notice first that the sequence \begin{equation*}
         p_L = \sum\limits_{i=1}^L|a_i|\cdot \sum\limits_{j=1}^L|b_j|
     \end{equation*}
@@ -2795,7 +2801,7 @@ we shall always assume that such a numbering has been assigned.
         &< 2\varepsilon
     \end{align*}
     which proves the theorem.
-\end{proof*}
+\end{proof}
 
 
 
@@ -2803,7 +2809,7 @@ we shall always assume that such a numbering has been assigned.
 \section{Uniform Convergence and Power Series}
 
 
-\begin{rmk}{}{}
+\begin{rmk}
     We are now interested in the study of series of functions, or in other words functions of the form \begin{equation*}
         f(x) = f_1(x) + f_2(x) + f_3(x) + \hdots
     \end{equation*}
@@ -2817,14 +2823,14 @@ we shall always assume that such a numbering has been assigned.
 \end{rmk}
 
 
-\begin{rmk}{}{}
+\begin{rmk}
     First let us consider functions of the form \begin{equation*}
         f(x) = \lim\limits_{n\rightarrow\infty}f_n(x)
     \end{equation*}
     All this form may seem simple, it is very important to note that \Emph{nothing one would hope to be true actually is}. Instead we have a flurry of lovely counter-examples.
 \end{rmk}
 
-\begin{eg*}{Counter-Example 1}{}
+\begin{eg}[Counter-Example 1]
     Even if each $f_n$ is continuous, the function $f$ may not be! Indeed, consider the sequence of functions \begin{equation*}
         f_n(x) = \left\{\begin{array}{lc} x^n, & 0\leq x \leq 1 \\ 1, & x \geq 1 \end{array}\right.
     \end{equation*}
@@ -2838,18 +2844,18 @@ we shall always assume that such a numbering has been assigned.
         \lim\limits_{n\rightarrow \infty}f_n(x) = \left\{\begin{array}{lc} -1, & x < 0 \\ 0, & x = 0 \\ 1, & x > 0 \end{array}\right.
     \end{equation*}
     so once again $f(x) = \lim\limits_{n\rightarrow \infty}f_n(x)$ is not continuous.
-\end{eg*}
+\end{eg}
 
-\begin{eg*}{Counter-Example 2}{}
+\begin{eg}[Counter-Example 2]
     It is even possible to produce a sequence of differentiable functions $\{f_n\}$ for which the function $f(x) = \lim\limits_{n\rightarrow \infty}f_n(x)$ is not continuous. One such sequence is \begin{equation*}
         f_n(x) = \left\{\begin{array}{lc} -1, &  x \leq -\frac{1}{n} \\ \sin\left(\frac{n\pi x}{2}\right), & -\frac{1}{n} \leq x \leq \frac{1}{n} \\ 1, & \frac{1}{n} \leq x \end{array}\right.
     \end{equation*}
     These functions are differentiable, but we still have  \begin{equation*}
         \lim\limits_{n\rightarrow \infty}f_n(x) = \left\{\begin{array}{lc} -1, & x < 0 \\ 0, & x = 0 \\ 1, & x > 0 \end{array}\right.
     \end{equation*}
-\end{eg*}
+\end{eg}
 
-\begin{defn}{}{}
+\begin{defn}
     If $f$ is a function defined on some set $A$, and a sequence of functions $\{f_n\}$, all defined on the same set $A$, are such that only \begin{equation*}
         f(x) = \lim\limits_{n\rightarrow \infty}f_n(x)
     \end{equation*}
@@ -2857,7 +2863,7 @@ we shall always assume that such a numbering has been assigned.
 \end{defn}
 
 
-\begin{defn}{}{}
+\begin{defn}
     Let $\{f_n\}$ be a sequence of functions defined on $A$, and let $f$ be a function which is also defined on $A$. Then $f$ is called the \Emph{uniform limit of $\{f_n\}$ on $A$} if for every $\varepsilon > 0$ there is some $N$ such that for all $x \in A$, \begin{equation*}
         \text{if } n> N, \text{ then } |f(x) - f_n(x)| < \varepsilon
     \end{equation*}
@@ -2866,16 +2872,16 @@ we shall always assume that such a numbering has been assigned.
 
 
 
-\begin{rmk}{}{}
+\begin{rmk}
     Note that uniform convergence implies pointwise convergence, but the converse is not true.
 \end{rmk}
 
-\begin{thm}{}{}
+\begin{thm}
     Suppose that $\{f_n\}$ is a sequence of functions which are integrable on $[a,b]$, and that $\{f_n\}$ converges uniformly on $[a,b]$ to a function $f$ which is also integrable on $[a,b]$. Then \begin{equation*}
         \int_a^bf = \lim\limits_{n\rightarrow \infty}\int_a^bf_n
     \end{equation*}
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     Let $\varepsilon > 0$. Then since $\{f_n\}$ converges uniformly to $f$, there exists $N \in \N$ such that for all $x \in [a,b]$, if $n \geq N$ \begin{equation*}
         |f(x) f_n(x)| < \varepsilon
     \end{equation*}
@@ -2888,14 +2894,14 @@ we shall always assume that such a numbering has been assigned.
     Since this is true for all $\varepsilon > 0$, it follows that \begin{equation*}
         \int_a^bf = \lim\limits_{n\rightarrow \infty}\int_a^bf_n
     \end{equation*}
-\end{proof*}
+\end{proof}
 
 
 
-\begin{thm}{}{}
+\begin{thm}
     Suppose that $\{f_n\}$ is a sequence of functions which are continuous on $[a,b]$, and that $\{f_n\}$ converges uniformly on $[a,b]$ to $f$. Then $f$ is also continuous on $[a,b]$.
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     For each $x \in [a,b]$ we must prove that $f$ is continuous at $x$. We first deal with $x \in (a,b)$. Fix $\varepsilon > 0$. Since $\{f_n\}$ converges uniformly to $f$ on $[a,b]$, there is some $N$ such that for all $n \geq N$ and all $y \in [a,b]$, \begin{equation*}
         |f(y) - f_n(y)| < \varepsilon/3
     \end{equation*}
@@ -2913,15 +2919,15 @@ we shall always assume that such a numbering has been assigned.
         &= \varepsilon
     \end{align*}
     This proves that $f$ is continuous at $x$.
-\end{proof*}
+\end{proof}
 
-\begin{rmk}{}{}
+\begin{rmk}
     Allow this last two theorems are great successes, differentiability sadly fails. Even if each $f_n$ is differentiable and $\{f_n\}$ converges uniformly to $f$, it need not be the case that $f$ is differentiable. Moreover, even if $f$ is itself differentiable, it need not be the case that \begin{equation*}
         f'(x) = \lim\limits_{n\rightarrow \infty}f_n'(x)
     \end{equation*}
 \end{rmk}
 
-\begin{eg*}{Counter Example 3}{}
+\begin{eg}[Counter Example 3]
     Consider the family of functions \begin{equation*}
         f_n(x) = \frac{1}{n}\sin(n^2x)
     \end{equation*}
@@ -2929,24 +2935,24 @@ we shall always assume that such a numbering has been assigned.
         f_n'(x) = n\cos(n^2x)
     \end{equation*}
     and $\lim\limits_{n\rightarrow\infty}n\cos(n^2x)$ does not even always exist (for example if $x =0$).
-\end{eg*}
+\end{eg}
 
 
-\begin{thm}{}{}
+\begin{thm}
     Suppose that $\{f_n\}$ is a sequence of functions which are differentiable on $[a,b]$, with integrable derivatives $f'_n$, and that $\{f_n\}$ converges (pointwise) to $f$. Suppose, moreover, that $\{f_n'\}$ converges uniformly on $[a,b]$ to some continuous function $g$. Then $f$ is differentiable and \begin{equation*}
         f'(x) = \lim\limits_{n\rightarrow \infty}f_n'(x)
     \end{equation*}
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     Applying Theorem $1$ to the interval $[a,x]$, we see that for each $x$ we have \begin{align*}
         \int_a^xg &= \lim\limits_{n\rightarrow \infty}\int_a^xf'_n \\
-        &= \lim\limits_{n\rightarrow \infty}[f_n(x) - f_n(a)] \tag{by \nameref{thmname:FTC2}} \\
+        &= \lim\limits_{n\rightarrow \infty}[f_n(x) - f_n(a)] \tag{by \ref{thmname:FTC2}} \\
         &= f(x) - f(a)
     \end{align*}
-    Since $g$ is continuous, it follows that $f'(x) = g(x) = \lim\limits_{n\rightarrow \infty}f_n'(x)$ for all $x$ in the interval $[a,b]$, by \nameref{thmname:FTC}.
-\end{proof*}
+    Since $g$ is continuous, it follows that $f'(x) = g(x) = \lim\limits_{n\rightarrow \infty}f_n'(x)$ for all $x$ in the interval $[a,b]$, by \ref{thmname:FTC}.
+\end{proof}
 
-\begin{defn}{}{}
+\begin{defn}
     The series $\sum\limits_{n=1}^{\infty}f_n$ \Emph{converges uniformly} (more formally, the sequence $\{f_n\}$ is \Emph{uniformly summable}) \Emph{to $f$ on $A$}, if the sequence \begin{equation*}
         f_1, f_1+f_2,f_1+f_2+f_3,...
     \end{equation*}
@@ -2955,7 +2961,7 @@ we shall always assume that such a numbering has been assigned.
 
 
 
-\begin{cor}{}{}
+\begin{cor}
     Let $\sum\limits_{n=1}^{\infty}f_n$ converge uniformly to $f$ on $[a,b]$. \begin{enumerate}
         \item If each $f_n$ is continuous on $[a,b]$, then $f$ is continuous on $[a,b]$.
         \item If $f$ and each $f_n$ is integrable on $[a,b]$, then \begin{equation*}
@@ -2966,7 +2972,7 @@ we shall always assume that such a numbering has been assigned.
         \item[3.] $f'(x) = \sum\limits_{n=1}^{\infty}f_n'(x)$   for all $x \in [a,b]$
     \end{enumerate}
 \end{cor}
-\begin{proof*}{}{}
+\begin{proof}
     Let $\{s_n\}$ be the sequence of partial sums of the $\{f_n\}$. Then since each $f_n$ is continuous, so is each $s_n$. Then as $\{s_n\}$ converges uniformly to $f$ we have by a previous theorem that $f$ is also continuous on $[a,b]$. Next, since each $f_n$ is integrable on $[a,b]$, so is each $s_n$. Then as $\{s_n\}$ converges uniformly to $f$ we have that \begin{align*}
         \int_a^bf &= \lim\limits_{n\rightarrow \infty}\int_a^bs_n \\
         &= \lim\limits_{n\rightarrow\infty}t_n \\
@@ -2979,10 +2985,10 @@ we shall always assume that such a numbering has been assigned.
     Finally, suppose $s_n$ converges (pointwise) to $f$ on $[a,b]$, and each $f_n$ has an integrable derivative $f_n'$. Then each $s_n$ has an integrable derivative $s_n'$ on $[a,b]$ by the linearity of the derivative and integral operators. Moreover, suppose $s_n'$ converges uniformly on $[a,b]$ to some continuous function $g$. Then it follows that for all $x \in [a,b]$ \begin{equation*}
         f'(x) = \lim\limits_{n\rightarrow \infty}s_n'(x) = \sum\limits_{n=1}^{\infty}f_n'(x)
     \end{equation*}
-\end{proof*}
+\end{proof}
 
 
-\begin{namthm}{The Weierstrass M-Test}{mtest}
+\begin{namthm}[The Weierstrass M-Test]\label{thmname:mtest}
     Let $\{f_n\}$ be a sequence of functions defined on $A$, and suppose that $\{M_n\}$ is a sequence of numbers such that \begin{equation*}
         |f_n(x)|\leq M_n,\forall x \in A
     \end{equation*}
@@ -2990,19 +2996,19 @@ we shall always assume that such a numbering has been assigned.
         f(x) = \sum\limits_{n=1}^{\infty}f_n(x)
     \end{equation*}
 \end{namthm}
-\begin{proof*}{}{}
-    For each $x \in A$, the series $\sum\limits_{n=1}^{\infty}|f_n(x)|$ converges by \nameref{thmname:comptest}; consequently $\sum\limits_{n=1}^{\infty}f_n(x)$ converges absolutely. Moreover, for all $x \in A$ we have \begin{align*}
+\begin{proof}
+    For each $x \in A$, the series $\sum\limits_{n=1}^{\infty}|f_n(x)|$ converges by \ref{thmname:comptest}; consequently $\sum\limits_{n=1}^{\infty}f_n(x)$ converges absolutely. Moreover, for all $x \in A$ we have \begin{align*}
         \left|f(x) - \sum\limits_{i=1}^{N}f(x)\right| &= \left|\sum\limits_{n=N+1}^{\infty}f_n(x)\right| \\
         &\leq \sum\limits_{n=N+1}^{\infty}|f_n(x)| \\
         &\leq \sum\limits_{n=N+1}^{\infty}M_n
     \end{align*}
-    Since $\sum\limits_{n=1}^{\infty}M_n$ converges, the number $\sum\limits_{n=N+1}^{\infty}M_n$ can be made as small as desired (by \nameref{thmname:cauchcrit}), by choosing $N$ sufficiently large.
-\end{proof*}
+    Since $\sum\limits_{n=1}^{\infty}M_n$ converges, the number $\sum\limits_{n=N+1}^{\infty}M_n$ can be made as small as desired (by \ref{thmname:cauchcrit}), by choosing $N$ sufficiently large.
+\end{proof}
 
 
 
 
-\begin{defn}{}{}
+\begin{defn}
     An infinite sum of functions of the form \begin{equation*}
         f(x) = \sum\limits_{n=0}^{\infty}a_n(x-a)^n
     \end{equation*}
@@ -3013,7 +3019,7 @@ we shall always assume that such a numbering has been assigned.
 \end{defn}
 
 
-\begin{rmk}{}{}
+\begin{rmk}
     Given a function $f$ infinitely differentiable at $a$, we have for $x \in \R$ that \begin{equation*}
         f(x) = \sum\limits_{n=0}^{\infty}\frac{f^{(n)}(a)}{n!}(x-a)^n
     \end{equation*}
@@ -3021,7 +3027,7 @@ we shall always assume that such a numbering has been assigned.
 \end{rmk}
 
 
-\begin{thm}{}{}
+\begin{thm}
     Suppose that the series \begin{equation*}
         f(x_0) = \sum\limits_{n=0}^{\infty}a_nx_0^n
     \end{equation*}
@@ -3036,7 +3042,7 @@ we shall always assume that such a numbering has been assigned.
     \end{equation*}
     for all $x$ with $|x| < |x_0|$.
 \end{thm}
-\begin{proof*}{}{}
+\begin{proof}
     First, since $\sum\limits_{n=0}^{\infty}a_nx_0^n$ converges, $\lim\limits_{n\rightarrow \infty}a_nx_0^n = 0$. Hence, the sequence $\{a_nx_0^n\}$ is surely bounded: there is some number $M$ such that \begin{equation*}
         |a_nx_0|^n = |a_n|\cdot|x_0|^n \leq M
     \end{equation*}
@@ -3049,7 +3055,7 @@ we shall always assume that such a numbering has been assigned.
     But $|a/x_0| < 1$, so the (geometric) series \begin{equation*}
         \sum\limits_{n=0}^{\infty}M\left|\frac{a}{x_0}\right|^n = M\sum\limits_{n=0}^{\infty}\left|\frac{a}{x_0}\right|^n
     \end{equation*}
-    converges. Choosing $M\cdot|a/x_0|^n$ as the number $M_n$ in \nameref{thmname:mtest}, it follows that $\sum\limits_{n=0}^{\infty}a_nx^n$ converges uniformly on $[-a,a]$.
+    converges. Choosing $M\cdot|a/x_0|^n$ as the number $M_n$ in \ref{thmname:mtest}, it follows that $\sum\limits_{n=0}^{\infty}a_nx^n$ converges uniformly on $[-a,a]$.
 
 
     To prove the same assertion for $g(x) = \sum\limits_{n=1}^{\infty}na_nx^{n-1}$ notice that \begin{align*}
@@ -3061,13 +3067,13 @@ we shall always assume that such a numbering has been assigned.
     Since $|a/x_0| < 1$, the series \begin{equation*}
         \sum\limits_{n=1}^{\infty} \frac{M}{|a|}n\left|\frac{a}{x_0}\right|^n = \frac{M}{|a|}\sum\limits_{n=1}^{\infty}n\left|\frac{a}{x_0}\right|^n
     \end{equation*}
-    converges (by an application of the Ratio Tes). Another appeal to \nameref{thmname:mtest} proves that $\sum\limits_{n=1}^{\infty}na_nx^{n-1}$ converges uniformly on $[-a,a]$.
+    converges (by an application of the Ratio Tes). Another appeal to \ref{thmname:mtest} proves that $\sum\limits_{n=1}^{\infty}na_nx^{n-1}$ converges uniformly on $[-a,a]$.
 
     Finally, our corollary proves, first that $g$ is continuous, and then that \begin{equation*}
         f'(x) = g(x) = \sum\limits_{n=1}^{\infty}na_nx^{n-1}
     \end{equation*}
     for all $x \in [-a,a]$. Since we could have chosen any $a$ with $0 < a < |x_0|$, this result holds for all $x$ with $|x| < |x_0|$.
-\end{proof*}
+\end{proof}
 
 
 
@@ -3154,17 +3160,17 @@ we shall always assume that such a numbering has been assigned.
     
     \subsection{Vector Functions and Derivatives}
     
-    \begin{defn}{}{}
+    \begin{defn}
         A \Emph{vector function} of one variable is a function $\vec{f}:J\subseteq \R\rightarrow \R^n$ defined by $t \mapsto \vec{f}(t)$, where $\vec{f}(t) \in \R^n$ is unique. 
     \end{defn}
     
-    \begin{defn}{}{}
+    \begin{defn}
         Let $\vec{f}:\R\rightarrow \R^n$ be a vector valued function. Then we define the derivative of $\vec{f}$ at $t$ by \begin{equation}
             \frac{d\vec{f}(t)}{dt} = \lim\limits_{\Delta t\rightarrow 0} \frac{\vec{f}(t+\Delta t) - \vec{f}(t)}{\Delta t}
         \end{equation}
     \end{defn}
     
-    \begin{rmk}{Properties}{}
+    \begin{rmk}[Properties]
         Let $\vec{f}:J\subseteq \R\rightarrow \R^n$ and $\vec{g}:I\subseteq \R\rightarrow \R^n$ be vector functions such that \begin{equation}
             \vec{f} = \langle f_1,...,f_n\rangle \; and\;\vec{g} = \langle g_1,...,g_n\rangle 
         \end{equation}
@@ -3176,7 +3182,7 @@ we shall always assume that such a numbering has been assigned.
         \end{enumerate}
     \end{rmk}
         
-    \begin{rec}{}{}
+    \begin{rec}
         Given $A \in \R^{n\times n}$, the lagrange expansion is \begin{equation}
             \det(A) = \sum\limits_{i=1}^n(-1)^{i+j}\det(A_{ij})\;(\text{along $j$-th column})
         \end{equation}
@@ -3186,17 +3192,17 @@ we shall always assume that such a numbering has been assigned.
         where $A_{ij}$ is the minor matrix of $A$ obtained by deleting the ith ro and jth column of $A$.
     \end{rec}
 
-    \begin{defn}{}{}
+    \begin{defn}
         Suppose $\vec{f}(t) = \langle f_1(t),...,f_n(t)\rangle$ and $\vec{L} = \langle L_1,...,L_n\rangle$ Then \begin{equation}
             \lim\limits_{t\rightarrow t_0}\vec{f}(t) = \vec{L} \implies \lim\limits_{t\rightarrow t_0}f_i(t) = L_i, \forall 1\leq i \leq n
         \end{equation}
     \end{defn}
 
-    \begin{rmk}{}{}
+    \begin{rmk}
         The right hand limit $\lim_{t\rightarrow t_0^+}\vec{f}(t)$ and the left hand limit $\lim_{t\rightarrow t_0^-}\vec{f}(t)$ are defined in the same way.
     \end{rmk}
 
-    \begin{rmk}{Limit Rules}{}
+    \begin{rmk}[Limit Rules]
         If $\lim_{t\rightarrow t_0}$ for $\vec{f}(t)$, $\vec{g}(t)$, and $\lambda(t)$ exist and $k \in \R$, then \begin{enumerate}
             \item $\lim\limits_{t\rightarrow t_0}(\vec{f}(t)+\vec{g}(t)) = \lim\limits_{t\rightarrow t_0}\vec{f}(t) + \lim\limits_{t\rightarrow t_0}\vec{g}(t)$
             \item $\lim\limits_{t\rightarrow t_0}k\vec{f}(t) = k\lim\limits_{t\rightarrow t_0}\vec{f}(t)$
@@ -3207,21 +3213,21 @@ we shall always assume that such a numbering has been assigned.
     \end{rmk}
 
 
-    \begin{defn}{Continuity}{}
+    \begin{defn}[Continuity]
         A vector function $\vec{f}(t) = \langle f_1(t),...,f_n(t)\rangle$ is said to be continuous at $t = t_0$ if \begin{equation}
             \lim\limits_{t\rightarrow t_0}\vec{f}(t) = \vec{f}(t_0)
         \end{equation}
         In other words, each component function is continuous at $t = t_0$.
     \end{defn}
 
-    \begin{defn}{Differentiability}{}
+    \begin{defn}[Differentiability]
         A vector function $\vec{f}(t) = \langle f_1(t),...,f_n(t)\rangle$ is said to be differentiable at $t = t_0$ if $\vec{f}(t)$ is defined at and around $t$ and \begin{equation}
             \lim\limits_{t\rightarrow t_0}\frac{\vec{f}(t) - \vec{f}(t_0)}{t - t_0}
         \end{equation}
         exists. We call this limit the derivative of $\vec{f}(t)$ at $t = t_0$ and is denoted by $\vec{f}'(t_0)$ if it exists.
     \end{defn}
 
-    \begin{thm}{}{}
+    \begin{thm}
         We say that the vector function is differentiable at $t = t_0$ if and only if its component functions are differentiable at $t = t_0$, and \begin{equation}
             \vec{f}'(t_0) = \langle f_1'(t_0),...,f_n'(t_0)\rangle
         \end{equation}
@@ -3229,7 +3235,7 @@ we shall always assume that such a numbering has been assigned.
 
 
 
-    \begin{rmk}{Differentiation Rules}{}
+    \begin{rmk}[Differentiation Rules]
         Let $\vec{f}(t), \vec{g}(t)$ and $\lambda(t)$ be differentiable and $k \in \R$. Then \begin{enumerate}
             \item $(\vec{f}+\vec{g})'(t) = \vec{f}'(t) + \vec{g}'(t)$
             \item $(k\vec{f})'(t) = k\vec{f}'(t)$
@@ -3241,7 +3247,7 @@ we shall always assume that such a numbering has been assigned.
     \end{rmk}
 
 
-    \begin{defn}{}{}
+    \begin{defn}
         Let $\vec{f}(t) = \langle f_1(t),...,f_n(t)\rangle$ be a vector function defined on a closed interval $[a,b]$. We say that $\vec{f}(t)$ is \Emph{integrable} on $[a,b]$ if each $f_i(t)$ is integrable on $[a,b]$. When that is the case we define \begin{equation}
             \int_a^b\vec{f}(t)dt := \left\langle \int_a^bf_1(t)dt,...,\int_a^bf_n(t)dt\right\rangle
         \end{equation}
@@ -3249,7 +3255,7 @@ we shall always assume that such a numbering has been assigned.
     \end{defn}
 
 
-    \begin{rmk}{Properties}{}
+    \begin{rmk}[Properties]
         Let $\vec{f}(t),\vec{g}(t)$ be integrable on $[a,b]$ and $k \in \R$. Then \begin{enumerate}
             \item $\int\limits_a^bk\vec{f}(t)dt = k\int\limits_a^b\vec{f}(t)dt$
             \item $\int\limits_a^b(\vec{f}(t)+\vec{g}(t))dt = \int\limits_a^b\vec{f}(t)dt + \int\limits_a^b\vec{g}(t)dt$
@@ -3261,44 +3267,44 @@ we shall always assume that such a numbering has been assigned.
 
     \subsection{Parametric Curves and Paths}
 
-    \begin{defn}{}{}
+    \begin{defn}
         Let $\vec{f}:J\subseteq \R\rightarrow \R^n$ given by $t \mapsto \langle f_1(t),..., f_n(t)\rangle$, and $f_j: J\subseteq \R\rightarrow \R$ be the $j$th component function of $\vec{f}$. We define the image \begin{equation}
             \vec{f}(J) = \mathscr{C}
         \end{equation}
         and call $\mathscr{C}$ a \Emph{curve parametrized} by $\vec{f}$. If $J = [a,b]$ for $a \leq b \in \R$ and $\vec{f}(a) = \vec{f}(b)$, then $\mathscr{C}$ is a \Emph{closed curve}. If there exists a parametrization $\vec{g}:I \subseteq \R \rightarrow \R^n$ of $\mathscr{C}$ such that $\vec{g}$ is injective (except maybe at end points), then $\mathscr{C}$ is said to be a \Emph{non-self intersecting} curve. If such a curve is closed it is called a \Emph{simple closed curve}.
     \end{defn}
 
-    \begin{rmk}{}{}
+    \begin{rmk}
         The pair $(\vec{f}(t), J)$ is called a \Emph{parametrization} of the curve $\mathscr{C}$. The triple $(\vec{f}(t), J, \mathscr{C})$ is called a \Emph{path with curve $\mathscr{C}$}.
     \end{rmk}
 
-    \begin{defn}{}{}
+    \begin{defn}
         If $\vec{f}:J \subseteq \R\rightarrow \R^n$ is a one-to-one function, then the image $\vec{f}(J) = \mathscr{C}$ is an \Emph{oriented curve} and $\vec{f}$ is a \Emph{consistently oriented path} which covers $\mathscr{C}$.
     \end{defn}
 
-    \begin{rmk}{Ellipse}{}
+    \begin{rmk}[Ellipse]
         The parametrization of an ellipse with equation $\frac{(x-x_0)^2}{a^2} + \frac{(y-y_0)^2}{b^2} = 1$, $a,b > 0$ are constants, is $\vec{f}(t) = \langle x_0 + a\cos(t), y_0 + b\sin(t)\rangle$, for $t \in [0,2\pi)$.
     \end{rmk}
 
 
-    \begin{rmk}{Line}{}
+    \begin{rmk}[Line]
         Let $A$ and $B$ be points in $\R^n$. The parametrization of the line segment connecting $A$ to $B$ is \begin{equation}
             (\vec{f}(t) = \overline{OA} + t(\overline{OB} - \overline{OA}), [0,1])
         \end{equation}
     \end{rmk}
 
 
-    \begin{defn}{}{}
+    \begin{defn}
         The tangent vector to a curve $\mathscr{C}$ with parametrization $(\vec{f}, I)$ exists at a point $t = t_0$ if $\vec{f}$ is $\vec{f}'(t)$ exists.
     \end{defn}
 
 
-    \begin{defn}{}{}
+    \begin{defn}
         Let $\mathscr{C}$ be a parametric curve with parametrization $(\vec{f}(t),[a,b])$. If $\vec{f}(t)$ is differentiable at $t = t_0$, then $\vec{f}(t_0)$ is called a \Emph{tangent vector} to $\mathscr{C}$ at $P_0 = tip(\vec{f}(t_0))$, provided $\vec{f}'(t_0) \neq \vec{0}$. If $\vec{f}(t)$ is differentiable at every $t \in (a,b)$ and $\vec{f}'(t) \neq \vec{0}$, we say that the parametric curve $\mathscr{C}$ is a \Emph{smooth parametric curve}.
     \end{defn}
     
 
-    \begin{defn}{}{}
+    \begin{defn}
         Let $\mathscr{C}$ be a parametric curve and let $(\vec{f}(t), I)$ be a parametrization. If $P_0 = tip(\vec{f}(t_0))$, for $t_0 \in I$, such that $\vec{f}'(t_0) \neq \vec{0}$. Then \begin{equation}
             \vec{T}(t_0) = \frac{1}{|\vec{f}'(t_0)|}\vec{f}'(t_0)
         \end{equation}
@@ -3310,12 +3316,12 @@ we shall always assume that such a numbering has been assigned.
 
 
     
-    \begin{defn}{}{}
+    \begin{defn}
         A curve $\mathscr{C}$ is called \Emph{piecewise smooth} if it consists of a finite number of smooth parametric curves $\mathscr{C}_1,...,\mathscr{C}_k$, where the endpoint of $\mathscr{C}_i$ is the starting point of $\mathscr{C}_{i+1}$ for $i = 1,2,...,k-1$.
     \end{defn}
 
 
-    \begin{defn}{}{}
+    \begin{defn}
         Let $\mathscr{C}$ be a bounded continuous curve specified by a parametrization $\vec{f}:[a,b]\rightarrow \R^n$. We consider partitions of $[a,b]$ into $n$-subintervals by \begin{equation}
             a= t_0 < t_1 < ... < t_n = b
         \end{equation}
@@ -3332,7 +3338,7 @@ we shall always assume that such a numbering has been assigned.
     \end{defn}
 
 
-    \begin{defn}{}{}
+    \begin{defn}
         Let $\vec{f}:[a,b] \rightarrow \R^n$ be a smooth parammetrization of a curve $\mathscr{C}$. Then the \Emph{arclength function} of $\vec{f}$ is a function $s:[a,b] \rightarrow \R$ where \begin{equation}
             s(t) := \int\limits_a^b\left|\frac{d\vec{f}}{dt}\right|dt
         \end{equation}
@@ -3341,7 +3347,7 @@ we shall always assume that such a numbering has been assigned.
         \end{equation}
     \end{defn}
 
-    \begin{defn}{}{}
+    \begin{defn}
         If $\vec{f}:J\subseteq \R\rightarrow \R^n$ parametrizes a curve $\mathscr{C}$ with the parameter being the arclenght along the curve relative to some inital point, then we call this an \Emph{arclength} or \Emph{intrinsic parametrization}. Such a parametrization traces $\mathscr{C}$ at unit speed \begin{equation}
             \left|\frac{d\vec{f}(s)}{dt}\right| = 1
         \end{equation}
@@ -3350,7 +3356,7 @@ we shall always assume that such a numbering has been assigned.
 
     \subsection{Functions of Several Variables}
 
-    \begin{defn}{}{}
+    \begin{defn}
         A function $f:\mathscr{D}(f) \subseteq \R^n\rightarrow \R$, where $\mathscr{D}(f)$ is the \Emph{domain} of $f$, is called a \Emph{scalar field on $\mathscr{D}(f)$}. The image of $f$ is \begin{equation}
             \ran(f):=\{x \in \R:\exists\vec{v} \in \mathscr{D}(f), f(\vec{v}) = x\}
         \end{equation}
@@ -3358,7 +3364,7 @@ we shall always assume that such a numbering has been assigned.
     \end{defn}
 
     
-    \begin{defn}{}{}
+    \begin{defn}
         The \Emph{graph} of a function $f:A\rightarrow B$ is the set \begin{equation}
             \Gamma(f):=\{(x,f(x)):x \in A\}
         \end{equation}
@@ -3370,12 +3376,12 @@ we shall always assume that such a numbering has been assigned.
         \end{equation}
     \end{defn}
 
-    \begin{rmk}{}{}
+    \begin{rmk}
         The grap of a function $f:\R^n\rightarrow \R$ can be considered as a surface in $\R^{n+1}$ by a natural embedding.
     \end{rmk}
 
 
-    \begin{defn}{}{}
+    \begin{defn}
         Given a function $f:\R^n\rightarrow \R$, a \Emph{k-level surface} of $f$ is a set \begin{equation}
             S_k := \{\vec{x} \in \R^n: f(\vec{x}) = k\}
         \end{equation}
@@ -3383,7 +3389,7 @@ we shall always assume that such a numbering has been assigned.
     \end{defn}
 
 
-    \begin{defn}{}{}
+    \begin{defn}
         Let $\vec{x}_0 \in \R^n$ and $r > 0$ a real number. Then the \Emph{open ball of radius $r$} centered at $\vec{x}_0$ is defined as \begin{equation}
             B_r(\vec{x}_0) := \{\vec{x} \in \R^n: ||\vec{x} - \vec{x}_0|| < r\}
         \end{equation}
@@ -3392,29 +3398,29 @@ we shall always assume that such a numbering has been assigned.
         \end{equation}
     \end{defn}
 
-    \begin{defn}{}{}
+    \begin{defn}
         A \Emph{neighborhood} of a point $\vec{x}_0 \in \R^n$ is any set $U \subseteq \R^n$ such that there exists $r > 0$ so that $B_r(\vec{x}_0) \subseteq U$.
     \end{defn}
 
 
-    \begin{defn}{}{}
+    \begin{defn}
         Let $E \subseteq \R^n$, where we equip $\R^n$ with $\mathscr{T}_{st}$. We say $E$ is \Emph{open} if $E \in \mathscr{T}_{st}$. Equivalently, $E$ is \Emph{open} if for all $\vec{x} \in E$, $E$ is a \Emph{neighborhood} of $\vec{x}$. We sau $E$ is \Emph{closed} if its \Emph{complement} $E^C = \R^n\backslash E$ is \Emph{open}.
     \end{defn}
 
-    \begin{defn}{}{}
+    \begin{defn}
         A point $\vec{x}_0 \in \R^n$ is called a \Emph{boundary point} of $E$ if for any $r > 0$, $B_r(\vec{x}_0) \cap E \neq \emptyset$ and $B_r(\vec{x}_0) \cap E^C \neq \emptyset$.
     \end{defn}
 
-    \begin{defn}{}{}
+    \begin{defn}
         The set of all \Emph{boundary points} of a set $E \subseteq \R^n$ is called the \Emph{boundary} of $E$.
     \end{defn}
 
-    \begin{defn}{}{}
+    \begin{defn}
         Let $E \subseteq \R^n$. We say that $E$ is \Emph{bounded} if there exists $R > 0$ such that $||\vec{x}|| \leq R$ for all $\vec{x} \in E$. $E$ is \Emph{unbounded} if for all $R > 0$ there exists $\vec{x}_0 \in E$ such that $||\vec{x}_0|| > R$.
     \end{defn}
 
 
-    \begin{defn}{}{}
+    \begin{defn}
         Let $f:\R^n\rightarrow \R$ be a function. We say $\lim_{\vec{x}\rightarrow \vec{x}_0}f(\vec{x}) = L$, provided that \begin{enumerate}
             \item Every punctered neighborhood $B_r^*(\vec{x}_0)$ of $\vec{x}_0$ intersects $\mathscr{D}(f)$ 
                 \begin{equation}
@@ -3428,12 +3434,12 @@ we shall always assume that such a numbering has been assigned.
     \end{defn}
 
     
-    \begin{rmk}{}{}
+    \begin{rmk}
         As $\R^n$ and $\R$ are metric spaces, they are Hausdorff, so if the limit exists it is unique.
     \end{rmk}
 
 
-    \begin{rmk}{Limit Properties}{}
+    \begin{rmk}[Limit Properties]
         Let $f:\R^n\rightarrow \R$ and $g:\R^n\rightarrow \R$ and $\vec{x}_0\in \R^n$ such that $\lim_{\vec{x}\rightarrow \vec{x}_0}f(\vec{x}_0) = L$ and $\lim_{\vec{x}\rightarrow \vec{x}_0}g(\vec{x}) = M$. Then if $\vec{x}_0$ is not an isolated point of $\mathscr{D}(f) \cap \mathscr{D}(g)$, then \begin{enumerate}
             \item $\lim_{\vec{x}\rightarrow \vec{x}_0}(f(\vec{x}) \pm g(\vec{x})) = L \pm M$
             \item $\lim_{\vec{x}\rightarrow \vec{x}_0}f(\vec{x})g(\vec{x}) = LM$
@@ -3442,7 +3448,7 @@ we shall always assume that such a numbering has been assigned.
         \end{enumerate}
     \end{rmk}
 
-    \begin{defn}{}{}
+    \begin{defn}
         We say a function $f:\R^n\rightarrow \R$ is \Emph{continuous at a point} $\vec{x}_0\in \R^n$ if \begin{equation}
             \lim_{\vec{x}\rightarrow \vec{x}_0} f(\vec{x}) = f(\vec{x}_0)
         \end{equation}
@@ -3451,13 +3457,13 @@ we shall always assume that such a numbering has been assigned.
 
     
 
-    \begin{rmk}{}{}
+    \begin{rmk}
         If setting $x = x_0$ and $y = y_0$ in the expression for $f(x,y)$ does not evalutate to a real number, then we can try using polar coordinates: $x = x_0 + r\cos(\theta)$ and $y = y_0 + r\sin(\theta)$. Recall $r = \sqrt{(x-x_0)^2 + (y-y_0)^2}, 0 \leq \theta < 2\pi$. As a result, $(x,y) \rightarrow (x_0,y_0)$ is equivalent to $r\rightarrow 0$, so \begin{equation}
             \lim\limits_{(x,y) \rightarrow (x_0,y_0)}f(x,y) = \lim\limits_{r\rightarrow 0}f(x_0+r\cos(\theta), y_0+r\sin(\theta))
         \end{equation}
     \end{rmk}
 
-    \begin{thm}{Squeeze Theorem}{}
+    \begin{thm}[Squeeze Theorem]
         Let $f(x,y), g(x,y)$ and $h(x,y)$ be defined in a neighborhood $U$ of $(x_0,y_0)$, except maybe at $(x_0,y_0)$, and such that \begin{equation}
             g(x,y) \leq f(x,y) \leq h(x,y), \forall (x,y) \in U\backslash\{(x_0,y_0)\}
         \end{equation}
@@ -3467,7 +3473,7 @@ we shall always assume that such a numbering has been assigned.
         Then $\lim\limits_{(x,y)\rightarrow (x_0,y_0)} f(x) = L$.
     \end{thm}
 
-    \begin{thm}{}{}
+    \begin{thm}
         If one can find two continuous parametric curves $\mathscr{C}_1$ and $\mathscr{C}_2$ that pass through the point $(x_0,y_0)$ such that \begin{equation}
             \lim\limits_{\underset{(x,y) \in \mathscr{C}_1}{(x,y)\rightarrow (x_0,y_0)}}f(x,y) = L_1, \lim\limits_{\underset{(x,y) \in \mathscr{C}_2}{(x,y)\rightarrow (x_0,y_0)}}f(x,y) = L_2,\;and\;L_1 \neq L_2
         \end{equation}
@@ -3475,7 +3481,7 @@ we shall always assume that such a numbering has been assigned.
     \end{thm}
 
    
-    \begin{defn}{}{}
+    \begin{defn}
         Let $f:\R^n\rightarrow \R$ be a function. \begin{enumerate}
             \item We say that $f$ is \Emph{continuous} at $\vec{x}_0 \in \R^n$ if \begin{enumerate}
                     \item There exists a neighborhood $U$ of $\vec{x}_0$ such that $f(U)$ is defined
@@ -3486,7 +3492,7 @@ we shall always assume that such a numbering has been assigned.
     \end{defn}
 
 
-    \begin{rmk}{Constructing Continuous Functions}{}
+    \begin{rmk}[Constructing Continuous Functions]
         Let $f,g:\R^n\rightarrow \R$ be continuous at $\vec{x}_0 \in \R^n$, and if $\lambda \in \R$, then \begin{enumerate}
             \item $f\pm g$, $f\cdot g$, and $\lambda f$ are continuous at $\vec{x}_0$
             \item $f/g$ is continuous at $\vec{x}_0$ provided $g(\vec{x}_0) \neq 0$.
@@ -3494,7 +3500,7 @@ we shall always assume that such a numbering has been assigned.
         Suppose $u(t)$ is continuous at $t_0 = f(\vec{x}_0)$. Then $u(f(\vec{x}))$ is continuous at $\vec{x}_0$.
     \end{rmk}
 
-    \begin{namthm}{Extreme Value Theorem}{}
+    \begin{namthm}[Extreme Value Theorem]
         If $f:\R^n \rightarrow \R$ is continuous on a closed and bounded region $D \subseteq \R^n$, then there exist $\vec{x}_m,\vec{x}_M \in D$ such that \begin{equation}
             f(\vec{x}_m) \leq f(\vec{x}) \leq f(\vec{x}_M), \forall \vec{x} \in D
         \end{equation}
@@ -3504,31 +3510,31 @@ we shall always assume that such a numbering has been assigned.
 
     \subsection{Partial Derivatives}
 
-    \begin{defn}{}{}
+    \begin{defn}
         The \Emph{first partial derivatives} of a function $f:\R^n\rightarrow \R$ with respect to the variable $x_i$, $1 \leq i \leq n$, is the function \begin{equation}
             f_i(x_1,...,x_n) = \lim_{h\rightarrow 0}\frac{f(x_1,...,x_i+h,...,x_n) - f(x_1,...,x_i,...,x_n)}{h}
         \end{equation}
         provided the limit exists and $f$ is defined in a neighbrohood of $(x_1,...,x_n)$.
     \end{defn}
 
-    \begin{nota*}{}{}
+    \begin{nota}
         We often write \begin{equation}
             \frac{\partial}{\partial x_i}f(x_1,...,x_n) = f_i(x_1,...,x_n) = D_if(x_1,...,x_n)
         \end{equation}
         and \begin{equation}
             \left(\frac{\partial}{\partial x_i}f(\vec{x})\right)\Big\rvert_{\vec{x}_0} = f_i(\vec{x}_0) = D_if(\vec{x}_0)
         \end{equation}
-    \end{nota*}
+    \end{nota}
     
 
-    \begin{rmk}{}{}
+    \begin{rmk}
         If a function $f:J\subseteq \R^n\rightarrow \R$ has first partial derivatives at $\vec{x}_0$ in a region $D \subseteq \R^n$, then this defines $n$ new functions \begin{equation}
             \frac{\partial f}{\partial x_i}\Big\rvert:\R\rightarrow \R
         \end{equation}
         where we differentiate $f$ with respect to $x_i$.
     \end{rmk}
 
-    \begin{defn}{}{}
+    \begin{defn}
         Given a function $f:\R^n\rightarrow \R$, the \Emph{gradient} of $f$ is the vector function \begin{equation}
             \nabla f = grad(f):\R^n\rightarrow\R^n
         \end{equation}
@@ -3541,21 +3547,21 @@ we shall always assume that such a numbering has been assigned.
     \end{defn}
 
 
-    \begin{defn}{}{}
+    \begin{defn}
         Let $f:\R^n\rightarrow \R$ be defined in a neighborhood of a point $\vec{x}_0$ such that its first partial derivatives exist at $\vec{x}_0$. Then by definition, the \Emph{linear approximation} of $f$ at $\vec{x}_0$ is the polynomial of degree $1$, $L(\vec{x})$, that matches $f$ at $\vec{x}_0$ and matches its partials at $\vec{x}_0$. In particular, we have that \begin{equation}
             L(\vec{x},\vec{x}_0) = f(\vec{x}_0) + \sum_{i=1}^n \frac{\partial}{\partial x_i}f(\vec{x}_0)(x_i - x_{i,0})
         \end{equation}
     \end{defn}
 
 
-    \begin{defn}{}{}
+    \begin{defn}
         Let $f:D\subseteq \R^n\rightarrow \R$ be a function defined around $\vec{x}_0 \in \R^n$ with first partials also defined. Let $L(\vec{x})$ be its linear approximation at $\vec{x}_0$. We say that $f$ is \Emph{differentiable} at $\vec{x}_0$ if the limit \begin{equation}
             \lim_{\vec{x}\rightarrow \vec{x}_0} \frac{f(\vec{x}) - L(\vec{x})}{||\vec{x}-\vec{x}_0||} = 0
         \end{equation}
     \end{defn}
 
 
-    \begin{defn}{}{}
+    \begin{defn}
         Let $f:D\subseteq \R^n\rightarrow \R^m$ be a multivariate function defined in a neighborhood of $\vec{x}_0 \in \R^n$ with first partial derivatives also defined. Then the \Emph{Jacobian matrix} of $f$ is defined to be \begin{equation}
             Df(\vec{x}) = \begin{bmatrix} \partial_1f_1(\vec{x}) & \partial_2f_1(\vec{x}) & \hdots & \partial_nf_1(\vec{x}) \\
                 \partial_1f_2(\vec{x}) & \ddots & \ddots & \vdots \\
@@ -3570,7 +3576,7 @@ we shall always assume that such a numbering has been assigned.
     \end{defn}
 
 
-    \begin{rmk}{Properties}{}
+    \begin{rmk}[Properties]
         For $f:D \subseteq \R^n\rightarrow \R^m$: \begin{enumerate}
             \item If $f$ is differentiable at $\vec{x}_0$, then $f$ is continuous at $\vec{x}_0$
             \item If $f$ and $g$ are differentiable at $\vec{x}_0$, then $f\pm g, kf, fg$ ($m = 1$) are differentiable at $\vec{x}_0$.
@@ -3578,7 +3584,7 @@ we shall always assume that such a numbering has been assigned.
         \end{enumerate}
     \end{rmk}
 
-    \begin{defn}{}{}
+    \begin{defn}
         Consider $f:D\subseteq \R^n\rightarrow \R$, we have \begin{equation}
             \partial_if(\vec{x}_0) = \lim_{t\rightarrow 0}\frac{f(\vec{x}_0+t\hat{e}_i) - f(\vec{x}_0)}{t}
         \end{equation}
@@ -3587,14 +3593,14 @@ we shall always assume that such a numbering has been assigned.
         \end{equation}
     \end{defn}
 
-    \begin{thm}{}{}
+    \begin{thm}
         If $f:D\subseteq \R^n\rightarrow \R$ is differentiable at $\vec{x}_0$, then the directional derivative of $f$ at $\vec{x}_0$ exists in the direction of $\hat{u}$, and is equal to \begin{equation}
             \partial_{\hat{u}}f(\vec{x}_0) = \nabla f(\vec{x}_0) \cdot \hat{u}
         \end{equation}
     \end{thm}
 
 
-    \begin{thm}{}{}
+    \begin{thm}
         Notice if $f:D\subseteq \R^n\rightarrow \R$ is differentiable at $\vec{x}_0$, and $\hat{u}$ is a unit vector, we have that \begin{equation}
             \partial_{\hat{u}}f(\vec{x}_0) = \nabla f(\vec{x}_0) \cdot \hat{u} = |\nabla f(\vec{x}_0)|\cos(\theta)
         \end{equation}
@@ -3605,13 +3611,13 @@ we shall always assume that such a numbering has been assigned.
         \end{enumerate}
     \end{thm}
 
-    \begin{thm}{Chain Rule V1}{}
+    \begin{thm}[Chain Rule V1]
         Let $f:D_f\subseteq \R^n\rightarrow \R$ and $g:D_g\subseteq \R\rightarrow \R$ such that $g(t) = f(\vec{x}(t))$. Then \begin{equation}
             \frac{dg}{dt} = \nabla f(\vec{x}) \cdot \frac{d}{dt}\langle x_1,...,x_n\rangle = \sum_{i=1}^n \partial_i f\frac{dx_i}{dt}
         \end{equation}
     \end{thm}
 
-    \begin{thm}{Chain Rule V2}{}
+    \begin{thm}[Chain Rule V2]
         Let $f:D_f\subseteq \R^n\rightarrow \R$ and $g:D_g\subseteq \R^m\rightarrow \R$ such that $g(\vec{x}) = f(y_1(\vec{x}),...,y_n(\vec{x}))$. Then \begin{equation}
         \partial_i g(\vec{x}) = \nabla f(y_1(\vec{x}),...,y_n(\vec{x})) \cdot \frac{\partial}{\partial x_i}\vec{y}
         \end{equation}
@@ -3619,14 +3625,14 @@ we shall always assume that such a numbering has been assigned.
     \end{thm}
 
 
-    \begin{thm}{Clairout's Theorem}{}
+    \begin{thm}[Clairout's Theorem]
         Suppose $f:\R^n\rightarrow \R$ has continous first and second partials on an open ball $B_r$. Then $f_{ij}(\vec{x}) = f_{ji}(\vec{x})$ for all $\vec{x} \in D$.
     \end{thm}
 
 
     \subsection{Implicit Differentiation}
 
-    \begin{thm}{Implicit Function Theorem (Two variables)}{}
+    \begin{thm}[Implicit Function Theorem (Two variables)]
         Consider $F(x,y) = 0$. Let $(x_0,y_0) \in \R^2$ such that $F(x_0,y_0) = 0$, and suppose $F$'s first partials are continuous in a neighborhood of $(x_0,y_0)$. Then \begin{enumerate}
             \item If $F_y(x_0,y_0) \neq 0$, then $F(x,y) = 0$ uniquely defines $y$ as a continuously differentiable function of $x$ in a neighborhood of $x_0$, and we have that \begin{equation}
                     \frac{dy}{dx} = -\frac{\partial_x F(x,y)}{\partial_y F(x,y)}
@@ -3636,14 +3642,14 @@ we shall always assume that such a numbering has been assigned.
     \end{thm}
 
 
-    \begin{thm}{Implicit Function Theorem (n variables)}{}
+    \begin{thm}[Implicit Function Theorem (n variables)]
         Consider $F(\vec{x}) = 0 (\star)$, $\vec{x} = (x_1,...,x_n)$. Let $\vec{a}$ satisfy $F(\vec{a}) = 0$, and suppose $F(\vec{x})$ has continuous first partial derivatives at and in a neighborhood of $\vec{a}$. Let $\beta$ be one of the variables $\{x_1,...,x_n\}$, and let $\vec{\alpha}$ be the rest. If $\partial_{\beta}F(\vec{a}) \neq 0$, then the equation $(\star)$ uniquely defines the variable $\beta$ as a continuously differentiable function of $\vec{\alpha}$, and for $x_j \neq \beta$, we have \begin{equation}
             \partial_{x_j}\beta(\vec{\alpha}) = -\frac{\partial_{x_j}F(\vec{a})}{\partial_{\beta}F(\vec{a})}
         \end{equation}
     \end{thm}
 
 
-    \begin{namthm}{Implicit Function Theorem (General)}{}
+    \begin{namthm}[Implicit Function Theorem (General)]
         Consider a system of $n$ equations in $n+m$ variables \begin{equation}
             \left\{\begin{array}{l} F_{(1)}(x_1,...,x_m,y_1,...,y_n) = 0 \\ \vdots \\ F_{(n)}(x_1,...,x_m,y_1,...,y_n) = 0 \end{array}\right.
         \end{equation}
@@ -3661,7 +3667,7 @@ we shall always assume that such a numbering has been assigned.
     \subsection{Differentials}
 
 
-    \begin{defn}{}{}
+    \begin{defn}
         Let $f:D\subseteq \R^n\rightarrow \R$ be a function defined at and around a point $\vec{a}$. Given $\Delta \vec{x}$, of small magnitude, \begin{equation}
             \Delta f_{\vec{a}}(\Delta \vec{x}) = f(\vec{a}+\Delta \vec{x}) - f(\vec{a})
         \end{equation}
@@ -3675,7 +3681,7 @@ we shall always assume that such a numbering has been assigned.
     
     \subsection{Taylor Polynomials}
     
-    \begin{namthm}{Taylor's Theorem (One Variable)}
+    \begin{namthm}[Taylor's Theorem (One Variable)]
         Let $f(x)$ be a function wit $n+1$ continuous derivatives in the open interval $(a,b)$. Let \begin{equation}
             T_n(x) := \sum\limits_{i=0}^n\frac{f^{(i)}(c)(x-c)^i}{i!}
         \end{equation}
@@ -3684,14 +3690,14 @@ we shall always assume that such a numbering has been assigned.
         \end{equation}
     \end{namthm}
     
-    \begin{defn}{Two Variable Taylor Polynomial}{}
+    \begin{defn}[Two Variable Taylor Polynomial]
         Let $f(x,y)$ be a smooth function (continuous partial derivatives up to whatever degree needed) in a open set $D \subset \R^2$. The \Emph{degree $n$ Taylor polynomial} of $f(x,y)$ at a point $(a,b) \in D$, is the polynomial $T_n(x,y)$ of degree $n$ that equals $f(x,y)$ and its first $n$ partial derivatives at $(a,b)$. It can be written as \begin{equation}
             T_n(x,y) := \sum\limits_{i=0}^n\frac{\left[(x-a)\partial_x + (y-b)\partial_y\right]^{(i)}f(a,b)}{i!}
         \end{equation}
         where $\left[(x-a)\partial_x + (y-b)\partial_y\right]^{(i)}$ is to be expanded as an algebraic expression and the products of $\partial_x$ and $\partial_y$ correspond to composition of operators.
     \end{defn}
     
-    \begin{namthm}{Taylor's Theorem (Two variables)}
+    \begin{namthm}[Taylor's Theorem (Two variables)]
         Let $f(x,y)$ be a function with continuous partial derivatives up to $(n+1)$ in some neighborhood $D$ of $(a,b) \in \R^2$. Let $T_n(x,y)$ be the degree $n$ Taylor polynomial of $f(x,y)$ at $(a,b)$. Then for any $(x,y) \in D$, there exists $(\alpha,\beta) \in D$ such that \begin{equation}
             f(x,y) = T_n(x,y) + \frac{\left[(x-a)\partial_x + (y-b)\partial_y\right]^{(n+1)}f(\alpha,\beta)}{(n+1)!}
         \end{equation}
@@ -3708,7 +3714,7 @@ we shall always assume that such a numbering has been assigned.
     \end{rmk}
     
     
-    \begin{namthm}{Taylor's Theorem (General)}
+    \begin{namthm}[Taylor's Theorem (General)]
         Let $f:D\subset\R^n \rightarrow \R$ be a function with continuous partial derivatives of order up to $m+1$ in a neighborhood $D$ of $\vec{a} \in \R^n$. Then for all $\vec{x} \in D$ there exists $\vec{theta} \in D$ such that \begin{equation}
             f(\vec{x}) = T_m(\vec{x}) + R_m(\vec{x},\vec{\theta})
         \end{equation}
@@ -3728,7 +3734,7 @@ we shall always assume that such a numbering has been assigned.
     
     \subsection{Local Extrema of Multivariate Functions}
     
-    \begin{defn}{}{}
+    \begin{defn}
         Let $f:\R^n\rightarrow \R$ be a function of $n$ variables defined in a neighborhood of $\vec{x}_0 \in \R^n$: \begin{enumerate}
             \item We say $f$ has a \Emph{local maximum} at $\vec{x}_0$ if there exists a neighborhood $D$ of $\vec{x}_0$ for which $f$ is defined and \begin{equation}
                 f(\vec{x}) \leq f(\vec{x}_0), \forall \vec{x} \in D
@@ -3740,25 +3746,25 @@ we shall always assume that such a numbering has been assigned.
         \end{enumerate}
     \end{defn}
     
-    \begin{thm}{Fermat}{}
+    \begin{thm}[Fermat]
         If $f:\R^n\rightarrow \R$ has a local extremum at $\vec{x}_0$, then one of the following must hold:\begin{enumerate}
             \item $\nabla f(\vec{x}_0) = \vec{0}$ when all first partials of $f$ exist at $\vec{x}_0$
             \item At least one of the first partials of $f$ are not defined at $\vec{x}_0$
         \end{enumerate}
     \end{thm}
     
-    \begin{defn}{}{}
+    \begin{defn}
         Suppose $f:\R^n\rightarrow \R$ is defined in a neighborhood of $\vec{x}_0$. If one of the conditions of Fermat's Theorem is satisfied by $\vec{x}_0$, we say $\vec{x}_0$ is a \Emph{critical point} of $f$.
     \end{defn}
     
-    \begin{rmk}{}{}
+    \begin{rmk}
         To determine if $f$ has a local max or min at a critical point $\vec{x}_0$, study the sign of \begin{equation}
             f(\vec{x}_0 + \vec{h}) - f(\vec{x}_0)
         \end{equation}
         for small $|\vec{h}|$. If it is always positive, $f$ has a local minimum, if it is always negative $f$ has a local maximum, and if it changes sign, $f$ does not have a local extremum and in this case we say $f$ has a \Emph{saddle point} at $\vec{x}_0$.
     \end{rmk}
     
-    \begin{namthm}{Second Derivative Test}
+    \begin{namthm}[Second Derivative Test]
         Suppose $f(x,y)$ has continuous second partial derivatives in a neighborhood of a critical point $(x_0,y_0)$. Define the \Emph{Hessian} matrix of $f$ at $(x_0,y_0)$ to be \begin{equation}
             H_f(x_0,y_0) := \begin{bmatrix} f_{xx}(x_0,y_0) & f_{xy}(x_0,y_0) \\ f_{yx}(x_0,y_0) & f_{yy}(x_0,y_0) \end{bmatrix}
         \end{equation}
@@ -3770,7 +3776,7 @@ we shall always assume that such a numbering has been assigned.
         \end{enumerate}
     \end{namthm}
     
-    \begin{namthm}{Second Derivative Test (general)}
+    \begin{namthm}[Second Derivative Test (general)]
         Suppose $f:D \subset \R^n \rightarrow \R$ has continuous second partial derivatives in a neighborhood of a critical point $\vec{x}_0 \in D$. Define the \Emph{Hessian} matrix of $f$ at $\vec{x}_0$ to be \begin{equation}
             H_f(\vec{x}_0) := \begin{bmatrix} f_{11}(\vec{x}_0) & f_{12}(\vec{x}_0) & \hdots & f_{1n}(\vec{x}_0) \\ f_{21}(\vec{x}_0) & \ddots & \ddots & \vdots \\ \vdots & \ddots & \ddots & \vdots \\ f_{n1}(\vec{x}_0) & \hdots & \hdots & f_{nn}(\vec{x}_0) \end{bmatrix}
         \end{equation}
@@ -3786,38 +3792,38 @@ we shall always assume that such a numbering has been assigned.
     
     \subsection{Vector Fields}
     
-    \begin{defn}{}{}
+    \begin{defn}
         A \Emph{vector field} is a vector function $\vec{F}:D\subset \R^n \rightarrow \R^n$. In the case of three variables we write \begin{equation}
             \vec{F}(x,y,z) = \langle P(x,y,z), Q(x,y,z), R(x,y,z)\rangle
         \end{equation}
     \end{defn}
     
-    \begin{rmk}{}{}
+    \begin{rmk}
         A vector field $\vec{F}:D\subset \R^n \rightarrow \R^n$ is said to be of class $C^k$ for $k \in \Z^{+}$ in $D$ if the first $k$ partial derivatives of the component functions of $\vec{F}$ are continuous in $D$.
     \end{rmk}
     
-    \begin{defn}{Conservative Fields}{}
+    \begin{defn}[Conservative Fields]
         A vector field $\vec{F}:D\subset \R^n \rightarrow \R^n$ is called \Emph{conservative} in a region $E \subseteq D$ if there exists a scalar function $f:D_f \subset \R^n \rightarrow \R$ such that \begin{equation}
             \vec{F}(\vec{x}) = \nabla f(\vec{x}), \forall \vec{x} \in E
         \end{equation}
         where $f$ is called a \Emph{potential function} of the vector field $\vec{F}$.
     \end{defn}
     
-    \begin{defn}{}{}
+    \begin{defn}
         Let $\vec{F}:D\subset \R^n \rightarrow \R^n$ be a differentiable vector field. The \Emph{divergence} of $\vec{F}$ is the scalar field \begin{equation}
             \nabla\cdot \vec{F} = \sum\limits_{i=1}^n\partial_iF_i
         \end{equation}
         where $F_i$ are the component function of $\vec{F}$.
     \end{defn}
     
-    \begin{defn}{}{}
+    \begin{defn}
         Let $\vec{F}:D\subset \R^3 \rightarrow \R^3$ be a differentiable vector field. The \Emph{curl} of $\vec{F}$ is the vector field \begin{equation}
             \nabla\times \vec{F} = \begin{vmatrix} \hat{i} & \hat{j} & \hat{k} \\ \partial_x & \partial_y & \partial_z \\ P & Q & R \end{vmatrix}
         \end{equation}
         where $F_i$ are the component function of $\vec{F}$.
     \end{defn}
     
-    \begin{prop}{Properties of Divergence}{}
+    \begin{prop}[Properties of Divergence]
         If $\vec{F}:D\subset \R^n \rightarrow \R^n$ and $\vec{G}:D\subset \R^n \rightarrow \R^n$ vector fields and $f:D\subset \R^n \rightarrow \R$ is a scalar field, and $C_1,C_2 \in \R$, then \begin{enumerate}
             \item (Linearity) $\nabla \cdot (C_1\vec{F} + C_2\vec{G}) = C_1\nabla \cdot \vec{F} + C_2\nabla \cdot \vec{F}$
             \item (Product rule) $\nabla \cdot (f\vec{F}) = \nabla f \cdot \vec{F} + f\nabla\cdot \vec{F}$
@@ -3825,7 +3831,7 @@ we shall always assume that such a numbering has been assigned.
         \end{enumerate}
     \end{prop}
     
-    \begin{prop}{Properties of Divergence}{}
+    \begin{prop}[Properties of Divergence]
         If $\vec{F}:D\subset \R^3 \rightarrow \R^3$ and $\vec{G}:D\subset \R^3 \rightarrow \R^3$ vector fields and $f:D\subset \R^3 \rightarrow \R$ is a scalar field, that are all defined and differentiable in $D$. Let $C_1,C_2 \in \R$, then \begin{enumerate}
             \item (Linearity) $\nabla \times (C_1\vec{F} + C_2\vec{G}) = C_1\nabla \times \vec{F} + C_2\nabla \times \vec{F}$
             \item (Product rule) $\nabla \times (f\vec{F}) = \nabla f \times \vec{F} + f(\nabla\times \vec{F})$
@@ -3834,7 +3840,7 @@ we shall always assume that such a numbering has been assigned.
         \end{enumerate}
     \end{prop}
     
-    \begin{defn}{}{}
+    \begin{defn}
         Let $E \subseteq \R^n$ \begin{enumerate}
             \item We say that $E$ is \Emph{path connected} if for any two points $A$ and $B$ in $E$ if there exists a continuous function $f:[0,1] \rightarrow E$ such that $f(0) = A$ and $f(1) = B$.
             \item We say $E$ is \Emph{simply connected} if $E$ is path connected and any simple closed curve $\mathcal{C}$ that completely lies in $E$ can be continuously deformed into a single point without leaving $E$.
@@ -3842,18 +3848,18 @@ we shall always assume that such a numbering has been assigned.
     \end{defn}
     
     
-    \begin{thm}{}{}
+    \begin{thm}
         Let $\vec{F}$ be a class $C^1$ in an open region $E \subseteq \R^3$. If $\vec{F}$ is conservative in $E$, then $\nabla \times \vec{F} = \vec{0}$ at every point of $E$. Moreover, if $\nabla \times \vec{F} = \vec{0}$ at every point of $E$ and $E$ is simply connected, then $\vec{F}$ is conservative in $E$.
     \end{thm}
     
     
     \subsection{Line Integrals}
     
-    \begin{defn}{}{}
+    \begin{defn}
         Let $\mathcal{C}$ be a bounded continuous parametric curve in $\R^n$. Recall that $\mathcal{C}$ is a \Emph{smooth curve} if it has a parameterization $\vec{r}:I\subset \R\rightarrow \R^n$ such that $\frac{d\vec{r}}{dt}$ is continuous and nonzero in $I$. We say $\mathcal{C}$ is a \Emph{smooth arc} if it is a smooth curve with finite parameter interval $I = [a,b]$.  
     \end{defn}
     
-    \begin{defn}{}{}
+    \begin{defn}
         Given a smooth curve $\mathcal{C}$ with parameterization $\vec{r}:[a,b]\rightarrow \R^n$ we have \begin{equation}
             l_{\mathcal{C}} = \int\limits_{\mathcal{C}}ds = \int\limits_a^b\left|\frac{d\vec{r}}{dt}\right|dt
         \end{equation}
@@ -3863,19 +3869,19 @@ we shall always assume that such a numbering has been assigned.
         This definition is parameterization independent.
     \end{defn}
     
-    \begin{defn}{}{}
+    \begin{defn}
         If $\vec{F}$ is a continuous vector field and $\mathcal{C}$ is an oriented smooth curve, then the \Emph{line integral of the tangential component of $\vec{F}$ along $\mathcal{C}$} is \begin{equation}
             \int_{\mathcal{C}}\vec{F}\cdot d\vec{r} = \int_{\mathcal{C}}\vec{F}\cdot \hat{T}ds
         \end{equation}
     \end{defn}
     
-    \begin{defn}{}{}
+    \begin{defn}
         If $\mathcal{C}$ is a closed curve we also call this line integral the \Emph{circulation} of $\vec{F}$ around $\mathcal{C}$, and we denote it by \begin{equation}
             \oint_{\mathcal{C}}\vec{F} \cdot d\vec{r}
         \end{equation}
     \end{defn}
     
-    \begin{rmk}{}{}
+    \begin{rmk}
         A line integral over a piecewise smooth path is the sum of the line integrals over the individual smooth arcs \begin{equation}
             \int\limits_{\bigcup_{i=1}^n\mathcal{C}_i}ds = \sum\limits_{i=1}^n\int\limits_{\mathcal{C}_i}ds
         \end{equation}
@@ -3883,26 +3889,26 @@ we shall always assume that such a numbering has been assigned.
     
     \subsection{Line Integral Theorems}
     
-    \begin{namthm}{Fundamental Theorem of Line Integrals}
+    \begin{namthm}[Fundamental Theorem of Line Integrals]
         Let $\mathcal{C}$ be a piecewise smooth parametric curve with initial point $A$ and terminal point $B$. If $f:D \subseteq \R^n \rightarrow \R$ is a scalar function with continuous first partial derivatives in an open region containing $\mathcal{C}$, then \begin{equation}
             \int_{\mathcal{C}}\nabla f\cdot d\vec{r} = f(B) - f(A)
         \end{equation} 
     \end{namthm}
     
-    \begin{cor}{}{}
+    \begin{cor}
         If $\mathcal{C}$ is a piecewise smooth closed curve contained in a region $D$ where the vector field $\vec{F}:D\subseteq \R^n\rightarrow \R^n$ is conservative, then \begin{equation}
             \oint_{\mathcal{C}}\vec{F}\cdot d\vec{r}
         \end{equation}
     \end{cor}
     
-    \begin{defn}{}{}
+    \begin{defn}
         A vector field $\vec{F}$ is said to be \Emph{path-independent} in a region $\Omega$ if for every pair of points $A$ and $B$ in $\Omega$ and every pair of piecewise smooth curves $\mathcal{C}_1$ and $\mathcal{C}_2$ with initial point $A$ and terminal point $B$, we have \begin{equation}
             \int_{\mathcal{C}_1}\vec{F}\cdot d\vec{r} = \int_{\mathcal{C}_2}\vec{F}\cdot d\vec{r}
         \end{equation}
     \end{defn}
     
     
-    \begin{thm}{}{}
+    \begin{thm}
         Let $D$ be an open connected domain in $\R^n$ and let $\vec{F}$ be a smooth vector field defined on $D$. Then the following properties are equivalent:\begin{enumerate}
             \item $\vec{F}$ is conservative in $D$ 
             \item $\oint_{\mathcal{C}} \vec{F}\cdot d\vec{r} = 0$ for every piecewise smooth closed curve $\mathcal{C} \subset D$ 
@@ -3910,7 +3916,7 @@ we shall always assume that such a numbering has been assigned.
         \end{enumerate}
     \end{thm}
     
-    \begin{namthm}{Green's Theorem}
+    \begin{namthm}[Green's Theorem]
         Let $R$ be a closed region in the $xy$-plane whose boundary $\partial R$ consists of a finite number of piecewise smooth simple closed curves that are positively oriented with respect to $R$. If $\vec{F}$ is a smooth vector field on $R$, then \begin{equation}
             \oint_{\partial R}\vec{F}\cdot d\vec{r} = \int\int_{R}(\nabla \times \vec{F})\cdot \hat{k}dA
         \end{equation}
@@ -3919,17 +3925,17 @@ we shall always assume that such a numbering has been assigned.
         \end{equation}
     \end{namthm}
     
-    \begin{rmk}{}{}
+    \begin{rmk}
         You don't need anything past this point yet.
     \end{rmk}
     
-    \begin{namthm}{Plane Divergence Theorem}
+    \begin{namthm}[Plane Divergence Theorem]
         Let $R$ be a closed region in the $xy$-plane whose boundary $\partial R$ consists of a finite number of piecewise smooth simple closed curves. Let $\vec{N}$ denote the unit outward (from $R$) normal field on $\mathcal{C}$. If $\vec{F}$ is a smooth vector field on $R$, then \begin{equation}
             \oint_{\partial R}\vec{F}\cdot \hat{N} ds = \int\int_{R}\nabla \cdot \vec{F}dA
         \end{equation}
     \end{namthm}
     
-    \begin{namthm}{Stoke's Theorem}
+    \begin{namthm}[Stoke's Theorem]
         Let $\mathcal{S}$ be a piecewise smooth oriented surface in $3$-space having a unit normal field $\hat{N}$ and boundary $\mathcal{C}$ consisting of a finite number of piecewise smooth closed curves with orientation inherited from $\mathcal{S}$. If $\vec{F}$ is a smooth vector field defined on an open set containing $\mathcal{S}$, then \begin{equation}
             \oint_{\mathcal{C}}\vec{F}\cdot d\vec{r} = \int\int_{\mathcal{S}}(\nabla \times \vec{F})\cdot \hat{N}dS
         \end{equation}
@@ -3937,7 +3943,7 @@ we shall always assume that such a numbering has been assigned.
     
     \subsection{Surface Integrals}
     
-    \begin{defn}{}{}
+    \begin{defn}
         A \Emph{parametric surface} in $3$-space is a continuous function $\vec{r}: R \subseteq \R^2 \rightarrow \R^3$ for some rectangle $R$ \begin{equation}
             R = \{(u,v) \in \R^2: a \leq u \leq b, c \leq v \leq d\}
         \end{equation}
@@ -3946,33 +3952,33 @@ we shall always assume that such a numbering has been assigned.
         \end{equation}
     \end{defn}
     
-    \begin{rmk}{}{}
+    \begin{rmk}
         If $\vec{r}$ is one-to-one the surface does not intersect itself. In this case $\vec{r}$ maps the boundary of $R$ onto a curve in $3$-space called the \Emph{boundary of the parametric surface}. A surface with no boundary is called a \Emph{closed surface}.
     \end{rmk}
     
-    \begin{defn}{}{}
+    \begin{defn}
         If a finite number of parametric surfaces are joined pairwise along their boundaries one obtains a \Emph{composite surface}, or just a surface thinking geometrically.
     \end{defn}
     
-    \begin{defn}{}{}
+    \begin{defn}
         A set $S \subseteq\R^3$ is a \Emph{smooth surface} if any point $P \in S$ has a neighborhood $N$ that is the domain of a smooth function $g:N \rightarrow \R$ satisfying \begin{enumerate}
             \item $N \cap S = \{Q \in N:g(Q) = 0\}$
             \item $\nabla g(Q) \neq \vec{0}$ if $Q \in N \cap S$
         \end{enumerate}
     \end{defn}
     
-    \begin{rmk}{}{}
+    \begin{rmk}
         This means the surface has a unique tangent plane at any non-boundary point $P$.
     \end{rmk}
     
-    \begin{defn}{}{}
+    \begin{defn}
         If $\vec{r}:D\subseteq 
         \R^2 \rightarrow \R^3$ is a parameterization of a smooth surface $S$, the \Emph{normal vector} to $S$ at $\vec{r}(u,v)$ is \begin{equation}
             \vec{n} = \frac{\partial \vec{r}}{\partial u}\times \frac{\partial \vec{r}}{\partial v}
         \end{equation}
     \end{defn}
     
-    \begin{defn}{}{}
+    \begin{defn}
         The \Emph{area element} at $\vec{r}(u,v)$ on $S$ is given by \begin{equation}
             dS = \left|\frac{\partial \vec{r}}{\partial u}\times \frac{\partial \vec{r}}{\partial v}\right|dudv
         \end{equation}
@@ -3981,16 +3987,16 @@ we shall always assume that such a numbering has been assigned.
         \end{equation}
     \end{defn}
     
-    \begin{defn}{}{}
+    \begin{defn}
         A smooth surface $\mathcal{S}$ in $3$-space is said to be \Emph{orientable} if there exists a unit vector field $\hat{N}$ defined on $\mathcal{S}$ that varies \Emph{continuously} over $\mathcal{S}$, and is everywhere normal to $\mathcal{S}$. Any such vector field $\hat{N}$ induces an orientation on $\mathcal{S}$. The side of $\mathcal{S}$ out of which $\hat{N}$ points is the \Emph{positive side}, and the other side is the \Emph{negative side}. An \Emph{oriented surface} is a smooth surface with a particular choice of orienting unit normal vector field $\hat{N}$.
     \end{defn}
     
-    \begin{rmk}{}{}
+    \begin{rmk}
         An oriented surface $\mathcal{S}$ \Emph{induces an orientation} on any of its boundary curves $\mathcal{C}$; if we stand on the positive side of the surface $\mathcal{S}$ and walk around $\mathcal{C}$ in the direction of its orientation, then $\mathcal{S}$ will be on our left side.
     \end{rmk}
     
     
-    \begin{defn}{}{}
+    \begin{defn}
         Given any continuous vector field $\vec{F}$, the \Emph{flux} of $\vec{F}$ across the orientable surface $\mathcal{S}$ is the surface integral of the normal component of $\vec{F}$ over $\mathcal{S}$ \begin{equation}
             \int\int_{\mathcal{S}}\vec{F}\cdot \hat{N}dS = \int\int_{\mathcal{S}}\vec{F}\cdot d\vec{S}
         \end{equation}
@@ -4000,7 +4006,7 @@ we shall always assume that such a numbering has been assigned.
     \end{defn}
     
     
-    \begin{rmk}{}{}
+    \begin{rmk}
         If $\vec{r}(u,v)$ parametrizes $\mathcal{S}$ with domain $D$, we have normal \begin{equation}
             \vec{n} = \frac{\partial \vec{r}}{\partial u}\times \frac{\partial \vec{r}}{\partial v}
         \end{equation}
@@ -4010,7 +4016,7 @@ we shall always assume that such a numbering has been assigned.
         where the sign reflects the orientation of the surface and parameterization.
     \end{rmk}
     
-    \begin{namthm}{Divergence Theorem}
+    \begin{namthm}[Divergence Theorem]
         Let $D$ be a three dimensional domain bounded by piecewise smooth closed surfaces. Suppose its boundary $\mathcal{S}$ is an oriented closed surface with unit normal field $\hat{N}$ pointing out of $D$. If $\vec{F}$ is a smooth vector field defined on $D$, then \begin{equation}
             \oiint_{\mathcal{S}}\vec{F}\cdot \hat{N}dS = \int\int\int_D\nabla\cdot \vec{F}dV
         \end{equation}

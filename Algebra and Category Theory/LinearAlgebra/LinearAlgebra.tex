@@ -1,6 +1,6 @@
-\documentclass[12pt]{report}
+\documentclass[12pt, a4paper, oneside, openright, titlepage]{book}
 \usepackage[utf8]{inputenc}
-
+\raggedbottom
 \input{../../book_packages}
 
 \newcommand{\mb}[1]{\mathbf{#1}}
@@ -38,6 +38,11 @@
     
     \vspace{1.0\baselineskip}
     \textit{Solo Pursuit of Learning}
+    \vfill
+    \enlargethispage{1in}
+    \begin{figure}[b!]
+    \makebox[\textwidth]{\includegraphics[width=\paperwidth, height =10cm]{../../Crab.jpg}}
+    \end{figure}
 \end{titlepage}
 
 %%%%%%%%%%%%%%%%%%%%%%%
@@ -85,52 +90,52 @@ In this section we aim to construct the triangular form of linear maps, and demo
 
 One important result we aim to show is that the matrix of a linear operator $T:V \rightarrow V$ with respect to a basis $\beta = \{\mb x_1,...,\mb x_n\}$, $[T]_{\beta}^{\beta}$, is in upper triangular form if and only if $T(W_i) \subseteq W_i$ for all $W_i = \spn(\mb x_1,...,\mb x_i)$.
 
-\begin{defn}{Invariant Subspaces}{}
+\begin{defn}[Invariant Subspaces]
     Let $T:V \rightarrow V$ be a linear mapping. A subspace $W \subseteq V$ is said to be \emph{invariant} under $T$ if $T(W) \subseteq W$.
 \end{defn}
 
-\begin{eg*}{}{}
+\begin{eg}
     \begin{enumerate}[label = \alph*]
         \item $\{\mb 0\}$ and $V$ are invariant under all linear mappings $T:V\rightarrow V$
         \item $\ker(T)$ and $\ran(T)$ are invariant subspaces for all $T$ as well
         \item If $\lambda$ is an eigenvector of $T$ then the eigenspace $E_{\lambda}$ is invariant under $T$
     \end{enumerate}
-\end{eg*}
+\end{eg}
 
-\begin{prop}{}{}
+\begin{prop}
     Let $V$ be a vector space, let $T:V\rightarrow V$ be a linear mapping, and let $\beta = \{\mb x_1,...,\mb x_n\}$ be a basis for $V$. Then $[T]_{\beta}^{\beta}$ is upper-triangular if and only if each of the subspaces $W_i = \spn(\{\mb x_1,..., \mb x_i\})$ is invariant under $T$. Note that $$\{\mb 0\} \subset W_1 \subset W_1 \subset ... \subset W_{n-1} \subset W_n = V$$
 \end{prop}
 
-\begin{defn}{}{}
+\begin{defn}
     We say that a linear mapping $T:V \rightarrow V$ on a finite-dimensional vector space $V$ is triangularizable if there exists a basis $\beta$ such that $[T]_{\beta}^{\beta}$ is upper triangular.
 \end{defn}
 
 
-\begin{rmk}{}{}
+\begin{rmk}
     To show that a mapping is triangularizable we must produce the increasing sequence of invariant subspaces $$\{\mb 0\} \subset W_1 \subset W_1 \subset ... \subset W_{n-1} \subset W_n = V$$
     spanned by the subsets of the basis $\beta$ and show that each $W_i$ is invariant under $T$.
 \end{rmk}
 
 
-\begin{prop}{}{}
+\begin{prop}
     Let $T:V\rightarrow V$ and let $W \subset V$ be an invariant subspace. Then the characteristic polynomial of the restriction $T\rvert_W$ divides the characteristic polynomial of $T$.
 \end{prop}
 
-\begin{proof*}{}{}
+\begin{proof}
     Let $\alpha = \{\mb x_1,...,\mb x_k\}$ be a basis for $W$, and extend $\alpha$ to a basis $\beta = \{\mb x_1,...,\mb x_k,...,\mb x_n\}$ of $V$. Since $W$ is invariant under $T$, for each $i \leq k$ we have $$T(\mb x_i) = a_{1i}\mb x_1 + ... + a_{ki}\mb x_k + 0\mb x_{k+1} + ... + 0 \mb x_n$$
     Hence, the matrix $[T]_{\beta}^{\beta}$ has a block form composition $$[T]_{\beta}^{\beta} = \begin{bmatrix} A & B \\ 0 & C \end{bmatrix}$$
     where $A = [T\rvert_W]_{\alpha}^{\alpha}$ is a $k \times k$ matrix. When we compute the characteristic polynomial of $T$ using this matrix, we have $\det(T - \lambda I) = \det(A - \lambda I)\det(C - \lambda I)$ where $\det(A - \lambda I)$ is the characteristic polynomial of $T\rvert_W$, as desired.
-\end{proof*}
+\end{proof}
 
 
-\begin{thm}{}{}
+\begin{thm}
     Let $V$ be a finite-dimensional vector space over a field $\F$, and let $T:V\rightarrow V$ be a linear mapping. Then $T$ is triangularizable if and only if the characteristic polynomial equation of $T$ has $dim(V)$ roots (counted with multiplicities) in the field $F$.
 \end{thm}
 
-\begin{lem}{}{}
+\begin{lem}
     Let $T:V\rightarrow V$ be as in the theorem, and assume that the characteristic polynomial of $T$ has $n = dim(V)$ roots in $\F$. If $W \subsetneq V$ is an invariant subspace under $T$, then there exists a vector $\mb x \neq \mb 0$ in $V$ such that $\mb x \notin W$ and $W + \spn(\{\mb x\})$ is also invariant under $T$.
 \end{lem}
-\begin{proof*}{}{}
+\begin{proof}
     Let $\alpha = \{\mb x_1,...,\mb x_k\}$ be a basis for $W$ and adjoin $\alpha' = \{\mb x_{k+1},...,\mb x_n\}$ to form a basis $\beta = \alpha \cup \alpha'$ for $V$. Let $W' = \spn(\alpha')$. Now, consider the linear mapping $P:V \rightarrow V$ defined by $$P(a_1\mb x_1 + ... + a_n\mb x_n) = a_1 \mb x_1 + ... + a_k\mb x_k$$
     Note $P$ is the projection on $W$ with kernel $W'$, while $I - P$ is the projection on $W'$ with kernel $W$. Let $S = (I - P)T$. Since $\ran(I - P) = W'$, we see that $\ran(S) \subset \ran(I - P) = W'$. Thus, $W'$ is an invariant subspace of $S$. 
     
@@ -138,42 +143,42 @@ One important result we aim to show is that the matrix of a linear operator $T:V
     
     
     Since all eigenvalues of $S\rvert_{W'}$ will lie in $\F$ by assumption on $T$, there exists an eigenvector $\mb x \in W'$ for some $\lambda \in \F$ such that $S(\mb x) = \lambda \mb x$. This says $(I-P)T(\mb x) = \lambda\mb x$. Hence, $T(\mb x) = \lambda\mb x + PT(\mb x)$. Since $PT(\mb x) \in W$ we find that $W + \spn(\{\mb x\})$ is also invariant under $T$.
-\end{proof*}
+\end{proof}
 
-\begin{cor}{}{}
+\begin{cor}
     If $T:V\rightarrow V$ is triangularizable, with eigenvalues $\lambda_i$ with respective multiplicities $m_i$, then there exists a basis $\beta$ for $V$ such that $[T]_{\beta}^{\beta}$ is upper triangular, and the diagonal entries of $[T]_{\beta}^{\beta}$ are $m_1$ $\lambda_1$'s, followed by $m_2$ $\lambda_2$'s, and so on.
 \end{cor}
 
-\begin{thm}{Cayley-Hamilton}{}
+\begin{thm}[Cayley-Hamilton]
     Let $T:V\rightarrow V$ be a linear mapping on a finite-dimensional vector space $V$, and let $p(t) = \det(T- tI)$ be its characteristic polynomial. Assume that $p(t)$ has $dim(V)$ roots in the field $\F$ over which $V$ is defined. Then $p(T) =0$ is the zero operator.
 \end{thm}
 
 
-\begin{rmk}{}{}
+\begin{rmk}
     The conclusion of the Cayley-Hamilton theorem is valid even if some of the eigenvalues of $T$ are contained in an extension of the field $\F$.
 \end{rmk}
 
-\begin{rmk}{}{}
+\begin{rmk}
     The result of the Cayley-Hamilton theorem can be used for inverse computations (although it is rather insufficient).
 \end{rmk}
 
 \section{Canonical Form for Nilpotent Mappings}
 
-\begin{defn}{}{}
+\begin{defn}
     A linear map $N:V\rightarrow V$ is nilpotent if there exists some $k \geq 1$ such that $N^k = 0$ the zero mapping.
 \end{defn}
 
 
-\begin{lem}{}{}
+\begin{lem}
     A mapping is nilpotent if and only if the mapping has one eigenvalue $\lambda = 0$ with multiplicity $n = dim(V)$.
 \end{lem}
 
-\begin{rmk}{}{}
+\begin{rmk}
     Let $dim(V) = n$ and let $N:V\rightarrow V$ be a nilpotent mapping. Then, given any vector $\mb x \in V$, either $\mb x = \mb 0$ or there exists a unique integer $k$, $1 \leq k \leq n$, such that $N^k(\mb x) = \mb 0$ but $N^{k-1}(\mb x) \neq \mb 0$. It follows that if $\mb x \neq \mb 0$ then the set $\{N^{k-1}(\mb x),...,N(\mb x), \mb x\}$ consists of distinct nonzero vectors.
 \end{rmk}
 
 
-\begin{defn}{}{}
+\begin{defn}
     Let $N$, $\mb x \neq 0$ and $k$ be as before:
     \begin{enumerate}
         \item The set $\{N^{k-1}(\mb x),...,N(\mb x), \mb x\}$ is called the \emph{cycle} generated by $\mb x$. $\mb x$ is called the \emph{initial vector} of the cycle.
@@ -183,7 +188,7 @@ One important result we aim to show is that the matrix of a linear operator $T:V
 \end{defn}
 
 
-\begin{prop}{}{}
+\begin{prop}
     With all notations as before:
     \begin{enumerate}
         \item $N^{k-1}(\mb x)$ is an eigenvector of $N$ with eigenvalue $\lambda = 0$
@@ -192,41 +197,41 @@ One important result we aim to show is that the matrix of a linear operator $T:V
     \end{enumerate}
 \end{prop}
 
-\begin{obs}{}{}
+\begin{obs}
     If $N$ is a nilpotent mapping with cyclic subspace $C(\mb x)$ generated by some $\mb x \in V$ with $\alpha$ being the cycle generated by $\mb x$, which we view as a basis, it follows that $$[N\rvert_{C(\mb x)}]_{\alpha}^{\alpha} = \begin{bmatrix} 0 & 1 & 0 & \hdots & 0 \\ 0 & 0 & 1 & \hdots & 0 \\ \vdots & \ddots & \ddots & \ddots & \vdots \\ 0 & \hdots & \ddots & \ddots & 1 \\ 0 & \hdots & \hdots & 0 & 0 \end{bmatrix}$$
     Hence, the matrix of $N$ restricted to a cyclic subspace is a special type of upper triangular matrix.
 \end{obs}
 
 
-\begin{prop}{}{}
+\begin{prop}
     Let $\alpha_i = \{N^{k_i - 1}(\mb x_i),..., \mb x_i\}$, ($1 \leq i \leq r$) be cycles of lengths $k_i$, respectively. If the set of eigenvectors $\{N^{k_1-1}(\mb x_1),...,N^{k_r-1}(\mb x_r)\}$ is linearly independent then $\alpha_1 \cup ... \cup \alpha_r$ is linearly independent.
 \end{prop}
 
-\begin{defn}{}{}
+\begin{defn}
     We say that the cycles $\alpha_i = \{N^{k_i - 1}(\mb x_i),..., \mb x_i\}$ are \emph{non-overlapping cycles} if $\alpha_1\cup ... \cup\alpha_r$ is linearly independent.
 \end{defn}
 
-\begin{defn}{}{}
+\begin{defn}
     Let $N:V\rightarrow V$ be a nilpotent mapping on a finite-dimensional vector space $V$. We call a basis $\beta$ for $V$ a \emph{canonical basis} with respect to $N$ if $\beta$ is the union of a collection of non-overlapping cycles for $N$.
 \end{defn}
 
 
-\begin{thm}{Canonical Form for Nilpotent Maps}{}
+\begin{thm}[Canonical Form for Nilpotent Maps]
     Let $N:V\rightarrow V$ be a nilpotent mapping on a finite-dimensional vector space. There exists a canonical basis $\beta$ of $V$ with respect to $N$.
 \end{thm}
 
 
-\begin{lem}{}{}
+\begin{lem}
     Consider the cycle tableau corresponding to a canonical basis for a nilpotent mapping $N:V \rightarrow V$. As before, let $r$ be the number of rows and let $k_i$ be the number of boxes in the $i$th row ($k_1 \geq ... \geq k_r$). For each $1 \leq j \leq k_1$, the number of boxes in the $j$th column of the tableau is $dim(\ker(N^j)) - dim(\ker(N^{j-1}))$.
 \end{lem}
 
 
-\begin{cor}{}{}
+\begin{cor}
     The canonical form of a nilpotent mapping is unique (provided the cycles in the canonical basis are arranged so the lengths satisfy $k_1 \geq k_2 \geq ... \geq k_r$)
 \end{cor}
 
 
-\begin{rmk}{}{}
+\begin{rmk}
     In order to find a canonical basis for a nilpotent mapping $N$ we first determine the cycle tableau using the previous Lemma. First, the final vector of a cycle of length $k$ must be in $\ker(N) \cap \ran(N^{k-1})$, corresponding to a row of length $k$ in the tableau. We find an eigenvector of $N$ that is also an element of $\ran(N^{k-1})$. If $\mb y$ is such a final vector then we solve the system $N^{k-1}(\mb x) = \mb y$ to determine an initial vector, from which we can then construct the cycle (row). Care must be taken to ensure the final vectors of the cycles are linearly independent.
 \end{rmk}
 
@@ -235,7 +240,7 @@ One important result we aim to show is that the matrix of a linear operator $T:V
 \section{Jordan Canonical Form}
 
 
-\begin{prop}{}{}
+\begin{prop}
     Let $T:V\rightarrow V$ be a linear mapping whose characteristic polynomial had $dim(V)$ roots ($\lambda_i$ with respective multiplicities $m_i$) in the field $\F$ over which $V$ is defined.
     \begin{enumerate}
         \item There exists subspaces $V_i' \subset V$ such that \begin{enumerate}
@@ -247,14 +252,14 @@ One important result we aim to show is that the matrix of a linear operator $T:V
     \end{enumerate}
 \end{prop}
 
-\begin{defn}{}{}
+\begin{defn}
     Let $T:V\rightarrow V$ be a linear mapping on a finite-dimensional vector space $V$. Let $\lambda$ be an eigenvalue of $T$ with multiplicity $m$. \begin{enumerate}
         \item The $\lambda$-\emph{generalized eigenspace}, denoted $K_{\lambda}$, is the kernel of the mapping $(T-\lambda I)^m$ on $V$.
         \item The nonzero elements of $K_{\lambda}$ are called \emph{generalized eigenvectors} of $T$
     \end{enumerate}
 \end{defn}
 
-\begin{prop}{}{}
+\begin{prop}
     \leavevmode
     \begin{enumerate}
         \item For each eigenvalue $\lambda$ of $T$, $K_{\lambda}$ is an invariant subspace of $V$
@@ -263,7 +268,7 @@ One important result we aim to show is that the matrix of a linear operator $T:V
     \end{enumerate}
 \end{prop}
 
-\begin{defn}{}{}
+\begin{defn}
     \leavevmode
     \begin{enumerate}
         \item A matrix of the form $$\begin{bmatrix} \lambda_i & 1 & 0 & \hdots & 0 \\ 0 & \lambda_i & 1 & \hdots & 0 \\ \vdots & \ddots & \ddots & \ddots & \vdots \\ 0 & \hdots & \hdots & 0 & 1 \end{bmatrix}$$ is called a \emph{Jordan block matrix}
@@ -272,14 +277,14 @@ One important result we aim to show is that the matrix of a linear operator $T:V
 \end{defn}
 
 
-\begin{thm}{Jordan Canonical Form}{}
+\begin{thm}[Jordan Canonical Form]
     Let $T:V\rightarrow V$ be a linear mapping on a finite-dimensional vector space $V$ whose characteristic polynomial has $dim(V)$ roots in the field $\F$ over which $V$ is defined. \begin{enumerate}
         \item There exists a basis $\gamma$ (called the \emph{canonical basis}) of $V$ such that $[T]_{\gamma}^{\gamma}$ has a direct sum decomposition into Jordan block matrices
         \item In this decomposition the number of Jordan blocks and their sizes are uniquely determined by $T$. (though the order of the blocks may differ)
     \end{enumerate}
 \end{thm}
 
-\begin{rmk}{}{}
+\begin{rmk}
     Process for computing the Jordan Canonical Form:
     \begin{enumerate}
         \item Find all eigenvalues of $T$ and their multiplicities.

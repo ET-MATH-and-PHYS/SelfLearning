@@ -1,13 +1,13 @@
 \contentsline {chapter}{\numberline {1}Categories and Fundamental Examples}{2}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Category Definitions}{2}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Duality}{8}{section.1.2}%
-\contentsline {chapter}{\numberline {2}Functors and Natural Transformations}{12}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Functoriality}{12}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Naturality}{18}{section.2.2}%
-\contentsline {chapter}{\numberline {3}Universality}{21}{chapter.3}%
-\contentsline {chapter}{\numberline {4}Cones and Limits}{22}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Adjoints}{23}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Monads}{24}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Kan Extensions}{25}{chapter.7}%
-\contentsline {chapter}{Appendices}{26}{section*.1}%
+\contentsline {section}{\numberline {1.2}Duality}{7}{section.1.2}%
+\contentsline {chapter}{\numberline {2}Functors and Natural Transformations}{11}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Functoriality}{11}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Naturality}{16}{section.2.2}%
+\contentsline {chapter}{\numberline {3}Universality}{19}{chapter.3}%
+\contentsline {chapter}{\numberline {4}Cones and Limits}{20}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Adjoints}{21}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Monads}{22}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Kan Extensions}{23}{chapter.7}%
+\contentsline {chapter}{Appendices}{24}{section*.1}%
 \contentsfinish 
