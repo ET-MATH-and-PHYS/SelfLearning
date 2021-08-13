@@ -1,2 +1,4 @@
-\contentsline {chapter}{Appendices}{2}{section*.1}%
+\contentsline {part}{I\hspace {1em}Ordinary Differential Equations}{2}{part.1}%
+\contentsline {part}{II\hspace {1em}Partial Differential Equations}{3}{part.2}%
+\contentsline {chapter}{Appendices}{4}{section*.1}%
 \contentsfinish 
