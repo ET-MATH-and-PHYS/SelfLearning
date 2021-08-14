@@ -5142,6 +5142,9 @@ From here on out we will denote the multiplicative identity by $1$ and the addit
 \begin{rmk}
     If $F$ is a field and $\ch(F) = p$ for $p \neq 0$, then $p$ is a prime.
 \end{rmk}
+\begin{proof}
+    Suppose that $F$. If $\ch(F) = 0$ then we are done, so suppose $\ch(F) = n$ for $n \geq 1$. If $n = 1$ then we have that $1 = 1\cdot 1 = 0$, so $F = \{0\}$. But, since $F$ is a field $1 \neq 0$, so we have a contradiction. Thus, $n > 1$. Towards a contradiction suppose that $n = a\cdot b$ is composite, where $1 < a,b < n$. Then $0 = n\cdot 1 = (a\cdot 1)\cdot (b\cdot 1)$. Thus, since $F$ is a field either $a\cdot 1 = 0$ or $b \cdot 1 = 0$. But, $a,b < n$ and by assumption $\ch(F) = n$ so $n$ is the minimal positive integer for which $n\cdot 1 = 0$, so we obtain a contradiction. Therefore, $n$ must be prime, as claimed. Moreover, suppose $m \cdot 1 = 0$ for some $m \neq 0$. Then let $m = nq + r$ be the division of $m$ by $n$ with remainder $0\leq r<n$. Then we have that $0 = m\cdot 1 = nq\cdot 1 + r\cdot 1 = r\cdot 1$, but since $r < n$ we must have that $r = 0$ by minimality of $n$. Hence, $n \vert m$.
+\end{proof}
 
 \begin{eg}
     \leavevmode
@@ -5153,12 +5156,12 @@ From here on out we will denote the multiplicative identity by $1$ and the addit
 \end{eg}
 
 \begin{rmk}
-    For a field $F$, we have a unique ring homomorphism $\varphi:\Z\rightarrow F$ defined by $\varphi(n) := n\cdot 1 = \underbrace{1+1+...+1}_{\text{$n$ times}}$. Note that $\ker(\varphi) \subseteq \Z$ is an ideal, so $\ker(\varphi) = n\Z$ for $n \in \N\cup \{0\}$. Moreover, $\Z/\ker(\varphi) \cong \varphi(\Z)$, which is a subring of $F$ since $\varphi$ is a ring homomorphism. Moreover, $\varphi(\Z)$ is isomorphic to $\Z$ if $\ker(\varphi) = (0)$, and $\varphi(\Z)$ is isomorphic to $\Z/p\Z$ for $p$ a prime if $\ker(\varphi) = p\Z$. 
+    For a field $F$, we have a unique ring homomorphism $\varphi:\Z\rightarrow F$ defined by $\varphi(n) := n\cdot 1 = \underbrace{1+1+...+1}_{\text{$n$ times}}$ for $n \in \N$, and $\varphi(-n) = -\varphi(n)$. Note that $\ker(\varphi) \subseteq \Z$ is an ideal, so $\ker(\varphi) = n\Z$ for $n \in \N\cup \{0\}$. Moreover, $\Z/\ker(\varphi) \cong \varphi(\Z)$, which is a subring of $F$ since $\varphi$ is a ring homomorphism. Moreover, $\varphi(\Z)$ is isomorphic to $\Z$ if $\ker(\varphi) = (0)$, and $\varphi(\Z)$ is isomorphic to $\Z/p\Z$ for $p$ a prime if $\ker(\varphi) = p\Z$. 
 
     Thus, each field $F$ has a subring which is isomorphic to either $\Z$ or $\Z/p\Z$. By the Field of Fractions technique we have that $F$ has a \Emph{subfield} isomorphic to either $\Q$ or $\F_p$.
 \end{rmk}
 \begin{proof}
-    (Left to the reader)
+    First, suppose $\ch(F) = 0$. Then since $\varphi(n) = n\cdot \varphi(1) = n\cdot 1$, we have that $n\cdot 1 \neq 0$ for all $n \neq 0$. Hence, $\ker(\varphi) = (0)$, and $\Z$ is isomorphic to a subring of $F$. Now, suppose $\ch(F) = p$ for some prime $p$. Then, we have that $\varphi(pq) = pq\varphi(1) = pq\cdot1 = 0$ for all $pq \in p\Z$, so $p\Z \subseteq \ker(\varphi)$. Next, let $m \in \ker(\varphi)$. Then $m\cdot 1 = 0$, which implies $p\vert m$. Hence, $m \in p\Z$ so $\ker(\varphi) = p\Z$. Thus, we conclude that $F$ has a subring isomorphic to $\Z/p\Z$.
 \end{proof}
 
 
@@ -5195,14 +5198,38 @@ From here on out we will denote the multiplicative identity by $1$ and the addit
 \end{defn}
 
 \begin{rmk}
-    Suppose $K/F$. Let $x,y \in K$ and $c \in F$ then $c_2 \in F \subseteq K$. Then we have \begin{enumerate}
-        \item $c(x+y) = cx+cy$
-        \item $c(c_2x) = (cc_2)x$
-        \item $(c+c_2)x = cx+c_2x$
+    Suppose $K/F$. Let $x,y \in K$ and $c_1,c_2 \in F$. Then we have \begin{enumerate}
+        \item $c_1(x+y) = c_1x+c_1y$
+        \item $c_1(c_2x) = (c_1c_2)x$
+        \item $(c_1+c_2)x = c_1x+c_2x$
         \item $1\cdot x = x$
     \end{enumerate}
     along with the fact that $K$ is an abelian group over $+$ as it is a field, so $K$ is an $F$-vector space.
 \end{rmk}
+
+Note that what the ``base field" or ``extension field" is dependent on the context. For instance $\R$ is the base field in the context of:
+\begin{center}
+    \begin{tikzpicture}[baseline = (a).base]
+    \node[scale = 1] (a) at (0,0){
+        \begin{tikzcd}
+            \C \ar[d, dash] \\
+            \R
+        \end{tikzcd}
+    };
+    \end{tikzpicture}
+\end{center}
+while $\R$ is the extension field in the context of:
+\begin{center}
+    \begin{tikzpicture}[baseline = (a).base]
+    \node[scale = 1] (a) at (0,0){
+        \begin{tikzcd}
+            \R \ar[d, dash] \\
+            \Q
+        \end{tikzcd}
+    };
+    \end{tikzpicture}
+\end{center}
+
 
 
 \begin{defn}
@@ -5211,7 +5238,7 @@ From here on out we will denote the multiplicative identity by $1$ and the addit
 
 
 \begin{thm}
-    Let $F$ be a field and $p(x) \in F[x]$ an \Emph{irreducible} polynomial. Then there exists a field $K$ containing $F' \cong F$, in which $p(x)$ hasa root; that is $p(\alpha) = 0$ for some $\alpha \in K$, where $p$ is now envisioned as the corresponding polynomial in $F'$.
+    Let $F$ be a field and $p(x) \in F[x]$ an \Emph{irreducible polynomial}. Then there exists a field $K$ containing $F' \cong F$, in which $p(x)$ has a root; that is $p(\alpha) = 0$ for some $\alpha \in K$, where $p$ is now envisioned as the corresponding polynomial in $F'$.
 \end{thm}
 \begin{proof}
     Let $F$ be a field and $p(x) \in F[x]$ an irreducible polynomial. Then the ideal generated by $p(x)$, $(p(x))$, is maximal in $F[x]$ so $F[x]/(p(x)) = K$ is a field. Consider $p \in K[X]$ such that for $p(x) = a_nx^n+...+a_0$ in $F[x]$, we have $$p = (a_n+(p(x)))X^n+...+(a_0+(p(x)))$$  Moreover, for $\alpha = x + (p(x))$ in $K$, we have that \begin{align*}
@@ -5225,34 +5252,49 @@ From here on out we will denote the multiplicative identity by $1$ and the addit
 \end{proof}
 
 
-\begin{thm}
+\begin{thm}\label{thm:vectext}
     Let $p(x) \in F[x]$ for $F$ a field, irreducible of degree $n$ over $F$, and $K = F[x]/p(x)$. Let $\theta = x\mod p(x)$. Then $1,\theta,\theta^2,...,\theta^{n-1}$ is a basis for $K$ over $F$. That is, \begin{equation}
         K = \spn(1,\theta,\theta^2,...,\theta^{n-1}) = \{a_0+a_1\theta+...+a_{n-1}\theta^{n-1}:a_0,...,a_{n-1} \in F\}
     \end{equation}
     so $\dim_F(K) = n = [K:F]$.
 \end{thm}
 \begin{proof}
-    (By the division algorithm on $F[x]$)
+    Let $f(x) \in F[x]$. Then since $F$ is a field we have by the Division Algorithm that there exists $P,Q \in F[x]$ such that $f = pQ+P$, where either $P = 0$ or $\deg(P) <\deg(p)$. Then $f = P\mod p(x)$, where $P = \sum_{i=0}^{n-1}a_ix^i$ since $\deg(p) = n$. Then $$f = P\mod p(x) = \sum_{i=0}^{n-1}a_i\theta^i \in \spn(1,\theta,\theta^2,...,\theta^{n-1}$$ so we conclude that $$K = \spn(1,\theta,\theta^2,...,\theta^{n-1})$$
+    Now, suppose there existed a linear dependence $\sum_{i=0}^{n-1}c_i\theta^i = 0$ in $K$. Then by definition $\sum_{i=0}^{n-1}c_ix^i \in (p(x))$, so $p(x)\vert \sum_{i=0}^{n-1}c_ix^i$. But, $\deg(p(x)) = n$ while $\deg\left(\sum_{i=0}^{n-1}c_ix^i\right) \leq n-1$ or $\sum_{i=0}^{n-1}c_ix^i = 0$, so we must have that that $c_i = 0$ for all $i$. Thus, $\{1,\theta,\theta^2,...,\theta^{n-1}\}$ is indeed a basis for $K$. 
 \end{proof}
 
 
 \begin{eg}
-    Consider $\R[x]/(x^2+1) \cong \{a+b\theta:a,b \in \R\}$ by the previous Theorem. Moreover, in $\R[x]/(x^2+1)$, for $p = x^2+1$ $p(\theta) = 0$, so $\theta^2 = -1$.
+    Consider $\R[x]/(x^2+1) \cong \{a+b\theta:a,b \in \R\}$ by the previous Theorem. Moreover, in $\R[x]/(x^2+1) = \R(\theta)$, for $p = x^2+1$ $p(\theta) = 0$, so $\theta^2 = -1$.
+\end{eg}
+
+
+\begin{eg}
+    In general, if $\theta \in K$ is a root of the irreducible polynomial \begin{equation*}
+        p(x) = \sum_{i=0}^np_ix^i
+    \end{equation*}
+    we can compute $\theta^{-1} \in K$ from \begin{equation*}
+        \theta(p_n\theta^{n-1}+p_{n-1}\theta^{n-2}+...+p_1) = -p_0
+    \end{equation*}
+    namely \begin{equation*}
+        \theta^{-1} = -p_0^{-1}(p_n\theta^{n-1}+p_{n-1}\theta^{n-2}+...+p_1)
+    \end{equation*}
+    where $p_0 \neq 0$ since $p(x)$ is irreducible.
 \end{eg}
 
 
 \begin{defn}
-    If $K$ is an extension field of $F$ containing $\alpha, \beta,...$ Then the smallest field containing both $\alpha,\beta,...$ and $F$ is $F(\alpha,\beta,...)$. When we just adjoin $\alpha$, then $F(\alpha)$ is said to be a \Emph{simple extension} of $F$ with primitive element $\alpha$.
+    If $K$ is an extension field of $F$ containing $\alpha, \beta,...$ Then the smallest field containing both $\alpha,\beta,...$ and $F$ is denoted $F(\alpha,\beta,...)$. When we just adjoin $\alpha$, then $F(\alpha)$ is said to be a \Emph{simple extension} of $F$ with primitive element $\alpha$.
 \end{defn}
 
 
-\begin{thm}
+\begin{thm}\label{thm:simplextiso}
     Let $F$ be a field and $p(x) \in F[x]$ and irreducble polynomial. Suppose $K$ is an extension field of $F$ containing the root $\alpha$ of $p(x)$. That is $p(\alpha) = 0$ in $K$. Let $F(\alpha)$ denote the subfield of $K$ generated by $F$ and $\alpha$. Then $F(\alpha) \cong F[x]/(p(x))$.
 \end{thm}
 \begin{proof}
     Let $\varphi:F[x]\rightarrow F(\alpha) \subseteq K$, defined by $\varphi(f(x)) = f(\alpha)$. Indeed, if $f(x) = c_0+c_1x+...+c_nx^n$, then $\varphi(f(x)) = c_0+c_1\alpha+...+c_n\alpha^n \in F(\alpha)$. Moreover, $\varphi$ is ring homomorphism, since the evaluation map is a ring homomorphism. Then we have that $$\ker(\varphi) = \{g(x) \in F[x]:g(\alpha) = 0\}$$
     It follows that for all $h(x)p(x) \in (p(x))$, $\varphi(h(x)p(x)) = h(\alpha)p(\alpha) = 0$ in $F(\alpha)$, so $(p(x)) \subseteq \ker(\varphi)$. Since $(p(x)) \subseteq \ker(\varphi)$ we have by the Factor Theorem a ring homomorphism $$\overline{\varphi}:F[x]/(p(x)) \rightarrow F(\alpha)$$
-    But, since $p(x)$ is irreducible in $F[x]$, $F[x]/(p(x))$ so $\overline{\varphi}$ must be injective. Then, we have that $F[x]/(p(x))$ is isomorphic to a subfield of $F(\alpha)$ containing $F$ and $\alpha$. But then by definition it contains $F(\alpha)$, so $\varphi$ must be surjective and hence an isomorphism. Thus $F[x]/(p(x)) \cong F(\alpha)$.
+    But, since $p(x)$ is irreducible in $F[x]$, $F[x]/(p(x))$ so $\overline{\varphi}$ must be injective. Then, we have that $F[x]/(p(x))$ is isomorphic to a subfield of $F(\alpha)$ containing $F$ and $\alpha$. But then by definition $\overline{\varphi}(F[x]/(p(x)))$ contains $F(\alpha)$, so $\varphi$ must be surjective and hence an isomorphism since $F(\alpha)$ is the smallest such field. Thus $F[x]/(p(x)) \cong F(\alpha)$.
 \end{proof}
 
 
@@ -5261,7 +5303,7 @@ From here on out we will denote the multiplicative identity by $1$ and the addit
 \end{eg}
 
 \begin{eg}
-    Consider $\Q[x]/(x^3-2)$, so $\Q[x]/(x^3-2) \cong \Q(\sqrt[3]{2})$ has $p(x) = x^3-2$ has $p(\alpha) = 0$ for $\alpha = \sqrt[3]{2}$. Then, for $\omega = e^{2\pi i/3}$, we have roots $\omega\alpha$ and $\omega^2\alpha$ of $p(x)$. Then we have by our previous theorem $\Q(\sqrt[3]{2}) \cong \Q(\omega\sqrt[3]{2}) \cong \Q(\omega^2\sqrt[3]{2})$.
+    Consider $\Q[x]/(x^3-2)$, so $\Q[x]/(x^3-2) \cong \Q(\sqrt[3]{2})$ has $p(x) = x^3-2$ has $p(\alpha) = 0$ for $\alpha = \sqrt[3]{2}$. Then, for $\omega = e^{2\pi i/3}$, we have roots $\omega\alpha$ and $\omega^2\alpha$ of $p(x)$. Then we have by our previous theorem $\Q(\sqrt[3]{2}) \cong \Q(\omega\sqrt[3]{2}) \cong \Q(\omega^2\sqrt[3]{2})$. By \ref{thm:simplextiso}, these fields are algebraically indistinguishable. 
 \end{eg}
 
 
@@ -5291,7 +5333,7 @@ From here on out we will denote the multiplicative identity by $1$ and the addit
     commutes.
 \end{thm}
 \begin{proof}
-    (To the reader)
+    Let $p(x) \in F[x]$ be irreducible. Then as $\phi$ is an isomorphism, so is $\phi'$ and hence we have that $\phi'((p(x))) = (\phi'(p(x)))$ is a maximal ideal. Indeed, let $(\phi'(p(x))) \subseteq J$ for $J$ an ideal in $F'[x]$. Then ${\phi'}^{-1}(J)$ is an ideal in $F[x]$ containing $(p(x))$ by the correspondence theorem. Thus, $(p(x)) = {\phi'}^{-1}(J)$ or $F[x] = {\phi'}^{-1}(J)$, which implies that $\phi'((p(x))) = J$ or $F'[x] = J$ by bijectivity of the correspondence. Then, I claim that $\phi':F[x]\xrightarrow{\sim}F'[x]$ induces an isomorphism $\Phi:F[x]/(p(x))\xrightarrow{\sim}F'[x]/\phi'((p(x)))$. Indeed, $\Phi(f(x)+(p(x))) := \phi'(f(x))+(\phi'(p(x)))$ is a well defined isomorphism (since $\phi'$ is an isomorphism). Then since $F[x]/(p(x)) \cong F(\alpha)$ and $F'[x]/\phi'((p(x))) \cong F'(\beta)$, by \ref{thm:simplextiso}, we have that $F(\alpha) \cong F'(\beta)$.
 \end{proof}
 
 
@@ -5299,17 +5341,21 @@ From here on out we will denote the multiplicative identity by $1$ and the addit
 \section{\textsection Algebraic Extensions}
 
 \begin{defn}
-    $\alpha \in K$ over $F$ is \Emph{algebraic} over $F$ if $\alpha$ is a root of some nonzero polynomial $f(x) \in F[x]$. If $\alpha$ is not algebraic over $F$, $\alpha$ is said to be \Emph{transcendental} over $F$/ The extension $K/F$ is \Emph{algebraic} if and only if every element of $K$ is algebraic.
+    $\alpha \in K$ over $F$ is \Emph{algebraic} over $F$ if $\alpha$ is a root of some nonzero polynomial $f(x) \in F[x]$. If $\alpha$ is not algebraic over $F$, $\alpha$ is said to be \Emph{transcendental} over $F$. The extension $K/F$ is \Emph{algebraic} if and only if every element of $K$ is algebraic.
 \end{defn}
 
 
-\begin{prop}
-    Let $\alpha$ be algebraic over $F$. Then there exists a unique monic irreducible polynomial $m_{\alpha,F}(x) \in F[x]$ which has $\alpha$ as a root. Furthermore, $m_{\alpha,F}(x)$ divides any $f(x) \in F[x]$ such taht $f(\alpha) = 0$.
+\begin{prop}\label{prop:minpoly}
+    Let $\alpha$ be algebraic over $F$. Then there exists a unique monic irreducible polynomial $m_{\alpha,F}(x) \in F[x]$ which has $\alpha$ as a root. Furthermore, $m_{\alpha,F}(x)$ divides any $f(x) \in F[x]$ such that $f(\alpha) = 0$.
 \end{prop}
+\begin{proof}
+    First, since $\alpha$ is algebraic over $F$, there exist $f(x) \in F[x]$ such that $f(\alpha) = 0$. Then, by well-ordering of $\N$, let $g(x) \in F[x]$ be a polynomial of minimal degree such that $g(\alpha) = 0$. Multiplying by a constant we may assume that $g(x)$ is monic. Suppose that $g(x)$ were reducible over $F$, then $g(x) = a(x)b(x)$ in $F$ for $g(x) > \deg(a(x)),\deg(b(x)) \geq 1$. But, then $g(\alpha) = a(\alpha)b(\alpha)$, since the evaluation map is a homomorphism, so as $F$ is a field either $a(\alpha) = 0$ or $b(\alpha) = 0$, contradicting the minimality of $g$. Hence, $g$ is irreducible. Now suppose $f(x) \in F[x]$ such that $f(\alpha) = 0$, and by the division algorithm obtain $P,Q \in F[x]$ such that $f = gP+Q$, with $\deg(Q) < \geq (g)$. But then $0=f(\alpha)=g(\alpha)P(\alpha)+Q(\alpha)=Q(\alpha)$, so by minimality of the degree of $g$ we must have that $Q(x) = 0$. Hence, $g(x)\vert f(x)$ as desired. Finally, by this result $g(x)$ would divide any other monic irreducible polynomial having $\alpha$ as a root, so $g(x)$ must be unique.
+\end{proof}
+
 
 
 \begin{defn}
-    $m_{\alpha,F}(x)$ in the previous proposition is the \Emph{minimal polynomial} of $\alpha$ over $F$.
+    $m_{\alpha,F}(x)$ in the Proposition \ref{prop:minpoly} is the \Emph{minimal polynomial} of $\alpha$ over $F$.
 \end{defn}
 
 
@@ -5325,25 +5371,33 @@ From here on out we will denote the multiplicative identity by $1$ and the addit
 \begin{cor}
     For a field extension $L/F$ and $\alpha$ is algebraic over both $F$ and $L$, then $m_{\alpha,L}(x)$ divides $m_{\alpha,F}(x)$ in $L[x]$.
 \end{cor}
+\begin{proof}
+    Note that since $F\subseteq L$, we have by Proposition \ref{prop:minpoly} that $m_{\alpha,L}(x) \vert m_{\alpha,F}(x)$ since $\alpha$ is a root of $m_{\alpha,F}(x)$, and $m_{\alpha,L}(x)$ is the minimal such polynomial in $L$.
+\end{proof}
 
-\begin{prop}
+
+
+\begin{prop}\label{prop:algmin}
     Let $\alpha$ be algebraic over $F$, $F(\alpha)$ generated by $\alpha$ and $F$. Then $F(\alpha) \cong F[x]/(m_{\alpha,F}(x))$, and $[F(\alpha):F] = \deg(m_{\alpha,F}(x)) = \deg(\alpha)$.
 \end{prop}
+\begin{proof}
+    Since $m_{\alpha,F}(x)$ is an irreducible polynomial over $F$ with root $\alpha$, we have by \ref{thm:simplextiso} that $F(\alpha) \cong F[x]/(m_{\alpha,F}(x))$. Then, by Theorem \ref{thm:vectext} we have that $[F(\alpha:F] = [F[x]/(m_{\alpha,F}(x)):F] = \deg(m_{\alpha,F}(x))$, as claimed.
+\end{proof}
+
 
 
 \begin{prop}
     The element $\alpha$ is algebraic over $F$ if and only if the simple extension $F(\alpha)/F$ is a finite extension.
 \end{prop}
 \begin{proof}
-    [$\implies$] By the previous proposition.
-
-    [$\impliedby$] Suppose $F(\alpha)/F$ is finite, so $[F(\alpha),F] = n$ for some $n \in \N$. Thus $\{1,\alpha,\alpha^2,...,\alpha^n\}$ must be linearly dependent over $F$. Thus, there exist $c_i \in F$, $0 \leq i \leq n$, not all zero such that \begin{equation*}
+    [$\implies$] By Proposition \ref{prop:algmin}.
+    [$\impliedby$] Suppose $F(\alpha)/F$ is finite, so $[F(\alpha):F] = n$ for some $n \in \N$. Thus $\{1,\alpha,\alpha^2,...,\alpha^n\}$ must be linearly dependent over $F$. Thus, there exist $c_i \in F$, $0 \leq i \leq n$, not all zero such that \begin{equation*}
         c_0 + c_1\alpha + ... + c_n\alpha^n = 0
     \end{equation*}
     Thus, we have that $f(x) = c_0+c_1x+...+c_nx^n$ is a non-zero polynomial in $F[x]$ which takes $\alpha$ as a root, so $\alpha$ is algebraic over $F$ by definition.
 \end{proof}
 
-\begin{cor}
+\begin{cor}\label{cor:finalg}
     If the extension $K/F$ is finite, then its algebraic.
 \end{cor}
 \begin{proof}
@@ -5351,6 +5405,188 @@ From here on out we will denote the multiplicative identity by $1$ and the addit
 \end{proof}
 
 
+
+\begin{eg}[Quadratic Extensions over Fields of Characteristic not equal to 2]\label{eg:quadext}
+    Let $F$ be a field of characteristic $\neq 2$, and let $K$ be an extension of $F$ of degree $2$, $[K:F] = 2$. Let $\alpha$ be any element of $K$ not contained in $F$. By the previous corollary $\alpha$ satisfies an equation of degree at most $2$ over $F$. Moreover, since $\alpha \notin F$, it cannot be of degree $1$, so the minimal polynomial of $\alpha$ is a monic quadratic polynomial \begin{equation*}
+        m_{\alpha,F}(x) = x^2+bx+c, b,c \in F
+    \end{equation*}
+    Since $F \subset F(\alpha) \subseteq K$ and $F(\alpha)$ is already a vector space over $F$ of dimension $2$, we have $K = F(\alpha)$. By the quadratic formula, which is valid for any field of characteristic $\neq 2$, the roots of this quadratic formula are \begin{equation*}
+        \alpha = \frac{-b\pm \sqrt{b^2-4c}}{2}
+    \end{equation*}
+    Here $b^2-4c$ is not a square in $F$ since $\alpha$ is not an element of $F$, and the symbol $\sqrt{b^2-4c}$ denotes a root of the equation $x^2-(b^2-4c)=0$ in $K$. Note that here there is no natural choice of one of the roots analogous to choosing the positive square root of $2$ in $\R$ - the roots are algebraically indistinguishable.
+
+
+    Now $F(\alpha) = F(\sqrt{b^2-4c})$ as follows: by the formula above, $\alpha$ is an element of the field on the right, hence $F(\alpha) \subseteq F(\sqrt{b^2-4c})$. Conversely, $\sqrt{b^2-4c} = \mp(b+2\alpha)$ shows that $\sqrt{b^2-4c}$ is an element of $F(\alpha)$, which gives the reverse inclusion $F(\sqrt{b^2-4c}) \subseteq F(\alpha)$.
+\end{eg}
+
+\begin{cor}
+    It follows that any extension $K$ of $F$ of degree $2$ is of the form $F(\sqrt{D})$ where $D$ is an element of $F$ which is not a square in $F$, and conversely, every such extension is an extension of degree $2$ of $F$. For this reason extions of degree $2$ of a field $F$ are called \Emph{quadratic extensions} of $F$.
+\end{cor}
+
+
+\begin{thm}\label{thm:multext}
+    Let $F \subseteq K \subseteq L$ be fields. Then \begin{equation*}
+        [L:F] = [L:K][K:F]
+    \end{equation*}
+    \begin{center}
+        \begin{tikzpicture}[baseline = (a).base]
+        \node[scale = 1] (a) at (0,0){
+            \begin{tikzcd}
+                L \\
+                K \\
+                F
+                \arrow["{[L:K]}", no head, from=1-1, to=2-1]
+                \arrow["{[K:F]}", no head, from=2-1, to=3-1]
+                \arrow["{[L:F]}"', shift right=2, draw=none, from=1-1, to=3-1]
+            \end{tikzcd}
+        };
+        \end{tikzpicture}
+    \end{center}
+\end{thm}
+\begin{proof}
+    First, suppose that $[L:K] = m$ and $[K:F] = n$ are finite. Let $\alpha_1,\alpha_2,...,\alpha_m$ be a basis for $L$ over $K$, and let $\beta_1,\beta_2,...,\beta_n$ be a basis for $K$ over $F$. Then every element of $z \in L$ can be written as a linear combination \begin{equation*}
+        z = \sum_{i=1}^ma_i\alpha_i
+    \end{equation*}
+    where $a_i \in K$ for each $i$. Thus, there exist $b_{ij} \in F$ such that \begin{equation*}
+        a_i = \sum_{j=1}^nb_{ij}\beta_j
+    \end{equation*}
+    for all $1 \leq i \leq m$. Substituting we have that \begin{equation*}
+        z = \sum_{i=1}^ma_i\alpha_i = \sum_{i=1}^m\sum_{j=1}^nb_{ij}\beta_j\alpha_i
+    \end{equation*}
+    Hence, $$z \in \spn(\beta_1\alpha_1,...,\beta_1\alpha_m,\beta_2\alpha_1,...,\beta_2\alpha_m,...,\beta_n\alpha_1,...,\beta_n\alpha_m)$$
+    so the $\beta_j\alpha_i$ are a spanning set for $K$. Now, suppose $\sum c_{ij}\alpha_i\beta_j = 0$ is a linear dependence over $F$. In particular, we have that \begin{equation*}
+        \sum c_{ij}\alpha_i\beta_j = \sum_{i=1}^m\left(\sum_{j=1}^nc_{ij}\beta_j\right)\alpha_j = 0
+    \end{equation*}
+    where $\sum_{j=1}^nc_{ij}\beta_j \in K$ for each $i$. Hence, by the linear independence of the $\alpha_i$, we have for each $i$ that \begin{equation*}
+        \sum_{j=1}^nc_{ij}\beta_j = 0
+    \end{equation*}
+    But then $c_{ij} \in F$ for all $i,j$, so by the independence of the $\beta_j$ over $F$, we find that $c_{ij} = 0$ for all $i$ and $j$. Hence, the set is linearly independent and consequently a basis for $L$. Therefore, we conclude that $[L:F] = mn = [L:K][K:F]$.
+
+
+    Now, if $[L:F]$ is infinite, then either $[L:K]$ is infinite or $[K:F]$ is infinite since otherwise by the previous argument $[L:F]$ would be finite, a contradiction.
+
+    If $[L:K]$ is infinite, there are infinitely many elements of $L$ linearly independent over $K$, so as $F \subseteq K$ there are infinitely many elements of $L$ linearly independent over $F$, so $[L:F]$ is infinite. If $[K:F]$ is infinite, there are infinitely many elements of $K$ linearly independent over $F$. But as $L \supseteq K$, there are also infinitely many elements of $L$ that are linearly independent over $F$.
+\end{proof}
+
+
+
+\begin{cor}\label{cor:extdiv}
+    Suppose $L/F$ is a finite extension and let $K$ be a subfield of $L$ containing $F$, $F \subseteq K \subseteq L$. Then $[K:F]$ divides $[L:F]$.
+\end{cor}
+\begin{proof}
+    By Theorem \ref{thm:multext} $[L:F] = [L:K][K:F]$, so indeed $[K:F] \vert [L:F]$.
+\end{proof}
+
+
+\begin{eg}
+    Let $\alpha$ be a real root of $x^3-3x-1 = 0$, which exists between $0 < x < 2$ (exists by IVT). Then I claim $\sqrt{2} \notin \Q(\alpha)$. Recall that $[\Q(\sqrt{2}):\Q] = 2$ as it is a quadratic extension. Now, note that by the Rational Roots Theorem $x^3-3x-1$ is indeed irreducible over $\Q$, so $[\Q(\alpha):\Q] = 3$. Hence, since $2\cancel{\vert}3$, by the previous corollary we conclude that $\Q(\sqrt{2})\nsubseteq \Q(\alpha)$.
+\end{eg}
+
+\begin{eg}
+    Consider $\alpha = \sqrt[6]{2}$ adjoined to $\Q$. Then by Eisenstein $m_{\alpha,\Q}(x) = x^6 - 2$. In particular, $[\Q(\sqrt[6]{2}),\Q] = 6$. Note that $\sqrt[6]{2}^3 = \sqrt{2}$, so $\sqrt{2} \in \Q(\sqrt[6]{2})$, and $\Q(\sqrt{2}) \subseteq \Q(\sqrt[6]{2})$. Then, by the corollary $[\Q(\sqrt[6]{2}),\Q(\sqrt{2})] = 6/2 = 3$, so $\sqrt[6]{2}$ is of degree $3$ over $\Q(\sqrt{2})$. Indeed, $m_{\sqrt[6]{2},\Q(\sqrt{2})}(x) = x^3 - \sqrt{2}$ is a minimal polynomial by the corollary, so it is also irreducible over $\Q(\sqrt{2})$.
+\end{eg}
+
+\begin{defn}
+    An extension $K/F$ is \Emph{finitely generated} if there are elements $\alpha_1,\alpha_2,...,\alpha_k \in K$ such that $K = F(\alpha_1,\alpha_2,...,\alpha_k)$.
+\end{defn}
+
+
+\begin{lem}
+    $F(\alpha,\beta) = (F(\alpha))(\beta)$, that is, the field generated over $F$ by $\alpha$ and $\beta$ is the field generated by $\beta$ over the field $F(\alpha)$ generated by $\alpha$.
+\end{lem}
+\begin{proof}
+    First, we note that $F(\alpha,\beta)$ contains $F$, $\alpha$, and $\beta$. Thus, since $F(\alpha)$ is the smallest field containing $F$ and $\alpha$ it contains $F(\alpha)$ and $\beta$. Thus, as $(F(\alpha))(\beta)$ is the smallest such field, $(F(\alpha))(\beta) \subseteq F(\alpha,\beta)$. Conversely, since $(F(\alpha))(\beta)$ contains $F$, $\alpha$, and $\beta$, by minimality of $F(\alpha,\beta)$ we find that $F(\alpha,\beta) \subseteq (F(\alpha))(\beta)$.
+\end{proof}
+
+By the lemma we have that \begin{equation*}
+    K = F(\alpha_1,...,\alpha_k) = (F(\alpha_1,...,\alpha_{k-1}))(\alpha_k)
+\end{equation*}
+and so by iterating, we see that $K$ is obtained by taking the field $F_1$ generated over $F$ by $\alpha_1$, then the field $F_2$ generated over $F_1$ by $\alpha_2$, and so on, with $F_k = K$. This gives a sequence of fields: \begin{equation*}
+    F = F_0 \subseteq F_1 \subseteq F_2 \subseteq ...\subseteq F_k = K
+\end{equation*}
+where $F_{i+1} = F_i(\alpha_{i+1})$ for $i = 0,1,...,k-1$. By the multiplicativity of extension degrees we see that \begin{equation*}
+    [K:F] = [F_k:F_{k-1}]...[F_2:F_1][F_1:F_0]
+\end{equation*}
+
+
+\begin{thm}\label{thm:finalgext}
+    The extension $K/F$ is finite if and only if $K$ is generated by a finite number of algebraic elements over $F$.
+\end{thm}
+\begin{proof}
+    If $K/F$ is finite of degree $n$, let $\alpha_1,\alpha_2,...,\alpha_n$ be a basis for $K$ as a vector space over $F$. By Corollary \ref{cor:extdiv} we have that $[F(\alpha_i):F]$ divides $[K:F] = n$ for all $i = 1,2,...,n$, so they are finite and hence each $\alpha_i$ is algebraic over $F$. Thus, $K$ is generated by a finite number of algebraic elements over $F$. Conversely, if $K$ was generated by a finite number of algebraic elements over $F$, say $\beta_1,...,\beta_n$ with $[F(\beta_i):F] = m_i$, we have that $$[K:F] = [F_n:F_{n-1}]...[F_2:F_1][F_1:F_0] \leq [F(\beta_n):F]...[F(\beta_2):F][F(\beta_1):F] = m_1m_2...m_n$$ so $K$ is a finite extension of $F$.
+\end{proof}
+
+
+\begin{cor}
+    Suppose $\alpha$ and $\beta$ are algebraic over $F$. Then $\alpha\pm\beta,\alpha\beta,\alpha/\beta$ (for $\beta\neq 0$) are all algebraic.
+\end{cor}
+\begin{proof}
+    By the theorem $F(\alpha,\beta)$ is a finite extension over $F$, and it contains all of these elements (if they exist). Moreover, since $F(\alpha,\beta)$ is finite all of its elements are algebraic by Corollary \ref{cor:finalg}, so these elements are algebraic.
+\end{proof}
+
+
+\begin{cor}
+    Let $L/F$ be an arbitrary extension. Then the collection of elements of $L$ that are algebraic over $F$ form a subfield of $K$.
+\end{cor}
+\begin{proof}
+    Let $\mathcal{A}$ be such a subset. Then by the previous corollary $\mathcal{A}$ is closed under addition, subtraction, multiplication, and inverses, so it is indeed a subfield of $L$.
+\end{proof}
+
+
+\begin{eg}[Algebraic Numbers]
+    Consider the extension $\C/\Q$, and let $\overline{\Q}$ denote the subfield of all elements of $\C$ that are algebraic over $\Q$. In particular, the elements $\sqrt[n]{2}$ (positive $n$th roots of $2$ in $\R$) are all elements of $\overline{\Q}$, so that $[\overline{\Q},\Q]\geq n$ for all integers $n > 1$. Hence $\overline{Q}$ is an infinite algebraic extension of $\Q$, called the \Emph{algebraic numbers}.
+
+    Consider $\overline{\Q}\cap \R$, the subfield of $\R$ consisting of elements algebraic over $\overline{\Q}$. The field $\Q$ is countable. The number of polynomials in $\Q[x]$ of any given degree $n$ is therefore also countable, being the union of a finite number of countable sets. Since these polynomials have at most $n$ roots in $\R$, the number of algebraic elements of $\R$ of degree $n$ is countable, being contained in a finite union of countable sets. Finally, the collection of all algebraic elements in $\R$ is the countable union (indexed by $n$) of countable sets, hence is countable. Since $\R$ is uncountable, it follows that there exist (in fact many) elements of $\R$ which are not algebraic, i.e. are transcendental, over $\Q$.
+\end{eg}
+
+
+\begin{thm}
+    If $K$ is algebraic over $F$ and $L$ is algebraic over $K$, then $L$ is algebraic over $F$.
+\end{thm}
+\begin{proof}
+    Let $\alpha \in L$. Then there exists $f(x) = \sum_{i=0}^n a_ix^i \in K[x]$ such that $f(\alpha) = 0$ in $L$. Consider the field $F(\alpha,a_0,a_1,...,a_n)$ generated over $F$ by $\alpha$ and the coefficients of this polynomial. Since $K/F$ is algebraic, the elements $a_0,a_1,...,a_n$ are algebraic over $F$, so the extension $F(a_0,a_1,...,a_n)/F$ is finite by Theorem \ref{thm:finalgext}. By the equation above we know that $\sum_{i=0}^na_i\alpha^i = 0$, so $\alpha$ generates an extension of this field of degree at most $n$, since its minimal polynomial over this field is a divisor of the polynomial above. Therefore \begin{equation*}
+        [F(\alpha,a_0,a_1,...,a_n):F] = [F(\alpha,a_0,a_1,...,a_n):F(a_0,a_1,...,a_n)][F(a_0,a_1,...,a_n):F]
+    \end{equation*}
+    is also finite and by Theorem \ref{thm:finalgext} $F(\alpha,a_0,a_1,...,a_n)/F$ is an algebraic extension. In particular, the element $\alpha$ is algebraic over $F$, which proves that $L$ is algebraic over $F$.
+\end{proof}
+
+\begin{defn}
+    Let $K_1$ and $K_2$ be two subfields of a field $K$. Then the \Emph{composite field} of $K_1$ and $K_2$, denoted $K_1K_2$, is the smallest subfield of $K$ containing both $K_1$ and $K_2$. Similarly, the composite of any collection of subfields of $K$ is the smallest subfield containing all the subfields.
+\end{defn}
+
+
+
+\begin{prop}
+    Let $K_1$ and $K_2$ be two finite extensions of a field $F$ contained in $K$. Then \begin{equation*}
+        [K_1K_2:F]\leq [K_1:F][K_2:F]
+    \end{equation*}
+    with equality if and aonly if an $F$-basis for one of the fields remains linearly independent over the other field. If $\alpha_1,\alpha_2,...,\alpha_n$ and $\beta_1,\beta_2,...,\beta_m$ are bases for $K_1$ and $K_2$ over $F$, respectively, then the elements $\alpha_i\beta_j$ for $i = 1,2,...,n$ and $j = 1,2,...,m$ span $K_1K_2$ over $F$.
+\end{prop}
+\begin{proof}
+    Note that $K_1=F(\alpha_1,\alpha_2,...,\alpha_n)$ and $K_2 = F(\beta_1,\beta_2,...,\beta_m)$. Then observe that $K_1K_2$ contains $F,\alpha_1,...,\alpha_n,\beta_1,...,\beta_m$ so $F(\alpha_i,\beta_j|1\leq i \leq n,1\leq j \leq m) \subseteq K_1K_2$, and similarly $F(\alpha_i,\beta_j|1\leq i \leq n,1\leq j \leq m)$ contains both $K_1$ and $K_2$ by their minimality, so $K_1K_2 \subseteq F(\alpha_i,\beta_j|1\leq i \leq n,1\leq j \leq m)$, proving equality. Now, this is equal to $K_1(\beta_1,...,\beta_m)$, so $[K_1K_2:K_1]\leq m = [K_2:F]$, with equality if and only if these elements are linearly independent over $K_1$. Since $[K_1K_2:F] = [K_1K_2:K_1][K_1:F] \leq [K_2:F][K_1:F]$, the proposition is proven.
+\end{proof}
+
+
+By this proposition, and its proof, we have the following diagram:
+\begin{center}
+    \begin{tikzcd}
+        & {K_1K_2} \\
+        {K_1} && {K_2} \\
+        & F
+        \arrow["n"', no head, from=2-1, to=3-2]
+        \arrow["m"', no head, from=3-2, to=2-3]
+        \arrow["{\leq m}", no head, from=2-1, to=1-2]
+        \arrow["{\leq n}", no head, from=1-2, to=2-3]
+    \end{tikzcd}
+\end{center}
+
+
+\begin{cor}
+    Suppose that $[K_1:F]=n, [K_2:F]=m$ in the previous proposition, where $n$ and $m$ are relatively prime: $\gcd(n,m) = 1$. Then $[K_1K_2:F] = [K_1:F][K_2:F] = nm$.
+\end{cor}
+\begin{proof}
+    First observe that $[K_1K_2:F] = [K_1K_2:K_1][K_1:F]$ and $[K_1K_2:F] = [K_1K_2:K_2][K_2:F]$, so $n$ and $m$ divide $[K_1K_2:F]$. Let $l = \text{lcm}(m,n)$. Then note that $l$ must divide $[K_1K_2:F]$. Now, since $\gcd(n,m) = 1$, we have that $nm$ divides $[K_1K_2:F]$, so $nm \leq [K_1K_2:F] \leq nm$. Thus, $[K_1K_2:F] = nm$, as claimed.
+\end{proof}
 
 
 %%%%%%%%%%%%%%%%%%%%%% - P3.Chapter 3
