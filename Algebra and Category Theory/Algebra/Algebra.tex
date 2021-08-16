@@ -4912,8 +4912,20 @@ For this section let $R$ be a commutative ring and $P \in R[x]$.
     Suppose $f \in \Z[x]$, $\deg(f) \geq 1$ and let $p \in \Z$ a prime satisfying the conditions of the theorem. If $f$ is not irreducible in $\Q[x]$, then there exists a proper factorization $f = gh$, $g,h \in \Z[x]$ by the corollary to Gauss' Lemma. Write $g = b_0+b_1x+...+b_kx^k$ and $h = c_0+c_1x+...+c_lx^l$, so we have $a_0 = b_0c_0$, $a_n = b_mc_l$, and $n = m+l$. Note, since $p$ does not divide $a_n$, $p$ does not divide $b_k$ nor $c_l$. Let $\alpha:\Z[x] \rightarrow \Z/p\Z[x]$ be the reduction modulo $p$. Then $\alpha(f) = [a_n]_px^n = \alpha(g)\alpha(h)$. Since $p$ does not divide the leading coefficients of $g$ nor $h$, this is a proper factorization. Note that since $p^2$ does not divide $a_0$, $p$ divides $b_0$ or $c_0$ but not both. Without loss of generality suppose $p$ divides $b_0$. Then, let $b_m$ be the first element of $b_0,b_1,...,b_k$ for which $p$ does not divide (this is possible as $p$ does not divide $b_k$). Then, note that $$a_m = b_mc_0 + b_{m-1}c_1 + ... + b_1c_{m-1} + b_0c_m$$ Then, since $m \leq k < n$, $p$ divides $a_m$. Moreover, by construction $p$ divides $b_{m-i}c_i$ for all $i \geq 1$. Thus, it follows that $p$ must divide $b_mc_0$, so $p$ divides $b_m$ or $p$ divides $c_0$. But, by assumption $p$ does not divide $b_m$ and $p$ does not divide $c_0$, leading to a contradiction. Therefore, $f$ must be irreducible over $\Q$.
 \end{proof}
 
+
+
+\begin{namthm}[General Eisenstein Criterion] \label{namthm:eisgen}
+    Let $P$ be a prime ideal of an integral domain $R$. Let $f(x) = a_nx^n + a_{n-1}x^{n-1}+...+a_1x+a_0 \in R[x]$, where $n \geq 1$. Also, suppose $a_{n-1},a_{n-2},...,a_0 \in P$, but $a_n \notin P$ and $a_0 \notin P^2 = \{\sum_{i=1}^np_iq_i:n \geq 1,p_i,q_i \in P\}$.
+\end{namthm}
+\begin{proof}
+    Towards a contradiction suppose $f(x) = b(x)c(x)$ for some $b(x),c(x) \in R[x]$ such that $\deg(b(x)),\deg(c(x)) \geq 1$. Then consider the reduction map $\varphi:R[x]\rightarrow (R/P)[x]$. Since $P$ is a prime ideal, $R/P$ is an integral domain. Denote a reduced element with a bar. Then we have that $\overline{f(x)} = \overline{a(x)}\overline{b(x)}$ and $\overline{f(x)} = a_nx^n$. Let $F$ denote the field of fractions for $(R/P)$, and extend the natural injection $\iota:R/P\hookrightarrow F$ to an injection $\iota':(R/P)[x]\hookrightarrow F[x]$. Then, since $F$ is a field $F[x]$ is a unique factorization domain. Hence, the factorization $\overline{a_nx^n} = \overline{\alpha x^j\beta x^i}$ is unique up to associates, i.e. units. Thus, we must have that $\overline{a(x)} = \overline{\alpha_j x^j}$ for some $j \geq 1$, $\alpha_j \in R$ and $\overline{b(x)} = \overline{\beta_i x^i}$ for $i = n-j$, $\beta_i \in R$. Thus, $\overline{\alpha_0},\overline{\beta_0} = \overline{0}$. Hence, $a_0 = \alpha_0\beta_0 \in P^2$, which contradicts the assumption that $a_0 \notin P^2$. Therefore, we conclude that $f(x)$ must be irreducible in $R[x]$.
+\end{proof}
+
+
+
+
 \begin{note}
-    The reduction modulo $p$ of $f$, $[a_n]_px^n$, is not irreducible over $\Z/p|Z$ if $n > 1$.
+    The reduction modulo $p$ of $f$, $[a_n]_px^n$, is not irreducible over $\Z/p\Z$ if $n > 1$.
 \end{note}
 
 \begin{eg}
@@ -5237,7 +5249,7 @@ while $\R$ is the extension field in the context of:
 \end{defn}
 
 
-\begin{thm}
+\begin{thm}\label{thm:existext}
     Let $F$ be a field and $p(x) \in F[x]$ an \Emph{irreducible polynomial}. Then there exists a field $K$ containing $F' \cong F$, in which $p(x)$ has a root; that is $p(\alpha) = 0$ for some $\alpha \in K$, where $p$ is now envisioned as the corresponding polynomial in $F'$.
 \end{thm}
 \begin{proof}
@@ -5587,6 +5599,463 @@ By this proposition, and its proof, we have the following diagram:
 \begin{proof}
     First observe that $[K_1K_2:F] = [K_1K_2:K_1][K_1:F]$ and $[K_1K_2:F] = [K_1K_2:K_2][K_2:F]$, so $n$ and $m$ divide $[K_1K_2:F]$. Let $l = \text{lcm}(m,n)$. Then note that $l$ must divide $[K_1K_2:F]$. Now, since $\gcd(n,m) = 1$, we have that $nm$ divides $[K_1K_2:F]$, so $nm \leq [K_1K_2:F] \leq nm$. Thus, $[K_1K_2:F] = nm$, as claimed.
 \end{proof}
+
+
+
+
+
+\section{\textsection Classical Straightedge and Compass Constructions}
+
+The following three geometric problems posed by the Greeks can now be shown to not be possible: 
+\begin{enumerate}
+    \item[I.] (Doubling the Cube) Is it possible using only straightedge and compass to construct a cube with precisely twice the volume of a given cube?
+    \item[II.] (Trisecting the Angle) Is it possible using only straightedge and compass to trisect any given angle $\theta$?
+    \item[III.] (Squaring the Circle) Is it possible using only straightedge and compass to construct a square whose area is precisely the area of a given circle?
+\end{enumerate}
+
+Let $1$ denote some fixed unit distance. Then any distance is determined by its length $a \in \R$. We construct the usual cartesian plane $\R^2$, and view all of our constructions as occuring in $\R^2$. 
+
+\begin{defn}
+    A point $(x,y) \in \R^2$ is \Emph{constructible} starting with the given distance $1$ if and only if its coordinates $x$ and $y$ are constructible elements of $\R$. Elements of $\R$ are called \Emph{constructible} starting with the given distance $1$ if and only if they can be obtained by straightedge and compass constructions from $1$.
+\end{defn}
+
+Each straightedge and compass construction consists of a series of operations of the following four types: 
+\begin{enumerate}
+    \item connecting two given points by a straight line
+    \item finding a point of intersection of two straight lines
+    \item drawing a circle with given radius and center
+    \item finding the point(s) of intersection of a straight line and a circle or the intersection of two circles
+\end{enumerate}
+
+
+\begin{thm}
+    Given lengths $a$ and $b$, you can construct $a+b,a-b,ab,a/b$, given $b \neq 0$. 
+\end{thm}
+
+$a+b$ and $a-b$ can be attained by parallel lines. Then $ab$, $a/b$ can be attained by similar triangles. Moreover, using an upper half circle, with diameter $a+1$, we can attain $\sqrt{a}$. These facts imply that the set of constructible numbers is a subfield of $\R$. Moreover, this field is an extension of the rationals. 
+
+It can be shown that for any field $F$, the straightedge constructions are closed in $F$, while the compass constructions at most bring $F$ to a quadratic extension of itself. Since quadratic extensions have degree $2$, and extension degrees are multiplicative, it follows that if $\alpha \in \R$ is obtained from elements in $F$ by a finite series of straightedge and compass constructions, then $\alpha$ is an element of an extension $K$ of $F$ of degree a power of $2$: $[K:F] 2^m$ for some $m$. Since $[F(\alpha):F]$ divides this extension, it must also be a power of $2$.
+
+\begin{prop}
+    If the element $\alpha \in \R$ is obtained from a field $F \subset \R$ by a series of compass and straightedge constructions, then $[F(\alpha):F] = 2^k$ for some integer $k \geq 0$.
+\end{prop}
+
+\begin{thm}
+    None of the classical Greek problems: (I) Doubling the Cube, (II) Trisecting an Angle, (III) Squaring the Circle, is possible.
+\end{thm}
+\begin{proof}[Sketch]
+    (I) Doubling the cube amounts to constructing $\sqrt[3]{2}$ in the reals starting with the unit $1$. Since $[\Q(\sqrt[3]{2}):\Q] = 3$ is not a power of $2$, this is impossible.
+
+    (II) Trisecting the angle is possible for some angles, but not all. If an angle $\theta$ can be constructed, then so can $\cos\theta$ and $\sin\theta$. In attempt to trisect $60$ degrees, we see that an extension of $\Q$ by $\cos20^{\circ}$ has degree $3$, and is therefore not constructible, and consequently $20$ degrees is not constructible.
+
+    (III) Squaring the circle is equivalent to determining if $\pi$ is constructible. In fact, $\pi$ is transcendental, so $[\Q(\pi):\Q]$ is infinite and hence $\pi$ is not constructible and we cannot square the circle.
+\end{proof}
+
+
+\section{\textsection Splitting Fields}
+
+Let $F$ be a field, and $f(x) \in F[x]$ with $\deg(f(x)) = n$. Then we have shown there exists $E_1/F$ such that there is $\alpha_1 \in E_1$ for which $\alpha_1$ is a root of $f(x)$ and $f(x) = (x-\alpha_1)g_1(x)$ for some $g_1(x) \in E_1[x]$, where $[E_1:F] \leq n$.
+
+\begin{eg}
+    $f(x) = x^2-3x+2 \in \Q[x]$. Then $f(x) = (x-1)(x-2)$, so $\Q$ is its own extension field.
+\end{eg}
+
+
+Next, we can consider $g_1(x) \in E_1[x]$, and find an extension $E_2/E_1$ in which there exists $\alpha_2 \in E_2$ such that $g_1(x) = (x-\alpha_1)g_2(x)$ for some $g_2(x) \in E_2[x]$, and $[E_2:E_1] \leq n-1$, as $\deg(g_1(x)) = n-1$. It follows that $f(x) = (x-\alpha_1)(x-\alpha_2)g_2(x)$ in $E_2[x]$. In principle we can proceed inductively and obtain $E/F$ such that $f(x) = A(x-\alpha_1)(x-\alpha_2)...(x-\alpha_n)$, where $\alpha_1,\alpha_2,...,\alpha_n \in E$ and \begin{equation*}
+    [E:F] = [E_n:E_{n-1}][E_{n-1}:E_{n-2}]...[E_2:E_1][E_1:F] \leq n!
+\end{equation*}
+
+
+\begin{defn}
+    The extension field $K$ of $F$ is called a \Emph{splitting field} for the polynomial $f(x) \in F[x]$ if $f(x)$ factors completely into linear factors (or \Emph{splits completely}) in $K[x]$ and $f(x)$ does not factor completely into linear factors over any proper subfield of $K$ containing $F$.
+\end{defn}
+
+Note that if $f(x)$ is of degree $n$, then $f(x)$ has at most $n$ roots in $F$ and has precisely $n$ roots in $F$ if and only if $f(x)$ splits completely in $F[x]$.
+
+\begin{thm}
+    For any field $F$, if $f(x) \in F[x]$ then there exists an extension $K$ of $F$ which is a splitting field for $f(x)$.
+\end{thm}
+\begin{proof}
+    We first show that there exists an extension $E$ of $F$ over which $f(x)$ splits completely into linera factors by induction on the degree $n$ of $f(x)$. If $n = 1$, then take $E = F$. Suppose now that $n > 1$. If the irreducible factors of $f(x)$ over $F$ are all of degree $1$, then $F$ is the splitting field for $f(x)$ and we may take $E= F$. Otherwise, at least one of the irreducible factors, say $p(x)$ of $f(x)$ in $F[x]$ is of degree at least $2$. Then by Theorem \ref{thm:existext} there exists an extension $E_1$ of $F$ containing a root $\alpha$ of $p(x)$. Over $E_1[x]$ $f(x)$ has the linear factor $x-\alpha$. The degree of the remaining factor $f_1(x)$ is $n-1$, so by the induction hypothesis there is an extension $E$ of $E_1$ containing all of the roots of $f_1(x)$. Since $\alpha \in E$, $E$ is an extension of $F$ containing all of the roots of $f(x)$. Now, let $K$ be the intersection of all the subfields of $E$ containing $F$ which also contain all roots of $f(x)$. Then $K$ is a field which is a splitting field for $f(x)$.
+\end{proof}
+
+\begin{defn}
+    If $K$ is an algebraic extension of $F$ which is the splitting field over $F$ for a collection of polynomials $f(x) \in F[x]$ then $K$ is called a \Emph{normal extension} of $F$.
+\end{defn}
+
+\begin{eg}
+    $x^2 - 2 \in \Q[x]$ splits in $\Q(\sqrt{2})$, with $x^2-2 = (x-\sqrt{2})(x+\sqrt{2})$ and $\pm\sqrt{2}\in \Q(\sqrt{2})$.
+\end{eg}
+
+
+\begin{eg}
+    Consider $(x^2-2)(x^2-3) \in \Q$. Then $\Q(\sqrt{2},\sqrt{3})$ is the splitting field, and we have the field diagram:
+    \begin{center}
+        \begin{tikzcd}
+            & {\mathbb{Q}(\sqrt{2},\sqrt{3})} \\
+            {\mathbb{Q}(\sqrt{2})} & {\mathbb{Q}(\sqrt{6})} & {\mathbb{Q}(\sqrt{3})} \\
+            & {\mathbb{Q}}
+            \arrow["2"', no head, from=2-1, to=3-2]
+            \arrow["2"', no head, from=2-2, to=3-2]
+            \arrow["2"', no head, from=1-2, to=2-2]
+            \arrow["2", no head, from=2-3, to=3-2]
+            \arrow["2", no head, from=1-2, to=2-3]
+            \arrow["2"', no head, from=1-2, to=2-1]
+        \end{tikzcd}
+    \end{center}
+    Moreover, $[\Q(\sqrt{2},\sqrt{3}):\Q] = 4$.
+\end{eg}
+
+\begin{eg}
+    Consider $x^3 - 2$ over $\Q$. Then for $\alpha = \sqrt[3]{2} \in \R$, $\alpha^3-2 = 0$. Complex roots are $\alpha,\alpha\zeta,\alpha\zeta^2$ for $\zeta = e^{\frac{2\pi i}{3}}$ the third root of unity. Then \begin{equation*}
+        x^3-2 = (x-\alpha)(x-\alpha\zeta)(x-\alpha\zeta^2)
+    \end{equation*}
+    So the splitting field is $K = \Q(\alpha,\alpha\zeta,\alpha\zeta^2)$. Note $\alpha\zeta/\alpha = \zeta \in K$, so as $\zeta = \frac{-1+i\sqrt{3}}{2}$, $i\sqrt{3} = 2\zeta+1 \in K$. Then we can also write $K = \Q(\sqrt[3]{2},\sqrt{-3})$, so 
+    \begin{center}
+        \begin{tikzcd}
+            & {\mathbb{Q}(\sqrt[3]{2},\sqrt{-3})} \\
+            {\mathbb{Q}(\zeta_2)=\mathbb{Q}(\sqrt{-3})} && {\mathbb{Q}(\sqrt[3]{2})} & {\mathbb{Q}(\sqrt[3]{2}\zeta_2)} & {\mathbb{Q}(\sqrt[3]{2}\zeta_2^2)} \\
+            & {\mathbb{Q}}
+            \arrow["2"', no head, from=2-1, to=3-2]
+            \arrow["3"', no head, from=2-3, to=3-2]
+            \arrow["2"', no head, from=1-2, to=2-3]
+            \arrow["3"{description}, no head, from=2-4, to=3-2]
+            \arrow["2"{description}, no head, from=1-2, to=2-4]
+            \arrow["3"', no head, from=1-2, to=2-1]
+            \arrow["3"', no head, from=3-2, to=2-5]
+            \arrow["2", no head, from=1-2, to=2-5]
+        \end{tikzcd}
+    \end{center}
+    Adjoining $\sqrt{-3}$ to $\Q(\sqrt[3]{2})$, $[K:\Q(\sqrt[3]{2})] = 2$, with minimal polynomial $x^2+3 \in \Q(\sqrt[3]{2})[x]$. 
+\end{eg}
+
+
+\begin{eg}
+    Consider $x^p - 2 \in \Q[x]$. Then for $\zeta_p = e^{\frac{2\pi i}{p}}$, the $p$th root of unity, we have 
+    \begin{center}
+        \begin{tikzcd}
+        & {\mathbb{Q}(\sqrt[p]{2},\zeta_p)} \\
+        {\mathbb{Q}(\zeta_p)} && {\mathbb{Q}(\sqrt[p]{2})} \\
+        & {\mathbb{Q}}
+        \arrow["{p-1}"', no head, from=2-1, to=3-2]
+        \arrow["p", no head, from=2-3, to=3-2]
+        \arrow["{p-1}", no head, from=1-2, to=2-3]
+        \arrow["p"', no head, from=1-2, to=2-1]
+    \end{tikzcd}
+    \end{center}
+\end{eg}
+
+\begin{eg}
+    Consider $(x^4 -1) = (x^2+1)(x^2-1) = (x-i)(x+i)(x-1)(x+1)$, for $x^4-1 \in \Q[x]$. Then $\Q(i)$ is a splitting field for $x^4-1$. 
+
+    Conversely, $(x^4+1) = 0$ has roots $e^{\frac{\pi i}{4}}\zeta_4^k$, for $\zeta_4 = e^{\frac{2\pi i}{4}}$ the principal root of unity. Then we have that \begin{equation*}
+        (-1)^{1/4} = \{e^{\frac{\pi i}{4}}, e^{\frac{\pi i}{4}}\zeta_4, e^{\frac{\pi i}{4}}\zeta_4^2, e^{\frac{\pi i}{4}}\zeta_4^3\} 
+    \end{equation*}
+    Then the splitting field is $\Q(i,\sqrt{2})$, and we have $[\Q(i,\sqrt{2}):\Q] = 4$.
+\end{eg}
+
+
+
+\begin{prop}
+    A splitting field of a polynomial of degree $n$ over $F$ is of degree at most $n!$ over $F$.
+\end{prop}
+\begin{proof}
+    (By induction on degree)
+\end{proof}
+
+
+\subsection{Cyclotomic Fields}
+
+Consider the splitting field of $x^n -1$ over $\Q$. The roots of this are the roots of unity $$z \in (1)^{1/n} = \{1, \zeta_n,\zeta_n^2,...,\zeta_n^{n-1}\}$$ for $\zeta_n = e^{\frac{2\pi i}{n}}$, a primitive generator. Note $\zeta_n^k$ also generates $(1)^{1/n}$ if and only if $\gcd(k,n) = 1$, and $o(\zeta_n^k) = \frac{o(\zeta_n)}{\gcd(o(\zeta_n),k)} = \frac{n}{\gcd(n,k)}$, treating $(1)^{1/n}$ as a group. 
+
+\begin{defn}
+    A generator of the cyclic group of all $n$th roots of unity is called a \Emph{primitive $n$th root of unity}.
+\end{defn}
+
+Note there are $\varphi(n)$ primitive roots of unity, for $\varphi$ the Euler-totient function. 
+
+\begin{defn}
+    The splitting field of $x^n-1$ is $\Q(\zeta_n)$, which is called the \Emph{cyclotomic field of $n$th roots of unity}.
+\end{defn}
+
+
+\begin{thm}
+    Let $\varphi:F\xrightarrow{\sim}F'$ be an isomorphism of fields. Let $f(x) \in F[x]$ be a polynomial and let $f'(x) \in F'[x]$ be the polynomial obtained by applying $\varphi$ to the coefficients of $f(x)$. Let $E$ be a splitting field for $f(x)$ over $F$ and let $E'$ be a splitting field for $f'(x)$ over $F'$. Then the isomorphism $\varphi$ extends to an isomorphism $\sigma:E\xrightarrow{\sim}E'$, i.e., restricting $\sigma$ to $F$ is the isomorphsim $\varphi$:
+    \begin{center}
+        \begin{tikzcd}
+            E & {E'} \\
+            F & {F'}
+            \arrow["\varphi"', from=2-1, to=2-2]
+            \arrow["\sigma", from=1-1, to=1-2]
+            \arrow[no head, from=1-2, to=2-2]
+            \arrow[no head, from=1-1, to=2-1]
+        \end{tikzcd}
+    \end{center}
+\end{thm}
+\begin{proof}
+    We proceed by induction on the degree of $f(x)$. Let $\Phi$ denote the corresponding isomorphism between $F[x]$ and $F'[x]$ induced by $\varphi$. Then if $f(x)$ corresponds to $f'(x)$ under this isomorphism, then so do the irreducible factors of $f(x)$ and $f'(x)$. 
+
+    If $f(x)$ splits completely in $F$, $f'(x)$ will split completely in $F'$, and vice-versa. Hence, $E = F \cong F' = E'$, taking $\sigma = \varphi$. This shows the result holds for $n = 1$, and when all irreducible factors are linear.
+
+    Assume now by induction that the result holds for any field $F$, isomorphism $\varphi$, and polynomial $f(x) \in F[x]$ of degree less than $n$. Let $p(x)$ be an irreducible factor of $f(x)$ of degree at least $2$, and $p'(x)$ the corresponding irreducible factor of $f'(x)$. If $\alpha \in E$ is a root of $p(x)$ and $\beta \in E'$ is a root of $p'(x)$, then by Theorem \ref{thm:simplextiso} we can extend $\varphi$ to an isomorphism $\sigma':F(\alpha)\xrightarrow{\sim}F'(\beta)$. Then $f(x) = (x-\alpha)f_1(x)$ over $F(\alpha)$ and $f'(x) = (x-\beta)f_1'(x)$ over $F'(\beta)$. The field $E$ is a splitting field for $f_1(x)$ over $F(\alpha)$. Similarly, $E'$ is a splitting field for $f_1'(x)$ over $F'(\beta)$. Since the degrees are less than $n$, we have by the induction hypothesis that there exists an isomorphism $\sigma:E\xrightarrow{\sim}E'$ which restricts to $\sigma'$. Thus, $\sigma$ restricted to $F$ is $\varphi$, as desired.
+\end{proof}
+
+
+\begin{cor}[Uniqueness of Splitting Fields]
+    Any two splitting fields for a polynomial $f(x) \in F[x]$ over a field $F$ are isomorphic.
+\end{cor}
+
+
+\begin{defn}
+    The field $\overline{F}$ is called an \Emph{algebraic closure} of $F$ if $\overline{F}$ is algebraic over $F$ and if every polynomial $f(x) \in F[x]$ splits completely over $\overline{F}$ (so that $\overline{F}$ can be said to contain all the elements algebraic over $F$).
+\end{defn}
+
+\begin{defn}
+    A field $K$ is said to be \Emph{algebraically closed} if every polynomial with coefficients in $K$ has a root in $K$.
+\end{defn}
+
+\begin{eg}
+    $\R$ has algebraic closure $\overline{\R} = \C$, which is also the splitting field $\R(i)$ of $x^2+1 \in \R[x]$.
+\end{eg}
+
+\begin{eg}
+    $\Q$ has $\overline{\Q}$ algebraic closure. But, $\Q(i)$ is the splitting field for $x^2+1 \in \Q[x]$ is not equal to this.
+\end{eg}
+
+\begin{prop}
+    Let $\overline{F}$ be an algebraic closure of $F$. Then $\overline{F}$ is algebraically closed.
+\end{prop}
+
+\begin{prop}
+    For any field $F$, there exists an algebraically closed field $K$ containing $F$.
+\end{prop}
+
+\begin{prop}
+    Let $K$ be an algebraically closed field and let $F$ be a subfield of $K$. Then the collection of elements of $\overline{F}$ of $K$ that are algebraic over $F$ is an algebraic closure of $F$. An algebraic closure of $F$ is unique up to isomorphism.
+\end{prop}
+
+
+\begin{thm}[Fundamental Theorem of Algebra]
+    The field of $\C$ is algebraically closed.
+\end{thm}
+
+\begin{cor}
+    The field $\C$ contains an algebraic closure for any of its subfields. In particular, $\overline{\Q}$, the collection of complex numbers algebraic over $\Q$, is an algebraic closure of $\Q$.
+\end{cor}
+
+
+
+\section{\textsection Separable and Inseparable Extensions}
+
+Let $F$ be a field and let $f(x) \in F[x]$. Over a splitting field for $f(x)$ we have a factorization \begin{equation*}
+    f(x) (x-\alpha_1)^{n_1}...(x-\alpha_k)^{n_k}
+\end{equation*}
+where $\alpha_1,...,\alpha_k$ are distinct elements of the splitting field, and $n_i \geq 1$ for all $i$. The integer $n_i$ is called the \Emph{multiplicity} of $\alpha_i$. $\alpha_i$ is called a \Emph{multiple root} if $n_i >1$, and a \Emph{simple root} if $n_i =1$.
+
+\begin{defn}
+    A polynomial over $F$ is \Emph{separable} if it has no multiple roots (i.e. all roots are distinct). A polynomial which is not separable is called \Emph{inseparable}.
+\end{defn}
+
+\begin{eg}
+    $x^2-2 = (x-\sqrt{2})(x+\sqrt{2})$ is separable over $\Q$.
+\end{eg}
+
+\begin{eg}
+    $x^2 - t \in \F_2(t)[x]$, then there exists $\sqrt{t} \in K/\F_2(t)$ for some extension $K$. Then $$x^2-t = (x-\sqrt{t})(x+\sqrt{t} = (x+\sqrt{t})(x+\sqrt{t}) = (x+\sqrt{t})^2$$ so $x^2-t$ is inseparable over $\F_2(t)$.
+\end{eg}
+
+
+\begin{defn}
+    The \Emph{derivative} of the polynomial \begin{equation*}
+        f(x) = a_nx^n+...+a_1x+a_0 \in F[x]
+    \end{equation*}
+    is defined to be the polynomial \begin{equation*}
+        D_xf(x) = na_nx^{n-1}+(n-1)a_{n-1}x^{n-2}+...+a_1
+    \end{equation*}
+\end{defn}
+
+
+Moreover, this satisfies the identities \begin{equation*}
+    D_x(f(x)g(x)) = D_x(f(x))g(x)+f(x)D_x(g(x))
+\end{equation*}
+and \begin{equation*}
+    D_x(f(x)+g(x)) = D_xf(x)+D_xg(x)
+\end{equation*}
+
+
+\begin{prop}\label{prop:seprel}
+    A polynomial $f(x)$ has a multiple root $\alpha$ if and only if $\alpha$ is also a root of $D_xf(x)$, i.e., $f(x)$ and $D_xf(x)$ are both divisible by the minimal polynomial for $\alpha$. In particular, $f(x)$ is separable if and only if it is relatively prime to its derivative: $\gcd(f(x),D_xf(x)) = 1$, i.e. $(f(x))+(D_xf(x)) = F[x]$.
+\end{prop}
+\begin{proof}
+    Suppose first that $\alpha$ is a multiple root of $f(x)$. Then over a splitting field $f(x) = (x-\alpha)^ng(x)$ for some integer $n \geq 2$ and some polynomial $g(x)$ in the splitting field. Taking derivatives we obtain \begin{equation*}
+        D_xf(x) = n(x-\alpha)^{n-1}g(x) + (x-\alpha)^nD_xg(x)
+    \end{equation*}
+    which shows that $D_xf(x)$ has $\alpha$ as a root since $n \geq 2$.
+
+    Conversely, suppose $\alpha$ is a root of $D_xf(x)$ and $f(x)$. Write $f(x) = (x-\alpha)h(x)$, and observe that since $D_xf(x) = h(x) + (x-\alpha)D_xh(x)$ and $D_xf(\alpha) = 0$, we have that $h(\alpha) = 0$. Hence, $h(x) = (x-\alpha)h'(x)$ for some polynomial $h'(x)$, so $f(x) = (x-\alpha)^2h'(x)$ and $\alpha$ is a multiple root of $f(x)$ as claimed.
+\end{proof}
+
+\begin{eg}
+    Consider $x^{p^n}-x \in \F_p$, then its deripative is $p^nx^{p^n-1}-1 = -1$ since the field is of characteristic $p$. Then since the derivative has no roots, $x^{p^n}-x$ has no multiple roots and is therefore separable.
+\end{eg}
+
+\begin{cor}
+    Every irreducible polynomial over a field of characteristic $0$ is separable (i.e. has no multiple roots). A polynomial over such a field is separable if and only if it is the product of distinct irreducible polynomials.
+\end{cor}
+\begin{proof}
+    Suppose $F$ is a field of characteristic $0$ and $p(x) \in F[x]$ is irreducible of degree $n$. Then the derivative $D_xp(x)$ is a polynomial of degree $n-1$. Up to constant factors the only factors of $p(x)$ in $F[x]$ are $1$ and $p(x)$, so $D_xp(x)$ must be relatively prime to $p(x)$. Then $p(x)$ is separable by Proposition \ref{prop:seprel}. Then, by Proposition \ref{prop:minpoly} all distinct irreducible polynomials have distinct roots, which gives the second result.
+\end{proof}
+
+In characteristic $p$, the derivative of any polynomial in $x^p$ is $0$, unlike in the characteristic $0$ case. However, if the derivative is nonzero we can again conclude that the polynomial is separable by the same argument as above.
+
+\begin{prop}
+    Let $F$ be a field of characteristic $p$. Then for any $a,b \in F$, \begin{equation*}
+        (a+b)^p = a^p+b^p,\; \text{ and }\; (ab)^p = a^pb^p
+    \end{equation*}
+    Put another way, the $p$th power map defined by $\varphi(a) = a^p$ is an injective field homomorphism from $F$ to $F$.
+\end{prop}
+\begin{proof}
+    The binomial Theorem for expanding $(a+b)^n$ for any positive integer $n$ holds over any commutative ring: \begin{equation*}
+        (a+b)^n=\sum_{i=0}^n\begin{pmatrix} n \\ i\end{pmatrix}a^{n-i}b^i
+    \end{equation*}
+    If $p$ is a prime, then for $i = 1,2,...,p-1$, $\begin{pmatrix} p \\ i\end{pmatrix}$ is divisible by $p$ since for these values of $i$ the numbers $i!$ and $(p-i)!$ only involve factors smaller than $p$, hence are relatively prime to $p$ and so cannot cancel the factor of $p$ in the numerator of the expression $\frac{p!}{i!(p-i)!}$. It follows that over a field of characteristic $p$ all the intermediate terms in the expansion of $(a+b)^p$ are $0$, which gives the first equation of the proposition. The second equation is from commutivity of multiplication in the field, and $\varphi$ is injective since it is a field homomorphism.
+\end{proof}
+
+
+\begin{defn}
+    The field homomorphism $\varphi:F\rightarrow F$ defined by $\varphi(a) = a^p$, where $F$ is a field of characteristic $p$, is called the \Emph{Frobenius endomorphism} of $F$.
+\end{defn}
+
+\begin{cor}
+    Suppose that $F$ is a finite field of characteristic $p$. Then every element of $F$ is a $p$th power in $F$ (Notationally, $F = F^p$).
+\end{cor}
+
+
+Let $F$ be a finite field of characteristic $p$, and $f(x) \in F[x]$ an irreducible polynomial. If $f(x)$ were inseparable, then we would need that $f(x) = q(x^p)$ for some $q(x) \in F[x]$, as otherwise by our previous result $f(x)$ would be separable. Let $q(x) = \sum_{i=0}^na_ix^i$, and note that by our previous result we have $a_i = b_i^p$ for each $i$, so we may write \begin{equation*}
+    f(x) = \sum_{i=0}^nb_i^px^{ip} = \left(\sum_{i=0}^nb_ix^i\right)^p
+\end{equation*}
+where the last equality follows from our endomorphism. But, $f(x)$ is assumed irreducible and we've written it as a product of $p$ non-constant polynomials, which is a contradiction. 
+
+\begin{prop}
+    Every irreducible polynomial over a finite field $F$ is separable. A polynomial in $F[x]$ is separable if and only if it is the product of distinct irreducible polynomials in $F[x]$.
+\end{prop}
+
+\begin{defn}
+    A field $K$ is of characteristic $p$ is called \Emph{perfect} if every element of $K$ is a $p$th power in $K$. Any field of characteristic $0$ is also called perfect.
+\end{defn}
+
+From this we see that we've shown that every irreducible polynomial over a perfect field is separable.
+
+
+\begin{eg}[Existence and Uniqueness of Finite Fields]
+    Let $n > 0$ be any positive integer and consider the splitting field of the polynomial $x^{p^n}-x$ over $\F_p$. We know that this polynomial is separable, hence has precisely $p^n$ distinct roots. Let $\alpha$ and $\beta$ be any two roots of this polynomial, so $\alpha^{p^n} = \alpha$ and $\beta^{p^n} = \beta$. Then $(\alpha\beta)^{p^n} = \alpha\beta$, $(\alpha^{-1})^{p^n} = \alpha^{-1}$, and by induction on our endomorphism: \begin{equation*}
+        (\alpha+\beta)^{p^n} = \alpha^{p^n}+\beta^{p^n} = \alpha+\beta
+    \end{equation*}
+    Hence, the set, $F$, of roots of the polynomial is a field, and consequently is the splitting field of the polynomial. Since the number of elements is $p^n$, $[F:\F_p] = n$, which gives the existence of finite fields of degree $n$ over $\F_p$, for all $n > 0$.
+
+    Letting $\F$ be another such finite field of characteristic $p$, if $[\F:\F_p] = n$, then $\F$ has $p^n$ elements. Since the multiplicative group $\F^{\times}$ is of order $p^n-1$, we have $\alpha^{p^n-1} = 1$ for all $\alpha \in \F^{\times}$, so that $\alpha^{p^n} = \alpha$ for every $\alpha \in \F$. Hence, $\F$ is contained in a splitting field for $x^{p^n}-x$, but since we know the splitting field for such a polynomial is of order $p^n$ and $|\F| = p^n$, we have that $\F$ is a splitting field for the polynomial. Since splitting fields are unique up to isomorphism, this shows the existence and uniqueness up to isomorphism of finite fields of order $p^n$.
+\end{eg}
+
+\begin{prop}
+    Let $p(x)$ be an irreducible polynomial over a field $\F$ of characteristic $p$. Then there is a unique integer $k\geq 0$ and a unique irreducible separable polynomial $p_{sep}(x) \in \F[x]$ such that \begin{equation*}
+        p(x) = p_{sep}(x^{p^k})
+    \end{equation*}
+\end{prop}
+
+
+\begin{defn}
+    Let $p(x)$ be an irreducible polynomial over a field of characteristic $p$. The degree of $p_{sep}(x)$ in the last proposition is called the \Emph{separable degree} of $p(x)$, denoted $\text{deg}_sp(x)$. The integer $p^k$ in the proposition is called the \Emph{inseparable degree} of $p(x)$, denoted $\text{deg}_ip(x)$.
+\end{defn}
+
+From this we observe that $p(x)$ is separable if and only if its inseparable degree is $1$ if and only if its separable degree is equal to its actual degree. Computing degrees in the equation $p(x) = p_{sep}(x^{p^k})$ gives \begin{equation*}
+    \text{deg}p(x) = \text{deg}_sp(x)\text{deg}_ip(x)
+\end{equation*}
+
+
+\begin{defn}
+    The field $K$ is said to be \Emph{separable} (or \Emph{separably algebraic}) over $F$ if every element of $K$ is the root of a separable polynomial over $F$ (equivalently, the minimal polynomial over $F$ of every element of $K$ is separable). A field which is not separable is \Emph{inseparable}.
+\end{defn}
+
+The separability of finite extensions of perfect fields is immediate since for these fields the minimal polynomial of an algebraic element is irreducible and hence separable.
+
+\begin{cor}
+    Every finite extension of a perfect field is separable. In particular, every finite extension of either $\Q$ or a finite field is separable.
+\end{cor}
+
+
+
+\section{Cyclotomic Polynomials and Extensions}
+
+
+The purpose of this section is to prove the cyclotomic extension $\Q(\zeta_n) =\Q$ generated by the $n$th root of unity over $\Q$ is of degree $\varphi(n) = |\{1\leq a < n: \gcd(a,n) = 1\}|$. 
+
+\begin{defn}
+    Let $\mu_n$ denote the group of $n$th roots of unity over $\Q$.
+\end{defn}
+
+
+Recall that $\Z/n\Z \cong \mu_n$, with the map $a \mapsto \zeta_n^a$ for a fixed primitive $n$th root of unity. Also recall that the primitive $n$th roots of unity are precisely the residue classes prime to $n$, so there are $\varphi(n)$ primitive $n$th roots of unity.
+
+If $d$ is a divisor of $n$, and $\zeta_d$ is a $d$th root of unity, then $\zeta_d$ is also a $n$th root of unity as $\zeta^n = (\zeta^d)^{n/d}$. Thus, we have that \begin{equation*}
+    \mu_d \subseteq \mu_n, \;\;\text{ for all } d\vert n
+\end{equation*}
+
+\begin{defn}
+    Define the $n$th \Emph{cyclotomic polynomial} $\Psi_n(x)$ to be the polynomial whose roots are the primitive $n$th roots of unity: \begin{equation*}
+        \Phi_n(x) = \prod_{\zeta \text{ primitive } \in \mu_n}(x-\zeta) = \prod_{\begin{array}{cc} 1\leq a < n \\ \gcd(a,n)=1\end{array}}(x-\zeta_n^a)
+    \end{equation*}
+    (which is of degree $\varphi(n)$)
+\end{defn}
+
+The roots of $x^n - 1$ are precisely the $n$th roots of unity, so we have the factorization \begin{equation*}
+    x^n - 1 = \prod_{\zeta \in \mu_n}(x-\zeta)
+\end{equation*}
+
+If we group the factors $(x-\zeta)$ where $\zeta$ is an element of order $d$ in $\mu_n$, then we obtain \begin{equation*}
+    x^n - 1 = \prod_{d\vert n}\prod_{\zeta \text{ primitive } \in \mu_d}(x-\zeta)
+\end{equation*}
+Equivalently, we can write \begin{equation*}
+    x^n - 1 = \prod_{d\vert n}\Phi_d(x)
+\end{equation*}
+Incidentally, comparing degrees we have that \begin{equation*}
+    n = \sum_{d\vert n}\varphi(d)
+\end{equation*}
+
+
+\begin{lem}
+    The cyclotomic polynomial $\Phi_n(x)$ is a monic polynomial in $\Z[x]$ of degree $\varphi(n)$.
+\end{lem}
+\begin{proof}
+    $\Phi_n(x)$ being a product of monic polynomials is consequently monic. Moreover, by construction the degree of $\Phi_n(x)$ is $\varphi(n)$. To show coefficients lie in $\Z$ we proceed by induction on $n$. The result is immediate for $n = 1$, with $\Phi_1(x) = (x-1)$. Assume by induction that $\Phi_d(x) \in \Z[x]$ for all $1 \leq d < n$. Then $x^n - 1 = f(x)\Phi_n(x)$ where $f(x) = \prod_{d\vert n,d <n}\Phi_d(x)$ is monic and has coefficients in $\Z$ by the induction hypothesis. Since $f(x)$ divides $x^n -1$ in $F[x]$ where $F = \Q(\zeta_n)$ is the field of $n$th roots of unity and both $f(x)$ and $x^n-1$ have coefficients in $\Q$, $f(x)$ divides $x^n-1$ in $\Q[x]$ by the division algorithm. By Gauss' Lemma, $f(x)$ divides $x^n-1$ in $\Z[x]$, hence $\Phi_n(x) \in \Z[x]$.
+\end{proof}
+
+
+\begin{thm}
+    The cyclotomic polynomial $\Phi_n(x)$ is an irreducible monic polynomial in $\Z[x]$ of degree $\varphi(n)$.
+\end{thm}
+\begin{proof}
+    Suppose towards a contradiction that $\Phi_n(x) = f(x)g(x)$, with $f(x),g(x) \in \Z[x]$ monic, where we take $f(x)$ to be an irreducible factor of $\Phi_n(x)$. Let $\zeta$ be a primitive $n$th root of unity which is a root of $f(x)$ (so then $f(x)$ is the minimal polynomial for $\zeta$ over $\Q$) and let $p$ denote any prime not dividng $n$. Then $\zeta^p$ is again a primitive $n$th root of unity, hence is a root of either $f(x)$ or $g(x)$.
+
+
+    Suppose $g(\zeta^p) = 0$. Then $\zeta$ is a root of $g(x^p)$ and since $f(x)$ is the minimal polynomial for $\zeta$, $f(x)$ must divide $g(x^p)$ in $\Z[x]$, say $g(x^p) = f(x)h(x)$ for some $h(x) \in \Z[x]$. If we reduce this equation mod $p$, we obtain $\overline{g}(x^p) = \overline{f}(x)\overline{h}(x)$ in $\F_p[x]$. By the Frobenius endomorphism for finite fields we have that $\overline{g}(x^p) = (\overline{g}(x))^p$, so we have the equation $(\overline{g}(x))^p = \overline{f}(x)\overline{h}(x)$ in the U.F.D $\F_p[x]$. It follows that $\overline{f}(x)$ and $\overline{g}(x)$ have a factor in common in $\F_p[x]$. 
+
+    Now, from $\Phi_n(x) = f(x)g(x)$ we see by reducing mod $p$ that $\overline{\Phi}_n(x) = \overline{f}(x)\overline{g}(x)$, and so by the above it follows that $\overline{\Phi}_n(x) \in \F_p[x]$ has a multiple root. But then also $x^n-1$ would have a multiple root over $\F_p$ since it has $\overline{\Phi}_n(x)$ as a factor. This is a contradiction since we have seen in the last section that there are $n$ distinct roots of $x^n-1$ over any field of characteristic not dividing $n$. 
+
+    Hence $\zeta^p$ must be a root of $f(x)$. Since this applies to every root $\zeta$ of $f(x)$, it follows that $\zeta^a$ is a root of $f(x)$ for every integer $a$ relatively prime to $n$: write $a = p_1p_2...p_k$ as a product of not necessarily distinct primes not dividing $n$ so that $\zeta^{p_1}$ is a root of $f(x)$, so also $(\zeta^{p_1})^{p_2}$ is a root of $f(x)$, etc. But this implies that every primitive $n$th root of unity is a root of $f(x)$, which is to say $f(x) = \Phi_n(x)$, showing $\Phi_n(x)$ is irreducible.
+\end{proof}
+
+
+
+\begin{cor}
+    The degree over $\Q$ of the cyclotomic field of $n$th roots of unity is $\varphi(n)$: \begin{equation*}
+        [\Q(\zeta_n):\Q] = \varphi(n)
+    \end{equation*}
+\end{cor}
+
+
+
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%% - P3.Chapter 3

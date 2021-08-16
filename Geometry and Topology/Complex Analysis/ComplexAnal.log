@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.12.5)  13 AUG 2021 00:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.8.13)  15 AUG 2021 14:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1500,7 +1500,7 @@ File: fc-english.def 2016/01/12
 LaTeX Font Warning: Font shape `OT1/txr/m/scit' undefined
 (Font)              using `OT1/txr/m/it' instead on input line 44.
 
-<../../Crab.jpg, id=11, 962.09438pt x 769.37437pt>
+<../../Crab.jpg, id=103, 962.09438pt x 769.37437pt>
 File: ../../Crab.jpg Graphic file (type jpg)
 <use ../../Crab.jpg>
 Package pdftex.def Info: ../../Crab.jpg  used on input line 48.
@@ -1513,7 +1513,7 @@ LaTeX Font Info:    Font shape `OT1/txr/b/n' in size <24.88> not available
 (Font)              Font shape `OT1/txr/bx/n' tried instead on input line 53.
 
 (./ComplexAnal.toc
-LaTeX Font Info:    Font shape `OT1/txr/b/n' in size <12> not available
+LaTeX Font Info:    Font shape `OT1/txr/b/n' in size <14.4> not available
 (Font)              Font shape `OT1/txr/bx/n' tried instead on input line 1.
 LaTeX Font Info:    Trying to load font information for U+txsya on input line 1
 .
@@ -1543,7 +1543,10 @@ LaTeX Font Info:    Trying to load font information for U+txsyc on input line 1
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsyc.fd
 File: utxsyc.fd 2000/12/15 v3.1
-))
+)
+LaTeX Font Info:    Font shape `OT1/txr/b/n' in size <12> not available
+(Font)              Font shape `OT1/txr/bx/n' tried instead on input line 2.
+)
 \tf@toc=\write5
 \openout5 = `ComplexAnal.toc'.
 
@@ -1556,89 +1559,105 @@ l.57 \part
 
 ]
 Chapter 1.
-[3
+LaTeX Font Info:    Font shape `OT1/txr/b/n' in size <20> not available
+(Font)              Font shape `OT1/txr/bx/n' tried instead on input line 66.
+LaTeX Font Info:    Font shape `OT1/txr/b/sl' in size <12> not available
+(Font)              Font shape `OT1/txr/bx/sl' tried instead on input line 83.
+LaTeX Font Info:    Trying to load font information for TS1+txr on input line 8
+8.
+(/usr/share/texlive/texmf-dist/tex/latex/txfonts/ts1txr.fd
+File: ts1txr.fd 2000/12/15 v3.1
+) [3
 
-]
+] [4] [5]
+[6]
+LaTeX Font Info:    Font shape `OT1/txr/b/it' in size <12> not available
+(Font)              Font shape `OT1/txr/bx/it' tried instead on input line 298.
+
+ [7] [8] [9] [10] [11]
 Chapter 2.
-[4
+[12
 
 ]
 Chapter 3.
-[5
+[13
 
 ]
 Chapter 4.
-[6
-
-]
-Chapter 5.
-[7
-
-]
-Chapter 6.
-[8
-
-]
-Chapter 7.
-[9
-
-] [10
-
-]
-Chapter 8.
-[11
-
-]
-Chapter 9.
-[12
-
-] [13
-
-]
-Chapter 10.
 [14
 
 ]
-Chapter 11.
+Chapter 5.
 [15
 
-] [16
+]
+Chapter 6.
+[16
+
+]
+Chapter 7.
+[17
+
+] [18
+
+]
+Chapter 8.
+[19
+
+]
+Chapter 9.
+[20
+
+] [21
+
+]
+Chapter 10.
+[22
+
+]
+Chapter 11.
+[23
+
+] [24
 
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 141.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 141.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 553.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 553.
  (./ComplexAnal.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 141.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 141.
-
-
-Package rerunfilecheck Warning: File `ComplexAnal.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `ComplexAnal.out':
-(rerunfilecheck)             Before: D6065ED4F0A7DF3D0225E85B76B37CD7;46
-(rerunfilecheck)             After:  E54F8E118FCA9C91B50E2A5DEEEA1CF3;917.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 141.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 553.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 553.
+Package rerunfilecheck Info: File `ComplexAnal.out' has not changed.
+(rerunfilecheck)             Checksum: 0E3B7F588AAF8AD242DC820FDE8BDFEC;1547.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 553.
  ) 
 Here is how much of TeX's memory you used:
- 24225 strings out of 481239
- 444737 string characters out of 5920377
- 727196 words of memory out of 5000000
- 38919 multiletter control sequences out of 15000+600000
- 559103 words of font info for 88 fonts, out of 8000000 for 9000
+ 24491 strings out of 481239
+ 448656 string characters out of 5920377
+ 736317 words of memory out of 5000000
+ 39101 multiletter control sequences out of 15000+600000
+ 595993 words of font info for 174 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 76i,7n,84p,1054b,382s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 76i,12n,84p,1054b,665s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/txfonts/rtxsc.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
-rw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8
-a.pfb>
-Output written on ComplexAnal.pdf (17 pages, 510866 bytes).
+e/texmf-dist/fonts/type1/public/mathabx-type1/matha12.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/mathabx-type1/matha6.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/mathabx-type1/matha8.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/mathabx-type1/mathx10.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/rsfs/rsfs10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/txfonts/rtcxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfont
+s/rtxmi.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxsc.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsya.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/txfonts/txsyb.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/txfonts/txsyc.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/
+times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on ComplexAnal.pdf (25 pages, 610640 bytes).
 PDF statistics:
- 127 PDF objects out of 1000 (max. 8388607)
- 101 compressed objects within 2 object streams
- 32 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 356 PDF objects out of 1000 (max. 8388607)
+ 307 compressed objects within 4 object streams
+ 80 named destinations out of 1000 (max. 500000)
+ 210 words of extra memory for PDF output out of 10000 (max. 10000000)
 
