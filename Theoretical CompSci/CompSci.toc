@@ -14,9 +14,15 @@
 \contentsline {chapter}{\numberline {4}Curve-fitting and Optimization}{11}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Least Squares}{11}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Finite Differences}{12}{section.4.2}%
-\contentsline {chapter}{Appendices}{13}{section*.1}%
-\contentsline {section}{\numberline {.1}Lambda Functions}{14}{section.1..1}%
-\contentsline {section}{\numberline {.2}List Comprehension}{14}{section.1..2}%
-\contentsline {section}{\numberline {.3}ODE-int Solve}{14}{section.1..3}%
-\contentsline {chapter}{Appendices}{15}{section*.2}%
+\contentsline {part}{II\hspace {1em}Computability}{13}{part.2}%
+\contentsline {chapter}{\numberline {5}Automata and Languages}{14}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Finite Automata}{14}{section.5.1}%
+\contentsline {chapter}{Appendices}{16}{section*.1}%
+\contentsline {section}{\numberline {.1}Lambda Functions}{17}{section.1..1}%
+\contentsline {section}{\numberline {.2}List Comprehension}{17}{section.1..2}%
+\contentsline {section}{\numberline {.3}ODE-int Solve}{17}{section.1..3}%
+\contentsline {section}{\numberline {.4}Big-O Notation}{17}{section.1..4}%
+\contentsline {section}{\numberline {.5}Graphs Basics}{18}{section.1..5}%
+\contentsline {section}{\numberline {.6}Strings and Languages Basics}{19}{section.1..6}%
+\contentsline {chapter}{Appendices}{21}{section*.2}%
 \contentsfinish 

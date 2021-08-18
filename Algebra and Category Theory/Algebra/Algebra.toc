@@ -90,21 +90,23 @@
 \contentsline {section}{\numberline {17.5}\textsection Separable and Inseparable Extensions}{149}{section.17.5}%
 \contentsline {section}{\numberline {17.6}Cyclotomic Polynomials and Extensions}{153}{section.17.6}%
 \contentsline {chapter}{\numberline {18}\textsection \textsection Galois Theory}{155}{chapter.18}%
-\contentsline {part}{IV\hspace {1em}Modules}{156}{part.4}%
-\contentsline {chapter}{\numberline {19}\textsection \textsection General Definitions and Examples}{157}{chapter.19}%
-\contentsline {section}{\numberline {19.1}\textsection Basic Definitions and Examples: Modules}{157}{section.19.1}%
-\contentsline {section}{\numberline {19.2}\textsection Module Homomorphisms}{161}{section.19.2}%
-\contentsline {subsection}{\textsection Isomorphism Theorems for Modules}{165}{defn.19.2.4}%
-\contentsline {subsection}{\textsection Evaluation Bijections}{167}{namthm.32}%
-\contentsline {section}{\numberline {19.3}\textsection Submodules}{168}{section.19.3}%
-\contentsline {section}{\numberline {19.4}\textsection Free Modules and Generators}{168}{section.19.4}%
-\contentsline {chapter}{\numberline {20}\textsection \textsection Linear Transformations}{172}{chapter.20}%
-\contentsline {chapter}{\numberline {21}\textsection \textsection Matrix Theory for Free Modules}{173}{chapter.21}%
-\contentsline {chapter}{\numberline {22}\textsection \textsection Modules over PIDs}{174}{chapter.22}%
-\contentsline {chapter}{\numberline {23}\textsection \textsection Tensor Products}{175}{chapter.23}%
-\contentsline {section}{\numberline {23.1}\textsection Module Tensor Products}{175}{section.23.1}%
-\contentsline {subsection}{Motivation/Special Case}{175}{section*.1}%
-\contentsline {subsection}{General Construction}{178}{thm.23.1.2}%
-\contentsline {chapter}{Appendices}{186}{section*.2}%
-\contentsline {section}{\numberline {.1}\textsection Semi-Groups and Monoids}{187}{section.1..1}%
+\contentsline {section}{\numberline {18.1}\textsection Basics Definitions and Examples: Galois Theory}{155}{section.18.1}%
+\contentsline {subsection}{The Galois Correspondence}{157}{defn.18.1.3}%
+\contentsline {part}{IV\hspace {1em}Modules}{161}{part.4}%
+\contentsline {chapter}{\numberline {19}\textsection \textsection General Definitions and Examples}{162}{chapter.19}%
+\contentsline {section}{\numberline {19.1}\textsection Basic Definitions and Examples: Modules}{162}{section.19.1}%
+\contentsline {section}{\numberline {19.2}\textsection Module Homomorphisms}{166}{section.19.2}%
+\contentsline {subsection}{\textsection Isomorphism Theorems for Modules}{170}{defn.19.2.4}%
+\contentsline {subsection}{\textsection Evaluation Bijections}{172}{namthm.32}%
+\contentsline {section}{\numberline {19.3}\textsection Submodules}{173}{section.19.3}%
+\contentsline {section}{\numberline {19.4}\textsection Free Modules and Generators}{173}{section.19.4}%
+\contentsline {chapter}{\numberline {20}\textsection \textsection Linear Transformations}{177}{chapter.20}%
+\contentsline {chapter}{\numberline {21}\textsection \textsection Matrix Theory for Free Modules}{178}{chapter.21}%
+\contentsline {chapter}{\numberline {22}\textsection \textsection Modules over PIDs}{179}{chapter.22}%
+\contentsline {chapter}{\numberline {23}\textsection \textsection Tensor Products}{180}{chapter.23}%
+\contentsline {section}{\numberline {23.1}\textsection Module Tensor Products}{180}{section.23.1}%
+\contentsline {subsection}{Motivation/Special Case}{180}{section*.1}%
+\contentsline {subsection}{General Construction}{183}{thm.23.1.2}%
+\contentsline {chapter}{Appendices}{191}{section*.2}%
+\contentsline {section}{\numberline {.1}\textsection Semi-Groups and Monoids}{192}{section.1..1}%
 \contentsfinish 

@@ -89,20 +89,22 @@
 \BOOKMARK [1][-]{section.17.5}{\247Separable and Inseparable Extensions}{chapter.17}% 89
 \BOOKMARK [1][-]{section.17.6}{Cyclotomic Polynomials and Extensions}{chapter.17}% 90
 \BOOKMARK [0][-]{chapter.18}{\247\247Galois Theory}{part.3}% 91
-\BOOKMARK [-1][-]{part.4}{IV Modules}{}% 92
-\BOOKMARK [0][-]{chapter.19}{\247\247General Definitions and Examples}{part.4}% 93
-\BOOKMARK [1][-]{section.19.1}{\247Basic Definitions and Examples: Modules}{chapter.19}% 94
-\BOOKMARK [1][-]{section.19.2}{\247Module Homomorphisms}{chapter.19}% 95
-\BOOKMARK [2][-]{defn.19.2.4}{\247Isomorphism Theorems for Modules}{section.19.2}% 96
-\BOOKMARK [2][-]{namthm.32}{\247Evaluation Bijections}{section.19.2}% 97
-\BOOKMARK [1][-]{section.19.3}{\247Submodules}{chapter.19}% 98
-\BOOKMARK [1][-]{section.19.4}{\247Free Modules and Generators}{chapter.19}% 99
-\BOOKMARK [0][-]{chapter.20}{\247\247Linear Transformations}{part.4}% 100
-\BOOKMARK [0][-]{chapter.21}{\247\247Matrix Theory for Free Modules}{part.4}% 101
-\BOOKMARK [0][-]{chapter.22}{\247\247Modules over PIDs}{part.4}% 102
-\BOOKMARK [0][-]{chapter.23}{\247\247Tensor Products}{part.4}% 103
-\BOOKMARK [1][-]{section.23.1}{\247Module Tensor Products}{chapter.23}% 104
-\BOOKMARK [2][-]{section*.1}{Motivation/Special Case}{section.23.1}% 105
-\BOOKMARK [2][-]{thm.23.1.2}{General Construction}{section.23.1}% 106
-\BOOKMARK [0][-]{section*.2}{Appendices}{part.4}% 107
-\BOOKMARK [1][-]{section.1..1}{\247Semi-Groups and Monoids}{section*.2}% 108
+\BOOKMARK [1][-]{section.18.1}{\247Basics Definitions and Examples: Galois Theory}{chapter.18}% 92
+\BOOKMARK [2][-]{defn.18.1.3}{The Galois Correspondence}{section.18.1}% 93
+\BOOKMARK [-1][-]{part.4}{IV Modules}{}% 94
+\BOOKMARK [0][-]{chapter.19}{\247\247General Definitions and Examples}{part.4}% 95
+\BOOKMARK [1][-]{section.19.1}{\247Basic Definitions and Examples: Modules}{chapter.19}% 96
+\BOOKMARK [1][-]{section.19.2}{\247Module Homomorphisms}{chapter.19}% 97
+\BOOKMARK [2][-]{defn.19.2.4}{\247Isomorphism Theorems for Modules}{section.19.2}% 98
+\BOOKMARK [2][-]{namthm.32}{\247Evaluation Bijections}{section.19.2}% 99
+\BOOKMARK [1][-]{section.19.3}{\247Submodules}{chapter.19}% 100
+\BOOKMARK [1][-]{section.19.4}{\247Free Modules and Generators}{chapter.19}% 101
+\BOOKMARK [0][-]{chapter.20}{\247\247Linear Transformations}{part.4}% 102
+\BOOKMARK [0][-]{chapter.21}{\247\247Matrix Theory for Free Modules}{part.4}% 103
+\BOOKMARK [0][-]{chapter.22}{\247\247Modules over PIDs}{part.4}% 104
+\BOOKMARK [0][-]{chapter.23}{\247\247Tensor Products}{part.4}% 105
+\BOOKMARK [1][-]{section.23.1}{\247Module Tensor Products}{chapter.23}% 106
+\BOOKMARK [2][-]{section*.1}{Motivation/Special Case}{section.23.1}% 107
+\BOOKMARK [2][-]{thm.23.1.2}{General Construction}{section.23.1}% 108
+\BOOKMARK [0][-]{section*.2}{Appendices}{part.4}% 109
+\BOOKMARK [1][-]{section.1..1}{\247Semi-Groups and Monoids}{section*.2}% 110

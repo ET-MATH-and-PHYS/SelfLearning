@@ -55,7 +55,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Part 1.
 \part{Comp Phys 381}
 
-%%%%%%%%%%%%%%%%%%%%%%% - Chapter 1
+%%%%%%%%%%%%%%%%%%%%%%% - Chapter 1.1
 \chapter{Root Finding Methods}
 
 
@@ -97,7 +97,7 @@
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%% - Chapter 2
+%%%%%%%%%%%%%%%%%%%%%%% - Chapter 1.2
 \chapter{Non-Linear ODEs}
 
 \begin{rmk}
@@ -197,7 +197,7 @@
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%% - Chapter 3
+%%%%%%%%%%%%%%%%%%%%%%% - Chapter 1.3
 \chapter{Numerical Fourier Analysis}
 
 
@@ -298,7 +298,7 @@
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%% - Chapter 4
+%%%%%%%%%%%%%%%%%%%%%%% - Chapter 1.4
 \chapter{Curve-fitting and Optimization}
 
 
@@ -377,6 +377,114 @@
 
 
 
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Part 3.
+\part{Computability}
+
+%%%%%%%%%%%%%%%%%%%%%%% - Chapter 3.1
+\chapter{Automata and Languages}
+
+
+\section{Finite Automata}
+
+In general, finite automata are good models for computers with an extremely limited amount of memory. Finite automata and their probabilistic counterpart \Emph{Markov chains} are useful tools when we are attempting to recognize patterns in data. 
+
+A \Emph{state diagram} of a finite automaton $M_1$ is a diagram with several states and labeled arrows depicting transitions between states.
+\begin{center}
+    \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,288); %set diagram left start at 0, and has height of 288
+
+%Flowchart: Connector [id:dp6087132957460275] 
+\draw   (113.78,137.33) .. controls (113.78,123.16) and (125.05,111.67) .. (138.94,111.67) .. controls (152.84,111.67) and (164.11,123.16) .. (164.11,137.33) .. controls (164.11,151.51) and (152.84,163) .. (138.94,163) .. controls (125.05,163) and (113.78,151.51) .. (113.78,137.33) -- cycle ;
+%Flowchart: Connector [id:dp7390461236495558] 
+\draw   (229.78,137.33) .. controls (229.78,123.16) and (241.05,111.67) .. (254.94,111.67) .. controls (268.84,111.67) and (280.11,123.16) .. (280.11,137.33) .. controls (280.11,151.51) and (268.84,163) .. (254.94,163) .. controls (241.05,163) and (229.78,151.51) .. (229.78,137.33) -- cycle ;
+%Flowchart: Connector [id:dp8773846520603694] 
+\draw   (333.11,135.33) .. controls (333.11,121.16) and (344.38,109.67) .. (358.28,109.67) .. controls (372.18,109.67) and (383.44,121.16) .. (383.44,135.33) .. controls (383.44,149.51) and (372.18,161) .. (358.28,161) .. controls (344.38,161) and (333.11,149.51) .. (333.11,135.33) -- cycle ;
+%Flowchart: Connector [id:dp9560904959564065] 
+\draw   (232.44,137.33) .. controls (232.44,125) and (242.52,115) .. (254.94,115) .. controls (267.37,115) and (277.44,125) .. (277.44,137.33) .. controls (277.44,149.67) and (267.37,159.67) .. (254.94,159.67) .. controls (242.52,159.67) and (232.44,149.67) .. (232.44,137.33) -- cycle ;
+%Straight Lines [id:da8063038689848527] 
+\draw    (50.78,135.67) -- (106.78,136.31) ;
+\draw [shift={(108.78,136.33)}, rotate = 180.66] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Curve Lines [id:da7380519374583219] 
+\draw    (121.44,118.33) .. controls (124.74,80.71) and (155.49,73.15) .. (156.75,119.58) ;
+\draw [shift={(156.78,121)}, rotate = 269.2] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Curve Lines [id:da1257198526259986] 
+\draw    (164.11,137.33) .. controls (183.61,112.31) and (211.98,118.65) .. (228.53,135.98) ;
+\draw [shift={(229.78,137.33)}, rotate = 228.3] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Curve Lines [id:da4075876046436395] 
+\draw    (280.11,137.33) .. controls (299.61,112.31) and (315.94,116.75) .. (331.89,133.98) ;
+\draw [shift={(333.11,135.33)}, rotate = 228.3] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Curve Lines [id:da23711215049537637] 
+\draw    (281.34,138.95) .. controls (294.88,156.12) and (317.92,162.93) .. (333.44,139) ;
+\draw [shift={(280.11,137.33)}, rotate = 53.97] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Curve Lines [id:da22457745027273757] 
+\draw    (237.44,118.33) .. controls (240.74,80.71) and (270.18,69.88) .. (271.42,116.24) ;
+\draw [shift={(271.44,117.67)}, rotate = 269.2] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+% Text Node
+\draw (133.11,130.4) node [anchor=north west][inner sep=0.75pt]    {$q_{1}$};
+% Text Node
+\draw (248.44,129.07) node [anchor=north west][inner sep=0.75pt]    {$q_{2}$};
+% Text Node
+\draw (352.44,125.73) node [anchor=north west][inner sep=0.75pt]    {$q_{3}$};
+% Text Node
+\draw (136.44,74.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$0$};
+% Text Node
+\draw (190.44,109.73) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$1$};
+% Text Node
+\draw (301.11,107.73) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$0$};
+% Text Node
+\draw (300.44,157.73) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$0,1$};
+% Text Node
+\draw (251.11,71.07) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$1$};
+
+
+\end{tikzpicture}
+\end{center}
+
+The \Emph{start state} is indicated by an arrow pointing at it from nowhere. The \Emph{accept state} is the one with a double circle, and the arrows going from one state to another are called \Emph{transitions}.
+
+A finite automaton consists of a set of states and rules for going between states depending on the input symbol; an input alphabet that indicates the allowed input symbols; a start state and a set of accept states; and a \Emph{transition function}, $\delta$, which takes in a state and an input symbol and outputs another state: $\delta(state_1,input)= state_2$. Formally, we have 
+
+\begin{defn}
+    A \Emph{finite automaton} is a 5-tuple $(Q,\sum,\delta,q_0,F)$, where \begin{enumerate}
+        \item $Q$ is a finite set called the \Emph{states}
+        \item $\sum$ is a finite set called the \Emph{alphabet}
+        \item $\delta:Q\times \sum\rightarrow Q$ is the \Emph{transition function}
+        \item $q_0 \in Q$ is the \Emph{start state}, and 
+        \item $F \subseteq Q$ is the \Emph{set of accept states}
+    \end{enumerate}
+\end{defn}
+
+If $A$ is the set of all strings that machine $M$ accepts, we say that $A$ is the \Emph{language of machine $M$} and write $L(M) = A$. We say that \Emph{$M$ recognizes $A$} or that \Emph{$M$ accepts $A$}.
+
+A machine may accept several strings, but it always recognizes only one language. 
+
+Let $M = (Q,\sum,\delta, q_0, F)$ be a finite automaton and let $w = w_1w_2...w_n$ be a string where each $w_i$ is a member of the alphabet $\sum$. Then $M$ \Emph{accepts} $w$ if a sequence of states $r_0,r_1,...,r_n$ in $Q$ exists satisfying three conditions: \begin{enumerate}
+    \item $r_0 = q_0$
+    \item $\delta(r_i,w_{i+1}) = r_{i+1}$, for $i = 0,...,n-1$
+    \item $r_n \in F$.
+\end{enumerate}
+
+We say that \Emph{$M$ recognizes language $A$} if $A = \{w\vert M\;\text{ accepts }\; w\}$.
+
+\begin{defn}
+    A language is called a \Emph{regular language} if some finite automaton recognizes it.
+\end{defn}
+
+
+
+
+
+
+
+
 \begin{appendices}
         \section{Lambda Functions}
 
@@ -403,6 +511,119 @@
                 \end{equation}
                 where $y0$ is an initial state vector.
         \end{defn}
+
+        
+        \section{Big-O Notation}
+
+        The number of steps that an algorithm uses on a particular input may depend on several parameters. For simplicity, we compute the running time of an algorithm purely as a function of the lenggth of the string representing the input and don't consider any other parameters. In \Emph{worst-case analysis}, the form we consider here, we consider the longest running time of all inputs of a particular length. In \Emph{average-caes analysis}, we consider the average of all the running times of inputs of a particular length.
+
+        \begin{defn}
+            Let $M$ be a deterministic Turing machine that halts on all inputs. The \Emph{running time} or \Emph{time complexity} of $M$ is the function $f:\N\rightarrow \N$, where $f(n)$ is the maximum number of steps that $M$ uses on any input of length $n$. If $f(n)$ is the running time of $M$, we say that $M$ runs in time $f(n)$ and that $M$ is an $f(n)$ time Turing machine. Customarily we use $n$ to represent the length of the input.
+        \end{defn}
+
+        Because the exact running time of an algorithm often is a complex expression, we usually estimate it. In \Emph{asymptotic analysis}, we consider only the highest order term of the expression for the running time of the algorithm to understand the running time when the algorithm is run on large inputs. This is commonly known as \Emph{big-O notation}. 
+
+        \begin{eg}
+            Suppose our computational time is given by $f(n) = 6n^3 + 2n^2+20n+45$. Then we describe the asymptotic analysis of this relationship by $f(n) = O(n^3)$.
+        \end{eg}
+
+        \begin{defn}
+            Let $f,g:\N\rightarrow\R^+$ be functions. Say that $f(n) = O(g(n))$ if positive integers $c$ and $n_0$ exist such that for every integer $n \geq n_0$, \begin{equation*}
+                f(n) \leq cg(n)
+            \end{equation*}
+            When $f(n) = O(g(n))$, we say that $g(n)$ is an \Emph{upper bound} for $f(n)$, or more precisely, that $g(n)$ is an \Emph{asymptotic upper bound} for $f(n)$.
+        \end{defn}
+
+        $O$ can be thought of as representing a suppressed constant. big-$O$ interacts with logarithms in a particular way. Note that we have the relation $\log_bn = \log_cn/\log_cb$, where $\log_cb$ is a constant factor, so we write $f(n) = O(\log n)$ since the specifying the base amounts to choosing a constant factor which is hence suppressed in big-$O$ notation.
+
+        The expression $f(n) = 2^{O(n)}$ represents an upper bound of $2^{cn}$ for some constant $c$. The expression $f(n) = 2^{O(\log n)}$, with the identity $n = 2^{\log_2n}$, and thus $n^c = 2^{c\log_2n}$, represents an upper bound of $n^c$ for some constant $c$. The expression $n^{O(1)}$ represents the same bound because the expression $O(1)$ represents a value that is never more than a fixed constant.
+
+        Bounds of the form $n^c$ for $c > 0$ are called \Emph{polynomial bounds}. Bounds of the form $2^{(n^{\delta})}$ are called \Emph{exponential bounds} when $\delta > 0$.
+
+
+        Big-$O$ notation says that one function is asymptotically no more than another. To say that one function is asymptotically less than another we use small-$o$ notation ($<$ instead of $\leq$).
+
+        \begin{defn}
+            Let $f,g:\N\rightarrow \R^+$ be functions. Say that $f(n) = o(g(n))$ if \begin{equation*}
+                \lim\limits_{n\rightarrow \infty}\frac{f(n)}{g(n)} = 0
+            \end{equation*}
+            In other words, $f(n) = o(g(n))$ means that for any real numebr $c > 0$, a number $n_0$ exists where $f(n) < cg(n)$ for all $n \geq n_0$.
+        \end{defn}
+
+
+
+        \section{Graphs Basics}
+
+        \begin{defn}
+            An \Emph{undirected graph}, or simply a graph, is a set of points with lines connecting some of the points. The points are called \Emph{nodes} or \Emph{vertices}, and the lines are called \Emph{edges}.
+        \end{defn}
+
+
+        \begin{defn}
+            The number of edges at a particular node of a graph is the \Emph{degree} of that node.
+        \end{defn}
+
+        No more than one edge is allowed between any two nodes, but we may allow an edge from a node to itself, called a \Emph{self-loop}.
+
+        When we label the nodes and/or edges of a graph, we often call the result a \Emph{labeled graph}. 
+
+        \begin{defn}
+            We say that a graph $G$ is a \Emph{subgraph} of a graph $H$ if the nodes of $G$ are a subset of the nodes of $H$, and the edges of $G$ are the edges of $H$ on the corresponding nodes.
+        \end{defn}
+
+        \begin{defn}
+            A \Emph{path} in a graph is a sequence of nodes connected by edges. A \Emph{simple path} is a path that doesn't repeat any nodes.
+        \end{defn}
+
+        \begin{defn}
+            A graph is \Emph{connected} if every two nodes have a path between them.
+        \end{defn}
+
+        \begin{defn}
+            A path is a \Emph{cycle} if it starts and ends in the same node. A \Emph{simple cycle} is one that contains at least three nodes and repeats only the first and last nodes.
+        \end{defn}
+
+    
+        \begin{defn}
+            A graph is a \Emph{tree} if it is connected has no simple cycles. A tree may contain a specially designated node called the \Emph{root}. The nodes of degree $1$ in a tree, other than the root, are called the \Emph{leaves} of the tree.
+        \end{defn}
+
+        \begin{defn}
+            A \Emph{directed graph} has arrows instead of lines. That is, instead of unordered pairs $\{i,j\}$ to represent edges, we use ordered pairs $(i,j)$ to represent the arrow from $i$ to $j$.
+        \end{defn}
+
+        \begin{defn}
+            The number of arrows pointing from a particular node in a directed graph is the \Emph{outdegree} of that node, and the number of arrows pointing to a particular node is the \Emph{indegree}.
+        \end{defn}
+
+        \begin{defn}
+            A path in which all the arrows point in the same direction as its steps is called a \Emph{directed path}. 
+        \end{defn}
+
+
+        \begin{defn}
+            A directed graph is \Emph{strongly connected} if a directed path connects every two nodes.
+        \end{defn}
+
+
+
+        \section{Strings and Languages Basics}
+
+        We define an \Emph{alphabet} to be any nonempty finite set. The members of the akphabet are the \Emph{symbols} of the alphabet. A \Emph{string over an alphabet} is a finite sequence of symbols from that alphabet, usually written next to one another and not separated by commas. 
+
+        If $w$ is a string over an alphabet $\sum$, the \Emph{length} of $w$. $|w|$, is the number of symbols that it contains. The string of length zero is called the \Emph{empty string} and is denoted by $\varepsilon$. If $w$ is of length $n$, we can write $w = w_1w_2...w_n$ for $w_i \in \sum$. The \Emph{reverse} of $w$, written $w^{\mathcal{R}}$, is the string obtained by writing $w$ in the opposite order (i.e. $w_nw_{n-1}...w_1$). String $z$ is a \Emph{substring} of $w$ if $z$ appears consecutively within $w$.
+
+        If we have a string $x$ of length $m$ and a string $y$ of length $n$, the \Emph{concatenation} of $x$ and $y$, written $xy$, is the string obtained by appending $y$ to the end of $x$, as in $x_1...x_my_1...y_n$. We write $x^k$ to denote the concatenation of a string with itself $k$ times.
+
+
+        The \Emph{lexicographic order} of strings is the usual dictionary order. The \Emph{shortlex} or \Emph{string order} is identical to the lexicographic order, except that shorter strings precede longer strings.
+
+        We say that string $x$ is a \Emph{prefix} of a string $y$ if a string $z$ exists where $y = xz$, and that $x$ is a \Emph{proper prefix} of $y$ if in addition $x \neq y$. A \Emph{language} is a set of strings. A language is \Emph{prefix-free} if no member is a proper prefix of another member.
+
+
+
+
+
 \end{appendices}
 
 

@@ -887,7 +887,7 @@ where the matrix on the right, $R$, is orthogonal ($RR^T = I$), and the term in 
     $f'(z_0) \neq 0$ if and only if $\det(J_f(z_0)) \neq 0$, for $f$ complex differentiable at $z_0$. 
 \end{thm}
 
-\begin{thm}
+\begin{thm}[Complex Inverse Function Theorem]\label{thm:invfunc}
     Of $f(z)$ is analytic on a domain $D$, $z_0 \in D$, and $f'(z_0) \neq 0$. Then there exists $\varepsilon > 0$ such that $D_{\varepsilon}(z_0) \subseteq D$ such that $f\vert_{D_{\varepsilon}(z_0)}$ is injective, the image $V = f(D_{\varepsilon}(z_0))$ is open and the inverse function $f^{-1}:V\rightarrow U$ is analytic and satisfies \begin{equation*}
         (f^{-1})'(f(z)) = 1/f'(z)\;\;\;\text{ for } z \in D_{\varepsilon}(z_0)
     \end{equation*}
@@ -909,12 +909,254 @@ where the matrix on the right, $R$, is orthogonal ($RR^T = I$), and the term in 
 
 
 
+%%%%%%%%%%%%%%%%%%%% Section 1.2.5
+\section{Harmonic Functions}
+
+\begin{defn}
+    If $u:V\subseteq \R^2\rightarrow \R$ and $\nabla\cdot \nabla u = 0$, then $u$ is said to be \Emph{harmonic} on $V$. \begin{itemize}
+        \item For $n = 2$: $u_{xx} + u_{yy} = 0$.
+    \end{itemize}
+\end{defn}
+
+If $f'(z) = u_x + iv_x = v_y - iu_y$ over some domain $D$, it's then true that $z \mapsto f'(z)$ is continuous. In contrast, for $f(x,y) = (x|x|,0)$, $J_f = \begin{bmatrix} 2|x|  & 0 \\ 0 & 0 \end{bmatrix}$, but $\frac{\partial^2 f}{\partial x^2}$ does not exist at $(0,0)$, and hence is not continuous there.
+
+\begin{thm}
+    If $f= u+iv$ is \Emph{holomorphic} on a domain $D$, then $u$ and $v$ are \Emph{harmonic}.
+\end{thm}
+\begin{proof}
+    Asumme $f'(z)$ exists for $z \in D$, then $z \mapsto f'(z)$ is continuous. Then (as we will prove later) $u_{xx},v_{xx},u_{xy},v_{xy}$ exist and are continuous. By the Cauchy Riemman equations we have that $\partial_xu = \partial_yv$ and $\partial_yu = -\partial_xv$. Differentiating with respect to $x$ and with respect to $y$ gives $\partial_x^2u = \partial_x\partial_yv$ and $\partial_y^2u = -\partial_y\partial_xv$. Then since the second partials are continuous we have by Clairout's Theorem that \begin{equation*}
+        \partial_x^2u+\partial_y^2u = \partial_x\partial_yv - \partial_y\partial_xv = 0
+    \end{equation*}
+    Hence $u$ is harmonic. A similar argument shows $v$ is harmonic as well. Alternatively, to argue that $v$ is harmonic, we note that if $f=u+iv$ is holomorphic, then $-if = -iu+v$ is also holomorphic, so as $v$ is the real part of this function so by the previous argument $v$ is harmonic.
+\end{proof}
+
+
+\begin{defn}
+    If $u$ is harmonic and $f = u+iv$ is holomorphic, then $v$ is a \Emph{harmonic conjugate}.
+\end{defn}
+
+
+
+\begin{xca}
+    Given a function $u(x,y) = $ something, is $u$ harmonic and if so, find its \Emph{harmonic conjugate}.
+\end{xca}
+
+
+\begin{eg}
+    Consider $u(x,y) = e^{2x}\cos(2y)$. Then $u_{xx} = 4u$, and $u_{yy} = -4u$, so $u_{xx}+u_{yy} = 0$ and $u$ is harmonic on its domain, $\C$. We want to solve $u_x = v_y$ and $u_y = -v_x$. Observe that $v_y = 2e^{2x}\cos(2y)$, so $v = e^{2x}\sin(2y)+C(x)$ for some function of $x$, $C(x)$. Similarly, $v_x = 2e^{2x}\sin(2y)$, so $v = e^{2x}\sin(2y) + C(y)$ for some function of $y$. Thus, $v = e^{2x}\sin(2y)$ is \emph{a} complex conjugate of $u = e^{2x}\cos(2y)$. (In general $v = e^{2x}\sin(2y) + C$ is a family of complex conjugates of $u$). Then, observe $u+iv = e^{2x}e^{i2y} = e^{2z}$.
+\end{eg}
+
+If we look at $u(x,y) = k_1$ (level curve 1) and $v(x,y) = k_2$ (level curve 2). Assume $f = u+iv$ has $f \in \mathcal{O}(D)$. Let's consider $\nabla u \cdot \nabla v = u_xv_x+u_yv_y = -u_xu_y+u_yu_x = 0$, so the gradients of the level curves are orthogonal where they meet. 
+
+
+%%%%%%%%%%%%%%%%%%%% Section 1.2.6
+\section{Conformal Functions}
+
+
+
+
+\begin{defn}
+    A smooth complex-valued function $g(z)$ is \Emph{conformal at $z_0$} if whenever $\gamma_0, \gamma_1$ are curves terminating at $z_0$ with nonzero tangents, then the curves $g \circ \gamma_0$ and $g \circ \gamma_1$ haave nonzero tangents at $g(z_0)$ and the angle between $g\circ \gamma_0$ and $g\circ \gamma_1$ at $g(z_0)$ is the same as the angle between $\gamma_0$ and $\gamma_1$ at $z_0$. 
+\end{defn}
+
+\begin{thm}
+    If $f(z)$ is holomorphic at $z_0$ and $f'(z_0) \neq 0$ then $f(z)$ is conformal at $z = z_0$.
+\end{thm}
+
+
+Consequently, if $f(z)$ is holomorphic in a domain $D$, then $f$ takes orthogonal hashes to orthogonal hashes in $D$.
+
+\begin{prop}
+    If $f:D\subseteq \C\rightarrow \C$ and $f'(z_0)$ exists for $z_0 \in D$. Let $\gamma = \langle x,y\rangle:I\subseteq \R\rightarrow D$ is a smooth curve with $\gamma(t_0) = z_0$. Then \begin{equation*}
+        \frac{d}{dt}\left[f(\gamma(t))\right] = f'(\gamma(t))\frac{d\gamma}{dt}
+    \end{equation*}
+    where we have complex multiplication on the right.
+\end{prop}
+\begin{proof}
+    First, observe \begin{align*}
+        \frac{d}{dt}f(\gamma(t)) &= \frac{d}{dt}\left[u(\gamma(t)) + iv(\gamma(t))\right] \\
+        &= \frac{d}{dt}u(\gamma(t)) + i\frac{d}{dt}v(\gamma(t)) \tag{by linearity} \\
+        &= \nabla u(\gamma(t))\cdot \frac{d}{dt}\gamma(t)+i\nabla v(\gamma(t))\cdot \frac{d}{dt}\gamma(t) \\
+        &= u_xx'(t)+u_yy'(t)+i(v_xx'(t)+v_yy'(t)) \tag{for $\gamma(t) = \langle x(t),y(t)\rangle$}  \\
+        &= u_xx'(t)+u_yy'(t)+i(-u_yx'(t)+u_xy'(t)) \\
+        &= u_x(x'(t)+iy'(t))-iu_y(x'(t) + iy'(t)) \\
+        &= u_x\gamma'(t)+iv_x\gamma'(t) \\
+        &= f'(\gamma(t))\frac{d\gamma(t)}{dt}
+    \end{align*}
+\end{proof}
+Note that this is not guaranteed for non-holomorphic functions real differentiable functions. 
+
+By the inverse function theorem we also observe that the inverse map exists, is holomorphic, and hence also conformal. This shows an alternative result that when level curves intersect, they intersect at right angles.
+
+
+
+
+%%%%%%%%%%%%%%%%%%%% Section 1.2.7
+\section{Fractional Linear Transformations (FLT's)}
+
+\begin{defn}
+    A function $f:\C\rightarrow \C$ is an elementary transformation if it is of one of the following forms: \begin{itemize}
+        \item $f_1(z) = z+z_0$, for some fixed $z_0 \in \C$: translation
+        \item $f_2(z) = cz$ for some fixed $c \in \C$: dilation ($c\neq 0$)
+        \item $f_3(z) = 1/z$, for $z \neq 0$: inversion
+    \end{itemize}
+\end{defn}
+
+For a circle, $c(t) = z_0+Re^{it}$ we have $f_1(c(t)) = z_0+z_0'+Re^{it}$ (shifts the center) and $f_2(c(t)) = cz_0+cRe^{it}$ (dilates and shifts the circle). Moreover, the composition of $f_1$ and $f_2$ is something called an \Emph{affine transformation} (i.e. $f_1\circ f_2(z) = cz+d$ for $c,d \in \C$).
+
+\begin{defn}
+    A \Emph{fractional linear transformation} is a function of the form \begin{equation*}
+        f(z) = \frac{az+b}{cz+d}
+    \end{equation*}
+    where $a,b,c,d$ are complex constants satisfying $ad-bc \neq 0$. These are also called \Emph{M$\ddot{o}$bius Transformations}. Since \begin{equation*}
+        f'(z) = \frac{ad-bc}{(cz+d)^2}
+    \end{equation*}
+    the condition $ad-bc \neq 0$ simply guarantees that $f$ is not constant.
+\end{defn}
+
+
+\subsection{Extended Complex Plane}
+
+The extended complex plane corresponds to the one-point compactification of the plane. It can be viewed through the Riemman sphere and the stereographic projection, where we draw a line out of the north pole, and where the line intersects the plane and the sphere are identified. Then, the north pole is identified with $\infty$, giving $\C^* = \C\cup\{\infty\}$.
+
+\begin{thm}
+    Given any three distinct points $z_0,z_1,z_2$ in the extended complex plane, and given any three distinct values $w_0,w_1,w_2$ in the extended complex plane, there is a unique fractional linear transformation $w = w(z)$ such that $w(z_0) = w_0,w(z_1) = w_1,$ and $w(z_2) = w_2$.
+\end{thm}
+
+\begin{defn}
+    The cross ratio for the fractional linear transformation specified in the above theorem is \begin{equation*}
+        \frac{(w_1 - w)(w_3 - w_2)}{(w_1 - w_2)(w_3 - w)} = \frac{(z_1-z)(z_3-z_2)}{(z_1-z_2)(z_3-z)}
+    \end{equation*}
+\end{defn}
+
+
+\begin{defn}
+    Let $D$ be a domain, we say $f \in \mathcal{O}(D)$ is \Emph{biholomorphic} mapping of $D$ onto $D'$ if $f(D)  = D'$ and $f^{-1}:D'\rightarrow D$ is holomorphic.
+\end{defn}
+
+\begin{defn}
+    An $\varepsilon > 0$ neighborhood of infinity is defined to be \begin{equation*}
+        D_{\varepsilon}(\infty) = \{z \in \C:\frac{1}{|z|} < \varepsilon\}
+    \end{equation*}
+\end{defn}
+A neighborhood of infinity is an exterior annulus.
+
+\begin{defn}
+    For $f:D\rightarrow \C$, we say that $\lim\limits_{z\rightarrow \infty}f(z) = L$ if and only if for evey $\varepsilon > 0$, there exists $\delta > 0$ such that if $\frac{1}{\delta} < |z|$ implies $|f(z) - L| < \varepsilon$.
+\end{defn}
+
+We claim that this is equivalent to writing $\lim\limits_{z\rightarrow 0}f\left(\frac{1}{z}\right) = L$. 
+
+\begin{defn}
+    For $f:D\rightarrow \C$, we write $\lim\limits_{z\rightarrow z_0}f(z) = \infty$ if and only if for every $\varepsilon > 0$, there exists $\delta > 0$ such that if $0 < |z-z_0| < \delta$, then $|f(z)| > \frac{1}{\varepsilon}$.
+\end{defn}
+
+\begin{eg}
+    \leavevmode
+    \begin{itemize}
+        \item $\lim\limits_{z\rightarrow \infty}(1/z) = 0$
+        \item $\lim\limits_{z\rightarrow \infty}(z) = \infty$
+        \item $\lim\limits_{z\rightarrow 0}(1/z) = \infty$
+    \end{itemize}
+\end{eg}
+
+\begin{eg}
+    Observe that \begin{equation*}
+        \lim\limits_{z\rightarrow \infty}\frac{z^2+z}{3z^2+2} = \frac{1}{3}
+    \end{equation*}
+\end{eg}
+
+\begin{eg}
+    $w = \sin(z) = f(z)$. First, write $w=\sin(z) = \frac{1}{2i}(e^{iz}-e^{-iz})$ as $2iw = e^{iz}-e^{-iz}$. Then, we can write $e^{2iz}-1 = 2iwe^{iz}$, so letting $\eta = e^{iz}$, $\eta^2 - 2iw\eta -1 = 0$. Completing the square we have that $1 -w^2= (\eta-iw)^2$, so $\eta-iw = \pm \sqrt{1-w^2}$, and $e^{iz}=\eta = iw\pm\sqrt{1-w^2}$. Then, we have that \begin{equation*}
+        iz \in \log(iw\pm\sqrt{1-w^2})
+    \end{equation*}
+    If we take the branch $z = -i\text{Log}(iw\pm \sqrt{1-w^2})$
+\end{eg}
+
 
 
 
 
 %%%%%%%%%%%%%%%%%%%%%% Chapter 1.3
 \chapter{Line Integrals and Harmonic Functions}
+
+
+%%%%%%%%%%%%%%%%%%%% Section 1.3.1
+\section{Line Integrals}
+
+
+\begin{defn}
+    For a complex function $P:\C\rightarrow \C$ and a path $\gamma:[a,b]\rightarrow \C$ in $\C$, the line integral of $Pdx$ along $\gamma$ is defined by \begin{equation*}
+        \int_{\gamma}Pdx = \int_{a}^{b}P(\gamma(t))\frac{dx}{dt}dt
+    \end{equation*}
+    and the line integral of $Pdy$ along $\gamma$ is defined by \begin{equation*}
+        \int_{\gamma}Pdy = \int_{a}^{b}P(\gamma(t))\frac{dy}{dt}dt
+    \end{equation*}
+\end{defn}
+
+
+\begin{prop}
+    Suppose $P:\C\rightarrow \C$ and $Q:\C\rightarrow \C$ are complex valued functions of $\C$. Then for a path $\gamma$ defined on its way, \begin{equation*}
+        \int_{\gamma}(cP+Q)dx = c\int_{\gamma}Pdx+\int_{\gamma}Qdx
+    \end{equation*}
+    for all $c \in \C$ (and similarly for $dy$).
+\end{prop}
+
+\begin{defn}
+    For $P:\C\rightarrow \C$ and $Q:\C\rightarrow \C$ complex valued functions of $\C$, if $\gamma$ is a path in $\C$ defined in their shared domain, we define \begin{equation*}
+        \int_{\gamma}(Pdx+Qdy) = \int_{\gamma}Pdx+\int_{\gamma}Qdy
+    \end{equation*}
+\end{defn}
+
+Writing $P = P_1 + iP_2$ and $Q = Q_1+iQ_2$, we can write \begin{align*}
+    \int_{\gamma}(Pdx+Qdy) &= \int_{\gamma}(P_1+iP_2)dx + \int_{\gamma}(Q_1+iQ_2)dy \\
+    &= \int_{\gamma}(P_1dx+Q_1dy)+i\int_{\gamma}(P_2dx+Q_2dy)
+\end{align*}
+
+For $\gamma = \gamma_1\cup...\cup\gamma_n$, a piecewise smooth path, we have that \begin{equation*}
+    \int_{\gamma}(Pdx+Qdy) = \sum_{i=1}^n\int_{\gamma_i}(Pdx+Qdy)
+\end{equation*}
+
+
+For double integrals, we also have \begin{equation*}
+    \int\int_S(F+iG)dA = \int\int_SFdA + i\int\int_SGdA
+\end{equation*}
+for $F$ and $G$ real valued functions, and \begin{equation*}
+    \frac{\partial}{\partial x}(F+iG) = \frac{\partial F}{\partial x}+i\frac{\partial G}{\partial x}
+\end{equation*}
+
+\begin{thm}[Green's Theorem]
+    Let $D$ be a bounded domain in the plane whose boundary $\partial D$ consists of a finite number of disjoint piecewise smooth closed curves. Let $P$ and $Q$ be continuously differentiable functions on $D\cup \partial D$. Then \begin{equation*}
+        \int_{\partial D}(Pdx+Qdy) = \int\int_D\left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right)dxdy
+    \end{equation*}
+\end{thm}
+
+\begin{defn}
+    If $h$ is a complex valued function with continuous $h_x$ and $h_y$, then $dh = \frac{\partial h}{\partial x}dx + \frac{\partial h}{\partial y}dy$ is a \Emph{differential form}. Then we say a differential form $Pdx+Qdy = w$ is \Emph{exact} on $U \subseteq \C$ if there exists $h$ such that $dh = w$ on $U$.
+\end{defn}
+
+\begin{namthm}[Fundamental Theorem of Calculus Part I (Complex]
+    If $\gamma$ is a piecewise smooth curve from $A$ to $B$, and if $h(x,y)$ is continuously differentiable on $\gamma$, then \begin{equation*}
+        \int_{\gamma}dh = h(B) - h(A)
+    \end{equation*}
+\end{namthm}
+
+
+\begin{defn}
+    Let $P$ and $Q$ be continuous complex valued functions on a domain $D$. We say that the line integral $\int Pdx+Qdy$ is \Emph{independent of path} in $D$ if for any two points $A$ and $B$ in $D$, the integrals $\int_{\gamma}Pdx+Qdy$ are the same for any path $\gamma$ in $D$ from $A$ to $B$.
+\end{defn}
+
+\begin{lem}
+    Let $P$ and $Q$ be continuous complex valued functions on a domain $D$. Then $\int Pdx+Qdy$ is independent of path in $D$ if and only if $Pdx+Qdy$ is exact, that is, there exists a continuously differentiable function $h(x,y)$ such that $dh = Pdx+Qdy$ on $D$. Moreover, the function $h$ is unique up to adding a constant.
+\end{lem}
+
+\begin{defn}
+    Let $P$ and $Q$ be complex valued functions on some domain $D$. Then $Pdx+Qdy$ is a \Emph{closed form} if and only if $\partial_yP = \partial_xQ$.
+\end{defn}
+
+
+
+
 
 
 

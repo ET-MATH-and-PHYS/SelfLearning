@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.8.13)  15 AUG 2021 23:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.8.13)  18 AUG 2021 13:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1498,7 +1498,7 @@ File: fc-english.def 2016/01/12
 LaTeX Font Warning: Font shape `OT1/txr/m/scit' undefined
 (Font)              using `OT1/txr/m/it' instead on input line 39.
 
-<../../Crab.jpg, id=441, 962.09438pt x 769.37437pt>
+<../../Crab.jpg, id=449, 962.09438pt x 769.37437pt>
 File: ../../Crab.jpg Graphic file (type jpg)
 <use ../../Crab.jpg>
 Package pdftex.def Info: ../../Crab.jpg  used on input line 43.
@@ -1556,7 +1556,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.38 ...textsection Product Groups}{66}{chapter.7}
+l.38 ...textsection Product Groups}{64}{chapter.7}
                                                   % [1] [2])
 \tf@toc=\write5
 \openout5 = `Algebra.toc'.
@@ -1875,34 +1875,78 @@ struc-
 
 [144] [145] [146] [147] [148] [149] [150] [151] [152] [153] [154]
 Chapter 18.
+
+Overfull \hbox (10.11209pt too wide) in paragraph at lines 6065--6065
+|[]\TS1/txr/bx/n/20 §\OT1/txr/bx/n/20 Basics Def-i-ni-tions and Ex-am-ples: Ga-
+lois The-
+ []
+
 [155
 
-] [156
+] [156] [157]
+Overfull \hbox (8.10101pt too wide) in paragraph at lines 6197--6198
+[]\OT1/txr/m/n/12 Let $\OML/txmi/m/it/12 L \U/matha/m/n/12 ^^P \OML/txmi/m/it/1
+2 K\U/matha/m/n/12 p\OML/txmi/m/it/12 []; []; :::; []\U/matha/m/n/12 q$\OT1/
+txr/m/n/12 . Then for any $\OML/txmi/m/it/12 ^^[ \U/matha/m/n/12 P []p\OML/txmi
+/m/it/12 L\U/matha/m/n/12 {\OML/txmi/m/it/12 K\U/matha/m/n/12 q$ \OT1/txr/m/n/1
+2 is given by $\OML/txmi/m/it/12 ^^[\U/matha/m/n/12 p\OML/txmi/m/it/12 []\U/ma
+tha/m/n/12 q\OML/txmi/m/it/12 ; ^^[\U/matha/m/n/12 p\OML/txmi/m/it/12 []\U/mat
+ha/m/n/12 q\OML/txmi/m/it/12 ; :::; ^^[\U/matha/m/n/12 p\OML/txmi/m/it/12 []\U
+/matha/m/n/12 q$\OT1/txr/m/n/12 ,
+ []
+
+
+Overfull \hbox (11.95755pt too wide) in paragraph at lines 6207--6208
+[][]\OT1/txr/bx/n/12 Corollary 18.1.7. []\OT1/txr/m/sl/12 If $\OML/txmi/m/it/12
+ L$ \OT1/txr/m/sl/12 is a split-ting field over $\OML/txmi/m/it/12 K$ \OT1/txr/
+m/sl/12 of a poly-no-mial $\OML/txmi/m/it/12 f\U/matha/m/n/12 p\OML/txmi/m/it/1
+2 X\U/matha/m/n/12 q P \OML/txmi/m/it/12 K\U/matha/m/n/12 r\OML/txmi/m/it/12 X\
+U/matha/m/n/12 s$\OT1/txr/m/sl/12 , then $\U/matha/m/n/12 | []p\OML/txmi/m/it/1
+2 L\U/matha/m/n/12 {\OML/txmi/m/it/12 K\U/matha/m/n/12 q| ¤
+ []
+
+[158] [159]
+Overfull \hbox (15.59995pt too wide) in paragraph at lines 6302--6303
+ [] 
+ []
+
+
+Overfull \hbox (15.12158pt too wide) in paragraph at lines 6310--6312
+\OT1/txr/m/n/12 So $\U/matha/m/n/12 r\U/txsyb/m/n/12 Q\U/matha/m/n/12 p[]q \OT1
+/txr/m/n/12 : \U/txsyb/m/n/12 Q\U/matha/m/n/12 s ^^P \OT1/txr/m/n/12 4$, but $[
+]\U/matha/m/n/12 p\U/txsyb/m/n/12 Q\U/matha/m/n/12 p[]q{\U/txsyb/m/n/12 Q\U/mat
+ha/m/n/12 q ^^P t[]\OML/txmi/m/it/12 ; ^^\\U/matha/m/n/12 u$\OT1/txr/m/n/12 . H
+ow-ever, both $\U/txsyb/m/n/12 Q\U/matha/m/n/12 p[]q{\U/txsyb/m/n/12 Q$ \OT1/tx
+r/m/n/12 and $\U/txsyb/m/n/12 Q\U/matha/m/n/12 p[]q{\U/txsyb/m/n/12 Q\U/matha/m
+/n/12 p[]q$
+ []
+
+[160] [161
 
 ]
 Chapter 19.
-[157
+[162
 
-] [158] [159] [160]
+] [163] [164] [165]
 Missing character: There is no . in font nullfont!
 Missing character: There is no b in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no e in font nullfont!
- [161] [162] [163] [164] [165]
-Overfull \hbox (1.23653pt too wide) in paragraph at lines 6419--6420
+ [166] [167] [168] [169] [170]
+Overfull \hbox (1.23653pt too wide) in paragraph at lines 6680--6681
 [][][]\OT1/txr/bx/n/17.28 Theorem 30 (The Sec-ond Iso-mor-phism The-o-rem for M
 od-ules). 
  []
 
-[166]
+[171]
 Missing character: There is no . in font nullfont!
 Missing character: There is no b in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no e in font nullfont!
- [167]
-Overfull \hbox (3.3454pt too wide) in paragraph at lines 6502--6503
+ [172]
+Overfull \hbox (3.3454pt too wide) in paragraph at lines 6763--6764
 []\OT1/txr/m/sl/12 The []\OT1/txr/bx/n/12 sum \OT1/txr/m/sl/12 of $\OML/txmi/m/
 it/12 N[]; :::; N[]$ \OT1/txr/m/sl/12 is the set of all fi-nite sums of el-e-me
 nts from the sets $\OML/txmi/m/it/12 N[]$\OT1/txr/m/sl/12 : $\U/matha/m/n/12 t[
@@ -1910,57 +1954,57 @@ nts from the sets $\OML/txmi/m/it/12 N[]$\OT1/txr/m/sl/12 : $\U/matha/m/n/12 t[
  P
  []
 
-[168]
+[173]
 Missing character: There is no . in font nullfont!
 Missing character: There is no b in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no e in font nullfont!
- [169] [170] [171]
+ [174] [175] [176]
 Chapter 20.
-[172
+[177
 
 ]
 Chapter 21.
-[173
+[178
 
 ]
 Chapter 22.
-[174
+[179
 
 ]
 Chapter 23.
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 6625.
+(hyperref)                be the same. Added a new anchor on input line 6886.
 
-[175
+[180
 
-] [176]
+] [181]
 Missing character: There is no . in font nullfont!
 Missing character: There is no b in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no e in font nullfont!
- [177] [178]
+ [182] [183]
 Missing character: There is no . in font nullfont!
 Missing character: There is no b in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no e in font nullfont!
- [179] [180]
+ [184] [185]
 Missing character: There is no . in font nullfont!
 Missing character: There is no b in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no e in font nullfont!
- [181] [182]
+ [186] [187]
 Missing character: There is no . in font nullfont!
 Missing character: There is no b in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no e in font nullfont!
- [183] [184] [185] [186
+ [188] [189] [190] [191
 
 
 ]
@@ -1970,33 +2014,36 @@ Missing character: There is no a in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no e in font nullfont!
 
-[187]
+[192]
 Missing character: There is no . in font nullfont!
 Missing character: There is no b in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no e in font nullfont!
- [188]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 7119.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 7119.
+ [193]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 7380.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 7380.
  (./Algebra.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 7119.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 7119.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 7380.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 7380.
 
 Package rerunfilecheck Info: File `Algebra.out' has not changed.
-(rerunfilecheck)             Checksum: B3C4484FB8C2758D69C189673382BDB6;8184.
+(rerunfilecheck)             Checksum: 7BEF493D680CFE8D5C9BEE7D9F3E19E6;8360.
 
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.74pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 7119.
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 7380.
  ) 
 Here is how much of TeX's memory you used:
- 27858 strings out of 481239
- 506796 string characters out of 5920377
- 762144 words of memory out of 5000000
- 40954 multiletter control sequences out of 15000+600000
+ 28097 strings out of 481239
+ 512329 string characters out of 5920377
+ 765292 words of memory out of 5000000
+ 41159 multiletter control sequences out of 15000+600000
  618036 words of font info for 224 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  76i,19n,84p,2379b,1707s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2007,24 +2054,25 @@ exmf-dist/fonts/type1/public/mathabx-type1/matha6.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/public/mathabx-type1/matha8.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/mathabx-type1/mathb12.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/public/mathabx-type1/mathx10.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/txfonts/rtxb.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/txfonts/rtxbi.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/
-rtxi.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/txfonts/rtxsc.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/txfonts/txsy.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/txfonts/txsya.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/tx
-syb.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsyc.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/
-times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Algebra.pdf (189 pages, 1313412 bytes).
+s/type1/public/txfonts/rtcxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/txfonts/rtxb.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/
+rtxbi.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxi.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/txfonts/rtxsc.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/txfonts/txsy.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/tx
+sya.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsyb.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsyc.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
+rw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8
+a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Algebra.pdf (194 pages, 1338943 bytes).
 PDF statistics:
- 3119 PDF objects out of 3580 (max. 8388607)
- 2873 compressed objects within 29 object streams
- 1583 named destinations out of 1728 (max. 500000)
- 882 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 3191 PDF objects out of 3580 (max. 8388607)
+ 2938 compressed objects within 30 object streams
+ 1617 named destinations out of 1728 (max. 500000)
+ 898 words of extra memory for PDF output out of 10000 (max. 10000000)
 
