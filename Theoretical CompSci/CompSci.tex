@@ -478,9 +478,60 @@ We say that \Emph{$M$ recognizes language $A$} if $A = \{w\vert M\;\text{ accept
     A language is called a \Emph{regular language} if some finite automaton recognizes it.
 \end{defn}
 
+When designing an automaton it is best to put yourself in the place of the machine, seeing how you would perform the tasks you need the machine to. Once you have determined the necessary information to remember about the string as it is being read, you represent this information as a finite list of possibilities, and assign a state to each of the possibilites. 
 
 
+In the theory of computation, the objects are languages and the tools include operations specifically designed for manipulating them. We define three operations on languages, called the \Emph{regular operations}, and use them to study properties of regular languages: \begin{defn}
+    Let $A$ and $B$ be languages. We define the regular operations \Emph{union}, \Emph{concatenation}, and \Emph{star} as follows: \begin{itemize}
+        \item \Emph{Union:} $A\cup B = \{x\vert x \in A\lor x \in B\}$
+        \item \Emph{Concatenation:} $A\circ B = \{xy\vert x \in A\land y \in B\}$
+        \item \Emph{Star:} $A^* = \{x_1x_2...x_k\vert k \geq 0\;\text{ and each }\;x_i \in A\}$.
+    \end{itemize}
+\end{defn}
 
+\begin{thm}
+    The class of regular languages is closed under the union operation. In other words, if $A_1$ and $A_2$ are regular languages, so is $A_1\cup A_2$.
+\end{thm}
+\begin{proof}[Sketch]
+    We have regular languages $A_1$ and $A_2$ and want to show $A_1 \cup A_2$ is regular. Let $M_1 = (Q_1,\sum,\delta_1,q_1,F_1)$ be the finite automata that recognizes $A_1$, and let $M_2 = (Q_2,\sum,\delta_2,q_2,F_2)$ be the finite automata that recognizes $A_2$. Construct $M = (Q,\sum,\delta,q_0,F)$ as follows: \begin{enumerate}
+        \item Let $Q = \{(r_1,r_2)\vert r_1 \in Q_1\land r_2 \in Q_2\} = Q_1\times Q_2$.
+        \item $\sum$, the alphabet, is the same as in both automatas. Even if the automata had different alphabets $\sum_1$ and $\sum_2$, we would simply take $\sum = \sum_1\cup \sum_2$.
+        \item $\delta$, the transition function, is defined for all $(r_1,r_2) \in Q$ and $a \in \sum$ by \begin{equation*}
+                \delta((r_1,r_2),a) = (\delta_1(r_1,a),\delta_2(r_2,a))
+            \end{equation*}
+        \item $q_0$ is the pair $(q_1,q_2)$
+        \item $F$ is the set of pairs in which either member is an accept state of $M_1$ or $M_2$. We can write it as \begin{equation*}
+                F = \{(r_1,r_2)\vert r_1 \in F_1\lor r_2 \in F_2\}
+        \end{equation*}
+        This expression is the same as $F= (F_1\times Q_2)\cup(Q_1\times F_2)$.
+    \end{enumerate}
+    By construction it follows that $M$ is a finite automaton which recognizes the union of $A_1$ and $A_2$.
+\end{proof}
+
+\begin{thm}
+    The class of regular languages is closed under the concatenation operation. In other words, if $A_1$ and $A_2$ are regular languages then so is $A_1 \circ A_2$.
+\end{thm}
+
+To prove this theorem we must learn some more techniques.
+
+
+\section{Nondeterminism}
+
+
+So far in our discussion, every step of a computation follows in a unique way from the preceding step. 
+
+\begin{defn}
+    If when the machine is in a given state and reads the next input symbol the next state is given uniquely by the input, then this is \Emph{deterministic} computation. In a \Emph{nondeterministic} machine, several choices may exist for the next state at any point.
+\end{defn}
+
+We define nondeterminism to be a generalization of determinism, so every deterministic finite automaton is automatically a nondeterministic finite automaton. Every state of a DFA always has exactly one exiting transition arrow for each symbol in the alphabet. However, an NFA can have multiple exiting transition arrow for one symbol in the alphabet, or even no arrows for a symbol in the alphabet. Second, in a DFA, labels on the transition arrows are symbols from the alphabet. In general, an NFA may have arrows labeled with members of the alphabet or $\varepsilon$, and as with the alphabet symbols in NFA's, zero, one, or many arrows may exit from each state with the label $\varepsilon$.
+
+
+After reading a symbol associated with multiple transition arrows at a given state of a NFA, the machine splits into multiple copies of itself and follows all the possibilities in parallel. If an input symbol doesn\t appear on any of the arrows exiting the state occupied by a copy of the machine, that copy of the machine dies, along with the branch of computation associated with it. Finally, if any one of these copies of the machine is in an accept state at the end of the input, the NFA accepts the input string.
+
+If a state with an $\varepsilon$ symbol on an exiting arrow is encountered, without reading any input, the machine splits into multiple copies, one following each of the exiting $\varepsilon$-labeled arrows and one staying at the current state. Then the machine proceed nondeterministically as before.
+
+Nondeterminism may be viewed as a kind of parallel computation wherein multiple independent processes or threads can be running concurrently, or it can also be thought of as a tree of possibilities; the root of the tree corresponds to the start of the computation, every branching point in the tree corresponds to a point in the computation at which the machine has multiple choices, and the machine accepts if at least one of the computation branches ends in an accept state.
 
 
 

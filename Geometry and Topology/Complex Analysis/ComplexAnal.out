@@ -12,9 +12,9 @@
 \BOOKMARK [0][-]{chapter.2}{Analytic Functions}{part.1}% 12
 \BOOKMARK [1][-]{section.2.1}{Basic Analysis and Topology}{chapter.2}% 13
 \BOOKMARK [1][-]{section.2.2}{Analytic Functions}{chapter.2}% 14
-\BOOKMARK [1][-]{section.2.3}{The Cauchy Riemmann Equations}{chapter.2}% 15
+\BOOKMARK [1][-]{section.2.3}{The Cauchy Riemann Equations}{chapter.2}% 15
 \BOOKMARK [2][-]{defn.2.3.3}{Real Differentiability}{section.2.3}% 16
-\BOOKMARK [2][-]{defn.2.3.6}{Cauchy Reimman Equations Sketch}{section.2.3}% 17
+\BOOKMARK [2][-]{defn.2.3.6}{Cauchy Riemann Equations Sketch}{section.2.3}% 17
 \BOOKMARK [1][-]{section.2.4}{Analytic Functions \(cont.\)}{chapter.2}% 18
 \BOOKMARK [1][-]{section.2.5}{Harmonic Functions}{chapter.2}% 19
 \BOOKMARK [1][-]{section.2.6}{Conformal Functions}{chapter.2}% 20
@@ -22,14 +22,29 @@
 \BOOKMARK [2][-]{defn.2.7.2}{Extended Complex Plane}{section.2.7}% 22
 \BOOKMARK [0][-]{chapter.3}{Line Integrals and Harmonic Functions}{part.1}% 23
 \BOOKMARK [1][-]{section.3.1}{Line Integrals}{chapter.3}% 24
-\BOOKMARK [0][-]{chapter.4}{Complex Integration and Analyticity}{part.1}% 25
-\BOOKMARK [0][-]{chapter.5}{Power Series}{part.1}% 26
-\BOOKMARK [0][-]{chapter.6}{Laurent Series and Isolated Singularities}{part.1}% 27
-\BOOKMARK [0][-]{chapter.7}{The Residue Calculus}{part.1}% 28
-\BOOKMARK [-1][-]{part.2}{II Part 2}{}% 29
-\BOOKMARK [0][-]{chapter.8}{The Logarithmic Integral}{part.2}% 30
-\BOOKMARK [0][-]{chapter.9}{Conformal Mapping}{part.2}% 31
-\BOOKMARK [-1][-]{part.3}{III Part 3}{}% 32
-\BOOKMARK [0][-]{chapter.10}{Approximation Theorems}{part.3}% 33
-\BOOKMARK [0][-]{chapter.11}{Special Functions}{part.3}% 34
-\BOOKMARK [0][-]{section*.1}{Appendices}{part.3}% 35
+\BOOKMARK [1][-]{section.3.2}{Harmonic Conjugates}{chapter.3}% 25
+\BOOKMARK [1][-]{section.3.3}{The Mean Value Property}{chapter.3}% 26
+\BOOKMARK [1][-]{section.3.4}{The Maximum Principle}{chapter.3}% 27
+\BOOKMARK [1][-]{section.3.5}{Applications to Physics}{chapter.3}% 28
+\BOOKMARK [2][-]{eg.3.5.3}{The Laplace Equation}{section.3.5}% 29
+\BOOKMARK [0][-]{chapter.4}{Complex Integration and Analyticity}{part.1}% 30
+\BOOKMARK [1][-]{section.4.1}{Complex Line Integrals}{chapter.4}% 31
+\BOOKMARK [1][-]{section.4.2}{Fundamental Theorem of Calculus for Analytic Functions}{chapter.4}% 32
+\BOOKMARK [1][-]{section.4.3}{Cauchy's Theorem and Integral Formula}{chapter.4}% 33
+\BOOKMARK [1][-]{section.4.4}{Liouville's Theorem}{chapter.4}% 34
+\BOOKMARK [1][-]{section.4.5}{Morera's Theorem}{chapter.4}% 35
+\BOOKMARK [1][-]{section.4.6}{Goursat's Theorem}{chapter.4}% 36
+\BOOKMARK [1][-]{section.4.7}{Pompeiu's Formulas}{chapter.4}% 37
+\BOOKMARK [0][-]{chapter.5}{Power Series}{part.1}% 38
+\BOOKMARK [1][-]{section.5.1}{Infinite Series}{chapter.5}% 39
+\BOOKMARK [1][-]{section.5.2}{Sequences and Series of Functions}{chapter.5}% 40
+\BOOKMARK [1][-]{section.5.3}{Power Series}{chapter.5}% 41
+\BOOKMARK [0][-]{chapter.6}{Laurent Series and Isolated Singularities}{part.1}% 42
+\BOOKMARK [0][-]{chapter.7}{The Residue Calculus}{part.1}% 43
+\BOOKMARK [-1][-]{part.2}{II Part 2}{}% 44
+\BOOKMARK [0][-]{chapter.8}{The Logarithmic Integral}{part.2}% 45
+\BOOKMARK [0][-]{chapter.9}{Conformal Mapping}{part.2}% 46
+\BOOKMARK [-1][-]{part.3}{III Part 3}{}% 47
+\BOOKMARK [0][-]{chapter.10}{Approximation Theorems}{part.3}% 48
+\BOOKMARK [0][-]{chapter.11}{Special Functions}{part.3}% 49
+\BOOKMARK [0][-]{section*.1}{Appendices}{part.3}% 50

@@ -6227,7 +6227,7 @@ The goal of this section is to bound the size of $L/K$:
 
 
 
-\begin{cor}
+\begin{cor}\label{cor:galsep}
     If $L/K$ is a splitting field of a separable polynomial then $|\aut(L/K)| = [L:K]$.
 \end{cor}
 
@@ -6318,6 +6318,477 @@ In this case $\aut(K/F)$ has the maximal number of possible automorphisms.
 
 
 
+
+
+
+\section{\textsection The Fundamental Theorem of Galois Theory}
+
+\begin{defn}
+    A \Emph{character} $\chi$ of a group $G$ with values in a field $L$ is a homomorphism $\chi:G\rightarrow L^{\times}$. In particular, for $g_1,g_2 \in G$, \begin{equation*}
+        \chi(g_1g_2) = \chi(g_1)\chi(g_2)
+    \end{equation*}
+    and $\chi(g) \neq 0$ for all $g \in \G$.
+\end{defn}
+
+\begin{defn}
+    If $\chi_1,\chi_2,...,\chi_n$ are characters of $G$ with values in $L$, then they're linearly independent over $L$ provided there does not exist $a_1,a_2,...,a_n \in L$, not all zero, such that \begin{equation*}
+        a_1\chi_1+a_2\chi_2+...+a_n\chi_n = 0
+    \end{equation*}
+    (as a function, $a_1\chi_1(g)+...+a_n\chi_n(g) = 0$ for all $g \in G$)
+\end{defn}
+
+
+\begin{thm}
+    If $\chi_1,\chi_2,...,\chi_n$ are distinct characters of $G$ with values in $L$, then they are linearly independent over $L$.
+\end{thm}
+\begin{proof}
+    Towards a contradiction suppose the characters were linearly dependent. Among all of the linear dependence relations, choose one with minimal number $m$ of non zero coefficients $a_i$. With possible renumbering we may write $a_1\chi_1+...+a_m\chi_m = 0$. In particular, for any $g \in G$, $a_1\chi_1(g) + ... + a_m\chi_m(g) = 0$. Let $g_0 \in G$ such that $\chi_1(g_0) \neq \chi_m(g_0)$, which is possible as the characters are distinct. Then we have $a_1\chi_1(g_0g)+...+a_m\chi_m(g_0g) = 0$. Multiplying our previous equation by $\chi_m(g_0)$ and subtracting it from this one we obtain \begin{equation*}
+        [\chi_1(g_0) - \chi_m(g_0)]a_1\chi_1(g)+[\chi_2(g_0)-\chi_m(g_0)]a_2\chi_2(g)+...+[\chi_{m-1}(g_0)-\chi_m(g_0)]a_{m-1}\chi_{m-1}(g) = 0
+    \end{equation*}
+    But, since $\chi_1(g_0) - \chi_m(g_0) \neq 0$, this is a linear dependence of length less than or equal to $m-1 < m$, contradicting the minimality of $m$.
+\end{proof}
+    
+
+Consider an injective homomorphism $\sigma$ of a field $K$ into a field $L$, called an \Emph{embedding} of $K$ into $L$. Then in particular $\sigma$ restricts to a homomorphism of the multiplicative group $K^{\times}$ into $L^{\times}$. Note also that this character contains all of the useful information about the values of $\sigma$ viewed simply as a function on $K$.
+
+\begin{cor}
+    If $\sigma_1,\sigma_2,...,\sigma_n$ are distinct embeddings of a field $K$ into a field $L$, then they are linearly independent as functions on $K$. In particular, distinct automorphisms of a field $K$ are linearly independent as functions on $K$.
+\end{cor}
+This follows from our last theorem, and the discussion above about restricting embeddings to group characters.
+
+\begin{thm}
+    Let $G=\{\sigma_1 = 1,\sigma_2,...,\sigma_n\}$ be a subgroup of automorphisms of a field $K$ and let $F$ be the associated fixed field. Then \begin{equation*}
+        [K:F] = n = |G|
+    \end{equation*}
+\end{thm}
+\begin{proof}
+    Suppose first that $n > [K:F]$ and let $\omega_1,...,\omega_m$ be a basis for $K$ over $F$ ($m < n$). Then the system \begin{align*}
+        \sigma_1(\omega_1)x_1 + \sigma_2(\omega_1)x_2&+...+\sigma_n(\omega_1)x_n = 0 \\
+        \vdots& \\
+        \sigma_1(\omega_m)x_1 + \sigma_2(\omega_m)x_2&+...+\sigma_n(\omega_m)x_n = 0 
+    \end{align*}
+    of $m$ equations in $n$ unknowns has a nontrivial kernel, and hence solution $\beta_1,...,\beta_n$ in $K$ since $m < n$. 
+
+    Let $a_1,...,a_m$ be $m$ arbitrary elements of $F$. The field is by definition fixed by the $\sigma_i$'s, so each of these elements is fixed by every $\sigma_i$, i.e. $\sigma_i(a_j) = a_j$. Multiplying the $i$th equation by $a_i$ we have
+    \begin{align*}
+        \sigma_1(a_1\omega_1)x_1 + \sigma_2(a_2\omega_1)x_2&+...+\sigma_n(a_1\omega_1)x_n = 0 \\
+        \vdots& \\
+        \sigma_1(a_m\omega_m)x_1 + \sigma_2(a_m\omega_m)x_2&+...+\sigma_n(a_m\omega_m)x_n = 0 
+    \end{align*}
+    Adding these equations and substituting $\beta_i$ for $x_i$ we obtain \begin{equation*}
+        \sigma_1(a_1\omega_1+...+a_m\omega_m)\beta_1+...+\sigma_n(a_1\omega_1+...+a_m\omega_m)\beta_n = 0
+    \end{equation*}
+    for all choices of $a_i \in F$. But since the $\omega_i$ form a basis for $K$ over $F$, this consequently holds for all elements of $K$. However, this implies that this is a linear dependence on the set $\sigma_1,...,\sigma_n$ of automorphisms, contradicting the linear independence of the previous corollary. Thus, $n \leq [K:F]$. 
+
+    Now, suppose $n < [K:F]$. Then there are more than $n$ $F$-linearly independent elements of $K$, say $\alpha_1,...,\alpha_{n+1}$. Then the system 
+    \begin{align*}
+        \sigma_1(\alpha_1)x_1 + \sigma_1(\alpha_2)x_2&+...+\sigma_1(\alpha_{n+1})x_{n+1} = 0 \\
+        \vdots& \\
+        \sigma_n(\alpha_1)x_1 + \sigma_n(\alpha_2)x_2&+...+\sigma_n(\alpha_{n+1})x_{n+1} = 0 
+    \end{align*}
+    of $n$ equations in $n+1$ unknowns has a non trivial solution $\beta_1,...,\beta_{n+1}$ in $K$. If all the $\beta_i$ were elements of $F$, then the first equation would contradict the linear independence of the $\alpha_j$, recalling that $\sigma_1 = 1$. Hence, at least $1$ $\beta_i$ is not in $F$.
+
+    Choose a solution with a minimal number of nonzero $\beta_i$, $r$. By renumbering if necessary write $\beta_1,...,\beta_r$ nonzero. Dividing by $\beta_r$ we may also assume that $\beta_r = 1$. We have already seen that at least one of $\beta_1,...,\beta_{r-1},1$ is not in $F$. With possible reordering, suppose $\beta_1 \notin F$. Then our system reads
+    \begin{align*}
+        \sigma_1(\alpha_1)\beta_1 + \sigma_1(\alpha_2)\beta_2&+...+\sigma_1(\alpha_{r-1})\beta_{r-1}+\sigma_1(\alpha_r) = 0 \\
+        \vdots& \\
+        \sigma_n(\alpha_1)\beta_1 + \sigma_n(\alpha_2)\beta_2&+...+\sigma_n(\alpha_{r-1})\beta_{r-1}+\sigma_n(\alpha_r)= 0 
+    \end{align*}
+    so $\sigma_i(\alpha_1)\beta_1 + \sigma_i(\alpha_2)\beta_2+...+\sigma_i(\alpha_{r-1})\beta_{r-1}+\sigma_i(\alpha_r) = 0$ for each $i$. Since $\beta_1 \notin F$, and $F$ is the fixed field of the subgroup of automorphisms, there exists $\sigma_{k_0}$ such that $\sigma_{k_0}\beta_1 \neq \beta_1$ for some $k_0 \in \{1,2,...,n\}$. If we apply the automorphism to the previous equation we obtain \begin{equation*}
+        \sigma_{k_0}\sigma_j(\alpha_1)\sigma_{k_0}\beta_1 +...+\sigma_{k_0}\sigma_j(\alpha_{r-1})\sigma_{k_0}\beta_{r-1}+\sigma_{k_0}\sigma_j(\alpha_r) = 0
+    \end{equation*}
+    But the action of left multiplication of a group element on the group itself simply permutes the elements, so $\sigma_{k_0}\sigma_1,...,\sigma_{k_0}\sigma_n$ equals $\sigma_1,...,\sigma_n$ with some reordering. Let $\sigma_{k_0}\sigma_j = \sigma_i$. Then we have \begin{equation*}
+        \sigma_i(\alpha_1)\sigma_{k_0}\beta_1 +...+\sigma_i(\alpha_{r-1})\sigma_{k_0}\beta_{r-1}+\sigma_i(\alpha_r) = 0
+    \end{equation*}
+    Subtracting our original linear dependence from this equation we have \begin{equation*}
+        \sigma_i(\alpha_1)[\sigma_{k_0}\beta_1-\beta_1] +...+\sigma_i(\alpha_{r-1})[\sigma_{k_0}\beta_{r-1}-\beta_{r-1}]= 0
+    \end{equation*}
+    But $[\sigma_{k_0}\beta_1 - \beta_1] \neq 0$, so this is a linear dependence with fewer than $r$ nonzero elements, contradicting the minimality of $r$.
+\end{proof}
+
+
+\begin{cor}
+    Let $K/F$ be any finite extension. Then \begin{equation*}
+        |\aut(K/F)| \leq [K:F]
+    \end{equation*}
+    with equality if and only if $F$ is the fixed field of $\aut(K/F)$. Put another way, $K/F$ is Galois if and only if $F$ is the fixed field of $\aut(K/F)$.
+\end{cor}
+\begin{proof}
+    Let $F_1$ be the fixed field of $\aut(K/F)$, so that $F \subseteq F_1 \subseteq K$. By our previous theorem $[K:F_1] = |\aut(K/F)|$. Hence, $[K:F] = [K:F_1][F_1:F]$, which proves the corollary.
+\end{proof}
+
+
+\begin{cor}
+    Let $G$ be a finite subgroup of automorphisms of a field $K$ and let $F$ be the fixed field. Then every automorphism of $K$ fixing $F$ is contained in $G$, i.e., $\aut(K/F) = G$, so that $K/F$ is Galois, with Galois group $G$.
+\end{cor}
+\begin{proof}
+    By definition $F$ is fixed by all elements of $G$, so we have $G \leq \aut(K/F)$. Hence $|G| \leq |\aut(K/F)|$. By the theorem we have $|G| = [K:F]$ and by the previous corollary we have $|\aut(K/F)| \leq [K:F]$. This gives \begin{equation*}
+        |G| \leq |\aut(K/F)| \leq |G|
+    \end{equation*}
+    so $|\aut(K/F)| = |G|$, and since $G \leq \aut(K/F)$, $G = \aut(K/F)$. 
+\end{proof}
+
+\begin{cor}
+    If $G_1\neq G_2$ are distinct finite subgroups of automorphisms of a field $K$, then their fixed fields are distinct.
+\end{cor}
+\begin{proof}
+    Suppose $F_1$ is the fixed field of $G_1$ and $F_2$ is the fixed field of $G_2$. Then suppose $F_1 = F_2$, so by definition $F_1$ is fixed by $G_2$. By the previous corollary, any automorphism fixing $F_1$ is in $G_1$, so $G_2 \leq G_1$. Similarly, $F_2$ is fixed by $G_1$ so $G_1 \leq G_2$ and we have equality, $G_1 = G_2$, which is a contradiction.
+\end{proof}
+
+\begin{thm}
+    The extension $K/F$ is Galois if and only if $K$ is the splitting field of some separable polynomial over $F$. Furthermore, if this is the case then every irreducible polynomial with coefficients in $F$ which has a root in $K$ is separable and has all of its roots in $K$ (so in particular $K/F$ is a separable extension).
+\end{thm}
+\begin{proof}
+    By Corollary \ref{cor:galsep} we have that the splitting field of some separable polynomial over $F$ is Galois. 
+
+    We now suppose that $K/F$ is Galois. Set $G = \text{Gal}(K/F)$. Let $p(x) \in F[x]$ be an irreducible polynomial having a root $\alpha \in K$, and consider the elements $\alpha,\sigma_2(\alpha),...,\sigma_n(\alpha)  \in K$ for $\{1,\sigma_2,...,\sigma_n\}$ are the elements of $G$. Let $\alpha,\alpha_2,...,\alpha_r$ denote the distinct roots in the list. If $\tau \in G$, then since $G$ is a group, $\{\tau,\tau\sigma_2,...,\tau\sigma_n\} = \{1,\sigma_1,...,\sigma_n\}$ in some order. It follows that applying $\tau$ to $\alpha,\alpha_2,...,\alpha_r$ also permutes these elements. The polynomial \begin{equation*}
+        f(x) = (x-\alpha)(x-\alpha_2)...(x-\alpha_r)
+    \end{equation*}
+    has coefficients which are all fixed by all elements of $G$ since the elements of $G$ simply permute the factors. Hence the coefficients lie in the fixed field of $G$, so by a preceeding corollary, this field is $F$. Hence $f(x) \in F[x]$.
+
+    Since $p(x)$ is irreducible and has $\alpha$ as a root, $p(x)$ is the minimal polynomial for $\alpha$ over $F$, hence $p(x)$ divides $f(x)$ in $F[x]$. Since $f(x)$ is a product of linear factors, each of which is a root of $p(x)$ (since roots are permuted under fixed field automorphisms), $f(x)$ divides $p(x)$ as well, so $p(x) = f(x)$ since they are both monic. Thus, $p(x)$ is separable and all of its roots lie in $K$.
+
+    To complete the proof let $\omega_1,...,\omega_n$ be a basis for $K/F$. Let $p_i(x)$ be the minimal polynomial for $\omega_i$ for each $i$. Then by what we've just shown $p_i(x)$ is separable and has all of its roots in $K$. Let $g(x)$ be the polynomial obtained by removing any multiple factors from $p_1(x)...p_n(x)$. Then the splitting field of the two polynomials is the same, and this field is $K$. Indeed, all of the roots lie in $K$ so $K$ contains the splitting field, and the generators of $K$ are among the roots so $K$ is also contained in the splitting field. Hence $K$ is the splitting field of the separable polynomial $g(x)$.
+\end{proof}
+
+\begin{defn}
+    Let $K/F$ be a Galois extension. If $\alpha \in K$ the elements $\sigma \alpha$ for $\sigma$ in $\text{Gal}(K/F)$ are called the \Emph{conjugates} (or \Emph{Galois conjugates}) of $\alpha$ over $F$. If $E$ is a subfield of $K$ containing $F$, the field $\sigma(E)$ is called the \Emph{conjugate field} of $E$ over $F$.
+\end{defn}
+
+
+The proof of the above theorem shows that in a Galois extension $K/F$, the other roots of a minimal polynomial over $F$ which has $\alpha \in K$ are precisely the distinct conjugates of $\alpha$ under the Galois group of $K/F$.
+
+The second statement of the theorem also shows that $K$ is not Galois over $F$ if we can find even one irreducible polynomial over $F$ having a root in $K$ but not having all of its roots in $K$.
+
+\begin{rmk}
+    We now have the 4 characterizations of Galois extensions $K/F$: \begin{enumerate}
+        \item splitting fields of separable polynomials over $F$
+        \item fields where $F$ is precisely the set of elements fixed by $\aut(K/F)$
+        \item fields with $[K:F] = |\aut(K/F)|$
+        \item finite, normal and separable extensions.
+    \end{enumerate}
+\end{rmk}
+
+
+\begin{namthm}[Fundamental Theorem of Galois Theory] \label{namthm:FundGal}
+    Let $K/F$ be a Galois extension and set $G = \text{Gal}(K/F)$. Then there is a bijection \begin{equation*}
+        \left\{\begin{array}{cc} & K \\ \text{subfields } E & \vert \\ \text{ of } K& E \\ \text{containing } F & \vert \\ & F\end{array}\right\} \leftrightarrow \left\{\begin{array}{cc} & 1 \\ \text{subgroups } H &  \vert \\ \text{ of } G& H \\  & \vert \\ & G\end{array}\right\}
+    \end{equation*}
+    given by the correspondences \begin{equation*}
+        \begin{array}{ccc} E & \rightarrow & \left\{\begin{array}{cc} \text{the elements of } G \\ \text{fixing } E\end{array}\right\} \\ \left\{\begin{array}{cc} \text{the fixed field} \\ \text{of } H\end{array}\right\} & \leftarrow & H \end{array}
+    \end{equation*}
+    which are inverse under this correspondence ($E\mapsto \aut(K/E)$ and $H\mapsto K^H$).\begin{enumerate}
+        \item (Inclusion reversing) If $E_1,E_2$ correspond to $H_1,H_2$, respectively, then $E_1 \subseteq E_2$ if and only if $H_2 \leq H_1$
+        \item $[K:E] = |H|$ and $[E:F] = |G:H|$, the index of $H$ in $G$, then \begin{equation*}
+                \begin{array}{cc}
+                    \left.\begin{array}{c} K \\ \vert \\ E \end{array}\right\} & |H| \\ 
+                        \shortparallel & \\
+                    \left.\begin{array}{c} E \\ \vert \\ F \end{array}\right\} & |G:H| \\
+                \end{array}
+            \end{equation*}
+        \item $K/E$ is always Galois, with Galois group $\text{Gal}(K/E) = H$: \begin{equation*}
+            \begin{array}{cc}
+                \left.\begin{array}{c} K \\ \vert \\ E \end{array}\right\} & |H|
+            \end{array}
+            \end{equation*}
+        \item $E$ is Galois over $F$ if and only if $H$ is a normal subgroup in $G$. If this is the case, then the Galois group is isomorphic to the quotient group \begin{equation*}
+                \text{Gal}(E/F)\cong G/H
+        \end{equation*}
+            More generally, if $H$ is not necessarily normal in $G$, the isomorphisms of $E$ into a fixed algebraic closure of $F$ containing $K$ which fix $F$ are in one to one correspondence with the cosets $\sigma H$ of $H$ in $G$.
+        \item If $E_1,E_2$ correspond to $H_1,H_2$, respectively, then the intersection $E_1\cap E_2$ corresponds to the group $\langle H_1,H_2\rangle$ generated by $H_1$ and $H_2$ and the composite $E_1E_2$ corresponds to the intersection $H_1\cap H_2$. Hence the lattice of subfields of $K$ containing $F$ and the lattice of subgroups of $G$ are ``dual" (the lattice diagram for one is the lattice diagram for the other turned upside down)
+    \end{enumerate}
+\end{namthm}
+
+
+\begin{eg}
+    Consider $\Q(\sqrt[3]{2},\zeta_3)$, for $\zeta_3 = e^{2\pi i/3}$. Then $\Q(\sqrt[3]{2},\zeta_3)$ is the splitting field of $x^3-2$, which is irreducible and separable over $\Q$ so the extension is Galois. Then we can write: 
+    \begin{center}
+        \begin{tikzcd}
+	& {\mathbb{Q}(\sqrt[3]{2},\zeta_3)} \\
+	&& {\mathbb{Q}(\sqrt[3]{2})} & {\mathbb{Q}(\zeta_3\sqrt[3]{2})} & {\mathbb{Q}(\zeta_3^2\sqrt[3]{2})} \\
+	{\mathbb{Q}(\zeta_3)} \\
+	& {\mathbb{Q}}
+	\arrow[no head, from=3-1, to=4-2]
+	\arrow[no head, from=2-4, to=4-2]
+	\arrow[no head, from=3-1, to=1-2]
+	\arrow[no head, from=1-2, to=2-4]
+	\arrow[no head, from=2-5, to=4-2]
+	\arrow[no head, from=1-2, to=2-5]
+	\arrow[no head, from=1-2, to=2-3]
+	\arrow[no head, from=2-3, to=4-2]
+\end{tikzcd}
+    \end{center}
+    Then $\text{Gal}(\mathbb{Q}(\sqrt[3]{2},\zeta_3)/\Q) = \langle \sigma,\tau\rangle$ for $\sigma,\tau$ defined by \begin{equation*}
+        \sigma:\left\{\begin{array}{c} \sqrt[3]{2} \mapsto \zeta_3\sqrt[3]{2} \\ \zeta_3\mapsto \zeta_3 \end{array}\right.
+    \end{equation*}
+    and \begin{equation*}
+        \tau:\left\{\begin{array}{c} \sqrt[3]{2} \mapsto \sqrt[3]{2} \\ \zeta_3\mapsto \zeta_3^2 = -1-\zeta_3 \end{array}\right.
+    \end{equation*}
+    and we have the relations $\sigma^3 = \tau^2 = 1$, and $\sigma\tau = \tau\sigma^2,$ so $\sigma\tau\sigma = \tau$. (Dihedral group of order $3$). We also obtain the diagram \begin{center}
+\begin{tikzcd}
+	& {\{1\}} \\
+	&& {\langle 1, \tau\rangle} & {\langle 1, \tau\sigma\rangle} & {\langle 1, \tau\sigma^2\rangle} \\
+	{\langle 1, \sigma\rangle} \\
+	& {\langle \sigma, \tau\rangle}
+	\arrow[no head, from=3-1, to=4-2]
+	\arrow[no head, from=2-4, to=4-2]
+	\arrow[no head, from=3-1, to=1-2]
+	\arrow[no head, from=1-2, to=2-4]
+	\arrow[no head, from=2-5, to=4-2]
+	\arrow[no head, from=1-2, to=2-5]
+	\arrow[no head, from=1-2, to=2-3]
+	\arrow[no head, from=2-3, to=4-2]
+\end{tikzcd}
+    \end{center}
+\end{eg}
+
+
+\begin{eg}
+    The extension $\Q(\sqrt[4]{2},i)/\Q$ is Galois since it is the splitting field of the seperable polynomial $x^4 - 2 \in \Q[x]$. We note that $[\Q(\sqrt[4]{2},i):\Q] = 8$, so as the extension is Galois there are $8$ automorphisms of $\Q(\sqrt[4]{2},i)$ fixing $\Q$. But, $x^4-2$ has $4$ roots, which can be permuted in $24$ ways, so not all permutations of the roots result in automorphisms of the field. For example, $\sqrt[4]{2}$ and $-\sqrt[4]{2}$ add to zero, so they must be mapped under field automorphisms to two roots which are negatives of each other. 
+
+    To think about the Galois group concretely, we think of an automorphism $\sigma$ and what it does to $\sqrt[4]{2}$ and $i$, rather than what it does to all fourth roots of $2$. Since $\sigma(\sqrt[4]{2})$ must be a root of $X^4-2$, there are four possible values for which we can send it to. On the other hand $\sigma(i)$ must be a root of $x^2+1$, and hence there are two values for which we can send it to, so there are at most $4\cdot 2 = 8$ automorphisms of $\Q(\sqrt[4]{2},i)/\Q$. But, we have shown that there are exactly $8$ automorphisms in the Galois group, so all choices of where to send these two roots result in automorphisms of the extension field. Let $r$ be the automorphism determined by $r(\sqrt[4]{2}) = i\sqrt[4]{2}$ and $r(i) = i$, and $s$ be the automorphism determined by $s(\sqrt[4]{2}) = \sqrt[4]{2}$ and $s(i) = -i$. Taking compositions we obtain the following eight automorphisms:
+    \begin{table}[H]
+        \centering
+        \caption{Galois Group for $\Q(\sqrt[4]{2},i)/\Q$}
+        \begin{tabular}{c||c|c|c|c|c|c|c|c}
+            \hline
+            $\sigma$ & id & $r$ & $r^2$ & $r^3$ & $s$ & $rs$ & $r^2s$ & $r^3s$ \\ \hline
+            $\sigma(\sqrt[4]{2})$ & $\sqrt[4]{2}$ & $i\sqrt[4]{2}$ & $-\sqrt[4]{2}$ & $-i\sqrt[4]{2}$ & $\sqrt[4]{2}$ & $i\sqrt[4]{2}$ & $-\sqrt[4]{2}$ & $-i\sqrt[4]{2}$ \\ \hline
+            $\sigma(i)$ & $i$ & $i$ & $i$ & $i$ & $-i$ & $-i$ & $-i$ & $-i$ \\ \hline
+        \end{tabular}
+    \end{table}
+    A calculation shows $r^4 = s^2 = id$, and $rs= sr^{-1}$, so $\text{Gal}(\Q(\sqrt[4]{2},i)/\Q) \cong D_4$, where $D_4$ can be viewed as the $8$ symmetries of the square whose vertices are the four complex roots of $X^4-2$; in particular, $r$ is a counterclockwise rotation by $90^{\circ}$, and $s$ is a reflection in the real axis (complex conjugation), which is a diagonal of the square. Note $r$ is not multiplication by $i$ everywhere, so it is not generally rotating all elements of $\Q(\sqrt[4]{2},i)$ by $90^{\circ}$. 
+\end{eg}
+
+
+\section{\textsection Finite Fields}
+
+Recall a finite field $\F$ has characteristic $p$ for some prime, and hence is a finite dimensional vector space over $\F_p = \Z/p\Z$. Moreover, if the dimension is $n$, i.e. $[\F:\F_p] = n$, then $\F$ has precisely $p^n$ elements. Recall that we have seen previously that $\F$ is then isomorphic to the splitting field of the separable polynomial $x^{p^n}-x$ is $\F_p[x]$, and hence is a Galois extension. Let $\F_{p^n}$ denote this field of order $p^n$. 
+
+Further, the Galois group of $\F_{p^n}$ is of cyclic of order $n$, generated by the Frobenius automorphism $\sigma_p$: \begin{equation*}
+    \text{Gal}(\F_{p^n}/\F_p) = \langle \sigma_p\rangle \cong \Z/n\Z
+\end{equation*}
+where $\sigma_p:\F_{p^n}\rightarrow \F_{p^n}$ is given by $\sigma_p(a) = a^p$. By the Fundamental Theorem of Galois Theory we have a bijective correspondence between subfields of $\F_{p^n}$ containing $\F_p$ and subgroups of $\Z/n\Z$. In particular, for every divisor $d$ of $n$ we have a subfield of degree $d$ over $\F_p$, namely the fixed field generated by $\sigma_p^d$ of order $n/d$. Moreover, from a previous discussion we know this field is isomorphic to $\F_{p^d}$, the unique finite field of order $p^d$.
+
+\begin{prop}
+    Any finite field is isomorphic to $\F_{p^n}$ for some prime $p$ and some integer $n \geq 1$. The field $\F_{p^n}$ is the splitting field over $\F_p$ of the polynomial $x^{p^n}-x$, with cyclic Galois group of order $n$ generated by the Frobenius automorphism $\sigma_p$. The subfields of $\F_{p^n}$ are all Galois over $\F_p$ and are in one to one correspondence with divisors $d$ of $n$. They are the fields $\F_{p^d}$, the fixed fields of $\sigma_p^d$.
+\end{prop}
+
+We observe that the multiplicative group $\F_{p^n}^{\times}$ is finite group composed of field elements, and is hence cyclic. Then, if $\theta$ is any generator of this group we obtain $\F_{p^n} = \F_p(\theta)$. Consequently:
+
+\begin{prop}
+    The finite field $\F_{p^n}$ is simple. In particular, there exists an irreducible polynomial of degree $n$ over $\F_p$ for each $n \geq 1$.
+\end{prop}
+
+Recall the elements of $\F_{p^n}$ are precisely the roots of $x^{p^n}-x \in \F_p[x]$. Grouping together the factors $x-\alpha$ of this polynomial based on the degree $d$ of their minimal polynomials over $\F_p$, we obtain
+\begin{prop}
+    The polynomial $x^{p^n}-x$ is precisely the product of all the distinct irreducible polynomials in $\F_p[x]$ of degree $d$ where $d$ runs through all divisors of $n$.
+\end{prop}
+
+This result gives a method for determining the product of all the irreducible polynomials over $\F_p$ of a given degree. Note also that since the finite field $\F_{p^n}$ is unique up to isomorphism, the quotients of $\F_p[x]$ by any irreducible polynomial of degree $n$ are all isomorphic. 
+
+Define the M$\ddot{o}$bius $\mu$-functions by \begin{equation*}
+    \mu(n) = \left\{\begin{array}{lc} 1 & \text{for } n = 1 \\ 0 & \text{if } n\text{ has a square factor} \\ (-1)^r & \text{if } n \text{ has } r \text{ distinct prime factors} \end{array}\right.
+\end{equation*}
+
+If $f(n)$ is a function defined for all nonnegative integers and $F(n)$ is defined by \begin{equation*}
+    F(n) = \sum_{d\vert n}f(d)
+\end{equation*}
+Then the M$\ddot{o}$bius inversion formula states that one can recover the function $f(n)$ from $F(n)$: \begin{equation*}
+    f(n) = \sum_{d\vert n}\mu(d)F(n/d)
+\end{equation*}
+Then define $\psi(n)$ to be the number of irreducible polynomials of degree $n$ in $\F_p[x]$. Counting degrees in our previous proposition \begin{equation*}
+    p^n = \sum_{d\vert n}d\psi(d)
+\end{equation*}
+Applying the inversion formula for $f(n) = n\psi(n)$, we obtain \begin{equation*}
+    n\psi(n) = \sum_{d\vert n}\mu(d)p^{n/d}
+\end{equation*}
+which gives us a formula for the number of irreducible polynomials of degree $n$ over $\F_p[x]$: \begin{equation*}
+    \psi(n) = \frac{1}{n}\sum_{d\vert n}\mu(d)p^{n/d}
+\end{equation*}
+
+
+Next, recall that $\F_{p^d} \subseteq \F_{p^n}$ if and only if $d$ divides $n$. In particular, for finite fields $\F_{p^{n_1}}$ and $\F_{p^{n_2}}$, we have a third field containing isomorphic copies of them, $\F_{p^{n_1n_2}}$. This gives us a partial ordering on finite fields of order $p$, and allows us to take their union. Since these give all the finite extensions of $\F_p$, we see that the union of $\F_{p^n}$ for $n \geq 1$ is an algebraic closure of $\F_p$, unique up to isomorphism: \begin{equation*}
+    \overline{\F_p} = \bigcup_{n\geq 1}\F_{p^n}
+\end{equation*}
+
+
+
+
+\section{\textsection Composite Extensions and Simple Extensions}
+
+
+\begin{prop}
+    Suppose $K/F$ is a Galois extension and $F'/F$ is any extension. Then $KF'/F'$ is a Galois extension, with Galois group \begin{equation*}
+        \text{Gal}(KF'/F') \cong \text{Gal}(K/K\cap F')
+    \end{equation*}
+    isomorphic to a subgroup of $\text{Gal}(K/F)$.
+\end{prop}
+\begin{proof}
+    If $K/F$ is a Galois extension, then $K$ is a splitting field of a separable polynomial $f(x)$ over $F[x]$. Then observe that $KF'/F'$ is a splitting field for $f(x)$ viewed as a polynomial in $F'[x]$, since $F'/F$.  Hence, $KF'/F'$ is Galois. Since $K/F$ is Galois, every embedding of $K$ fixing $F$ is an automorphism of $K$, so the map \begin{equation*}
+        \map{\varphi:\text{Gal}(KF'/F')\rightarrow \text{Gal}(K/F)}{\sigma\mapsto \sigma\vert_K}
+    \end{equation*}
+    defined by restricting an automorphism $\sigma$ to the subfield $K$ is well defined. Further it is a homomorphism with kernel \begin{equation*}
+        \ker \varphi = \{\sigma \in \text{Gal}(KF'/F')\vert \sigma\vert_K = 1\}
+    \end{equation*}
+    Since an element of $\text{Gal}(KF'/F')$ is the identity on $F'$, and elements of the kernel are identities on both $K$ and $F'$, they are also the identity on their composite. Hence, the kernel is trivial and $\varphi$ is injective. 
+
+    Let $H$ denote the image of $\varphi$, and let $K_H$ denote the corresponding fixed subfield. Since every element in $H$ fixes $F'$, $K_H$ contains $K\cap F'$. On the other hand, the composite $K_HF'$ is fixed by $\text{Gal}(KF'/F')$ (any $\sigma \in \text{Gal}(KF'/F')$ fixes $F'$, and fixes $K_H \subseteq K$ when restricted to $\sigma\vert_K$). By bijectivity in the fundamental theorem of Galois theory, $K_HF' = F'$, so that $K_H \subseteq F'$, which gives the reverse inclusion $K_H \subseteq K\cap F'$. Hence $K_H = K\cap F'$, so again by the Fundamental Theorem of Galois Theory, $H = \text{Gal}(K/K\cap F')$, completing the proof.
+\end{proof}
+
+(To be finished)
+
+
+\section{\textsection Cyclotomic Extensions and Abelian Extensions}
+
+Recall that the cyclotomic field $\Q(\zeta_n)$ of $n$th roots of unity is a Galois extension of $\Q$, being the splitting field of the separable polynomial $x^n-1 \in \Q[x]$, and has degree $\varphi(n)$. Moreover, the roots of $x^n-1$ form a cyclic group of order $n$, and hence any automorphism of $\Q(\zeta_n)$ is fully determined by its action on $\zeta_n$. 
+
+\begin{thm}
+    The Galois group of the cyclotomic field $\Q(\zeta_n)$ of $n$th roots of unity is isomorphic to the multiplicative group $(\Z/n\Z)^{\times}$. The isomorphism is given explicitly by the map \begin{equation*}
+        \begin{array}{rcl} (\Z/n\Z)^{\times} & \xrightarrow{\sim} & \text{Gal}(\Q(\zeta_n)) \\ a\mod n& \mapsto &\sigma_a \end{array}
+    \end{equation*}
+    where $\sigma_a$ is the automorphism defined by $\sigma_a(\zeta_n) = \zeta_n^a$.
+\end{thm}
+
+
+\begin{eg}
+    $\Q(\zeta_5)$ is galois over $\Q$ with $(\Z/5\Z)^{\times} \cong \Z/4\Z$. Indeed, $x^5-1$ is separable as $\{1,\zeta_5,\zeta_5^2,\zeta_5^3,\zeta_5^4\}$ are its five distinct roots, and $\Q(\zeta_5)$ is consequently a splitting field for this polynomial. The elements of the Galois group $\text{Gal}(\Q(\zeta_5)/\Q)$ are generated by $\sigma(\zeta_5) = \zeta_5^2$, so $\sigma^2(\zeta_5) = \zeta_5^4$, $\sigma^3(\zeta_5) = \zeta_5^8 = \zeta_5^3$, $\sigma^4(\zeta_5) = \zeta_5^{6} = \zeta_5$, so $\sigma^4 = 1$, and $\text{Gal}(\Q(\zeta_5)/\Q) \cong \Z/4\Z$. Then, we can consider the subgroup $H = \{1,\sigma^2\}$ of order $2$. Then, the fixed field of of $H$ is $\Q(\zeta_5+\zeta_5^{-1})$
+\end{eg}
+
+
+(To be finished)
+
+
+\section{\textsection Galois Group of Polynomials}
+
+Recall that the Galois group of a separable polynomial $f(x) \in F[x]$ is the Galois group of the splitting field of $f(x)$ over $F$. 
+
+Further, if $K/F$ is Galois, then $K$ is the splitting field for some separable polynomial $f(x) \in F[x]$, and $[K:F] = |\aut(K/F)|$. Moreover, any automorphism $\sigma \in \text{Gal}(K/F)$ maps a root of an irreducible factor of $f(x)$ to another root of the irreducible factor, and $\sigma$ is uniquely determined by its action on these roots (since they generate $K$ over $F$). Fix a labeling $\alpha_1,...,\alpha_n$ the roots of $f(x)$, and observe that $\sigma \in \text{Gal}(K/F)$ defines a unique permutation of $\alpha_1,...,\alpha_n$. This gives an injection $\text{Gal}(K/F) \hookrightarrow S_n$. 
+
+Since the degree of the splitting field is the same as the order of the Galois group, this explains from the group-theoretic side why the splitting field for a polynomial of degree $n$ over $F$ is of degree at most $n!$ over $F$. 
+
+In general, if the factorization of $f(x) =f_1(x)...f_k(x)$ into (distinct) irreducibles where $f_i(x)$ has degree $n_i$, then since the Galois group permutes the roots of the irreducible factors among themselves we have $\text{Gal}(K/F) \hookrightarrow S_{n_1}\times ... \times S_{n_k}$. 
+
+If $f(x)$ is itself irreducible, then given any two roots of $f(x)$ there is an automorphism in the Galois group which maps the first root to the second. Such a group is said to be \Emph{transitive} on the roots. Thus, the Galois group must be transitive on blocks of roots.
+
+\begin{eg}
+    Consider the biquadratic extension $\Q(\sqrt{2},\sqrt{3})$ over $\Q$, which is the splitting field of $(x^2-2)(x^2-3)$. Label the roots $\alpha_1 = \sqrt{2},\alpha_2 = -\sqrt{2},\alpha_3 = \sqrt{3},\alpha_4 = -\sqrt{3}$. From our previous discussion $\text{Gal}(\Q(\sqrt{2},\sqrt{3})/\Q) \hookrightarrow S_2\times S_2 = \Z/2\Z\times \Z/2\Z = V_4$, the Klien-4 group. But, $|\text{Gal}(\Q(\sqrt{2},\sqrt{3})/\Q)| = 4$, so $\text{Gal}(\Q(\sqrt{2},\sqrt{3})/\Q)\cong V_4$. Viewing it as a subgroup of $S_4$, with have from a previous discussion $\text{Gal}(\Q(\sqrt{2},\sqrt{3})/\Q) = \{1,\sigma,\tau,\sigma\tau\}$ so \begin{equation*}
+        \sigma = (12), \tau = (34)
+    \end{equation*}
+    as viewed in $S_4$ with the above labelling. Further, $\sigma\tau = (12)(34)$. Hence \begin{equation*}
+        \text{Gal}(\Q(\sqrt{2},\sqrt{3})/\Q) \cong \{1,(12),(34),(12)(34)\} \subseteq S_4
+    \end{equation*}
+\end{eg}
+
+
+\begin{eg}
+    Consider the Galois group of $x^3 - 2$, with extension $\Q(\sqrt[3]{2},\zeta_3)$, with roots $\sqrt[3]{2},\zeta_3\sqrt[3]{2},\zeta_3^2\sqrt[3]{2}$. With this ordering the generators $\sigma$ and $\tau$ of the Galois group givethe following permutations \begin{equation*}
+        \sigma = (123), \tau = (23)
+    \end{equation*}
+    which gives \begin{equation*}
+        \text{Gal}(\sqrt[3]{2},\zeta_3) \cong \{1,\sigma,\sigma^2,\tau,\tau\sigma,\tau\sigma^2\} = S_3
+    \end{equation*}
+    in this case the full symmetric group on $3$ letters.
+\end{eg}
+
+Recall that every finite group is isomorphic to a subgroup of $S_n$, for some $n$ (by Cayley's Theorem). It is currently an open problem as to whether every finite group appears as the Galois group for some polynomial over $\Q$. 
+
+\begin{defn}
+    Let $x_1,x_2,...,x_n$ be indeterminates. The \Emph{elementary symmetric functions} $s_1,s_2,...,s_n$ are defined by \begin{align*}
+        s_1 &= x_1+x_2+...+x_n \\
+        s_2 &= \sum_{i<j}x_ix_j= x_1x_2+x_1x_3+ ... + x_2x_3 +x_2x_4+...+x_{n-1}x_n \\
+        &\vdots 
+        s_n = x_1x_2...x_n
+    \end{align*}
+    i.e., the $i$th symmetric function $s_i$ of $x_1,...,x_n$ is the sum of all products of the $x_j$'s, taken $i$ at a time.
+\end{defn}
+
+\begin{defn}
+    The \Emph{general polynomial of degree $n$} is the polynomial \begin{equation*}
+        (x-x_1)(x-x_2)...(x-x_n) \in (\F[x_1,x_2,...,x_n])[x]
+    \end{equation*}
+    whose roots are the indeterminates $x_1,x_2,...,x_n$.
+\end{defn}
+
+By induction, it can be shown that the coefficients of the general polynomial of degree $n$ are given by the elementary symmetric functions in the roots: \begin{equation*}
+    (x-x_1)(x-x_2)...(x-x_n) = x^n - s_1x^{n-1}+s_2x^{n-2}+...+(-1)^ns_n
+\end{equation*}
+
+For any field $F$, the extension $F(x_1,x_2,...,x_n)$ is then a Galois extension of the field $F(s_1,s_2,...,s_n)$ since it is a splitting field of the general polynomial of degree $n$. 
+
+If $\sigma \in S_n$ is any permutation of $\{1,2,...,n\}$, then $\sigma$ acts on the rational functions in $F(x_1,x_2,...,x_n)$ by permuting the subscripts of $x_1,x_2,...,x_n$, and this gives an automorphism of $F(x_1,...x_n)$. Identifying $\sigma \in S_n$ with this automorphism, identifies $S_n$ as a subgroup of $\aut(F(x_1,...,x_n))$. The elementary symmetric functions are fixed under any permutation of their subscripts (this is the reason they are called symmetric), which shows that the subfield $F(s_1,...,s_n)$ is contained in the fixed field of $S_n$ as a subgroup of $\aut(F(x_1,...,x_n))$. By the Fundamental Theorem of Galois Theory, the fixed subfield of $S_n$ has index $n!$ in $F(x_1,...,x_n)$. Since $F(x_1,...,x_n)$ is the splitting field over $F(s_1,...,s_n)$ of the polynomial of degree $n$ above, we have \begin{equation*}
+    [F(x_1,...,x_n):F(s_1,...,s_n)] \leq n!
+\end{equation*}
+Since the subfield must contain $F(s_1,...,s_n)$, it follows that we have equality and that $F(s_1,...,s_n)$ is precisely the fixed field of $S_n$.
+
+\begin{prop}
+    The fixed field of the symmetric group $S_n$ acting on the field of rational functions in $n$ variables $F(x_1,x_2,...,x_n)$ is the field of the rational functions in the elementary symmetric functions $F(s_1,...,s_n)$.
+\end{prop}
+
+\begin{defn}
+    A rational function $f(x_1,...,x_n)$ is called \Emph{symmetric} if it is not changed by any permutation of the variables $x_1,x_2,...,x_n$.
+\end{defn}
+
+\begin{cor}[Fundamental Theorem of Symmetric Functions]
+    Any symmetric function in the variables $x_1,x_2,...,x_n$ is a rational function in the elementary symmetric functions $s_1,s_2,...,s_n$.
+\end{cor}
+\begin{proof}
+    A symmetric function lies in the fixed field of the subgroup isomorphic to $S_n$ in $\text{Gal}(F(x_1,...,x_n)/F(s_1,...,s_n))$, and hence lies in $F(s_1,...,s_n)$ by the previous proposition.
+\end{proof}
+
+\begin{rmk}
+    If $f(x_1,...,x_n)$ is a polynomial in $x_1,...,x_n$ which is symmetric then it can be seen that $f$ is actually a polynomial in $s_1,...,s_n$. It is in fact true that a symmetric polynomial whose coefficients lie in $R$, where $R$ is any commutative ring with identity, is a polynomial in the elementary symmetric functions with coefficients in $R$.
+\end{rmk}
+
+\begin{eg}
+    Consider $(x_1-x_2)^2$, which is symmetric in $x_1$ and $x_2$, so we can write $(x_1-x_2)^2 = (x_1+x_2)^2 - 4x_1x_2 = s_1^2-4s_2$ a polynomial in terms of symmetric functions.
+\end{eg}
+
+\begin{eg}
+    Consider the three hyperbolic numbers $\mathcal{H}_3 = \langle j\rangle$, $j^3 = 1$, $\zeta = x+jy+j^2z$, which in matrix form is \begin{equation*}
+        M[\zeta] = \begin{bmatrix} x & z & y \\ y & x & z \\ z & y & x \end{bmatrix} 
+    \end{equation*}
+    which has determinant $\det(M[\zeta]) = x^3+y^3+z^3 - 3xyz$, which is symmetric in $x,y,z$. This can then be written as $(x+y+z)^3 -2(xy+xz+yz)-3xyz = s_1(s_1^2-3s_2)$. 
+\end{eg}
+
+\begin{thm}
+    The general polynomial \begin{equation*}
+        x^n-s_1x^{n-1}+s_2x^{n-2}+...+(-1)^ns_n
+    \end{equation*}
+    over the field $F(s_1,...,s_n)$ is separable with Galois group $S_n$.
+\end{thm}
+
+This result says that if there are no relations among the coefficients of a polynomial of degree $n$, then the Galois group of this polynomial over the field generated by its coefficients is the full symmetric group $S_n$. To say the $s_i$ are \Emph{indeterminants} in $x_1,...,x_n$ this means, informally, that there does not exist nonzero polynomial relations over $s_1,...,s_n$.
+
+
+For $n \geq 5$, there is only one normal subgroup of $S_n$, namely $A_n$, hence there is only one normal subfield of $F(x_1,...,x_n)$ containing $F(s_1,...,s_n)$ and it is an extension of degree $2$. 
+
+\begin{defn}
+    Define the \Emph{discriminant} $D$ of $x_1,x_2,...,x_n$ by the formula \begin{equation*}
+        D = \prod_{i < j}(x_i-x_j)^2
+    \end{equation*}
+    Define the discriminant of a polynomial to be the discriminant of the roots of the polynomial.
+\end{defn}
+
+The discriminant $D$ is a symmetric function in $x_1,...,x_n$, hence is an element of $K = F(s_1,...,s_n)$.
+
+Recall that $\sigma \in S_n$ is an element of $A_n$ if and only if $\sigma$ fixes the product \begin{equation*}
+    \sqrt{D} = \prod_{i<j}(x_i - x_j) \in \Z[x_1,x_2,...,x_n]
+\end{equation*}
+It follows by the fundamental theorem that if $F$ has characteristic different from $2$, then $\sqrt{D}$ generates the fixed field of $A_n$ and generates a quadratic extension of $K = F(s_1,...,s_n)$. 
+
+\begin{prop}
+    If $\ch(F) \neq 2$, then the permutation $\sigma \in S_n$ is an element of $A_n$ if and only if it fixes the square root of the discriminant $D$.
+\end{prop}
+
+If the roots of the polynomial $f(x) = x^n + a_{n-1}x^{n-1} + ...+a_1x+ a_0$ are $\alpha_1,\alpha_2,...,\alpha_n$, then the discriminant of $f(x)$ is \begin{equation*}
+    D = \prod_{i < j}(\alpha_i - \alpha_j)^2
+\end{equation*}
+Note that $D = 0$ if and only if $f(x)$ is inseparable, so we have nondistinct roots, or multiples. In any perfect field this implies $f(x)$ is reducible. The discriminant $D$ is symmetric in the roots of $f(x)$, and is hence fixed by automorphisms in the Galois group of $f(x)$. Moreover, we have $\sqrt{D}$ is in the splitting field of $f(x)$, being a product of its roots. Then, if the roots of $f(x)$ are distinct, fix some ordering on the roots and view the Galois group of $f(x)$ as a subgroup of $S_n$, as before.
+
+\begin{prop}
+    The Galois group of $f(x) \in F[x]$ is a subgroup of $A_n$ if and only if the discriminant $D \in F$ is the square of an element in $F$
+\end{prop}
 
 
 

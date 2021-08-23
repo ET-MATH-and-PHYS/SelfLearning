@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.8.13)  18 AUG 2021 17:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.8.13)  23 AUG 2021 00:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1500,7 +1500,7 @@ File: fc-english.def 2016/01/12
 LaTeX Font Warning: Font shape `OT1/txr/m/scit' undefined
 (Font)              using `OT1/txr/m/it' instead on input line 44.
 
-<../../Crab.jpg, id=147, 962.09438pt x 769.37437pt>
+<../../Crab.jpg, id=208, 962.09438pt x 769.37437pt>
 File: ../../Crab.jpg Graphic file (type jpg)
 <use ../../Crab.jpg>
 Package pdftex.def Info: ../../Crab.jpg  used on input line 48.
@@ -1550,7 +1550,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.32 ...{part}{III\hspace {1em}Part 3}{34}{part.3}
+l.38 ...numberline {5}Power Series}{44}{chapter.5}
                                                   % [1])
 \tf@toc=\write5
 \openout5 = `ComplexAnal.toc'.
@@ -1612,65 +1612,85 @@ Overfull \hbox (9.82156pt too wide) detected at line 817
 Chapter 3.
 [26
 
-] [27]
+] [27] [28] [29] [30] [31] [32] [33] [34]
 Chapter 4.
-[28
 
-]
+Overfull \hbox (17.19487pt too wide) detected at line 1430
+[]
+ []
+
+[35
+
+] [36] [37] [38] [39] [40] [41] [42] [43]
+
+LaTeX Warning: Reference `namthm:Morera' on page 44 undefined on input line 177
+0.
+
+
+Overfull \hbox (2.07466pt too wide) in paragraph at lines 1794--1796
+\OT1/txr/m/n/12 Some in-tu-ition for this is that holo-mor-phic func-tions are 
+those of $\OML/txmi/m/it/12 z$\OT1/txr/m/n/12 -alone. For ex-am-ple, $\OML/txmi
+/m/it/12 f\U/matha/m/n/12 p\OML/txmi/m/it/12 z; []\U/matha/m/n/12 q ^^P
+ []
+
+[44]
 Chapter 5.
-[29
+[45
 
-]
+] [46] [47] [48] [49] [50] [51] [52]
 Chapter 6.
-[30
+[53
 
 ]
 Chapter 7.
-[31
+[54
 
-] [32
+] [55
 
 ]
 Chapter 8.
-[33
+[56
 
 ]
 Chapter 9.
-[34
+[57
 
-] [35
+] [58
 
 ]
 Chapter 10.
-[36
+[59
 
 ]
 Chapter 11.
-[37
+[60
 
-] [38
+] [61
 
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1226.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1226.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2198.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2198.
  (./ComplexAnal.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1226.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1226.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2198.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2198.
 
 Package rerunfilecheck Info: File `ComplexAnal.out' has not changed.
-(rerunfilecheck)             Checksum: 2F219074C2E54B10AE279D50D9591C7A;2338.
+(rerunfilecheck)             Checksum: FA7F639D569341732B72ED5B0C19695F;3390.
+
+
+LaTeX Warning: There were undefined references.
 
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1226.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2198.
  ) 
 Here is how much of TeX's memory you used:
- 24619 strings out of 481239
- 449916 string characters out of 5920377
- 738460 words of memory out of 5000000
- 39120 multiletter control sequences out of 15000+600000
+ 24761 strings out of 481239
+ 451222 string characters out of 5920377
+ 738508 words of memory out of 5000000
+ 39137 multiletter control sequences out of 15000+600000
  598510 words of font info for 178 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  76i,13n,84p,1054b,665s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1687,17 +1707,18 @@ sr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/t
 ype1/public/txfonts/rtxsc.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/txfonts/txsy.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txs
-ya.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsyb.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsyc.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
-rw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on ComplexAnal.pdf (39 pages, 694598 bytes).
+/txfonts/txex.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txs
+y.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsya.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsyb.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/txfonts/txsyc.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utm
+r8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on ComplexAnal.pdf (62 pages, 790985 bytes).
 PDF statistics:
- 603 PDF objects out of 1000 (max. 8388607)
- 532 compressed objects within 6 object streams
- 187 named destinations out of 1000 (max. 500000)
- 298 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 892 PDF objects out of 1000 (max. 8388607)
+ 795 compressed objects within 8 object streams
+ 312 named destinations out of 1000 (max. 500000)
+ 418 words of extra memory for PDF output out of 10000 (max. 10000000)
 

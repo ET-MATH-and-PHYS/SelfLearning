@@ -45,14 +45,15 @@
 \contentsline {section}{\numberline {.1}Multivariate Calculus - with Applications}{100}{section.2..1}%
 \contentsline {subsection}{Vector Functions and Derivatives}{100}{section*.2}%
 \contentsline {subsection}{Parametric Curves and Paths}{102}{Item.80}%
-\contentsline {subsection}{Functions of Several Variables}{104}{equation.2..1.20}%
-\contentsline {subsection}{Partial Derivatives}{107}{equation.2..1.35}%
-\contentsline {subsection}{Implicit Differentiation}{109}{thm.2..1.8}%
-\contentsline {subsection}{Differentials}{110}{equation.2..1.57}%
-\contentsline {subsection}{Taylor Polynomials}{110}{equation.2..1.59}%
-\contentsline {subsection}{Local Extrema of Multivariate Functions}{112}{equation.2..1.70}%
-\contentsline {subsection}{Vector Fields}{113}{Item.112}%
-\contentsline {subsection}{Line Integrals}{114}{thm.2..1.14}%
-\contentsline {subsection}{Line Integral Theorems}{115}{equation.2..1.85}%
-\contentsline {subsection}{Surface Integrals}{117}{equation.2..1.92}%
+\contentsline {subsection}{Curvature and the Frenet Frame}{104}{equation.2..1.20}%
+\contentsline {subsection}{Functions of Several Variables}{106}{thm.2..1.4}%
+\contentsline {subsection}{Partial Derivatives}{109}{equation.2..1.35}%
+\contentsline {subsection}{Implicit Differentiation}{111}{thm.2..1.11}%
+\contentsline {subsection}{Differentials}{112}{equation.2..1.57}%
+\contentsline {subsection}{Taylor Polynomials}{112}{equation.2..1.59}%
+\contentsline {subsection}{Local Extrema of Multivariate Functions}{114}{equation.2..1.70}%
+\contentsline {subsection}{Vector Fields}{115}{Item.112}%
+\contentsline {subsection}{Line Integrals}{117}{thm.2..1.17}%
+\contentsline {subsection}{Line Integral Theorems}{117}{equation.2..1.85}%
+\contentsline {subsection}{Surface Integrals}{119}{equation.2..1.92}%
 \contentsfinish 

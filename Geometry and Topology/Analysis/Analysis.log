@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.12.5)  12 AUG 2021 12:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.8.13)  18 AUG 2021 18:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -161,7 +161,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip49
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 9.
+Package hyperref Info: Option `colorlinks' set `true' on input line 24.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2020/01/20 v2.17e AMS math features
@@ -1502,7 +1502,7 @@ File: fc-english.def 2016/01/12
 LaTeX Font Warning: Font shape `OT1/txr/m/scit' undefined
 (Font)              using `OT1/txr/m/it' instead on input line 44.
 
-<../../Crab.jpg, id=236, 962.09438pt x 769.37437pt>
+<../../Crab.jpg, id=240, 962.09438pt x 769.37437pt>
 File: ../../Crab.jpg Graphic file (type jpg)
 <use ../../Crab.jpg>
 Package pdftex.def Info: ../../Crab.jpg  used on input line 48.
@@ -1552,7 +1552,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.32 ...10}Integration on Chains}{86}{appendix.10}
+l.32 ...10}Integration on Chains}{87}{appendix.10}
                                                   % [1])
 \tf@toc=\write5
 \openout5 = `Analysis.toc'.
@@ -1696,50 +1696,38 @@ Overfull \hbox (9.37679pt too wide) in paragraph at lines 3278--3279
 12 C\U/matha/m/n/12 q$
  []
 
-[102] [103] [104] [105] [106] [107] [108]
-Overfull \hbox (7.9337pt too wide) in paragraph at lines 3636--3637
-[][]\OT1/txr/bx/n/12 Theorem .1.9 \OT1/txr/m/n/12 (Im-plicit Func-tion The-o-re
-m (Two vari-ables))\OT1/txr/bx/n/12 . []\OT1/txr/m/sl/12 Con-sider $\OML/txmi/m
-/it/12 F\U/matha/m/n/12 p\OML/txmi/m/it/12 x; y\U/matha/m/n/12 q ^^P \OT1/txr/m
-/n/12 0$\OT1/txr/m/sl/12 . Let $\U/matha/m/n/12 p\OML/txmi/m/it/12 x[]; y[]\U/m
-atha/m/n/12 q P
- []
-
-
-Overfull \hbox (14.20198pt too wide) in paragraph at lines 3646--3646
-[][]\OT1/txr/bx/n/12 Theorem .1.10 \OT1/txr/m/n/12 (Im-plicit Func-tion The-o-r
+[102] [103] [104] [105] [106] [107] [108] [109] [110]
+Overfull \hbox (14.20198pt too wide) in paragraph at lines 3735--3735
+[][]\OT1/txr/bx/n/12 Theorem .1.13 \OT1/txr/m/n/12 (Im-plicit Func-tion The-o-r
 em (n vari-ables))\OT1/txr/bx/n/12 . []\OT1/txr/m/sl/12 Con-sider $\OML/txmi/m/
 it/12 F\U/matha/m/n/12 p[]q ^^P \OT1/txr/m/n/12 0\U/matha/m/n/12 p^^Nq$\OT1/txr
 /m/sl/12 , $[] \U/matha/m/n/12 ^^P p\OML/txmi/m/it/12 x[]; :::; x[]\U/matha/m/n
 /12 q$\OT1/txr/m/sl/12 .
  []
 
-[109] [110] [111] [112] [113] [114] [115] [116] [117] [118]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 4028.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 4028.
+[111] [112] [113] [114] [115] [116] [117] [118] [119] [120]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 4117.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 4117.
  (./Analysis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 4028.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 4028.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 4117.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 4117.
 
 Package rerunfilecheck Info: File `Analysis.out' has not changed.
-(rerunfilecheck)             Checksum: C50BC6872CC34331A34B41994805E064;3863.
+(rerunfilecheck)             Checksum: 673058FF2957843C9530176D33F82C5E;3943.
 
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 4028.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 4117.
  ) 
 Here is how much of TeX's memory you used:
- 25189 strings out of 481239
- 455476 string characters out of 5920377
- 741073 words of memory out of 5000000
- 39121 multiletter control sequences out of 15000+600000
+ 25200 strings out of 481239
+ 455598 string characters out of 5920377
+ 741075 words of memory out of 5000000
+ 39122 multiletter control sequences out of 15000+600000
  612596 words of font info for 220 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 76i,16n,84p,1293b,605s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 76i,16n,84p,1293b,631s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/mathabx-type1/matha12.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/public/mathabx-type1/matha6.pfb></usr/share/texlive/texmf
@@ -1761,10 +1749,10 @@ are/texlive/texmf-dist/fonts/type1/public/txfonts/txsyb.pfb></usr/share/texlive
 w/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a
 .pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Analysis.pdf (119 pages, 944780 bytes).
+Output written on Analysis.pdf (121 pages, 953330 bytes).
 PDF statistics:
- 1688 PDF objects out of 1728 (max. 8388607)
- 1526 compressed objects within 16 object streams
- 761 named destinations out of 1000 (max. 500000)
- 474 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1711 PDF objects out of 1728 (max. 8388607)
+ 1547 compressed objects within 16 object streams
+ 771 named destinations out of 1000 (max. 500000)
+ 482 words of extra memory for PDF output out of 10000 (max. 10000000)
 

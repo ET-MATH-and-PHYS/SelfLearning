@@ -3352,6 +3352,95 @@ we shall always assume that such a numbering has been assigned.
             \left|\frac{d\vec{f}(s)}{dt}\right| = 1
         \end{equation}
     \end{defn}
+    
+
+    
+
+    \subsection{Curvature and the Frenet Frame}
+
+    The Frenet Frame forms a right handed orthogonal basis at any point along a smooth curve.  The curvature measures the rate at which a curve is turning (away from its tangent line) at any point. The Torsion measures the rate at which the curve is twisting (out of the plane in which it is turning) at any point.
+
+    \begin{defn}
+        Let $\gamma:I\subseteq \R\rightarrow \R^n$ denote a smooth parametric curve. Then $d\gamma/dt$ gives a tangent vector to the curve at any point, and it points in the direction of the orientation of the curve. We assume that this derivative is nowhere zero so we can define a \Emph{unit tangent vector}, $\hat{T}(t)$, at $\gamma(t)$ by \begin{equation*}
+            \hat{T}(t) := \frac{d\gamma(t)/dt}{||d\gamma(t)/dt||}
+        \end{equation*}
+    \end{defn}
+    
+    Note that when the parameterization is in terms of arclength the denominator is $1$. If $\gamma(t)$ has a continuous nonvanishing derivative, then $\hat{T}(t)$ is continuous and the angle it makes with any fixed vector is also continuous.
+
+    Having unit length the tangent vector field satisfies $\hat{T}(t)\cdot\hat{T}(t) = 1$, so $2\hat{T}(t)\cdot \frac{d\hat{T}(t)}{dt} = 0$. Thus, the derivative of the tangent is orthogonal to the tangent at any point on the curve.
+
+    \begin{defn}
+        The \Emph{curvature} of a smooth curve $\gamma:I\subseteq \R\rightarrow \R^n$ parameterized in terms of arclength is defined to be \begin{equation*}
+            \kappa(s) = \left|\frac{d\hat{T}(s)}{ds}\right|
+        \end{equation*}
+        The \Emph{radius of curvature}, denoted $\rho$, is the reciprocal of the curvature: \begin{equation*}
+            \rho(s) = \frac{1}{\kappa(s)}
+        \end{equation*}
+    \end{defn}
+
+    The curvature of $\gamma$ measures the rate of turning of the tangent line to the curve at any point.
+
+    \begin{defn}
+        If the curvature of a smooth curve $\gamma$ is nonzero, we define the \Emph{unit principal normal} to $\gamma$ in terms of an arclength parameterization to be \begin{equation*}
+            \hat{N}(s) = \frac{d\hat{T}(s)/ds}{||d\hat{T}(s)/ds||}
+        \end{equation*}
+    \end{defn}
+
+    Note that the principal normal is perpendicular to the curve at any point, and points in the direction that the unit tangent, and consequently the curve, is turning.
+
+    \begin{thm}
+        Let $\kappa > 0$ on an interval containing $s$ and let $\delta \theta$ be the angle between $\hat{T}(s+\delta s)$ and $\hat{T}(s)$, the unit tangent vectors at neighboring points on the curve. Then \begin{equation*}
+            \kappa(s) = \lim\limits_{\delta s\rightarrow 0} \left|\frac{\delta s}{\delta s}\right|
+        \end{equation*}
+    \end{thm}
+
+    The plane passing through $\gamma(s)$ and spanned by $\hat{T}(s)$ and $\hat{N}(s)$ is called the \Emph{osculating plane} to the curve at $\gamma(s)$.
+
+    Assuming $\kappa(s) \neq 0$, let $\gamma_c(s) = \gamma(s)+\rho(s)\hat{N}(s)$. Then $\gamma_c(s)$ is called the \Emph{center of curvature} to $\gamma$ at $\gamma(s)$, and the circle in the osculating plane with center $\gamma_c(s)$ and radius $\rho(s)$ is the best approximation of the curve near $\gamma(s)$, and is called the \Emph{osculating circle}.
+
+
+    \begin{defn}
+        At any point on $\gamma(s)$ where $\hat{T}(s),\hat{N}(s)$ are both defined, we define the \Emph{unit binormal} field to be \begin{equation*}
+            \hat{B}(s) = \hat{T}(s)\times \hat{N}(s)
+        \end{equation*}
+    \end{defn}
+
+    The three vectors $\{\hat{T}(s),\hat{N}(s),\hat{B}(s)\}$ correspond to a right-handed coordinate system, the \Emph{Frenet Frame} for $\gamma$ at any point $\gamma(s)$. Note that \begin{equation*}
+        \frac{d\hat{B}}{ds} = \hat{T}\times \frac{d\hat{N}}{ds}
+    \end{equation*}
+    and as with any unit normal field, $\hat{B}$'s derivative is orthogonal to itself, so we have that $\frac{d\hat{B}}{ds}$ lies on the line spanned by $\hat{N}$. 
+
+    \begin{defn}
+        On any interval where $\kappa(s) \neq 0$ there exists a function $\tau(s)$ such that \begin{equation*}
+            \frac{d\hat{B}}{ds} = -\tau(s)\hat{N}(s)
+        \end{equation*}
+        The number $\tau(s)$ is called the \Emph{torsion} of $\gamma$ at $\gamma(s)$.
+    \end{defn}
+
+    The torsion measures the degree of twisting that the curve exhibits near a point, that is, the extent to which the curve fails to be planar.
+
+    Let $\delta \psi$ be the angle between $\hat{B}(s)$ and $\hat{B}(s+\delta s)$. Then \begin{equation*}
+        |\tau(s)| = \lim\limits_{\delta s\rightarrow 0} \left|\frac{\delta \psi}{\delta s}\right|
+    \end{equation*}
+
+    \begin{prop}
+        The \Emph{Frenet-Serret Formulas} for our Frenet Frame are given by \begin{align*}
+            \frac{d\hat{T}}{ds} &= \kappa(s)\hat{N}(s) \\
+            \frac{d\hat{N}}{ds} &= -\kappa(s)\hat{T}(s)+\tau(s) \hat{B}(s) \\
+            \frac{d\hat{B}}{ds} &= -\tau(s)\hat{N}(s)
+        \end{align*}
+        These can be summarized by the matrix equation \begin{equation*}
+            \frac{d}{ds}\begin{bmatrix} \hat{T}(s) \\ \hat{N}(s) \\ \hat{B}(s) \end{bmatrix} = \begin{bmatrix} 0 & \kappa(s) & 0 \\ -\kappa(s) & 0 & \tau(s) \\ 0 & -\tau(s) & 0 \end{bmatrix} \begin{bmatrix} \hat{T}(s) \\ \hat{N}(s) \\ \hat{B}(s) \end{bmatrix} 
+        \end{equation*}
+    \end{prop}
+
+    \begin{thm}
+        Let $\gamma_1$ and $\gamma_2$ be two curves, both of which have the same nonvanishing curvature function $\kappa(s)$ and the same torsion function $\tau(s)$. Then the curves are congruent. That is, there exists a rigid motion so as to coincide one curve exactly with the other.
+    \end{thm}
+
+
+
 
 
     \subsection{Functions of Several Variables}

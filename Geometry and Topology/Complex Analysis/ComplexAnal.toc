@@ -12,9 +12,9 @@
 \contentsline {chapter}{\numberline {2}Analytic Functions}{13}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Basic Analysis and Topology}{13}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Analytic Functions}{16}{section.2.2}%
-\contentsline {section}{\numberline {2.3}The Cauchy Riemmann Equations}{18}{section.2.3}%
+\contentsline {section}{\numberline {2.3}The Cauchy Riemann Equations}{18}{section.2.3}%
 \contentsline {subsection}{Real Differentiability}{19}{defn.2.3.3}%
-\contentsline {subsection}{Cauchy Reimman Equations Sketch}{20}{defn.2.3.6}%
+\contentsline {subsection}{Cauchy Riemann Equations Sketch}{20}{defn.2.3.6}%
 \contentsline {section}{\numberline {2.4}Analytic Functions (cont.)}{21}{section.2.4}%
 \contentsline {section}{\numberline {2.5}Harmonic Functions}{22}{section.2.5}%
 \contentsline {section}{\numberline {2.6}Conformal Functions}{23}{section.2.6}%
@@ -22,15 +22,30 @@
 \contentsline {subsection}{Extended Complex Plane}{24}{defn.2.7.2}%
 \contentsline {chapter}{\numberline {3}Line Integrals and Harmonic Functions}{26}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Line Integrals}{26}{section.3.1}%
-\contentsline {chapter}{\numberline {4}Complex Integration and Analyticity}{28}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Power Series}{29}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Laurent Series and Isolated Singularities}{30}{chapter.6}%
-\contentsline {chapter}{\numberline {7}The Residue Calculus}{31}{chapter.7}%
-\contentsline {part}{II\hspace {1em}Part 2}{32}{part.2}%
-\contentsline {chapter}{\numberline {8}The Logarithmic Integral}{33}{chapter.8}%
-\contentsline {chapter}{\numberline {9}Conformal Mapping}{34}{chapter.9}%
-\contentsline {part}{III\hspace {1em}Part 3}{35}{part.3}%
-\contentsline {chapter}{\numberline {10}Approximation Theorems}{36}{chapter.10}%
-\contentsline {chapter}{\numberline {11}Special Functions}{37}{chapter.11}%
-\contentsline {chapter}{Appendices}{38}{section*.1}%
+\contentsline {section}{\numberline {3.2}Harmonic Conjugates}{29}{section.3.2}%
+\contentsline {section}{\numberline {3.3}The Mean Value Property}{30}{section.3.3}%
+\contentsline {section}{\numberline {3.4}The Maximum Principle}{31}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Applications to Physics}{32}{section.3.5}%
+\contentsline {subsection}{The Laplace Equation}{33}{eg.3.5.3}%
+\contentsline {chapter}{\numberline {4}Complex Integration and Analyticity}{35}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Complex Line Integrals}{35}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Fundamental Theorem of Calculus for Analytic Functions}{37}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Cauchy's Theorem and Integral Formula}{38}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Liouville's Theorem}{40}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Morera's Theorem}{42}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Goursat's Theorem}{43}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Pompeiu's Formulas}{44}{section.4.7}%
+\contentsline {chapter}{\numberline {5}Power Series}{45}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Infinite Series}{45}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Sequences and Series of Functions}{46}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Power Series}{50}{section.5.3}%
+\contentsline {chapter}{\numberline {6}Laurent Series and Isolated Singularities}{53}{chapter.6}%
+\contentsline {chapter}{\numberline {7}The Residue Calculus}{54}{chapter.7}%
+\contentsline {part}{II\hspace {1em}Part 2}{55}{part.2}%
+\contentsline {chapter}{\numberline {8}The Logarithmic Integral}{56}{chapter.8}%
+\contentsline {chapter}{\numberline {9}Conformal Mapping}{57}{chapter.9}%
+\contentsline {part}{III\hspace {1em}Part 3}{58}{part.3}%
+\contentsline {chapter}{\numberline {10}Approximation Theorems}{59}{chapter.10}%
+\contentsline {chapter}{\numberline {11}Special Functions}{60}{chapter.11}%
+\contentsline {chapter}{Appendices}{61}{section*.1}%
 \contentsfinish 
