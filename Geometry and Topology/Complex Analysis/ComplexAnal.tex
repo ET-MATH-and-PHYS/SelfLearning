@@ -2137,14 +2137,252 @@ Using this concept, we can define uniform convergence in an equivalent manner. A
     \end{equation*}
 \end{thm}
 \begin{proof}
-    (To be completed)
+    Suppose $f(z)$ is holomorphic on $D = \{z \in \C:|z-z_0| < \rho\}$. Consider $|z-z_0| < r < \rho$ and $|w-z_0| = r$, then $|z-z_0| < |w-z_0|$, so $\frac{|z-z_0|}{|w-z_0|} < 1$. Now observe \begin{align*}
+        \frac{f(w)}{w-z} &= \frac{f(w)}{w-z_0-(z-z_0)} = \frac{f(w)}{w-z_0}\frac{1}{\left(1-\frac{z-z_0}{w-z_0}\right)} \\
+        &= \frac{f(w)}{w-z_0}\sum_{n=0}^{\infty}\left(\frac{z-z_0}{w-z_0}\right)^n = \sum_{n=0}^{\infty}\frac{f(w)}{(w-z_0)^{n+1}}(z-z_0)^n
+    \end{align*}
+    where the series converges normally for $|z-z_0| < |w-z_0| = r$. Then for $|z-z_0| < r < \rho$ we have by Cauchy's Integral Formula: \begin{align*}
+        f(z) &= \frac{1}{2\pi i}\oint_{|w-z_0| = r}\frac{f(w)}{(w-z)}dw \\
+        &= \frac{1}{2\pi i}\oint_{|w-z_0|=r}\sum_{n=0}^{\infty}\frac{f(w)}{(w-z_0)^{n+1}}(z-z_0)^ndw \\
+        &= \frac{1}{2\pi i}\sum_{n=0}^{\infty}\left(\oint_{|w-z_0|=r}\frac{f(w)}{(w-z_0)^(n+1)}dw\right)(z-z_0)^n \\
+        &= \sum_{n=0}^{\infty}\frac{f^{(n)}(z_0)}{n!}(z-z_0)^n
+    \end{align*}
+    Thus, $f(z)$ is analytic with $a_n = \frac{f^{(n)}(z_0)}{n!}$ as desired. 
 \end{proof}
+
+
+\begin{cor}
+    Suppose that $f(z)$ and $g(z)$ are holomorphic for $|z-z_0| < r$. If $f^{(k)}(z_0) = g^{(k)}(z_0)$ for $k \geq 0$, then $f(z) = g(z)$ for $|z-z_0| < r$.
+\end{cor}
+
+\begin{cor}
+    Suppose that $f(z)$ is analytic at $z_0$ (i.e. there is some open neighborhood of $z_0$ for which $f(z)$ is holomorphic), with power series expansion $f(z) = \sum_{n=0}^{\infty}a_n(z-z_0)^n$ centered at $z_0$. Then the radius of convergence of the power series is the largest number $R$ such that $f(z)$ extends to be analytic on the disk $\{z \in \C:|z-z_0| < R\}$.
+\end{cor}
+
+\begin{eg}
+    Recall that we originally defined the exponential as $f(z) = e^x(\cos(y)+i\sin(y))$, which is \Emph{entire} ($f \in \mathcal{O}(\C)$), and that $f'(z) = f(z)$ for all $z \in \C$.. Now, define $g(z) = \sum_{n=0}^{\infty}\frac{z^n}{n!} = 1+ z + \frac{1}{2}z^2+\frac{1}{3!}z^3+...$ Observe that $a_n = \frac{1}{n!}$, and \begin{equation*}
+        R = \lim\limits_{n\rightarrow \infty} \left|\frac{a_n}{a_{n+1}}\right| = \lim\limits_{n\rightarrow \infty} \frac{(n+1)!}{n!} = \infty
+    \end{equation*}
+    so $g(z)$ is entire. Also note that $g'(z) = \sum_{n=1}^{\infty}\frac{z^{n-1}}{(n-1)!} = \sum_{m=0}^{\infty}\frac{z^m}{m!} = g(z)$. Then, $f^{(k)}(0) = 1$ and $g^{(k)}(0) = 1$, so by our corollary we conclude that $f(z) = g(z)$.
+\end{eg}
+
+\begin{eg}
+    We have $\cosh(z) = \frac{1}{2}(e^z+e^{-z})$ versus $\cosh(z) = \sum_{n=0}^{\infty}\frac{1}{(2n)!}z^{2n}$ and $\sinh(z) = \frac{1}{2}(e^z - e^{-z})$ versus $\sinh(z) = \sum_{n=0}^{\infty}\frac{1}{(2n+1)!}z^{2n+1}$.  It follows that $$e^z = \cosh(z)+\sinh(z) = \sum_{n=0}^{\infty}\frac{z^n}{n!} = \sum_{n=0}^{\infty}\frac{z^{2n}}{(2n)!} + \sum_{n=0}^{\infty}\frac{z^{2n+1}}{(2n+1)!}$$
+    Next, observe $\cos(z) = \sum_{n=0}^{\infty}\frac{(-1)^n}{(2n)!}z^{2n}$ and $\sin(z) =\sum_{n=0}^{\infty}\frac{(-1)^n}{(2n+1)!}z^{2n+1}$. Then \begin{align*}
+        e^{iz} &= \sum_{n=0}^{\infty}\frac{(iz)^{2n}}{(2n)!} + \sum_{n=0}^{\infty}\frac{(iz)^{2n+1}}{(2n+1)!} \\
+        &= \sum_{n=0}^{\infty}\frac{(-1)^nz^{2n}}{(2n)!} + \sum_{n=0}^{\infty}\frac{i(-1)^nz^{2n+1}}{(2n+1)!} \\
+        &= \sum_{n=0}^{\infty}\frac{(-1)^nz^{2n}}{(2n)!} + i\sum_{n=0}^{\infty}\frac{(-1)^nz^{2n+1}}{(2n+1)!} \\
+        &= \cos(z)+i\sin(z)
+    \end{align*}
+\end{eg}
+
+
+
+\begin{defn}
+    We say that a function $f(z)$ is \Emph{analytic at $z= \infty$} if the function $g(w) = f(1/w)$ is analytic at $w = 0$.
+\end{defn}
+
+Thus, we make a change of variable $w = 1/z$, and we study the behaviour of $f(z)$ at $z = \infty$ by studying the behaviour of $g(w)$ at $w = 0$.
+
+\begin{thm}
+    If $f$ is analytic at $\infty$, then there exists $\rho > 0$ such that for $|z| > \rho$, $g(w)$ has a power expansion and  \begin{equation*}
+        f(z) = \sum_{n=0}^{\infty}\frac{a_n}{z^n}
+    \end{equation*}
+    for $|z| > \rho$.
+\end{thm}
+
+
+\begin{eg}
+    Consider $f(z) = z^4 + 3z^2-7$, and its reciprocal function $g(w) = 1/w^4 + 3/w^2 - 7$, which is not analytic at $w = 0$. Thus, $f$ is not analytic at $z = \infty$.
+\end{eg}
+
+\begin{eg}
+    Consider $f(z) = z^2e^{1/z}$, and its reciprocal $g(w) = e^w/w^2$, which is not analytic at $w = 0$, and hence $f$ is not analytic at $z = \infty$.
+\end{eg}
+
+\begin{eg}
+    Consider $f(z) = z/(z-1)$, and its reciprocal $g(w) = 1/(1-w)$, which is analytic for $|w| < 1$, and in particular for $w = 0$, so $f$ is analytic at $\infty$. 
+\end{eg}
+
+
+\subsection{Manipulation of Power Series}
+
+\begin{eg}
+    Suppose we wanted to compute $$\left(\sum_{n=0}^{\infty}z^n\right)\left(\sum_{n=0}^{\infty}(-1)^nz^n\right) = \sum_{n=0}^{\infty}\left(\sum_{i=0}^n(-1)^i\right)z^n = \sum_{n=0}^{\infty}z^{2n}$$
+    This computation is true by the absolute convergence of the series on their common radii of convergence. Next, observe \begin{align*}
+        \left(\sum_{n=0}^{\infty}\frac{z^n}{n!}\right)\left(\sum_{n=0}^{\infty}(-1)^n2^n\frac{z^n}{n!}\right) &= \sum_{n=0}^{\infty}\left(\sum_{i=0}^n\frac{(-1)^i2^i}{i!(n-i)!}\right)z^n \\
+        &= \sum_{n=0}^{\infty}\frac{(-1)^nz^n}{n!}
+    \end{align*}
+\end{eg}
+
+\begin{thm}
+    If $f(z)$ and $g(z)$ are analytic at $z_0$ with $\sum_{n=0}^{\infty}a_n(z-z_0)^n = f(z)$ and $g(z) = \sum_{n=0}^{\infty}b_n(z-z_0)^n$ then \begin{itemize}
+        \item $h(z) = f(z) + g(z)$ is analytic at $z_0$ with $h(z) = \sum_{n=0}^{\infty}(a_n+b_n)(z-z_0)^n$
+        \item $h(z) = cf(z)$ for $c \in \C$ is analytic at $z_0$ with $h(z) = \sum_{n=0}^{\infty}ca_n(z-z_0)^n$
+        \item $h(z) = f(z)g(z)$ is analytic at $z_0$ with $$h(z) = \sum_{n=0}^{\infty}\left(\sum_{i=0}^na_ib_{n-i}\right)(z-z_0)^n$$
+        \item $h(z) = 1/g(z)$, and without loss of generality suppose $g(0) = 1$ so $b_0 = 1$, then \begin{align*}
+                h(z) &= \frac{1}{1+\sum_{n=1}^{\infty}b_n(z-z_0)^n} = \sum_{k=0}^{\infty}\left(-\sum_{n=1}^{\infty}b_n(z-z_0)^n\right)^k \\
+        \end{align*}
+        \end{itemize}
+\end{thm}
+\begin{proof}
+    First, observe $h(z) = f(z)g(z)$, so $h'(z_0) = f'(z_0)g(z_0) + f(z_0)g'(z_0)$ so $h$ is analytic at $z_0$. Then, the $k$th derivative of the given power series evaluated at $z_0$ is $k!\sum_{i=0}^ka_ib_{k-i}$. The $k$th derivative of $h$ can be seen by the following: \begin{align*}
+        h^{(k)}(z_0) &= \sum_{i=0}^k\left(\begin{array}{c} k \\ i \end{array}\right)f^{(i)}(z_0)g^{(k-i)}(z_0) \\
+            &= \sum_{i=0}^k\left(\begin{array}{c} k \\ i \end{array}\right)i!a_i(k-i)!b_{k-i} \\
+            &= \sum_{i=0}^k k!a_ib_{k-1} \\
+            &= k!\sum_{i=0}^k a_ib_{k-1} \\
+    \end{align*}
+    Hence, the series and the $h$ are equal for all derivatives $k \geq 0$ at $z_0$. Hence, by a previous corollary we conclude that $h$ is in fact equal to the series on its radius of convergence.
+\end{proof}
+
+\begin{eg}
+    What is the power series of $\tan(z)$ centered at $z_0$? Well \begin{equation*}
+        \tan(z) = \frac{\sin(z)}{\cos(z)} = \sin(z)\sum_{n=0}^{\infty}(-1)^n\cos^n(z)
+    \end{equation*}
+\end{eg}
+
+
+
+%%%%%%%%%%%%%%%%%%%% Section 1.5.4
+\section{Zeros of an Analytic Function}
+
+
+\begin{defn}
+    Let $f(z)$ be analytic at $z_0$ and suppose that $f(z_0) = 0$ but $f(z)$ is not identically zero. We say that $f(z)$ has a \Emph{zero of order $N$} at $z_0$ if \begin{equation*}
+        f(z_0) = 0, f'(z_0) = 0,...,f^{(N-1)}(z_0) = 0, f^{(N)}(z_0) \neq 0
+    \end{equation*}
+    The order $N = 1$ is called a \Emph{simple zero} while the order $N =2$ is called a \Emph{double zero}.
+\end{defn}
+
+Observe that this occurs if and only if the power series expansion of $f(z)$ is given by \begin{equation*}
+    f(z) = \sum_{n=N}^{\infty}a_n(z-z_0)^n = \sum_{m=0}^{\infty}a_{m+N}(z-z_0)^{m+N} = (z-z_0)^N\sum_{m=0}^{\infty}\frac{f^{(m+N)}(z_0)}{(m+N)!}(z-z_0)^m
+\end{equation*}
+where $a_N \neq 0$, and we can factor out $(z-z_0)^N$ to write $f(z) = h(z)(z-z_0)^N$ for $h$ analytic at $z_0$ and $h(z_0) = a_N = \frac{f^{(N)}(z_0)}{N!} \neq 0$.
+
+\begin{thm}[Factor Theorem for Power Series]
+    If $f(z)$ is analytic with $z_0$ a zero of order $N$, then there exists $h(z)$ analytic at $z_0$ with $h(z_0) \neq 0$ and \begin{equation*}
+        f(z) = (z-z_0)^Nh(z)
+    \end{equation*}
+\end{thm}
+
+
+\begin{defn}
+    Let $U \subseteq \C$ then $z_0 \in U$ is an \Emph{isolated point} if there exists $\rho > 0$ such that $\{z \in U\vert |z-z_0| < \rho\} = \{z_0\}$ (that is $z_0 \in U$ but is not a limit point of $U$).
+\end{defn}
+
+
+
+\begin{eg}
+    Take $f(z) = \sin(z^2) = \sum\limits_{n=0}^{\infty}\frac{(-1)^n}{(2n+1)!}z^{4n+2}$. But then $0$ has multiplicity $2$, and we can write \begin{equation*}
+        f(z) = z^2 \sum_{n=0}^{\infty}\frac{(-1)^n}{(2n+1)!}z^{4n}
+    \end{equation*}
+    Moreover, $\sin(z)$ has simple zeros at $n\pi$ for $n \in \Z$, so $z^2 = n\pi$ are the zeros of $f(z) = \sin(z^2)$, or equivalently find that $z = \pm\sqrt{n\pi}$ are the zeros. But, for $n \neq 0$ these are all simple zeros as well.
+\end{eg}
+
+\begin{defn}
+    Let $f$ be analytic on $|z| > R > 0$ for som $R \in \C$. If $f$ is not identically zero for $|z| > R$ then we say $f$ has a zero of order $N$ at $\infty$ if $g(w) = f(1/w)$ has a zero of order $N$ at $w = 0$.
+\end{defn}
+
+
+\begin{eg}
+    Consider $f(z) = \sin(1/z) = \sum_{n=0}^{\infty}\frac{(-1)^n}{(2n+1)!z^{2n+1}}$. Then $g(w) = \sin(w)$, which has a simple zero at $w = 0$, so $f(z)$ has a simple zero at $z = \infty$.
+\end{eg}
+
+
+\begin{eg}
+    Consider $f(z) = \frac{1}{1-z^3}$. For $z$ very large, $f(z) \sim \frac{1}{-z^3}$, so we expect a zero of order $3$ at infinity. Observe, $g(w) = \frac{-w^3}{1-w^3} = -w^3\sum_{n=0}^{\infty}w^{3n}$ for $|w| < 1$, or equivalently, $1 < |z|$. Thus, $g(w)$ has a zero of order $3$ at $0$, so by definition $f(z)$ has a zero of order $3$ at $\infty$, as claimed.
+\end{eg}
+
+\begin{thm}
+    If $f(z)$ is an analytic function with a zero of order $N$ at $\infty$, then \begin{equation*}
+        f(z) = \sum_{n=N}^{\infty}\frac{a_N}{(z-z_0)^n} = \frac{1}{(z-z_0)^N}\sum_{m=0}^{\infty}\frac{a_{N+m}}{(z-z_0)^m}
+    \end{equation*}
+\end{thm}
+
+\begin{eg}
+    Let $f(z) = \frac{1}{(z-z_0)^k}$, then has a zero of order $k$ at $\infty$.
+\end{eg}
+
+
+\begin{thm}
+    If $D$ is a domain, and $f(z)$ is an analytic function on $D$ that is not identically zero, then the set of zeros of $f(z)$ is isolated (or discrete - all points in the set are isolated from one another).
+\end{thm}
+\begin{proof}
+    Let $U$ be the set of all $z \in D$ such that $f^{(m)}(z) = 0$ for all $m \geq 0$. If $z_0 \in U$, then the power series expansion $f(z) = \sum_{n=0}^{\infty}a_n(z-z_0)^n$ has $a_n = f^{(m)}(z_0)/m! = 0$ for all $m \geq 0$. Hence $f(z) = 0$ for $z$ belonging to a disk centered at $z_0$. The points of the disk all belong to $U$. The points of this disk all belong to $U$. This shows that $U$ is an open set.
+
+    On the other hand, if $z_0 \in D\backslash U$, then $f^{(n)}(z_0) \neq 0$ for some $n \geq 0$. Therefore, $f^{(m)}(z) \neq 0$ for some disk centered at $z_0$, by continuity of all derivatives of analytic functions, and this disk is contained in $D\backslash U$, so $D\backslash U$ is open. Since $D$ is connected, either $U = D$ or $U$ is empty. If $U = D$ then $f(z) = 0$ for all $z \in D$, contradicting the assumption that $f$ is not identically zero. Hence $U$ is empty, so we conclude that every zero of $f$ has finite order.
+
+    If $z_0$ is a zero of $f(z)$, say order $N$, we can factor $f(z) = (z-z_0)^Nh(z)$, where $h(z)$ is analytic at $z_0$ and $h(z_0) \neq 0$. Then by continuity of $h$ there exists $\rho > 0$ such that $h(z) \neq 0$ for $|z-z_0| < \rho$, and consequently $f(z) \neq 0$ for $0 < |z-z_0| < \rho$. Thus, $f(z)$ has distance at least $\rho$ from any other zero of $f(z)$, and the zeros of $f(z)$ are isolated.
+\end{proof}
+
+
+
+\begin{namthm}[Uniqueness Principle]
+    If $f(z)$ and $g(z)$ are analytic on a domain $D$, and if $f(z) = g(z)$ for $z$ belonging to a set that has a nonisolated point, then $f(z) = g(z)$ for all $z \in D$.
+\end{namthm}
+
+
+\begin{thm}
+    Let $D$ be a domain, and let $E \subseteq D$ that has a nonisolated point. Let $F(z,w)$ be a function defined for $z,w \in D$ such that $F(z,w)$ is analytic in $z$ for each fixed $w \in D$ and analytic in $w$ for each fixed $z \in D$. If $F(z,w) = 0$ whenever $z$ and $w$ both belong to $E$, then $F(z,w) = 0$ for all $z,w \in D$.
+\end{thm}
+
+
+
+%%%%%%%%%%%%%%%%%%%% Section 1.5.5
+\section{Analytic Continuation}
+
+\begin{eg}
+    For $g(z) = \sum_{n=0}^{\infty}z^{2^n}$, we have radius of convergence $R = 1$, but the series diverges on the whole unit circle.
+\end{eg}
+
+\begin{eg}
+    For $\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{n}z^n$ has radius of convergence $R = 1$. The only point on the unit circle for which it doesn't converge is $z = -1$.
+\end{eg}
+
+
+
+Given $f(z) = \sum_{n=0}^{\infty}a_n(z-z_0)^n$ with radius of convergence $R$. We say that the power series $f(z)$ represents the germ of $f(z)$ at $z_0$. Let $\gamma(t)$, $a \leq t \leq b$, be a path starting at $z_0 = \gamma(a)$. We say that $f(z)$ is \Emph{analytically continuable along $\gamma$} if for each $t$ there is a convergent power series \begin{equation*}
+    f_t(z) = \sum_{n=0}^{\infty}a_n(t)(z-\gamma(t))^n,\;\;\;\;\;|z-\gamma(t)| < r(t)
+\end{equation*}
+such that $f_a(z)$ is the power series representing $f(z)$ at $z_0$ and such that when $s$ is near $t$, $f_s(z) = f_t(z)$ for $z$ in the intersection of the disks of convergence. We refer to $f_b(z)$ as the analytic continuation of $f(z)$ along $\gamma$.Note that $a_n(t)$ is given $a_n(s) = f_t^{(n)}(\gamma(s))/n!$ for $s$ near $t$.
+
+\begin{eg}
+    Consider $f(z) = \sum_{n=0}^{\infty}\frac{z^n}{2^n} = \frac{1}{1-z/2}$. Then we can write \begin{equation*}
+        \frac{1}{1-z/2} = \frac{2}{3-(z+1)} = \frac{2}{3}\sum_{n=0}^{\infty}\frac{(z+1)^n}{3^n}
+    \end{equation*}
+    is the analytic continuation at $-1$, which has radius of convergence $R = 3$, with $|z+1| < 3$.
+\end{eg}
+
+
+\begin{thm}
+    Suppose $f(z)$ can be continued analytically along the path $\gamma(t)$, $a \leq t \leq b$. Then the analytic continuation is unique. Further, for each $n \geq 0$ the coefficient $a_n(t)$ of the series $f_t(z) = \sum_{n=0}^{\infty}a_n(t)(z-\gamma(t))^n$ depends continuously on $t$ and the radius of convergence of the series depends continuously on $t$.
+\end{thm}
+
+\begin{eg}
+    Suppose $f(z)$ is analytic on a domain $D$. Then $f(z)$ has an analytic continuation along any path in $D$. Simply define $f_t(z)$ to be the power series expansion of $f(z)$ about $\gamma(t)$.
+\end{eg}
+
+Now suppose $f(z)$ is analytic at $z_0$ and suppose that $\gamma(t)$, $a \leq t \leq b$, is a path from $z_0$ to $z_1$ along which $f(z)$ has an analytic continuation $f_t(z)$. The radius of convergence $R(t)$ of the power series $f_t(z)$ varies continuously with $t$. Hence, there is $\delta > 0$ such that $R(t) \geq \delta$ for all $t$, $a \leq t \leq b$.
+
+\begin{lem}
+    Let $f,\gamma,$ and $\delta$ be as above. If $\sigma(t)$, $a \leq t \leq b$, is another path from $z_0$ to $z_1$ such that $|\sigma(t) - \gamma(t)| < \delta$ for all $a \leq t \leq b$, then there is an analytic continuation $g_t(z)$ of $f_t(z)$ along $\sigma$, and the terminal series $g_b(z)$ centered at $z_1$ coincides with $f_b(z)$.
+\end{lem}
+
+
+\begin{namthm}[Monodromy Theorem]
+    Let $f(z)$ be analytic at $z_0$. Let $\gamma_0(t)$ and $\gamma_1(t)$, $a \leq t \leq b$, be two paths from $z_0$ to $z_1$ along which $f(z)$ can be continued analytically. Suppose $\gamma_0(t)$ can be deformed continuously to $\gamma_1(t)$ by paths $\gamma_s(t)$, $0\leq s \leq t$, from $z_0$ to $z_1$ such that $f(z)$ can be continued analytically along each path $\gamma_s$. Then the analytic continuations of $f(z)$ along $\gamma_0$ and $\gamma_1$ coincide at $z_1$.
+\end{namthm}
+
+
 
 
 
 
 %%%%%%%%%%%%%%%%%%%%%% Chapter 1.6
 \chapter{Laurent Series and Isolated Singularities}
+
+
+
 
 
 

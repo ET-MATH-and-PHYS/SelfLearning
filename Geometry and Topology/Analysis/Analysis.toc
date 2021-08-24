@@ -23,37 +23,37 @@
 \contentsline {section}{\numberline {4.2}Infinite Sequences}{61}{section.4.2}%
 \contentsline {section}{\numberline {4.3}Infinite Series}{64}{section.4.3}%
 \contentsline {section}{\numberline {4.4}Uniform Convergence and Power Series}{73}{section.4.4}%
-\contentsline {part}{II\hspace {1em}Higher-Dimesional Analysis}{81}{part.2}%
-\contentsline {chapter}{\numberline {5}Metric Spaces}{82}{appendix.5}%
-\contentsline {chapter}{\numberline {6}Higher-Dimensional Differentiation}{83}{appendix.6}%
-\contentsline {chapter}{\numberline {7}Higher-Dimensional Integration}{84}{appendix.7}%
-\contentsline {chapter}{\numberline {8}Manifolds}{85}{appendix.8}%
-\contentsline {chapter}{\numberline {9}Differential Forms}{86}{appendix.9}%
-\contentsline {chapter}{\numberline {10}Integration on Chains}{87}{appendix.10}%
-\contentsline {chapter}{\numberline {11}Integration on Manifolds}{88}{appendix.11}%
-\contentsline {part}{III\hspace {1em}Function Spaces}{89}{part.3}%
-\contentsline {chapter}{\numberline {12}Normed Spaces}{90}{appendix.12}%
-\contentsline {chapter}{\numberline {13}Hilbert Spaces}{91}{appendix.13}%
-\contentsline {chapter}{\numberline {14}Banach Spaces}{92}{appendix.14}%
-\contentsline {chapter}{\numberline {15}Differentiation and Integration}{93}{appendix.15}%
-\contentsline {chapter}{\numberline {16}Banach Algebras}{94}{appendix.16}%
-\contentsline {part}{IV\hspace {1em}Measure Theory}{95}{part.4}%
-\contentsline {chapter}{\numberline {17}Measures}{96}{appendix.17}%
-\contentsline {chapter}{\numberline {18}$L^p$ Spaces}{97}{appendix.18}%
-\contentsline {chapter}{\numberline {19}Radon Measures}{98}{appendix.19}%
-\contentsline {chapter}{Appendices}{99}{section*.1}%
-\contentsline {section}{\numberline {.1}Multivariate Calculus - with Applications}{100}{section.2..1}%
-\contentsline {subsection}{Vector Functions and Derivatives}{100}{section*.2}%
-\contentsline {subsection}{Parametric Curves and Paths}{102}{Item.80}%
-\contentsline {subsection}{Curvature and the Frenet Frame}{104}{equation.2..1.20}%
-\contentsline {subsection}{Functions of Several Variables}{106}{thm.2..1.4}%
-\contentsline {subsection}{Partial Derivatives}{109}{equation.2..1.35}%
-\contentsline {subsection}{Implicit Differentiation}{111}{thm.2..1.11}%
-\contentsline {subsection}{Differentials}{112}{equation.2..1.57}%
-\contentsline {subsection}{Taylor Polynomials}{112}{equation.2..1.59}%
-\contentsline {subsection}{Local Extrema of Multivariate Functions}{114}{equation.2..1.70}%
-\contentsline {subsection}{Vector Fields}{115}{Item.112}%
-\contentsline {subsection}{Line Integrals}{117}{thm.2..1.17}%
-\contentsline {subsection}{Line Integral Theorems}{117}{equation.2..1.85}%
-\contentsline {subsection}{Surface Integrals}{119}{equation.2..1.92}%
+\contentsline {part}{II\hspace {1em}Higher-Dimesional Analysis}{83}{part.2}%
+\contentsline {chapter}{\numberline {5}Metric Spaces}{84}{appendix.5}%
+\contentsline {chapter}{\numberline {6}Higher-Dimensional Differentiation}{85}{appendix.6}%
+\contentsline {chapter}{\numberline {7}Higher-Dimensional Integration}{86}{appendix.7}%
+\contentsline {chapter}{\numberline {8}Manifolds}{87}{appendix.8}%
+\contentsline {chapter}{\numberline {9}Differential Forms}{88}{appendix.9}%
+\contentsline {chapter}{\numberline {10}Integration on Chains}{89}{appendix.10}%
+\contentsline {chapter}{\numberline {11}Integration on Manifolds}{90}{appendix.11}%
+\contentsline {part}{III\hspace {1em}Function Spaces}{91}{part.3}%
+\contentsline {chapter}{\numberline {12}Normed Spaces}{92}{appendix.12}%
+\contentsline {chapter}{\numberline {13}Hilbert Spaces}{93}{appendix.13}%
+\contentsline {chapter}{\numberline {14}Banach Spaces}{94}{appendix.14}%
+\contentsline {chapter}{\numberline {15}Differentiation and Integration}{95}{appendix.15}%
+\contentsline {chapter}{\numberline {16}Banach Algebras}{96}{appendix.16}%
+\contentsline {part}{IV\hspace {1em}Measure Theory}{97}{part.4}%
+\contentsline {chapter}{\numberline {17}Measures}{98}{appendix.17}%
+\contentsline {chapter}{\numberline {18}$L^p$ Spaces}{99}{appendix.18}%
+\contentsline {chapter}{\numberline {19}Radon Measures}{100}{appendix.19}%
+\contentsline {chapter}{Appendices}{101}{section*.1}%
+\contentsline {section}{\numberline {.1}Multivariate Calculus - with Applications}{102}{section.2..1}%
+\contentsline {subsection}{Vector Functions and Derivatives}{102}{section*.2}%
+\contentsline {subsection}{Parametric Curves and Paths}{104}{Item.80}%
+\contentsline {subsection}{Curvature and the Frenet Frame}{106}{equation.2..1.20}%
+\contentsline {subsection}{Functions of Several Variables}{108}{thm.2..1.4}%
+\contentsline {subsection}{Partial Derivatives}{111}{equation.2..1.35}%
+\contentsline {subsection}{Implicit Differentiation}{113}{thm.2..1.11}%
+\contentsline {subsection}{Differentials}{114}{equation.2..1.57}%
+\contentsline {subsection}{Taylor Polynomials}{114}{equation.2..1.59}%
+\contentsline {subsection}{Local Extrema of Multivariate Functions}{116}{equation.2..1.70}%
+\contentsline {subsection}{Vector Fields}{117}{Item.112}%
+\contentsline {subsection}{Line Integrals}{119}{thm.2..1.17}%
+\contentsline {subsection}{Line Integral Theorems}{119}{equation.2..1.85}%
+\contentsline {subsection}{Surface Integrals}{121}{equation.2..1.92}%
 \contentsfinish 

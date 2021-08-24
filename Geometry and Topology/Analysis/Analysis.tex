@@ -2862,6 +2862,48 @@ we shall always assume that such a numbering has been assigned.
     for all $x \in A$. Precisely, $\{f_n\}$ is said to \Emph{converge pointwise to $f$ on $A$} if for all $\varepsilon > 0$, and for all $x \in A$, there is some $N$ such that if $n \geq N$, then $|f(x) - f_n(x)| < \varepsilon$.
 \end{defn}
 
+\begin{defn}[Pointwise Convergence (alt.)]
+    Suppose $S \subseteq \R$ and $f_n:S\rightarrow \R$ is a real-valued function for each $n \in \N$. We say that the sequence of functions $\{f_n\}$ \Emph{converges pointwise on $S$} to $f:S\rightarrow \R$ if for every $x \in S$ and every $\varepsilon > 0$, there exists $N \in \N$ such that if $n \geq N$, $|f_n(x) - f(x)| < \varepsilon$.
+\end{defn}
+
+\begin{eg}
+    Take $f_n(x) = x^n$ on $S = [0,1]$. If $0 \leq x < 1$ notice that $\lim\limits_{n\rightarrow \infty}x^n = 0$ (geometric sequence). If $x = 1$, then $f_n(1) = 1^n = 1$, which converges to $1$ as $n$ goes to infinity. Thus, $f)n$ converges pointwise to \begin{equation*}
+        f(x) = \left\{\begin{array}{lc} 0 & 0 \leq x < 1 \\ 1 & x = 1\end{array}\right.
+    \end{equation*}
+    Notice each $f_n$ is continuous on $[0,1]$, but $f$ is not.
+\end{eg}
+
+This example answers the following question in the negative:
+
+\begin{qst}
+    Suppose $f_n$ converges pointwise to $f$ on $S \subseteq \R$. If $a \in S'$ (an accumulation/limit point for $S$), $\lim\limits_{x\rightarrow a}f(x)$ exists and $\lim\limits_{x\rightarrow a}f_n(x)$ exists for all $n$, is it true that \begin{equation*}
+        \lim\limits_{x\rightarrow a}\lim\limits_{n\rightarrow \infty}f_n(x) = \lim\limits_{n\rightarrow \infty}\lim\limits_{x\rightarrow a}f_n(x)?
+    \end{equation*}
+\end{qst}
+
+
+\begin{eg}
+    Consider the sequence $g_n(x) = \frac{1}{1+x^n}$ on $S = (-\infty,-1)\cup(-1,\infty)$. As $n$ goes to infinity we have that the sequence converges pointwise to $1$ for $|x| < 1$, $1/2$ for $x = 1$, and $0$ for $|x| > 1$.
+\end{eg}
+
+\begin{eg}
+    Let $S = [0,\infty)$ and define \begin{equation*}
+        f_n(x) = \left\{\begin{array}{lc} n^2x & 0 \leq x \leq \frac{1}{n} \\ -n^2\left(x-\frac{2}{n}\right) & \frac{1}{n} < x \leq \frac{2}{n} \\ 0 & x > \frac{2}{n}\end{array}\right.
+    \end{equation*}
+    We claim that $\lim\limits_{n\rightarrow \infty}f_n(x) = 0$ for all $x \geq 0$. When $x=0$, $f_n(0) = 0$ which converges to $0$. If $0 < x$: By the Archimedian property there exists $N \in \N$ such that $\frac{2}{N} < x$. Then $f_N(x) = 0$ and $f_n(x) = 0$ for all $n \geq N$. Thus, $\lim\limits_{n\rightarrow \infty}f_n(x) = 0$, as claimed. This argument can be intuitively realized by noting that for $n$ large enought, the tent is always to the left of any $0 < x$.
+\end{eg}
+
+We note that this gives an example of an unbounded sequence $\{f_n\}$ converging pointwise to a bounded function.
+
+\begin{eg}
+    Take $S = \R$ and define $f_n(x) = \frac{\sin(nx)}{\sqrt{n}}$, waves of declining amplitude but increasing frequency. Note that $0 \leq |f_n(x)| = \left|\frac{\sin(nx)}{\sqrt{n}}\right| \leq \frac{1}{\sqrt{n}}$ which goes to $0$ as $n$ goes to infinity, so the sequence converges pointwise to $0$. Notice $f_n'(x) = \frac{n}{\sqrt{n}}\cos(nx) = \sqrt{n}\cos(nx)$, which has no limit for any $x \in \R$.
+\end{eg}
+
+This is an example of pointwise convergence where the derivatives do not converge pointwise. Moreover, as we will see, the original sequence actually converges uniformly (the bound on the terms does not depend on $x$), which suggests we need a stronger requirement for convergence of derivatives.
+
+
+
+
 
 \begin{defn}
     Let $\{f_n\}$ be a sequence of functions defined on $A$, and let $f$ be a function which is also defined on $A$. Then $f$ is called the \Emph{uniform limit of $\{f_n\}$ on $A$} if for every $\varepsilon > 0$ there is some $N$ such that for all $x \in A$, \begin{equation*}
@@ -2871,10 +2913,51 @@ we shall always assume that such a numbering has been assigned.
 \end{defn}
 
 
+\begin{defn}[Uniform Convergence (alt.)]
+    Suppose $S \subseteq \R$ and $f_n:S\rightarrow \R$ are real-valued functions for each $n \in \N$. We say that $f_n$ \Emph{converges uniformly on $S$} to $f:S\rightarrow \R$ if for all $\varepsilon > 0$, there is an $N \in \N$ (depends only on $\varepsilon$) such that $n \geq N$ implies \begin{equation*}
+        |f_n(x) - f(x)| < \varepsilon
+    \end{equation*}
+    for all $x \in S$.
+\end{defn}
+
+We will use the notation $f_n\rightarrow_uf$ sometimes to denote uniform convergence. Intuitively uniform convergence can be understood by saying that given any band or tube containing $f$ on $S$, there is a point past which the tail functions of the sequence reside entirely in this band.
 
 \begin{rmk}
     Note that uniform convergence implies pointwise convergence, but the converse is not true.
 \end{rmk}
+
+\begin{defn}[Uniform Norm]
+    Suppose $S \subseteq \R$ and $f$ is a function on $S$. The \Emph{uniform norm} of $f$ on $S$ is given by \begin{equation*}
+        ||f||_S := \sup\limits_{x\in S}|f(x)|
+    \end{equation*}
+\end{defn}
+We note that this may not be finite. When the context is clear we will write $||f||_{\infty}$.
+
+\begin{rmk}
+    Suppose $f:S\rightarrow \R$ is a function: \begin{enumerate}
+        \item[(i)] $f$ is bounded on $S$ if and only if $||f||_S < \infty$
+        \item[(ii)] If $f$ is continous on $S$ and $S$ is compact, then $||f||_S = \max\limits_{s \in S}|f(x)|$
+    \end{enumerate}
+\end{rmk}
+
+
+\begin{prop}
+    A sequence of functions $f_n$ converges uniformly to $f$ on $S$ if and only if $||f_n-f||_S\rightarrow 0$.
+\end{prop}
+\begin{proof}
+    Let $f_n$ be a sequence of functions, each defined on $S$, and let $f$ be another function on $S$.
+
+    First, let us suppose that the $f_n$ converge uniformly to $f$ on $S$. Fix $\varepsilon > 0$. Then there exists $N \in \N$ such that for $n \geq N$, $|f_n(x) - f(x)| < \varepsilon/2$ for all $x \in S$. This implies that $\varepsilon/2$ is an upper bound of all $|f_n(x)-f(x)|$, so by definition $||f_n-f||_S \leq \varepsilon/2 < \varepsilon$ for all $n \geq N$. Hence, as $||f_n-f||_S = |||f_n -f||_S - 0|$, we have that the sequence $||f_n-f||_S$ converges to $0$.
+
+    Conversely, suppose that $||f_n-f||_S$ converges to $0$, and let $\varepsilon > 0$. Then, there exists $N \in \N$ such that for all $n \geq N$, $||f_n-f||_S < \varepsilon$. It follows that for all $x \in S$, $|f_n(x) - f(x)| \leq ||f_n-f||_S < \varepsilon$ for $n \geq N$, so we find that $f_n$ converges uniformly to $f$ on $S$ by definition.
+\end{proof}
+
+\begin{eg}
+    Let $S = [0,1]$ and $f_n(x) = x^n$. $f_n$ does not converge uniformly to any function. Indeed if $f_n$ converges uniformly to anything on $[0,1]$, it must be the pointwise limit $f(x) = 0, 0 \leq x < 1$ and $f(x) = 1, x =1$, since uniform implies pointwise convergence (and limits are unique in Hausdorff spaces). This implies $\sup\limits_{x \in [0,1]}|f_n(x) - f(x)|$ goes to zero as $n$ goes to infinity. But if $x = 1-\frac{1}{n}$, then $|f_n(1-1/n)-f(1-1/n)| = (1-1/n)^n$, which converges to $e^{-1} = \frac{1}{e}$, and not zero. Further, this must be less than what the limit of the supremums converges to, so the supremums cannot converge to $0$, as that would result in a contradiction. Hence, the sequence does not converge uniformly.
+\end{eg}
+
+The tent function is another example of pointwise but not uniform convergence, since $||f_n-0||_{\infty} = n$, which does not converge to $0$. (CONTINUE HAM HERE)
+
 
 \begin{thm}
     Suppose that $\{f_n\}$ is a sequence of functions which are integrable on $[a,b]$, and that $\{f_n\}$ converges uniformly on $[a,b]$ to a function $f$ which is also integrable on $[a,b]$. Then \begin{equation*}

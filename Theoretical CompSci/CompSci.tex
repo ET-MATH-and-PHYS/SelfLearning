@@ -533,7 +533,23 @@ If a state with an $\varepsilon$ symbol on an exiting arrow is encountered, with
 
 Nondeterminism may be viewed as a kind of parallel computation wherein multiple independent processes or threads can be running concurrently, or it can also be thought of as a tree of possibilities; the root of the tree corresponds to the start of the computation, every branching point in the tree corresponds to a point in the computation at which the machine has multiple choices, and the machine accepts if at least one of the computation branches ends in an accept state.
 
+In an NFa, the transition function takes a state and an input symbol, or the empty string, and produces the set of possible next states. Formulla the definition of an NFA is: 
+\begin{defn}
+    A \Emph{nondeterministic finite automaton} is a $5$-tuple $(Q,\sum,\delta,q_0,F)$, where \begin{enumerate}
+        \item $Q$ is a finite set of states
+        \item $\sum$ is a finite alphabet
+        \item $\delta:Q\times (\sum\cup\{\varepsilon\})\rightarrow \mathcal{P}(Q)$ is the transition function,
+        \item $q_0 \in Q$ is the start state, and 
+        \item $F \subseteq Q$ is the set of accept states.
+    \end{enumerate}
+\end{defn}
 
+The formal definition of computation for an NFA is as follows: let $N = (Q,\sum,\delta,q_0,F)$ be an NFA nad $w$ a string over the alphabet $\sum$. Then we say that $N$ \Emph{accepts} $w$ if we can write $w$ as $w = y_1y_2...y_m$, where each $y_i$ is a member of $\sum\cup \{\varepsilon\}$ and a sequence of states $r_0,r_1,...,r_m$ exists in $Q$ with three conditions: \begin{enumerate}
+    \item $r_0 = q_0$
+    \item $r_{i+1} \in \delta(r_i,y_{i+1})$, for $i = 0,...,m-1$, and 
+    \item $r_m \in F$
+\end{enumerate}
+Condition $1$ states that the machine starts in the start state, condition $2$ says that state $r_{i+1}$ is one of the allowable next states when $N$ is in state $r_i$ and reading $y_{i+1}$, and condition $3$ says that the machine accepts its input if the last state is an accept state. Observe that $\delta(r_i,y_{i+1})$ is the set of allowable next states.
 
 
 \begin{appendices}

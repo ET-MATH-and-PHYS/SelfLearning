@@ -3075,6 +3075,7 @@ Since $H$ and $K$ are proper subgroups of $G$ one should think of the determinat
     A \Emph{maximal subgroup} of a group $G$ is a proper subgroup $M$ of $G$ such that there are no subgroups $H$ of $G$ with $M < H < G$.
 \end{defn}
 
+Simply by order considerations we observe that any proper subgroup of a finite group is contained in a maximal subgroup. In contrast, infinite groups may or may not have maximal subgroups. 
 
 \begin{thm}
     Let $p$ be a prime and let $P$ be a group of order $p^a$ for $a \geq 1$. Then \begin{enumerate}
@@ -3110,7 +3111,7 @@ Since $H$ and $K$ are proper subgroups of $G$ one should think of the determinat
 \section{\textsection Nilpotent Groups}
 
 \begin{defn}
-    For any group $G$ define the following subgroups inductively: \begin{equation*}
+    For any (finite or infinite) group $G$ define the following subgroups inductively: \begin{equation*}
         Z_0(G) = \{1\}, \hspace{15pt} Z_1(G) = Z(G)
     \end{equation*}
     and $Z_{i+1}(G)$ is the subgroup of $G$ containing $Z_i(G)$ such that \begin{equation*}
@@ -3147,7 +3148,21 @@ Each $Z_i(G)$ in this series is in fact characteristic in $G$.
     \end{enumerate}
 \end{rmk}
 
-(TO BE CONTINUED)
+
+\begin{prop}
+    Let $p$ be a prime and let $P$ be a group of order $p^a$. Then $P$ is nilpotent of nilpotence class at most $a-1$.
+\end{prop}
+\begin{proof}
+    For each $i \geq 0$, $P/Z_i(P)$ is a $p$-group so if $|P/Z_i(P)| > 1$, then $|Z(P/Z_i(P))| > 1$, which implies that $|Z_{i+1}(P)| > |Z_i(P)|$, and in particular if $P \neq Z_i(P)$, then $|Z_{i+1}(P)| \geq p|Z_i(P)|$. This implies inductively that $|Z_{i+1}(P)| \geq p^{i+1}$, so $|Z_a(P)| \geq p^a$. Hence, $P = Z_a(P)$ and $P$ is nilpotent with nilpotence class $\leq a$. The only way for $P$ to be of nilpotence class equal to $a$ is if $|Z_i(P)| = p^i$ for all $1 \leq i \leq a$. In this case, however, $Z_{a-2}(P)$ would have index $p^2$ in $P$, so $P/Z_{a_2}(P)$ would be abelian. But then $P/Z_{a-2}(P)$ would be its own center and $Z_{a-1}(P) = P$, a contradiction. Thus, the nilpotence class of $P$ is at most $a-1$.
+\end{proof}
+
+
+\begin{eg}
+    $D_{2^{n-1}}$, the dihedral group of order $2^n$, is nilpotent of nilpotence class $n-1$. This can be proved inductively by showing $|Z(D_{2^{n-1}})| = 2$ and $D_{2^{n-1}}/Z(D_{2^{n-1}}) \cong D_{2^{n-2}}$ for $n \geq 3$. If $n$ is not a power of $2$, $D_n$ is not nilpotent.
+\end{eg}
+
+
+(To Be Continued)
 
 
 \section{\textsection Composition Series and Solvable Groups}
@@ -6789,6 +6804,184 @@ Note that $D = 0$ if and only if $f(x)$ is inseparable, so we have nondistinct r
 \begin{prop}
     The Galois group of $f(x) \in F[x]$ is a subgroup of $A_n$ if and only if the discriminant $D \in F$ is the square of an element in $F$
 \end{prop}
+\begin{proof}
+    The Galois group is contained in $A_n$ if and only if every element of the Galois group fixes \begin{equation*}
+        \sqrt{D} = \prod_{i < j}(\alpha_i - \alpha_j)
+    \end{equation*}
+    which is true if and only if $\sqrt{D} \in F$, since Galois groups and their associated fixed fields are unique for a Galois extension by the Fundamental Theorem of Galois.
+\end{proof}
+
+
+\subsection{Polynomials of Degree 2}
+
+Consider the polynomial $x^2+ax+b$ with roots $\alpha,\beta$. The discriminant $D$ for this polynomial is $(\alpha-\beta)^2$, which can be written as a polynomial in the elementary symmetric functions of the roots, which gives $$D = s_1^2-4s_2 = (-a)^2-4(b) = a^2-4b$$
+which is the usual discriminant for a quadratic. The polynomial is separable if and only if $a^2-4b \neq 0$. The Galois group is a subgroup of $S_2 \cong \Z/2\Z$, the cyclic group of order $2$, and is trivial ($A_2$ in this case) if and only if $a^2-4b$ is a rational square, which completely determines the possible Galois groups. Moreover, as we found before the splitting field for a non trivial Galois group is the quadratic extension $F(\sqrt{D})$.
+
+
+\subsection{Polynomials of Degree 3}
+
+Suppose the cubic polynomial is $f(x) = x^3+ax^2+bx+c$. If we make the substitution $x = y-a/3$ the polynomial becomes \begin{equation*}
+    g(y) = y^3+py+q
+\end{equation*}
+which is called the \Emph{depressed} polynomial for $f(x)$, where \begin{equation*}
+    p = \frac{1}{3}(3b-a^2),\;\;\;\;q = \frac{1}{27}(2a^3-9ab+27c)
+\end{equation*}
+The splitting fields for these polynomials are the same since their roots differ by the constant $\frac{a}{3} \in F$ and since the formula for the discriminant involves the differences of roots, we see that these two polynomials also have the same discriminant.
+
+Let the roots of $g(y)$ be $\alpha, \beta,$ and $\gamma$. We first compute the discriminant of this polynomial in terms of $p$ and $q$. Note that \begin{equation*}
+    g(y) = (y-\alpha)(y-\beta)(y-\gamma)
+\end{equation*}
+so that if we differentiate we have \begin{equation*}
+    D_yg(y) = (y-\alpha)(y-\beta) + (y-\beta)(y-\gamma) + (y-\alpha)(y-\gamma)
+\end{equation*}
+Then \begin{align*}
+    D_yg(\alpha) &= (\alpha-\beta)(\alpha-\gamma) \\
+    D_yg(\beta) &= (\beta-\alpha)(\beta -\gamma) \\
+    D_yg(\gamma) &= (\gamma - \alpha)(\gamma - \beta)
+\end{align*}
+Taking the product we see that \begin{equation*}
+    D = [(\alpha-\beta)(\alpha-\gamma)(\beta-\gamma)]^2 = -D_yg(\alpha)D_yg(\beta)D_yg(\gamma)
+\end{equation*}
+
+
+\textbf{(Galois Group of the Cubic)}
+
+\begin{enumerate}
+    \item[a.] If the cubic $f(x)$ is reducible, then it splits either into three linear factors or into a linear factor and a irreducible quadratic. In the first case the Galois group is trivial, and in the second case the Galois group is isomorphic to $S_2 \cong \Z/2\Z$.
+    \item[b.] If the cubic polynomial $f(x)$ is irreducible, then a root of $f(x)$ generates an extension of degree $3$ over $F$, so the degree of the splitting field over $F$ is divisible by $3$. Since the Galois group is a subgroup of $S_3$, there are only two possibilities, namely $A_3$ or $S_3$. The Galois group is $A_3$ (i.e. cyclic of order $3$) if and only if the discriminant $D$ is a square ($\sqrt{D} \in F$).
+
+        Explicitly, if $D$ is the square of an element of $F$, then the splitting field of the irreducible cubic $f(x)$ is obtained by adjoining any single root of $f(x)$ to $F$. If $D$ is not a square of an element of $F$ then the splitting field of $f(x)$ is of degree $6$ over $F$, hence is the field $F(\theta,\sqrt{D})$ for any of the roots $\theta$ of $f(x)$. This extension is Galois over $F$ with Galois group $S_3$.
+\end{enumerate}
+
+
+
+\subsection{Polynomials of Degree 4}
+
+
+Let $f(x) = x^4+ax^3+bx^2+cx+d$ which under the substitution $x = y-a/4$ becomes the depressed quartic \begin{equation*}
+    g(y) = y^4 + py^2+qy+r
+\end{equation*}
+with \begin{align*}
+    p &= \frac{1}{8}(-3a^2+8b) \\
+    q &= \frac{1}{8}(a^3-4ab+8c) \\
+    r &= \frac{1}{256}(-3a^4+16a^2b-64ac+256d)
+\end{align*}
+Suppose first that $g(y)$ is reducible. If it splits into a linear and a cubic, then the Galois group of the cubic is the Galois group of $g(y)$. Suppose then that $g(y)$ splits into to irreducible quadratics. Then the splitting field is the extension $F(\sqrt{D_1},\sqrt{D_2})$ where $D_1$ and $D_2$ are the discriminants of the two quadratics. If $D_1$ and $D_2$ do not differ by a square factor then this extension is a biquadratic extension and the Galois group is isomorphic to the Klien $4$ subgroup of $S_4$, i.e. $S_2 \times S_2$. If $D_1$ is a square times $D_2$, then this extension is a quadratic extension and the Galois group is isomorphic to $\Z/2\Z$.
+
+Now suppose that $g(y)$ is irreducible. Then we have that the Galois group is transitive on the four roots (recall this is to say that for any pair of roots, there exists an automorphism in the Galois group which sends one to the other). Also recall the Galois group must be a subgroup of $S_4$. The only transitive subgroups of $S_4$ (as considered an action on the set of $4$ letters), hence the only possibilities are $S_4, A_4, D_4 = \langle (1324),(13)(24)\rangle$ and its conjugates, $V_4,$ and $C = \langle (1234)\rangle$ and its conjugates. Let $\alpha_1,\alpha_2,\alpha_3,\alpha_4$ be the roots of $g$. 
+
+(To be continued)
+
+
+
+\section{\textsection Solvable and Radical Extensions}
+
+
+\begin{defn}
+    The extension $K/F$ is said to be \Emph{cyclic} if it is Galois with a cyclic Galois group.
+\end{defn}
+
+
+\begin{prop}
+    Let $F$ be a field of characteristic not dividing $n$ which contains the $n$th roots of unity. The extension $F(\sqrt[n]{a})$ for $a \in F$ is cyclic over $F$ of degree dividing $n$.
+\end{prop}
+\begin{proof}
+    First, the extension $F(\sqrt[n]{a}) = K$ is Galois over $F$ if $F$ contains the $n$th roots of unity since $K$ would then be the splitting field of the separable polynomial $x^n - a$. For $\sigma \in \text{Gal}(K/F)$, $\sigma(\sqrt[n]{a})$ is another root of this polynomial, hence $\sigma(\sqrt[n]{a}) = \zeta_{\sigma}\sqrt[n]{a}$ for some $n$th root of unity $\zeta_{\sigma}$. This gives a map \begin{equation*}
+        \map{\text{Gal}(K/F)\rightarrow \mu_n}{\sigma\mapsto \zeta_{\sigma}}
+    \end{equation*}
+    where $\mu_n$ denotes the group of $n$th roots of unity. Since $F$ contains $\mu_n$, every $n$th root of unity is fixed by every element of $\text{Gal}(K/F)$. Hence \begin{align*}
+        \sigma\tau(\sqrt[n]{a}) &= \sigma(\zeta_{\tau}\sqrt[n]{a}) \\
+        &= \zeta_{\tau}\sigma(\sqrt[n]{a}) \\
+        &= \zeta_{\tau}\zeta_{\sigma}\sqrt[n]{a} = \zeta_{\sigma}\zeta_{\tau}\sqrt[n]{a}
+    \end{align*}
+    which shows that $\zeta_{\sigma\tau} = \zeta_{\sigma}\zeta_{\tau}$, so the map is a homomorphism. The kernel consists precisely of the automorphisms which fix $\sqrt[n]{a}$, namely the identity. This gives an injection of $\text{Gal}(K/F)$ into the cyclic group $\mu_n$ of order $n$, which proves the proposition.
+\end{proof}
+
+Let now $K$ be any cyclic extension of degree $n$ over a field $F$ of characteristic not dividing $n$ which contains the $n$th roots of unity. Let $\sigma$ be a generator for the cyclic Galois group $\text{Gal}(K/F)$:
+
+\begin{defn}
+    For $\alpha \in K$ and any $n$th root of unity $\zeta$, define the \Emph{Lagrange resolvent} $(\alpha,\zeta) \in K$ by \begin{equation*}
+        (\alpha,\zeta) = \alpha+\zeta\sigma(\alpha) +\zeta^2\sigma^2(\alpha)+...+\zeta^{n-1}\sigma^{n-1}(\alpha)
+    \end{equation*}
+\end{defn}
+
+If we apply the automorphism $\sigma$ to $(\alpha,\zeta)$ we obtain\begin{equation*}
+    \sigma(\alpha,\zeta) = \sigma(\alpha)+\zeta\sigma^2(\alpha)+...+\zeta^{n-1}\sigma^n(\alpha)
+\end{equation*}
+since $\zeta$ is an element of the base field $F$, and consequently is fixed by $\sigma$. Note we have $\zeta^n = 1$ in $\mu_n$ and $\sigma^n = 1$ in $\text{Gal}(K/F)$, so this can be written as \begin{align*}
+    \sigma(\alpha,\zeta) &= \sigma(\alpha)+\zeta\sigma^2(\alpha)+...+\zeta^{-1}\alpha \\
+    &= \zeta^{-1}(\alpha+\zeta\sigma(\alpha)+...+\zeta^{n-1}\sigma^{n-1}(\alpha)) \\
+    &= \zeta^{-1}(\alpha,\zeta)
+\end{align*}
+It follows that \begin{equation*}
+    \sigma(\alpha,\zeta)^n = (\zeta^{-1})^n(\alpha,\zeta)^n = (\alpha,\zeta)^n
+\end{equation*}
+so that $(\alpha,\zeta)^n$ is fixed by $\text{Gal}(K/F)$, and hence is an element of $F$ for any $\alpha \in K$.
+
+Let $\zeta$ be a primitive $n$th root of unity. By the linear independence of the automorphisms $1,\sigma,...,\sigma^{n-1}$, there is an element $\alpha \in K$ such that $(\alpha,\zeta)\neq 0$. Iterating our previous result we have $\sigma^i(\alpha,\zeta) = \zeta^{-i}(\alpha,\zeta)$, and it follows that $\sigma^i$ does not fix $(\alpha,\zeta)$ for any $i < n$, since $\zeta$ is primitive. Hence, this element cannot lie in any proper subfield of $K$ by the Fundamental Theorem of Galois Theory, so $K = F((\alpha,\zeta))$. Since we proved $(\alpha,\zeta)^n = a \in F$ above, we have $F(\sqrt[n]{a}) = F((\alpha,\zeta)) = K$. This proves the following converse to the previous proposition.
+
+\begin{prop}
+    Any cyclic extension of degree $n$ over a field $F$ of characteristic not dividing $n$ which contains the $n$th roots of unity is of the form $F(\sqrt[n]{a})$ for some $a \in F$.
+\end{prop}
+
+An extension of the form $F(\sqrt[n]{a})$ is called a \Emph{simple radical extension}. 
+
+\begin{rmk}
+    The proofs above are part of something known as \Emph{Krummer Theory}. A group $G$ is said to have \Emph{exponent $n$} if $g^n = 1$ for all $g \in G$. Let $F$ be a field of characteristic not dividing $n$, which contains the $n$th roots of unity. If we take $a_1,...,a_k \in F^{\times}$ then we can see that the extension \begin{equation*}
+        F(\sqrt[n]{a_1},...,\sqrt[n]{a_k})
+    \end{equation*}
+    is an abelian extension of $F$ whose Galois group is of exponent $n$.
+\end{rmk}
+
+
+For simplicity we now consider $F$ as a field of characteristic $0$, but the results hold equally well for finite fields of characteristic not dividing the degree of any of the roots to be taken.
+
+\begin{defn}
+    An element $\alpha$ which is algebraic over $F$ can be \Emph{expressed by radicals} or \Emph{solved for in terms of radicals} if $\alpha$ is an element of a field $K$ which can be obtained by a succession of simple radical extensions:\begin{equation*}
+        F = K_0 \subset K_1 \subset ... \subset K_s = K
+    \end{equation*}
+    where $K_{i+1} = K_i(\sqrt[n_i]{a_i})$ for some $a_i \in K_i$, $i = 0,1,...,s-1$. Here $\sqrt[n_i]{a_i}$ denotes some root of the polynomial $x^{n_i}-a_i$. Such a field $K$ will be called a \Emph{root extension} of $F$.
+\end{defn}
+
+\begin{defn}
+    A polynomial $f(x) \in F[x]$ can be \Emph{solved by radicals} if all of its roots can be solved for in terms of radicals.
+\end{defn}
+
+\begin{eg}
+    Consider $K_0 = \Q$, $K_1 = \Q(\sqrt{17})$, $K_2 = K_1(\sqrt{2(17-\sqrt{17})})$, $K_3 = K_2(\sqrt{2(17+\sqrt{17})})$, and finally \begin{equation*}
+        K_4 = K_3\left(\sqrt{17+3\sqrt{17}-\sqrt{2(17-\sqrt{17})}-2\sqrt{2(17+\sqrt{17})}}\right)
+    \end{equation*}
+    Each of these extensions is a radical extension. This shows that the element \begin{equation*}
+        -1+\sqrt{17}+\sqrt{2(17-\sqrt{17})} +2\sqrt{17+3\sqrt{17}-\sqrt{2(17-\sqrt{17})}-2\sqrt{2(17+\sqrt{17})}}
+    \end{equation*}
+    which is used to construct the 17-gon is constructible starting only with the unit length using a straight edge and compass.
+\end{eg}
+
+Note that in considering radical extensions we can always adjoin roots of unity as they are radicals. Thus, cyclic extensions become radical extensions and conversely.
+
+\begin{lem}
+    If $\alpha$ is contained in a root extension $K$ ($F = K_0 \subset K_1 \subset ... \subset K_s = K$), then $\alpha$ is contained in a root extension which is Galois over $F$ and where each extension $K_{i+1}/K_i$ is cyclic.
+\end{lem}
+\begin{proof}
+    Let $L$ be the Galois closure of $K$ over $F$. For any $\sigma \in \text{Gal}(L/F)$ we have a chain of subfields \begin{equation*}
+        F = \sigma K_0 \subset \sigma K_1 \subset ... \subset \sigma K_s = \sigma K
+    \end{equation*}
+    where $\sigma K_{i+1}/\sigma K_i$ is again a simple radical extension (since it is generated by the element $\sigma(\sqrt[n_i]{a_i})$, which is a root of $x^{n_i}-\sigma(a_i)$ over $\sigma(K_i)$). It can be shown that the composite of any two root extensions is again a root extension. Then the composite of all the conjugate field $\sigma(K)$ for $\sigma \in \text{Gal}(L/F)$ is again a root extension. Since this field is precisely $L$, we see that $\alpha$ is contained in a Galois root extension.
+
+    Now adjoin to $F$ all of the $n_i$th roots of unity for all the roots $\sqrt[n_i]{a_i}$ of the simple radical extensions in the Galois root extension $K/F$, obtaining the field $F'$, say, and then form the composite of $F'$ with the root extensions: \begin{equation*}
+        F \subseteq F' = F'K_0 \subseteq F'K_1 \subseteq ... \subseteq  F'K_s = F'K
+    \end{equation*}
+    The field $F'K$ is a Galois extension of $F$ since it is the composite of two Galois extensions. The extension from $F$ to $F' = F'K_0$ can be given as a chain of subfields with each individual extension cyclic (this is true for any abelian extension). Each extension $F'K_{i+1}/F'K_i$ is a simple radical extension and since we now have the appropriate roots of unity in the base fields, each of these individual extensions from $F'$ to $F'K$ is a cyclic extension by our first proposition in this section. Hence $F'K/F$ is a root extension which is Galois over $F$ with cyclic intermediate extensions, completing the proof.
+\end{proof}
+
+
+\begin{thm}
+    The polynomial $f(x)$ can be solved by radicals if and only if its Galois group is a solvable group.
+\end{thm}
+\begin{proof}
+    Suppose first that $f(x)$ can be solved by radicals. Then each root of $f(x)$ is contained in a Galois root extension over $F$. The composite $L$ of such extensions is again Galois, and by the work in the proof, a root extension. Let $G_i$ be the subgroups corresponding to the subfields $K_i, i = 0,1,...,s-1$. Since $\text{Gal}(K_{i+1}/K_i)= G_i/G_{i+1}$ it follows that the Galois group $G = \text{Gal}(L/F)$ (To be continued)
+\end{proof}
+
 
 
 

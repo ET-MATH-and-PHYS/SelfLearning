@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.8.13)  22 AUG 2021 16:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.8.13)  24 AUG 2021 08:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1498,7 +1498,7 @@ File: fc-english.def 2016/01/12
 LaTeX Font Warning: Font shape `OT1/txr/m/scit' undefined
 (Font)              using `OT1/txr/m/it' instead on input line 39.
 
-<../../Crab.jpg, id=469, 962.09438pt x 769.37437pt>
+<../../Crab.jpg, id=483, 962.09438pt x 769.37437pt>
 File: ../../Crab.jpg Graphic file (type jpg)
 <use ../../Crab.jpg>
 Package pdftex.def Info: ../../Crab.jpg  used on input line 43.
@@ -1556,7 +1556,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.38 ...textsection Product Groups}{64}{chapter.7}
+l.38 ...textsection Product Groups}{67}{chapter.7}
                                                   % [1] [2] [3])
 \tf@toc=\write5
 \openout5 = `Algebra.toc'.
@@ -1747,31 +1747,31 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 
 [76
 
-] [77] [78] [79] [80] [81
+] [77] [78] [79] [80] [81] [82
 
 ]
 Chapter 9.
-[82
+[83
 
-] [83] [84] [85] [86] [87] [88] [89] [90] [91]
+] [84] [85] [86] [87] [88] [89] [90] [91] [92]
 Missing character: There is no . in font nullfont!
 Missing character: There is no b in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no e in font nullfont!
- [92] [93] [94] [95]
+ [93] [94] [95] [96]
 Chapter 10.
-[96
+[97
 
-] [97pdfTeX warning (ext4): destination with the same identifier (name{equation
+] [98pdfTeX warning (ext4): destination with the same identifier (name{equation
 .10.1.4}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.3894         \item F
+l.3909         \item F
                       or $X$ a set and $z \in X$, $$\ev_z:F(X,R) \rightarrow...
-] [98] [99] [100] [101] [102] [103]
-Overfull \hbox (8.6121pt too wide) in paragraph at lines 4145--4145
+] [99] [100] [101] [102] [103] [104]
+Overfull \hbox (8.6121pt too wide) in paragraph at lines 4160--4160
 |[]\TS1/txr/bx/n/20 §\OT1/txr/bx/n/20 Isomorphism The-o-rems and Cor-re-spon-de
 nce| 
  []
@@ -1786,42 +1786,42 @@ Missing character: There is no b in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no e in font nullfont!
-[104] [105]
+[105] [106]
 Chapter 11.
-[106
+[107
 
 ]
 Chapter 12.
-[107
+[108
 
-] [108]
+] [109]
 Chapter 13.
-[109
+[110
 
 ]
 Chapter 14.
-[110
+[111
 
-] [111] [112]
+] [112] [113]
 Chapter 15.
 
-Overfull \hbox (0.35208pt too wide) in paragraph at lines 4370--4370
+Overfull \hbox (0.35208pt too wide) in paragraph at lines 4385--4385
 |[]\TS1/txr/bx/n/20 §\OT1/txr/bx/n/20 Basic Def-i-ni-tions and Ex-am-ples: Poly
 -no-mial
  []
 
-[113
+[114
 
-] [114] [115] [116] [117] [118]
-Overfull \hbox (3.55695pt too wide) in paragraph at lines 4615--4616
+] [115] [116] [117] [118] [119]
+Overfull \hbox (3.55695pt too wide) in paragraph at lines 4630--4631
 [][]\OT1/txr/bx/n/12 Example 15.2.4 \OT1/txr/m/n/12 (Non-prin-ci-pal Ide-als)\O
 T1/txr/bx/n/12 . []\OT1/txr/m/n/12 Take the ring $\OML/txmi/m/it/12 R \U/matha/
 m/n/12 ^^P \OML/txmi/m/it/12 F\U/matha/m/n/12 r\OML/txmi/m/it/12 x; y\U/matha/m
 /n/12 s ^^P []$\OT1/txr/m/n/12 .
  []
 
-[119] [120] [121] [122] [123]
-Overfull \hbox (5.30815pt too wide) in paragraph at lines 4832--4834
+[120] [121] [122] [123] [124]
+Overfull \hbox (5.30815pt too wide) in paragraph at lines 4847--4849
 \OT1/txr/m/n/12 Then, since $\OML/txmi/m/it/12 a[]cd[]; :::; a[]c[]$ \OT1/txr/m
 /n/12 are di-vis-i-ble by $\OML/txmi/m/it/12 c$\OT1/txr/m/n/12 , we must have t
 hat $\OML/txmi/m/it/12 c$ \OT1/txr/m/n/12 di-vides $\OML/txmi/m/it/12 a[]d[]$\O
@@ -1829,13 +1829,13 @@ T1/txr/m/n/12 . But, $[]\U/matha/m/n/12 p\OML/txmi/m/it/12 c; d\U/matha/m/n/12
 q ^^P
  []
 
-[124] [125] [126] [127] [128] [129] [130] [131] [132] [133
+[125] [126] [127] [128] [129] [130] [131] [132] [133] [134
 
 ]
 Chapter 16.
-[134
+[135
 
-] [135]
+] [136]
 Chapter 17.
 Missing character: There is no . in font nullfont!
 Missing character: There is no b in font nullfont!
@@ -1847,7 +1847,7 @@ Missing character: There is no b in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no e in font nullfont!
-[136
+[137
 
 ]
 Missing character: There is no . in font nullfont!
@@ -1855,36 +1855,36 @@ Missing character: There is no b in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no e in font nullfont!
- [137] [138]
+ [138] [139]
 Missing character: There is no . in font nullfont!
 Missing character: There is no b in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no e in font nullfont!
- [139] [140]
+ [140] [141]
 Missing character: There is no . in font nullfont!
 Missing character: There is no b in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no e in font nullfont!
- [141] [142] [143] [144]
-Overfull \hbox (22.23212pt too wide) in paragraph at lines 5607--5607
+ [142] [143] [144] [145]
+Overfull \hbox (22.23212pt too wide) in paragraph at lines 5622--5622
 |[]\TS1/txr/bx/n/20 §\OT1/txr/bx/n/20 Classical Straight-edge and Com-pass Con-
 struc-
  []
 
-[145] [146] [147] [148] [149] [150] [151] [152] [153] [154] [155]
+[146] [147] [148] [149] [150] [151] [152] [153] [154] [155] [156]
 Chapter 18.
 
-Overfull \hbox (10.11209pt too wide) in paragraph at lines 6065--6065
+Overfull \hbox (10.11209pt too wide) in paragraph at lines 6080--6080
 |[]\TS1/txr/bx/n/20 §\OT1/txr/bx/n/20 Basics Def-i-ni-tions and Ex-am-ples: Ga-
 lois The-
  []
 
-[156
+[157
 
-] [157] [158]
-Overfull \hbox (8.10101pt too wide) in paragraph at lines 6197--6198
+] [158] [159]
+Overfull \hbox (8.10101pt too wide) in paragraph at lines 6212--6213
 []\OT1/txr/m/n/12 Let $\OML/txmi/m/it/12 L \U/matha/m/n/12 ^^P \OML/txmi/m/it/1
 2 K\U/matha/m/n/12 p\OML/txmi/m/it/12 []; []; :::; []\U/matha/m/n/12 q$\OT1/
 txr/m/n/12 . Then for any $\OML/txmi/m/it/12 ^^[ \U/matha/m/n/12 P []p\OML/txmi
@@ -1896,7 +1896,7 @@ ha/m/n/12 q\OML/txmi/m/it/12 ; :::; ^^[\U/matha/m/n/12 p\OML/txmi/m/it/12 []\U
  []
 
 
-Overfull \hbox (11.95755pt too wide) in paragraph at lines 6207--6208
+Overfull \hbox (11.95755pt too wide) in paragraph at lines 6222--6223
 [][]\OT1/txr/bx/n/12 Corollary 18.1.7. []\OT1/txr/m/sl/12 If $\OML/txmi/m/it/12
  L$ \OT1/txr/m/sl/12 is a split-ting field over $\OML/txmi/m/it/12 K$ \OT1/txr/
 m/sl/12 of a poly-no-mial $\OML/txmi/m/it/12 f\U/matha/m/n/12 p\OML/txmi/m/it/1
@@ -1905,13 +1905,13 @@ U/matha/m/n/12 s$\OT1/txr/m/sl/12 , then $\U/matha/m/n/12 | []p\OML/txmi/m/it/1
 2 L\U/matha/m/n/12 {\OML/txmi/m/it/12 K\U/matha/m/n/12 q| ¤
  []
 
-[159] [160]
-Overfull \hbox (15.59995pt too wide) in paragraph at lines 6302--6303
+[160] [161]
+Overfull \hbox (15.59995pt too wide) in paragraph at lines 6317--6318
  [] 
  []
 
 
-Overfull \hbox (15.12158pt too wide) in paragraph at lines 6310--6312
+Overfull \hbox (15.12158pt too wide) in paragraph at lines 6325--6327
 \OT1/txr/m/n/12 So $\U/matha/m/n/12 r\U/txsyb/m/n/12 Q\U/matha/m/n/12 p[]q \OT1
 /txr/m/n/12 : \U/txsyb/m/n/12 Q\U/matha/m/n/12 s ^^P \OT1/txr/m/n/12 4$, but $[
 ]\U/matha/m/n/12 p\U/txsyb/m/n/12 Q\U/matha/m/n/12 p[]q{\U/txsyb/m/n/12 Q\U/mat
@@ -1921,21 +1921,21 @@ r/m/n/12 and $\U/txsyb/m/n/12 Q\U/matha/m/n/12 p[]q{\U/txsyb/m/n/12 Q\U/matha/m
 /n/12 p[]q$
  []
 
-[161] [162] [163] [164] [165] [166] [167pdfTeX warning (ext4): destination with
+[162] [163] [164] [165] [166] [167] [168pdfTeX warning (ext4): destination with
  the same identifier (name{table.18.1}) has been already used, duplicate ignore
 d
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.6567 
-       ] [168]
-Overfull \hbox (8.95209pt too wide) in paragraph at lines 6618--6618
+l.6582 
+       ] [169]
+Overfull \hbox (8.95209pt too wide) in paragraph at lines 6633--6633
 |[]\TS1/txr/bx/n/20 §\OT1/txr/bx/n/20 Composite Ex-ten-sions and Sim-ple Ex-ten
 -sions| 
  []
 
-[169] [170] [171]
-Overfull \hbox (26.47397pt too wide) in paragraph at lines 6717--6718
+[170] [171] [172]
+Overfull \hbox (26.47397pt too wide) in paragraph at lines 6732--6733
 []\OT1/txr/m/n/12 For any field $\OML/txmi/m/it/12 F$\OT1/txr/m/n/12 , the ex-t
 en-sion $\OML/txmi/m/it/12 F\U/matha/m/n/12 p\OML/txmi/m/it/12 x[]; x[]; :::; x
 []\U/matha/m/n/12 q$ \OT1/txr/m/n/12 is then a Ga-lois ex-ten-sion of the field
@@ -1944,7 +1944,7 @@ tha/m/n/12 q$
  []
 
 
-Overfull \hbox (2.71324pt too wide) in paragraph at lines 6721--6723
+Overfull \hbox (2.71324pt too wide) in paragraph at lines 6736--6738
 \OT1/txr/m/n/12 Since the sub-field must con-tain $\OML/txmi/m/it/12 F\U/matha/
 m/n/12 p\OML/txmi/m/it/12 s[]; :::; s[]\U/matha/m/n/12 q$\OT1/txr/m/n/12 , it f
 ol-lows that we have equal-ity and that $\OML/txmi/m/it/12 F\U/matha/m/n/12 p\O
@@ -1952,14 +1952,14 @@ ML/txmi/m/it/12 s[]; :::; s[]\U/matha/m/n/12 q$
  []
 
 
-Overfull \hbox (17.91188pt too wide) in paragraph at lines 6733--6734
+Overfull \hbox (17.91188pt too wide) in paragraph at lines 6748--6749
 \OT1/txr/m/sl/12 in the vari-ables $\OML/txmi/m/it/12 x[]; x[]; :::; x[]$ \OT1/
 txr/m/sl/12 is a ra-tio-nal func-tion in the el-e-men-tary sym-met-ric func-tio
 ns $\OML/txmi/m/it/12 s[]; s[]; :::; s[]$\OT1/txr/m/sl/12 . 
  []
 
 
-Overfull \hbox (104.25339pt too wide) in paragraph at lines 6736--6737
+Overfull \hbox (104.25339pt too wide) in paragraph at lines 6751--6752
 []\OT1/txr/m/n/12 A sym-met-ric func-tion lies in the fixed field of the sub-gr
 oup iso-mor-phic to $\OML/txmi/m/it/12 S[]$ \OT1/txr/m/n/12 in $[]\U/matha/m/n/
 12 p\OML/txmi/m/it/12 F\U/matha/m/n/12 p\OML/txmi/m/it/12 x[]; :::; x[]\U/matha
@@ -1967,32 +1967,32 @@ oup iso-mor-phic to $\OML/txmi/m/it/12 S[]$ \OT1/txr/m/n/12 in $[]\U/matha/m/n/
 /matha/m/n/12 qq$\OT1/txr/m/n/12 ,
  []
 
-[172] [173] [174] [175
+[173] [174] [175] [176] [177] [178] [179] [180] [181
 
 ]
 Chapter 19.
-[176
+[182
 
-] [177] [178] [179]
+] [183] [184] [185]
 Missing character: There is no . in font nullfont!
 Missing character: There is no b in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no e in font nullfont!
- [180] [181] [182] [183] [184]
-Overfull \hbox (1.23653pt too wide) in paragraph at lines 7151--7152
+ [186] [187] [188] [189] [190]
+Overfull \hbox (1.23653pt too wide) in paragraph at lines 7344--7345
 [][][]\OT1/txr/bx/n/17.28 Theorem 31 (The Sec-ond Iso-mor-phism The-o-rem for M
 od-ules). 
  []
 
-[185]
+[191]
 Missing character: There is no . in font nullfont!
 Missing character: There is no b in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no e in font nullfont!
- [186]
-Overfull \hbox (3.3454pt too wide) in paragraph at lines 7234--7235
+ [192]
+Overfull \hbox (3.3454pt too wide) in paragraph at lines 7427--7428
 []\OT1/txr/m/sl/12 The []\OT1/txr/bx/n/12 sum \OT1/txr/m/sl/12 of $\OML/txmi/m/
 it/12 N[]; :::; N[]$ \OT1/txr/m/sl/12 is the set of all fi-nite sums of el-e-me
 nts from the sets $\OML/txmi/m/it/12 N[]$\OT1/txr/m/sl/12 : $\U/matha/m/n/12 t[
@@ -2000,57 +2000,57 @@ nts from the sets $\OML/txmi/m/it/12 N[]$\OT1/txr/m/sl/12 : $\U/matha/m/n/12 t[
  P
  []
 
-[187]
+[193]
 Missing character: There is no . in font nullfont!
 Missing character: There is no b in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no e in font nullfont!
- [188] [189] [190]
+ [194] [195] [196]
 Chapter 20.
-[191
+[197
 
 ]
 Chapter 21.
-[192
+[198
 
 ]
 Chapter 22.
-[193
+[199
 
 ]
 Chapter 23.
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 7357.
+(hyperref)                be the same. Added a new anchor on input line 7550.
 
-[194
+[200
 
-] [195]
+] [201]
 Missing character: There is no . in font nullfont!
 Missing character: There is no b in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no e in font nullfont!
- [196] [197]
+ [202] [203]
 Missing character: There is no . in font nullfont!
 Missing character: There is no b in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no e in font nullfont!
- [198] [199]
+ [204] [205]
 Missing character: There is no . in font nullfont!
 Missing character: There is no b in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no e in font nullfont!
- [200] [201]
+ [206] [207]
 Missing character: There is no . in font nullfont!
 Missing character: There is no b in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no e in font nullfont!
- [202] [203] [204] [205
+ [208] [209] [210] [211
 
 
 ]
@@ -2060,36 +2060,33 @@ Missing character: There is no a in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no e in font nullfont!
 
-[206]
+[212]
 Missing character: There is no . in font nullfont!
 Missing character: There is no b in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no e in font nullfont!
- [207]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 7851.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 7851.
+ [213]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 8044.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 8044.
  (./Algebra.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 7851.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 7851.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 8044.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 8044.
 
 Package rerunfilecheck Info: File `Algebra.out' has not changed.
-(rerunfilecheck)             Checksum: D0F39B934796012D5110D4AC0CCF0502;8796.
+(rerunfilecheck)             Checksum: DBC2FE2E70F07A5DAE499892389E9F30;9100.
 
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.74pt have occurred.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 7851.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 8044.
  ) 
 Here is how much of TeX's memory you used:
- 28321 strings out of 481239
- 516837 string characters out of 5920377
- 766435 words of memory out of 5000000
- 41320 multiletter control sequences out of 15000+600000
+ 28342 strings out of 481239
+ 517043 string characters out of 5920377
+ 767440 words of memory out of 5000000
+ 41322 multiletter control sequences out of 15000+600000
  618036 words of font info for 224 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  76i,19n,84p,2379b,1707s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2115,10 +2112,10 @@ t/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
 rw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8
 a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Algebra.pdf (208 pages, 1392025 bytes).
+Output written on Algebra.pdf (214 pages, 1415558 bytes).
 PDF statistics:
- 3332 PDF objects out of 3580 (max. 8388607)
- 3064 compressed objects within 31 object streams
- 1680 named destinations out of 1728 (max. 500000)
- 938 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 3392 PDF objects out of 3580 (max. 8388607)
+ 3117 compressed objects within 32 object streams
+ 1699 named destinations out of 1728 (max. 500000)
+ 970 words of extra memory for PDF output out of 10000 (max. 10000000)
 
