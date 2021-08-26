@@ -43,12 +43,22 @@
 \contentsline {section}{\numberline {5.4}Zeros of an Analytic Function}{55}{section.5.4}%
 \contentsline {section}{\numberline {5.5}Analytic Continuation}{57}{section.5.5}%
 \contentsline {chapter}{\numberline {6}Laurent Series and Isolated Singularities}{59}{chapter.6}%
-\contentsline {chapter}{\numberline {7}The Residue Calculus}{60}{chapter.7}%
-\contentsline {part}{II\hspace {1em}Part 2}{61}{part.2}%
-\contentsline {chapter}{\numberline {8}The Logarithmic Integral}{62}{chapter.8}%
-\contentsline {chapter}{\numberline {9}Conformal Mapping}{63}{chapter.9}%
-\contentsline {part}{III\hspace {1em}Part 3}{64}{part.3}%
-\contentsline {chapter}{\numberline {10}Approximation Theorems}{65}{chapter.10}%
-\contentsline {chapter}{\numberline {11}Special Functions}{66}{chapter.11}%
-\contentsline {chapter}{Appendices}{67}{section*.1}%
+\contentsline {section}{\numberline {6.1}Laurent Decomposition}{59}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Isolated Singularities of an Analytic Function}{62}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Partial Fractions Decomposition}{67}{section.6.3}%
+\contentsline {chapter}{\numberline {7}The Residue Calculus}{70}{chapter.7}%
+\contentsline {section}{\numberline {7.1}The Residue Theorem}{70}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Integrals Featuring Rational Functions}{72}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Integrals of Trigonometric Functions}{74}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Integrands with Branch Points}{76}{section.7.4}%
+\contentsline {section}{\numberline {7.5}Fractional Residues}{77}{section.7.5}%
+\contentsline {section}{\numberline {7.6}Principal Values}{79}{section.7.6}%
+\contentsline {section}{\numberline {7.7}Jordan's Lemma}{79}{section.7.7}%
+\contentsline {part}{II\hspace {1em}Part 2}{81}{part.2}%
+\contentsline {chapter}{\numberline {8}The Logarithmic Integral}{82}{chapter.8}%
+\contentsline {chapter}{\numberline {9}Conformal Mapping}{83}{chapter.9}%
+\contentsline {part}{III\hspace {1em}Part 3}{84}{part.3}%
+\contentsline {chapter}{\numberline {10}Approximation Theorems}{85}{chapter.10}%
+\contentsline {chapter}{\numberline {11}Special Functions}{86}{chapter.11}%
+\contentsline {chapter}{Appendices}{87}{section*.1}%
 \contentsfinish 

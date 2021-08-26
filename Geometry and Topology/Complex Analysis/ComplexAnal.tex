@@ -2384,10 +2384,791 @@ Now suppose $f(z)$ is analytic at $z_0$ and suppose that $\gamma(t)$, $a \leq t 
 
 
 
+%%%%%%%%%%%%%%%%%%%% Section 1.6.1
+\section{Laurent Decomposition}
+
+\begin{defn}
+    If $f \in \mathcal{O}(z_0)$ then there exists some $r > 0$ such that $f$ is holomorphic on $|z-z_0| < r$. In other words, $\mathcal{O}(z_0)$ is the set of holomorphic functions at $z_0$.
+\end{defn}
+
+
+\begin{namthm}[Laurent Decomposition]
+    Suppose $0 \leq \rho < \sigma \leq \infty$, and suppose $f(z)$ is analytic for $\rho < |z-z_0| < \sigma$ (i.e. it is analytic on some anulus). Then $f(z)$ can be decomposed as a sum \begin{equation*}
+        f(z) = f_0(z) + f_1(z)
+    \end{equation*}
+    where $f_0(z)$ is analytic for $|z-z_0| < \sigma$, and $f_1(z)$ is analytic for $|z-z_0| > \rho$ and at $\infty$. If we normalize the decomposition so that $f_1(\infty) = 0$, then the decomposition is unique.
+\end{namthm}
+\begin{proof}
+    Suppose $0 \leq \rho < \sigma \leq \infty$ and suppose $f(z)$ is analytic for $\rho < |z-z_0| < \sigma$. Furthermore suppose $f(z) = f_0(z)+f_1(z)$ where $f_0$ is analytic for $|z-z_0| < \sigma$ and $f_1$ is analytic for $|z-z_0| > \rho$ and at $\infty$. Suppose $g_0,g_1$ form another Laurent decomposition with $f(z) = g_0(z) + g_1(z)$. Notice \begin{equation*}
+        g_0(z) - f_0(z) = g_1(z) - f_1(z)
+    \end{equation*}
+    fpr $\rho < |z-z_0| < \sigma$. In view of the above overlap condition, we are free to define \begin{equation*}
+        h(z) = \left\{\begin{array}{lc} g_0(z) - f_0(z) & for\;|z-z_0| < \sigma \\ g_1(z) - f_1(z) & for\;|z-z_0| > \rho \end{array}\right.
+    \end{equation*}
+    Notice $h$ is entire and $h(z)\rightarrow 0$ as $z\rightarrow \infty$. Then $h$ is a bounded and entire function and we apply Liouville's Theorem to conclude that $h(z) = c$ for all $z \in \C$. In particlar, $h(z) = 0$ on the annulus $\rho < |z-z_0| < \sigma$, and we conclude that if a Laurent decomposition exists (and is normalized) then it must be unique.
+
+    Existence of the Laurent Decomposition is due to Cuachy's Integral formula on an annulus. Choose $r$ and $s$ such that $\rho < r < s < \sigma$. The Cauchy Integral Formula for an annulus yields \begin{equation*}
+        f(z) = \frac{1}{2\pi i}\oint_{|w-z_0|=s}\frac{f(w)}{w-z}dw - \frac{1}{2\pi i}\oint_{|w-z_0| = r}\frac{f(w)}{w-z}dw 
+    \end{equation*}
+    which is valid for $r < |z-z_0| < s$. The function \begin{equation*}
+        f_0(z) = \frac{1}{2\pi i}\oint_{|w-z_0|=s}\frac{f(w)}{w-z}dw,\;\;\;|z-z_0| < s
+    \end{equation*}
+    is analytic for $|z-z_0| < s$, and the function \begin{equation*}
+        f_1(z) = - \frac{1}{2\pi i}\oint_{|w-z_0| = r}\frac{f(w)}{w-z}dw ,\;\;\;|z-z_0| > r
+    \end{equation*}
+    is analytic for $|z-z_0| > r$ and tends to zero as $z$ goes to $\infty$. Thus we obtain the decomposition $f(z) = f_0(z) + f_1(z)$ for $r < |z-z_0| <s$, and uniqueness shows that the component functions are defined for $\rho < |z-z_0| < \sigma$.
+\end{proof}
+
+\begin{eg}
+    Consider $f(z) = \frac{z^3+z+1}{z} = z^2+1+\frac{1}{z}$ for $z \neq 0$. In this example $\rho = 0$, and $\sigma = \infty$ and $f_0(z) = z^2+1$ whereas $f_1(z) = 1/z$.
+\end{eg}
+
+
+\begin{eg}
+    Let $f(z)$ be an entire function, for example $e^z, \sin z,\cos z, \sinh z,\cosh z,$ etc. Then $f(z) = f_0(z)$ and $f_1(z) = 0$. The function $f_0$ is analytic on any disk, but, we do not assume it is analytic at $\infty$. On the other hand, notice that $f_1 = 0$ is analytic at $\infty$ as claimed.
+\end{eg}
+
+\begin{eg}
+    Suppose $f(z)$ is analytic at $z_0 = \infty$ then there exists some exterior domain $|z-z_0| > \rho$ for which $f(z)$ is analytic. In this case, $f(z) = f_1(z)$ and $f_0(z) = 0$ for all $z \in \C\cup\{\infty\}$.
+\end{eg}
+
+
+
+\begin{eg}
+    Consider $f(z) = \frac{2z-i}{z(z-i)}$. This function is analutic on $\C-\{0,i\}$. A simple calculation reveals \begin{equation*}
+        f(z) = \frac{1}{z} + \frac{1}{z-i}
+    \end{equation*}
+    with respect to the annulus $0 < |z| < 1$ we have $f_0(z) = \frac{1}{z-i}$ and $f_1(z) = \frac{1}{z}$. On the other hand, for the annulus $0 < |z-i| < 1$ we have $f_1(z) = \frac{1}{z-i}$ and $f_0(z) = \frac{1}{z}$.
+\end{eg}
+
+
+\begin{eg}
+    Consider $f(z) = \frac{1}{\sin(z)}$ this has a Laurent decomposition on the annuli which fit between successive zeros of $\sin z$. That is, on $n\pi < |z| < (n+1)\pi$. For example, when $n = 0$ we have $\sin z = \sum_{n=0}^{\infty}\frac{(-1)^nz^{2n+1}}{(2n+1)!}$ hence, using our geometric series reciprocal technique, \begin{equation*}
+        f(z) = \frac{1}{\sin z} = \frac{1}{z}\frac{1}{1-\sum_{n=1}^{\infty}(-1)^{n-1}z^{2n}/(2n+1)!} = \frac{1}{z}\left(1+\sum_{k=1}^{\infty}\left(\sum_{n=1}^{\infty}(-1)^{n-1}z^{2n}/(2n+1)!\right)^k\right)
+    \end{equation*}
+    so $f_1(z) = \frac{1}{z}$ whereas $f_0(z) = \sum_{k=1}^{\infty}\frac{1}{z}\left(\sum_{n=1}^{\infty}(-1)^{n-1}z^{2n}/(2n+1)!\right)^k$ for the punctured disk of radius $\pi$ centered about $z = 0$.
+\end{eg}
+
+Suppose now that $f(z) = f_0(z)+f_1(z)$ is the Laurent Decomposition for a function analytic on $\rho < |z-z_0| < \sigma$. We can express $f_0(z)$ as a power series in $z-z_0$, \begin{equation*}
+    f_0(z) = \sum_{n=0}^{\infty}a_n(z-z_0)^n,\;\;\;\;|z-z_0| < \sigma,
+\end{equation*}
+where the series converges absolutely, and for any $s < \sigma$ it converges uniformly for $|z-z_0| \leq s$. Further, we can also express $f_1(z)$ as a series of negative powers of $z-z_0$, with zero constant term, since $f_1(z)$ tends to $0$ at $\infty$, \begin{equation*}
+    f_1(z) = \sum_{n=-\infty}^{-1}a_n(z-z_0)^n,\;\;\;\;|z-z_0| > \rho
+\end{equation*}
+The series converges absolutely, and for any $r > \rho$ it converges uniformly on $|z-z_0| \geq r$. If we add the two series together we obtain a two-tailed expansion on the annulus, \begin{equation*}
+    f(z) = \sum_{n=-\infty}^{\infty}a_n(z-z_0)^n,\;\;\;\;\rho < |z-z_0| < \sigma
+\end{equation*}
+that converges absolutely, and converges uniformly on $r \leq |z-z_0| \leq s$. The series is called the \Emph{Laurent Series Expansion} of $f(z)$ with respect to the annulus $\rho < |z-z_0| < \sigma$. 
+
+To obtain a formula for the coefficients in the expansion, we divide $f(z)$ by $(z-z_0)^{n+1}$ and integrate along the circle $|z-z_0| = r$. Since the series converges uniformly on the circle, we can interchange the summation and integration. The result is \begin{align*}
+    \oint_{|z-z_0|=r}\frac{f(z)}{(z-z_0)^{n+1}}dz &= \oint_{|z-z_0|=r}\frac{1}{(z-z_0)^{n+1}}\sum_{k=-\infty}^{\infty}a_k(z-z_0)^kdz \\
+    &= \sum_{k=-\infty}^{\infty}a_k\oint_{|z-z_0|=r}(z-z_0)^{k-n-1}dz
+\end{align*}
+The integral of $(z-z_0)^m$ is $2\pi i$ if $m = -1$, otherwise $0$, so all the terms in the series dissapear except one, and the series reduces to $2\pi ia_n$. Thus \begin{equation*}
+    a_n = \frac{1}{2\pi i}\oint_{|z-z_0|=r}\frac{f(z)}{(z-z_0)^{n+1}}dz,\;\;\;\;-\infty < n < \infty
+\end{equation*}
+Note that this formula coincides for $a_n$ in the case that $f(z)$ is analytic on $|z-z_0| < \sigma$.
+
+\begin{eg}
+    Let $f(z) = \frac{\sin z}{1-z}$. Observe \begin{align*}
+        \frac{\sin z}{1-z} &= \frac{\sin(z-1+1)}{1-z} = \frac{\cos(1)\sin(z-1)+\sin(1)\cos(z-1)}{z-1} \\
+        &= \cos(1)\sum_{n=0}^{\infty}\frac{(-1)^n(z-1)^{2n}}{(2n+1)!}+\sin(1)\sum_{n=0}^{\infty}\frac{(-1)^n(z-1)^{2n-1}}{(2n)!} \\
+        &= \frac{\sin(1)}{(z-1)} + \cos(1)\sum_{n=0}^{\infty}\frac{(-1)^n(z-1)^{2n}}{(2n+1)!}+\sin(1)\sum_{n=1}^{\infty}\frac{(-1)^n(z-1)^{2n-1}}{(2n)!}
+    \end{align*}
+    so $a_{-1} = \sin 1$ and we find \begin{equation*}
+        \oint_{|z-1|=2}\frac{\sin z}{1-z}dz = 2\pi i\sin1
+    \end{equation*}
+\end{eg}
+
+\begin{namthm}[Laurent Series Expansion]
+    Suppose $0 \leq \rho < \sigma \leq \infty$, and suppose $f(z)$ is analytic for $\rho < |z-z_0| < \sigma$. Then $f(z)$ can be decomposed as a Laurent series \begin{equation*}
+        f(z) = \sum_{n=-\infty}^{\infty}a_n(z-z_0)^n
+    \end{equation*}
+    that converges absolutely at each point of the annulus, and that converges uniformly on each subannulus $r \leq |z-z_0| \leq s$, where $\rho < r < s < \sigma$. The coefficients $a_n$ are uniquely determined by $f(z)$, and they are given by \begin{equation*}
+        a_n = \frac{1}{2\pi i}\oint_{|z-z_0|=r}\frac{f(z)}{(z-z_0)^{n+1}}dz,\;\;\;\;-\infty < n < \infty
+    \end{equation*}
+    for any fixed $r$ such that $\rho < r < \sigma$.
+\end{namthm}
+
+
+%%%%%%%%%%%%%%%%%%%% Section 1.6.2
+\section{Isolated Singularities of an Analytic Function}
+
+
+\begin{defn}
+    A function $f$ has an \Emph{isolated singularity at $z_0$} if there exists $r > 0$ such that $f$ is analytic on the punctured disk $0 < |z-z_0| < r$.
+\end{defn}
+
+
+Isolated singularities fall into three classes, where each class has a particular type of Laurent series about the singular point.
+
+\begin{defn}
+    Suppose $f$ has an isolated singularity at $z_0$: \begin{enumerate}
+        \item If $f(z) = \sum_{n=0}^{\infty}a_n(z-z_0)^n$ then $z_0$ is a \Emph{removable singularity}
+        \item Let $N \in \N$. If $f(z) = \sum_{n=-N}^{\infty}a_n(z-z_0)^n$ with $a_{-N} \neq 0$ then $z_0$ is a \Emph{pole of order $N$}.
+        \item If $f(z) = \sum_{n=-\infty}^{\infty}a_n(z-z_0)^n$ where $a_n \neq 0$ for infinitely many $n < 0$, then $z_0$ is an \Emph{essential singularity}.
+    \end{enumerate}
+\end{defn}
+
+
+\begin{thm}[Riemann's Theorem on Removable Singularities]
+    Let $z_0$ be an isolated singularity of $f(z)$. If $f(z)$ is bounded near $z_0$, then $f(z)$ has a removable singularity at $z_0$.
+\end{thm}
+\begin{proof}
+    Expand $f(z)$ in a Laurent series about the punctured disk at $z_0$: \begin{equation*}
+        f(z) = \sum_{n=-\infty}^{\infty}a_n(z-z_0)^n
+    \end{equation*}
+    for $0 < |z-z_0| < \sigma$. If $|f(z)| < M$ for $0 < |z-z_0| < r$ then for $r$ sufficiently small we may apply the ML-theorem to the formula for the $n$th coefficient of the Laurent series \begin{equation*}
+        |a_n| = \left|\frac{1}{2\pi i}\oint_{|z-z_0|=r}\frac{f(z)}{(z-z_0)^{n+1}}dz\right| \leq \frac{M(2\pi r)}{2\pi r^{n+1}} = \frac{M}{r^n}
+    \end{equation*}
+    As $r$ goes to $0$ we find $|a_n|\rightarrow 0$ for $n < 0$. Thus, $a_n = 0$ for all $n  = -1,-2,...$ Thus, the Laurent series for $f(z)$ reduces to a power series for $f(z)$ on the deleted disk $0 < |z-z_0| < \sigma$ and it follows we may extend $f(z)$ to the disk $|z-z_0| < \sigma$ by defining $f(z_0) = a_0$.
+\end{proof}
+
+
+\begin{eg}
+    Let $f(z) = \frac{\sin z}{z}$ on the punctured plane $\C^{\times}$. Notice \begin{equation*}
+        f(z) = \frac{\sin z}{z} = \sum_{k=0}^{\infty}\frac{(-1)^nz^{2n}}{(2n+1)!}
+    \end{equation*}
+    So, we can extend $f$ to $\overline{f}$ over $\C$ by defining $\overline{f}(0) = 1$.
+\end{eg}
+
+\begin{defn}
+    Suppose $f$ has a pole of order $N$ at $z_0$. If \begin{equation*}
+        f(z) = \sum_{n=-N}^{-1}a_n(z-z_0)^n + \sum_{k=0}^{\infty}a_k(z-z_0)^k
+    \end{equation*}
+    then $P(z) = \sum_{k=-N}^{-1}a_k(z-z_0)^k$ is called the \Emph{principal part} of $f(z)$ at the pole $z_0$. When $N = 1$ then $z_0$ is called a \Emph{simple pole}, when $N = 2$ then $z_0$ is called a \Emph{double pole}.
+\end{defn}
+
+
+\begin{thm}
+    Let $z_0$ be an isolated singularity of $f$. Then $z_0$ is a pole of $f$ of order $N$ if and only if $f(z) = \frac{g(z)}{(z-z_0)^N}$ where $g$ is analytic at $z_0$ with $g(z_0) \neq 0$.
+\end{thm}
+\begin{proof}
+    Suppose $f$ has a pole of order $N$ at $z_0$, then by definition it has a Laurent series which begins at $n=-N$. We calculate, for $|z-z_0| < r$, \begin{equation*}
+        f(z) = \sum_{n=-N}^{\infty}a_n(z-z_0)^n = \sum_{k=0}^{\infty}a_{k-N}(z-z_0)^{k-N} = \frac{1}{(z-z_0)^N}\sum_{k=0}^{\infty}a_{k-N}(z-z_0)^k
+    \end{equation*}
+    where $a_{-N}$ is nonzero by definition of a pole of order $N$. Then, define $g(z) = \sum_{k=0}^{\infty}a_{k-N}(z-z_0)^k$, then $g$ is analytic at $z_0$ with $g(z_0) = a_{-N} \neq 0$. 
+
+    Conversely, suppose there exists $g$ analytic at $z_0$ with $g(z_0) \neq 0$ and $f(z) = g(z)/(z-z_0)^N$. Then $g$ has power series about $z_0$, $g(z) = \sum_{n=0}^{\infty}b_n(z-z_0)^n$, for $b_0 \neq 0$ by assumption. It follows that \begin{equation*}
+        f(z) = \frac{1}{(z-z_0)^N}\sum_{n=0}^{\infty}b_n(z-z_0)^n = \sum_{k=-N}^{\infty}b_{k+N}(z-z_0)^k
+    \end{equation*}
+    so by definition $f$ has a pole of order $N$ at $z_0$.
+\end{proof}
+
+\begin{eg}
+    Consider $f(z) = \frac{e^z}{(z-1)^5}$. Notice $e^z$ is entire, hence by the previous theorem $f$ has a pole of order $5$ at $z_0 = 1$.
+\end{eg}
+
+\begin{eg}
+    Consider $f(z) = \frac{\sin[(z+2)^3]}{(z+2)^5}$, notice \begin{equation*}
+        f(z) = \frac{1}{(z+2)^5}\sum_{n=0}^{\infty}\frac{(-1)^n(z+2)^{6n+3}}{(2n+1)!} = \frac{1}{(z+2)^2}\sum_{n=0}^{\infty}\frac{(-1)^n(z+2)^{6n}}{(2n+1)!}
+    \end{equation*}
+    so by theorem, $f$ has a pole of order $N  =2$ at $z_0 = -2$.
+\end{eg}
+
+\begin{thm}
+    Let $z_0$ be an isolated singularity of $f$. Then $z_0$ is a pole of $f$ of order $N$ if and only if $1/f(z)$ is analytic at $z_0$ and has a zero of order $N$.
+\end{thm}
+\begin{proof}
+    We know that $f$ has a pole of order $N$ if and only if $f(z) = g(z)/(z-z_0)^N$ with $g(z_0) \neq 0$ and $g(z) \in \mathcal{O}(z_0)$. Suppose $f$ has a pole of order $N$ then observe \begin{equation*}
+        \frac{1}{f(z)} = (z-z_0)^N\cdot\frac{1}{g(z)}
+    \end{equation*}
+    hence $1/f(z)$ has a zero of order $N$ by a previous result. Conversely, if $1/f(z)$ has a zero of order $N$ then by that result we have $1/f(z) = (z-z_0)^Nh(z)$ where $h \in \mathcal{O}(z_0)$ and $h(z_0) \neq 0$. Define $g(z) = 1/h(z)$, and note $g \in \mathcal{O}(z_0)$ and $g(z_0) = 1/h(z_0) \neq 0$, so \begin{equation*}
+        f(z) = \frac{1}{(z-z_0)^Nh(z)} = \frac{g(z)}{(z-z_0)^N}
+    \end{equation*}
+    so we conclude that $f$ has a pole of order $N$ at $z_0$.
+\end{proof}
+
+\begin{eg}
+    Consider $f(z) = 1/\sin z$, then it has a simple pole at $z_0 = n\pi$ for $n \in \N\cup \{0\}$ since $\sin z$ has a simple zero at $z = n$: \begin{equation*}
+        \sin(z) = \sin(z-n\pi+n\pi) = \cos(n\pi)\sin(z-n\pi)+0=(-1)^n\sum_{k=0}^{\infty}\frac{(-1)^k(z-n\pi)^{2n+1}}{(2n+1)!}
+    \end{equation*}
+\end{eg}
+
+\begin{eg}
+    Consider the Laurent expansion for $f(z) = 1/\sin z$ that converges on the circle $|z| = 4$. As above, the only zeros of $\sin z$ are the integral powers of $\pi$, and each is a simple zero, so they are simple poles of $f(z)$. The largest annular set containing the circle and for which $f(z)$ extends analytically is then $\pi < |z| < 2\pi$. This annulus is then the largest open set on which the Laurent series converges. From the expansion $\sin z = z+\mathcal{O}(z^3)$ near $z = 0$, we see that \begin{equation*}
+        \frac{1}{\sin z} = \frac{1}{z} + \text{analytic}
+    \end{equation*}
+    near $z = 0$, and $1/\sin z - 1/z$ is analytic at $z = 0$. Similarly, from the expansion $\sin z = -(z-\pi)+\mathcal{O}((z-\pi)^3)$ at $z = \pi$, we see that \begin{equation*}
+        \frac{1}{\sin z} = \frac{-1}{z-\pi} + \text{analytic}
+    \end{equation*}
+    near $z = \pi$, and $1/\sin z + 1/(z-\pi)$ is analytic at $z = \pi$. By the same token $1/\sin z + 1/(z+\pi)$ is analytic at $z = -\pi$. We conclude that if \begin{equation*}
+        f_1(z) = \frac{1}{z+\pi}+\frac{1}{z-\pi}-\frac{1}{z}
+    \end{equation*}
+    then $f_0(z) = 1/\sin z-f_1(z)$ is analytic for $|z| < 2\pi$. Thus, $1/\sin z = f_0(z) + f_1(z)$ is the Laurent decomposition of $1/\sin z$. We first expand the Laurent series for $f_1(z)$ \begin{equation*}
+        f_1(z) = \frac{2z}{z^2-\pi^2}-\frac{1}{z} = -\frac{1}{z} + \frac{2}{z}\sum_{n=0}^{\infty}\frac{\pi^{2n}}{z^{2n}} = \frac{1}{z} + \sum_{n=1}^{\infty}\frac{2\pi^{2n}}{z^{2n+1}}
+    \end{equation*}
+    Note that all powers of $z$ are odd, since $1/\sin z$ is an odd function.
+\end{eg}
+
+\begin{eg}
+    Consider $f(z) = \frac{1}{z^3(z-2-3i)^6}$ then $f$ has a pole of order $N = 3$ at $z_0 = 0$ and a pole of order $N = 6$ at $z_1 = 2 + 3i$.
+\end{eg}
+
+\begin{defn}
+    We say a function $f$ is \Emph{meromorphic on a domain $D$} if $f$ is analytic on $D$ except possibly at isolated singularities of which each is a pole.
+\end{defn}
+
+\begin{eg}
+    An entire function is meromorphic on $\C$. However, an entire function may not be analytic at $\infty$. For example, $\sin z$ is not analytic at $\infty$ and it has an essential singularity at $\infty$ so $f(z)$ is not meromorphic on $\C\cup \{\infty\}$.
+\end{eg}
+
+
+\begin{eg}
+    A rational function is formed by the quotient of two polynomials $p(z),q(z) \in \C[z]$, where $q(z)$ is not identically zero; $f(z) = p(z)/q(z)$. We will see that $f(z)$ is meromorphic on the extended complex plane $\C\cup\{\infty\}$.
+\end{eg}
+
+\begin{thm}
+    Let $z_0$ be an isolated singularity of $f$. Then $z_0$ is a pole of $f$ of order $N \geq 1$ if and only if $|f(z)| \rightarrow \infty$ as $z\rightarrow z_0$.
+\end{thm}
+\begin{proof}
+    If $z_0$ is a pole of order $N$ then $f(z) = g(z)/(z-z_0)^N$ for $g(z_0)\neq 0$ for $0 < |z-z_0| < r$ for some $r > 0$ where $g$ is anlytic at $z_0$. Since $g$ is anlytic at $z_0$ it is continuous and hence bounded on the disk; $|g(z)| \leq M$ for $|z-z_0| < r$. Thus \begin{equation*}
+        |f(z)| = |g(z)(z-z_0)^{-N}| \leq M(z-z_0)^{-N}\rightarrow \infty
+    \end{equation*}
+    as $z\rightarrow z_0$. Hence $|f(z)| \rightarrow \infty$ as $z\rightarrow z_0$.
+
+    Conversely, suppose $|f(z)|\rightarrow \infty$ as $z\rightarrow z_0$. Hence, there exists $r > 0$ such that $f(z) \neq 0$ for $0 < |z-z_0| < r$. It follows that $h(z) = 1/f(z)$ is analytic for $0 < |z-z_0| < r$. Note that $|f(z)|\rightarrow \infty$ as $z\rightarrow z_0$ implies $h(z) \rightarrow 0$ as $z\rightarrow z_0$. Thus $h(z)$ is bounded near $z_0$, and we find by Riemann's removable singularity Theorem that there exists $a_n, n = 0,1,2,...$ for which \begin{equation*}
+        h(z) = \sum_{n=0}^{\infty}a_n(z-z_0)^n
+    \end{equation*}
+    Since $h(z)\rightarrow 0$ as $z\rightarrow z_0$, the extension of $h(z)$ is zero at $z_0$. If the zero has order $N$ then $h(z) = (z-z_0)^Nb(z)$ where $b \in \mathcal{O}(z_0)$ and $b(z_0) \neq 0$. Therefore, we obtain $f(z) = g(z)/(z-z_0)^N$ where $g(z) = 1/b(z)$ where $g \in \mathcal{O}(z_0)$ and $g(z_0) \neq 0$. We conclude that $z_0$ is a pole of order $N$ by our previous results.
+\end{proof}
+
+\begin{eg}
+    Let $f(z) = e^{1/z} = \sum_{n=0}^{\infty}\frac{1}{n!z^n}$. Clearly $z_0 = 0$ is an essential singularity of $f$. It has different behaviour than a removable singularity or a pole. First notice for $z = x > 0$ we have $f(z) = e^{1/x}\rightarrow \infty$ as $x\rightarrow 0^+$ thus $f$ is not bounded at $z_0 = 0$. On the other hand, if we study $z = iy$ for $y > 0$, then $|f(z)| = |e^{1/iy}| = 1$ hence $|f(z)|$ does not tend to $\infty$ along the imaginary axis. That is, we require that the modulus geos to infinity from all directions in order to apply our previous theorem.
+\end{eg}
+
+\begin{namthm}[Casorati-Weierstrauss Theorem]
+    Let $z_0$ be an essential isolated singularity of $f(z)$. Then for every complex number $w_0$, there is a sequence $z_n \rightarrow z_0$ such that $f(z_n)\rightarrow w_0$ as $n\rightarrow \infty$.
+\end{namthm}
+\begin{proof}
+    By contrapositive argument. Suppose there exists a complex number $w_0$ for which there does not exist a sequence $z_n\rightarrow z_0$ such that $f(z_n)\rightarrow w_0$ as $n\rightarrow \infty$. It follows there exists $\varepsilon > 0$ for which $|f(z) - w_0| > \varepsilon$ for all $z$ in a small punctured disk about $z_0$. Hence $h(z) = 1/(f(z)-w_0)$ is bounded near $z_0$. By Riemann's theorem for removable singularities, $h(z)$ has a removable singularity at $z_0$. Hence $h(z) = (z-z_0)^Ng(z)$ for some $N \geq 0$ and some analytic function $g(z)$ satisfying $g(z_0) \neq 0$. Thus $f(z) - w_0 = 1/h(z) = (z-z_0)^{-N}(1/g(z))$, where $1/g(z)$ is analytic at $z_0$. If $N = 0$, $f(z)$ extends to an analytic function at $z_0$, while if $N > 0$, $f(z)$ has a pole of order $N$ at $z_0$. This establishes the theorem.
+\end{proof}
+
+Thus, the limit of the modulus at an essential isolated singularity is undefined, unlike the limit of the modulus of a pole singularity which is just infinity.
+
+\begin{defn}
+    We say that $f(z)$ has an isolated singular point at $\infty$ if there exists $r > 0$ such that $f$ is analytic on $|z| > r$. Equivalently, we say $f$ has an isolated singualr point at $\infty$ if $g(w) = f(1/w)$ has an isolated singularity at $w = 0$. Furthermore, we say that the isolated singular point at $\infty$ is a removable singularity, a pole of order $N$, or an essential singularity, if the corresponding singularity at $w=0$ is likewise a removable singularity, a pole of order $N$, or an essential singular point of $g$. In particular, if $\infty$ is a pole of order $N$ then the Laurent series expansion \begin{equation*}
+        f(z) = \sum_{k=N}^0b_kz^k + \sum_{n=-\infty}^{-1}b_nz^n
+    \end{equation*}
+    has \Emph{principal part} \begin{equation*}
+        P_{\infty}(z) = \sum_{k=N}^0b_kz^k = b_Nz^N+...+b_1z+b_0
+    \end{equation*}
+    hence $f(z) - P_{\infty}(z)$ is analytic at $\infty$.
+\end{defn}
+
+\begin{eg}
+    The function $e^z = \sum_{n=0}^{\infty}z^n/n!$ has an essential singularity at $\infty$. This implies that while $e^z$ is meromorphic on $\C$, it is not meromorphic on $\C\cup \{\infty\}$ as it has a singularity which is not a pole or removable.
+\end{eg}
+
+\begin{eg}
+    Let $p(z),q(z) \in \C[z]$ with $\deg(p(z)) = m$ and $\deg(q(z)) = n$ such that $m > n$. Then by the division algorithm for polynomial rings over fields gives that there exist $d(z),r(z) \in \C[z]$ for which $\deg(d(z)) = m-n$ and $\deg(r(z)) < m$, such that \begin{equation*}
+        f(z) = \frac{p(z)}{q(z)} = d(z) + \frac{r(z)}{q(z)}
+    \end{equation*}
+    The function $r(z)/q(z)$ is analytic at $\infty$ and $d(z)$ serves as the principal part. We identify $f$ has a pole of order $m-n$ at $\infty$. It follows that any rational function is \Emph{meromorphic} on the extended complex plane.
+\end{eg}
+
+\begin{eg}
+    Following the last example suppose $m = n$ then $d(z) = 0$ and the singularity at $\infty$ is seen to be removable. If $p(z) = \sum_{k=0}^ma_kz^k$ and $q(z) = \sum_{k=0}^nb_kz^k$ then we can extend $f$ analytically to $\infty$ by defining $f(\infty) = a_m/b_n$.
+\end{eg}
+
+
+\begin{eg}
+    Consider $f(z) = (e^{1/z}-1)/z$ for $|z| > 0$. Observe \begin{equation*}
+        f(z) = (e^{1/z}-1)/z = \sum_{n=1}^{\infty}\frac{1}{n!z^{n+1}}
+    \end{equation*}
+    hence the singularity at $\infty$ is removable since $g(w) = f(1/w)$ has a removable singularity at $0$, and we can analytically extend $f$ to the extended complex plane by defining $f(\infty) = 0$.
+\end{eg}
+
+
+
+%%%%%%%%%%%%%%%%%%%% Section 1.6.3
+\section{Partial Fractions Decomposition}
+
+\begin{defn}
+    We say that $f(z)$ is \Emph{meromorphic} on a domain $D$ in the extended complex plane $\C^*$ if $f(z)$ is holomorphic on $D$ except possibly at isolated singularities, each of which is a pole.
+\end{defn}
+
+\begin{eg}
+    Consider $f(z) = \frac{p(z)}{q(z)} = h(z)+\frac{r(z)}{q(z)}$, by long division. Write $h(z) = a_0+a_1z+...+a_nz^n$, and $q(z) = (z-z_1)^{n_1}(z-z_2)^{n_2}...(z-z_k)^{n_k}$. Note $h(z)$ is entire on $\C$, but not analytic at $\infty$. In particular, $h(z)$ has a pole of order $N$, for $N$ the order of the zero of $1/g(w) = 1/h(1/w)$. On the other hand, $r(z)/q(z)$ is holomorphic on $\C\backslash\{z_1,z_2,...,z_k\}$, and is analytic at infinity since $\deg(r) < \deg(q)$.
+\end{eg}
+
+\begin{thm}
+    A meromorphic function on $\C^*$ is a rational function.
+\end{thm}
+\begin{proof}
+    If $f(z)$ is meromorphic on $\C^*$, then $F(z) = f(1/z)$ has either a removable singularity or a pole at $z = 0$, and in either case there exists $r > 0$ such that $F(z)$ is holomorphic on $0 < |z| < r$. Then it follows that $f(z)$ is holomorphic on $1/r < |z| < \infty$, which is to say it has no poles or removable singularities. Thus, $f$ only has poles in the closed and bounded set $0\leq z \leq 1/r$, which is compact by the Heine-Borel theorem applied to $\C$. Thus, since the set of poles must have no limit points, and by compactness of $0\leq z \leq 1/r$ every infinite set has a limit point in $0 \leq z \leq 1/r$, it follows that the number of poles must be finite. If $f(z)$ is analytic at $\infty$, we define $P_{\infty}(z)$ to be the constant function $f(\infty)$. Otherwise, $f(z)$ has a pole at $\infty$ and we define $P_{\infty}(z)$ to be the principal part of $f(z)$ at $\infty$. In either case $P_{\infty}(z)$ is a polynomial, and $f(z) - P_{\infty}(z)\rightarrow 0$ as $z\rightarrow \infty$. Let $z_1,...,z_m$ be the poles of $f(z)$ in the finite complex plane $\C$, and let $P_k(z)$ be the principal part of $f(z)$ at $z_k$. It has the form \begin{equation*}
+        P_k(z) = \sum_{n=1}^{N_k}\frac{\alpha_n}{(z-z_k)^n}
+    \end{equation*}
+    and in particular, $P_k(z)$ is analytic at $\infty$ and vanished there. Consider the function \begin{equation*}
+        g(z) = f(z) - P_{\infty}(z) - \sum_{k=1}^mP_k(z)
+    \end{equation*}
+    Since $f(z)-P_k(z)$ is analytic at $z_k$, and each $P_j(z)$ is analytic at $z_k$ for $j \neq k$, $g(z)$ is analytic at each $z_k$. Hence $g(z)$ is an entire function, and further, $g(z)\rightarrow 0$ as $z\rightarrow \infty$. By Liouville's Theorem, $g(z)$ is identically zero. Thus, \begin{equation*}
+        f(z) = P_{\infty}(z) + \sum_{j=1}^mP_j(z)
+    \end{equation*}
+    which shows in particular that $f(z)$ is a rational function.
+\end{proof}
+
+This decomposition is called the \Emph{partial fractions decomposition} of the rational function $f(z)$. 
+
+
+\begin{thm}
+    Every rational function has a partial fractions decomposition, expressing it as the sum of a polynomial in $z$ and its principal parts at each of its poles in the finite complex plane.
+\end{thm}
+
+\begin{rmk}
+    In general, suppose $f(z) = p(z)/q(z)$ rational. If $\deg(p) \geq \deg(q)$, we may write $p(z)/q(z) = d(z)+r(z)/q(z)$ for $\deg(r) < \deg(q)$. Then factor $q(z) = (z-z_1)^{n_1}...(z-z_k)^{n_k}$. By the previous theorem we have the decomposition \begin{equation*}
+        f(z) = d(z) + \sum_{i=1}^k\sum_{j=1}^{n_i}\frac{\alpha_{i,j}}{(z-z_i)^j}
+    \end{equation*}
+    for $\alpha_{i,j} \in \C$ constants determined by the principal parts for each root of $q(z)$.
+\end{rmk}
+
+\begin{eg}
+    Suppose $f(z) = \frac{1+z}{z^4-3z^3+3z^2-z}$. Observe \begin{equation*}
+        (z^4-3z^3+3z^2) = z(z-1)^3
+    \end{equation*}
+    So we have that \begin{equation*}
+        f(z) = \frac{A}{z}+\frac{B}{(z-1)}+\frac{C}{(z-1)^2}+\frac{D}{(z-1)^3}
+    \end{equation*}
+    We then have that \begin{equation*}
+        1+z = A(z-1)^3+Bz(z-1)^2+Cz(z-1)+Dz
+    \end{equation*}
+    Differentiating we obtain \begin{equation*}
+        1 = A3(z^2-2z+1)+B(3z^2-4z+1)+C(2z-1)+D
+    \end{equation*}
+    and again we obtain \begin{equation*}
+        0 = 6A(z-1)+B(6z-4)+2C
+    \end{equation*}
+    and finally \begin{equation*}
+        0 = 6A+6B
+    \end{equation*}
+    so $A = -B$. In the original equation if we set $z = 1$ we obtain $D = 2$ and if we set $z = 0$ we obtain $A = -1$, so $B = 1$. Then setting $z = 1$ in the second last equation gives $2C = -2B$, so $C = -1$. Thus, \begin{equation*}
+        f(z) = \frac{-1}{z}+\frac{1}{z-1}+\frac{-1}{(z-1)^2}+\frac{2}{(z-1)^3}
+    \end{equation*}
+\end{eg}
+
+\begin{eg}
+    Consider from the previous example \begin{equation*}
+        f(z) = \frac{-1}{z}+\frac{1}{z-1}+\frac{-1}{(z-1)^2}+\frac{2}{(z-1)^3}
+    \end{equation*}
+    If we want the explicit Laurent series about $z=1$, we simply need to expand $-1/z$ as a power series: \begin{equation*}
+        \frac{-1}{z} = \frac{-1}{1+(z-1)} = \sum_{n=0}^{\infty}(-1)^{n+1}(z-1)^n
+    \end{equation*}
+    thus for $0 < |z-1| < 1$, \begin{equation*}
+        f(z) = \underbrace{\frac{2}{(z-1)^3}+\frac{-1}{(z-1)^2}+\frac{1}{(z-1)}}_{principal\;part} + \sum_{n=0}^{\infty}(-1)^{n+1}(z-1)^n
+    \end{equation*}
+    This is the Laurent series of $f$ about $z_0$. Evidently, $f$ has a pole of order $3$ at $z = 1$. The other singular point is $z = 0$. To find the Laurent series about $z = 0$ we expand $\frac{1}{z-1}+\frac{-1}{(z-1)^2}+\frac{2}{(z-1)^3}$ as a power series about $z = 0$. First, observe \begin{equation*}
+        \frac{1}{z-1} = \frac{-1}{1-z} = -\sum_{n=0}^{\infty}z^n
+    \end{equation*}
+    Let $g(z) = -\frac{1}{(z-1)^2}$, and observe that $\int g(z)dz = C + \frac{1}{z-1} = C - \sum_{n=0}^{\infty}z^n$. Then it follows that \begin{equation*}
+        g(z) = -\sum_{n=1}^{\infty}nz^{n-1} = -\sum_{j=0}^{\infty}(j+1)z^j
+    \end{equation*}
+    Let $h(z) = 2/(z-1)^3$, so $\int(\int h(z)dz)dz = C+Dz+\frac{1}{z-1} = C+Dz - \sum_{n=0}^{\infty}z^n$, and it follows that \begin{equation*}
+        h(z) = -\sum_{n=2}^{\infty}n(n-1)z^{n-2} = -\sum_{j=0}^{\infty}(j+2)(j+1)z^j
+    \end{equation*}
+    Finally, we combine these terms together to obtain \begin{equation*}
+        f(z) = \underbrace{\frac{-1}{z}}_{principal\;part} -\sum_{n=0}^{\infty}(n+2)^2z^n
+    \end{equation*}
+    Thus $f$ has a pole of order $1$ at $z = 0$.
+\end{eg}
+
+
+
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%% Chapter 1.7
 \chapter{The Residue Calculus}
+
+
+
+%%%%%%%%%%%%%%%%%%%% Section 1.7.1
+\section{The Residue Theorem}
+
+
+
+Suppose $z_0$ is an isolated singularity of $f(z)$ and that $f(z)$ has Laurent expansion \begin{equation*}
+    f(z) = \sum_{n=-\infty}^{\infty}a_n(z-z_0)^n,\;\;\;\;0<|z-z_0|<\rho
+\end{equation*}
+Recall that $a_n$ is given by \begin{equation*}
+    a_n = \frac{1}{2\pi i}\oint_{|z-z_0| = r}\frac{f(z)}{(z-z_0)^{n+1}}dz
+\end{equation*}
+for any fixed $0 < r <\rho$ (all such fixed $r$ give the same result since the integrand is holomorphic on the annulus, and hence the differential form is closed and we obtain the result by the deformation theorem). Note that often $f$ is not defined at $z_0$ (being a singularity).
+
+\begin{defn}
+    We define the \Emph{residue} of $f(z)$ at $z_0$ to be the coefficient $a_{-1}$ of $1/(z-z_0)$ in the Laurent expansion. In particular, \begin{equation*}
+        Res[f(z),z_0] = a_{-1} = \frac{1}{2\pi i}\oint_{|z-z_0|=r}f(z)dz
+    \end{equation*}
+    where $r$ is any fixed radius satisfying $0 < r < \rho$.
+\end{defn}
+
+\begin{eg}
+    The residue of $1/(z-z_0)$ with respect to $z_0$ is simply $1$. Thus, we obtain \begin{equation*}
+        1 = \frac{1}{2\pi i}\oint_{|z-z_0|=r}\frac{1}{z-z_0}dz
+    \end{equation*}
+    for any $r > 0$. The residue of $1/(z-z_0)^n$ with respect to $z_0$ is $0$, so we obtain \begin{equation*}
+        0 = \frac{1}{2\pi i}\oint_{|z-z_0|=r}\frac{1}{(z-z_0)^n}dz
+    \end{equation*}
+\end{eg}
+
+
+\begin{eg}
+    Consider $$f(z) = \frac{z^7+z+1}{z^8+1} =z - \frac{1}{2i}\frac{1}{z+i}+\frac{1}{2i}\frac{1}{z-i}$$ Then $Res[f(z),-i] = -\frac{-1}{2i}$. Note that if we want the Laurent Decomposition of $f(z)$ at $-i$, $f_0(z) = z+\frac{1}{2i}\frac{1}{z-i}$ which is analytic at $-i$, and $f_1(z) = \frac{-1}{2i}\frac{1}{z+i}$, which is analytic at $\infty$. Next, $Res[f(z),i] = \frac{1}{2i}$. Thus, \begin{equation*}
+        \frac{-1}{2i} = \frac{1}{2\pi i}\oint_{|z+i|=r}\frac{z^7+z+1}{z^8+1}dz 
+    \end{equation*}
+    and \begin{equation*}
+        \frac{1}{2i} = \frac{1}{2\pi i}\oint_{|z-i|=r}\frac{z^7+z+1}{z^8+1}dz
+    \end{equation*}
+    for certain fixed $r$'s.
+\end{eg}
+
+\begin{defn}
+    A \Emph{contour} is a directed curve which is made up of a finite sequence of directed smooth curves whose endpoints are matched to give a single direction. A single point in the complex plane is also considered a contour.
+\end{defn}
+
+
+
+
+\begin{namthm}[Cauchy's Residue Theorem]
+    Let $D$ be a bounded domain in the complex plane with a piecewise smooth boundary. Suppose that $f(z)$ is analytic on $D\cup \partial D$, except for a finite number of isolated singularities $z_1,...,z_m$ in $D$. Then \begin{equation*}
+        \int_{\partial D}f(z)dz = 2\pi i\sum_{j=1}^mRes[f(z),z_j]
+    \end{equation*}
+\end{namthm}
+\begin{proof}[Sketch]
+    To see this let $D_{\varepsilon}$ be the domain obtained from $D$ by punching out small disks $U_j$ centered at $z_j$ of radius $\varepsilon$. The formula for the residue at $z_j$ yields \begin{equation*}
+        \oint_{\partial U_j}f(z)dz = 2\pi iRes[f(z),z_j]
+    \end{equation*}
+    By Cauchy's Theorem, \begin{equation*}
+        0 = \oint_{\partial D_{\varepsilon}}f(z)dz = \oint_{\partial D}f(z)dz - \sum_{j=1}^{m}\oint_{\partial U_j}f(z)dz
+    \end{equation*}
+    Combining these identities we obtain the result.
+\end{proof}
+
+
+\begin{proc}[Calculating Residues]
+    We give the following useful rules for calculating residues:\begin{itemize}
+        \item \textbf{Rule 1:} If $f(z)$ has a simple pole at $z = z_0$, then $$Res[f(z),z_0] = \lim\limits_{z\rightarrow z_0}(z-z_0)f(z)$$
+            This follows from the Laurent expansion being of the form $f(z) = \frac{a_{-1}}{z-z_0}+[analytic\;at\;z_0]$.
+        \item \textbf{Rule 2:} If $f(z)$ has a double pole at $z = z_0$, then $$Res[f(z),z_0] = \lim\limits_{z\rightarrow z_0}\frac{d}{dz}[(z-z_0)^2f(z)]$$
+            In this case the Laurent expansion gives \begin{equation*}
+                (z-z_0)^2f(z) = a_{-2}+a_{-1}(z-z_0)+a_0(z-z_0)^2+...
+            \end{equation*}
+            so differentiating gives the desired result.
+        \item \textbf{Rule 3:} If $f,g \in \mathcal{O}(z_0)$, and if $g(z)$ has a simple zero at $z_0$, then $$Res\left[\frac{f(z)}{g(z)},z_0\right] = \frac{f(z_0)}{g'(z_0)}$$ In this case $f(z)/g(z)$ has at most a symbol pole at $z_0$. If we use Rule 1 we obtain \begin{equation*}
+                \lim\limits_{z\rightarrow z_0}(z-z_0)\frac{f(z)}{g(z)} = \lim\limits_{z\rightarrow z_0}\frac{f(z)}{(g(z)-g(z_0))/(z-z_0)} = \frac{f(z_0)}{g'(z_0)}
+        \end{equation*}
+        \item \textbf{Rule 4:} If $g \in \mathcal{O}(z_0)$, and if $g(z)$ has a simple zero at $z_0$, then $$Res\left[\frac{1}{g(z)},z_0\right] = \frac{1}{g'(z_0)}$$ This can be seen as an application of rule $3$ with $f = 1$.
+    \end{itemize}
+\end{proc}
+
+
+\begin{eg}
+    Consider $g(z) = z^2+1$, so $g(i) = 0$, and $g'(i) = 2i \neq 0$. Therefore, $z_0 = i$ is a simple zero, so $Re[1/(z^2+1),i] = \frac{1}{2i}$.
+\end{eg}
+
+\begin{eg}
+    Consider \begin{equation*}
+        Res\left[\frac{\cos z}{(z-3)e^z},3\right] = \frac{\cos 3}{1\cdot e^3} = \frac{\cos 3}{e^3}
+    \end{equation*}
+\end{eg}
+
+
+\begin{eg}
+    Consider \begin{equation*}
+        Res\left[\frac{e^z}{(z+3)^2\cos z},-3\right] = \lim\limits_{z\rightarrow -3}\frac{e^z\cos z+e^z\sin z}{\cos^2z} = \frac{e^{-3}\cos -3 + e^{-3}\sin -3}{\cos^2-3}
+    \end{equation*}
+\end{eg}
+
+\begin{eg}
+    Consider \begin{equation*}
+        Res\left[\frac{\cos z}{z-2},2\right] = \lim\limits_{z\rightarrow 2}\cos z = \cos 2
+    \end{equation*}
+\end{eg}
+
+
+%%%%%%%%%%%%%%%%%%%% Section 1.7.2
+\section{Integrals Featuring Rational Functions}
+
+
+\begin{cust}[Problem]
+    Suppose we wanted to find $$\int_{-\infty}^{\infty}\frac{dx}{x^2+1} = \lim\limits_{R\rightarrow \infty}\int_{[-R,R]}\frac{dz}{z^2+1}$$ Consider the half circle of radius $R$, so its base is the line segment $[-R,R]$, oriented counter-clockwise, denote the upper half circle by $C_R$, and let the domain it be the boundary of $D_R$. Then \begin{equation*}
+        \int_{\partial D_R}\frac{dz}{z^2+1} = \int_{[-R,R]}\frac{dz}{z^2+1}+\int_{C_R}\frac{dz}{z^2+1}
+    \end{equation*}
+    Assume $R > 4$. Note $1/(z^2+1)$ is singular at $i$ and $-i$, both of simple poles, with only $i$ in $D_R$. Then \begin{equation*}
+        \int_{\partial D_R}\frac{dz}{z^2+1} = 2\pi iRes[1/(z^2+1),i] = \frac{2\pi i}{2i} = \pi
+    \end{equation*}
+    Next, $1/(z^2+1) \leq \frac{1}{R^2-1}$ for $|z| = R$, since $R > 4$. Therefore, by ML-theorem, \begin{equation*}
+        \left|\int_{C_R}\frac{dz}{z^2+1}\right| \leq \frac{1}{R^2-1}\pi R
+    \end{equation*}
+    But, the right side goes to zero as $R$ goes to infinity, so the integral goes to $0$. Hence, \begin{equation*}
+        \int_{-\infty}^{\infty}\frac{dx}{x^2+1} = \pi
+    \end{equation*}
+\end{cust}
+
+\begin{eg}
+    Consider $\int_{-\infty}^{\infty}\frac{dx}{x^4+1}$. Then proceeding as in the last example we note the singularities $e^{i\pi/4},e^{3i\pi/4},e^{-3i\pi/4},e^{-i\pi/4}$. Then only $e^{i\pi/4}$ and $e^{3i\pi/4}$ appear in the domain $D$ constructed, so we have by Cuachy's Residue Theorem \begin{align*}
+        \int_{\partial D_R}\frac{dz}{z^4+1} &= 2\pi i(Res[1/(z^4+1),1/\sqrt{2}+i/\sqrt{2}]+Res[1/(z^4+1),-1/\sqrt{2}+i/\sqrt{2}]) \\
+        &= 2\pi i\left(\frac{1}{4e^{3i\pi/4}}+\frac{1}{4e^{i\pi/4}}\right) \\
+        &= \frac{\pi i}{2}\frac{1/\sqrt{2}+i/\sqrt{2}-1/\sqrt{2}+i/\sqrt{2}}{-1} \\
+        &= \frac{-\pi i}{2}\frac{2i}{\sqrt{2}} \\
+        &= \frac{\pi}{\sqrt{2}}
+    \end{align*}
+    Next, $1/(z^4+1) \leq 1/(R^4-1)$ for $|z| = R$. Then by ML-Theorem \begin{equation*}
+        \left|\int_{C_R}\frac{dz}{z^4+1}\right| \leq \frac{1}{R^4-1}\pi R
+    \end{equation*}
+    which goes to zero as $R$ goes to infinity, so the integral goes to $0$. Hence \begin{equation*}
+        \int_{-\infty}^{\infty}\frac{dx}{x^4+1} = \frac{\pi}{\sqrt{2}}
+    \end{equation*}
+\end{eg}
+
+\begin{prop}
+    If $f(z)$ is a rational function which has no real-singularities and for which the denominator is of degree at least two higher than the numerator, then \begin{equation*}
+        \lim\limits_{R\rightarrow \infty}\int_{-R}^Rf(z)dz = 2\pi i \sum_{j=1}^mRes[f(z),z_j]
+    \end{equation*}
+    where $z_1,...,z_m$ are singular points of $f(z)$ for which $\mathscr{I}m(z_j) > 0$ for $j = 1,...,m$.
+\end{prop}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%% Section 1.7.3
+\section{Integrals of Trigonometric Functions}
+
+If we are on the unit circle parametrized by $z=e^{i\theta}=\cos\theta + i\sin\theta$, then $dz = ie^{i\theta}d\theta$. Moreover, $\frac{1}{z} = e^{-i\theta} = \cos\theta-i\sin\theta$, so it follows that $$\cos\theta = \frac{z+1/z}{2}$$ and $$\sin\theta = \frac{z-1/z}{2i}$$
+
+
+\begin{eg}
+    Consider \begin{align*}
+        \int_0^{2\pi}\frac{d\theta}{5+4\sin\theta} &= \oint_{|z|=1}\frac{dz/iz}{5+2(z-1/z)/i} \\
+        &= \oint_{|z| = 1}\frac{dz}{5iz+2z^2-2} \\
+        &= \oint_{|z| = 1}\frac{dz}{2z^2+5iz-2} \\
+        &= \oint_{|z| =1}\frac{dz}{2z(z+2i)+i(z+2i)} \\
+        &= \oint_{|z| = 1}\frac{dz}{(2z+i)(z+2i)}
+    \end{align*}
+    Note that only $z = -i/2$ is in the unit circle, so only it will contribute. Then \begin{align*}
+        \int_0^{2\pi}\frac{d\theta}{5+4\sin\theta} &= 2\pi i\frac{1}{4(-i/2)+5i} = \frac{2\pi}{3}
+    \end{align*}
+\end{eg}
+
+
+\begin{eg}
+    Consider $f(z) = e^{iaz}{z^2+1}$. Notice $f$ has singularities at $\pm i$. Then, we have the residue \begin{equation*}
+        Res\left[\frac{e^{iaz}}{z^2+1},i\right] = \frac{e^{iai}}{2i} = \frac{e^{-a}}{2i}
+    \end{equation*}
+    Let $D$ be the half disk with $\partial D = [-R,R]\cup C_R$, then by the Cauchy Residue Theorem \begin{equation*}
+        \int_{\partial D}\frac{e^{iaz}}{z^2+1}dz = 2\pi i \frac{e^{-a}}{2i} = e^{-a}\pi
+    \end{equation*}
+    For $|z| = R > 1$ we have the following since we are in the upper half plane: \begin{equation*}
+        |f(z)| = \left|\frac{e^{iaz}}{z^2+1}\right| = \frac{1}{|z^2+1|} \leq \frac{1}{||z|^2-1|} = \frac{1}{R^2-1}
+    \end{equation*}
+    So by the ML-theorem \begin{equation*}
+        \left|\int_{C_R}\frac{e^{iaz}}{z^2+1}dz\right| \leq \frac{1}{R^2-1}\pi R
+    \end{equation*}
+    which goes to $0$ as $R$ goes to $\infty$. Thus, looking at real and imaginary components of the integral we have that \begin{equation*}
+        \int_{-\infty}^{\infty}\frac{\cos(ax)}{x^2+1}dx = \pi e^{-a},\;\;\&\;\;\int_{-\infty}^{\infty}\frac{\sin(ax)}{x^2+1}dx = 0
+    \end{equation*}
+\end{eg}
+
+
+
+\begin{rmk}
+    The \Emph{principal value} of an integral $\int_{-\infty}^{\infty}f(x)dx$ is \begin{equation*}
+        \int_{-\infty}^{\infty}f(x)dx = \lim\limits_{R\rightarrow \infty}\int_{-R}^{R}f(x)dx
+    \end{equation*}
+    If the integral on the left exists, it is equal to its principal value, but the principal value may exist while the integral does not.
+\end{rmk}
+
+\begin{eg}
+    Suppose $p \in \C$ with $|p| \neq 1$. We wish to calculate \begin{equation*}
+        \int_0^{2\pi}\frac{1}{1+p^2-2p\cos\theta}d\theta
+    \end{equation*}
+    We note $2\cos\theta = z+1/z$ for parametrization $z = e^{i\theta}$, and $dz = ie^{i\theta}d\theta$, so we may write \begin{align*}
+        \int_0^{2\pi}\frac{1}{1+p^2-2p\cos\theta}d\theta &= \frac{1}{i}\int_0^{2\pi}\frac{1}{z+zp^2-pz^2-p}dz \\
+        &= \frac{1}{i}\int_0^{2\pi}\frac{1}{-p(z-1/p)(z-p)}dz 
+    \end{align*}
+    We have two cases. If $|p| > 1$, then $1/p$ is the only singular point inside the unit circle, so we may use residue theory to obtain \begin{align*}
+        \frac{1}{i}\int_0^{2\pi}\frac{1}{-p(z-1/p)(z-p)}dz &= 2\pi i\frac{1}{i}\frac{-1/p(1/p-p)}{1} \\
+        &= 2\pi\frac{-1}{1-p^2} \\
+        &= \frac{2\pi}{p^2-1}
+    \end{align*}
+    Thus we conclude for $|p| > 1$, \begin{equation*}
+        \int_0^{2\pi}\frac{1}{1+p^2-2p\cos\theta}d\theta = \frac{2\pi}{p^2-1}
+    \end{equation*}
+    Now, consider $|p|<1$, so $p$ is the only singular point inside the unit circle \begin{align*}
+        \frac{1}{i}\int_0^{2\pi}\frac{1}{-(zp-1)(z-p)}dz &= 2\pi i\frac{1}{i}\frac{-1/(p^2-1)}{1} \\
+        &= 2\pi\frac{-1}{p^2-1} \\
+        &= \frac{2\pi}{1-p^2}
+    \end{align*}
+    Thus we conclude for $|p| < 1$, \begin{equation*}
+        \int_0^{2\pi}\frac{1}{1+p^2-2p\cos\theta}d\theta = \frac{2\pi}{1-p^2}
+    \end{equation*}
+\end{eg}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%% Section 1.7.4
+\section{Integrands with Branch Points}
+
+
+Integrals featuring $x^a$ and $\log x$ can be sometimes evaluated using contour integration which avoids the slit needed to make the function single valued. We illustrate by solving $\int_0^{\infty}\frac{x^a}{(1+x)^2}dx$ for $-1<a<1$. At $a = 0$ the integral is $1$, so suppose $a \neq 0$. Consider the branch of the function $z^a/(1+z)^2$ defined on the slit plane $\C\backslash[0,\infty)$ by \begin{equation*}
+    f(z) = \frac{r^ae^{ia\theta}}{(1+z)^2},\;\;\;\;z=re^{i\theta},0<\theta<2\pi
+\end{equation*}
+We regard the slit $[0,\infty)$ as having a top edge and a bottom edge, and we extend the function by continuity to each edge of the slit, so it is defined by the above equation with $\theta = 0$ on the top and edge and $\theta = 2\pi$ on the bottom edge. In particular, the values on the bottom edge are obtained by multiplying the values on the top by the phase factor $e^{2\pi ia}$. 
+
+\begin{wrapfigure}{r}{5.5cm}
+    \includegraphics[width = 5.5cm]{Keyhole.PNG}
+    \label{fig:key}
+\end{wrapfigure}
+
+For $\varepsilon > 0$ small and $R > 0$ large, we consider the keyhole domain $D$ consisting of $z$ in the slit plane $\C\backslash[0,\infty)$ satisfying $\varepsilon < |z| < R$. The function $f(z)$ has one pole in $D$, a double pole at $z = -1$. Using our residue rules we hav \begin{equation*}
+    Res[z^a/(1+z)^2,-1] = \lim\limits_{z\rightarrow -1}a\frac{z^a}{z} = -ae^{\pi ia}
+\end{equation*}
+The residue theorem yields \begin{equation*}
+    \int_{\partial D}f(z)dz = -2\pi iae^{\pi ia}
+\end{equation*}
+The integral around $\partial D$ breaks into the sum of four integrals, from $\varepsilon$ to $R$ along the top edge of the slit, around $\Gamma_R$, from $R$ back to $\varepsilon$ along the bottom edge of the slit, and around $\Gamma_{\varepsilon}$: \begin{equation*}
+    \int_{\varepsilon}^R\frac{x^a}{(1+x)^2}dx + \int_{\Gamma_R}f(z)dz+\int_R^{\varepsilon}\frac{e^{2\pi ia}x^a}{(1+x)^2}dx+\int_{\Gamma_{\varepsilon}}f(z)dz
+\end{equation*}
+For the integrals over $\Gamma_R$ and $\Gamma_{\varepsilon}$, the ML-estimate gives \begin{align*}
+    \left|\int_{\Gamma_R}\frac{z^a}{(1+z)^2}dz\right| &\leq \frac{R^a}{(R-1)^2}2\pi R\sim R^{a-1} \\
+    \left|\int_{\Gamma_{\varepsilon}}\frac{z^a}{(1+z)^2}dz\right| &\leq \frac{\varepsilon^a}{(1-\varepsilon)^2}2\pi \varepsilon\sim \varepsilon^{a+1} \\
+\end{align*}
+Since $-1 < a < 1$, both these integrals tend to $0$ as $R\rightarrow \infty$ and $\varepsilon \rightarrow 0$. If we reverse the direction of the integral from $R$ to $\varepsilon$ and use our previous result we have \begin{equation*}
+    -2\pi iae^{\pi ia} = (1-e^{2\pi ia})\int_{0}^{\infty}\frac{x^a}{(1+x)^2}dx
+\end{equation*}
+This yields the identity \begin{equation*}
+    \int_0^{\infty}\frac{x^a}{(1+x)^2}dx = \frac{-2\pi iae^{\pi ia}}{1-e^{2\pi ia}} = \frac{2\pi ia}{e^{\pi ia}-e^{-\pi ia}} = \frac{\pi a}{\sin(\pi a)}
+\end{equation*}
+
+
+\begin{eg}
+    We wish to show that $$\int_0^{\infty}\frac{dx}{\sqrt{x}(x^2+1)} = \frac{\pi}{\sqrt{2}}$$
+    Let $f(z) = \frac{z^{-1/2}}{z^2+1}$ where the root function is taken with the branch cut $[0,\infty)$. We use the keyhole contour depicted in the previous derivation. Notice $z = \pm i$ are the simple poles of $f(z)$ on the keyhole. We consider $z^{-1/2} = |z|^{-1/2}e^{-i\theta/2}$, where $\theta = \text{Arg}(z)$, so $0 < \theta < 2\pi$. Then $z^{-1/2} = \frac{1}{\sqrt{|z|}e^{i\theta/2}}$. Then, for the path along $\varepsilon$ to $R$ on the upper line $z^{-1/2} = 1/\sqrt{x}$, while on the lower line $z^{-1/2} = e^{2\pi i(-1/2)}/\sqrt{x} = -1/\sqrt{x}$. Next, we note that \begin{align*}
+        \left|\int_{\Gamma_R}\frac{z^{-1/2}}{(1+z^2)}dz\right| &\leq \frac{\sqrt{R}}{(R^2-1)}2\pi R\sim R^{-1/2} \\
+        \left|\int_{\Gamma_{\varepsilon}}\frac{z^{-1/2}}{(1+z^2)}dz\right| &\leq \frac{\varepsilon^{-1/2}}{(1-\varepsilon^2)}2\pi \varepsilon\sim \varepsilon^{1/2} \\
+    \end{align*}
+    Then as $R$ goes to infinity and $\varepsilon$ goes to $0$ both terms on the right go to $0$ so the integrals go to $0$. Now, we have the residues \begin{equation*}
+        Res[1/(\sqrt{z}(z^2+1)),i] = \frac{1/(\sqrt{i}(i+i))}{1} = \frac{1}{2ie^{i\pi/4}}
+    \end{equation*}
+    and \begin{equation*}
+        Res[1/(\sqrt{z}(z^2+1)),-i] = \frac{1/(\sqrt{-i}(-i-i))}{1} = \frac{e^{-3i\pi/4}}{-2i} 
+    \end{equation*}
+    Then, taking the limit we have that \begin{equation*}
+        \int_{0}^{\infty}\frac{1}{\sqrt{x}(x^2+1)}dx - \int_0^{\infty}\frac{-1}{\sqrt{x}(x^2+1)}dx = 2\pi i\left(\frac{1}{2ie^{i\pi/4}}+\frac{e^{-3i\pi/4}}{-2i}\right) = \pi \left(e^{-i\pi/4}+e^{i\pi/4}\right)
+    \end{equation*}
+    Then simplifying we have \begin{equation*}
+        \int_0^{\infty}\frac{dx}{\sqrt{x}(x^2+1)} = \pi\cos(\pi/4) = \frac{\pi}{\sqrt{2}}
+    \end{equation*}
+\end{eg}
+ 
+
+%%%%%%%%%%%%%%%%%%%% Section 1.7.5
+\section{Fractional Residues}
+
+Suppose $z_0$ is an isolated singularity of $f(z)$. For $\varepsilon > 0$ small, we consider the integral \begin{equation*}
+    \int_{C_{\varepsilon}}f(z)dz
+\end{equation*}
+where $C_{\varepsilon}$ is the arc of the circle $|z-z_0| = \varepsilon$ subtended by a sector of aperture $\alpha$. if $\alpha = 2\pi$, then $C_{\varepsilon}$ is the full circle, and the integral is equal to $2\pi iRes[f(z),z_0]$. If the singularity of $f(z)$ is a simple pole, then we can calculate the limit of the integrals as $\varepsilon \rightarrow 0$ (as the arc encloses in on the singularity)
+
+\begin{namthm}[Fractional Residue Theorem]
+    If $z_0$ is a simple pole of $f(z)$, and $C_{\varepsilon}$ is an arc of the circle $|z-z_0| = \varepsilon$ of angle $\alpha$, then \begin{equation*}
+        \lim\limits_{\varepsilon 0}\int_{C_{\varepsilon}}f(z)dz = \alpha iRes[f(z),z_0]
+    \end{equation*}
+\end{namthm}
+\begin{proof}
+    Since $f$ has a simple pole we have \begin{equation*}
+        f(z) = \frac{A}{z-z_0}+g(z)
+    \end{equation*}
+    where $A = Res[f(z),z_0]$ and $g(z)$ is analytic at $z_0$. Then the arc $|z-z_0| = \varepsilon$ of angle $\alpha$ is parametrized by $z = z_0+\varepsilon e^{i\theta}$, $\theta_0\leq \theta\leq \theta_0+\alpha$. As the arc is a bounded subset and $g$ is analytic on the arc, it follows there exists $M > 0$ such that $|g(z)| < M$ for $|z-z_0| < \varepsilon$. Furthermore, the integral of the singular part is calculated \begin{equation*}
+        \int_{C_{\varepsilon}}\frac{Adz}{z-z_0} = \int_{\theta_0}^{\theta_0+\alpha}\frac{Ai\varepsilon e^{i\theta}}{\varepsilon e^{i\theta}}d\theta = Ai\alpha
+    \end{equation*}
+    Note that \begin{equation*}
+        \left|\int_{C_{\varepsilon}}g(z)dz\right| \leq M2\pi\varepsilon\rightarrow 0
+    \end{equation*}
+    by the ML-theorem, so the result follows.
+\end{proof}
+
+
+\begin{eg}
+    Let $\gamma = C_R\cup[-R,-1-\varepsilon]\cup C_{\varepsilon}\cup[-1+\varepsilon,R]$. This is a half-circular path with an idnentation around $z_0 = -1$. Here we assume $C_{\varepsilon}$ is a half-circle of radius $\varepsilon$ above the real axis. The aperature is $\pi$ (but clockwise), hence the fractional residue theorem yields \begin{equation*}
+        \lim\limits_{\varepsilon\rightarrow 0}\int_{C_{\varepsilon}}\frac{dz}{(z+1)(z-i)} = -\pi iRes(1/[(z+1)(z-i)],-1) = -\pi i\frac{1}{-1-i} = \frac{\pi (i+1)}{2}
+    \end{equation*}
+    Now, observe that for $|z| = R > 1$, $$\left|\frac{1}{(z+1)(z-i)}\right| \leq \left|\frac{1}{||z|-|1||\cdot||z|-|i||}\right| = \frac{1}{(R-1)^2}$$
+    Thus, by the ML-theorem \begin{equation*}
+        \left|\int_{C_R}\frac{1}{(z+1)(z-i)}dz\right| \leq \frac{1}{(R-1)^2}\pi R \sim R^{-1}
+    \end{equation*}
+    which goes to $0$ as $R\rightarrow \infty$. Next, by Cauchy's Residue Theorem we have \begin{equation*}
+        \int_{\gamma}\frac{1}{(z+1)(z-i)}dz = 2\pi iRes[1/[(z+1)(z-i)],i] = 2\pi i\frac{1}{i+1} = \pi(1+i)
+    \end{equation*}
+    Hence, as the limit $R\rightarrow \infty$ and $\varepsilon \rightarrow 0$, we find \begin{equation*}
+        P.V.\int_{-\infty}^{\infty}\frac{dx}{(x+1)(x-i)} + \frac{\pi (i+1)}{2} = \pi(1+i)
+    \end{equation*}
+    so \begin{equation*}
+        P.V.\int_{-\infty}^{\infty}\frac{dx}{(x+1)(x-i)} = \frac{\pi(i+1)}{2}
+    \end{equation*}
+\end{eg}
+
+
+
+%%%%%%%%%%%%%%%%%%%% Section 1.7.6
+\section{Principal Values}
+
+\begin{defn}
+    An integral $\int_a^bf(x)dx$ is \Emph{absolutely convergent} if the (proper or improper) integral $\int_a^b|f(x)|dx$ is finite. The integral is \Emph{absolutely divergent} if $\int_a^b|f(x)|dx = \infty$.
+\end{defn}
+
+If an integral is absolutely divergent, there may not be an obvious way to assign a value to it (think of the relationship between absolutely and conditionally convergent series)
+
+\begin{defn}
+    Suppose $f(x)$ is continuous for $a \leq x < x_0$ and for $x_0 < x\leq b$. We define the \Emph{principal value} of the integral $\int_a^bf(x)dx$ to be \begin{equation*}
+        PV\int_a^bf(x)dx = \lim\limits_{\varepsilon\rightarrow 0}\left(\int_a^{x_0-\varepsilon}+\int_{x_0+\varepsilon}^b\right)f(x)dx
+    \end{equation*}
+    provided that the limit exists.
+\end{defn}
+The principal value of the integral coincides with the usual value of the integral if $f(x)$ is absolutely integrable.
+
+
+
+%%%%%%%%%%%%%%%%%%%% Section 1.7.7
+\section{Jordan's Lemma}
+
+\begin{lem}[Jordan's Lemma]
+    If $C_R$ is the semi-circular contour $z(\theta) = Re^{i\theta}$ for $0 \leq \theta \leq \pi$, in the upper half-plane, then \begin{equation*}
+        \int_{C_R}|e^{iz}||dz| < \pi
+    \end{equation*}
+\end{lem}
+\begin{proof}
+    Note $|e^{iz}| = e^{R\sin\theta}$ and $|dz| = Rd\theta$, so now we wish to show \begin{equation*}
+        \int_{C_R}e^{R\sin\theta}d\theta < \frac{\pi}{R}
+    \end{equation*}
+    First, note that $\sin\theta$ is concave down on $0\leq \theta\leq \pi/2$, so the graph of $\sin\theta$ lies above the straight line connecting its endpoints, $\sin\theta >2\theta/\pi$, $0\leq\theta\leq \pi/2$. Thus \begin{align*}
+        \int_0^{\pi}e^{-R\sin\theta}d\theta &= 2\int_0^{\pi/2}e^{-R\sin\theta}d\theta \leq 2 \int_0^{\pi/2}e^{-2R\theta/\pi}d\theta \\
+        &= \frac{\pi}{R}\int_0^{1/R}e^{-t}dt < \frac{\pi}{R}\int_0^{\infty}e^{-t}dt = \frac{\pi}{R}
+    \end{align*}
+\end{proof}
+
+
+\begin{eg}
+    Consider $\int_0^{\infty}\frac{\sin x}{x}dx$, and we calculate it using $f(z) = \frac{e^{iz}}{z}$ along an indented semi-circular path centered at $z = 0$ in the upper half plane. Notice for $|z| = R$, we have \begin{equation*}
+        \left|\int_{C_R}\frac{e^{iz}}{z}dz\right| \leq \int_{C_R}\left|\frac{e^{iz}}{z}\right||dz| = \frac{1}{R}\int_{C_R}\left|e^{iz}\right||dz| < \frac{\pi}{R}
+    \end{equation*}
+    by Jordan's Lemma. Then as $R$ goes to $\infty$ this integral goes to $0$. Suppose $R$ goes to $\infty$ and $\varepsilon \rightarrow 0$, then Cauchy's residue and fractional residue then combine to yield \begin{equation*}
+        \lim\limits_{\varepsilon\rightarrow 0}\int_{-R}^R\frac{e^{ix}}{x}dx - \pi iRes[e^{ix}/x, 0] + \lim\limits_{R\rightarrow \infty}\int_{C_R}\frac{e^{iz}}{z}dz = 0
+    \end{equation*}
+    hence, noting that the residue is $1$, we have \begin{equation*}
+        \lim\limits_{R\rightarrow \infty}\left(\int_{-R}^{R}\frac{\cos x}{x}dx + i\int_{-R}^{R}\frac{\sin x}{x}dx\right) = \pi i
+    \end{equation*}
+    Note $\cos x/x$ is an odd function, hence the principal value of the integral vanishes. Thus, \begin{equation*}
+        P.V.\int_{-\infty}^{\infty}\frac{\sin x}{x}dx = \pi\;\;\implies \int_0^{\infty}\frac{\sin x}{x}dx = \frac{\pi}{2}
+    \end{equation*}
+    since $\sin(x)/x$ is even.
+\end{eg}
+
+
+
+
 
 
 

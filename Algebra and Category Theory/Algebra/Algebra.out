@@ -95,25 +95,26 @@
 \BOOKMARK [1][-]{section.18.3}{\247Finite Fields}{chapter.18}% 95
 \BOOKMARK [1][-]{section.18.4}{\247Composite Extensions and Simple Extensions}{chapter.18}% 96
 \BOOKMARK [1][-]{section.18.5}{\247Cyclotomic Extensions and Abelian Extensions}{chapter.18}% 97
-\BOOKMARK [1][-]{section.18.6}{\247Galois Group of Polynomials}{chapter.18}% 98
-\BOOKMARK [2][-]{thm.18.6.5}{Polynomials of Degree 2}{section.18.6}% 99
-\BOOKMARK [2][-]{thm.18.6.5}{Polynomials of Degree 3}{section.18.6}% 100
-\BOOKMARK [2][-]{thm.18.6.5}{Polynomials of Degree 4}{section.18.6}% 101
-\BOOKMARK [1][-]{section.18.7}{\247Solvable and Radical Extensions}{chapter.18}% 102
-\BOOKMARK [-1][-]{part.4}{IV Modules}{}% 103
-\BOOKMARK [0][-]{chapter.19}{\247\247General Definitions and Examples}{part.4}% 104
-\BOOKMARK [1][-]{section.19.1}{\247Basic Definitions and Examples: Modules}{chapter.19}% 105
-\BOOKMARK [1][-]{section.19.2}{\247Module Homomorphisms}{chapter.19}% 106
-\BOOKMARK [2][-]{defn.19.2.4}{\247Isomorphism Theorems for Modules}{section.19.2}% 107
-\BOOKMARK [2][-]{namthm.33}{\247Evaluation Bijections}{section.19.2}% 108
-\BOOKMARK [1][-]{section.19.3}{\247Submodules}{chapter.19}% 109
-\BOOKMARK [1][-]{section.19.4}{\247Free Modules and Generators}{chapter.19}% 110
-\BOOKMARK [0][-]{chapter.20}{\247\247Linear Transformations}{part.4}% 111
-\BOOKMARK [0][-]{chapter.21}{\247\247Matrix Theory for Free Modules}{part.4}% 112
-\BOOKMARK [0][-]{chapter.22}{\247\247Modules over PIDs}{part.4}% 113
-\BOOKMARK [0][-]{chapter.23}{\247\247Tensor Products}{part.4}% 114
-\BOOKMARK [1][-]{section.23.1}{\247Module Tensor Products}{chapter.23}% 115
-\BOOKMARK [2][-]{section*.1}{Motivation/Special Case}{section.23.1}% 116
-\BOOKMARK [2][-]{thm.23.1.2}{General Construction}{section.23.1}% 117
-\BOOKMARK [0][-]{section*.2}{Appendices}{part.4}% 118
-\BOOKMARK [1][-]{section.1..1}{\247Semi-Groups and Monoids}{section*.2}% 119
+\BOOKMARK [2][-]{thm.18.5.4}{Constructability of the n-gon}{section.18.5}% 98
+\BOOKMARK [1][-]{section.18.6}{\247Galois Group of Polynomials}{chapter.18}% 99
+\BOOKMARK [2][-]{thm.18.6.5}{Polynomials of Degree 2}{section.18.6}% 100
+\BOOKMARK [2][-]{thm.18.6.5}{Polynomials of Degree 3}{section.18.6}% 101
+\BOOKMARK [2][-]{thm.18.6.5}{Polynomials of Degree 4}{section.18.6}% 102
+\BOOKMARK [1][-]{section.18.7}{\247Solvable and Radical Extensions}{chapter.18}% 103
+\BOOKMARK [-1][-]{part.4}{IV Modules}{}% 104
+\BOOKMARK [0][-]{chapter.19}{\247\247General Definitions and Examples}{part.4}% 105
+\BOOKMARK [1][-]{section.19.1}{\247Basic Definitions and Examples: Modules}{chapter.19}% 106
+\BOOKMARK [1][-]{section.19.2}{\247Module Homomorphisms}{chapter.19}% 107
+\BOOKMARK [2][-]{defn.19.2.4}{\247Isomorphism Theorems for Modules}{section.19.2}% 108
+\BOOKMARK [2][-]{namthm.33}{\247Evaluation Bijections}{section.19.2}% 109
+\BOOKMARK [1][-]{section.19.3}{\247Submodules}{chapter.19}% 110
+\BOOKMARK [1][-]{section.19.4}{\247Free Modules and Generators}{chapter.19}% 111
+\BOOKMARK [0][-]{chapter.20}{\247\247Linear Transformations}{part.4}% 112
+\BOOKMARK [0][-]{chapter.21}{\247\247Matrix Theory for Free Modules}{part.4}% 113
+\BOOKMARK [0][-]{chapter.22}{\247\247Modules over PIDs}{part.4}% 114
+\BOOKMARK [0][-]{chapter.23}{\247\247Tensor Products}{part.4}% 115
+\BOOKMARK [1][-]{section.23.1}{\247Module Tensor Products}{chapter.23}% 116
+\BOOKMARK [2][-]{section*.1}{Motivation/Special Case}{section.23.1}% 117
+\BOOKMARK [2][-]{thm.23.1.2}{General Construction}{section.23.1}% 118
+\BOOKMARK [0][-]{section*.2}{Appendices}{part.4}% 119
+\BOOKMARK [1][-]{section.1..1}{\247Semi-Groups and Monoids}{section*.2}% 120

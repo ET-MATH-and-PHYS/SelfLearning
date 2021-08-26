@@ -93,29 +93,30 @@
 \contentsline {section}{\numberline {18.1}\textsection Basics Definitions and Examples: Galois Theory}{157}{section.18.1}%
 \contentsline {subsection}{The Galois Correspondence}{159}{defn.18.1.3}%
 \contentsline {section}{\numberline {18.2}\textsection The Fundamental Theorem of Galois Theory}{162}{section.18.2}%
-\contentsline {section}{\numberline {18.3}\textsection Finite Fields}{169}{section.18.3}%
-\contentsline {section}{\numberline {18.4}\textsection Composite Extensions and Simple Extensions}{170}{section.18.4}%
-\contentsline {section}{\numberline {18.5}\textsection Cyclotomic Extensions and Abelian Extensions}{171}{section.18.5}%
-\contentsline {section}{\numberline {18.6}\textsection Galois Group of Polynomials}{172}{section.18.6}%
-\contentsline {subsection}{Polynomials of Degree 2}{175}{thm.18.6.5}%
-\contentsline {subsection}{Polynomials of Degree 3}{175}{thm.18.6.5}%
-\contentsline {subsection}{Polynomials of Degree 4}{176}{thm.18.6.5}%
-\contentsline {section}{\numberline {18.7}\textsection Solvable and Radical Extensions}{177}{section.18.7}%
-\contentsline {part}{IV\hspace {1em}Modules}{181}{part.4}%
-\contentsline {chapter}{\numberline {19}\textsection \textsection General Definitions and Examples}{182}{chapter.19}%
-\contentsline {section}{\numberline {19.1}\textsection Basic Definitions and Examples: Modules}{182}{section.19.1}%
-\contentsline {section}{\numberline {19.2}\textsection Module Homomorphisms}{186}{section.19.2}%
-\contentsline {subsection}{\textsection Isomorphism Theorems for Modules}{190}{defn.19.2.4}%
-\contentsline {subsection}{\textsection Evaluation Bijections}{192}{namthm.33}%
-\contentsline {section}{\numberline {19.3}\textsection Submodules}{193}{section.19.3}%
-\contentsline {section}{\numberline {19.4}\textsection Free Modules and Generators}{193}{section.19.4}%
-\contentsline {chapter}{\numberline {20}\textsection \textsection Linear Transformations}{197}{chapter.20}%
-\contentsline {chapter}{\numberline {21}\textsection \textsection Matrix Theory for Free Modules}{198}{chapter.21}%
-\contentsline {chapter}{\numberline {22}\textsection \textsection Modules over PIDs}{199}{chapter.22}%
-\contentsline {chapter}{\numberline {23}\textsection \textsection Tensor Products}{200}{chapter.23}%
-\contentsline {section}{\numberline {23.1}\textsection Module Tensor Products}{200}{section.23.1}%
-\contentsline {subsection}{Motivation/Special Case}{200}{section*.1}%
-\contentsline {subsection}{General Construction}{203}{thm.23.1.2}%
-\contentsline {chapter}{Appendices}{211}{section*.2}%
-\contentsline {section}{\numberline {.1}\textsection Semi-Groups and Monoids}{212}{section.1..1}%
+\contentsline {section}{\numberline {18.3}\textsection Finite Fields}{170}{section.18.3}%
+\contentsline {section}{\numberline {18.4}\textsection Composite Extensions and Simple Extensions}{172}{section.18.4}%
+\contentsline {section}{\numberline {18.5}\textsection Cyclotomic Extensions and Abelian Extensions}{176}{section.18.5}%
+\contentsline {subsection}{Constructability of the n-gon}{177}{thm.18.5.4}%
+\contentsline {section}{\numberline {18.6}\textsection Galois Group of Polynomials}{177}{section.18.6}%
+\contentsline {subsection}{Polynomials of Degree 2}{181}{thm.18.6.5}%
+\contentsline {subsection}{Polynomials of Degree 3}{181}{thm.18.6.5}%
+\contentsline {subsection}{Polynomials of Degree 4}{182}{thm.18.6.5}%
+\contentsline {section}{\numberline {18.7}\textsection Solvable and Radical Extensions}{183}{section.18.7}%
+\contentsline {part}{IV\hspace {1em}Modules}{187}{part.4}%
+\contentsline {chapter}{\numberline {19}\textsection \textsection General Definitions and Examples}{188}{chapter.19}%
+\contentsline {section}{\numberline {19.1}\textsection Basic Definitions and Examples: Modules}{188}{section.19.1}%
+\contentsline {section}{\numberline {19.2}\textsection Module Homomorphisms}{192}{section.19.2}%
+\contentsline {subsection}{\textsection Isomorphism Theorems for Modules}{196}{defn.19.2.4}%
+\contentsline {subsection}{\textsection Evaluation Bijections}{198}{namthm.33}%
+\contentsline {section}{\numberline {19.3}\textsection Submodules}{199}{section.19.3}%
+\contentsline {section}{\numberline {19.4}\textsection Free Modules and Generators}{199}{section.19.4}%
+\contentsline {chapter}{\numberline {20}\textsection \textsection Linear Transformations}{203}{chapter.20}%
+\contentsline {chapter}{\numberline {21}\textsection \textsection Matrix Theory for Free Modules}{204}{chapter.21}%
+\contentsline {chapter}{\numberline {22}\textsection \textsection Modules over PIDs}{205}{chapter.22}%
+\contentsline {chapter}{\numberline {23}\textsection \textsection Tensor Products}{206}{chapter.23}%
+\contentsline {section}{\numberline {23.1}\textsection Module Tensor Products}{206}{section.23.1}%
+\contentsline {subsection}{Motivation/Special Case}{206}{section*.1}%
+\contentsline {subsection}{General Construction}{209}{thm.23.1.2}%
+\contentsline {chapter}{Appendices}{217}{section*.2}%
+\contentsline {section}{\numberline {.1}\textsection Semi-Groups and Monoids}{218}{section.1..1}%
 \contentsfinish 

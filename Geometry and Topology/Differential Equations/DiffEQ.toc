@@ -1,4 +1,13 @@
 \contentsline {part}{I\hspace {1em}Ordinary Differential Equations}{2}{part.1}%
 \contentsline {part}{II\hspace {1em}Partial Differential Equations}{3}{part.2}%
-\contentsline {chapter}{Appendices}{4}{section*.1}%
+\contentsline {chapter}{\numberline {1}Where do PDEs Come From?}{4}{chapter.1}%
+\contentsline {section}{\numberline {1.1}What is a PDE: Notation and Definitions}{4}{section.1.1}%
+\contentsline {subsection}{Partial Derivatives}{4}{section*.1}%
+\contentsline {subsection}{Differential Operators}{4}{rmk.1.1.1}%
+\contentsline {section}{\numberline {1.2}What is a Partial Differential Equation (PDE)?}{5}{section.1.2}%
+\contentsline {subsection}{Linear PDEs}{6}{defn.1.2.2}%
+\contentsline {subsection}{Nonlinear PDEs}{6}{eg.1.2.1}%
+\contentsline {subsection}{Solutions}{7}{eg.1.2.2}%
+\contentsline {subsection}{Homogeneous/Inhomogeneous Linear PDEs}{8}{eg.1.2.3}%
+\contentsline {chapter}{Appendices}{9}{section*.2}%
 \contentsfinish 

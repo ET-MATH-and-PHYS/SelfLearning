@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.8.13)  23 AUG 2021 20:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.8.13)  25 AUG 2021 21:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -622,29 +622,37 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count277
 )
+(/usr/share/texlive/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen169
+\WF@size=\dimen170
+\c@WF@wrappedlines=\count278
+\WF@box=\box51
+\WF@everypar=\toks29
+Package: wrapfig 2003/01/31  v 3.6
+)
 (/usr/share/texlive/texmf-dist/tex/latex/soul/soul.sty
 Package: soul 2003/11/17 v2.4 letterspacing/underlining (mf)
-\SOUL@word=\toks29
-\SOUL@lasttoken=\toks30
-\SOUL@cmds=\toks31
-\SOUL@buffer=\toks32
-\SOUL@token=\toks33
+\SOUL@word=\toks30
+\SOUL@lasttoken=\toks31
+\SOUL@cmds=\toks32
+\SOUL@buffer=\toks33
+\SOUL@token=\toks34
 \SOUL@spaceskip=\skip62
-\SOUL@ttwidth=\dimen169
-\SOUL@uldp=\dimen170
-\SOUL@ulht=\dimen171
+\SOUL@ttwidth=\dimen171
+\SOUL@uldp=\dimen172
+\SOUL@ulht=\dimen173
 )
 (/usr/share/texlive/texmf-dist/tex/generic/ulem/ulem.sty
-\UL@box=\box51
-\UL@hyphenbox=\box52
+\UL@box=\box52
+\UL@hyphenbox=\box53
 \UL@skip=\skip63
-\UL@hook=\toks34
-\UL@height=\dimen172
-\UL@pe=\count278
-\UL@pixel=\dimen173
-\ULC@box=\box53
+\UL@hook=\toks35
+\UL@height=\dimen174
+\UL@pe=\count279
+\UL@pixel=\dimen175
+\ULC@box=\box54
 Package: ulem 2019/11/18
-\ULdepth=\dimen174
+\ULdepth=\dimen176
 )
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/txfonts.sty
 Package: txfonts 2008/01/22 v3.2.1
@@ -739,13 +747,13 @@ Package: cancel 2013/04/12 v2.2 Cancel math terms
 )
 (/usr/share/texlive/texmf-dist/tex/latex/appendix/appendix.sty
 Package: appendix 2020/02/08 v1.2c extra appendix facilities
-\c@@pps=\count279
-\c@@ppsavesec=\count280
-\c@@ppsaveapp=\count281
+\c@@pps=\count280
+\c@@ppsavesec=\count281
+\c@@ppsaveapp=\count282
 )
 (/usr/share/texlive/texmf-dist/tex/latex/titlesec/titletoc.sty
 Package: titletoc 2019/10/16 v2.13 TOC entries
-\ttl@leftsep=\dimen175
+\ttl@leftsep=\dimen177
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tocloft/tocloft.sty
 Package: tocloft 2017/08/31 v2.3i parameterised ToC, etc., typesetting
@@ -779,8 +787,8 @@ Package tocloft Info: The document has chapter divisions on input line 51.
 \cftbeforefigskip=\skip90
 \cftfigindent=\skip91
 \cftfignumwidth=\skip92
-\c@lofdepth=\count282
-\c@lotdepth=\count283
+\c@lofdepth=\count283
+\c@lotdepth=\count284
 \cftbeforelottitleskip=\skip93
 \cftafterlottitleskip=\skip94
 \cftbeforetabskip=\skip95
@@ -789,15 +797,15 @@ Package tocloft Info: The document has chapter divisions on input line 51.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2019/10/16 v2.13 Sectioning titles
-\ttl@box=\box54
+\ttl@box=\box55
 \beforetitleunit=\skip98
 \aftertitleunit=\skip99
-\ttl@plus=\dimen176
-\ttl@minus=\dimen177
-\ttl@toksa=\toks35
-\titlewidth=\dimen178
-\titlewidthlast=\dimen179
-\titlewidthfirst=\dimen180
+\ttl@plus=\dimen178
+\ttl@minus=\dimen179
+\ttl@toksa=\toks36
+\titlewidth=\dimen180
+\titlewidthlast=\dimen181
+\titlewidthfirst=\dimen182
 )
 (/usr/share/texlive/texmf-dist/tex/latex/mdframed/mdframed.sty
 Package: mdframed 2013/07/01 1.9b: mdframed
@@ -808,18 +816,18 @@ Package: expl3 2020-02-14 L3 programming layer (loader)
 
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count284
-\l__pdf_internal_box=\box55
+\l__kernel_color_stack_int=\count285
+\l__pdf_internal_box=\box56
 ))
 Package: xparse 2020-02-14 L3 Experimental document command parser
-\l__xparse_current_arg_int=\count285
-\g__xparse_grabber_int=\count286
-\l__xparse_m_args_int=\count287
-\l__xparse_v_nesting_int=\count288
+\l__xparse_current_arg_int=\count286
+\g__xparse_grabber_int=\count287
+\l__xparse_m_args_int=\count288
+\l__xparse_v_nesting_int=\count289
 )
 (/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2019/09/21 v2.5h e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count289
+\etb@tempcnta=\count290
 )
 (/usr/share/texlive/texmf-dist/tex/latex/zref/zref-abspage.sty
 Package: zref-abspage 2019/11/29 v2.28 Module abspage for zref (HO)
@@ -830,7 +838,7 @@ Package zref Info: New property list: main on input line 763.
 Package zref Info: New property: default on input line 764.
 Package zref Info: New property: page on input line 765.
 )
-\c@abspage=\count290
+\c@abspage=\count291
 Package zref Info: New property: abspage on input line 66.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/needspace/needspace.sty
@@ -848,7 +856,7 @@ Package color Info: Driver file: pdftex.def on input line 147.
 File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 ))
 \mdf@templength=\skip100
-\c@mdf@globalstyle@cnt=\count291
+\c@mdf@globalstyle@cnt=\count292
 \mdf@skipabove@length=\skip101
 \mdf@skipbelow@length=\skip102
 \mdf@leftmargin@length=\skip103
@@ -893,13 +901,13 @@ File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
-\pgfutil@everybye=\toks36
-\pgfutil@tempdima=\dimen181
-\pgfutil@tempdimb=\dimen182
+\pgfutil@everybye=\toks37
+\pgfutil@tempdima=\dimen183
+\pgfutil@tempdimb=\dimen184
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-lists.t
 ex)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
-\pgfutil@abb=\box56
+\pgfutil@abb=\box57
 (/usr/share/texlive/texmf-dist/tex/latex/ms/everyshi.sty
 Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
 ))
@@ -924,41 +932,41 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 105.
 )
-\Gin@req@height=\dimen183
-\Gin@req@width=\dimen184
+\Gin@req@height=\dimen185
+\Gin@req@width=\dimen186
 )
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
 Package: pgfsys 2020/01/08 v3.1.5b (3.1.5b)
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks37
-\pgfkeys@temptoks=\toks38
+\pgfkeys@pathtoks=\toks38
+\pgfkeys@temptoks=\toks39
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.code.t
 ex
-\pgfkeys@tmptoks=\toks39
+\pgfkeys@tmptoks=\toks40
 ))
-\pgf@x=\dimen185
-\pgf@y=\dimen186
-\pgf@xa=\dimen187
-\pgf@ya=\dimen188
-\pgf@xb=\dimen189
-\pgf@yb=\dimen190
-\pgf@xc=\dimen191
-\pgf@yc=\dimen192
-\pgf@xd=\dimen193
-\pgf@yd=\dimen194
+\pgf@x=\dimen187
+\pgf@y=\dimen188
+\pgf@xa=\dimen189
+\pgf@ya=\dimen190
+\pgf@xb=\dimen191
+\pgf@yb=\dimen192
+\pgf@xc=\dimen193
+\pgf@yc=\dimen194
+\pgf@xd=\dimen195
+\pgf@yd=\dimen196
 \w@pgf@writea=\write3
 \r@pgf@reada=\read2
-\c@pgf@counta=\count292
-\c@pgf@countb=\count293
-\c@pgf@countc=\count294
-\c@pgf@countd=\count295
-\t@pgf@toka=\toks40
-\t@pgf@tokb=\toks41
-\t@pgf@tokc=\toks42
-\pgf@sys@id@count=\count296
+\c@pgf@counta=\count293
+\c@pgf@countb=\count294
+\c@pgf@countc=\count295
+\c@pgf@countd=\count296
+\t@pgf@toka=\toks41
+\t@pgf@tokb=\toks42
+\t@pgf@tokc=\toks43
+\pgf@sys@id@count=\count297
  (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2020/01/08 v3.1.5b (3.1.5b)
 )
@@ -974,8 +982,8 @@ File: pgfsys-common-pdf.def 2020/01/08 v3.1.5b (3.1.5b)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.
 tex
 File: pgfsyssoftpath.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfsyssoftpath@smallbuffer@items=\count297
-\pgfsyssoftpath@bigbuffer@items=\count298
+\pgfsyssoftpath@smallbuffer@items=\count298
+\pgfsyssoftpath@bigbuffer@items=\count299
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.
 tex
@@ -1005,12 +1013,12 @@ Package: pgfcore 2020/01/08 v3.1.5b (3.1.5b)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
-\pgfmath@dimen=\dimen195
-\pgfmath@count=\count299
-\pgfmath@box=\box57
-\pgfmath@toks=\toks43
-\pgfmath@stack@operand=\toks44
-\pgfmath@stack@operation=\toks45
+\pgfmath@dimen=\dimen197
+\pgfmath@count=\count300
+\pgfmath@box=\box58
+\pgfmath@toks=\toks44
+\pgfmath@stack@operand=\toks45
+\pgfmath@stack@operation=\toks46
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code
@@ -1030,58 +1038,58 @@ tex)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerari
 thmetics.code.tex)))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count300
+\c@pgfmathroundto@lastzeros=\count301
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.te
 x
 File: pgfcorepoints.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@picminx=\dimen196
-\pgf@picmaxx=\dimen197
-\pgf@picminy=\dimen198
-\pgf@picmaxy=\dimen199
-\pgf@pathminx=\dimen256
-\pgf@pathmaxx=\dimen257
-\pgf@pathminy=\dimen258
-\pgf@pathmaxy=\dimen259
-\pgf@xx=\dimen260
-\pgf@xy=\dimen261
-\pgf@yx=\dimen262
-\pgf@yy=\dimen263
-\pgf@zx=\dimen264
-\pgf@zy=\dimen265
+\pgf@picminx=\dimen198
+\pgf@picmaxx=\dimen199
+\pgf@picminy=\dimen256
+\pgf@picmaxy=\dimen257
+\pgf@pathminx=\dimen258
+\pgf@pathmaxx=\dimen259
+\pgf@pathminy=\dimen260
+\pgf@pathmaxy=\dimen261
+\pgf@xx=\dimen262
+\pgf@xy=\dimen263
+\pgf@yx=\dimen264
+\pgf@yy=\dimen265
+\pgf@zx=\dimen266
+\pgf@zy=\dimen267
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.
 code.tex
 File: pgfcorepathconstruct.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@path@lastx=\dimen266
-\pgf@path@lasty=\dimen267
+\pgf@path@lastx=\dimen268
+\pgf@path@lasty=\dimen269
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code
 .tex
 File: pgfcorepathusage.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@shorten@end@additional=\dimen268
-\pgf@shorten@start@additional=\dimen269
+\pgf@shorten@end@additional=\dimen270
+\pgf@shorten@start@additional=\dimen271
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.te
 x
 File: pgfcorescopes.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfpic=\box58
-\pgf@hbox=\box59
-\pgf@layerbox@main=\box60
-\pgf@picture@serial@count=\count301
+\pgfpic=\box59
+\pgf@hbox=\box60
+\pgf@layerbox@main=\box61
+\pgf@picture@serial@count=\count302
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.c
 ode.tex
 File: pgfcoregraphicstate.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgflinewidth=\dimen270
+\pgflinewidth=\dimen272
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformation
 s.code.tex
 File: pgfcoretransformations.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@pt@x=\dimen271
-\pgf@pt@y=\dimen272
-\pgf@pt@temp=\dimen273
+\pgf@pt@x=\dimen273
+\pgf@pt@y=\dimen274
+\pgf@pt@temp=\dimen275
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
 File: pgfcorequick.code.tex 2020/01/08 v3.1.5b (3.1.5b)
@@ -1097,13 +1105,13 @@ File: pgfcorepathprocessing.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.te
 x
 File: pgfcorearrows.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfarrowsep=\dimen274
+\pgfarrowsep=\dimen276
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@max=\dimen275
-\pgf@sys@shading@range@num=\count302
-\pgf@shadingcount=\count303
+\pgf@max=\dimen277
+\pgf@sys@shading@range@num=\count303
+\pgf@shadingcount=\count304
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2020/01/08 v3.1.5b (3.1.5b)
@@ -1111,7 +1119,7 @@ File: pgfcoreimage.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.
 tex
 File: pgfcoreexternal.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfexternal@startupbox=\box61
+\pgfexternal@startupbox=\box62
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.te
 x
@@ -1130,15 +1138,15 @@ File: pgfcorerdf.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 )))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
 File: pgfmoduleshapes.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfnodeparttextbox=\box62
+\pgfnodeparttextbox=\box63
 ) (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
 File: pgfmoduleplot.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65
 .sty
 Package: pgfcomp-version-0-65 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@nodesepstart=\dimen276
-\pgf@nodesepend=\dimen277
+\pgf@nodesepstart=\dimen278
+\pgf@nodesepend=\dimen279
 )
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18
 .sty
@@ -1152,10 +1160,10 @@ Package: pgfcomp-version-1-18 2020/01/08 v3.1.5b (3.1.5b)
 Package: pgffor 2020/01/08 v3.1.5b (3.1.5b)
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
-\pgffor@iter=\dimen278
-\pgffor@skip=\dimen279
-\pgffor@stack=\toks46
-\pgffor@toks=\toks47
+\pgffor@iter=\dimen280
+\pgffor@skip=\dimen281
+\pgffor@stack=\toks47
+\pgffor@toks=\toks48
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
 Package: tikz 2020/01/08 v3.1.5b (3.1.5b)
@@ -1163,33 +1171,33 @@ Package: tikz 2020/01/08 v3.1.5b (3.1.5b)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers
 .code.tex
 File: pgflibraryplothandlers.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@plot@mark@count=\count304
-\pgfplotmarksize=\dimen280
+\pgf@plot@mark@count=\count305
+\pgfplotmarksize=\dimen282
 )
-\tikz@lastx=\dimen281
-\tikz@lasty=\dimen282
-\tikz@lastxsaved=\dimen283
-\tikz@lastysaved=\dimen284
-\tikz@lastmovetox=\dimen285
-\tikz@lastmovetoy=\dimen286
-\tikzleveldistance=\dimen287
-\tikzsiblingdistance=\dimen288
-\tikz@figbox=\box63
-\tikz@figbox@bg=\box64
-\tikz@tempbox=\box65
-\tikz@tempbox@bg=\box66
-\tikztreelevel=\count305
-\tikznumberofchildren=\count306
-\tikznumberofcurrentchild=\count307
-\tikz@fig@count=\count308
+\tikz@lastx=\dimen283
+\tikz@lasty=\dimen284
+\tikz@lastxsaved=\dimen285
+\tikz@lastysaved=\dimen286
+\tikz@lastmovetox=\dimen287
+\tikz@lastmovetoy=\dimen288
+\tikzleveldistance=\dimen289
+\tikzsiblingdistance=\dimen290
+\tikz@figbox=\box64
+\tikz@figbox@bg=\box65
+\tikz@tempbox=\box66
+\tikz@tempbox@bg=\box67
+\tikztreelevel=\count306
+\tikznumberofchildren=\count307
+\tikznumberofcurrentchild=\count308
+\tikz@fig@count=\count309
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfmatrixcurrentrow=\count309
-\pgfmatrixcurrentcolumn=\count310
-\pgf@matrix@numberofcolumns=\count311
+\pgfmatrixcurrentrow=\count310
+\pgfmatrixcurrentcolumn=\count311
+\pgf@matrix@numberofcolumns=\count312
 )
-\tikz@expandcount=\count312
+\tikz@expandcount=\count313
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibrarytopaths.code.tex
@@ -1198,11 +1206,11 @@ File: tikzlibrarytopaths.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 (/usr/share/texlive/texmf-dist/tex/latex/mdframed/md-frame-1.mdf
 File: md-frame-1.mdf 2013/07/01\ 1.9b: md-frame-1
 )
-\mdf@frametitlebox=\box67
-\mdf@footnotebox=\box68
-\mdf@splitbox@one=\box69
-\mdf@splitbox@two=\box70
-\mdf@splitbox@save=\box71
+\mdf@frametitlebox=\box68
+\mdf@footnotebox=\box69
+\mdf@splitbox@one=\box70
+\mdf@splitbox@two=\box71
+\mdf@splitbox@save=\box72
 \mdfsplitboxwidth=\skip140
 \mdfsplitboxtotalwidth=\skip141
 \mdfsplitboxheight=\skip142
@@ -1230,16 +1238,16 @@ File: md-frame-1.mdf 2013/07/01\ 1.9b: md-frame-1
 \mdf@horizontalspaceofbox=\skip164
 \mdfsubtitleheight=\skip165
 \mdfsubsubtitleheight=\skip166
-\c@mdfcountframes=\count313
+\c@mdfcountframes=\count314
 
 ****** mdframed patching \endmdf@trivlist
 
 ****** -- success******
 
-\mdf@envdepth=\count314
-\c@mdf@env@i=\count315
-\c@mdf@env@ii=\count316
-\c@mdf@zref@counter=\count317
+\mdf@envdepth=\count315
+\c@mdf@env@i=\count316
+\c@mdf@env@ii=\count317
+\c@mdf@zref@counter=\count318
 Package zref Info: New property: mdf@pagevalue on input line 895.
 )
 (/usr/share/texlive/texmf-dist/tex/generic/tikz-cd/tikzlibrarycd.code.tex
@@ -1254,10 +1262,10 @@ File: tikzlibraryquotes.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.
 code.tex
 File: pgflibraryarrows.meta.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfarrowinset=\dimen289
-\pgfarrowlength=\dimen290
-\pgfarrowwidth=\dimen291
-\pgfarrowlinewidth=\dimen292
+\pgfarrowinset=\dimen291
+\pgfarrowlength=\dimen292
+\pgfarrowwidth=\dimen293
+\pgfarrowlinewidth=\dimen294
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibrarycalc.code.tex
@@ -1277,10 +1285,10 @@ Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
 
 (/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
 (/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
-\XKV@toks=\toks48
-\XKV@tempa@toks=\toks49
+\XKV@toks=\toks49
+\XKV@tempa@toks=\toks50
 )
-\XKV@depth=\count318
+\XKV@depth=\count319
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/fmtcount/fcprefix.sty
@@ -1288,41 +1296,41 @@ Package: fcprefix 2012/09/28
 
 (/usr/share/texlive/texmf-dist/tex/latex/fmtcount/fcnumparser.sty
 Package: fcnumparser 2017/06/15
-\fc@digit@counter=\count319
+\fc@digit@counter=\count320
 ))
-\c@padzeroesN=\count320
-\fc@tmpcatcode=\count321
-\@DT@modctr=\count322
-\@ordinalctr=\count323
-\@orgargctr=\count324
-\@strctr=\count325
-\@tmpstrctr=\count326
-\@DT@loopN=\count327
-\@DT@X=\count328
+\c@padzeroesN=\count321
+\fc@tmpcatcode=\count322
+\@DT@modctr=\count323
+\@ordinalctr=\count324
+\@orgargctr=\count325
+\@strctr=\count326
+\@tmpstrctr=\count327
+\@DT@loopN=\count328
+\@DT@X=\count329
 )
 (/usr/share/texlive/texmf-dist/tex/latex/datetime/datetime-defaults.sty
 Package: datetime-defaults 2013/09/10
 )
-\@day=\count329
-\@month=\count330
-\@year=\count331
-\c@HOUR=\count332
-\c@HOURXII=\count333
-\c@MINUTE=\count334
-\c@TOHOUR=\count335
-\c@TOMINUTE=\count336
-\c@SECOND=\count337
-\currenthour=\count338
-\currentminute=\count339
-\currentsecond=\count340
+\@day=\count330
+\@month=\count331
+\@year=\count332
+\c@HOUR=\count333
+\c@HOURXII=\count334
+\c@MINUTE=\count335
+\c@TOHOUR=\count336
+\c@TOMINUTE=\count337
+\c@SECOND=\count338
+\currenthour=\count339
+\currentminute=\count340
+\currentsecond=\count341
 Package datetime Info: No datetime.cfg file found, using default settings on in
 put line 308.
-\@dtctr=\count341
-\dayofyear=\count342
-\dayofweek=\count343
+\@dtctr=\count342
+\dayofyear=\count343
+\dayofweek=\count344
 LaTeX Info: Redefining \today on input line 736.
-\dt@a=\toks50
-\dt@b=\toks51
+\dt@a=\toks51
+\dt@b=\toks52
 )
 (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
@@ -1330,26 +1338,26 @@ Package: geometry 2020/01/02 v5.9 Page Geometry
 (/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count344
-\Gm@cntv=\count345
-\c@Gm@tempcnt=\count346
-\Gm@bindingoffset=\dimen293
-\Gm@wd@mp=\dimen294
-\Gm@odd@mp=\dimen295
-\Gm@even@mp=\dimen296
-\Gm@layoutwidth=\dimen297
-\Gm@layoutheight=\dimen298
-\Gm@layouthoffset=\dimen299
-\Gm@layoutvoffset=\dimen300
-\Gm@dimlist=\toks52
+\Gm@cnth=\count345
+\Gm@cntv=\count346
+\c@Gm@tempcnt=\count347
+\Gm@bindingoffset=\dimen295
+\Gm@wd@mp=\dimen296
+\Gm@odd@mp=\dimen297
+\Gm@even@mp=\dimen298
+\Gm@layoutwidth=\dimen299
+\Gm@layoutheight=\dimen300
+\Gm@layouthoffset=\dimen301
+\Gm@layoutvoffset=\dimen302
+\Gm@dimlist=\toks53
 )
 (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count347
-\float@exts=\toks53
-\float@box=\box72
-\@float@everytoks=\toks54
-\@floatcapt=\box73
+\c@float@type=\count348
+\float@exts=\toks54
+\float@box=\box73
+\@float@everytoks=\toks55
+\@floatcapt=\box74
 )
 (/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2019/01/31 v3.10 Extensive control of page headers and footer
@@ -1367,17 +1375,17 @@ s
 (/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2019/06/20 v3.9 Customized lists
 \labelindent=\skip176
-\enit@outerparindent=\dimen301
-\enit@toks=\toks55
-\enit@inbox=\box74
-\enit@count@id=\count348
-\enitdp@description=\count349
+\enit@outerparindent=\dimen303
+\enit@toks=\toks56
+\enit@inbox=\box75
+\enit@count@id=\count349
+\enitdp@description=\count350
 )
-\c@namthm=\count350
-\c@thm=\count351
-\c@defn=\count352
-\c@eg=\count353
-\c@rmk=\count354
+\c@namthm=\count351
+\c@thm=\count352
+\c@defn=\count353
+\c@eg=\count354
+\c@rmk=\count355
 )
 (./ComplexAnal.aux)
 \openout1 = `ComplexAnal.aux'.
@@ -1426,7 +1434,7 @@ LaTeX Font Info:    Trying to load font information for OT1+txr on input line 1
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/ot1txr.fd
 File: ot1txr.fd 2000/12/15 v3.1
 )
-\AtBeginShipoutBox=\box75
+\AtBeginShipoutBox=\box76
 Package hyperref Info: Link coloring ON on input line 15.
 LaTeX Info: Redefining \ref on input line 15.
 LaTeX Info: Redefining \pageref on input line 15.
@@ -1438,17 +1446,17 @@ LaTeX Info: Redefining \nameref on input line 15.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count355
-\scratchdimen=\dimen302
-\scratchbox=\box76
-\nofMPsegments=\count356
-\nofMParguments=\count357
-\everyMPshowfont=\toks56
-\MPscratchCnt=\count358
-\MPscratchDim=\dimen303
-\MPnumerator=\count359
-\makeMPintoPDFobject=\count360
-\everyMPtoPDFconversion=\toks57
+\scratchcounter=\count356
+\scratchdimen=\dimen304
+\scratchbox=\box77
+\nofMPsegments=\count357
+\nofMParguments=\count358
+\everyMPshowfont=\toks57
+\MPscratchCnt=\count359
+\MPscratchDim=\dimen305
+\MPnumerator=\count360
+\makeMPintoPDFobject=\count361
+\everyMPtoPDFconversion=\toks58
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -1500,7 +1508,7 @@ File: fc-english.def 2016/01/12
 LaTeX Font Warning: Font shape `OT1/txr/m/scit' undefined
 (Font)              using `OT1/txr/m/it' instead on input line 44.
 
-<../../Crab.jpg, id=220, 962.09438pt x 769.37437pt>
+<../../Crab.jpg, id=260, 962.09438pt x 769.37437pt>
 File: ../../Crab.jpg Graphic file (type jpg)
 <use ../../Crab.jpg>
 Package pdftex.def Info: ../../Crab.jpg  used on input line 48.
@@ -1550,7 +1558,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.38 ...numberline {5}Power Series}{45}{chapter.5}
+l.38 ...numberline {5}Power Series}{44}{chapter.5}
                                                   % [1])
 \tf@toc=\write5
 \openout5 = `ComplexAnal.toc'.
@@ -1590,12 +1598,12 @@ LaTeX Font Info:    Font shape `OT1/txr/b/n' in size <17.28> not available
 (Font)              Font shape `OT1/txr/bx/n' tried instead on input line 686.
  [17] [18]
 Overfull \hbox (0.10872pt too wide) in paragraph at lines 799--800
-[][]\OT1/txr/bx/n/12 Definition 2.3.5. []$\OML/txmi/m/it/12 F\U/matha/m/n/12 p\
-OML/txmi/m/it/12 u; v\U/matha/m/n/12 q \OT1/txr/m/n/12 : \U/txsyb/m/n/12 R[] \U
-/matha/m/n/12 Ñ \U/txsyb/m/n/12 R[]$ \OT1/txr/m/sl/12 is con-tin-u-ously dif-fe
-r-en-tiable at $\OML/txmi/m/it/12 z[] \U/matha/m/n/12 ^^P p\OML/txmi/m/it/12 x[
-]; y[]\U/matha/m/n/12 q$ \OT1/txr/m/sl/12 if $\OML/txmi/m/it/12 u[]; u[]; v[]; 
-v[]$
+[][][]\OT1/txr/bx/n/12 Definition 2.3.5. [][]$\OML/txmi/m/it/12 F\U/matha/m/n/1
+2 p\OML/txmi/m/it/12 u; v\U/matha/m/n/12 q \OT1/txr/m/n/12 : \U/txsyb/m/n/12 R[
+] \U/matha/m/n/12 Ñ \U/txsyb/m/n/12 R[]$ \OT1/txr/m/sl/12 is con-tin-u-ously di
+f-fer-en-tiable at $\OML/txmi/m/it/12 z[] \U/matha/m/n/12 ^^P p\OML/txmi/m/it/1
+2 x[]; y[]\U/matha/m/n/12 q$ \OT1/txr/m/sl/12 if $\OML/txmi/m/it/12 u[]; u[]; v
+[]; v[]$
  []
 
 
@@ -1642,55 +1650,70 @@ Chapter 6.
 [59
 
 ]
-Chapter 7.
-[60
+Overfull \hbox (5.30672pt too wide) detected at line 2448
+\OML/txmi/m/it/12 f\U/matha/m/n/12 p\OML/txmi/m/it/12 z\U/matha/m/n/12 q ^^P []
+ ^^P [][] ^^P [] []
+ []
 
-] [61
+[60] [61] [62] [63] [64] [65] [66] [67] [68] [69]
+Chapter 7.
+[70
+
+] [71] [72] [73] [74] [75]
+<Keyhole.PNG, id=964, 150.5625pt x 125.46875pt>
+File: Keyhole.PNG Graphic file (type png)
+<use Keyhole.PNG>
+Package pdftex.def Info: Keyhole.PNG  used on input line 3021.
+(pdftex.def)             Requested size: 156.49014pt x 130.42122pt.
+ [76 <./Keyhole.PNG>] [77] [78] [79] [80] [81
 
 ]
 Chapter 8.
-[62
+[82
 
 ]
 Chapter 9.
-[63
+[83
 
-] [64
+] [84
 
 ]
 Chapter 10.
-[65
+[85
 
 ]
 Chapter 11.
-[66
+[86
 
-] [67
+] [87
 
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2436.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2436.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3217.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 3217.
  (./ComplexAnal.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2436.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2436.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3217.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3217.
 
 Package rerunfilecheck Info: File `ComplexAnal.out' has not changed.
-(rerunfilecheck)             Checksum: 54E65181A973FC428BE04EECB5D561B3;3609.
+(rerunfilecheck)             Checksum: 1DBFF4A3B1C091170BC18BB3EF9EBE59;4348.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2436.
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3217.
  ) 
 Here is how much of TeX's memory you used:
- 24803 strings out of 481239
- 451598 string characters out of 5920377
- 739513 words of memory out of 5000000
- 39140 multiletter control sequences out of 15000+600000
- 598510 words of font info for 178 fonts, out of 8000000 for 9000
+ 24981 strings out of 481239
+ 453441 string characters out of 5920377
+ 740816 words of memory out of 5000000
+ 39214 multiletter control sequences out of 15000+600000
+ 599930 words of font info for 180 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 76i,13n,84p,1054b,665s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 76i,13n,84p,1230b,659s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/mathabx-type1/matha12.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/public/mathabx-type1/matha6.pfb></usr/share/texlive/texmf
@@ -1709,13 +1732,14 @@ y.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsya.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/public/txfonts/txsyb.pfb></usr/share/texl
 ive/texmf-dist/fonts/type1/public/txfonts/txsyc.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utm
-r8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on ComplexAnal.pdf (68 pages, 819872 bytes).
+/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb
+i8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on ComplexAnal.pdf (88 pages, 924707 bytes).
 PDF statistics:
- 971 PDF objects out of 1000 (max. 8388607)
- 867 compressed objects within 9 object streams
- 351 named destinations out of 1000 (max. 500000)
- 442 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1200 PDF objects out of 1200 (max. 8388607)
+ 1071 compressed objects within 11 object streams
+ 447 named destinations out of 1000 (max. 500000)
+ 527 words of extra memory for PDF output out of 10000 (max. 10000000)
 
