@@ -46,18 +46,27 @@
 \BOOKMARK [1][-]{section.6.1}{Laurent Decomposition}{chapter.6}% 46
 \BOOKMARK [1][-]{section.6.2}{Isolated Singularities of an Analytic Function}{chapter.6}% 47
 \BOOKMARK [1][-]{section.6.3}{Partial Fractions Decomposition}{chapter.6}% 48
-\BOOKMARK [0][-]{chapter.7}{The Residue Calculus}{part.1}% 49
-\BOOKMARK [1][-]{section.7.1}{The Residue Theorem}{chapter.7}% 50
-\BOOKMARK [1][-]{section.7.2}{Integrals Featuring Rational Functions}{chapter.7}% 51
-\BOOKMARK [1][-]{section.7.3}{Integrals of Trigonometric Functions}{chapter.7}% 52
-\BOOKMARK [1][-]{section.7.4}{Integrands with Branch Points}{chapter.7}% 53
-\BOOKMARK [1][-]{section.7.5}{Fractional Residues}{chapter.7}% 54
-\BOOKMARK [1][-]{section.7.6}{Principal Values}{chapter.7}% 55
-\BOOKMARK [1][-]{section.7.7}{Jordan's Lemma}{chapter.7}% 56
-\BOOKMARK [-1][-]{part.2}{II Part 2}{}% 57
-\BOOKMARK [0][-]{chapter.8}{The Logarithmic Integral}{part.2}% 58
-\BOOKMARK [0][-]{chapter.9}{Conformal Mapping}{part.2}% 59
-\BOOKMARK [-1][-]{part.3}{III Part 3}{}% 60
-\BOOKMARK [0][-]{chapter.10}{Approximation Theorems}{part.3}% 61
-\BOOKMARK [0][-]{chapter.11}{Special Functions}{part.3}% 62
-\BOOKMARK [0][-]{section*.1}{Appendices}{part.3}% 63
+\BOOKMARK [1][-]{section.6.4}{Periodic Functions}{chapter.6}% 49
+\BOOKMARK [1][-]{section.6.5}{Fourier Series}{chapter.6}% 50
+\BOOKMARK [0][-]{chapter.7}{The Residue Calculus}{part.1}% 51
+\BOOKMARK [1][-]{section.7.1}{The Residue Theorem}{chapter.7}% 52
+\BOOKMARK [1][-]{section.7.2}{Integrals Featuring Rational Functions}{chapter.7}% 53
+\BOOKMARK [1][-]{section.7.3}{Integrals of Trigonometric Functions}{chapter.7}% 54
+\BOOKMARK [1][-]{section.7.4}{Integrands with Branch Points}{chapter.7}% 55
+\BOOKMARK [1][-]{section.7.5}{Fractional Residues}{chapter.7}% 56
+\BOOKMARK [1][-]{section.7.6}{Principal Values}{chapter.7}% 57
+\BOOKMARK [1][-]{section.7.7}{Jordan's Lemma}{chapter.7}% 58
+\BOOKMARK [-1][-]{part.2}{II Part 2}{}% 59
+\BOOKMARK [0][-]{chapter.8}{The Logarithmic Integral}{part.2}% 60
+\BOOKMARK [1][-]{section.8.1}{The Argument Principle}{chapter.8}% 61
+\BOOKMARK [1][-]{section.8.2}{Rouch\351's Theorem}{chapter.8}% 62
+\BOOKMARK [0][-]{chapter.9}{Conformal Mapping}{part.2}% 63
+\BOOKMARK [-1][-]{part.3}{III Part 3}{}% 64
+\BOOKMARK [0][-]{chapter.10}{Approximation Theorems}{part.3}% 65
+\BOOKMARK [1][-]{section.10.1}{The Mittag-Leffler Theorem}{chapter.10}% 66
+\BOOKMARK [1][-]{section.10.2}{Infinite Products}{chapter.10}% 67
+\BOOKMARK [1][-]{section.10.3}{The Weierstrass Product Theorem}{chapter.10}% 68
+\BOOKMARK [0][-]{chapter.11}{Special Functions}{part.3}% 69
+\BOOKMARK [1][-]{section.11.1}{The Gamma Function}{chapter.11}% 70
+\BOOKMARK [1][-]{section.11.2}{Laplace Transforms}{chapter.11}% 71
+\BOOKMARK [0][-]{section*.1}{Appendices}{part.3}% 72

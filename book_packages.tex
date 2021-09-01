@@ -131,6 +131,16 @@
 {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}
 
 
+\newtheoremstyle{Custom}
+{15pt}
+{15pt}
+{\slshape}
+{}
+{\color{purp}\bfseries}
+{.}
+{.5em}
+{\thmname{#1}\thmnumber{ #2}\thmnote{ #3}}
+
 \newtheoremstyle{Remarks}
 {10pt}
 {10pt}
@@ -170,10 +180,14 @@
 \theoremstyle{Definitions}
 \newtheorem{defn}{Definition}[section]
 \newtheorem{axi}[defn]{Axiom}
-\newtheorem{cust}[defn]{}
 \newtheorem{cons}[defn]{Construction}
 \newtheorem{props}[defn]{Properties}
 \newtheorem{proc}[defn]{Process}
+\newtheorem{meth}[defn]{Method}
+
+
+\theoremstyle{Custom}
+\newtheorem*{cust}{}
 
 
 \theoremstyle{Examples}

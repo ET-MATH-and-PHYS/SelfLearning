@@ -2773,9 +2773,135 @@ This decomposition is called the \Emph{partial fractions decomposition} of the r
 
 
 
+%%%%%%%%%%%%%%%%%%%% Section 1.6.4
+\section{Periodic Functions}
+
+\begin{defn}
+    A complex number $\omega$ is a \Emph{period} of a function $f(z)$ if $f(z+\omega) = f(z)$ wherever defined. The function $f(z)$ is \Emph{periodic} if it has a period $\omega \neq 0$.
+\end{defn}
+
+We wish to show that any periodic analytic function in a half-plane or strip can be represented as a sum of exponential functions. If $\omega \neq 0$ is a period of $f(z)$, the function $g(z) = f(\omega z)$ satisfies $g(z+1) = f(\omega z+\omega) = f(\omega z) = g(z)$, so $g(z)$ has period $1$. 
+
+\begin{thm}
+    If $f(z)$ is analytic on the horizontal strip $\{\alpha < \mathscr{I}m(z) < \beta\}$, and $f(z)$ is periodic with period $1$, then $f(z)$ can be expanded in an absolutely convergent series of exponentials \begin{equation*}
+        f(z) = \sum_{k=-\infty}^{\infty}a_ke^{2\pi ikz},\;\;\;\alpha < \mathscr{I}m(z) < \beta
+    \end{equation*}
+    The series converes uniformly on any smaller strip $\{\alpha_0 \leq \mathscr{I}m(z) \leq \beta_0\}$ for $\alpha < \alpha_0 < \beta_0 < \beta$.
+\end{thm}
+To see this we make an exponential change of variable \begin{equation*}
+    w = e^{2\pi iz},\;\;\;z = -\frac{i}{2\pi}\log|w| + \frac{\arg w}{2\pi}
+\end{equation*}
+and we set $g(w) = f(z)$ with $z$ as above. Since $f(z)$ is periodic with period $1$, the value $g(w)$ does not depend on the choice of the argument of $w$. Thus, $g(w)$ is well-defined, and $g(w)$ is analytic for $e^{-2\pi \beta} < |w| < e^{-2\pi \alpha}$. We expand $g(w)$ as a Laurent series $\sum_{k=-\infty}^{\infty}a_kw^k$ in this annulus, and then revert our change of variables to get the exponential series for $f(z)$.
+
+\begin{thm}
+    Suppose $f(z)$ is analytic on the half-plane $\{\mathscr{I}m(z) > \alpha\}$, and $f(z)$ is periodic with period $1$. If $f(z)$ is bounded as $\mathscr{I}m(z)\rightarrow \infty$, then $f(z)$ can be expanded in an absolutely convergent series of exponentials \begin{equation*}
+        f(z) = \sum_{k=0}^{\infty}a_ke^{2\pi ikz},\;\;\;\mathscr{I}m(z) > \alpha
+    \end{equation*}
+    The series converges uniformly on any smaller half-plane $\{\mathscr{I}m(z) \geq \alpha_0\}$, where $\alpha_0 > \alpha$.
+\end{thm}
+In this case the change of variables $w = e^{2\pi iz}$ converts $f(z)$ into an analytic function $g(w)$ on the punctured disk $0 < |w| < e^{-2\pi \alpha}$. The hypothesis on $f(z)$ implies that $g(w)$ is bounded as $w\rightarrow 0$. By Riemann's theorem on removable singularities, $g(w)$ extends analytically at $0$. Hence $g(w)$ has a power series expansion \begin{equation*}
+    g(w) = \sum_{k=0}^{\infty}a_kw^k,\;\;\;\;|w| < e^{-2\pi \alpha}
+\end{equation*}
+and this yields the exponential series for $f(z)$. 
+
+We observe that the periods of an analytic function form an additive subgroup of the complex numbers. Moreover, this subgroup is discrete. Any bounded subset of the complex plane contains only finitely many periods of a fixed analytic function.
+
+\begin{thm}
+    Suppose that $f(z)$ is a nonconstant meromorphic function on the complex plane that is periodic. Either there is a period $w_1$ for $f(z)$ such that the periods of $f(z)$ are the integral multiplies of $w_1$, or there are two periods $w_1$ and $w_2$ of $f(z)$ that do not lie on the same line through the origin such that the periods of $f(z)$ are the integral combinations $mw_1+nw_2$, $m,n \in \Z$.
+\end{thm}
+
+In the case that the periods of $f(z)$ all lie on the same line through the origin, we say that $f(z)$ is \Emph{simply periodic}. Otherwise, we say that $f(z)$ is \Emph{doubly periodic}.
+
+\begin{thm}
+    An entire function that is doubly periodic is constant.
+\end{thm}
+Indeed, if the entire function $f(z)$ is doubly periodic, and if $|f(z)| \leq M$ on the parallelogram $P$ constructed from its generating periods, then by periodicity $|f(z)| \leq M$ on each translate $mw_1+nw_2 + P$ of $P$. Since these translates fill out the complex plane, $f(z)$ is a bounded entire function. By Liouville's theorem $f(z)$ is constant.
 
 
 
+
+%%%%%%%%%%%%%%%%%%%% Section 1.6.5
+\section{Fourier Series}
+
+\begin{defn}
+    A \Emph{complex Fourier series} is a two-tailed series of the form \begin{equation}
+        \sum_{k=-\infty}^{\infty}c_ke^{ik\theta}
+    \end{equation}
+\end{defn}
+
+If the Laurent series \begin{equation*}
+    f(z) = \sum_{k=-\infty}^{\infty}a_kz^k
+\end{equation*}
+converges uniformly on the circle $|z| = r$, then \begin{equation*}
+    f(re^{i\theta}) = \sum_{k=-\infty}^{\infty}a_kr^ke^{ik\theta}
+\end{equation*}
+is the Fourier series expansion of $f(re^{i\theta})$, regarded as a function of $\theta$, and the Fourier coefficients of the expansion are the coefficients $c_k = a_kr^k$.
+
+\begin{rmk}
+    Suppose the Fourier series $\sum_{k=-\infty}^{\infty}c_ke^{ik\theta}$ converges uniformly to a function $f(e^{i\theta})$. We can then capture the coefficients of the series by multiplying by the exponential function $e^{-il\theta}$, and integrating with respect to the probability measure $d\theta/2\pi$. We use the orthogonality relations for exponential functions: \begin{equation*}
+        \int_{-\pi}^{\pi}e^{ik\theta}e^{-il\theta}\frac{d\theta}{2\pi} = \left\{\begin{array}{lc} 1, & k = l \\ 0, & k \neq l \end{array}\right.
+    \end{equation*}
+    then yield \begin{equation*}
+        \int_{-\pi}^{\pi}f(re^{i\theta})e^{-il\theta}\frac{d\theta}{2\pi} = \sum_{k=-\infty}^{\infty}c_k\int_{-\pi}^{\pi}e^{ik\theta}e^{-il\theta}\frac{d\theta}{2\pi} = c_l
+    \end{equation*}
+    Then, the \Emph{Fourier coefficients} of any piecewise continuous function (or any integrable function) $f(e^{i\theta})$ is given by \begin{equation*}
+        c_l = \int_{-\pi}^{\pi}f(e^{i\theta})e^{-il\theta}\frac{d\theta}{2\pi},\;\;\;l\in\Z
+    \end{equation*}
+    and we associate $f(e^{i\theta})$ to the Fourier series \begin{equation*}
+        f(e^{i\theta}) \sim \sum_{k=-\infty}^{\infty}c_ke^{ik\theta}
+    \end{equation*}
+    But, does the Fourier series converge, and if so, to what?
+\end{rmk}
+
+\begin{thm}
+    If $f(e^{i\theta})$ is piecewise continuous (or more generally, square-integrable), with Fourier series $f(e^{i\theta}) \sim \sum_{k=-\infty}^{\infty}c_ke^{ik\theta}$, then for $m,n \geq 0$, we have \begin{equation*}
+        \sum_{k=-m}^n|c_k|^2 + \int_{-\pi}^{\pi}\left|f(e^{i\theta})-\sum_{k=-m}^nc_ke^{ik\theta}\right|^2\frac{d\theta}{2\pi} = \int_{-\pi}^{\pi}|f(e^{i\theta})|^2\frac{d\theta}{2\pi}
+    \end{equation*}
+\end{thm}
+
+The identity shows that partial sums of the series $\sum |c_k|^2$ are bounded, so the series converges and we obtain the following estimate:
+
+\begin{namthm}[Bessel's Inequality]
+    If $f(e^{i\theta})$ is piecewise continuous (or more generally, square-integrable), with Fourier series $f(e^{i\theta})\sim \sum c_ke^{ik\theta}$, then \begin{equation*}
+        \sum_{k=-\infty}^{\infty}|c_k|^2 \leq \int_{-\pi}^{\pi}|f(e^{i\theta})|^2\frac{d\theta}{2\pi}
+    \end{equation*}
+\end{namthm}
+It follows that $c_k\rightarrow 0$ as $k\rightarrow \pm \infty$.
+
+\begin{thm}
+    Suppose $f(e^{i\theta})$ is piecewise continuous (or square-integrable) with Fourier series $f(e^{i\theta}) \sim \sum c_ke^{ik\theta}$. If $f(e^{i\theta})$ is differentiable at $\theta_0$, then the Fourier series of $f(e^{i\theta})$ converges to $f(e^{i\theta_0})$ at $\theta = \theta_0$: \begin{equation*}
+        f(e^{i\theta_0}) = \sum_{k=-\infty}^{\infty}c_ke^{ik\theta_0} = \lim\limits_{m,n\rightarrow \infty}\sum_{k=-m}^nc_ke^{ik\theta_0}
+    \end{equation*}
+\end{thm}
+\begin{proof}
+    We consider first the special case in which $\theta_0 = 0$ and $e^{i\theta_0} = 1$. Define $g(e^{i\theta}) = [f(e^{i\theta}) - f(1)]/(e^{i\theta}-1)$. The differentiability of $f(e^{i\theta})$ at $\theta = 0$ implies that $g(e^{i\theta})$ has a limit as $\theta\rightarrow 0$. Consequently, $g(e^{i\theta})$ is also piecewise continuous. Denote the Fourier coefficients of $g(e^{i\theta})$ by $b_k$, so $g(e^{i\theta}) \sim \sum b_ke^{ik\theta}$. Bessel's inequality for $g(e^{i\theta})$ shows that $b_k\rightarrow 0$ as $k\rightarrow \pm \infty$. Now we comput the $c_k$'s in terms of the $b_k$'s. Since $f(e^{i\theta}) = g(e^{i\theta})(e^{i\theta}-1)+f(1)$, we have \begin{equation*}
+        c_k = \int_{-pi}^{\pi}g(e^{i\theta})(e^{i\theta}-1)e^{-ik\theta}\frac{d\theta}{2\pi}+f(1)\int_{-\pi}^{\pi}e^{-ik\theta}\frac{d\theta}{2\pi}
+    \end{equation*}
+    Expressing these integrals as Fourier coefficients of $g(e^{i\theta})$, we obtain $c_k = b_{k-1}-b_k$ if $k \neq 0$, and $c_0 = b_{-1}-b_0+f(1)$. Hence the series $\sum c_k$ telescopes, and we obtain \begin{equation*}
+        \sum_{k=-m}^nc_k = f(1) + \sum_{k=-m}^n(b_{k-1}-b_k) = f(1) + b_{-m-1}-b_n
+    \end{equation*}
+    which tends to $f(1)$ as $m,n\rightarrow \infty$. This proves the theorem when $\theta_0 = 0$. The case when $\theta_0$ is arbitrary is reduced to the above special case by a change of variable. Consider the function $h(e^{i\theta}) = f(e^{i(\theta+\theta_0)}) \sim \sum a_ke^{ik\theta}$, which is piecewise continuous and which is differentiable at $\theta = 0$. The Fourier coefficient $a_k$ of $h(e^{i\theta})$ is \begin{equation*}
+        a_k = \int_{-\pi}^{\pi}f(e^{i(\theta+\theta_0)})e^{-ik\theta}\frac{d\theta}{2\pi} = \int_{-\pi}^{\pi}f(e^{ik\varphi})e^{-ik\varphi}e^{ik\theta_0}\frac{d\varphi}{2\pi} = c_ke^{ik\theta_0}
+    \end{equation*}
+    Thus the Fourier series of $f(e^{i\theta})$ evaluated at $\theta = \theta_0$ is $\sum c_ke^{ik\theta_0} = \sum a_k$, which is the same as the Fourier series of $h(e^{i\theta})$ at $\theta = 0$. Then, we have shown that the latter converges to $h(1) = f(e^{i\theta_0})$, and this completes the proof.
+\end{proof}
+
+\begin{thm}
+    Suppose $f(e^{i\theta})$ is a continuously differentiable function of $\theta$, with Fourier series $f(e^{i\theta}) \sim \sum c_ke^{ik\theta}$. Then the Fourier series of the derivative of $f(e^{i\theta})$ is obtained by differentiating term by term \begin{equation*}
+        \frac{d}{d\theta}f(e^{i\theta}) \sim \sum_{k=-\infty}^{\infty}ikc_ke^{ik\theta}
+    \end{equation*}
+\end{thm}
+
+
+\begin{cor}
+    If $f(e^{i\theta})$ is an n-times continuously differentiable function of $\theta$ with Fourier series $f(e^{i\theta}) \sim \sum c_ke^{ik\theta}$, then $\sum_{k=-\infty}^{\infty}k^{2n}|c_k|^2 < \infty$. Further, $k^nc_k\rightarrow 0$ as $k\rightarrow \pm\infty$.
+\end{cor}
+
+\begin{thm}
+    Suppose $f(e^{i\theta})$ is a twice continuously differentiable function of $\theta$. Then the Fourier series of $f(e^{i\theta})$ converges to $f(e^{i\theta})$ uniformly in $\theta$.
+\end{thm}
+
+    
 
 %%%%%%%%%%%%%%%%%%%%%% Chapter 1.7
 \chapter{The Residue Calculus}
@@ -3179,6 +3305,120 @@ The principal value of the integral coincides with the usual value of the integr
 \chapter{The Logarithmic Integral}
 
 
+%%%%%%%%%%%%%%%%%%%% Section 2.1.1
+\section{The Argument Principle}
+
+
+\begin{defn}
+    Suppose $f(z)$ is analytic on a domain $D$. For a curve $\gamma$ in $D$ such that $f(z) \neq 0$ on $\gamma$, we refer to \begin{equation*}
+        \frac{1}{2\pi i}\int_{\gamma}\frac{f'(z)}{f(z)}dz = \frac{1}{2\pi i}\int_{\gamma}d\log f(z)
+    \end{equation*}
+    as the \Emph{logarithmic integral} of $f(z)$ along $\gamma$.
+\end{defn}
+
+Consequently the logarithmic integral measures the change of $\log f9z)$ along the curve $\gamma$.
+
+\begin{eg}
+    Consider $f(z) = (z-z_0)^n$ for $n \in \Z$. Consider the curve $\gamma$: $\gamma(t) = z_0+Re^{it}$ for $0 \leq t \leq 2\pi k$, for $k \in \Z$. $k$ denotes the \Emph{winding number} (the number of revolutions/times we wrap around the circle) of $\gamma$. Then we have the logarithmic integral \begin{align*}
+        \frac{1}{2\pi i}\int_{\gamma}\frac{n(z-z_0)^{n-1}}{(z-z_0)^n}dz &= \frac{1}{2\pi i}\int_{\gamma}\frac{ndz}{z-z_0} \\
+        &= \frac{1}{2\pi i}n(2\pi i k) = nk
+    \end{align*}
+    since we are looping around $k$ times (rather than once in Cauchy's residue theorem). Note $f(z)$ has $z=z_0$ as a zero of order $n$, so setting $k = 1$ gives the number of zeros contained in the curve.
+\end{eg}
+
+\begin{thm}
+    Let $D$ be a bounded domain with piecewise smooth boundary $\partial D$, and let $f(z)$ be a meromorphic function on $D$ that extends to be analytic on $\partial D$, such that $f(z) \neq 0$ on $\partial D$. Then \begin{equation*}
+        \frac{1}{2\pi i}\int_{\partial D}\frac{f'(z)}{f(z)}dz = N_0 - N_{\infty}
+    \end{equation*}
+    where $N_0$ is the number of zeros of $f(z)$ in $D$ and $N_{\infty}$ is the number of poles of $f(z)$ in $D$, counting multiplicities.
+\end{thm}
+\begin{proof}
+    Suppose $z_0$ is a zero of order $N$, so $f(z) = (z-z_0)^Nh(z)$ with $h(z_0) \neq 0$. Then $f'(z) = N(z-z_0)^{N-1}h(z)+(z-z_0)^Nh'(z)$, so \begin{equation*}
+        \frac{f'(z)}{f(z)} = \frac{N}{z-z_0} + \frac{h'(z)}{h(z)}
+    \end{equation*}
+    so $f'(z)/f(z)$ has a simple pole at $z_0$, with residue $N$. If we sum the residues over the zeros and poles we find that the sum of the residues of $f'(z)/f(z)$ in $D$ is $N_0-N_{\infty}$, so the result follows from the residue theorem. Explicitly we have \begin{equation*}
+        \frac{1}{2\pi i}\left(\underbrace{\int_{\partial D}\frac{N}{z-z_0}dz}_{simple\;pole} + \underbrace{\int_{\partial D}\frac{h'(z)}{h(z)}dz}_{analytic\implies Cauchy}\right) = \frac{1}{2\pi i}2\pi i(N+0) = N
+    \end{equation*}
+    Now, suppose $z_0$ is a pole of order $N$, so $f(z) = \frac{g(z)}{(z-z_0)^N}$ with $g(z_0) \neq 0$ and $g$ analytic at $z_0$. Then \begin{equation*}
+        \frac{f'(z)}{f(z)} = \frac{g'(z)}{g(z)}-N\frac{1}{(z-z_0)}
+    \end{equation*}
+    so by Cauchy's residue theorem the integral is $-N$. The result follows by the full Cauchy residue theorem \begin{equation*}
+        \frac{1}{2\pi i}\int_{\partial D}\frac{f'(z)}{f(z)}dz = \frac{1}{2\pi i}2\pi i\sum_{j=1}^kRes[f'(z)/f(z),z_k] = N_0 - N_{\infty}
+    \end{equation*}
+\end{proof}
+
+\begin{rmk}[Intuation for Argument Principle]
+    Recall that the logarithm (as a general multivalued function) is \begin{equation*}
+        \log(f(z)) = \ln|f(z)| + i\arg(f(z))
+    \end{equation*}
+    Then we have that \begin{equation*}
+        d\log(f(z)) = d\ln|f(z)| + id\arg(f(z))
+    \end{equation*}
+    If $f(z) \neq 0$ on the domain, $\ln|f(z)|$ is defined and in particular $d\ln|f(z)|$ is an exact differential (and hence is trivial around curves). Thus, the logarithmic integral is really calculating $id\arg(f(z))$ around closed loops. In particular, we have \begin{equation*}
+        \frac{1}{2\pi i}\int_{\gamma}d\log(f(z)) = \frac{1}{2\pi i}\int_{\gamma}d\ln|f(z)| + \frac{1}{2\pi}\int_{\gamma}d\arg(f(z))
+    \end{equation*}
+    If we parametrize the curve $\gamma$ by $\gamma(t) = x(t)+iy(t)$, $a \leq t \leq b$, then \begin{equation*}
+        \int_{\gamma}d\ln|f(z)| = \ln|f(\gamma(b))| - \ln|f(\gamma(a))|
+    \end{equation*}
+    The differential $d\arg(f(z))$ is closed, but not exact. Its integral is computed by choosing a continuous single-valued determination of $\arg f(\gamma(t))$ for $a \leq t \leq b$. Then from this determination \begin{equation*}
+        \int_{\gamma}d\arg(f(z)) = \arg(f(\gamma(b))) - \arg(f(\gamma(a)))
+    \end{equation*}
+    This is referred to as the \Emph{increase in the argument of $f(z)$ along $\gamma$}. Since any two continuous determinations of $\arg f(\gamma(t))$ differ by a constant, the increase in the argument given by the integral is independent of the continuous determination.
+\end{rmk}
+
+For a bounded domain $D$ whose boundary $\partial D$ consists of a finite number of piecewise smooth closed curves with the usual orientation, we define the \Emph{increase in the argument of $f(z)$ around the boundary of $D$} to be the sum of its increases around the closed curves in $\partial D$.
+
+\begin{thm}
+    Let $D$ be a bounded domain with piecewise smooth boundary $\partial D$, and let $f(z)$ be a meromorphic function on $D$ that extends to be analytic on $\partial D$, such that $f(z) \neq 0$ on $\partial D$. Then the increase in the argument of $f9z)$ around the boundary of $D$ is $2\pi$ times the number of zeros minus the number of poles of $f(z)$ in $D$,\begin{equation*}
+        \int_{\partial D}d\arg(f(z)) = 2\pi(N_0-N_{\infty})
+    \end{equation*}
+\end{thm}
+
+\begin{eg}
+    Consider $f(z) = z^4 + 1$, and study $\gamma:$ $\gamma(t) = 2e^{it}$, $0 \leq t \leq 2\pi$. We want to calculate the number of zeros of the function in a circle of radius $2$ (as it has no singularities). Observe $f(\gamma(t)) = 16e^{4it}+1$, so $f(\gamma(t)) = (16\cos(4t)+1)+i\sin(4t)$. Let $x = 16\cos(4t)+1$ and $y = 16\sin(4t)$, a circle of radius $16$, centered at $1+0i$. Then the argument traverses a difference $8\pi$ on $\gamma$, so the number of roots is $4$ (as expected).
+\end{eg}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%% Section 2.1.2
+\section{Rouch\'{e}'s Theorem}
+
+There is a general principle to the effect that the number of zeros of an analytic function on a domain does not change if we make a small change in the function. 
+
+\begin{namthm}[Rouch\'{e}'s Theorem]
+    Let $D$ be a bounded domain with piecewise smooth boundary $\partial D$. Let $f(z)$ and $h(z)$ be analytic on $D\cup \partial D$. If $|h(z)| < |f(z)|$ for $z \in \partial D$, then $f(z)$ and $f(z)+h(z)$ ahve the sume number of zeros in $D$, counting multiplicities.
+\end{namthm}
+\begin{proof}
+    By assumption $|h(z)| < |f(z)|$ we have that $f(z) \neq 0$ on $\partial D$, and that $f(z)+h(z) \neq 0$ on $\partial D$. From $f(z)+h(z) = f(z)[1+h(z)/f(z)]$, we obtain \begin{equation*}
+        \arg(f(z)+h(z)) = \arg(f(z))+\arg\left(1+\frac{h(z)}{f(z)}\right)
+    \end{equation*}
+    Since $|h(z)/f(z)| < 1$, the values of $1+h(z)/f(z)$ lie in the right half-plane, and the increase of $\arg(1+h(z)/f(z))$ around a closed boundary curve is $0$, since we can restrict to a single-valued branch of the argument function. From the above expression we see that $\arg(f(z)+h(z))$ and $\arg f(z)$ have the same increase around $\partial D$. By the argument principle, the functions have the same number of zeros in $D$.
+\end{proof}
+
+We can think of $h(z)$ as small perturbations to the image of the curve under $f(z)$, so that the image curve will never reach the origin. That is to say, the image curve is a path or string away from the origin, and $h(z)$ are perturbations or waves in the string which are smaller in magnitude than the strings closest distance to the origin, and hence never reach the origin.
+
+
+\begin{eg}
+    Find the number of zeros for $p(z) = z^{11}+12z^7-3z^2+z+2$ within the unit circle. Let $f(z) = 12z^7$ and $h(z) = z^{11}-3z^2+z+2$ observe for $|z| = 1$ we have $|h(z)| \leq 1+3+1+2 = 7$ and $|f(z)| = 12$. Hence, $|h(z)| < |f(z)|$, for all $z$ with $|z| = 1$. Observe that $f(z) = 12z^7$ has a zero $z = 0$ of multiplicity $7$ in the unit circle, so by Rouch\'{e}'s Theorem $p(z) = f(z)+h(z)$ has $7$ roots within the unit circle.
+\end{eg}
+
+\begin{eg}
+    Prove that the equation $z+3+2e^z = 0$ has precisely one solution in the left-half plane. The idea here is to view $f(z) = z+3$ as being perturbed by $h(z) = 2e^z$. Clearly $f(-3) = 0$ is the only zero, and we can find a curve $\gamma$ which bounds $\mathscr{R}e(z) < 0$ and for which $|h(\gamma(t))| \leq |f(\gamma(t))|$ for all $t$ in the domain of $\gamma$, then by Rouch\'{e}'s Theorem we obtain our desired conclusion. Therefore, consider $\gamma = C_R\cup [-iR,iR]$ where $C_R$ has $z = Re^{it}$ for $\pi/2 \leq t \leq 3\pi/2$. Consider $z \in [-iR,iR]$, so $z = iy$ for $-R \leq y \leq R$ observe \begin{equation*}
+        |f(z)| = |iy+3| = \sqrt{9+y^2}\;\;\&\;\;|h(z)| = |2e^{iy}| = 2
+    \end{equation*}
+    so $|h(z)| < |f(z)|$ for all $z \in [-iR,iR]$. Next suppose $z =x+iy \in C_R$, so $-R\leq x \leq 0$ and $-R\leq y \leq R$, with $|z| = R$. In particular, assuming $R > 5$, $R-3\leq |f(z)| = |z+3| \leq \sqrt{9+R^2}$, and $$|h(z)| = |2e^xe^{iy}| = 2e^x < 2 < R-3 < |f(z)|$$ since $-R \leq x \leq 0$. Consequently $|h(z)| < |f(z)|$ on $\gamma$ for $R > 5$, so by Rouch\'{e}'s Theorem $f(z)+h(z) = z+3+2e^z$ has only one zero in $\gamma$ for $R > 5$. Taking $R\rightarrow \infty$, the equation $z+3+2e^z$ has just one solution in the left-half plane.
+\end{eg}
+
+\begin{eg}[Proof of FTA]
+    Consider $p(z) = a_nz^n+...+a_1z+a_0$, where $a_n \neq 0$. Let $f(z) = a_nz^n$ and hence $h(z) = a_{n-1}z^{n-1}+...+a_1z+a_0$, then $p(z) = f(z)+h(z)$. Moreover, if we choose $R > 0$ sufficiently large then $|h(z)| \leq |a_{n-1}|R^{n-1} + ... + |a_1|R+|a_0| < |a_n|R^n = |f(z)|$ for $|z| = R$ hence by Rouch\'{e}'s Theorem there are $n$-zeros of $p(z)$ in the circle of radius $R$ as $z = 0$ is a zero of multiplicity $n$ for $f(z) = a_nz^n$. Thus, every $p(z) \in \C[z]$ has $n$ zeros, counting multiplicity, on the complex plane.
+\end{eg}
+
+
+
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%% Chapter 2.2
@@ -3195,14 +3435,200 @@ The principal value of the integral coincides with the usual value of the integr
 \chapter{Approximation Theorems}
 
 
+%%%%%%%%%%%%%%%%%%%% Section 3.1.2
+\section{The Mittag-Leffler Theorem}
+
+Recall that if $f(z)$ is a meromorphic function with pole at $z_0$, and the Laurent expansion of $f(z)$ at $z_0$ is given by $\sum_{k=-m}^{\infty}a_k(z-z_0)^k$, then the principal part $P(z)$ of $f(z)$ at $z_0$ is the sum of the terms with negative powers, $P(z) = \sum_{k=-m}^{k=-1}a_k(z-z_0)^k$. Thus $P(z)$ is a polynomial in $1/(z-z_0)$, and $f(z)-P(z)$ is analytic at $z_0$. The Mittag-Leffler theorem asserts that we can prescribe the poles and principal parts of a meromorphic function.
+
+\begin{namthm}[Mittag-Leffler Theorem]
+    Let $D$ be a domain in the complex plane. Let $\{z_k\}$ be a sequence of distinct points in $D$ with no accumulation point in $D$, and let $P_k(z)$ be a polynomial in $1/(z-z_k)$. Then there is a meromorphic function $f(z)$ on $D$ whose poles are the points $z_k$, and such that $f(z) - P_k(z)$ is analytic at $z_k$.
+\end{namthm}
+
+
+\begin{eg}
+    Consider $P_k(z) = \frac{1}{z-k}$ for $k \in \N$. Then suppose we take \begin{equation*}
+        f_{naive}(z) = \sum_{k=1}^{\infty}\frac{1}{z-k}
+    \end{equation*}
+    and consider the domain $D = \C$. But, then $f_{naive}(0) = -\sum_{k=1}^{\infty}\frac{1}{k} = -\infty$, which is to say it is not analytic at $0$. Instead, let's take \begin{equation*}
+        f(z) = \sum_{k=1}^{\infty}\left(\frac{1}{z-k}+\frac{1}{k}\right)
+    \end{equation*}
+    and then $f(0) = 0$, and we have analyticity on bounded sets. In particular, it converges uniformly on bounded sets by comparison the series $\sum 1/k^2$. Indeed, if $|z| \leq R$ and $k > 2R$, then $|z-k| > k/2$, so the $k$th summand is bounded by $2/k^2$.
+\end{eg}
+
+Let $w_1$ and $w_2$ be two complex numbers that do not lie on the same line through the origin. Then we can construct the \Emph{Weierstrass P-Function $\mathcal{P}(z)$} associated with $w_1$ and $w_2$. This is a doubly periodic meromorphic function on the complex plane.
+
+
+\begin{eg}
+    We wish to show the following partial fractions decomposition identity \begin{equation*}
+        \frac{\pi^2}{\sin^2(\pi z)} = \sum_{k=-\infty}^{\infty}\frac{1}{(z-k)^2}
+    \end{equation*}
+    (note this is meromorphic on $\C$, but not on $\C^*$ since it has an essential singularity at $\infty$). Observe $\pi^2\int\csc^2(\pi z)dz = -\pi\cot(\pi z)+C$, so \begin{equation*}
+        \pi\cot(\pi z) = \frac{1}{z}+2\pi\sum_{k=1}^{\infty}\frac{1}{z^2-k^2}
+    \end{equation*}
+\end{eg}
+
+
+
+%%%%%%%%%%%%%%%%%%%% Section 3.1.3
+\section{Infinite Products}
+
+\begin{defn}
+    An \Emph{infinite product} is an expression of the form $\prod_{j=1}^{\infty}p_j$, where the $p_j$'s are complex numbers. We say that the infinite product \Emph{converges} if $p_j\rightarrow 1$ and $\sum\text{Log}p_j$ converges, where we sum only over terms for which $p_j\neq 0$. If the infinite product converges, we define its value to be $0$ if one of the $p_j$'s is $0$; otherwise, we define it to be \begin{equation*}
+        \prod_{j=1}^{\infty}p_j = \exp\left(\sum_{j=1}^{\infty}\text{Log}p_j\right)
+    \end{equation*}
+\end{defn}
+
+If $\prod p_j$ converges, then at most finitely many of the $p_j$'s can be $0$. This is because $p_j\rightarrow 1$. Second, if $\prod p_j$ converges, then \begin{equation*}
+    \prod_{j=1}^{\infty}p_j = \lim\limits_{m\rightarrow \infty}\prod_{j=1}^mp_j
+\end{equation*}
+This is because $\exp(\text{Log}p_j) = p_j$.
+
+\begin{eg}
+    If $p_{42} = 0$ and $p_j = 1$ for all $j \neq 42$, then $\prod_{j=1}^{\infty}p_j = 0$.
+\end{eg}
+
+
+\begin{eg}
+    If $p_1 = 1-\frac{1}{j^2}$ for all $j \geq 2$, then you can directly calculate the partial products. By induction we can show \begin{equation*}
+        \prod_{j=2}^n(1-1/j^2) = \frac{1}{2}\left(1+\frac{1}{n}\right)
+    \end{equation*}
+    Then it follows that $\prod_{j=2}^{\infty}\left(1-\frac{1}{j^2}\right) = \frac{1}{2}$. 
+\end{eg}
+
+\begin{eg}
+    The product $\prod_{j=2}^{\infty}(1-1/j)$ is divergent despite the fact $1-\frac{1}{j}\rightarrow 1$, since $\sum_{j=2}^{\infty}\text{Log}(1-1/j)$ diverges to $-\infty$. Formally, the product diverges to $0$ since $\exp(-\infty) = 0$.
+\end{eg}
+
+\begin{eg}
+    Consider the infinite product formed by $p_k = 1+\frac{(-1)^{k+1}}{k}$, $k \geq 1$, so \begin{align*}
+        \prod_{j=1}^{\infty}\left(1+\frac{(-1)^{j+1}}{j}\right) &= (1+1/1)(1-1/2)(1+1/3)(1-1/4)... \\
+        &= \lim\limits_{k\rightarrow \infty}\left[2\cdot \frac{1}{2}\cdot\frac{4}{3}\cdot \frac{3}{4}\cdot ...\cdot \left(1+\frac{(-1)^{k+1}}{k}\right)\right]
+    \end{align*}
+    Evidently the product of evenly many terms is $1$, so we see the product tends to $1$ as $k\rightarrow \infty$.
+\end{eg}
+
+\begin{thm}
+    If $t_j \geq 0$, then $\prod(1+t_j)$ converges if and only if $\sum t_j$ converges.
+\end{thm}
+
+\begin{defn}
+    The infinite product $\prod(1+a_j)$ is said to \Emph{converge absolutely} if $a_j\rightarrow 0$ and $\sum\text{Log}(1+a_j)$ converges absolutely, where we sum over the terms for which $a_j \neq -1$. If $\prod(1+a_j)$ converges absolutely, then $\sum\text{Log}(1+a_j)$ converges and $\prod(1+a_j)$ converges.
+\end{defn}
+
+\begin{thm}
+    The infinite product $\prod(1+a_j)$ converges absolutely if and only if $\sum a_j$ converges absolutely. This occurs if and only if $\prod(1+|a_j|)$ converges.
+\end{thm}
+
+
+\begin{thm}
+    Suppose that $g_k(x) = 1+h_k(x)$, $k \geq 1$, are functions on a set $E$. Suppose that there are constants $M_k > 0$ such that $\sum M_k < \infty$, and $|h_k(x)| \leq M_k$ for $x \in E$. Then $\prod_{k=1}^mg_k(x)$ converges to $\prod_k^{\infty}g_k(x)$ uniformly on $E$ as $m\rightarrow \infty$.
+\end{thm}
+\begin{proof}
+    (to be completed)
+\end{proof}
+
+If $G(z) = g_1(z)...g_m(z)$ is a finite product of analytic functions, then by taking logarithms and differentiating we obtain\begin{equation*}
+    \frac{G'(z)}{G(z)} = \frac{g_1'(z)}{g_1(z)} + ... + \frac{g'_m(z)}{g_m(z)}
+\end{equation*}
+This procedure is called \Emph{logarithmic differentiation}.
+
+\begin{thm}
+    Let $g_k(z), k \geq 1$, be analytic functions on a domain $D$ such that $\prod_{k=1}^mg_k(z)$ converges normally on $D$ to $G(z) = \prod_{k=1}^{\infty}g_k(z)$. Then \begin{equation*}
+        \frac{G'(z)}{G(z)} = \sum_{k=1}^{\infty}\frac{g_k'(z)}{g_k(z)},\;\;\;\;z \in D
+    \end{equation*}
+    where the sum converges normally on $D$.
+\end{thm}
+\begin{proof}
+    (To be completed)
+\end{proof}
+
+
+
+%%%%%%%%%%%%%%%%%%%% Section 3.1.4
+\section{The Weierstrass Product Theorem}
+
+This is a companion to the Mittag-Leffler theorem, which asserts that we can prescribe the poles and principal parts of a meromorphic function, while the Weierstrass product theorem asserts that we can prescribe the zeros and poles of a meromorphic function together with their orders.
+
+\begin{namthm}[Weierstrass Product Theorem]
+    Let $D$ be a domain in the complex plane. Let $\{z_k\}$ be a sequence of distinct points of $D$ with no accumulation point in $D$, and let $\{n_k\}$ be a sequence of integers (positive or negative). Then there is a meromorphic function $f(z)$ on $D$ whose only zeros and poles are at the points $z_k$ such that the order of $f(z)$ at $z_k$ is $n_k$.
+\end{namthm}
+\begin{proof}
+    (To be completed)
+\end{proof}
+
+\begin{eg}
+    Consider $\prod_{k=1}^{\infty}\left(1-\frac{z^2}{k^2}\right)$. Write $g_k(z) = 1-\frac{z^2}{k^2}$ and $h_k(z) = \frac{-z^2}{k^2}$. Suppose $|z| \leq R$ then $\left|\frac{z^2}{k^2}\right| \leq \frac{R^2}{k^2}$. Observe $\sum_{k=1}^{\infty}\frac{R^2}{k^2} = \frac{\pi R^2}{6}$ hence we find the product is uniformly convergent for $|z| < R$. But as $R$ is arbitrary we find the product $\prod_{k=1}^{m}\left(1-\frac{z^2}{k^2}\right)$ converges uniformly to $\prod_{k=1}^{\infty}\left(1-\frac{z^2}{k^2}\right)$ on $\C$.
+\end{eg}
+
+
+
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%% Chapter 3.2
 \chapter{Special Functions}
 
 
+%%%%%%%%%%%%%%%%%%%% Section 3.2.1
+\section{The Gamma Function}
+
+\begin{defn}
+    The gamma function $\Gamma(z)$ is a meromorphic function defined on the right half-plane by \begin{equation*}
+        \Gamma(z) = \int_0^{\infty}t^{z-1}e^{-t}dt,\;\;\;\;\mathscr{R}e(z) > 0
+    \end{equation*}
+    The integral defining $\Gamma(z)$ is absolutely convergent, and \begin{equation*}
+        |\Gamma(x+iy)| \leq \Gamma(x) = \int_0^{\infty}t^{x-1}e^{-t}dt,\;\;\;\;x>0
+    \end{equation*}
+\end{defn}
+
+Integrating by parts we observe that \begin{align*}
+    \Gamma(z+1) &= \int_0^{\infty}e^{-t}t^zdt = -\int_0^{\infty}t^2d(e^{-t}) = -[t^2e^{-t}]_0^{\infty} + z\int_0^{\infty}e^{-t}t^{z-1}dt \\
+    &= 0 + z\Gamma(z)  = z\Gamma(z),\;\;\;\;\mathscr{R}e(z) > 0
+\end{align*}
+Thus, we have \begin{equation*}
+    \boxed{\Gamma(z+1) = z\Gamma(z),\;\;\;\;\mathscr{R}e(z) > 0}
+\end{equation*}
+Noting that $\Gamma(1) = 1$, and with the equation $\Gamma(2) = 1$, we obtain by induction \begin{equation*}
+    \boxed{\Gamma(n+1) = n!,\;\;\;\;n\geq 0}
+\end{equation*}
+We use the functional equation above to extend $\Gamma(z)$ to the left half-plane as follows: apply the function equation $m$ times to obtain $\Gamma(z+m)=(z+m-1)...(z+1)z\Gamma(z)$, which we rewrite as \begin{equation*}
+    \boxed{\Gamma(z) = \frac{\Gamma(z+m)}{(z+m-1)...(z+1)z}}
+\end{equation*}
+where the right hand side is defined and meromorphic for $\mathscr{R}e(z) > -m$, with simple poles $0,-1,...,-m+1$. By the uniqueness principle, the meromorphic extension is unique and it satisfies the functional equation. Passing to the limit as $m\rightarrow \infty$ we obtain:
+
+\begin{thm}
+    The function $\Gamma(z)$ extends to be meromorphic on the entire complex plane, where it satisfies the functional equation $\Gamma(z+1)=z\Gamma(z)$. Its poles are simple poles at $z = 0,-1,-2,...$.
+\end{thm}
+
+Now, define \begin{equation*}
+    \Gamma_n(z) = \int_0^nt^{z-1}\left(1-\frac{t}{n}\right)^ndt,\;\;\;\;\mathscr{R}e(z) > 0, n\geq 1
+\end{equation*}
+Since $(1-t/n)^n \leq e^{-t}$ and $(1-t/n)^n \rightarrow e^{-t}$ for $t \geq 0$, we have \begin{equation*}
+    \lim\limits_{m\rightarrow \infty}\Gamma_n(z) = \Gamma(z)
+\end{equation*}
+
+(To be continued)
 
 
+
+%%%%%%%%%%%%%%%%%%%% Section 3.2.2
+\section{Laplace Transforms}
+
+\begin{defn}
+    Let $h(s),s\geq0,$ be a continuous or piecewise continuous function on the positive real axis. The \Emph{Laplace transform of $h(s)$} is the function \begin{equation*}
+        \mathcal{L}[h](z) = \int_0^{\infty}e^{-sz}h(s)ds
+    \end{equation*}
+    provided that the integral converges.
+\end{defn}
+
+
+\begin{prop}
+    If there are constants $B$ and $C$ such that $|h(s)| \leq Ce^{Bs}$ for $0 \leq s < \infty$, then the Laplace transform integral converges absolutely and defines an analytic function in the half plane $\mathscr{R}e(z) > B$. The estimate \begin{equation*}
+        |\mathcal{L}[h](x+iy)| \leq C\int_0^{\infty}e^{-zs}e^{Bs}ds = \frac{C}{x-B},\;\;\;\; x > B
+    \end{equation*}
+    shows that $\mathcal{L}[h](z)$ is bounded on the half plane $\mathscr{R}e(z) > B+\varepsilon$ for any $\varepsilon > 0$, and $\mathcal{L}[h](z)\rightarrow 0$ as $\mathscr{R}e(z) \rightarrow \infty$.
+\end{prop}
 
 
 
