@@ -48,6 +48,32 @@
 \BOOKMARK [0][-]{chapter.11}{Fourier Series}{part.2}% 48
 \BOOKMARK [1][-]{section.11.1}{Fourier Coefficients}{chapter.11}% 49
 \BOOKMARK [2][-]{equation.11.1.6}{Full Fourier Series}{section.11.1}% 50
-\BOOKMARK [0][-]{section*.1}{Appendices}{part.2}% 51
-\BOOKMARK [1][-]{section.1..1}{Surfaces and Integral Curves}{section*.1}% 52
-\BOOKMARK [2][-]{eg.1..1.9}{Solving Integral Curve PDEs}{section.1..1}% 53
+\BOOKMARK [1][-]{section.11.2}{Even, Odd, Periodic, and Complex Functions}{chapter.11}% 51
+\BOOKMARK [2][-]{defn.11.2.5}{Fourier Series and Boundary Conditions}{section.11.2}% 52
+\BOOKMARK [2][-]{defn.11.2.5}{The Complex Form of the Full Fourier Series}{section.11.2}% 53
+\BOOKMARK [1][-]{section.11.3}{Orthogonality and General Fourier Series}{chapter.11}% 54
+\BOOKMARK [2][-]{equation.11.3.2}{Symmetric Boundary Conditions}{section.11.3}% 55
+\BOOKMARK [2][-]{thm.11.3.1}{Complex Eigenvalues}{section.11.3}% 56
+\BOOKMARK [2][-]{thm.11.3.2}{Negative Eigenvalues}{section.11.3}% 57
+\BOOKMARK [1][-]{section.11.4}{Completeness}{chapter.11}% 58
+\BOOKMARK [2][-]{thm.11.4.5}{The L2 Theory}{section.11.4}% 59
+\BOOKMARK [1][-]{section.11.5}{Completeness Proofs and Gibbs Phenomenon}{chapter.11}% 60
+\BOOKMARK [2][-]{section*.1}{Proof for Discontinuous Functions}{section.11.5}% 61
+\BOOKMARK [2][-]{section*.1}{Proof of Uniform Convergence}{section.11.5}% 62
+\BOOKMARK [2][-]{section*.1}{The Gibbs Phenomenon}{section.11.5}% 63
+\BOOKMARK [1][-]{section.11.6}{Inhomogeneous Boundary Conditions}{chapter.11}% 64
+\BOOKMARK [2][-]{section*.2}{Expansion Method}{section.11.6}% 65
+\BOOKMARK [2][-]{equation.11.6.2}{Method of Shifting the Data}{section.11.6}% 66
+\BOOKMARK [0][-]{chapter.12}{Green's Identities and Functions}{part.2}% 67
+\BOOKMARK [1][-]{section.12.1}{Green's First Identity}{chapter.12}% 68
+\BOOKMARK [2][-]{equation.12.1.2}{Mean Value Property}{section.12.1}% 69
+\BOOKMARK [2][-]{equation.12.1.3}{Maximum Principle}{section.12.1}% 70
+\BOOKMARK [2][-]{equation.12.1.3}{Uniqueness of Dirichlet's Problem}{section.12.1}% 71
+\BOOKMARK [2][-]{equation.12.1.3}{Dirichlet's Principle}{section.12.1}% 72
+\BOOKMARK [1][-]{section.12.2}{Green's Second Identity}{chapter.12}% 73
+\BOOKMARK [0][-]{chapter.13}{Distributions and Transformations}{part.2}% 74
+\BOOKMARK [1][-]{section.13.1}{Fourier Transforms}{chapter.13}% 75
+\BOOKMARK [2][-]{table.13.2}{Convolution}{section.13.1}% 76
+\BOOKMARK [0][-]{section*.3}{Appendices}{part.2}% 77
+\BOOKMARK [1][-]{section.1..1}{Surfaces and Integral Curves}{section*.3}% 78
+\BOOKMARK [2][-]{eg.1..1.9}{Solving Integral Curve PDEs}{section.1..1}% 79
