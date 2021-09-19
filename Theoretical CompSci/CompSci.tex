@@ -375,6 +375,8 @@
 
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Part 2.
+\part{Comp Phys 481}
 
 
 
@@ -552,9 +554,12 @@ The formal definition of computation for an NFA is as follows: let $N = (Q,\sum,
 Condition $1$ states that the machine starts in the start state, condition $2$ says that state $r_{i+1}$ is one of the allowable next states when $N$ is in state $r_i$ and reading $y_{i+1}$, and condition $3$ says that the machine accepts its input if the last state is an accept state. Observe that $\delta(r_i,y_{i+1})$ is the set of allowable next states.
 
 
+
+
+%%%%%%%%%%%%%%%%%%%%%% - Appendices
 \begin{appendices}
         \section{Lambda Functions}
-
+        
         \begin{defn}
                 Lambda functions are in practice one-line functions which cannot contain commands or more than one expression. In particular, a Lambda function can be created to and assigned to a variable in Python by \begin{equation}
                         g = \mathbf{lambda}\;args_{array}:function\;rule
@@ -672,7 +677,7 @@ Condition $1$ states that the machine starts in the start state, condition $2$ s
             A directed graph is \Emph{strongly connected} if a directed path connects every two nodes.
         \end{defn}
 
-
+        
 
         \section{Strings and Languages Basics}
 
@@ -689,18 +694,23 @@ Condition $1$ states that the machine starts in the start state, condition $2$ s
 
 
 
+    \
+        \section{Recursive Transition Networks}
 
+        Two common models for generating random grammatically correct text is through \Emph{Markov models} and \Emph{recursive transition networks}. Markov models consist of analysing sample text in a genre by breaking it up into units (words or characters) and building up tables of the probabilities of units following other units. To generate text. one performs a \Emph{random walk} through these tables, starting at a random unit, and selecting the following unit randomly with respect to the probabilities discovered, and repeating the process. However, this does not model the grammatical structure of the text. 
 
+        For Recursive transition networks (RTNs), one has to explicitly provide a specification for the domain of text to be modelled. This specification is in the form of a grammar, which defines the different forms and alternatives which can form a valid text fragment in the domain. An RTN can be conceptualized as a directed acyclic graph consisting of nodes representing subtasks which are performed in sequences and paths linking these nodes.
+
+        \subsection{The Dada Engine}
+
+        Scripts contain RTN definitions in the form of a ``grammar." Literal quote, the output, is enclosed in double quotes. Text which is not quoted is assumed to the names of rules or other objects which are evaluated by the interpreter.
+
+        We define parametric rules, such as $$\text{A(name, pronoun): name " shook " pronoun " head " ;}$$ We also define mappings between strings, for example to match names to pronouns one could define a mapping from each name to the respective pronoun. 
 \end{appendices}
 
 
 
 
-%%%%%%%%%%%%%%%%%%%%%% - Appendices
-\begin{appendices}
-
-
-\end{appendices}
 
 
 \end{document}

@@ -1,0 +1,87 @@
+%%%%%%%%%% APPENDIX %%%%%%%%%%
+\begin{appendices}
+    \section{\textsection Semi-Groups and Monoids}
+    
+    \begin{defn}
+        A \Emph{semi-group} is a set $A$ equipped with a binary operation \begin{equation}
+            A\times A \xrightarrow{mult} A,\;\;\;(a_1,a_2)\mapsto a_1\cdot a_2
+        \end{equation}
+        which satisfies the associativity axiom:\begin{equation}
+            \forall a_1,a_2,a_3 \in A,\;\;\;a_1\cdot (a_2\cdot a_3) = (a_1\cdot a_2)\cdot a_3
+        \end{equation}
+        We can write this associativity axiom as the following commuting diagram:
+        \begin{center}
+            \begin{tikzpicture}[baseline = (a).base]
+            \node[scale = 1] (a) at (0,0){
+                \begin{tikzcd}
+                    A\times A \times A \ar[d, "mult \times \id_A", swap] \ar[r, "\id_A\times mult"] & A\times A \ar[d,"mult"] \\
+                    A\times A \ar[r, "mult"] & A
+                \end{tikzcd}
+            };
+            \end{tikzpicture}
+        \end{center}
+    \end{defn}
+    
+    \begin{defn}
+        A semi-group is said to be a \Emph{monoid} if there exists an element $1 \in A$ that satisfies \begin{equation}
+            \forall a \in A,\;\;\;1\cdot a = a = a \cdot 1
+        \end{equation}
+        An element $1 \in A$ is called the \Emph{unity} or \Emph{identity} in $A$.
+    \end{defn}
+    
+    \begin{lem}
+        A monoid contains a unique identity element.
+        \begin{proof}
+            (Left to the reader)
+        \end{proof}
+    \end{lem}
+    
+    \begin{defn}
+        An inverse of $a \in A$, a monoid, is an element $a^{-1} \in A$ such that \begin{equation}
+            a\cdot a^{-1} = 1 = a^{-1} \cdot a
+        \end{equation}
+    \end{defn}
+    
+    \begin{lem}
+        If $a \in A$ admits an inverse, then this inverse is unique.
+        \begin{proof}
+            (Left to the reader)
+        \end{proof}
+    \end{lem}
+    
+    \begin{defn}
+        A monoid is said to be a \Emph{group} if every element admits an inverse.
+    \end{defn}
+    
+    \begin{eg}
+        \leavevmode
+        \begin{enumerate}
+            \item $(\Z,+)$ is a group
+            \item $(\Z,\cdot)$ is a monoid but not a group
+            \item $(\R,+)$ is a group
+            \item $(\R,\cdot)$ is a monoid but not a group ($0$ doesn't have an inverse)
+            \item $(\R-\{0\},\cdot)$ is a group
+            \item $\{\pm 1\} \subset \R$ with the operation $\cdot$ is a group.
+            \item $(\C-\{0\},\cdot)$ is a group
+            \item $(\{z\in \C-\{0\}:|z| = 1\},\cdot$ is a group, often denoted $S^1$ (the \Emph{circle group})
+        \end{enumerate}
+    \end{eg}
+    
+    \begin{defn}
+        A semi-group/monoid/group $A$ is said to be \Emph{commutative} if \begin{equation}
+            \forall a_1,a_2 \in A,\;\;\;a_1\cdot a_2 = a_2\cdot a_1
+        \end{equation}
+        We call such a structure \Emph{abelian}. We may rewrite the commutativity condition as the commutative diagram:
+        \begin{center}
+            \begin{tikzpicture}[baseline = (a).base]
+            \node[scale = 1] (a) at (0,0){
+                \begin{tikzcd}
+                    A\times A  \ar[d, "swap_A", swap] \ar[r, "mult"] & A \ar[d,"\id_A"] \\
+                    A\times A \ar[r, "mult"] & A
+                \end{tikzcd}
+            };
+            \end{tikzpicture}
+        \end{center}
+        where for any set $X$, $\map{swap_X:X\times X\rightarrow X\times X}{(x_1,x_2)\mapsto (x_2,x_1)}$
+    \end{defn}
+\end{appendices}
