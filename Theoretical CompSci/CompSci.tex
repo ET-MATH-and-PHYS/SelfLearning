@@ -556,6 +556,45 @@ Condition $1$ states that the machine starts in the start state, condition $2$ s
 
 
 
+
+
+
+
+
+
+
+
+
+\section{Cellular Automata}
+
+\begin{defn}
+    A \Emph{cellular automaton} is a discrete model of computation. 
+\end{defn}
+
+A cellular automaton classically consists of a regular grid of cells, each in one of a finite number of states (for example on and off). For each cell, a set of cells called its neighborhood is defined relative to the specified cell. We define an initial state by assigning a state for each cell. We advance our state, creating a new generation, according to some fixed rule (usually a mathematical function) that determines the new state of each cell in terms of the current state of the cell and the states of the cells in its neighborhood. Usually the rule updates the state cells in the same manner and does not change over time, while being applied to the whole grid simultaneously.
+
+The primary classifications of cellular automata, as outlined by Wolfram, are \begin{enumerate}
+    \item Automata in which patterns generally stabilize into homogeneity (uniform in composition or character)
+    \item Automata in which patterns evolve into mostly stable or oscillating structures
+    \item Automata in which patterns evolve in a seemingly chaotic fashion
+    \item Automata in which patterns become extremely complex and may last for a long time, with stable local structures.
+\end{enumerate}
+This last class is thought to be ``computationally universal" or capable of simulating a ``Turing machine."
+
+Common types of neighborhoods are the \Emph{von Neumann neighborhood} which consists of four orthogonally adjacent cells (adjacent cells, but not the corners), and the \Emph{Moore neighborhood} which consists adjacent cells (creating a 3 by 3 square). For a cell and its Moore neighborhood there are $2^9 = 512$ possible patterns, each of which would determine whether the cell will be black or white on the next interval based on the rule table. The extended von Neumann neighborhood includes two cells in each orthogonal direction, for a total of eight.
+
+\begin{prop}
+    The general equation for a system of rules is $k^{k^s}$ where $k$ is the number of possible states for a cell, and $s$ is the number of neighboring cells (including the cell to be calculated itself) used to determine the cell's next state.
+\end{prop}
+
+For infinite grids we either assume all cells are of the same state, except for a finite number, or all cells follow some pattern, except for a finite number. In a finite grid we must determine ways to deal with edge cells. One way of dealing with the finite cells is to employ a toroidal structure.
+
+
+
+
+
+
+
 %%%%%%%%%%%%%%%%%%%%%% - Appendices
 \begin{appendices}
         \section{Lambda Functions}

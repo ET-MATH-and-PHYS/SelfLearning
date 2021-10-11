@@ -53,7 +53,72 @@
 \tableofcontents
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Part 1.
+\part{Euclidean Geometry}
 
+%%%%%%%%%%%%%%%%%%%%%% Chapter 1.1
+\chapter{Length and the Dot Product}
+
+We define the notion of a dot or scalar product of two vectors in euclidean n space as follows: 
+
+\begin{defn}
+    For vectors $u,v \in \R^n$ we define the \Emph{dot product} of $u$ and $v$ to be \begin{equation*}
+        u\cdot v = \sum_{i=1}^nu_iv_i
+    \end{equation*}
+\end{defn}
+Some important properties of the dot product, which show it is a positive definite, symmetric bilinear form on $\R^n$ are 
+
+\begin{thm}[Properties of the Dot Product]
+    For all $u,v,w \in \R^n$ and all $t \in \R$ we have \begin{enumerate}
+        \item (Bilinearity) $(u+v)\cdot w = u\cdot w + v\cdot w, (tu)\cdot v = t(u\cdot v)$ and $u\cdot (v+w) = u\cdot v + u\cdot w, u \cdot (tv) = t(u\cdot v)$
+        \item (Symmetry) $u\cdot v = v\cdot u$, and 
+        \item (Positive Definiteness) $u\cdot u \geq 0$ with $u \cdot u = 0$ if and only if $u = 0$
+    \end{enumerate}
+\end{thm}
+
+Using the dot product we can define a norm on $\R^n$:
+
+\begin{defn}
+    For a vector $u \in \R^n$, we define the \Emph{length} or \Emph{norm} of $u$ to be \begin{equation*}
+        |u| = \sqrt{u\cdot u} = \sqrt{\sum_{i=1}^nu_i^2}
+    \end{equation*}
+\end{defn}
+
+We say that $u$ is a \Emph{unit vector} when $|u| = 1$. From properties of the dot product we have the following properties of the norm:
+
+\begin{thm}[Properties of the Length]
+    Let $u,v \in \R^n$ and let $t \in \R$. Then \begin{enumerate}
+        \item (Positive Definiteness) $|u| \geq 0$ with $|u| = 0$ if and only if $u = 0$
+        \item (Scaling) $|tu| = |t||u|$
+        \item $|u\pm v|^2 = |u|^2\pm 2(u\cdot v)+|v|^2$ 
+        \item (The Polarization Identities) $u\cdot v = \frac{1}{2}(|u+v|^2-|u|^2-|v|^2) = \frac{1}{4}(|u+v|^2-|u-v|^2)$
+        \item (The Cauchy-Schwarz Inequality) $|u\cdot v| \leq |u||v|$ with $|u\cdot v| = |u||v|$ if and only if the set $\{u,v\}$ is linearly dependent,
+        \item (The Triangle Inequality) $|u+v| \leq |u|+|v|$
+    \end{enumerate}
+\end{thm}
+
+Next, we can use the norm to define a metric, or distance, for $\R^n$:
+
+\begin{defn}
+    For points $u,v \in \R^n$, we define the Euclidean \Emph{distance} between $u$ and $v$ to be \begin{equation*}
+        d_E(u,v) := |v-u|
+    \end{equation*}
+\end{defn}
+
+The following theorem proves that this distance is indeed a metric:
+
+\begin{thm}[Metric Properties of the Euclidean Distance]
+    Let $u,v,w \in \R^n$. Then \begin{enumerate}
+        \item (Positive Definiteness) $d_E(u,v) \geq 0$ with $d_E(u,v) = 0$ if and only if $u = v$,
+        \item (Symmetry) $d_E(u,v) = d_E(v,u)$ 
+        \item (The Triangle Inequality) $d_E(u,w) \leq d_E(u,v) + d_E(v,w)$
+    \end{enumerate}
+\end{thm}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%% Section 1.1.1
 
 
 
