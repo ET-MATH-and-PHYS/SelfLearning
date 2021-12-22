@@ -1,0 +1,575 @@
+%%%%%%%%%% Metric Spaces %%%%%%%%%%
+\chapter{Metric Spaces}
+
+\section{Euclidean Spaces}
+
+We begin our study with one of the most well studied metric spaces, Euclidean $n$-space.
+
+\begin{defn}
+    \Emph{Euclidean} $n$-space is defined as the product \begin{equation*}
+        \R^n := \R\times \cdots \times \R = \{(x_1,...,x_n):x_1,...,x_n \in \R\}
+    \end{equation*}
+    We define $+:\R^n\times \R^n\rightarrow \R^n$ component-wise, and we define a module action $\cdot:\R\times \R^n\rightarrow \R^n$ also component-wise, turning $\R^n$ into an $\R$-linear space.
+\end{defn}
+
+Euclidean space is a special type of vector space which satisfies certain additional structures:
+
+\begin{defn}
+    A \Emph{real-inner product} on a real vector space $V$ is a map $\langle , \rangle: V\times V\rightarrow \R$ such that \begin{enumerate}
+        \item $\langle v,v\rangle \geq 0$ for all $v \in V$, and $\langle v,v\rangle = 0$ if and only if $v = 0_V$
+        \item $\langle v,w\rangle = \langle w,v\rangle$ for all $v,w \in V$
+        \item $\langle av+bu,w\rangle = a\langle v,w\rangle + b\langle u,w\rangle$ for all $v,u,w \in V$ and all $a,b \in \R$.
+    \end{enumerate}
+\end{defn}
+
+\begin{defn}
+    A \Emph{norm} on a real vector space $V$ is a map $||\cdot||:V\rightarrow \R$ such that \begin{enumerate}
+        \item $|| v|| \geq 0$ for all $v \in V$, and $||v|| = 0$ if and only if $v = 0_V$
+        \item $||av|| = |a|\cdot||v||$ for all $v \in V$ and all $a \in \R$
+        \item $||v+w|| \leq ||v|| + ||w||$ for all $v,w \in V$ (triangle inequality)
+    \end{enumerate}
+    Then $(V,||\cdot||)$ is called a \Emph{normed linear space}.
+\end{defn}
+
+\begin{defn}
+    A \Emph{metric} on a set $X$ is a map $d:X\times X\rightarrow \R$ such that \begin{enumerate}
+        \item $d(x,y) \geq 0$ for all $x,y \in X$, and $d(x,y) = 0$ if and only if $x=y$
+        \item $d(x,y) = d(y,x)$ for all $x,y \in X$
+        \item $d(x,z) \leq d(x,y)+d(y,z)$ for all $x,y,z \in X$ (triangle inequality)
+    \end{enumerate}
+    In this case we call $(X,d)$ a \Emph{metric space}.
+\end{defn}
+
+\begin{prop}
+    If $\langle ,\rangle:V\times V\rightarrow \R$ is an inner product, $||\cdot ||:V\rightarrow \R$ defined by $||\cdot || = \sqrt{\langle \cdot,\cdot\rangle}$ is a norm, and $d:V\times V\rightarrow \R$ defined by $d(a,b) = ||a-b||$ is a metric.
+\end{prop}
+
+We now define the inner product on Euclidean $n$-space:
+
+\begin{defn}
+    The Euclidean inner product on $\R^n$ is given by \begin{equation*}
+        \langle x,y\rangle = x\cdot y = \sum_{i=1}^nx_iy_i
+    \end{equation*}
+    for all $x = (x_1,...,x_n),y=(y_1,...,y_n) \in \R^n$.
+\end{defn}
+
+\begin{prop}[Cauchy-Schwarz Inequality]
+    For any inner product $\langle ,\rangle:V\times V\rightarrow \R$\begin{equation*}
+        |\langle v,w\rangle|\leq |\langle v,v\rangle||\langle w,w\rangle|
+    \end{equation*}
+\end{prop}
+\begin{proof}
+    Let $t > 0$, and consider $0 \leq \langle tx-t^{-1}y,tx-t^{-1}y\rangle$, so $0 \leq t^2||x||^2-2\langle x,y\rangle + t^{-2}||y||^2$. Without loss of generality suppose $x,y \neq 0$. Then let $t^2 = \frac{||y||}{||x||}$, so we have $2\langle x,y\rangle \leq 2||y||\cdot||x||$, so we have our desired result. Replacing $x$ with $-x$ we obtain $-\langle x,y\rangle \leq ||y||\cdot||x||$, so $|\langle x,y\rangle| \leq ||x||\cdot ||y||$.
+\end{proof}
+
+The triangle inequality follows from this Cauchy-Schwarz inequality. Thus, $\R^n$ is a metric space, and in particular it is a normed linear space.
+
+\subsection{Sequences and Convergence}
+
+We can now use the metric on $\R^n$ to define notions of convergence for sequences.
+
+\begin{defn}
+    If $(\vec{x}_j)_{j=1}^{\infty} \subset \R^n$, then $\vec{x}_j\rightarrow \vec{x} \in \R^n$ if and only if $||\vec{x}_j-\vec{x}||$ converges to $0$ in $\R$. Further, we say such a sequence is \Emph{Cauchy} if and only if for all $\varepsilon > 0$, there exists $N \in \N$ such that for $j,k \geq N$, $||\vec{x}_j - \vec{x}_k|| < \varepsilon$.
+\end{defn}
+
+We note that we can consider $\C \cong \R^2$ as normed linear spaces over $\R$.
+
+\begin{prop}
+    $\R^n$ is a complete metric space.
+\end{prop}
+\begin{proof}
+    By completeness of $\R$, and the fact that $(x_j)_{j=1}^{\infty} = (\langle x_{j,1},...,x_{j,n}\rangle)_{j=1}^{\infty}$ is Cauchy if and only if the $(x_{j,i})_{j=1}^{\infty}$ are Cauchy for all $i$.
+\end{proof}
+
+\subsection{Topological Properties of Euclidean Space}
+
+First we define the notions of open and closed sets in $\R^n$: 
+
+\begin{defn}
+    We say that $S \subseteq \R^n$ is \Emph{closed} if and only if for all sequences $(x_j)_{j=1}^{\infty} \subseteq S$ such that $x_j$ converges to $x \in \R^n$, $x \in S$.
+\end{defn}
+
+\begin{defn}
+    We say that a set $U \subseteq \R^n$ is \Emph{open} if and only if $\R^n\backslash U = U^C$ is closed. This holds if and only if for all $x \in U$, there exists $\varepsilon > 0$ such that $B_{\varepsilon}(x) \subseteq U$, where \begin{equation*}
+        B_{\varepsilon}(x) := \{y \in \R^n:d(x,y) < \varepsilon\}
+    \end{equation*}
+    is the $\varepsilon$-ball centered at $x \in \R^n$.
+\end{defn}
+
+\begin{defn}
+    A set $K \subseteq \R^n$ is \Emph{sequentially compact} if and only if for all $(p_j)_{j=1}^{\infty} \subseteq K$, there exists a subsequence $(p_{j_k})_{k=1}^{\infty} \subseteq K$ and a $p \in K$ such that $p_{j_k}$ converges to $p$.
+\end{defn}
+
+That is every sequence in a sequentially compact set has a convergent subsequence.
+
+\begin{defn}
+    A set $S \subseteq T\subseteq \R^n$ is said to be \Emph{dense} in $T$ if $\overline{S} \supseteq T$, where $\overline{S}$ is the \Emph{closure} of $S$: \begin{equation*}
+        \overline{S} := \bigcap\{\mathcal{C}\subseteq \R^n:S\subseteq \mathcal{C}\text{ and }\mathcal{C}\text{ is closed}\}
+    \end{equation*}
+\end{defn}
+
+Note that the closure of a set $S$ is the smallest closed set containing $S$.
+
+\begin{defn}
+    A topological space $(X,\tau)$ is said to be \Emph{separable} if it has a \Emph{countable dense subset}.
+\end{defn}
+
+We note that $\R^n$ is separable with countable dense subset $\Q^n$. Indeed, for all $U \subseteq \R^n$, $U$ is open if and only if for all $p \in U$, there exists $q \in \Q^n$ and $r \in \Q^+$ such that $p \in B_r(q) \subseteq U$. Hence, \begin{equation*}
+    \mathcal{B} := \{B_r(q):r\in \Q^+,q \in \Q^n\}
+\end{equation*}
+is a countable base for the topology on $\R^n$, so $\R^n$ is a \Emph{second countable space}. We have the following useful results about compactness in Euclidean spaces:
+
+\begin{cor}
+    If $K\subseteq \R^n$ is sequentially compact then it is topologically compact.
+\end{cor}
+
+To prove this corollary we first prove some intermediate results.
+
+\begin{prop}
+    If $K \subseteq \R^n$ is sequentially compact, and $X_1 \supseteq X_2\supseteq X_3\supseteq ...$ is a chain of nonempty closed subsets of $K$, then $\bigcap_{j\geq 1}X_j \neq \emptyset$.
+\end{prop}
+\begin{proof}
+    Let $x_j \in X_j \subseteq K$ for each $j$. Then $(x_j)_{j=1}^{\infty} \subseteq K$, so as $K$ is compact we have a subsequence $(x_{j_k})_{k=1}^{\infty} \subseteq K$ such that $x_{j_k}\rightarrow x \in K$. But, for each $m \in \N$, $\{x_{j_k}:k \geq m\} \subseteq X_m$, so as $X_m$ is closed it follows that $x \in X_m$. Thus, $x \in \bigcap_{j\geq 1}X_j$, so $\bigcap_{j\geq 1}X_j \neq \emptyset$.
+\end{proof}
+
+\begin{prop}
+    If $K \subseteq \R^n$ is compact and $U_1\subseteq U_2\subseteq ...$ is a chain of open sets which cover $K$, $K \subseteq \bigcup_{j\geq 1}U_j$, then there exists $M \in \N$ such that $K \subseteq U_M$.
+\end{prop}
+\begin{proof}
+    Consider $X_m = K\backslash U_m$, which gives a chain of open sets. We have that $\bigcap_{j\geq 1}X_j = \emptyset$, so by the contrapositive of the previous proposition there exists $M \in \N$ such that $X_M = \emptyset$. Then $K \subseteq U_M$, as desired.
+\end{proof}
+
+Now we proceed to the proof of the corollary:
+
+\begin{proof}
+    Let $\{U_{\alpha}\}_{\alpha \in J}$ be an open cover of $K$, which is sequentially compact in $\R^n$. For each $\alpha$ we have $U_{\alpha} = \bigcup_{j\geq 1}B_{r_{\alpha_j}}(q_{\alpha_j})$ is the union of a countable number of open sets in our countable base. Then, $K \subseteq \bigcup_{\alpha \in J}\bigcup_{j\geq 1}B_{r_{\alpha_j}}(q_{\alpha_j})$, which is a union over a countable collection of open sets since $\mathcal{B}$ is countable. We claim any countable cover has a finite subcover for $K$. Indeed, consider $U_m = \bigcup_{j=1}^mB_j$ for a countable cover $\bigcup_{j\geq 1}B_j$. Then by the previous proposition there exists $M \in \N$ such that $K \subseteq \bigcup_{j=1}^MB_j$. Thus, there exist $\alpha_1,...,\alpha_N \in J$, and $M_j$ such that $K \subseteq \bigcup_{j=1}^N\bigcup_{k=1}^{M_j}B_{r_{\alpha_{j,k}}}(q_{\alpha_{j,k}}) \subseteq \bigcup_{j=1}^NU_{\alpha_j}$, so $K$ it topologically compact.
+\end{proof}
+
+\section{Metric Space Properties}
+
+Throughout this section let $(X,d)$ be a metric space. Then we can define convergence of sequences as follows: 
+
+\begin{defn}
+    A sequence $(x_j)_{j=1}^{\infty} \subseteq X$ converges to $x \in X$ if and only if $d(x_j,x)$ converges to $0$ in $\R$.
+\end{defn}
+
+\begin{defn}
+    A sequence $(x_j)_{j=1}^{\infty}\subseteq X$ is said to be Cauchy if and only if $d(x_j,x_k)$ converges to $0$ in $\R$ as $k$ and $j$ go to infinity.
+\end{defn}
+
+\begin{defn}
+    $X$ is said to be a \Emph{complete metric space}, or a \Emph{Fr\'{e}chet space}, if and only if for all Cauchy sequences $(x_j)_{j=1}^{\infty} \subseteq X$, there exists $x \in X$ such that $x_j$ converges to $x$.
+\end{defn}
+
+\subsection{Completion of a Metric Space}
+
+As in the case of $\Q$ to $\R$, we can form the completion of a general metric space.
+
+\begin{defn}
+    If $(X,d)$ is not complete, we can define its completion $(\hat{X},\hat{d})$ by taking $\hat{X} = \{[(x_j)_{j=1}^{\infty}] : (x_j)_{j=1}^{\infty}\subseteq X\text{ is Cauchy}\}$, where $[(x_j)]$ is the the equivalence class defined by $(x_j) \sim (x_j')$ if and only if $d(x_j,x_j') \rightarrow 0$ in $\R$. For $\xi = [(x_j)]$ and $\eta = [(y_j)]$, we define \begin{equation*}
+        \hat{d}(\xi,\eta) := \lim\limits_{j\rightarrow \infty}d(x_j,y_j)
+    \end{equation*}
+\end{defn}
+It remains to show that $\hat{d}$ is a well defined metric. Note by the triangle inequality $d(x,y) \leq d(x,z) + d(z,y)$, so $d(x,y) - d(x,z) \leq d(y,z)$ and using $d(x,z) \leq d(x,y) + d(y,z)$, $d(x,z) - d(x,y) \leq d(y,z)$. Thus $$|d(x,z) - d(x,y)| \leq d(y,z)$$ Then suppose $(x_j) \sim (x_j')$ and $(y_j) \sim (y_j')$. It follows that \begin{align*}
+    |d(x_j,y_j) - d(x'_j,y'_j)| &= |d(x_j,y_j) - d(x_j,y_j') + d(x_j,y_j') - d(x'_j,y'_j)| \\
+    &\leq |d(x_j,y_j) - d(x_j,y_j')| + |d(x_j,y_j') - d(x'_j,y'_j)| \\
+    &\leq d(y_j,y_j') + d(x_j,x_j')
+\end{align*}
+which goes to $0$ as $(x_j)\sim(x_j')$ and $(y_j)\sim(y_j')$. This proves that if the limit exists, then it is independent of representative. Now, as $\R$ is complete, to show $\hat{d}(\xi,\eta) = \lim\limits_{j\rightarrow \infty}d(x_j,y_j)$ exists it is sufficient to show $d(x_j,y_j)$ is Cauchy. Then \begin{align*}
+    |d(x_j,y_j) - d(x_k,y_k)| &= |d(x_j,y_j) - d(x_j,y_k) + d(x_j,y_k) - d(x_k,y_k)| \\
+    &\leq |d(x_j,y_j) - d(x_j,y_k)| + |d(x_j,y_k) - d(x_k,y_k)| \\
+    &\leq d(y_j,y_k) + d(x_j,x_k)
+\end{align*}
+which goes to $0$ as $j$ and $k$ go to $\infty$ as $(y_j)$ and $(x_j)$ are Cauchy, so $d(x_j,y_j)$ is Cauchy. Thus $\hat{d}$ is well defined. Further, $\hat{d}(\xi,\eta) = \lim\limits_{j\rightarrow \infty}d(x_j,y_j) \geq 0$, $\hat{d}(\xi,\eta) = 0$ if and only if $d(x_j,y_j)\rightarrow 0$, which holds if and only if $\xi = \eta$ by definition of $\sim$, $$\hat{d}(\xi,\eta) = \lim\limits_{j\rightarrow \infty}d(x_j,y_j) = \lim\limits_{j\rightarrow \infty}d(y_j,x_j) = \hat{d}(\eta,\xi)$$
+and \begin{equation*}
+    \hat{d}(\xi,\eta) = \lim\limits_{j\rightarrow \infty}d(x_j,y_j) \leq \lim\limits_{j\rightarrow \infty}(d(x_j,z_j) + d(z_j,y_j) = \hat{d}(\xi,\mu) + \hat{d}(\mu,\eta)
+\end{equation*}
+for any $\mu = [(z_j)] \in \hat{X}$. Thus $(\hat{X},\hat{d})$ is indeed a metric space.
+
+\begin{eg}
+    Consider $\Q[x]$, the set of polynomials over $\Q$, and define $d(p,q) = \max_{x \in [0,1]}|p(x) - q(x)|$. The max exists as $[0,1]$ is a compact set in $\R$ and all polynomials are continuous. Then $d(p,q) = 0$ if and only if $p = q$, as polynomials of degree $> 0$ have only a finite number of roots, $d(p,q) = d(q,p)$, and $d(p,q) \leq d(p,r) + d(r,q)$ using the triangle inequality for $|\cdot|$ on $\R$. Note this is a countable metric space. But, this is not complete as $\Q$ is not complete. Then $(\hat{X},\hat{d}) = \{[p_j]:(p_j)\text{ is Cauchy in }(\Q[x],d)\}$. We will see that $\hat{X} = \mathcal{C}([0,1])$, all continuous functions in $[0,1]$. This says if $f$ is continuous in $[0,1]$, for all $\varepsilon > 0$ there exists $p \in \Q[x]$ such that $\hat{d}(p,f) < \varepsilon$. Suppose now we define $X = \Q[x]$ with the distance \begin{equation*}
+        d_1(p,q) = \max_{x \in [0,1]}|p(x) - q(x)| + \max_{x \in [0,1]}|p'(x) - q'(x)|
+    \end{equation*}
+    Note $X \subseteq \C^{\infty}([0,1])$. Upon completion we obtain $(\hat{X},\hat{d}_1) = \mathcal{C}^1([0,1])$, the space of all continuous functions with continuous first derivative.
+\end{eg}
+
+We claim that $\hat{X}$ is indeed a complete metric space:
+
+\begin{lem}
+    $X$ is dense in $\hat{X}$.
+\end{lem}
+and 
+\begin{prop}
+    $(\hat{X},\hat{d})$ is complete.
+\end{prop}
+which follow similarly to the case of $\R$.
+
+
+
+\section{Compactness for Metric Spaces}
+
+Recall that $(X,d)$ denotes an arbitrary metric space.
+
+\begin{defn}
+    $X$ is \Emph{sequentially compact} if every sequence $(x_j) \subseteq X$ has a convergent subsequence.
+\end{defn}
+
+\begin{defn}
+    $X$ is \Emph{limit point compact} if every infinite subset of $X$ has an accumulation point in $X$.
+\end{defn}
+
+These are equivalent for metric spaces by the axiom of choice.
+
+\begin{defn}
+    $X$ is \Emph{totally bounded} if for every $\varepsilon > 0$ there exists a finite set $\{x_1,...,x_N\} \subseteq X$ such that \begin{equation*}
+        X = \cup_{j=1}^NB_{\varepsilon}(x_j)
+    \end{equation*}
+\end{defn}
+
+\begin{prop}\label{prop:2.3.1}
+    If $X$ is a sequentially compact metric space, then $X$ is totally bounded.
+\end{prop}
+\begin{proof}
+    Let $\varepsilon > 0$. If $X$ is empty, there is nothing to prove, so suppose $X \neq \emptyset$. Let $x_1 \in X$. If $X = B_{\varepsilon}(x_1)$ we're done. Otherwise, choose $x_2 \in X\backslash B_{\varepsilon}(x_1)$. If $X = B_{\varepsilon}(x_1)\cup B_{\varepsilon}(x_2)$, we're done. Then either this process terminates at a finite step, in which case we're done, or we obtain a sequence $x_1,x_2,...$ such that $d(x_j,x_i) \geq \varepsilon$ for all $i \neq j$. But then $(x_j)$ has no convergent subsequence, contradicting the assumption that $X$ is compact. Thus, this process must terminate at a finite step, so there exists $N \in \N$ such that $$X  = \bigcup_{j=1}^NB_{\varepsilon}(x_j)$$
+\end{proof}
+
+\begin{cor}\label{cor:2.3.2}
+    If $X$ is a sequentially compact metric space, then $X$ has a countable dense subset, which is to say $X$ is separable.
+\end{cor}
+\begin{proof}
+    By Proposition \ref{prop:2.3.1} $X$ is totally bounded. Let $S_n = \{x_{n1},...,x_{nm_n}\}$ such that \begin{equation*}
+        X = \bigcup_{j=1}^{m_n}B_{2^{-n}}(x_{nj}), \;\mathcal{C} := \bigcup_{n=1}^{\infty}S_n
+    \end{equation*}
+    Then $\mathcal{C}$ is countable being the countable union of finite sets. Let $x \in X$ and $\varepsilon > 0$. Let $n \in \N$ such that $2^{-n} < \varepsilon$. Then $X = \bigcup_{j=1}^{m_n}B_{2^{-n}}(x_{nj})$ so $x \in B_{2^{-n}}(x_{nj})$ for some $1 \leq j \leq m_n$. Thus $d(x,x_{nj}) < 2^{-n}<\varepsilon$, so $x_{nj} \in B_{\varepsilon}(x)$ and $B_{\varepsilon}(x)\cap \mathcal{C} \neq \emptyset$. Thus $\mathcal{C}$ is dense in $X$.
+\end{proof}
+
+This implies a relation between sequentially compact metric spaces and its size. In particular, metric plus compact implies separable.
+
+\begin{prop}\label{prop:2.3.3}
+    If $X$ is a sequentially compact metric space and $K_1 \supseteq K_2 \supseteq ...$ is a chain of non-empty closed subsets, then $\bigcap_{j=1}^{\infty}K_j \neq \emptyset$.
+\end{prop}
+
+The proof of this result is identical to that of the case for Euclidean Spaces, and the same holds for its corollary:
+
+\begin{cor}\label{cor:2.3.4}
+    If $X$ is a sequentially compact metric space and $U_1 \subseteq U_2 \subseteq ...$ is a chain of open sets such that $X = \bigcup_{j=1}^{\infty} U_j$, then there exists $M \in \N$ such that $X = U_M$.
+\end{cor}
+
+\begin{prop}\label{prop:2.3.5}
+    If $X$ is a sequentially compact metric space, then $X$ is topologically compact.
+\end{prop}
+\begin{proof}
+    Let $\{U_{\alpha}\}_{\alpha \in J}$ be an open cover of $X$. By Proposition \ref{prop:2.3.2} $X$ is separable, so we have a countable dense subset $\mathcal{C}$. Let $\mathcal{R} = \{B_q(x): x \in \mathcal{C},q \in \Q^+\}$. Then $\mathcal{R}$ is countable. Further, if $U \subseteq X$ is open, for all $p \in U$ there exists $\varepsilon > 0$ such that $B_{\varepsilon}(p) \subseteq U$. Then as $\mathcal{C}$ is dense, $\mathcal{C}\cap B_{\varepsilon/3}(p) \neq \emptyset$, so there exists $c \in \mathcal{C}$ such that $c \in B_{\varepsilon/3}(p)$. Then as $\Q$ is dense in $\R$ there exists $q \in \Q$ such that $\varepsilon/3 < q < 2\varepsilon/3$. It follows that $p \in B_q(c) \subseteq B_{\varepsilon}(p) \subseteq U$. Thus $U = \bigcup\{B \in \mathcal{R}:B \subseteq U\}$, so every open set can be written as a countable union of open sets in $\mathcal{R}$. Then $X = \bigcup_{\alpha \in J}U_{\alpha} = U_{\alpha \in J}\bigcup_{j\geq 1}B_{q_{\alpha,j}}(c_{\alpha,j})$. Suppose $\{B_1,B_2,...\}$ is a countable cover of $X$. Define $U_m = B_1 \cup...\cup B_m$. Then by Corollary \ref{cor:2.3.4} there exists $M \in \N$ such that $X = \bigcup_{j=1}^MB_j$. Thus as $\bigcup_{\alpha \in J}\bigcup_{j\geq 1}B_{q_{\alpha,j}}(c_{\alpha,j})$ is countable, there exists $M \in \N$ such that $X = B_{q_{\alpha_1,i_1}}(c_{\alpha_1,i_1})\cup ... \cup B_{q_{\alpha_M,i_M}}(c_{\alpha_M,i_M})$, so $X = U_{\alpha_1}\cup...\cup U_{\alpha_M}$ is a finite subcover.
+\end{proof}
+
+\begin{namthm}[Heine-Borel Property]\label{thm:2.3.6}
+    If $X$ is a metric space, then $X$ is sequentially compact if and only if it is compact in terms of open covers.
+\end{namthm}
+\begin{proof}
+    Proposition \ref{prop:2.3.5} is the forward implication, so suppose $X$ is topologically compact. We show the equivalence with limit point compactness. We argue by contrapositive and suppose $S \subseteq X$ has no accumulation points. Then in particular $S$ is closed, as $\overline{S} = S \cup S' = S$, since $S' = \emptyset$. Then $S_x = S\backslash \{x\}$ for all $x \in S$ is also closed, also having no accumulation points. Then $U_x \in X\backslash S_x$ is a cover for $S$, with $U_x \cap S = \{x\}$. But then $\{U_x\}_{x \in S}\cup\{X\backslash S\}$ is an open cover for $X$. As $X$ is open cover compact, we have $x_1,...,x_n$ such that $U_{x_1},...,U_{x_n},X\backslash S$ covers $X$. But then $U_{x_1},...,U_{x_n}$ covers $S$, so $S = \bigcup_{i=1}^nS\cap U_{x_i} = \{x_1,...,x_n\}$ so $S$ is finite. Thus, $X$ is limit point compact, completing the proof.
+\end{proof}
+
+\begin{defn}
+    Let $S \subseteq X$ be a subset of a metric space $(X,d)$. We say that $p \in X$ is an \Emph{accumulation point} of $S$ if for every $\varepsilon > 0$ there exists $q \neq p$ with $q \in S$ such that $q \in B_{\varepsilon}(p)$. That is $B_{\varepsilon}(p)^*\cap S \neq \emptyset$ for all $\varepsilon > 0$.
+\end{defn}
+
+
+Note that a metric space which is compact is totally bounded and complete. Now we have the converse:
+
+\begin{prop}\label{prop:2.3.7}
+    If $X$ is a complete metric space which is totally bounded, then $X$ is compact.
+\end{prop}
+\begin{proof}
+    Let $S \subseteq X$ be infinite. Because $X$ is totally bounded, there exist $x_1,...,x_N \in X$ such that $X \subseteq \bigcup_{j=1}^NB_{1/2}(x_j)$. Since $S \subseteq X$ is infinite, by the pigeon hole principle there exists $x_j =: x^1$ such that $B_{1/2}(x^1)\cap S$ is infinite. Then there exists $\{x_{2,1},...,x_{2,N_2}\} \subseteq X$ such that $X \subseteq \bigcup_{j=1}^{N_2}B_{1/2^2}(x_{2,j})$ and again there exists $x_{2j} =: x^2$ such that $B_{1/2^2}(x^2) \cap (B_{1/2}(x^1)\cap S)$ is infinite. Continuing in this way there exists $x^j \in X$ such that \begin{equation*}
+        B_{1/2^j}(x^j)\cap ... \cap B_{1/2}(x^1)\cap S
+    \end{equation*}
+    is infinite. Let $X_j$ be the closure of this $j$th set, so we have a decreasing chain $X_1 \supseteq X_2 \supseteq ...$ of non-empty closed sets, such that $X_j \cap S$ is infinite for all $j$. Pick $z_1\in X_1\cap S$, and $z_{j+1} \in X_{j+1}\cap S\backslash \{z_1,...,z_j\}$, which is possible using the axiom of choice as each set is infinite. Then $(z_j) \subseteq X_1 \cap S$ is a Cauchy sequence. By completeness there exists $z \in X$ such that $z_j$ converges to $z$. But $(z_j) \subseteq S$, and the $z_j$ are distinct, so $z \in X$ is an accumulation point of $S$.
+\end{proof}
+
+\begin{prop}\label{prop:2.3.8}
+    If $X$ is a compact metric space, then $\text{diam}(X) < \infty$, where \begin{equation*}
+        \text{diam}(X) = \sup\{d(x,y):x,y \in X\}
+    \end{equation*}
+\end{prop}
+\begin{proof}
+     As $X$ is compact there exist $x_1,...,x_N \in X$ such that $X \subseteq \bigcup_{j=1}^NB_1(x_j)$. Then, let $M = \max\{d(x_i,x_j):1\leq i,j\leq N\}$. Now, let $x,y \in X$. Then there exist $i,j$ such that $x \in B_1(x_i)$ and $y \in B_1(x_j)$. It follows that $$d(x,y) \leq d(x,x_i) + d(x_i,x_j) + d(x_j,y) < 1+M+1 = M+2$$ Thus, we have that $\text{diam}(X) \leq M+2 < \infty$, as desired.
+\end{proof}
+
+\section{Product Spaces}
+
+
+We now define finite and countable products of metric spaces, and their associated properties.
+
+\begin{defn}
+    If $(X_1,d_1),...,(X_N,d_N)$ are metric spaces, we define the product metric space \begin{equation*}
+        X := X_1\times \cdots \times X_N = \prod_{j=1}^NX_j
+    \end{equation*}
+    and define a metric $d$ in $X$ for $x = (x_1,...,x_N),y = (y_1,...,y_N)$ by \begin{equation*}
+        d(x,y) = \sum_{j=1}^Nd_j(x_j,y_j)
+    \end{equation*}
+\end{defn}
+Equivalently, we could define \begin{equation*}
+    \delta(x,y) = \sqrt{\sum_{j=1}^Nd_j(x_j,y_j)^2}
+\end{equation*}
+where the equivalence is in the sense that they define the same topology on the product. In particular, we characterize two metrics being equivalent as follows:
+
+\begin{defn}
+    If $X$ is a set with metrics $d_1$ and $d_2$, then $d_1$ and $d_2$ are said to be \Emph{equivalent} if there exists $0 < C_0 \leq C_1 < \infty$ such that \begin{equation*}
+        C_0d_1(x,y) \leq d_2(x,y) \leq C_1d_1(x,y)
+    \end{equation*}
+    for all $x,y \in X$.
+\end{defn}
+
+\begin{defn}
+    For $p \in \N$, the $\ell_p$ norm on $\R^n$ is \begin{equation*}
+        ||\vec{x}||_p = \left(\sum_{i=1}^n|x_i|^p\right)^{1/p}
+    \end{equation*}
+    which gives the metric $$d_p(\vec{x},\vec{y}) = ||\vec{x} - \vec{y}||_p$$ For $p = \infty$, define $$||\vec{x}||_{\infty} = \max_{1\leq j \leq n}|x_j|$$ and $$d_{\infty}(\vec{x},\vec{y}) = \max_{1\leq j \leq n}|x_j - y_j|$$
+\end{defn}
+
+It is an important, but non-trivial result, that $d_p$ and $d_q$ are equivalent for all $0 < p,q \leq \infty$. Now we define countable products:
+
+\begin{defn}
+    Let $(X_1,d_1),(X_2,d_2),...$ be a countable collection of metric spaces. Define $$X = \prod_{j=1}^{\infty}X_j$$ where $x \in X$ is a sequence $x = (x_j)$, $x_j \in X_j$. We define the metric by $$d(x,y) = \sum_{j=1}^{\infty}2^{-j}\frac{d_j(x_j,y_j)}{1+d_j(x_j,y_j)}$$
+\end{defn}
+
+We have that compactness of product spaces occurs if and only if we have compactness of the individual component spaces.
+
+\begin{prop}
+    The product $X = \prod_{j=1}^NX_j$ is compact if and only if $X_j$ is compact for all $j$.
+\end{prop}
+\begin{proof}
+    First, suppose the product is compact and let $(x_{n,j})_{n=1}^{\infty} \subseteq X_j$. Let $x_i \in X_i$ for $i \neq j$. Then $(x_1,...,x_{n,j},...,x_N) \subseteq X$ has a convergent subsequence $(x_1,...,x_{n_k,j},...,x_N)$ converging to $(x_1,...,x_j,...,x_N)$ in $X$ since $X$ is compact. Then for all $\varepsilon > 0$, there exists $M \in \N$ such that for $k \geq M$, $d_j(x_{n_k,j},x_j) = d((x_1,...,x_{n_k,j},...,x_N),(x_1,...,x_j,...,x_N)) < \varepsilon$, so $(x_{n_k,j})$ is a convergent subsequence of $(x_j)$. Thus $X_j$ is compact for all $j$, as desired. Now suppose that $X_j$ is compact for each $j$, and $((x_{n,1},...,x_{n,N})) \subseteq X$. As $X_1$ is compact there exists a subsequence $(x_{s_1(n),1})$ which converges to some $x_1 \in X_1$. Then $(x_{s_1(n),2}) \subseteq X_2$ has a convergent subsequence $(x_{s_2(n),2})$ since $X_2$ is compact, which converges to $x_2 \in X$. Proceeding in this way we arrive at $((x_{s_N(n),1},...,x_{s_N(n),N})) \subseteq ((x_{n,1},...,x_{n,N}))$, where $(x_{s_N(n),j}) \subseteq (x_{s_j(n),j})$ which converges to $x_j \in X_j$, and hence $(x_{s_N(n),1},...,x_{s_N(n),N})$ converges to $(x_1,...,x_N)$. Thus $X$ is compact, as desired.
+\end{proof}
+
+\begin{prop}
+    The product $X = \prod_{j=1}^{\infty}X_j$ is compact if and only if $X_j$ is compact for all $j$.
+\end{prop}
+\begin{proof}
+    The forward implication follows analogously to the proof of the previous proposition. Now, suppose each $X_j$ is compact, and let $((x_{\nu,1},x_{\nu,2},...)) \subseteq X$ be an arbitrary sequence. Then, as $X_1$ is compact, we have a subsequence $x_{s_1(\nu),1}$ which converges to some $x_1 \in X_1$. Then, we can take a subsequence $x_{s_2(\nu),2}$ of $x_{s_1(\nu),2}$ which converges to some $x_2 \in X_2$ since $X_2$ is compact. Let $(x^j_{\nu}) = ((x_{s_j(\nu),1},x_{s_j(\nu),2},...))$. Then we have a decreasing sequence of subsequences $(x_{\nu}) \supseteq (x^1_{\nu}) \supseteq (x^2_{\nu}) \supseteq ...$, such that $x_{s_j(\nu),i}$ converges to $x_i \in X_i$ for all $1 \leq j \leq i$. Then, let $(\xi_{\nu})$ be the subsequence defined by $\xi_{\nu} = x^{\nu}_{\nu}$, the diagonal. Then for all $j \in \N$, $(\xi_{\nu})_{\nu=j}^{\infty} \subseteq (x^j_{\nu})_{\nu=1}^{\infty}$, so for each $j$ $x_{s_{\nu}(\nu),j}$ converges to $x_j \in X_j$. Thus, $\xi_{\nu}$ converges to $(x_1,x_2,....) \in X$, and hence $X$ is compact.
+\end{proof}
+
+
+\section{Baire Category Theorem}
+
+We now construct a result on the size of complete metric spaces, known as the Baire's Category Theorem. First we define the notion of a category for a topological space:
+
+\begin{defn}
+    A topological space $(X,\tau)$ is said to be of the \Emph{first category} if and only if $X$ can be written as a countable union of nowhere dense sets.
+\end{defn}
+
+\begin{defn}
+    A subset $S \subseteq X$ is \Emph{nowhere dense} if and only if $\overline{S}$ does not contain any non-empty open subsets, which occurs in a metric space if and only if $\overline{S}$ does not contain any open ball $B_r(x)$ for $r > 0$ and $x \in X$.
+\end{defn}
+
+\begin{defn}
+    A topological space $X$ is said to be of the \Emph{second category} if and only if $X$ is not of the first category.
+\end{defn}
+
+\begin{namthm}[Baire's Category Theorem]
+    If $X$ is a complete metric space, then $X$ is of second category.
+\end{namthm}
+\begin{proof}
+    Let $S_k \subseteq X$ be a sequence of nowhere dense sets. We claim $X \backslash \bigcup_{k\geq 1}S_k \neq \emptyset$. Let $T_k = \overline{\bigcup_{j=1}^kS_j} = \bigcup_{j=1}^k\overline{S}_j$, so $T_k$ is closed and nowhere dense. Further, $T_1 \subseteq T_2 \subseteq ...$. Let $U_k = X\backslash T_k$, so $U_k$ is open and dense. Indeed, if $x \in X$, and $N_x \subseteq N(x)$, an open neighborhood, $N_x \cancel{\subseteq}T_k$, so $N_x\cap U_k \neq \emptyset$. Thus $\overline{U_k} = X$, so $U_k$ is dense. Then we have $U_1 \supseteq U_2 \supseteq ...$. We claim that the intersection is non-empty. Let $p_1 \in U_1$, so there exists $\varepsilon_1 > 0$ such that $\overline{B_{\varepsilon}(p_1)} \subseteq U_1$. By density of $U_2$, there exists $p_2 \in B_{\varepsilon/2}\cap U_2$. But $U_2$ is open so there exists $\varepsilon_2 < \varepsilon/2$ such that $\overline{B_{\varepsilon_2}(p_2)} \subseteq B_{\varepsilon}(p_1)\cap U_2$. Inductively, take $p_{k+1} \in B_{\varepsilon_k}(p_k) \cap U_{k+1}$, and $\varepsilon_{k+1} < \varepsilon_k/2$ such that $\overline{B_{\varepsilon_{k+1}}(p_{k+1})} \subseteq B_{\varepsilon_k}(p_k) \cap U_{k+1}$. Then $\varepsilon_k < \varepsilon/2^{k-1}$. Note $(p_k)$ is a Cauchy sequence, because $p_l \in \overline{B_{\varepsilon_l}(p_l)} \subseteq B_{\varepsilon_k}(p_k)$ for all $l > k$, where $\varepsilon_k < \varepsilon/2^{k-1}$. By completeness of $X$, there exists $p \in X$ such that $p_l \rightarrow p$. Then $p \in \overline{B_{\varepsilon_k}(p_k)}$ for all $k$ as they are closed, so in particular $p \in U_k$ for all $k$. Therefore, $p \in \bigcap_{i=1}^{\infty}U_i$, so $\bigcap_{i=1}^{\infty}U_i\neq \emptyset$, as claimed.
+\end{proof}
+
+\section{continuous Functions on Metric Spaces}
+
+
+We now explore the homomorphisms of the category of metric spaces: continuous functions.
+
+\begin{defn}
+    A function $f:X\rightarrow Y$ for metric spaces $(X,d_X), (Y,d_Y)$, is continuous at $x \in X$ if whenever $x_j \rightarrow x$ in $X$, then $f(x_j)\rightarrow f(x)$ in $Y$. We say $f$ is continuous on $X$ if and only if $f$ is continuous at $x \in X$ for all $x$.
+\end{defn}
+
+\begin{prop}\label{prop:3.1.1}
+    A function $f:X\rightarrow Y$ is continuous if and only if $U \subseteq Y$ open implies $f^{-1}(U) \subseteq X$ is open, where $f^{-1}(U) = \{x \in X:f(x) \in U\}$.
+\end{prop}
+
+This is a common result which can be shown using the axiom of choice.
+
+\begin{prop}\label{prop:3.1.2}
+    If $f:X\rightarrow Y$ is continuous and $K \subseteq X$ is compact in $X$, then $f(K)$ is compact in $Y$.
+\end{prop}
+\begin{proof}
+    Let $(y_j) \subseteq f(K)$. Then there exists $(x_j) \subseteq K$ such that $f(x_j) = y_j$ for all $j$. But, $K$ is compact so there exists a convergent subsequence $(x_{j_{\nu}})$ which converges to some $x \in K$. As $f$ is continuous, $f(x_{j_{\nu}})\rightarrow f(x)$. But then $y_{j_{\nu}} = f(x_{j_{\nu}})\rightarrow f(x) \in f(K)$, so $(y_j)$ has a convergent subsequence and $f(K)$ is compact.
+\end{proof}
+
+\begin{prop}\label{prop:3.1.3}
+    If $X$ is a compact metric space and $f:X\rightarrow \R$ is continous, then $f$ assumes a max and min value in $X$.
+\end{prop}
+This follows from the characterization of compact sets in $\R$, which are precisely the closed and bounded sets.
+
+\begin{defn}
+    For $f:X\rightarrow \R$, we define \begin{equation*}
+        \sup_{X}f = \left\{\begin{array}{cc} \sup_{x\in X}f(x) & \text{if $f(X)$ is bounded from above} \\ \infty & \text{if not bounded above} \end{array}\right.
+    \end{equation*}
+    and \begin{equation*}
+        \inf_{X}f = \left\{\begin{array}{cc} \inf_{x\in X}f(x) & \text{if $f(X)$ is bounded from below} \\ -\infty & \text{if not bounded below} \end{array}\right.
+    \end{equation*}
+\end{defn}
+
+Using this convention, we define a notion of a limit which always exists in the extended reals, even if the actual limit does not exist.
+
+\begin{defn}
+    For any sequence $(x_n) \subseteq \R$, we define \begin{equation*}
+        \lim\sup\limits_{n\rightarrow \infty}x_n := \lim\limits_{n\rightarrow \infty}\left(\sup_{k\geq n}x_k\right) 
+    \end{equation*}
+    and \begin{equation*}
+        \lim\inf\limits_{n\rightarrow \infty}x_n := \lim\limits_{n\rightarrow \infty}\left(\inf_{k\geq n}x_k\right) 
+    \end{equation*}
+    Note $\sup_{k\geq n}x_k$ is a \Emph{decreasing sequence} and $\inf_{k\geq n}x_k$ is an \Emph{increasing sequence}.
+\end{defn}
+So $\lim\sup$ is the limit of a monotone decreasing sequence and $\lim\inf$ is the limit of a monotone increasing sequence. Further we have that $(x_n) \subseteq \R$ is convergent if and only if $\lim\sup x_n = \lim\inf x_n$.
+
+\subsection{Uniform Continuity}
+
+
+We now define a more powerful notin of continuity of functions on metric spaces.
+
+\begin{defn}
+    A function $f:X\rightarrow Y$ is said to be \Emph{uniformly continuous} if for all $\varepsilon > 0$ there exists $\delta > 0$ such that $$d_X(x,y) < \delta \implies d_Y(f(x),f(y)) < \varepsilon$$ for all $x,y \in X$.
+\end{defn}
+
+\begin{eg}
+    An example of a continuous function which is not uniformly continuous is the \Emph{topoligists sine curve}, $\sin(1/x)$ (Image here)
+\end{eg}
+
+\begin{eg}
+    $f(x) = x^2$ is continuous. For any $\varepsilon > 0$, observe $|x^2 - y^2| < \varepsilon \implies |x-y||x+y| < \varepsilon$. If $|x-y| < \delta$, $|x-y||x+y| \leq (2|x|+1)\delta$ if $\delta = \min\left\{\frac{\varepsilon}{2|x|+1},1\right\}$. But his depends on $x$. This does work for $x'$ such that $|x'| \leq |x|$, but for bigger $x'$ we would need a smaller $\delta$, so $f$ is not uniformly continuous.
+\end{eg}
+
+\begin{prop}\label{prop:3.1.4}
+    If $X$ is compact and $f:X\rightarrow Y$ is continuous, then $f$ is uniformly continuous.
+\end{prop}
+\begin{proof}
+    Let $\varepsilon >0$. Let $f(X) = \bigcup_{x \in X}B_{\varepsilon/2}(f(x))$ cover the image. For each $x$ there exist $\delta_x > 0$ such that $f(B_{\delta_x}(x)) \subseteq B_{\varepsilon/2}(f(x))$. Then $X \subseteq \bigcup_{x\in X}B_{\delta_x/2}(x)$ is an open cover, so there exists $x_1,...,x_N \in X$ such that $X \subseteq \bigcup_{i=1}^NB_{\delta_{x_i}/2}(x_i)$ since $X$ is compact. Let $\delta = \min_{1\leq i \leq N}(\delta_{x_i}/2)$. Then let $x,y \in X$ such that $d_X(x,y) < \delta$. Since the $B_{\delta_{x_i}/2}(x_i)$ cover $X$, there exists $1 \leq i \leq N$ such that $x \in B_{\delta_{x_i}/2}(x_i)$. Then $$d_X(x_i,y) \leq d_X(x_i,x) + d_X(x,y) < \delta_{x_i}/2+\delta \leq \delta_{x_i}$$ so $x,y \in B_{\delta_{x_i}}(x_i)$. It follows that $f(x),f(y) \in B_{\varepsilon/2}(f(x_i))$ so $$d_Y(f(x),f(y)) \leq d_Y(f(x),f(x_i)) + d_Y(f(x_i),f(y) < \varepsilon/2+\varepsilon/2 = \varepsilon$$
+    completing the proof.
+\end{proof}
+
+Now we come to the notion of an isomorphism in the category of metric spaces:
+
+\begin{defn}
+    A function $f:X\rightarrow Y$ is said to be a \Emph{homeomorphism} if it is continuous, bijective, and $f^{-1}$ is continuous.
+\end{defn}
+
+\begin{prop}\label{prop:3.1.5}
+    If $X$ is a compact metric space, then $f:X\rightarrow Y$ being continuous and bijective implies $f^{-1}$ is continuous.
+\end{prop}
+\begin{proof}
+    Let $g= f^{-1}:Y\rightarrow X$. Note $g$ is continuous in $Y$ if and only if $g^{-1}(V) = f(V)$ is closed in $Y$ for all $V$ closed in $X$. Note $V$ is compact in $X$ if it is closed, so $f(V)$ is compact. Then as $Y$ is a metric space $V$ being compact implies it is closed. Thus $g$ is continuous, as desired.
+\end{proof}
+
+
+\subsection{Sequences and Series of Functions}
+
+Next we consider convergence of sequences of functions: 
+
+\begin{defn}
+    Let $f_j:X\rightarrow Y$, $j \in \N$, be a sequence of functions. If $f:X\rightarrow Y$, and $f_j(x)\rightarrow f(x)$ for all $x \in X$, we say that $f_j\rightarrow f$ \Emph{pointwise} on $X$.
+\end{defn}
+
+\begin{defn}
+    A sequence $f_j:X\rightarrow Y$ converges \Emph{uniformly} to $f:X\rightarrow Y$ if and only if for all $\varepsilon > 0$, there exists $N \in \N$ such that if $j \geq N$, $$d_Y(f_j(x),f(x) < \varepsilon,\forall x \in X$$ or equivalently $$\sup_{x \in X}d_Y(f_j(x),f(x)) \leq \varepsilon$$
+\end{defn}
+
+\begin{prop}\label{prop:3.2.1}
+    If $f_j:X\rightarrow Y$ are continuous and converge uniformly to $f:X\rightarrow Y$, then $f$ is continuous.
+\end{prop}
+\begin{proof}
+    Let $\varepsilon > 0$ and $x \in X$. Then there exists $N \in \N$ such that for $j \geq N$, $d_Y(f_j(y),f(y)) < \varepsilon/3$ for all $y \in X$. As $f_N$ is continuous, there exists $\delta > 0$ such that $f_N(B_{\delta}(x)) \subseteq B_{\varepsilon/3}(f_N(x))$. Then for $d_X(x,y) < \delta$, $$d_Y(f(x),f(y)) \leq d_Y(f(x),f_N(x)) + d_Y(f_N(x),f_N(y)) + d_Y(f_N(y),f_N(x) < \varepsilon$$ so $f$ is continuous.
+\end{proof}
+
+\begin{eg}
+    If $f_j:[0,1]\rightarrow [0,1]$ is defined by $f_j(x) = x^j$, all of which are continuous, then $f_j(x)$ converge pointwise to $f(x) = \left\{\begin{array}{cc} 0 & x < 1 \\ 1 & x = 1\end{array}\right.$, which is discontinuous, and hence the convergence can't be uniform.
+\end{eg}
+
+\begin{defn}
+    A sequence of functions $f_j:X\rightarrow Y$ is said to be \Emph{uniformly Cauchy} if for all $\varepsilon > 0$, there exists $N \in \N$ such that for $j,k\geq N$, $$\sup_{x\in X}d_Y(f_j(x),f_k(x)) \leq \varepsilon$$ or equivalently $\lim\limits_{j,k\rightarrow \infty}\sup_{x\in X}d_Y(f_j(x),f_k(x))  = 0$.
+\end{defn}
+
+\begin{prop}\label{prop:3.2.2}
+    If $Y$ is a complete metric space and $f_j:X\rightarrow Y$ is uniformly Cauchy, then there exists $f:X\rightarrow Y$ such that $f_j$ converge uniformly to $f$.
+\end{prop}
+\begin{proof}
+    As $f_j$ is uniformly Cauchy, for each $x \in X$, $(f_j(x)) \subseteq Y$ is Cauchy. As $Y$ is complete there exists $y_x \in Y$ such that $f_j(x)\rightarrow y_x$. Then define $f:X\rightarrow Y$ by $f(x) = \lim\limits_{j\rightarrow \infty}f_j(x)$. Fix $\varepsilon > 0$. As $f_j$ is uniformly Cauchy there exists $N \in \N$ such that $j \geq N$ and $k \geq 0$ implies $d_Y(f_j(x),f_{j+k}(x)) < \varepsilon$. Taking the limit as $k$ goes to infinity we have $d_Y(f_j(x),f(x)) \leq \varepsilon$ for all $x \in X$. Thus, $f_j$ converges uniformly to $f$.
+\end{proof}
+
+
+Now we consider basic properties of series: 
+
+\begin{defn}
+    We say a sequence $f_j:X\rightarrow \R^n$ is \Emph{pointwise summable} if and only if the sequence \begin{equation*}
+        s_n(x) = \sum_{j=0}^{n}f_j(x)
+    \end{equation*}
+    is \Emph{pointwise convergent}.
+\end{defn}
+
+\begin{defn}
+    $f_j:X\rightarrow \R^n$ is \Emph{uniformly summable} if and only if $s_n(x) = \sum_{j=0}^nf_j(x)$ is \Emph{uniformly convergent}.
+\end{defn}
+
+\begin{namthm}[Weierstrass M-Test (General)]
+    Let $f_j:X\rightarrow \R^n$ be a sequence of functions. Assume there exist $M_k \in \R$ such that $\sup_{x\in X}||f_k(x)|| \leq M_k$ and $$\sum_{k=0}^{\infty}M_k < \infty$$ Then the series $\sum_{k=0}^nf_k(x)$ converges uniformly on $X$ to a limit $s(x)$.
+\end{namthm}
+\begin{proof}
+    Suppose the hypotheses of the theorem. As $\sum_{k=0}^nM_k$ is Cauchy, for $\varepsilon >0$ there exists $N \in \N$ such that for $j,k \geq N$, $$\left|\sum_{n=j+1}^kf_n(x)\right|\leq \sum_{n=j+1}^k|f_n(x)| \leq \sum_{n=j+1}^kM_n < \varepsilon$$ for all $x \in X$, so $\sum_{n=0}^kf_n(x)$ is uniformly Cauchy, and hence uniformly convergent since $\R^n$ is complete.
+\end{proof}
+
+
+\section{Connected Sets}
+
+
+We now define a notion for what it means for a space to be connected, or not disconnected.
+
+\begin{defn}
+    A topological space $(X,\tau)$ is \Emph{not connected} or \Emph{disconnected} if there exists $U,V \in \tau$ such that $U,V\neq \emptyset$, $U\cap V = \emptyset$, and $$X = U\sqcup V$$
+    If no such $U$ and $V$ exist, then $X$ is said to be \Emph{connected}.
+\end{defn}
+
+Equivalently a space $X$ is connected if and only if the only clopen sets are $X$ and $\emptyset$.
+
+\begin{prop}\label{prop:3.1.6}
+    All intervals in $\R$ are connected.
+\end{prop}
+\begin{proof}
+    Suppose $I$ is an interval in $\R$. That is for all $a, b \in I$, with $a < b$, $[a,b] \subseteq I$. Suppose we have a separation $A, B \subseteq \R$ open such that $I = (I\cap A)\cup(I\cap B)$, with $I\cap A,I\cap B \neq \emptyset$, and $(I\cap A)\cap (I\cap B) = \emptyset$. Let $A' = I\cap A$ and $B' = I\cap B$. Let $a \in A' \subseteq I$ and $b \in B' \subseteq I$ so $a \neq b$. Without loss of generality suppose $a < b$. Then $[a,b] \subseteq I$ and covered by $A',B'$. Then let $s = \sup A'\cap [a,b]$. Then $s \leq b$. We proceed by cases:
+    \begin{itemize}
+        \item Suppose $s \in A'$. Then as $A$ is open, there exists $\varepsilon > 0$ such that $(s-\varepsilon,s+\varepsilon) \subseteq A$. Let $\varepsilon' = \min\{\varepsilon,|s-b|\} > 0$. Then $[s,s+\varepsilon') \subseteq A'\cap [a,b]$. In particular $s+\varepsilon'/2 \in A'\cap [a,b]$, contradicting the fact that $s = \sup A'\cap [a,b]$.
+        \item Suppose $s \in B'\cap [a,b]$. As $B$ is open, there exists $\varepsilon > 0$ such that $B_{\varepsilon}(s) \subseteq B$. Then let $\varepsilon' = \min\{\varepsilon,|s-a|\} > 0$, so $(s-\varepsilon',b] \subseteq B'\cap [a,b]$ and $s - \varepsilon'/2 \in B'\cap [a,b]$, so $t \leq s-\varepsilon/2$ for all $t \in A'\cap [a,b]$, contradicting the fact $s = \sup A'\cap [a,b]$.
+    \end{itemize}
+\end{proof}
+
+\begin{defn}
+    If $(X,\tau)$ is a topological space and $A \subseteq X$, the subspace topology on $A$ is defined by \begin{equation*}
+        \tau_A := \{U\cap A \subseteq A: U \in \tau\}
+    \end{equation*}
+    Note if $\iota:A\hookrightarrow X$ is the inclusion, $\tau_A$ is the coarsest topology/weakest topology making $\iota$ continuous $$U \subseteq A\text{ open} \iff \exists V \in \tau;\iota^{-1}(V) = V\cap A = U$$
+\end{defn}
+
+\begin{defn}
+    A topological space $(X,\tau)$ is \Emph{path connected} if and only if for all $p,q \in X$, there exists a continuous map $$\gamma:[0,1]\rightarrow X,\;\gamma(0) = p,\;\gamma(1) = q$$
+\end{defn}
+
+\begin{prop}\label{prop:3.1.7}
+    Path connected implies connected.
+\end{prop}
+\begin{proof}
+    Suppose $X$ is path connected. Towards a contradiction suppose $X$ has a separation $A,B$. Let $a \in A$, $b \in B$, and $\gamma:[0,1]\rightarrow X$ with $\gamma(0) = a,\gamma(1) = b$. Then $\gamma^{-1}(A) \subseteq [0,1]$, $\gamma^{-1}(B) \subseteq [0,1]$ are open, disjoint, and cover $[0,1]$, contradicting the fact that $[0,1]$ is connected. Thus $X$ must be connected.
+\end{proof}
+
+\begin{eg}
+    The metric space \begin{equation*}
+        X = \{(0,y) \in\R^2:y\in[-1,1]\}\cup\{(x,\sin 1/x)\in \R^2:x \in (0,1]\}
+    \end{equation*}
+    with metric $d_X = d_{\R^2}$ is compact and connected, but not path connected.
+\end{eg}
+
+\begin{namthm}[Intermediate Value Theorem]
+    Suppose $(X,\tau)$ is a connected space and $f:X\rightarrow \R$ is continuous. Suppose $p,q \in X$ such that $f(p) = a < b = f(q)$. Then for all $c \in (a,b)$ there exists $z \in X$ such that $f(z) = c$.
+\end{namthm}
+\begin{proof}
+    Let $A = f^{-1}((-\infty,c))$ and $B = f^{-1}((c,\infty))$, so $A$ and $B$ are open, non-empty, and disjoint. Thus, as $X$ is connected, $X \neq A \cup B$ so there must exist $t \in f^{-1}(\{c\})$, so in particular $f(t) =c$.
+\end{proof}
+
+

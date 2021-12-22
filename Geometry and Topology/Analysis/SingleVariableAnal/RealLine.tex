@@ -1,0 +1,1253 @@
+%%%%%%%%%% Real Line %%%%%%%%%%
+\chapter{Topology and Construction of the Real Line}
+
+
+\section{Peano Arithmetic}
+
+We begin by forming our number system from the ground up, starting wtih Giuseppe Peano's (1858-1932) axiomatized system for the natural numbers.
+
+\begin{axi}[Peano's Axioms]
+    Peano's system for the naturals consists of two central axioms: \begin{enumerate}
+        \item Assume that there exists a set $\N$ and an element $0 \notin \N$. Define, notationally, $\tilde{\N} = \N\cup\{0\}$. Then, assume there exists an injective map $s:\tilde{\N}\rightarrow \N$ called the \Emph{successor function}
+        \item \Emph{Mathematical Induction}: Whenever a subset $S \subseteq \tilde{\N}$ satisfies $0 \in S$, and if $k \in S$ then $s(k) \in S$, then this implies $S = \tilde{\N}$. Notationally we have $$(0 \in S \land (k \in S \implies s(k) \in S)) \implies S = \tilde{\N}$$
+    \end{enumerate}
+\end{axi}
+
+Given these axioms, we can define an addition operation on $\tilde{\N}$:
+\begin{defn}
+    We define the binary operation $+:\tilde{\N}\times\tilde{\N}\rightarrow\tilde{\N}$ inductively for $x,y \in \tilde{\N}$ by stating \begin{enumerate}
+        \item $x + 0 = x$ 
+        \item $x + s(y) = s(x+y)$ 
+    \end{enumerate}
+\end{defn}
+
+The definition is performed inductively, or recursively. Fix $x \in \tilde{\N}$ and let $S = \{y \in \tilde{\N}:x+y\text{ is defined}\}$. By definition $0 \in S$. Further, if $y \in S$, $x+y$ is defined in $\tilde{\N}$, so $x+s(y) := s(x+y)$. Since $x+y \in \tilde{\N}$, by axiom 1 of Peano's arithmetic $s(x+y) \in \N\subset \tilde{\N}$. Thus, $s(x+y)$ is defined so $s(y) \in S$. Hence by mathematical induction $S = \tilde{\N}$ so $+$ is a well defined binary operation for all $x,y \in \tilde{\N}$.
+
+We can similarly define multiplication:
+
+\begin{defn}
+    We define the binary operation $\cdot:\tilde{\N}\times\tilde{\N}\rightarrow\tilde{\N}$ inductively for $x,y \in \tilde{\N}$ by stating \begin{enumerate}
+        \item $x \cdot 0 = 0$ 
+        \item $x \cdot s(y) = x\cdot y + x$ 
+    \end{enumerate}
+\end{defn}
+
+This defines $x\cdot y$ inductively as in the case of $+$. Now, we define our unit:
+\begin{defn}
+    We define $1 \in \N$ by $1 := s(0)$.
+\end{defn}
+
+Now we can derive many of the standard properties of the naturals.
+
+\begin{prop}\label{prop:1.1.1}
+    For all $x \in \tilde{\N}$, $x+1 = s(x)$.
+\end{prop}
+\begin{proof}
+    Let $x \in \tilde{\N}$. Then $x + 1 = x+s(0)$, but then by our inductive definition for $+$, $x+s(0) = s(x+0)$, and $x+0 = x$ by definition, so $$x+1 = s(x)$$
+\end{proof}
+
+\begin{prop}\label{prop:1.1.2}
+    For all $x \in \tilde{\N}$, $0+x = x$.
+\end{prop}
+\begin{proof}
+    We proceed by induction on $x \in \tilde{\N}$. If $x = 0$, then $0 + 0 = 0 = x$, by definition. Suppose inductively that we have $x \in \tilde{\N}$ such that $0+x=x$. Then $0+s(x) = s(0+x)$. But, $0+x = x$ by the induction hypothesis, so $0+s(x) = s(x)$ and our result holds for $s(x)$. Thus, by mathematical induction we conclude that $0+x = x$ for all $x \in \tilde{\N}$.
+\end{proof}
+
+\begin{prop}\label{prop:1.1.3}
+    For all $x,y \in \tilde{\N}$, $s(y) + x = s(y+x)$.
+\end{prop}
+\begin{proof}
+    Let $y \in \tilde{\N}$, and we proceed by induction on $x \in \tilde{\N}$. If $x = 0$ then $s(y)+0 = s(y)$, and $s(y+0) = s(y)$, so the base case holds. Now, suppose the proposition holds for some $x \in \tilde{\N}$. Then $s(y) + s(x) = s(s(y) + x)$ by definition, and by the induction hypothesis $s(y) + x = s(y+x) = y+s(x)$ by definition. Thus, $s(y)+s(x) = s(y+s(x)$, as desired. Thus, by mathematical induction we conclude taht $s(y) + x = s(y+x)$ for all $x,y \in \tilde{\N}$.
+\end{proof}
+
+\begin{prop}\label{prop:1.1.4}
+    For all $x, y \in \tilde{\N}$, $x+y = y+x$ (Commutative Law).
+\end{prop}
+\begin{proof}
+    Fix $x \in \tilde{\N}$, and we proceed by induction on $y \in \tilde{\N}$. If $y = 0$ then $x+0 = x$ by definition, and $0+x = x$ by Proposition \ref{prop:1.1.2}, so the base case holds. Now, suppose the proposition holds for some $y \in \tilde{\N}$. Then $x+s(y) = s(x+y)$ by definition, and by Proposition \ref{prop:1.1.3} we have $s(y)+x = s(y+x)$. By the induction hypothesis $x+y = y+x$, so $s(x+y) = s(y+x)$, and it follows that $s(y)+x = x+s(y)$. Hence, as $x$ was arbitrary, we have by mathematical induction that $x+y = y+x$ for all $x,y \in \tilde{\N}$.
+\end{proof}
+
+\begin{prop}\label{prop:1.1.5}
+    For all $x,y,z \in \tilde{\N}$, $x+(y+z) = (x+y)+z$ (Associative Law).
+\end{prop}
+\begin{proof}
+    Fix $x,y \in \tilde{\N}$, and proceed by mathematical induction on $z \in \tilde{\N}$. If $z = 0$, $x+(y+0) = x+y = (x+y)+0$, so the base case holds. Suppose the proposition holds for some $z \in \tilde{\N}$. Then it follows that \begin{align*}
+        x+(y+s(z)) &= x + s(y+z) = s(x+(y+z)) \\
+        &= s((x+y)+z) \tag{by Induction Hypothesis} \\
+        &= (x+y)+s(z)
+    \end{align*}
+    as desired. Thus by the axiom of mathematical induction we have our result.
+\end{proof}
+
+\begin{prop}\label{prop:1.1.6}
+    For all $x \in \tilde{\N}$, $x\cdot 1 = x$.
+\end{prop}
+\begin{proof}
+    Fix$ x \in \tilde{\N}$. Then $x\cdot 1 = x\cdot s(0) := x\cdot 0 + x = 0 + x = x$, by Proposition \ref{prop:1.1.4}.
+\end{proof}
+
+\begin{prop}\label{prop:1.1.7}
+    For all $x \in \tilde{\N}$, $0\cdot x = 0$.
+\end{prop}
+\begin{proof}
+    We proceed by induction on $x \in \tilde{\N}$. If $x = 0$, $0\cdot 0 = 0$ by definition. If $0\cdot x = 0$ for some $x \in \tilde{\N}$, then $0 \cdot s(x) = 0\cdot x + 0 = 0$, so by mathematical induction we have our result.
+\end{proof}
+
+\begin{prop}\label{prop:1.1.8}
+    For all $x,y \in \tilde{\N}$, $s(x)\cdot y = x\cdot y + y$.
+\end{prop}
+\begin{proof}
+    Fix $x \in \tilde{\N}$, and proceed by induction on $y \in \tilde{\N}$. If $y = 0$, $s(x)\cdot 0 = 0 = x\cdot 0 + 0$. Suppose the result holds for some $y \in \tilde{\N}$. Then $s(x)\cdot s(y) = s(x)\cdot y + s(x)$ by definition, and $s(x)\cdot y = x\cdot y + y$ by the induction hypothesis. By Proposition \ref{prop:1.1.5}, $(x\cdot y+y)+s(x) = x\cdot y + (y+s(x)) = x\cdot y + s(y+x)$. By Proposition \ref{prop:1.1.4}, $x\cdot y + s(y+x) = x\cdot y + s(x+y) = x\cdot y + (x+s(y))$. Finally, by Proposition \ref{prop:1.1.5} again we have $x\cdot y + (x+s(y)) = (x\cdot y + x) + s(y) = x\cdot s(y)+s(y)$, as desired. The result follows by the principle of mathematical induction.
+\end{proof}
+
+\begin{prop}\label{prop:1.1.9}
+    For all $x,y \in \tilde{\N}$, $x\cdot y = y\cdot x$.
+\end{prop}
+\begin{proof}
+    Fix $x \in \tilde{\N}$, and proceed by mathematical induction on $y \in \tilde{\N}$. If $y = 0$, $x \cdot 0 = 0 = 0\cdot x$ by Proposition \ref{prop:1.1.7}, so the base case holds. Suppose it holds for some $y \in \tilde{\N}$. Then $x\cdot s(y) = x\cdot y + x = y\cdot x + x$ by the induction hypothesis, and by Proposition \ref{prop:1.1.8}, $y\cdot x + x = s(y)\cdot x$. Thus by mathematical induction we have commutivity of multiplication.
+\end{proof}
+
+\begin{prop}\label{prop:1.1.10}
+    For all $x,y,z \in \tilde{\N}$, $(x+y)\cdot z = x\cdot z + y \cdot z$ (Distributivity).
+\end{prop}
+\begin{proof}
+    Fix $x,z \in  \tilde{\N}$ and proceed by induction on $y \in \tilde{\N}$. If $y = 0$, $(x+0)\cdot z = x\cdot z = x\cdot z + 0\cdot z$ by Proposition \ref{prop:1.1.7}. Suppose it holds for some $y \in \tilde{\N}$. Then $(x+s(y))\cdot z = s(x+y)\cdot z = (x+y)\cdot z + z$ by Proposition \ref{prop:1.1.8}. By the induction hypothesis, associativity, and the same proposition again we have $$(x+y)\cdot z + z = (x\cdot z + y \cdot z) + z = x\cdot z + (y\cdot z + z) = x\cdot z + s(y)\cdot z$$
+    as desired. Thus we have distributivity of multiplication by mathematical induction.
+\end{proof}
+
+\begin{prop}\label{prop:1.1.11}
+    For all $x,y,z \in \tilde{\N}$, if $x+z = y+z$, then $x = y$.
+\end{prop}
+\begin{proof}
+    Let $x,y \in \tilde{\N}$, and we proceed by induction on $z \in \tilde{\N}$. If $z = 0$, $x+0 = y+0$ implies $x = y$, so the base case holds. If it holds for some $z \in \tilde{\N}$, then $x+s(z) = y+s(z)$ implies $s(x+z) = s(y+z)$. But $s$ is an inductive function, so $x +z = y+z$ which implies $x = y$ by the induction hypothesis, and by mathematical induction we have our result.
+\end{proof}
+
+\begin{prop}\label{prop:1.1.12}
+    If $x \cdot z = y \cdot z$ and $z \neq 0$, then $x =y$.
+\end{prop}
+\begin{proof}
+    Suppose $x,y,z \in \tilde{\N}$ such that $x\cdot z = y\cdot z$. We argue by contrapositive and suppose $x \neq y$. Then by Trichotomy (to be shown) $x < y$ or $y < x$. Without loss of generality suppose $x < y$. Then $y = x+u$ for some $u \in \N$. Then $y\cdot z = x\cdot z + u\cdot z$, and so $u\cdot z = 0$ by the cancellation property. If $z \neq 0$, $z = s(w), w \in \tilde{\N}$, so $0 = u\cdot z = u\cdot w + u$. As $u \in \N$ this implies $u\cdot w < 0$, but $0 \leq k$ for all $k \in \tilde{\N}$ which contradicts trichotomy.
+\end{proof}
+
+As noted in the previous proof we used properties of the standard order relation on the naturals which we shall now define and prove.
+
+\begin{defn}
+    If $x,y \in \tilde{\N}$ we say \begin{enumerate}
+        \item $x < y$ if $y = x+u$ for some $u \in \N$
+        \item $x \leq y$ if $y = x+v$ for some $v \in \tilde{\N}$
+    \end{enumerate}
+\end{defn}
+
+We could also say $x \leq y$ if and only if $y \in Rx = \{x+v:v \in \tilde{\N}\}$.  We define $y > x \iff x < y$ and $y \geq x \iff x \leq y$ for all $x,y \in \tilde{\N}$.
+
+\begin{prop}\label{prop:1.1.13}
+    For $x,y \in \tilde{\N}$, if $x \leq y$ and $y \leq x$, then $x =y$.
+\end{prop}
+\begin{proof}
+    As $y = x+v, v \in \tilde{\N}$, and $x = y+u$ for $u \in \tilde{\N}$ by definition, $x = x+v+u$, so by the cancellation property $v + u = 0$. Towards a contradiction suppose $v$ or $u$ is not $0$. Without loss of generality suppose $v \neq 0$, so $v \in \N$ and there exists $m \in \tilde{\N}$ such that $v = s(m)$. Then $0 = u+s(m) = s(u+m) \in \N$, which contradicts our axiom that $0 \notin \N$. Thus, $v = u = 0$, so $x = y$.
+\end{proof}
+
+\begin{prop}[Trichotomy]\label{prop:1.1.14}
+    If $x,y \in \tilde{\N}$, then one and only one of the following hold: $$x < y \text{ or } x = y \text{ or } x > y$$
+\end{prop}
+\begin{proof}
+    Let $x,y \in \tilde{\N}$. If $x < y$ then $y = x+u$ for some $u \in \N$. If $x =y$ then $u = 0$, but $u \in \N$ so $u \neq 0$, and $x \neq y$. If $x > y$ then $x = y+v,$ $v \in \N$, but by the proof of Proposition \ref{prop:1.1.13} this implies $u=v=0$ contradicting the fact $u,v \in \N$. By similar arguments $x =y \implies x \cancel{<} y, x \cancel{>} y$, and $x > y$ follows from the first case. Let $y \in \tilde{\N}$ and proceed by induction on $x \in \tilde{\N}$. If $x = 0$, $y = y+0$ so $y \geq x$. If $y = 0$, $x = y$, and if $y \neq 0$, $y \in \N$ so $y > x$. Suppose the claim holds for some $x \in \tilde{\N}$. If $x < y$, then $s(x) \leq y$. Then either $s(x) = y$ or $s(x) + u = y$ for some $u \neq 0$, so $u \in \N$ and $s(x) < y$. If $x = y$, $s(x) = x+1 = y+1$, so $y < s(x)$. A similar argument holds if $y < x$, since $y < s(x)$, completing the induction.
+\end{proof}
+
+We now define the partial function of subtraction on $\tilde{\N}$:
+
+\begin{defn}
+    If $x,y \in \tilde{\N}$ with $x \leq y$, then we define $z := y-x \iff y = x+z$, where $z \in \tilde{\N}$.
+\end{defn}
+Notice $y-x$ is well defined by the cancellation property of addition.
+
+\begin{prop}\label{prop:1.1.17}
+    If $x,y,u \in \tilde{\N}$, with $x \leq y$, then $(y-x)u = yu-xu$.
+\end{prop}
+\begin{proof}
+    Let $x,y \in \tilde{\N}$ with $x \leq y$ and let $u \in \tilde{\N}$. Then there exists $w \in \tilde{\N}$ such that $y = x+w$, so $yu = xu+wu$ by distributivity, Then by definition $yu - xy = wu = (y-x)u$.
+\end{proof}
+
+Next we move on to a central property of the natural numbers which is equivalent to the axiom of mathematical induction:
+
+\begin{namthm}[Well-Ordering Property of $\tilde{\N}$]\label{namthm:wellOrder}
+    If $T \subseteq \tilde{\N}$ is non-empty, then $T$ has a smallest element.
+\end{namthm}
+\begin{proof}
+    We proceed by contrapositive. Suppose $T \subseteq \tilde{\N}$ and $T$ has no smallest element. Then $0 \notin T$, since for all $x \in \tilde{\N}$, $0 \leq x$, as either $x = 0$ or $x \in \N$ so $x = x+0$ and $x > 0$. Let $S = \{x \in \tilde{\N}:x < y,\forall y \in T\}$, so $0 \in S$. Inductively suppose $x \in S$. If $s(x) \in S$, we're done, so suppose $s(x) \geq y$ for some $y \in T$. But $x < y$, so $y = x+s(w)$, for some $w \in \tilde{\N}$, and $y = s(x)+w$. Thus $s(x) \leq y$, so by Proposition \ref{prop:1.1.13}, $s(x) = y \in T$. But $s(x) \leq t$ for all $t \in T$, so $s(x)$ is a minimal element of $T$, contradicting the hypothesis. Thus $s(x) \in S$, so by mathematical induction $S = \tilde{\N}$. Then as $T \subseteq \tilde{\N}\backslash S$, $T = \emptyset$ as desired.
+\end{proof}
+
+In the next section we perform an arithmetic closure of the naturals to obtain the rational field, $\Q$.
+
+
+\section{Construction of The Rational Field}
+
+First we need the notion of an equivalence relation for our constructions:
+
+\begin{defn}[Equivalence Relation]
+    An equivalence relation on a set $S$ is a subset $E \subseteq S\times S$ such that \begin{enumerate}
+        \item For all $x \in S$, $xEx$ (reflexivity) 
+        \item For all $x,y \in S$, if $xEy$ then $yEx$ (symmetry) 
+        \item For all $x,y,z \in S$, if $xEy$ and $yEz$, then $xEz$ (transitivity)
+    \end{enumerate}
+\end{defn}
+
+An important property of equivalence relations is there relation to partitions of a set: in particular, we have a bijection between partitions of a set and equivalence relations.
+
+\begin{defn}
+    For an equivalence relation $\sim$ on a set $S$, and $x \in S$, the \Emph{equivalence class} for $x$ is defined by \begin{equation*}
+        [x]_{\sim} := \{y \in S: x \sim y\}
+    \end{equation*}
+\end{defn}
+
+Note that $[y]_{\sim} = [x]_{\sim}$ if and only if $x \sim y$. Further, the equivalence classes for $\sim $ form a partition on $S$. That is $S = \cup_{x \in S}[x]_{\sim}$, and if $[y]_{\sim} \neq [x]_{\sim},$ $[y]_{\sim}\cap[x]_{\sim} = \emptyset$.
+
+\begin{defn}
+    Define $\sim$ on $\tilde{\N}\times \tilde{\N}$ by $(a,b) \sim(x,y)$ if and only if $a+y = x+b$.
+\end{defn}
+We consider $(a,b)$ to be $a-b$. We note that this defines an equivalence relation, we the proof left to the reader.
+
+\begin{defn}
+    We define the \Emph{Integers}, $\Z$, to be the set \begin{equation*}
+        \Z := \{[(x,a)]_{\sim} \in \mathcal{P}(\tilde{\N}\times\tilde{\N}): x,a \in \tilde{\N}\} = \tilde{\N}\times\tilde{\N}/\sim
+    \end{equation*}
+    and we have the natural injection \begin{align*}
+        \iota:\tilde{\N}&\rightarrow \Z \\
+        x&\mapsto [(x,0)]
+    \end{align*}
+\end{defn}
+
+We can define operations of addition and multiplication on $\Z$ inherited from $\tilde{\N}$.
+
+\begin{defn}
+    For $[(x,a)],[(y,b)] \in \Z$, we define \begin{align*}
+        [(x,a)]+[(y,b)] &= [(x+y,a+b)] \\
+        [(x,a)]\cdot[(y,b)] &= [(xy + ab, xb + ay)]
+    \end{align*}
+\end{defn}
+To show these definitions are well defined we must show that the operation is independent of the choice of representative of each equivalence class. This is a routine check left to the reader.
+
+\begin{defn}
+    We define $0 = [(0,0)]$ and $-1 = [(0,1)]$ in $\Z$, and if $m = [(x,a)]$, we define $-m := [(a,x)]$.
+\end{defn}
+
+\begin{prop}
+    For all $m \in \Z$, $m \cdot (-1) = -m$.
+\end{prop}
+The proof is a quick calculation: \begin{equation*}
+    m\cdot (-1) = [(x,a)][(0,1)] = [(x\cdot 0+a,x+a\cdot 0)] = [(a,x)] = -m
+\end{equation*}
+
+Similarly, we have all the properties we derived for $\tilde{\N}$ for the operations on $\Z$, such as $m\cdot 0 = 0$, $m(n+k) = mn+mk$, $m+n=m+k \implies n =k$, and $m\cdot n= k\cdot n\implies m=k$ if $n \neq 0$. Now we have closed the $\tilde{\N}$ under ring operations, obtaining the integral domain $\Z$.
+
+Next we perform a similar construction to obtain our field - this process is known as constructing a fraction field for an integral domain.
+
+\begin{defn}
+    Define an equivalence relation $\sim$ on $\Z\times \Z\backslash\{0\}$ by $(x/a)\sim(y/b)$ if and only if $xb = ya$, for $(x/a),(y/b) \in \Z\times \Z\backslash\{0\}$.
+\end{defn}
+
+It is routine to show that this is indeed an equivalence relation on the set. Next, we can define addition and multiplication operations:
+
+\begin{defn}
+    We define the rationals to be \begin{equation*}
+        \Q = \Z\times \Z\backslash\{0\}/\sim
+    \end{equation*}
+    For $[m/n],[a/b] \in \Q$, we define $$[m/n] + [a/b] = [(mb+an)/(nb)]$$ and $$[m/n]\cdot[a/b] = [(ma)/(nb)]$$
+\end{defn}
+
+It is a routine varification that these operations are well-defined and independent of the representative. If $x = [(a/b)] \in \Q$, and $x \neq 0$ so $a \neq 0$, then we can define $$x^{-1} = \frac{1}{x} := [(b/a)] \in \Q$$ We also define $0 := [0/1], 1 := [1/1],$ and $-1 := [-1/1]$. So far we have the chain $$\tilde{\N}\hookrightarrow \Z := \tilde{\N}\times \tilde{\N}/\sim \hookrightarrow \Z\times (\Z\backslash\{0\})/\sim$$
+
+\section{Divisibility}
+
+We now go over some fundamental theorems of number theory involving divisibility.
+
+\begin{defn}
+    We say $x \in \N$ is \Emph{composite} if $a,b \in \N$ such that $x = ab$ and $a,b \neq 1$. If $x$ is not composite, and $x > 1$, then $x$ is said to be \Emph{prime}. That is, $x$ is prime if and only if $x = ab$ implies $a = 1$ or $b =1$.
+\end{defn}
+
+\begin{defn}
+    If $x = ab$, $x,a,b \in \N$, then we say $a$ \Emph{divides} $x$, or $a$ is a \Emph{divisor} of $x$, and we write $a\;\vert\;x$.
+\end{defn}
+
+\begin{defn}
+    Given $x \in \N$, define the collection of non-trivial divisors as $$D_x := \{a \in \N\backslash\{1\}:a\;\vert\;x\} \subseteq \N$$
+\end{defn}
+
+Note that if $a \;\vert\;x$, then $a \leq x$. As $D_x \subseteq \N$, and $x \in D_x$ so it is non-empty, $D_x$ has a smallest element $p_1 \in D_x$. Then $x = p_1x_1$ for some $x_1 \in \N$. Then $p_1$ is prime since if note it can be written as $p_1 = ab$ for $1 < a < p_1$, and then $a\;\vert\;x$ with $a < p_1$, contradicting its minimality. If $x_1 > 1$, then we can obtain $x_1 = p_2x_2$, for $p_2$ prime and $p_2 \geq p_1$. Repeating in this fashion, since $x$ is finite there must exist $N \in \N$ such that $x_N = 1$ and $x_{N-1} = p_N\cdot 1$. Then $x = p_1\cdot ...\cdot p_N$. This is the existence portion of the following result.
+
+\begin{namthm}[Fundamental Theorem of Arithmetic]
+    Every natural number $x > 1$ has a unique factorization, up to reordering, into a product of prime numbers.
+\end{namthm}
+\begin{proof}
+    If $x = p_1...p_N = q_1...q_M$, then for each $1 \leq i\leq N$, $p_i\;\vert\;q_j$ for some $1 \leq j \leq M$. But, $p_i$ and $q_j$ are prime, so $p_i = q_j$, and after reordering $p_1 ...p_N = p_1...p_Nq_{N=1}...q_M$. By cancellation $q_{N+1}...q_M = 1$. Thus, $N = M$ and the terms are equal up to reordering.
+\end{proof}
+
+\begin{defn}
+    We say $x,y \in \N$ are \Emph{coprime} if $x$ and $y$ have no common prime factors.
+\end{defn}
+
+\begin{prop}
+    If $x,y \in \N$ are coprime, then there exists $m,n \in \Z$ such that $$xm+ny = 1$$
+\end{prop}
+
+\section{Reals in terms of Cauchy Sequences}
+
+To construct the reals we use the standard notion of a completion of metric spaces using equivalence classes of Cauchy sequences. But first we must define what a sequence is, and what it means for one to be Cauchy.
+
+\begin{defn}
+    We define the \Emph{absolute value function} by $$|x| = \left\{\begin{array}{cc} x & \text{if }x \geq 0 \\ -x & \text{if } x < 0\end{array}\right.$$
+\end{defn}
+
+It is a standard proof by cases, that the absolute value function defines a norm on $\Q$.
+
+\begin{defn}
+    A sequence is a function $a:\N\rightarrow \Q$, denoted $a(j) = a_j$ and $(a_j)_{j=1}^{\infty}$.
+\end{defn}
+
+\begin{defn}
+    We say a sequence $(a_j)$ converges to a number $a \in \Q$, and write $a_j\rightarrow a$, if for every $n \in \N$, there exists an index $K(n) \in \N$ such that if $j\geq K(n)$, then $|a_j - a| < \frac{1}{n}$.
+\end{defn}
+
+\begin{defn}
+    A sequence $(a_j)$ is said to be \Emph{Cauchy} if for all $n \in \N$, there exists $K(n) \in \N$ such that if $j,k \geq K(n)$, then $$|a_j - a_k| < \frac{1}{n}$$
+\end{defn}
+
+\begin{prop}
+    If $a_j\rightarrow a$, then $(a_j)$ is Cauchy.
+\end{prop}
+\begin{proof}
+    Since $a_j \rightarrow a$, for $n \in \N$ there exists $K(2n) \in \N$ such that if $j \geq K(2n)$, $|a_j - a| < \frac{1}{2n}$. Thus, if $k,j \geq K(2n)$, then $$|a_j - a_k| \leq |a_j - a| + |a - a_k| < \varepsilon$$ as desired.
+\end{proof}
+
+\begin{prop}
+    If $(a_j)$ is Cauchy then $(a_j)$ is bounded.
+\end{prop}
+\begin{proof}
+    Suppose $(a_j)$ is Cauchy. Then there exists $K(1) \in \N$ such that for $k,j\geq K(1)$, $|a_k - a_j| < 1$. Then for all $j \geq K(1)$, $|a_j| < 1 + |a_{K(1)}|$. Letting $M = \max\{|a_1|,...,|a_{K(1)-1}|, 1+|a_{K(1)}|\}$, we have that $a_n \leq M$ or all $n \in \N$, so the sequence is bounded.
+\end{proof}
+
+We now have some standard results about convergence of sequences:
+
+\begin{prop}\label{prop:1.5.1}
+    If $a_j\rightarrow a$ and $b_j\rightarrow b$, then $$a_j+b_j\rightarrow a+b,\;\text{ and }\;a_jb_j\rightarrow ab$$ If $b \neq 0$, and $b_j \neq 0$ for all $j$, then $$a_j/b_j\rightarrow a/b$$
+\end{prop}
+
+More generally we have 
+\begin{defn}
+    If $(a_j),(b_j)$ are Cauchy sequences, then $(a_j+b_j)$ is Cauchy, $(a_jb_j)$ is cauchy, and if there exists $n \in \N$ such that $|b_j| > \frac{1}{n}$ for all $j$, then $(a_j/b_j)$ is Cauchy.
+\end{defn}
+
+Although for general metric spaces we have the inclusion $$\left\{\begin{array}{cc} Convergent \\ Sequences\end{array}\right\} \subseteq \left\{\begin{array}{cc} Cauchy \\ Sequences \end{array}\right\}$$
+the other inclusion is not in general true.
+
+\begin{eg}
+    Let $a_j = \sum_{l=0}^j\frac{1}{l!}$, in $(\Q, d)$, $d(x,y) = |x-y|$. $a_j$ is a Cauchy sequence, as $|a_j - a_k| = \left|\sum_{l=k+1}^j\frac{1}{l!}\right| = \sum_{l=k+1}^j\frac{1}{l!}\rightarrow 0$. For $l\geq 2$ we have $\frac{1/(l+1)!}{1/l!} = \frac{1}{l} \leq \frac{1}{2}$. Then $\frac{1}{(2+j)!} \leq \frac{1}{2^j}\frac{1}{2}$. Then for $j > k \geq 2$, $$\sum_{l=k+1}^j\frac{1}{l!} = \sum_{l=k-2}^{j-2}\frac{1}{(l+2)!} \leq \sum_{l=k-2}^{l-2}\frac{1}{2^l}\frac{1}{2} < \frac{1}{2}\frac{1}{1-1/2} = 1$$ Thus, $a_j$ is a bounded increasing sequence and hence Cauchy. Now observe \begin{align*}
+        a_{n+j}-a_n &= \frac{1}{(n+1)!} + ... + \frac{1}{(n+j)!} \\
+        &\leq \frac{1}{n!}\left(\frac{1}{n+1}+ \frac{1}{(n+1)^2} + ... + \frac{1}{(n+1)^j}\right) \\
+        &< \frac{1}{n!}\sum_{k=0}^{j-1}\frac{1}{(n+1)^{k+1}} \\
+        &= \frac{1}{(n+1)!}\frac{1-\frac{1}{(n+1)^{j-1}}}{1-\frac{1}{n+1}} < \frac{1}{n!n}
+    \end{align*}
+    So if we fix $N \in \N$, $N+j > N+k \geq N$, then $a_{N+j} - a_{N+k} < \frac{1}{N!N} < \frac{1}{N}$. Hence $a_j$ is Cauchy. Since it is Cauchy, in the complete metric space $\R$ it is convergent, so let $a = \lim a_j$, so we observe $a = \sum_{l=0}^{\infty}\frac{1}{l!} = e$. But $e \notin \Q$, so this limit cannot be in the rationals and hence the rationals is not complete. 
+\end{eg}
+
+The following is a very important series known as the \Emph{geometric series}:
+
+\begin{prop}
+    If $a \in \Q$, with $|a| < 1$, then $\sum_{j=0}^{\infty}a^j = \frac{1}{1-a}$.
+\end{prop}
+
+\begin{prop}
+    If $|a| < 1$, then $|a|^n\rightarrow 0$.
+\end{prop}
+\begin{proof}
+    If $a = 0$, then $|a|^n = 0$ for all $n$, so the result holds. Hence, suppose $a \neq 0$. Then $|a|^{j+1} < |a|^j$, so $|a|^n$ is a bounded decreasing sequence, and hence converges in $\R$. Hence $\lim\limits_{n\rightarrow \infty}|a|^n = k$ for some $k \in \R$. Then $k = \lim\limits_{n\rightarrow \infty}|a|^n = \lim\limits_{n\rightarrow \infty}|a|^{n+1} = |a|k$. But $|a| \neq 1$, so $k = 0$. Thus, $|a|^n\rightarrow 0$, as desired.
+\end{proof}
+
+
+\begin{prop}[Bolzono-Weierstrass (Cauchy)]
+    If $(a_j)$ is a bounded sequence, then there exists a Cauchy subsequence.
+\end{prop}
+\begin{proof}
+    Since $(a_j)$ is bounded, there exists $M > 0$ such that $|a_j| \leq M$ for all $j$. In particular, $a_j \in I_0 = [-M,M]$ for all $j$. Then either $[-M,0]$ or $[0,M]$ contains an infinite number of $a_j$. Let $I_1$ be the one with such. Inductively, suppose there exists $k \in \tilde{\N}$ such that an infinite number of $a_j$ are in $I_k$, for all $0 \leq l \leq k-1$ $I_{l+1}\subseteq I_l$, and $\ell(I_l) = \frac{2M}{2^l}$. Then, we have a sequence $I_j$ of closed intervals containing infinitely many terms of $a_j$. Let $b_1 = a_1$, and let $b_k = a_{j(k)}$, where $j(k) = \min\left\{m \in \N: a_m \in I_k, m > j(k-1)\right\}$, which exists and is well defined by the construction of $I_k$ and the well-ordering of $\N$. Then $b_k = a_j(k)$ is a subsequence of $j$, as $j(k) < j(k+1)$ for all $k$. Now, fix $n \in \N$. As $2^{-j}\rightarrow 0$, there exists $K(2Mn) \in \N$ such that for $j \geq K(2Mn)$, $\frac{1}{2^j} < \frac{1}{2Mn}$. Then, for $k,l \geq K(2Mn)$, $b_k,b_l \in I_{K(2Mn)}$, so $$|b_k - b_l| \leq \ell(I_{K(2Mn)}) = \frac{2M}{2^{K(2Mn)}} < \frac{2M}{2Mn} = \frac{1}{n}$$ Thus $b_j$ is Cauchy.
+\end{proof}
+
+\begin{cor}
+    Each bounded Monotone sequence is Cauchy.
+\end{cor}
+\begin{proof}
+    Let $(a_j)$ be a bounded monotone sequence. Then we have a Cauchy subsequence $(a_{j_n})$. Fix $n \in \N$. Then there exists $K(n) \in \N$ such that if $k,l \geq K(n)$, $|a_{j_k} - a_{j_l}| < \frac{1}{n}$. Let $K'(n) = j_{K(n)}$. Then for $k,l \geq K'(n)$, let $m \in \N$ such that $j_m \geq k,l$ and $m \geq K(n)$. Then as $a_j$ is an increasing (decreasing) sequence, so $$a_{j_{K(n)}} \leq a_k \leq a_l \leq a_{j_m}\;(\text{respectively }a_{j_{K(n)}} \geq a_k \geq a_l \geq a_{j_m})$$ Then $0 \leq a_l - a_k \leq a_{j_m} - a_{j_{K(n)}}$, so $|a_l - a_k| < \frac{1}{n}$, and similarly for a decreasing sequence. Hence $a_j$ is Cauchy.
+\end{proof}
+
+We now begine defining the reals using equivalence relations on our Cauchy sequences:
+
+\begin{defn}
+    Let $\mathcal{S} = \{(a_j) \subseteq \Q:(a_j) \text{ is Cauchy}\}$. Define an equivalence relation $\sim$ on $\mathcal{S}$ by $$(a_j)\sim (b_j) \iff a_j-b_j\rightarrow 0$$
+\end{defn}
+
+It is a routine check that $\sim$ is an equivalence relation on $\mathcal{S}$. 
+
+\begin{defn}
+    We define $\R := \mathcal{S}/\sim$, so $x \in \R$ if and only if $x = [(a_j)]$ for some Cauchy sequence $(a_j)$ in $\Q$.
+\end{defn}
+
+\begin{defn}
+    If $x = [(a_j)], y = [(b_j)] \in \R$, we define $$x+y := [(a_j+b_j)]\;\;xy := [(a_jb_j)]$$ and $-x := [(-a_j)]$.
+\end{defn}
+
+As with the notion of an equivalence relation, it is a routine check using the boundedness of Cauchy sequences to prove that these operations are well defined. We can then define a natural injection $\Q\hookrightarrow \R$ by $a\mapsto [(a,a,a,...)]$. In particular, $0:= [(0,0,0,...)]$ in $\R$. 
+
+Now, note that if $x = [(a_j)], y = [(b_j)] \in \R$, then $x \neq y$ if and only if $a_j-b_j$ does not converge to $0$, so there exists $n \in \N$ such that for all $j \in \N$, there exists $k \geq j$ such that $$|a_k - b_k| \geq \frac{1}{n}$$ Specializing to the case of $y = 0=[(0,0,0,...)]$, as $(a_j)$ is Cauchy, there exists $K(2n) \in \N$ such that $k,l \geq K(2n)$, $|a_k - a_l| < \frac{1}{2n}$, so in particular $|a_j| \geq |a_k| - |a_j - a_k| > \frac{1}{2n}$ for all $j \geq K(2n)$. It follows that either $a_j > \frac{1}{2n} > 0$ for all $j \geq K(2n)$, or $a_j < \frac{-1}{2n} < 0$ for all $j \geq K(2n)$.
+
+Thus, if $x \neq 0$, then $x = [(a_j)] = [(\alpha_j)]$ such that there exists $n \in \N$ such that either $\alpha_j \geq \frac{1}{2n}$ for all $j$, or $\alpha_j \leq \frac{-1}{2n}$ for all $j$. Then we can define $x^{-1} = \frac{1}{x} := [(\alpha_j^{-1})]$.
+
+\begin{defn}
+    We define the following subsets of $\R$: \begin{align*}
+        \R^+ &= \{x = [(a_j)]: \exists n,K \in \N;a_j\geq \frac{1}{2n},\forall j \geq K\} \\
+        \R^- &= \{x = [(a_j)]: \exists n,K \in \N; a_j \leq \frac{-1}{2n},\forall j\geq K\}
+    \end{align*}
+\end{defn}
+We have shown that if $x \neq 0$ then either $x \in \R^+$ or $x \in \R^-$. Thus $$\R = \R^+ \sqcup \{0\}\sqcup \R^-$$
+
+\begin{prop}
+    For $x \in \R$, $x \in \R^+$ if and only if $-x \in \R^-$, and $x \in \R^-$ if and only if $-x \in \R^+$.
+\end{prop}
+
+\begin{defn}
+    We define a total order $<$ on $\R$ by $$x < y \iff y-x \in \R^+ \iff x = [(a_j)],y=[b_j)],\exists n,K \in \N;b_j-a_j \geq \frac{1}{2n}\forall j \geq K$$
+\end{defn}
+
+We have a few standard results about the order relation on $\R$: 
+
+\begin{prop}\label{prop:1.6.4}
+    Let $x_1,x_2,y_1,y_2 \in \R$. Then \begin{itemize}
+        \item $x_1 < y_1, x_2 < y_2 \implies x_1+x_2 < y_1 + y_2$
+        \item $x_1 < y_1 \implies -y_1 < -x_1$
+        \item $0 < x_1 < y_1$, $c > 0$, then $0 < cx < cy$
+        \item $0 < x < y \iff 0 < \frac{1}{y} < \frac{1}{x}$
+    \end{itemize}
+\end{prop}
+
+Note that in $\N$ we have well-ordering, but under the standard orders on $\Q$ and $\R$ this property does not hold.
+
+\begin{defn}
+    For $S \subseteq \R$, we say $x$ is an \Emph{upper bound} of $S$ if $s \in S$ implies $s \leq x$. Dually, we say $y$ is a \Emph{lower bound} for $S$ is $s \in S$ implies $s \geq y$.
+\end{defn}
+
+\begin{defn}
+    For $S \subseteq \R$, the \Emph{least upper bound}, denoted $\sup S$, is an upper bound for $S$ such that if $y$ is any other upper bound for $S$ then $\sup S \leq y$. Dually, the \Emph{greatest lower bound}, denoted $\inf S$, is a lower bound for $S$ such that if $y$ is any other lower bound for $S$, then $y \leq \inf S$.
+\end{defn}
+
+\begin{thm}[Completeness of $\R$]
+    If $(x_j)$ is a Cauchy sequence of real numbers, then there exists $x = [(a_j)] \in \R$ such that $x_j \rightarrow x$, of $x_j \sim a_j$, extending the equivalence relation to $\R$.
+\end{thm}
+
+
+\begin{prop}\label{prop:1.6.12}
+    If $S$ is a non-empty subset of $\R$ that has an upper bound, then there exists $x \in \R$ such that $x = \sup S$.
+\end{prop}
+\begin{proof}
+    By hypothesis, there exists $x_0 \in \R$ such that for all $s \in S$, $s \leq x_0$. As $S$ is non-empty, there exists $s_0 \in S$. Define an interval $I_0 = [s_0,x_0]$, and divide it into $2$ subintervals, $I_0^l,I_0^r$. If $I_0^r\cap S \neq \emptyset$ let $I_1^* = I_0^r$, and otherwise let $I_1^* = I_0^l$. In either case $I_1 = [s_1,x_1]$ is such that $x_1$ is an upper bound of $S$, and where we choose $s_1 \in I_1^*$ such that $s_1 \in S$. Further, $s_0 \leq s_1 \leq x_1 \leq x_0$, and letting $x_0 - s_0 = L$, $\ell(I_1) \leq \frac{L}{2}$. Proceeding inductively we find sequences $s_0\leq s_1\leq s_2 \leq ...$ in $S$ and $x_0 \geq x_1 \geq x_2 \geq ...$, with $I_j = [s_j,x_j]$, $\ell(I_j) \leq \frac{L}{2^j}$, with $x_j \geq s$ for all $s \in S$, and all $j \in \tilde{\N}$. Note $x_j$ is a decreasing bounded sequence, so it converges to some $x \in \R$, as $\R$ is complete. As $x_j \geq s$ for all $s \in S$, $x \geq s$ so $x$ is an upper bound. Further, if $\varepsilon > 0$, there exists $K \in \N$ such that for all $j \geq K$, $\frac{1}{2^j} < \frac{\varepsilon}{L}$, so $0 \leq x_j - s_j < \frac{L}{2^j} < \varepsilon$ for all $j \geq K$. Then $x-\varepsilon < s_j$ for all $j \geq K$. Thus, $x-\varepsilon$ is not an upper bound of $S$, and hence $x$ must be the least upper bound.
+\end{proof}
+
+
+\section{Axiomatized Reals}
+
+\begin{defn}[The Reals]
+    The real number system $\R$ is an \Emph{ordered field} which contains $\Q$ as a subfield, which satisfies the \Emph{axiom of choice}. In particular, the real numbers is a set $\R$ with two binary operations $+$ and $\cdot$, two distinct elements $0$ and $1$, and a subset $\mathbb{P}$ of positive numbers satisfying the following $13$ postulates:
+    \begin{enumerate}
+        \item Addition is associative: $\forall a,b,c \in \R, a+(b+c) = (a+b)+c$
+        \item The number $0$ is an additive identity: $\forall a \in \R, a+0 = 0+a = a$
+        \item Additive inverses exist: $\forall a \in \R;\exists (-a) \in \R\;s.t.\;a+(-a) = (-a)+a=0$
+        \item Addition is commutative: $\forall a,b \in \R, a+b = b+a$
+        \item Multiplication is associative: $\forall a,b,c \in \R, a\cdot (b\cdot c) = (a \cdot b) \cdot c$
+        \item The number $1$ is a multiplicative identity: $\forall a\in \R a\cdot 1 = 1\cdot a = a$
+        \item Multiplicative inverses exist: $\forall a \neq 0;\exists a^{-1} \in \R\;s.t.\;a\cdot a^{-1} = a^{-1} \cdot a = 1$
+        \item Multiplication is commutative: $\forall a,b \in \R, a\cdot b = b \cdot a$
+        \item The distributive law: $\forall a,b,c \in \R, a\cdot (b+c) = a\cdot b + a \cdot c$
+        \item The trichotomy of $\mathbb{P}$: for every $a \in \R$, exactly one of the following holds: $a = 0, a \in \mathbb{P}, (-a) \in \mathbb{P}$
+        \item Closure under addition: if $a \in \mathbb{P}$ and $b \in \mathbb{P}$, then $a+b \in \mathbb{P}$
+        \item Closure under multiplication: if $a \in \mathbb{P}$ and $b \in \mathbb{P}$, then $a\cdot b \in \mathbb{P}$
+        \item (to be added)
+    \end{enumerate}
+    From positive postulates we can define the order relations $>, <, \geq, \leq$ on $\R$ for $a,b \in \R$ by \begin{enumerate}
+        \item $a > b$ if $a-b \in \mathbb{P}$
+        \item $a < b$ if $b > a$ 
+        \item $a \geq b$ if $a > b$ or $a = b$
+        \item $a \leq b$ if $a < b$ or $a = b$
+    \end{enumerate}
+    Note in particular $a > 0$ if and only if $a \in \mathbb{P}$.
+\end{defn}
+
+\begin{rmk}
+    A few points which follow from the postulates are:\begin{enumerate}
+        \item Finite sums such as $a_1+a_2+...+a_n$ are well defined
+        \item The additive identity is unique (also multiplicative)
+        \item Additive inverses are unique (also multiplicative)
+        \item Subtraction can be defined 
+        \item $a \cdot b = b \cdot c \iff a = 0\lor b = c$
+        \item $a\cdot b = \iff a = 0 \lor b = 0$
+        \item $a-b = b-a \iff a = b$
+        \item A ``well behaved" order relation can be defined.
+        \item The ``absolute value" function $a \mapsto |a|$ can be defined by $$|a| = \left\{\begin{array}{ll} a, & a \geq 0 \\ -a, & a \leq 0 \end{array}\right.$$ and for all $a,b \in \R$, the triangle inequality $$|a+b| \leq |a| + |b|$$ holds
+    \end{enumerate}
+\end{rmk}
+
+
+\begin{axi}[Axiom of Completeness]
+    Every non-empty subset of the real numbers that is bounded above has a least upper bound.
+\end{axi}
+
+\subsection{Upper and Lower Bounds}
+
+\begin{defn}[Bounds]
+    A set $A \subseteq \R$ is \Emph{bounded above} if there exists a number $b \in \R$ such that $a \leq b$ for all $a \in A$. The number $b$ is called an \Emph{upper bound} for $A$.
+
+
+    Similarly, the set $A$ is \Emph{bounded below} if there exists a \Emph{lower bound} $l \in \R$ satisfying $l \leq a$ for every $a \in A$.
+\end{defn}
+
+\begin{defn}[Least Upper Bound]
+    A real number $s$ is the \Emph{least upper bound} for a set $A \subseteq \R$ if it meets the following two criteria: \begin{enumerate}
+        \item $s$ is an upper bound for $A$;
+        \item if $b$ is any upper bound for $A$, then $s \leq b$.
+    \end{enumerate}
+    The least upper bound of a set $A$ is also called the \Emph{supremum} of $A$, and denoted by $\sup A$.
+\end{defn}
+
+\begin{defn}[Greatest Lower Bound]
+    A real number $i$ is the \Emph{Greatest Lower bound} for a set $A \subseteq \R$ if it meets the following two criteria: \begin{enumerate}
+        \item $i$ is a lower bound for $A$;
+        \item if $b$ is any lower bound for $A$, then $b \leq i$.
+    \end{enumerate}
+    The greatest lower bound of a set $A$ is also called the \Emph{infemum} of $A$, and denoted by $\inf A$.
+\end{defn}
+
+
+\begin{rmk}
+    From the definitions we assert that the least upper bound and greatest lower bound of a set, if they exist, are unique.
+\end{rmk}
+
+
+\begin{eg}
+    Consider the set $$A = \left\{\frac{1}{n}:n\in\N\right\} = \left\{1,\frac{1}{2},\frac{1}{3},...\right\}$$ The set $A$ is bounded above and below. Moreover, the least upper bound of $A$ is $\sup A = 1$, which is in $A$, while $\inf A = 0$, which is not in $A$.
+\end{eg}
+
+
+\begin{defn}[Max and Min]
+    A real number $a_0$ is a \Emph{maximum} of a set $A$ if $a_0$ is an element of $A$ and $a_0 \geq a$ for all $a \in A$. Similarly, a number $a_1$ is a \Emph{minimum} of $A$ if $a_1 \in A$ and $a_1 \leq a$ for all $a \in A$.
+\end{defn}
+
+\begin{eg}
+    Consider the open interval $(0,2)$, and the closed interval $[0,2]$. Note both sets are bounded above and below, and both have the same infimum and supremum, namely $\inf = 0$ and $\sup = 2$. However, $[0,2]$ has both a maximum and a minimum, namely its infimum and supremum, while $(0,2)$ has neither.
+\end{eg}
+
+
+\begin{eg}
+    Let $A \subseteq \R$ be a non-empty and bounded above set, and let $c \in \R$. Define the set $c+A$ by $$c+A:=\{c+a:a \in A\}$$ Then I claim that $\sup(c+A) = c+\sup A$.
+    \begin{proof}
+        Let $\alpha = c+\sup A$. First let us show that $\alpha$ is an upper bound of $c+A$. Indeed, for $x \in c+A$ we can write $x = c+a$ for some $a \in A$ by definition. Then, by definition we have that $a \leq \sup A$. Thus, adding $c$ to both sides we obtain $$x = c+a \leq c+\sup A = \alpha$$
+        Therefore, as $x$ was arbitrary $\alpha$ is indeed an upper bound of $c+A$. Now, suppose $b$ is an upper bound of $c+A$. Then, $c+a \leq b$ for all $c+a \in c+ A$, so in particular $a \leq b - c$ for all $a \in A$. Then, $b-c$ is an upper bound for $A$, so as $\sup A$ is the least upper bound of $A$ we have that $\sup A \leq b-c$. Hence, we conclude that $\alpha = c+\sup A \leq b$. Thus $\alpha$ satisfies the axioms of a least upper bound for $c+A$, and we conclude that $\sup(c+A) = c+\sup A$.
+    \end{proof}
+\end{eg}
+
+
+\begin{lem}
+    Assume $s \in \R$ is an upper bound for a set $A \subseteq \R$. Then $s = \sup A$ if and only if, for every choice $\epsilon > 0$, there exists an element $a \in A$ satisfying $s-\epsilon < a$.
+\end{lem}
+\begin{proof}
+    Let $s \in \R$ be an upper bound for a set $A \subseteq \R$. 
+
+    ($\implies$) First, suppose that $s = \sup A$, and choose $\epsilon \in \R$ with $\epsilon > 0$. Then $s-\epsilon$ is not an upper bound of $A$. Indeed, if $s-\epsilon$ was an upper bound then $s \leq s - \epsilon$ which implies that $\epsilon \leq 0$, but by assumption $\epsilon > 0$. Thus, there must exist $a \in A$ such that $s - \epsilon < a$, satisfying the implication.
+
+    ($\impliedby$) Conversely, suppose that for all $\epsilon > 0$ there exists $a \in A$ such that $s - \epsilon < a$. Now, suppose that $b$ is an upper bound of $A$, and towards a contradiction suppose $s > b$. Then $s - b > 0$, so there exists $a \in A$ such that $s - (s-b) < a$. In particular, $b < a$. However, $a \in A$ and $b$ is an upper bound of $A$ by assumption, so $b < a$ is a contradiction. Therefore we conclude that $s \leq b$, so $s$ is the supremum of $A$ by definition.
+\end{proof}
+
+
+\begin{thm}[Archimedean Property for the Reals]
+    For all $x,y > 0$ in $\R$, there exists $n \in \N$ such that $nx > y$.
+\end{thm}
+\begin{proof}
+    Towards a contradiction suppose $nx \leq y$ for all $n \in \N$. Then the set $\{nx: n \in \N\}$ is bounded above by $y$. Thus, by the least upper bound property of $\R$ we have a supremum $\alpha \in \R$. Then for all $n \in \N$ $\alpha \geq nx$. In particular, $\alpha \geq (n+1)x$ for all $n \in \N$, so $\alpha - x \geq nx$ for all $n \in \N$. But this implies that $\alpha - x$ is also an upper bound of the set, which contradicts the fact that $\alpha$ is the least upper bound. Thus, we must have that $nx > y$ for some $n \in \N$, as claimed.
+\end{proof}
+
+\begin{cor}
+    $\N$ is not bounded above.
+\end{cor}
+
+
+\begin{cor}
+    For any $\epsilon > 0$ there is a natural number $n$ with $1/n < \epsilon$.
+\end{cor}
+\begin{proof}
+    Consider $0<1/\epsilon \in \R$ and $1 \in \R$. Then by the Archimedean Property of $\R$ there exists $n \in \N$ such that $1\cdot n > 1/\epsilon$. In particular, we have that $n > 0$, so $\epsilon > 1/n$, completing the proof.
+\end{proof}
+
+
+\section{Metric Properties of the Reals}
+
+First we extend our definition of sequences to the reals:
+
+\begin{defn}
+    A sequence $(p_j)$ in $\R$ converges to a point $p \in \R$ if and only if for every $\varepsilon > 0$ there exists $N \in \N$ such that if $j \geq N$, then $|p_j - p| < \varepsilon$.
+\end{defn}
+
+Using sequences we can define notions of our topology, such as closed and open sets, and limit points:
+
+\begin{defn}
+    $S \subseteq \R$ is said to be \Emph{closed} if and only if whenever $(p_j) \subseteq S$ is a sequence in $S$ which converges to a point $p \in \R$, then $p \in S$.
+\end{defn}
+
+\begin{defn}
+    A point $p \in \R$ is said to be a \Emph{limit point} of $S$ if there exists $(p_j) \subseteq S$ such that $p_j$ converges to $p$, and $p_j \neq p$ for all $j \in \N$.
+\end{defn}
+
+Note that $S$ is closed if and only if $S$ contains all of its limit points.
+
+\begin{defn}
+    $U\subseteq \R$ is said to be \Emph{open} if and only if $U^c = \R\backslash U$ is closed.
+\end{defn}
+
+\begin{defn}
+    For $S \subseteq \R$, the \Emph{closure} of $S$, $\overline{S}$, is defined as $$\overline{S}:= S \cup S'$$ where $$S' = \{p \in \R: p \text{ is a limit point of } S\}$$
+\end{defn}
+
+\begin{prop}
+    For all $S \subseteq \R$, $\overline{\overline{S}} = \overline{S}$
+\end{prop}
+\begin{proof}
+    Let $(p_j) \subseteq \overline{S}$ which converges to some point $p \in \R$. Then for each $j$ we have $(b_{jk})$ in $S$ which converges to $p_j$. For each $j \in \N$, there exists $K(j) \in \N$ such that for $k \geq K(j)$, $|b_{jk} - p| < \frac{1}{j}$. Define $(c_j)$ by $c_j = b_{jK(j)}$. Fix $\varepsilon > 0$. Then there exists $N \in \N$ such that $j \geq N$ implies $|p_j - p| < \frac{\varepsilon}{2}$. By the Archimedian property there exists $n \in \N$ such that $\frac{1}{n} < \frac{\varepsilon}{2}$. Then for a $j \geq \max\{n,N\}$, \begin{align*}
+        |c_j - p| \leq |c_j - p_j| + |p_j - p| < \frac{1}{n} + \frac{\varepsilon}{2} < \varepsilon
+    \end{align*}
+    Thus $(c_j) \subseteq S$ and $c_j\rightarrow p$, so $p \in \overline{S}$. Hence, $\overline{S}\supseteq \overline{\overline{S}}$, and by definition $\overline{S} \subseteq \overline{\overline{S}}$, so $\overline{S} = \overline{\overline{S}}$.
+\end{proof}
+
+\begin{thm}\label{thm:1.9.1}
+    Every Cauchy sequence in $\R$ has a limit point in $\R$.
+\end{thm}
+
+Note if $(x_j) = ([(a_{jk})])$ is Cauchy in $\R$, then $(a_{jj})$ is Cauchy in $\Q$ with $a_{jj} - x_j \rightarrow 0$, so then $x_j$ converges to $[(a_{jj})]$.
+
+\begin{prop}[Density of the Rationals]
+    For all $x \in \R$ and $\varepsilon > 0$, there exists $y \in \Q$ such that $|y-x| < \varepsilon$.
+\end{prop}
+In particular, for all $a < b$ in $\R$, there exists $c \in \Q$ such that $a < c < b$. Indeed, for $x = [(a_j)]$, $a_j \rightarrow x$ so there exists $N \in \N$ such that $|a_N - x| < \varepsilon$ for any $\varepsilon > 0$.
+
+\begin{defn}
+    A subset $K \subseteq \R$ is \Emph{sequentially compact} if and only if for every \Emph{infinite sequence} $(p_j) \subseteq K$, there exists a subsequence which converges to a point in $K$.
+\end{defn}
+
+\begin{namthm}[Bolzano-Weierstrass Property]
+    Every bounded sequence of real numbers has a convergent subsequence.
+\end{namthm}
+
+
+\begin{thm}\label{thm:1.9.2}
+    If $K \neq \emptyset$, $K \subseteq \R$, and $K$ is closed and bounded, then $K$ is sequentially compact.
+\end{thm}
+\begin{proof}
+    If $K \subseteq \R$, $K \neq \emptyset,$ is bounded and $(p_j) \subseteq K$, $(p_j)$ has a convergent subsequence $(p_{j_k})$ by Bolzano-Weierstrass, so $p_{j_k}\rightarrow p$ for some $p \in \R$. But $K$ is closed so $(p_{j_k}) \subseteq K$, so $p \in K$.
+\end{proof}
+
+Note that if $K \subseteq \R$ is compact, then $K$ is closed since all subsequences of a convergent sequence converge to the same point. Additionally, $K$ is bounded as otherwise we can construct $p_1 \in K$, $p_2 \in K$ such that $|p_2| > |p_1| + 1$, and for $p_k \in K$, choose $p_{k+1} \in K$ such that $|p_{k+1}| > |p_k| + 1$. Thus, for all $j,k \in \N$, $|p_j - p_k| > 1$, so $(p_j)$ has no convergent subsequence.
+
+\begin{namthm}[Heine-Borel]
+    If $K \neq \emptyset, K \subseteq \R$, the following are equivalent: \begin{itemize}
+        \item $K$ is sequentially compact
+        \item $K$ is closed and bounded
+    \end{itemize}
+\end{namthm}
+
+If $K$ is compact, $K \neq \emptyset$, in $\R$, then there exists $a,b \in K$ such that $$a = \min K := \inf K\;\text{ and }\;b = \max K := \sup K$$ which is to say $K$ contains its infimum and supremum.
+
+\begin{defn}
+    A function $f:S\rightarrow \R$, $\emptyset \neq S \subseteq \R$, is said to be \Emph{continuous} at a point $p \in S$ if whenever $(p_j) \subseteq S$ such that $p_j\rightarrow p$, then $f(p_j)\rightarrow f(p)$
+\end{defn}
+
+\begin{defn}
+    A point $p \in S$ is said to be an \Emph{isolated point} of $S$ if there exists some $\varepsilon > 0$ such that $(p-\varepsilon,p+\varepsilon) \cap S = \{p\}$
+\end{defn}
+Every function is continuous at isolated points of its domain.
+
+\begin{defn}
+    If $f:S\rightarrow \R$ is continuous at every point $p \in S$, we say $f$ is \Emph{continuous} on $S$.
+\end{defn}
+
+\begin{prop}\label{prop:1.9.4}
+    If $K \subseteq \R$, $K \neq \emptyset$, is a compact subset of $\R$, and $f:K\rightarrow \R$ is continuous, then $f(K)$ is compact.
+\end{prop}
+\begin{proof}
+    Let $(q_k) \subseteq f(K)$. Then we have $(p_k) \subseteq K$ such that $f(p_k) = q_k$ for all $k$. Then as $K$ is sequentially compact there exists $p \in K$ and a subsequence $(p_{k_j}) \subseteq K$ such that $p_{k_j}\rightarrow p$. As $f$ is continuous we have $q_{k_j} = f(p_{k_j}) \rightarrow f(p)$, where $f(p) \in f(K)$. Thus $f(K)$ is sequentially compact as claimed.
+\end{proof}
+
+\begin{prop}\label{prop:1.9.5}
+    If $\emptyset \neq K \subseteq \R$ is sequentially compact and $f:K\rightarrow \R$ is continuous on $K$, then there exist $q,p \in K$ such that $$f(p) = \max_{K}f,\;\;f(q) = \min_Kf$$
+\end{prop}
+
+\begin{namthm}[Intermediate Value Theorem]
+    If $f:[a,b]\rightarrow \R$ is continuous on $[a,b]$ and $f(a) < c < f(b)$ (or $f(a) > c > f(b)$), then there exists $x \in (a,b)$ such that $f(x) = c$.
+\end{namthm}
+\begin{proof}
+    Let $S = \{y \in [a,b]: f(y) \leq c\}$. Without loss of generality suppose $f(a) < c < f(b)$ (if the other inequality holds, replace $f$ with $-f$). THen $a \in S$ and $b \notin S$. Further, if $(y_j) \in S$, $y_j\rightarrow y$, then by continuity $f(y_j)\rightarrow f(y)$ and as $f(y_j) \leq c$ for all $j$, $f(y) \leq c$. Thus $y \in S$, so $S$ is closed. As $S \subseteq [a,b]$, $S$ is bounded, so by Heine-Borel $S$ is compact. Let $x = \max S \in S$. Then $f(x) \leq c$. If $f(x) < c$, then for some $\varepsilon > 0$, $f(y) < c$ for all $y \in (x-\varepsilon,x+\varepsilon)$. Let $\varepsilon = c-f(x) > 0$. As $f$ is continuous, there exists $\delta > 0$ such that if $|x-y| < \delta$, $|f(x) - f(y)| < \frac{\varepsilon}{2}$. Then $c-f(y) = c-f(x) - (f(y) - f(x)) \geq |c-f(x)| - |f(y) - f(x)|$, which is greater than or equal to $\varepsilon/2$, so $f(y) < c$. Taking $y = x+\frac{\delta}{2}$, $f(y) \leq c$, so $y \in S$, but $y > x = \max S$ which is a contradiction. Thus, $f(x) \cancel{<} c$, so $f(x) = c$.
+\end{proof}
+
+\begin{prop}\label{prop:1.9.7}
+    Suppose $K$ is sequentially compact and $X_1 \supseteq X_2 \supseteq X_3 \supseteq ...$ is a sequence of closed subsets of $K$ so all $X_i$ are compact by Heine-Borel. If $X_m \neq \emptyset$, for all $m$, then $\bigcap_{m\geq 1}X_m\neq \emptyset$.
+\end{prop}
+\begin{proof}
+    Let $x_m \in X_m$. As $K$ is compact and $x_m \in K$, there exists a convergent subsequence $x_{m_j}\rightarrow x \in K$. Since $X_1 \supseteq X_2 \supseteq ...$, $$\{x_{m_l}: l\geq j\}\subseteq X_{m_j}$$ But $X_{m_j}$ is closed, so $x \in X_{m_j}$, for all $j$. Then for all $m \in \N$, $x \in X_m$ as for all $n \in \N$ there exists $m_j \geq n$ so $x \in X_{m_j} \subseteq X_n$. Thus $x \in \bigcap_{m\geq 1}X_m$,a s claimed.
+\end{proof}
+
+\begin{cor}\label{cor:1.9.8}
+    If $K$ is sequentially compact and $U_1 \subseteq U_2 \subseteq ...$ is a sequence of open sets such that $K \subseteq \bigcup_{j\geq 1}U_j$, then there exists $M \in \N$ such that $K \subseteq U_M$.
+\end{cor}
+Use Proposition \ref{prop:1.9.7} with $X_j = K \backslash U_j$.
+
+We now discuss some general results on open and closed sets: 
+
+\begin{prop}
+    If $\{A_{\alpha}\}_{\alpha \in J}$ is a family of closed sets in $\R$, then $\bigcap_{\alpha\in J}A_{\alpha}$ is closed. If $A$ and $B$ are closed, then $A \cup B$ is closed.
+\end{prop}
+\begin{proof}
+    Suppose $A_{\alpha},\alpha \in J$ are as in the hypothesis. If $\emptyset = \bigcap_{\alpha \in J}A_{\alpha}$ then the claim vauously holds. Otherwise, let $(p_j) \subseteq \bigcap_{\alpha \in J}A_{\alpha}$ such that $p_j \rightarrow p \in \R$. As $A_{\alpha}$ is closed for all $\alpha \in J$, it follows that $p \in A_{\alpha}$, so $p \in \bigcap_{\alpha \in J}A_{\alpha}$. 
+
+    Next, let $A$ and $B$ be closed, and take $(p_j) \subseteq A\cup B$ such that $p_j\rightarrow p \in \R$. Either infinitely many points of the sequence are in $A$ or infinitely many are in $B$. Without loss of generality suppose infinitely many are in $A$. Then there exists a subsequence $(p_{j_k}) \subseteq (p_j)$ contained in $A$, which will converge to $p$ so as $A$ is closed $p \in A$. Thus $p \in A \cup B$, so the union is closed.
+\end{proof}
+
+\begin{cor}
+    If $\{U_{\alpha}\}_{\alpha \in J}$ is a family of open sets in $\R$, then $\bigcup_{\alpha\in J}U_{\alpha}$ is open. If $A$ and $B$ are open, then $A \cap B$ is open.
+\end{cor}
+
+Conversely, we have $I_n = [-1+\frac{1}{n},1-\frac{1}{n}]$, a collection of closed intervals, who's union is $\bigcup_{n\geq 1}I_n = (-1,1)$ is not closed. Further, if $U_n = (-\frac{1}{n},1+\frac{1}{n})$, then $\bigcap_{n\geq 1}U_n = [0,1]$ is not open.
+
+\begin{defn}
+    The ball of radius $r > 0$ centered at $x \in \R$ is defined by $$B_r(x) := \{y \in \R:|x-y| < r\}$$ 
+\end{defn}
+
+\begin{prop}
+    $U \subseteq \R$ is open if and only if for all $x \in U$, there exists $r_x > 0$ such that $B_{r_x}(x) \subseteq U$.
+\end{prop}
+\begin{proof}
+    First we prove the reverse implication: \begin{itemize}
+        \item[$\impliedby$] If for all $x \in U$ there exists $r_x > 0$ such that $B_{r_x}(x) \subseteq U$, then $U = \bigcup_{x \in U}B_{r_x}(x)$. Each $B_{r_x}(x) = (x-r_x,x+r_x)$ is open as $(-\infty,x-r_x]\cup[x+r_x,\infty)$ is a finite union of closed sets. Thus $U$ is open, being the union of open sets.
+        \item[$\implies$] Towards a contradiction there exists $x \in U$ such that for all $r > 0$, $B_r(x) \cap U^c \neq \emptyset$. Then by the axiom of choice there exists $f:X\rightarrow \bigcup X$ with $X = \{B_{1/n}(x)\cap U^c:n \in \N\}$, and we can define a sequence $a(n) = f(B_{1/n}(x)\cap U^c)$ which converges to $x$, and $(a_n) \subseteq U^c$ which is closed. But $x \in U$ implies $x \notin U^c$ contradicting the closedness of $U^c$, so $U$ must satisfy the hypothesis.
+    \end{itemize}
+\end{proof}
+
+\begin{defn}
+    A topological space $(X,\tau)$ is called \Emph{separable} if it has a \Emph{countable dense subset}.
+\end{defn}
+
+$\R$ is an example of a separable space, with countable dense subset $\Q$.
+
+\begin{defn}
+    A topological space $(X,\tau)$ is called \Emph{Lindel\"{o}f} if and only if every open cover of $X$ has a countable subcover.
+\end{defn}
+
+\begin{defn}
+    A topological space $(X,\tau)$ is called \Emph{second countable} if $\tau$ has a countable base.
+\end{defn}
+
+All metrizable spaces are second countable if and only if they are separable, as we can take the rational balls around points of the countably dense subset. THus, $\tau_{\R} = \bigcup \mathcal{B}$, where $\mathcal{B} = \{B_p(q):p,q \in \Q, p > 0\}$ is a countable base.
+
+\begin{defn}
+    A \Emph{covering} of a set $F$ is any family of sets $\{X_{\alpha}\}_{\alpha \in \mathcal{A}}$, such that $F \subseteq \bigcup_{\alpha \in \mathcal{A}} X_{\alpha}$.
+\end{defn}
+
+\begin{defn}
+    An \Emph{open covering} of a topological space is a covering by open sets.
+\end{defn}
+
+\begin{prop}\label{prop:1.9.11}
+    If $K \subseteq \R$ is sequentially compact, then every open covering of $K$ has a finite subcovering.
+\end{prop}
+\begin{proof}
+    Suppose $\emptyset\neq K \subseteq \R$ is sequentially compact. Let $K \subseteq \bigcup_{\alpha \in J}U_{\alpha}$ be an open covering. Note $U_{\alpha} = \bigcup_{x \in U_{\alpha}}B_{p_{\alpha,x}}(q_{\alpha,x})$ such that $x \in B_{p_{\alpha,x}}(q_{\alpha,x})$, as $U_{\alpha}$ is open. Hence $$K \subseteq \bigcup_{\alpha \in J}U_{\alpha} = \bigcup_{\alpha \in J}\bigcup_{x \in U_{\alpha}}B_{p_{\alpha,x}}(q_{\alpha,x})$$ but the right side consists of countably many distinct open sets. Now consider $K \subseteq \bigcup_{j\geq 1}V_j$ is countable. Let $J_n = \bigcup_{j=1}^nV_j$. Then $K \subseteq \bigcup_{j\geq 1}J_j$, and $J_1 \subseteq J_2 \subseteq ...$ so by Proposition \ref{prop:1.9.8} there exists $M \in \N$ such that $K \subseteq J_M = \bigcup_{j=1}^MV_j$. Thus, in particular there exist $B_{p_{\alpha,x_1}}(q_{\alpha,x_1}),...,B_{p_{\alpha,x_M}}(q_{\alpha,x_M})$ such that $K \subseteq \bigcup_{j=1}^MB_{p_{\alpha,x_j}}(q_{\alpha,x_j})$. Thus $K \subseteq \bigcup_{j=1}^MU_{\alpha_j}$, so we have a finite subcovering of $K$ as desired.
+\end{proof}
+
+\begin{prop}
+    If $K \subseteq \R$ is topologically compact, then $K$ is sequentially compact.
+\end{prop}
+\begin{proof}
+    We prove the equivalent notion of limit point compactness (which is equivalent for metric spaces). Then we argue by contrapostive, supposing $S$ has no accumulation points. Then $S$ and $S_x = S\backslash\{x\}$ is closed for all $x \in S$. Setting $U_x = \R\backslash S_x$, we have that $K = \left(\bigcup_{x \in S}U_x\right)\cup \R\backslash S$ is an open cover, and as $K$ is topologically compact we have a finite subcover $U_{x_1},...,U_{x_N},\R\backslash S$. Then $U_{x_1},...,U_{x_N}$ covers $S$, so $S = \bigcup_{i=1}^NU_{x_i}\cap S = \bigcup_{i=1}^N\{x_i\} = \{x_1,...,x_N\}$, so $S$ is finite. Thus, $K$ is limit point compact as desired.
+\end{proof}
+
+Thus, we have the equivalence between sequentially compact, topologically compact, and limit point compact, for subsets of $\R$.
+
+\section{Limits}
+
+\begin{rmk}[Motivating Definition]
+    The function $f$ approaches the limit $l \in \R$ near $a \in \R$, if we can make $f(x)$ as ``close as we like" to $l$ by requiring that $x$ be ``sufficiently close to," but unequal to, $a.$
+\end{rmk}
+
+\begin{defn}[Limit]
+    A real valued function $f:\R\rightarrow \R$ \Emph{approaches the limit $l$ near $a$} if for every $\epsilon > 0$ there is some $\delta > 0$ such that, for all $x \in \R$, if $0 < |x-a| < \delta$, then $|f(x) - l| < \epsilon$.
+\end{defn}
+
+\begin{nota}
+    We denote the number $l$ which a function $f$ approaches near $a \in \R$ by $\lim\limits_{x\rightarrow a}f(x)$, read \Emph{the limit of $f(x)$ as $x$ approaches $a$}.
+\end{nota}
+
+
+\begin{lem}
+    \leavevmode
+    \begin{enumerate}
+        \item If $$|x-x_0| < \frac{\epsilon}{2}\;and\;|y-y_0| < \frac{\epsilon}{2}$$
+            then $$|(x+y) - (x_0+y_0)| < \epsilon$$
+        \item If $$|x-x_0| < \min\left(1,\frac{\epsilon}{2(|y_0|+1)}\right)\;and\;|y-y_0| < \frac{\epsilon}{2(|x_0+1)}$$
+            then $$|xy-x_0y_0| < \epsilon$$
+        \item If $y_0 \neq 0$ and $$|y-y_0| < \min\left(\frac{|y_0|}{2},\frac{\epsilon|y_0|^2}{2}\right)$$
+            then $y\neq 0$ and $$\left|\frac{1}{y} - \frac{1}{y_0}\right|$$
+    \end{enumerate}
+\end{lem}
+\begin{proof}
+    (1) Suppose $|x-x_0| < \frac{\epsilon}{2}\;and\;|y-y_0| < \frac{\epsilon}{2}$. Then it follows that \begin{align*}
+        |(x+y) - (x_0+y_0)| &= |(x-x_0)+(y-y_0)| \\
+        &\leq |x-x_0| + |y-y_0| \\
+        &< \frac{\epsilon}{2} + \frac{\epsilon}{2} \\
+        &= \epsilon
+    \end{align*}
+    as desired.
+
+
+    (2) Next, suppose $|x-x_0| < \min\left(1,\frac{\epsilon}{2(|y_0|+1)}\right)\;and\;|y-y_0| < \frac{\epsilon}{2(|x_0+1)}$. Note that as $|x-x_0| < 1$ we have that $|x| - |x_0| < 1$ so $|x| < 1+|x_0|$. It follows that \begin{align*}
+        |xy-x_0y_0| &= |xy-xy_0+xy_0-x_0y_0| \\
+        &\leq |x||y-y_0| + |y_0||x-x_0| \\
+        &< (|x_0|+1)\frac{\epsilon}{2(|x_0|+1)} + (|y_0| + 1)\frac{\epsilon}{2(|y_0|+1)} \\
+        &= \frac{\epsilon}{2} + \frac{\epsilon}{2} \\
+        &= \epsilon
+    \end{align*}
+
+
+    (3) Suppose $y_0 \neq 0$ and $|y-y_0| < \min\left(\frac{|y_0|}{2},\frac{\epsilon|y_0|^2}{2}\right)$. Then note that as $|y-y_0| < \frac{|y_0|}{2}$ $-\frac{|y_0|}{2} < y-y_0 < \frac{|y_0|}{2}$. If $y_0 > 0$ we have that $y_0 = |y_0|$ so $\frac{|y_0|}{2} < y < \frac{3|y_0|}{2}$. On the other hand if $y_0 < 0$ then $y_0 = -|y_0|$ so $-\frac{3|y_0|}{2} < y < -\frac{|y_0|}{2}$. In either case we have that $|y| > \frac{|y_0|}{2} > 0$, so $y \neq 0$. Then it follows that \begin{align*}
+        \left|\frac{1}{y} - \frac{1}{y_0}\right| &= \left|\frac{y - y_0}{yy_0}\right| \\
+        &< \frac{\epsilon|y_0|^2}{2}\cdot \frac{1}{|y_0|}\cdot \frac{2}{|y_0|} \\
+        &= \epsilon
+    \end{align*}
+    as claimed.
+\end{proof}
+
+
+\begin{thm}[Limit Laws]\label{thm:limlaws}
+    If $\lim\limits_{x\rightarrow a}f(x) = l$ and $\lim\limits_{x\rightarrow a}g(x) = m$, then \begin{enumerate}
+        \item $\lim\limits_{x\rightarrow a}(f+g)(x) = l+m$;
+        \item $\lim\limits_{x\rightarrow a}(f\cdot g)(x) = l\cdot m$;
+        \item Moreover, if $m \neq 0$, then $\lim\limits_{x\rightarrow a}\left(\frac{1}{g}\right)(x) = \frac{1}{m}$
+    \end{enumerate}
+\end{thm}
+\begin{proof}
+    Suppose that $\lim\limits_{x\rightarrow a}f(x) = l$ and $\lim\limits_{x\rightarrow a}g(x) = m$. Let $\epsilon > 0$.
+
+
+    (1) Then since $\lim\limits_{x\rightarrow a}f(x) = l$ and $\lim\limits_{x\rightarrow a}g(x) = m$ there exist $\delta_1,\delta_2 > 0$ such that $|f(x) - l| < \frac{\epsilon}{2}$ if $0 < |x-a| < \delta_1$ and $|g(x) - m| < \frac{\epsilon}{2}$ if $0 < |x-a| < \delta_2$. Choose $\delta = \min(\delta_1,\delta_2)$. Then it follows that for $0 < |x-a| < \delta$: \begin{align*}
+        |(f+g)(x) - (l+m)| &= |(f(x) - l) + (g(x) - m)| \\
+        &\leq |f(x) - l) + |g(x) - m| \\
+        &< \frac{\epsilon}{2} + \frac{\epsilon}{2} \\
+        &= \epsilon
+    \end{align*}
+    Thus, we have that by definition $\lim\limits_{x\rightarrow a}(f+g)(x) = l+m$.
+
+
+    (2) Now, fix $\epsilon_1 = \min\left(1,\frac{\epsilon}{2(|m|+1)}\right)$ and $\epsilon_2 = \frac{\epsilon}{2(|l| + 1)}$. Then since $\lim\limits_{x\rightarrow a}f(x) = l$ and $\lim\limits_{x\rightarrow a}g(x) = m$ there exist $\delta_1, \delta_2> 0$ such that if $0<|x-a| < \delta_1$ then $|f(x) - l| < \epsilon_1$ and if $0<|x-a| < \delta_2$ then $|g(x) - m| < \epsilon_2$. Choose $\delta = \min(\delta_1,\delta_2)$. It follows that for $0<|x-a| < \delta$, we have $|f(x)g(x) - lm| < \epsilon$, so by definition $\lim\limits_{x\rightarrow a}(f\cdot g)(x) = l\cdot m$.
+
+
+
+    (3) Now, suppose $m \neq 0$. Fix $\epsilon_1 = \min\left(\frac{|m|}{2},\frac{\epsilon|m|^2}{2}\right)$. Then as $\lim\limits_{x\rightarrow a}g(x) = m$, there exists $\delta > 0$ such that if $|x-a| < \delta$, $|g(x) - m| < \epsilon_1$. By the previous Lemma we have that if $|x-a| < \delta$, $g(x) \neq 0$ and $\left|\frac{1}{g(x)} - \frac{1}{m}\right| < \epsilon$. Hence, by definition $\lim\limits_{x\rightarrow a}\left(\frac{1}{g}\right)(x) = \frac{1}{m}$, as desired.
+\end{proof}
+
+
+\begin{defn}[Limits from Above and Below]
+    The \Emph{limit from above} for a function $f$ as $x$ goes to $a$ is denoted by $\lim\limits_{x\rightarrow a^+}f(x) = l$, which means for every $\epsilon > 0$ there is a $\delta > 0$ such that for all $x$, $$if\;0 < x-a < \delta,\;then\;|f(x) - l|< \epsilon$$
+    where $0 < x-a < \delta$ is equivalent to $0 < |x-a| < \delta$ and $x > a$.
+
+    The \Emph{limit from below} for $f$ as $x$ goes to $a$ is denoted by $\lim\limits_{x\rightarrow a^-}f(x) = l$, and means that for every $\epsilon > 0$ there is a $\delta > 0$ such that, for all $x$, $$if\;0 < a-x < \delta,\;then\;|f(x) - l| < \epsilon$$
+\end{defn}
+
+
+\begin{rmk}
+    For a function $f:\R\rightarrow \R$, $\lim_{x\rightarrow a}f(x)$ exists if and only if $\lim\limits_{x\rightarrow a^+}f(x)$ and $\lim\limits_{x\rightarrow a^-}f(x)$ both exist and are equal.
+\end{rmk}
+
+
+\begin{defn}[Limits at Infinity]
+    A \Emph{limit at infinity} is denoted by $\lim\limits_{x\rightarrow \infty}f(x) = l$, and means that for every $\epsilon > 0$ there is $M \in \R$ such that for all $x$, $$if\;x>M,\;then\;|f(x) - l| < \epsilon$$
+
+    A limit at negative infinity is defined analogously, replacing $x> M$ with $x < M$.
+\end{defn}
+
+
+\begin{defn}
+    We define $\lim\limits_{x\rightarrow a}f(x) = \infty$ to mean that for all $N \in \R$, there exists $\delta > 0$ such that, for all $x \in \R$, if $0 < |x-a| < \delta$, then $f(x) > N$. (the case for $-\infty$ is defined similarly)
+\end{defn}
+
+
+
+\section{Continuous Functions}
+
+
+\begin{defn}[Continuity]
+    Let $f:\R\rightarrow \R$ be a real function. Then $f$ is said to be \Emph{continuous at a point $a$} if \begin{equation}
+        \lim\limits_{x\rightarrow a}f(x) = f(a)
+    \end{equation}
+\end{defn}
+
+
+\begin{thm}
+    If $f$ and $g$ are continuous at a point $a$, then \begin{enumerate}
+        \item $f+g$ is continuous at $a$
+        \item $f\cdot g$ is continuous at $a$
+        \item Moreover, if $g(a) \neq 0$, then $1/g$ is continuous at $a$.
+    \end{enumerate}
+\end{thm}
+\begin{proof}
+    Suppose $f$ and $g$ are continuous at a point $a$. Then by the \ref{thm:limlaws} theorem, we have that as $\lim\limits_{x\rightarrow a}f(x) = f(a)$ and $\lim\limits_{x\rightarrow a}g(x) = g(a)$, $$\lim\limits_{x\rightarrow a}(f+g)(x) = f(a) + g(a) = (f+g)(a)$$
+    Hence, $f+g$ is continuous at $a$. Similarly, again by the \ref{thm:limlaws} theorem, we have that $$\lim\limits_{x\rightarrow a}(f\cdot g)(x) = f(a) \cdot g(a) = (f\cdot g)(a)$$
+    Thus, $f\cdot g$ is continuous at $a$.
+    Finally, if $g(a) \neq 0$, the $$\lim\limits_{x\rightarrow a}(1/g)(x) = 1/g(a) = (1/g)(a)$$
+    so $1/g$ is continuous at $a$.
+\end{proof}
+
+
+\begin{thm}
+    If $g$ is continuous at $a$, and $f$ is continuous at $g(a)$, then $f\circ g$ is continuous at $a$.
+\end{thm}
+\begin{proof}
+    Let $\epsilon > 0$. Then by continuity of $f$ there exists $\delta_1 > 0$ such that if $|g(x) - g(a)| < \delta_1$, then $$|f(g(x)) - f(g(a))| < \epsilon$$
+    Then, by the continuity of $g$, there exists $\delta > 0$ such that if $|x-a| < \delta$, then $|g(x) - g(a)| < \delta_1$. Thus, if $|x-a| < \delta$ we have that $$|(f\circ g)(x) - (f\circ g)(a)| = |f(g(x)) - f(g(a))| < \epsilon$$
+    proving continuity of $f\circ g$ at $a$.
+\end{proof}
+
+
+\begin{defn}
+    A function $f$ is called \Emph{continuous on} an open interval $(a,b)$, if $f$ is continuous at $x$ for all $x \in (a,b)$.
+
+    A function $f$ is called \Emph{continuous on} a closed interval $[a,b]$ if \begin{enumerate}
+        \item $f$ is continuous at $x$ for all $x \in (a,b)$
+        \item $\lim\limits_{x\rightarrow a^+}f(x) = f(a)$ and $\lim\limits_{x\rightarrow b^-}f(x) = f(b)$
+    \end{enumerate}
+
+    In general, a function $f$ is \Emph{continuous} if it is continuous at $x$ for all $x$ in its domain.
+\end{defn}
+
+
+\begin{thm}
+    Suppose $f$ is continuous at $a$, and $f(a) > 0$. Then $f(x) > 0$ for all $x$ in some interval containing $a$; more precisely, there is a number $\delta > 0$ such that $f(x) > 0$ for all $x$ satisfying $|x-a| < \delta$. Similarly, if $f(a) < 0$, then there is a number $\delta > 0$ such that $f(x) < 0$ for all $x$ satisfying $|x-a| < \delta$.
+\end{thm}
+\begin{proof}
+    Suppose $f$ is continuous at $a$. Let $\epsilon = \frac{f(a)}{2} > 0$. Then by continuity there exists $\delta > 0$ such that if $|x-a| < \delta$, $|f(x) - f(a)| < \epsilon$. Then we have that $-\epsilon < f(x) - f(a) < \epsilon$, so $f(x) > \epsilon > 0$, satisfying the claim. The case for $f(a) < 0$ is proved analogously.
+\end{proof}
+
+
+\subsection{Important Theorems and Results on Continuity}
+
+
+\begin{thm}
+    If $f$ is continuous on a closed interval $[a,b]$ (a compact set) and $f(a) < 0 < f(b)$, then there is some $x \in [a,b]$ such that $f(x) = 0$.
+\end{thm}
+\begin{proof}
+    Consider an interval $[a,b]$ such that $f(a) < 0 < f(b)$. Define the set $$a := \{x\in \R:a\leq x \leq b,\text{and $f$ is negative on $[a,x]$}\}$$
+    Clearly $A \neq \emptyset$ as $a \in A$. In fact, there exists some $\delta > 0$ such that $A$ contains all points $x \in \R$ satisfying $a \leq x < a+\delta$, since $f$ is continuous on $[a,b]$ and $f(a) < 0$. Similarly, $b$ is an upper bound for $A$ and, in fact, there is a $\delta > 0$ such that all points satisfying $b-\delta < x \leq b$ are upper bounds for $A$.
+
+    Thus, applying the Least Upper Bound property of $\R$, $A$ has a least upper bound $\alpha$ and $a<\alpha < b$. We wish to show that $f(\alpha) = 0$. First, if $f(\alpha) < 0$, then by a previous result there is a $\delta > 0$ such that $f(x) < 0$ for $\alpha - \delta < x < \alpha + \delta$. In particular, there is some number $x_0 \in A$ satisfying $\alpha - \delta < x < \alpha$ since $\alpha$ is the supremum of $A$. Thus $f$ is negative on the whole interval $[a,x_0]$. But, if $x_1 \in (\alpha, \alpha+\delta$, then $f$ is also negative on the whole interval $[x_0,x_1]$. Therefore $f$ is negative on the interval $[a,x_1]$ so $x_1 \in A$. But, this contradicts the fact that $\alpha$ is an upper bound for $A$, so $f(\alpha) < 0$ must be false.
+
+
+    Suppose, on the other hand, that $f(\alpha) > 0$. Then there is a number $\delta > 0$ such that $f(x) > 0$ for all $\alpha - \delta < x < \alpha + \delta$. Now there is some number $x_0 \in A$ such that $\alpha - \delta < x_0 < \alpha$ as $\alpha$ is presumed to be the supremum of $A$. This means that $f$ is negative on the whole interval $[a,x_0]$, which is impossible since $f(x_0) > 0$. Thus, the assumption $f(\alpha) > 0$ leads to a contradiction, leaving $f(\alpha) = 0$ as the only possible alternative. 
+\end{proof}
+
+\begin{lem}
+    If $f$ is continuous at $a$, then there is a number $\delta > 0$ such that $f$ is bounded on the interval $(a-\delta, a+\delta)$.
+\end{lem}
+\begin{proof}
+    Since $f$ is continuous at $a$ we have that $\lim\limits_{x\rightarrow a}f(x) = f(a)$. Then, fix $\epsilon = 1$. By continuity it follows that there exists $\delta > 0$ such that for all $x \in (a-\delta, a+\delta)$, $|f(x) - f(a)| < 1$. In particular, we have that $f(x) < f(a) + 1$, so $f$ is bounded above by $f(a)+1$ on $(a-\delta,a+\delta)$. Moreover, $f(x) > f(a) - 1$, so $f$ is bounded below by $f(a) -1$ on $(a-\delta, a+\delta)$. Thus $f$ is bounded on the interval $(a-\delta,a+\delta)$ as claimed.
+\end{proof}
+
+
+\begin{cor}
+    If $\lim\limits_{x\rightarrow a^+}f(x) = f(a)$ then there exists $\delta > 0$ such that $f$ is bounded on the interval $[a,a+\delta)$. Moreover, if $\lim\limits_{x\rightarrow b^-}f(x) = f(b)$ then there exists $\delta > 0$ such that $f$ is bounded on the interval $(b-\delta, b]$.
+\end{cor}
+
+
+\begin{thm}
+    If $f$ is continuous on a closed interval $[a,b]$ (a compact set), then $f$ is bounded above on $[a,b]$, that is, there is some number $M \in \R$ such that $f(x) \leq M$ for all $x \in [a,b]$ (consequence of the continuous image of a compact set being compact and the Heine-Borel Theorem).
+\end{thm}
+\begin{proof}
+    Define the set $$A:= \{x\in [a,b]:\text{$f$ is bounded above on $[a,x]$}\}$$
+    Clearly $A \neq \emptyset$ as $a \in A$, and $A$ is bounded above by $B$, so $A$ has a least upper bound $\alpha \in \R$. We wish to show that $\alpha = b$. Suppose towards a contradiction that $\alpha < b$. Then there exists $\delta > 0$ such that $f$ is bounded on $(\alpha-\delta, \alpha + \delta)$ since $f$ is continuous on $[a,b]$, so in particular $f$ is continuous at $\alpha$. Since $\alpha$ is the least upper bound of $A$ there is some $x_0 \in A$ satisfying $\alpha - \delta < x_0 < \alpha$. This implies that $f$ is bounded on $[a,x_0]$. But, if $x_1$ is any number with $\alpha < x_1 < \alpha + \delta$, then $f$ is also bounded on $[x_0,x_1]$. Therefore $f$ is bounded on $[a,x_1]$ so $x_1 \in A$, contradicting the fact that $\alpha$ is an upper bound for $A$. This contradiction shows that $\alpha = b$. Now, there is a $\delta > 0$ such that $f$ is bounded on $(b-\delta, b]$. There is $x_0 \in A$ such that $b - \delta < x_0 < b$, since $\alpha = b$. Thus $f$ is bounded on $[a,x_0]$, and also on $[x_0,b]$, so $f$ is bounded on $[a,b]$, completing the proof.
+\end{proof}
+
+
+
+
+\begin{thm}
+    If $f$ is continuous on a closed interval $[a,b]$, then there is some number $y \in [a,b]$ such that $f(y) \geq f(x)$ for all $x \in [a,b]$.
+\end{thm}
+\begin{proof}
+    From the previous theorem we know that $f$ is bounded on $[a,b]$, so the set $\{f(x):x\in[a,b]\}$ is bounded. This set is obviously non-empty, so it has a least upper bound $\alpha \in \R$. Since $\alpha \geq f(x)$ for all $x \in [a,b]$, it suffices to show that $\alpha = f(y)$ for some $y \in [a,b]$. Suppose instead that $\alpha \neq f(y)$ for all $y \in [a,b]$. Then the function $g$ defined by $$g(x) = \frac{1}{\alpha - f(x)}, x \in [a,b]$$ is continuous on $[a,b]$ since the denominator is never zero and is the sum of continuous functions. On the other hand, $\alpha$ is the least upper bound of $\{f(x):x\in [a,b]\}$ so for every $\epsilon > 0$ there exists $x \in [a,b]$ such that $\alpha - \epsilon < f(x)$, so $\alpha - f(x) < \epsilon$. This in turn implies that for every $\epsilon > 0$ there exists $x \in [a,b]$ with $g(x) > 1/\epsilon$. But, this implies that $g$ is not bounded on $[a,b]$, contradicting the previous theorem as $g$ is assumed to be continuous. Hence, $g$ is not continuous, and i particular $\alpha - f(y) = 0$ for some $y \in [a,b]$.
+\end{proof}
+
+
+\begin{namthm}[Intermediate Value Theorem]\label{thmname:intval}
+    If $f$ is continuous on $[a,b]$ and $f(a) < c < f(b)$, then there is some $x \in [a,b]$ such that $f(x) = c$ (continuous image of a connected set is connected).
+
+    Moreover, if $f(a) > c > f(b)$, then there is some $x \in [a,b]$ such that $f(x) = c$.
+\end{namthm}
+
+\begin{thm}
+    If $f$ is continuous on $[a,b]$, then $f$ is bounded below on $[a,b]$, that is, there is some number $M \in \R$ such that $f(x) \geq M$ for all $x \in [a,b]$.
+\end{thm}
+
+\begin{thm}
+    If $f$ is continuous on $[a,b]$, then there is some $y \in [a,b]$ such that $f(y) \leq f(x)$ for all $x \in [a,b]$.
+\end{thm}
+
+
+\begin{cor}
+    For all $\alpha \in \mathbb{P}$, so $\alpha >0$, there exists $x \in \R$ such that $x^2 = \alpha$.
+\end{cor}
+\begin{proof}
+    Consider the function $f(x) = x^2$, which is certainly continuous over $\R$. Consider $\alpha \in \mathbb{P}$. Then there exists $b > 0$ such that $f(b) > \alpha$. Indeed, if $\alpha > 1$ we can take $b = \alpha$, and if $\alpha < 1$ we can take $b = 1$. Then, $f$ is defined on the closed interval $[0,b]$ and $f(0) = 0 < \alpha < f(b)$. Therefore, by the \ref{thmname:intval} there exists $c \in [0,b]$ such that $f(c) = \alpha$. In particular, $c^2 = \alpha$.
+\end{proof}
+
+
+
+\begin{cor}
+    If $n$ is odd, then any equation \begin{equation}
+        x^n + a_{n-1}x^{n-1} + ... + a_0 = 0
+    \end{equation}
+    has a solution, or root.
+\end{cor}
+\begin{proof}
+    Consider the function $f(x) = x^n+a_{n-1}x^{n-1} + ... + a_0$. Write $$f(x) = x^n+a_{n-1}x^{n-1} + ... + a_0 = x^n\left(1 + \frac{a_{n-1}}{x} + ... + \frac{a_0}{x^n}\right)$$ 
+    Then note that $$\left|\frac{a_{n-1}}{x} + \frac{a_{n-2}}{x^2} + ... + \frac{a_0}{x^n}\right|\leq \frac{|a_{n-1}|}{|x|} + ... + \frac{|a_0|}{|x^n|}$$
+    Choose $x$ such that $$|x| > 1,2n|a_{n-1}|,...,2n|a_0|$$
+    so $|x^k| > |x|$ for all $k > 1$, and $$\frac{|a_{n-k}|}{|x^k|} < \frac{|a_{n-k}|}{|x|} < \frac{|a_{n-k}|}{2n|a_{n-k}|} < \frac{1}{2n}$$
+    Thus, we have that $$\left|\frac{a_{n-1}}{x} + \frac{a_{n-2}}{x^2} + ... + \frac{a_0}{x^n}\right|\leq \frac{|a_{n-1}|}{|x|} + ... + \frac{|a_0|}{|x^n|} < \underbrace{\frac{1}{2n} + ... +\frac{1}{2n}}_{\text{$n$ times}} = \frac{1}{2}$$
+    In other words, $$-\frac{1}{2} < \frac{a_{n-1}}{x} + \frac{a_{n-2}}{x^2} + ... + \frac{a_0}{x^n} < \frac{1}{2}$$
+    which implies that $$\frac{1}{2} < 1 + \frac{a_{n-1}}{x} + \frac{a_{n-2}}{x^2} + ... + \frac{a_0}{x^n}$$
+    Choosing $x_1 > 0$ which satisfies our condition, we have $$\frac{x_1^n}{2} \leq x_1^n\left(1+\frac{a_{n-1}}{x} + \frac{a_{n-2}}{x^2} + ... + \frac{a_0}{x^n}\right) = f(x_1)$$
+    so that $f(x_1) > 0$. On the other hand, choosing $x_2 < 0$ satisfying our condition, $x_2^n < 0$ as $n$ is odd and $$\frac{x_2^n}{2} \geq x_2^n\left(1+\frac{a_{n-1}}{x} + \frac{a_{n-2}}{x^2} + ... + \frac{a_0}{x^n}\right) = f(x_2)$$
+    so that $f(x_2) < 0$. Applying the \ref{thmname:intval} to the interval $[x_2,x_1]$ we conclude that there exists $c \in [x_2,x_1]$ such that $f(c) = 0$.
+\end{proof}
+
+
+\begin{thm}
+    If $n$ is even and $f(x) = x^n+a_{n-1}x^{n-1} + ... + a_0$, then there is a number $y$ such that $f(y) \leq f(x)$ for all $x \in \R$.
+\end{thm}
+\begin{proof}
+    Choose $M$ such that $$M = \max(1,2n|a_{n-1}|,...,2n|a_0)$$
+    Then for all $x$ with $|x| \geq M$ we have $$\frac{1}{2} \leq 1 + \frac{a_{n-1}}{x} + \frac{a_{n-2}}{x^2} + ... + \frac{a_0}{x^n}$$
+    Since $n$ is even, $x^n \geq 0$ for all $x$, so $$\frac{x^n}{2} \leq x^n\left(1 + \frac{a_{n-1}}{x} + \frac{a_{n-2}}{x^2} + ... + \frac{a_0}{x^n}\right) = f(x)$$
+    provided that $|x| \geq M$. Now consider the number $f(0)$. Let $b > 0$ be a number such that $b^n \geq 2f(0)$ and also $b > M$. Then if $x \geq b$, we have $$f(x) \geq \frac{x^n}{2} \geq \frac{b^n}{2} \geq f(0)$$
+    The same holds for $x \leq -b$. In particular, if $x \geq b$ or $x \leq -b$, then $f(x) \geq f(0)$. Applying the extreme value theorem to $f$ on the interval $[-b,b]$, we conclude that there is a number $y \in [-b,b]$ such that if $-b \leq x \leq b$, then $f(y) \leq f(x)$. In particular, $f(y) \leq f(0)$. Thus, if $x \leq -b$ or $x \geq b$, then $f(x) \geq f(0) \geq f(y)$. Combining these results we find that $f(y) \leq f(x)$ for all $x \in \R$.
+\end{proof}
+
+
+\begin{cor}
+    Consider the equation \begin{equation}
+        x^n +a_{n-1}x^{n-1} + ... + a_0 = c
+    \end{equation}
+    for $n$ even. Then there is a number $m$ such that the equation has a solution for $c \geq m$ and has no solution for $c < m$.
+\end{cor}
+\begin{proof}
+    Let $f(x) = x^n + a_{n-1}x^{n-1} + ...+ a_0$. According to our previous theorem there exists $y \in \R$ such that $f(y) \leq f(x)$ for all $x \in \R$. Let $m = f(y)$. If $c < m$ then the equation above has no solutiion, since the left hand side has a value $\geq m$ always. If $c = m$, then $y$ is a solution of the equation. Finally, for $c > m$, let $b > y$ such that $f(b) > c$. Then the \ref{thmname:intval} applied to the interval $[y,b]$ states that there exists $x \in [y,b]$ such taht $f(x) = c$, so $x$ is a solution of the equation.
+\end{proof}
+
+
+\subsection{Uniform Continuity}
+
+
+\begin{defn}
+    A function $f:\R\rightarrow \R$ is \Emph{uniformly continuous on an interval $I$} if for every $\epsilon > 0$ there is some $\delta > 0$ such that, for all $x,y \in I$, if $|x-y| < \delta$ then $|f(x) - f(y)| < \delta$.
+\end{defn}
+
+
+\begin{lem}
+    Let $a < b < c$ and let $f$ be continuous on the interval $[a,c]$. Let $\epsilon > 0$ and suppose that \begin{enumerate}
+        \item if $x,y \in [a,b]$ and $|x-y| < \delta_1$, then $|f(x) - f(y)| < \epsilon$
+        \item if $x,y \in [b,c]$ and $|x-y| < \delta_2$, then $|f(x) - f(y)| < \epsilon$
+    \end{enumerate}
+    Then there is a $\delta > 0$ such that if $x,y \in [a,c]$ and $|x-y| < \delta$, then $|f(x) - f(y)| < \epsilon$.
+\end{lem}
+\begin{proof}
+    Fix $\epsilon > 0$. Since $f$ is continuous at $b$ there exists $\delta_3 > 0$ such that if $|x-b| < \delta_3$, then $|f(x) - f(b)| < \frac{\epsilon}{2}$. It follows that if $|x-b| < \delta_3$ and $|y-b| < \delta_3$ then $|f(x) - f(y)| < \epsilon$. Choose $\delta = \min(\delta_1,\delta_2,\delta_3)$. Let $x,y \in [a,c]$ with $|x-y| < \delta$. If $x$ and $y$ are both in $[a,b]$, then $|f(x) - f(y)| < \epsilon$ by assumption. Similarly, if $x,y \in [b,c]$, then again $|f(x) - f(y)| < \epsilon$ by assumption. Finally, without loss of generality suppose $x < b < y$. Since $|x-y| < \delta$ we have that $|x-b| = |b-x| = b-x < y-x = |y-x| < \delta$ and similarly $|y-b| < \delta$. Thus, we have that $|f(x) - f(y)| < \epsilon$, completing the proof.
+\end{proof}
+
+
+\begin{thm}[Uniform Continuity Theorem]
+    If $f$ is continuous on $[a,b]$, then $f$ is uniformly continuous on $[a,b]$.
+\end{thm}
+\begin{proof}
+    Consider $\epsilon > 0$. Define the set $$A(\epsilon) := \{x \in [a,b]:\exists \delta > 0;\forall y,z \in [a,x];|y-z| < \delta \implies|f(y) - f(z)| < \epsilon\}$$
+    Then $A(\epsilon) \neq \emptyset$ since $a \in A(\epsilon)$, and $A(\epsilon)$ is bounded above by $b$, so $A(\epsilon)$ has a least upper bound $\alpha_{\epsilon} \in \R$. Suppose towards a contradiction that $\alpha < b$. Since $f$ is continuous at $\alpha$, there is some $\delta_0$ such that if $|y-\alpha| < \delta_0$, then $|f(y) - f(\alpha)| < \epsilon/2$. Consequently, if $|y-\alpha| < \delta_0$ and $|z-\alpha| < \delta_0$, then $|f(y) - f(z)| < \epsilon$. So, $f$ surely satisfies the condition for containment in $A(\epsilon)$ on the interval $[\alpha - \delta_0, \alpha + \delta_0$. On the other hand, since $\alpha$ is the least upper bound of $A$ it is also clear that the condition is satisfies on $[a,\alpha - \delta_0]$, namely $\alpha - \delta_0 \in A$. Then, the Lemma implies that $f$ satisfies the condition on $[a,\alpha+\delta_0]$ since it satisfies it on $[a,\alpha - \delta_0]$ and $[\alpha - \delta_0, \alpha + \delta_0]$. Hence, $\alpha + \delta_0 \in A$, contradicting the fact that $\alpha$ is an upper bound.
+
+
+    To complete the proof we must show that $\alpha = b$ is in $A$. Since $f$ is continuous at $b$, there is some $\delta_0 > 0$ such that if $y \in (b-\delta_0, b)$, then $|f(y) - f(b)| < \epsilon/2$. So, for any $x,y \in [b-\delta_0,b]$, $|f(y) - f(x)| < \epsilon$. But, $f$ satisfies the condition for $A(\epsilon)$ on $[a,b-\delta_0]$ since $b$ is the least upper bound of $A(\epsilon)$, so the Lemma implies that $f$ satisfies the condition on $[a,b]$. Therefore, as $\epsilon > 0$ was arbitrary, we conclude that $f$ is uniformly continuous on $[a,b]$, completing the proof.
+\end{proof}
+
+
+
+
+\section{Metric Properties of the Reals Summarized}
+
+First we need to define a sequence
+
+
+\begin{subappendices}
+    \section{Cardinality}
+
+    In this appendix we investigate the notion of the size of a set. First, we define the set $$I_n := \{j \in \N:j \leq n$$ the prototypical set of size $n$.
+
+    \begin{lem}
+        $I_1 = \{1\}$, and $I_{n+1} = I_n \cup \{n+1\}$.
+    \end{lem}
+    \begin{proof}
+        If $n  =1$, $I_1 = \{j \in \N: j \leq 1\} = \{1\}$, so the base case holds. Further, $I_2 = \{j \in \N:j \leq 2\} = \{1,2\} = I_1 \cup\{2\}$. Now, suppose for some $j \in \N$, $I_{j+1} = I_j \cup\{j+1\}$. Then $$I_{j+2} = \{k \in \N:k\leq j+2\} = \{k \in \N:k\leq j+1\lor k = j+2\} = I_{j+1}\cup \{j+2\}$$
+    \end{proof}
+    
+    \begin{defn}
+        A non-empty set $S$ has $n$ elements if and only if there exists a bijective map $\varphi:S\rightarrow I_n$.
+    \end{defn}
+
+    \begin{prop}\label{prop:1.8.2}
+        For $m,n \in \N$, if there exists an injection $\varphi:I_m\rightarrow I_n$, then $m \leq n$.
+    \end{prop}
+    \begin{proof}
+        If $n = 1$, then $I_n = I_1 = \{1\}$. Now, suppose $\varphi:I_m\rightarrow I_1$ is an injection. If $x,y \in I_m$, then $\varphi(x) = 1 = \varphi(y)$, so by injectivity $x = y$. Thus, $I_m$ has only one element, and since $1 \in I_m$, we must have $I_m = \{1\} = I_1$. Hence, $m = 1 \leq 1 = n$. Assume the result is true for some $1 \leq n < N$. Then let $\varphi:I_m\rightarrow I_N$ be an injection. If $m = 1$ the result is immediately satisfied, so suppose $m \geq 2$. 
+        \begin{itemize}
+            \item[(1)] Suppose there exist $j \in I_m$ such that $\varphi(j) = N$. Then define $\psi:I_{m-1}\rightarrow I_{N-1}$ by $\psi(l) = \varphi(l)$ for $l < j$, and $\psi(l) = \varphi(l+1)$ for $j \leq l \leq m-1$. Then $\psi$ is injective because $\varphi$ is injective, so the the induction hypothesis $m-1 \leq N-1$, so $m \leq N$.
+            \item[(2)] If there does not exist $j \in I_m$ such that $\varphi(j) = N$, then we can restrict the codomain of $\varphi$ to obtain $\varphi:I_m\rightarrow I_{N-1}$. By the induction hypothesis $m \leq N-1 < N$, as desired.
+        \end{itemize}
+    \end{proof}
+
+    \begin{cor}\label{cor:1.8.3}
+        If there exists $\varphi:I_m\rightarrow I_n$ bijective, then $m = n$.
+    \end{cor}
+
+    \begin{cor}\label{cor:1.8.4}
+        Suppose $S$ is a set, $n,m \in \N$, and there exist bijections $\varphi:S\rightarrow I_n$ and $\psi:S\rightarrow I_m$, then $n = m$.
+    \end{cor}
+
+    The result follows from considering $\varphi\circ \psi^{-1}:I_m\rightarrow I_n$.
+
+    \begin{defn}
+        If either $S = \emptyset$ or $S$ has $n$ elements for some $n \in \N$, then we say $S$ is \Emph{finite}. Otherwise, $S$ is said to be \Emph{infinite}.
+    \end{defn}
+
+    \begin{prop}\label{prop:1.8.5}
+        If $n \in \N$ and $S \subseteq I_n$, then there exists $m \leq n$ and $\varphi:S\rightarrow I_m$ bijective.
+    \end{prop}
+    \begin{proof}
+        If $n = 1$, then $I_1 = \{1\}$ and the only non-empty subset is $S = \{1\} = I_1$ itself. Then $\varphi:S\rightarrow I_1$ given by $\varphi(1) = 1$ is a bijection so the base case holds. Suppose for $k \geq 1$, if $S \subseteq I_k$, then there exists $m \leq k$ such that $\varphi_k:S\rightarrow I_m$, bijective. Suppose $S \subseteq I_{k+1}$. If $S = I_{k+1}$, then $\text{id}:I_{k+1}\rightarrow I_{k+1}$ is the desired bijection. Otherwise, there exists $j \in I_{k+1}$ such that $j \notin S$. If $j = k+1$, define $\varphi:S\rightarrow I_k$ by $\varphi(s) = s$ for all $s \in S$. Then $\varphi$ is an injection and $\varphi(S) \subseteq I_k$ so by the induction hypothesis there exists $m \leq k$ and a bijection $\psi:\varphi(S)\rightarrow I_m$. Then $\psi\circ \varphi:S\rightarrow I_m$ is bijective. If $j \neq k+1$, then define $\varphi(S)\rightarrow I_k$ by $\varphi(l) = l$ for $l \leq k$, and $\varphi(k+1) = j$. Then $\varphi$ is injective, and by the induction hypothesis there exists $m \leq k$ and a bijection $\psi:\varphi(S)\rightarrow I_m$, so $\psi\circ\varphi:S\rightarrow I_m$ is the desired bijection.
+    \end{proof}
+
+    \begin{prop}\label{prop:1.8.6}
+        $\N$ is not finite.
+    \end{prop}
+    \begin{proof}
+        If $\N$ was finite then there would exist $n \in \N$ and a bijection $\varphi:I_n\rightarrow \N$. As $I_{n+1} \subseteq \N$, if we restrict $\varphi$ to $\varphi^{-1}(I_{n+1}) = S$, we have $\psi:S\rightarrow I_{n+1}$, which is bijective. But $S\subseteq I_n$, so by Proposition \ref{prop:1.8.5} $S$ has $m$ elements with $m \leq n$, and as $n+1 = m \leq n$, a contradiction. Thus, $\N$ must be infinite.
+    \end{proof}
+
+    \begin{prop}\label{prop:1.8.7}
+        If $S$ is not finite, then there exists an injection $\varphi:\N\rightarrow S$.
+    \end{prop}
+    \begin{proof}
+        As $S$ is non-empty, there exists $s_1 \in S$, so define $\varphi_1(1) = s_1$. Suppose there exists $k \in \N$ such that for $\varphi_k(l) = s_l \in S\backslash\{s_1,...,s_{l-1}$ for all $1 \leq l \leq k$. Then as $S$ is infinite, there exists $s_{k+1} \in S$ with $s_{k+1} \notin \{s_1,...,s_k\}$, so we define $\varphi_{k+1}(k+1) = s_{k+1}$ and $\varphi_{k+1}(l) = \varphi_k(l)$ for all $1 \leq l \leq k$. Thus, for all $n \in \N$ we have $\varphi_n:I_n\rightarrow S$ injective, and for all $m \leq n$, $\varphi_n\vert_{I_m} = \varphi_m:I_m\rightarrow S$. Define $\Phi(m) = \varphi_n(m)$ for all $n \geq m$. Then $\Phi:\N\rightarrow S$ is well defined and injective.
+    \end{proof}
+
+    \begin{defn}
+        We say that a set $S$ is \Emph{countably infinite} if there exists a bijection $\varphi:S\rightarrow \N$.
+    \end{defn}
+
+    \begin{defn}
+        Two sets $S$ and $T$ have the same cardinality if there exists a bijection between them, and we write $\text{Card}(S) = \text{Card}(T)$.
+    \end{defn}
+
+    \begin{defn}
+        If $S$ is finite: \begin{itemize}
+            \item $\text{Card}(S) = 0$ if $S = \emptyset$
+            \item $\text{Card}(T) = n$ if $S$ has $n$ elements.
+        \end{itemize}
+    \end{defn}
+
+    We now move on to a fundamental theorem on cardinalities of sets:
+
+    \begin{namthm}[Schr\"{o}der-Bernstein Theorem]
+        If $S$ and $T$ are two non-empty sets such that there exist injective maps $$\varphi:S\hookrightarrow T\;\text{ and }\;\psi:T\hookrightarrow S$$ then there exists a bijection $\Phi:S\rightarrow T$.
+    \end{namthm}
+    \begin{proof}
+        Let $\varphi:S\rightarrow T$ and $\psi:T\rightarrow S$ be the injections in the hypothesis. If $s \in S$ such that $\varphi(s) = t$, we say $s$ is a parent of $t$. Similarly, if $t' \in T$ such that $\psi(t') = s' \in S$, then we say $t'$ is a parent of $s'$. For elements in $S$ and $T$ there are three disjoint cases: \begin{itemize}
+            \item[a)] The set of elements who have an infinite number of ancestors
+            \item[b)] The set of elements whose last ancestor is an element of $S$
+            \item[c)] The set of elements whose last ancestor is an element of $S$
+        \end{itemize}
+        Define $S_a,T_a,S_b,T_b,S_c,T_c$ be the corresponding sets, so $S = S_a\sqcup S_b\sqcup S_c, T = T_a\sqcup T_b\sqcup T_c$. I claim that $\varphi\vert_{S_a}:S_a\rightarrow T_a$ is bijective. Indeed, $\varphi$ is injective. If $s \in S_a$, $\varphi(s) \in T_a$ as all ancestors of $s$ are ancestors of $\varphi(s)$. If $t \in T_a$, then $t$ has infinitely many ancestors, so in particular there exists $s \in S$ such that $\varphi(s) = t$. But, all ancestors of $t$, except $s$, are ancestors of $s$ so $s \in S_a$. Hence $\varphi\vert_{S_a}$ is indeed well defined and bijective. 
+
+        Next we claim that $\varphi\vert_{S_b}:S_b\rightarrow T_b$ is bijective. If $s \in S_b$, then $s$'s ancestors terminate in $S$, so $\varphi(s) \in T_b$. If $t \in T_b$, then $t$ has at least one ancestor $s \in S$, and as $\varphi(s) \in T_b$, $s \in S_b$. Thus $\varphi\vert_{S_b}$ is well defined and bijective. Dually, we have that $\psi\vert_{T_c}:T_c\rightarrow S_c$ is bijective. Then define $\Phi:S\rightarrow T$ by $\Phi(s) = \varphi(s)$ for $s \in S_a\cup S_b$, and $\Phi(s) = \psi\vert_{T_c}^{-1}(s)$ for $s \in S_c$, which is by construction bijective.
+    \end{proof}
+
+    A classical application of this result is in the following example:
+
+    \begin{eg}
+        $\text{Card}(\N) = \text{Card}(\N\times \N)$. Define $\varphi:\N\rightarrow \N\times \N$ by $\varphi = \Delta$ is the diagonal, so $\varphi$ is injective. Conversely, define $\psi:\N\times\N\rightarrow \N$ by $\psi(n,m) = 2^n3^m$, so by the fundamental theorem of arithmetic $\psi$ is injective. Then by Schr\"{o}der-Bernstein there exists a bijection $\Phi:\N\rightarrow \N\times \N$, as desired.
+    \end{eg}
+
+    The following are the axioms founding the Zermelo-Frankel axioms of set theory with Choice:
+
+    \begin{axi}[ZFC Axioms]
+        The following constitute the axioms of ZFC: \begin{enumerate}
+            \item (Emptyset) There is a set, denoted by $\emptyset$, which has no members: $$\exists x\forall t\;\lnot t \in x$$
+            \item (Pairset) For any two sets $x$ and $y$ there is a set $p$ with the property that $t \in p$ if and only if $t = x$ or $t = y$. This set $p$ is usually denoted $\{x,y\}$: $$\forall x\forall y\exists p(t \in p \iff (t = x\lor t = y))$$
+            \item (Extensionality) For any two sets $x$ and $y$, $x = y$ if and only if $x$ and $y$ have exactly the same members: $$\forall x\forall y(x = y \iff \forall t(t \in x \iff t \in y))$$
+            \item (Union Set) For any set $x$ there exists a set denote by $\bigcup x$ whose members are exactly the members of the members of $x$: $$\forall x \exists y\forall t(t \in y \iff \exists y(y \in x \land t \in y))$$
+            \item (Infinity) There exists a set $I$ which contains $0 = \emptyset$ as well as the successor of each of its members; that is, if $x \in I$, then $S(x) := x \cup \{x\} \in I$: $$\exists x(\emptyset \in I \land \forall x(x \in I \implies \bigcup\{x,\{x\}\}))$$
+            \item (Powerset) For each set $A$ there exists a set $\mathcal{P}(A)$ whose members are the subsets of $A$: $$\forall x \exists y\forall t(t \in y \iff \forall z(z \in t \implies z \in x))$$
+            \item (Separation) Suppose $P$ is a definite condition. For each set $A$ there exists a set $B$ whose members are exactly the members of $A$ that satisfy $P$: $$\forall x \exists y \forall t(t \in B \iff (t \in x \land P(t)))$$
+            \item (Replacement) Suppose $P$ is a definite binary condition such that for each set $x$ there is a unique set $y$ for which $P(x,y)$ holds. Given a set $A$ there exists a set $B$ with the property that $y \in B$ if and only if there exists $x \in A$ such that $P(x,y)$: $$\forall x\exists y\forall t(t \in y \iff \exists z(z \in x \land P(z,t)))$$
+            \item (Regularity) Every non-empty set $A$ contains an element that is disjoint from $A$: $$\forall x(\lnot x = \emptyset \implies \exists t(t \in x \land \forall y(y \in t\implies \lnot y \in x)))$$
+            \item (Choice) Every non-empty set $X$ whose members are all non-empty sets, there exists a function $f:X\rightarrow \bigcup X$ such that $f(A) \in A$ for all $A \in X$.
+        \end{enumerate}
+    \end{axi}
+
+    \begin{lem}
+        If $\varphi:S\rightarrow T$ is onto, then there exists $\psi:T\rightarrow S$ which is injective.
+    \end{lem}
+    \begin{proof}
+        Let $\varphi:S\rightarrow T$ be onto. Then let $X = \{\varphi^{-1}(t):t \in T\}$, so $S = \bigcup X$, and all members of $X$ are non-empty sets since $\varphi$ is onto. By the axiom of choice there exists a function $f:X\rightarrow \bigcup X$ such that $f(\varphi^{-1}(t)) \in \varphi^{-1}(t)$ for all $t \in T$. Since $\varphi$ is a well defined function $f$ is injective. Let $g:T\rightarrow X$ by $g(t) = \varphi^{-1}(t)$. Then $g$ is also injective as $\varphi$ is well-defined, so their composite $f\circ g:T\rightarrow \bigcup X = S$ is an injection.
+    \end{proof} 
+
+    As an application of our results, I claim that $\text{Card}(\R)\neq \text{Card}(\N)$:
+
+    \begin{proof}
+        First, $\iota:(0,1)\rightarrow \R$, being the natural inclusion, is an injection, and $\varphi:\R\rightarrow (0,1)$ given by $\varphi(x) = \frac{e^x}{e^x+1}$ is an injection, so by Schr\"{o}der Bernstein there exists a bijection $\Phi:(0,1)\rightarrow \R$. Towards a contradiction suppose $\text{Card}(\N) = \text{Card}(\R) = \text{Card}((0,1))$, so we have a bijection $f:\N\rightarrow (0,1)$. Expand the terms in their decimal expansion, so $f(j) = \sum_{n=1}^{\infty}a_{jn}10^{-n}$, $a_{jn} \in \{0,1,2,...,9\}$. Define $x$ by $x = \sum_{n=1}^{\infty}b_n10^{-1}$ where $b_n = 2$ if $a_{nn} \neq 2$ and $b_n = 3$ if $a_{nn} = 2$. Thus $x \neq f(j)$ for all $j \in \N$, but by assumption $f$ is bijective, and hence onto, which is a contradiction since $x \in (0,1)$. Thus, no such bijection can exist.
+    \end{proof}
+
+    \begin{defn}
+        For sets $S$ and $T$ we define $\leq$ on the cardinals by $\text{Card}(S)\leq \text{Card}(T)$ if and only if there exists an injection $\varphi:S\rightarrow T$, and $\text{Card}(S) < \text{Card}(T)$ if and only if $\text{Card}(S) \leq \text{Card}(T)$ and $\text{Card}(S) \neq \text{Card}(T)$.
+    \end{defn}
+
+    Then it follows that $\text{Card}(\N) < \text{Card}(\R)$. 
+
+    \begin{cust}[Continuum Hypothesis]
+        There exists no set with cardinality strictly between $\aleph_0 = \text{Card}(\N)$ and $\aleph_1 = \text{Card}(\R)$.
+    \end{cust}
+
+    This hypothesis cannot be proven and taking it to be true or false in your system for set theory leads to no contradictions.
+
+    \begin{prop}
+        For any set $S$, $\mathcal{P}(S) \cong 2^S$.
+    \end{prop}
+    \begin{proof}
+        Let $\varphi:\mathcal{P}(S)\rightarrow 2^S$ by $\varphi(A)(s) = 1$ if and only if $s \in A$, and $0$ otherwise, for all $A \in \mathcal{P}(S)$. This is an injection, and a surjection as we can take $X_f = \{s \in S: f(s) = 1\}$ for all $f \in 2^S$, so $\varphi(X_f) = f$.
+    \end{proof}
+
+    \begin{prop}[Cantor's Theorem]
+        For any set $S$, $\text{Card}(S) < \text{Card}(\mathcal{P}(S))$
+    \end{prop}
+    \begin{proof}
+        The inclusion $\iota:S\rightarrow \mathcal{P}(S)$ by $\iota(s) = \{s\}$ for all $s \in S$, is an injection so $\text{Card}(S) \leq \text{Card}(\mathcal{P}(S))$. Towards a contradiction we have $f:S\twoheadrightarrow \mathcal{P}(S)$. Let $B = \{s \in S:s \notin f(s)\}$. Then $f(s) = B$ for some $s \in S$. But then $$s \notin B \iff s \notin f(s) \iff s \notin B$$ which is a contradiction, so no such $f$ can exist.
+    \end{proof}
+
+    Due to Cantor's theorem we obtain an infinite chain of infinite cardinals $$\text{Card}(\N) < \text{Card}(\mathcal{P}(\N)) < \text{Card}(\mathcal{P}(\mathcal{P}(\N))) < ...$$
+    An important, but non-trivial result, is $\text{Card}(\R\times \R) = \text{Card}(\R)$.
+
+
+\end{subappendices}

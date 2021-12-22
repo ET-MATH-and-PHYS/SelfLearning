@@ -1,58 +1,81 @@
 \BOOKMARK [-1][-]{part.1}{I Single Variable Analysis}{}% 1
 \BOOKMARK [0][-]{chapter.1}{Topology and Construction of the Real Line}{part.1}% 2
-\BOOKMARK [1][-]{section.1.1}{The Axiom of Completeness}{chapter.1}% 3
-\BOOKMARK [2][-]{defn.1.1.2}{Upper and Lower Bounds}{section.1.1}% 4
-\BOOKMARK [1][-]{section.1.2}{Limits}{chapter.1}% 5
-\BOOKMARK [1][-]{section.1.3}{Continuous Functions}{chapter.1}% 6
-\BOOKMARK [2][-]{thm.1.3.3}{Important Theorems and Results on Continuity}{section.1.3}% 7
-\BOOKMARK [2][-]{equation.1.3.3}{Uniform Continuity}{section.1.3}% 8
-\BOOKMARK [0][-]{chapter.2}{Differentiation}{part.1}% 9
-\BOOKMARK [1][-]{section.2.1}{Introduction to Derivatives}{chapter.2}% 10
-\BOOKMARK [1][-]{section.2.2}{Differentiation Results}{chapter.2}% 11
-\BOOKMARK [1][-]{section.2.3}{Applications of Derivatives}{chapter.2}% 12
-\BOOKMARK [2][-]{Item.48}{Convexity}{section.2.3}% 13
-\BOOKMARK [1][-]{section.2.4}{Inverse Functions}{chapter.2}% 14
-\BOOKMARK [0][-]{chapter.3}{Integration}{part.1}% 15
-\BOOKMARK [1][-]{section.3.1}{Introduction to Definite Integrals}{chapter.3}% 16
-\BOOKMARK [1][-]{section.3.2}{Reimann Sums}{chapter.3}% 17
-\BOOKMARK [1][-]{section.3.3}{The Fundamental Theorem of Calculus}{chapter.3}% 18
-\BOOKMARK [1][-]{section.1.3.A}{Trigonometric Functions}{chapter.3}% 19
-\BOOKMARK [1][-]{section.1.3.B}{The Logarithm and Exponential Functions}{chapter.3}% 20
-\BOOKMARK [0][-]{appendix.4}{Sequences and Series}{part.1}% 21
-\BOOKMARK [1][-]{section.4.1}{Approximation by Polynomial Functions}{appendix.4}% 22
-\BOOKMARK [1][-]{section.4.2}{Infinite Sequences}{appendix.4}% 23
-\BOOKMARK [1][-]{section.4.3}{Infinite Series}{appendix.4}% 24
-\BOOKMARK [1][-]{section.4.4}{Uniform Convergence and Power Series}{appendix.4}% 25
-\BOOKMARK [-1][-]{part.2}{II Higher-Dimesional Analysis}{}% 26
-\BOOKMARK [0][-]{appendix.5}{Metric Spaces}{part.2}% 27
-\BOOKMARK [0][-]{appendix.6}{Higher-Dimensional Differentiation}{part.2}% 28
-\BOOKMARK [0][-]{appendix.7}{Higher-Dimensional Integration}{part.2}% 29
-\BOOKMARK [0][-]{appendix.8}{Manifolds}{part.2}% 30
-\BOOKMARK [0][-]{appendix.9}{Differential Forms}{part.2}% 31
-\BOOKMARK [0][-]{appendix.10}{Integration on Chains}{part.2}% 32
-\BOOKMARK [0][-]{appendix.11}{Integration on Manifolds}{part.2}% 33
-\BOOKMARK [-1][-]{part.3}{III Function Spaces}{}% 34
-\BOOKMARK [0][-]{appendix.12}{Normed Spaces}{part.3}% 35
-\BOOKMARK [0][-]{appendix.13}{Hilbert Spaces}{part.3}% 36
-\BOOKMARK [0][-]{appendix.14}{Banach Spaces}{part.3}% 37
-\BOOKMARK [0][-]{appendix.15}{Differentiation and Integration}{part.3}% 38
-\BOOKMARK [0][-]{appendix.16}{Banach Algebras}{part.3}% 39
-\BOOKMARK [-1][-]{part.4}{IV Measure Theory}{}% 40
-\BOOKMARK [0][-]{appendix.17}{Measures}{part.4}% 41
-\BOOKMARK [0][-]{appendix.18}{}{part.4}% 42
-\BOOKMARK [0][-]{appendix.19}{Radon Measures}{part.4}% 43
-\BOOKMARK [0][-]{section*.1}{Appendices}{part.4}% 44
-\BOOKMARK [1][-]{section.2..1}{Multivariate Calculus - with Applications}{section*.1}% 45
-\BOOKMARK [2][-]{section*.2}{Vector Functions and Derivatives}{section.2..1}% 46
-\BOOKMARK [2][-]{Item.80}{Parametric Curves and Paths}{section.2..1}% 47
-\BOOKMARK [2][-]{equation.2..1.20}{Curvature and the Frenet Frame}{section.2..1}% 48
-\BOOKMARK [2][-]{thm.2..1.4}{Functions of Several Variables}{section.2..1}% 49
-\BOOKMARK [2][-]{equation.2..1.35}{Partial Derivatives}{section.2..1}% 50
-\BOOKMARK [2][-]{thm.2..1.11}{Implicit Differentiation}{section.2..1}% 51
-\BOOKMARK [2][-]{equation.2..1.57}{Differentials}{section.2..1}% 52
-\BOOKMARK [2][-]{equation.2..1.59}{Taylor Polynomials}{section.2..1}% 53
-\BOOKMARK [2][-]{equation.2..1.70}{Local Extrema of Multivariate Functions}{section.2..1}% 54
-\BOOKMARK [2][-]{Item.112}{Vector Fields}{section.2..1}% 55
-\BOOKMARK [2][-]{thm.2..1.17}{Line Integrals}{section.2..1}% 56
-\BOOKMARK [2][-]{equation.2..1.85}{Line Integral Theorems}{section.2..1}% 57
-\BOOKMARK [2][-]{equation.2..1.92}{Surface Integrals}{section.2..1}% 58
+\BOOKMARK [1][-]{section.1.1}{Peano Arithmetic}{chapter.1}% 3
+\BOOKMARK [1][-]{section.1.2}{Construction of The Rational Field}{chapter.1}% 4
+\BOOKMARK [1][-]{section.1.3}{Divisibility}{chapter.1}% 5
+\BOOKMARK [1][-]{section.1.4}{Reals in terms of Cauchy Sequences}{chapter.1}% 6
+\BOOKMARK [1][-]{section.1.5}{Axiomatized Reals}{chapter.1}% 7
+\BOOKMARK [2][-]{defn.1.5.2}{Upper and Lower Bounds}{section.1.5}% 8
+\BOOKMARK [1][-]{section.1.6}{Metric Properties of the Reals}{chapter.1}% 9
+\BOOKMARK [1][-]{section.1.7}{Limits}{chapter.1}% 10
+\BOOKMARK [1][-]{section.1.8}{Continuous Functions}{chapter.1}% 11
+\BOOKMARK [2][-]{thm.1.8.3}{Important Theorems and Results on Continuity}{section.1.8}% 12
+\BOOKMARK [2][-]{equation.1.8.3}{Uniform Continuity}{section.1.8}% 13
+\BOOKMARK [1][-]{section.1.9}{Metric Properties of the Reals Summarized}{chapter.1}% 14
+\BOOKMARK [1][-]{section.1.1.A}{Cardinality}{chapter.1}% 15
+\BOOKMARK [0][-]{appendix.2}{Differentiation}{part.1}% 16
+\BOOKMARK [1][-]{section.2.1}{Introduction to Derivatives}{appendix.2}% 17
+\BOOKMARK [1][-]{section.2.2}{Differentiation Results}{appendix.2}% 18
+\BOOKMARK [1][-]{section.2.3}{Applications of Derivatives}{appendix.2}% 19
+\BOOKMARK [2][-]{Item.69}{Convexity}{section.2.3}% 20
+\BOOKMARK [1][-]{section.2.4}{Inverse Functions}{appendix.2}% 21
+\BOOKMARK [1][-]{section.2.2.A}{Alternative Differentiation Formulation}{appendix.2}% 22
+\BOOKMARK [0][-]{appendix.3}{Integration}{part.1}% 23
+\BOOKMARK [1][-]{section.3.1}{Introduction to Definite Integrals}{appendix.3}% 24
+\BOOKMARK [1][-]{section.3.2}{Reimann Sums}{appendix.3}% 25
+\BOOKMARK [1][-]{section.3.3}{The Fundamental Theorem of Calculus}{appendix.3}% 26
+\BOOKMARK [1][-]{section.3.4}{Content of Sets}{appendix.3}% 27
+\BOOKMARK [1][-]{section.3.3.A}{Trigonometric Functions}{appendix.3}% 28
+\BOOKMARK [1][-]{section.3.3.B}{The Logarithm and Exponential Functions}{appendix.3}% 29
+\BOOKMARK [0][-]{appendix.4}{Sequences and Series}{part.1}% 30
+\BOOKMARK [1][-]{section.4.1}{Approximation by Polynomial Functions}{appendix.4}% 31
+\BOOKMARK [1][-]{section.4.2}{Infinite Sequences}{appendix.4}% 32
+\BOOKMARK [1][-]{section.4.3}{Infinite Series}{appendix.4}% 33
+\BOOKMARK [1][-]{section.4.4}{Uniform Convergence and Power Series}{appendix.4}% 34
+\BOOKMARK [2][-]{thm.4.4.6}{Complex Power Series}{section.4.4}% 35
+\BOOKMARK [2][-]{defn.4.4.11}{Products of Series}{section.4.4}% 36
+\BOOKMARK [-1][-]{part.2}{II Higher-Dimesional Analysis}{}% 37
+\BOOKMARK [0][-]{appendix.5}{Metric Spaces}{part.2}% 38
+\BOOKMARK [1][-]{section.5.1}{Euclidean Spaces}{appendix.5}% 39
+\BOOKMARK [2][-]{thm.5.1.2}{Sequences and Convergence}{section.5.1}% 40
+\BOOKMARK [2][-]{thm.5.1.3}{Topological Properties of Euclidean Space}{section.5.1}% 41
+\BOOKMARK [1][-]{section.5.2}{Metric Space Properties}{appendix.5}% 42
+\BOOKMARK [2][-]{defn.5.2.3}{Completion of a Metric Space}{section.5.2}% 43
+\BOOKMARK [1][-]{section.5.3}{Compactness for Metric Spaces}{appendix.5}% 44
+\BOOKMARK [1][-]{section.5.4}{Product Spaces}{appendix.5}% 45
+\BOOKMARK [1][-]{section.5.5}{Baire Category Theorem}{appendix.5}% 46
+\BOOKMARK [1][-]{section.5.6}{continuous Functions on Metric Spaces}{appendix.5}% 47
+\BOOKMARK [2][-]{defn.5.6.3}{Uniform Continuity}{section.5.6}% 48
+\BOOKMARK [2][-]{thm.5.6.5}{Sequences and Series of Functions}{section.5.6}% 49
+\BOOKMARK [1][-]{section.5.7}{Connected Sets}{appendix.5}% 50
+\BOOKMARK [0][-]{appendix.6}{Higher-Dimensional Differentiation}{part.2}% 51
+\BOOKMARK [0][-]{appendix.7}{Higher-Dimensional Integration}{part.2}% 52
+\BOOKMARK [0][-]{appendix.8}{Manifolds}{part.2}% 53
+\BOOKMARK [0][-]{appendix.9}{Differential Forms}{part.2}% 54
+\BOOKMARK [0][-]{appendix.10}{Integration On Chains}{part.2}% 55
+\BOOKMARK [0][-]{appendix.11}{Integration on Manifolds}{part.2}% 56
+\BOOKMARK [-1][-]{part.3}{III Function Spaces}{}% 57
+\BOOKMARK [0][-]{appendix.12}{Normed Spaces}{part.3}% 58
+\BOOKMARK [0][-]{appendix.13}{Hilbert Spaces}{part.3}% 59
+\BOOKMARK [0][-]{appendix.14}{Banach Spaces}{part.3}% 60
+\BOOKMARK [0][-]{appendix.15}{Differentiation and Integration on Functions}{part.3}% 61
+\BOOKMARK [0][-]{appendix.16}{Banach Algebras}{part.3}% 62
+\BOOKMARK [-1][-]{part.4}{IV Measure Theory}{}% 63
+\BOOKMARK [0][-]{appendix.17}{Basic Measure Spaces}{part.4}% 64
+\BOOKMARK [0][-]{appendix.18}{Lp Spaces}{part.4}% 65
+\BOOKMARK [0][-]{appendix.19}{Radon Measures}{part.4}% 66
+\BOOKMARK [0][-]{section*.1}{Appendices}{part.4}% 67
+\BOOKMARK [1][-]{section.4..1}{Multivariate Calculus - with Applications}{section*.1}% 68
+\BOOKMARK [2][-]{section*.2}{Vector Functions and Derivatives}{section.4..1}% 69
+\BOOKMARK [2][-]{Item.112}{Parametric Curves and Paths}{section.4..1}% 70
+\BOOKMARK [2][-]{equation.4..1.20}{Curvature and the Frenet Frame}{section.4..1}% 71
+\BOOKMARK [2][-]{thm.4..1.4}{Functions of Several Variables}{section.4..1}% 72
+\BOOKMARK [2][-]{equation.4..1.35}{Partial Derivatives}{section.4..1}% 73
+\BOOKMARK [2][-]{thm.4..1.11}{Implicit Differentiation}{section.4..1}% 74
+\BOOKMARK [2][-]{equation.4..1.57}{Differentials}{section.4..1}% 75
+\BOOKMARK [2][-]{equation.4..1.59}{Taylor Polynomials}{section.4..1}% 76
+\BOOKMARK [2][-]{equation.4..1.70}{Local Extrema of Multivariate Functions}{section.4..1}% 77
+\BOOKMARK [2][-]{Item.144}{Vector Fields}{section.4..1}% 78
+\BOOKMARK [2][-]{thm.4..1.17}{Line Integrals}{section.4..1}% 79
+\BOOKMARK [2][-]{equation.4..1.85}{Line Integral Theorems}{section.4..1}% 80
+\BOOKMARK [2][-]{equation.4..1.92}{Surface Integrals}{section.4..1}% 81
