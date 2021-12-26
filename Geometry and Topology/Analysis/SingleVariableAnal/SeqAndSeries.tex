@@ -331,7 +331,7 @@
 \end{proof}
 
 
-\begin{cor}{The Bolzano-Weierstrass Theorem}{bolz}
+\begin{cor}[The Bolzano-Weierstrass Theorem]\label{cor:bolz}
     Every bounded sequence has a convergent subsequence.
 \end{cor}
 
@@ -752,7 +752,7 @@
 \end{defn}
 
 \begin{eg}
-    Take $f_n(x) = x^n$ on $S = [0,1]$. If $0 \leq x < 1$ notice that $\lim\limits_{n\rightarrow \infty}x^n = 0$ (geometric sequence). If $x = 1$, then $f_n(1) = 1^n = 1$, which converges to $1$ as $n$ goes to infinity. Thus, $f)n$ converges pointwise to \begin{equation*}
+    Take $f_n(x) = x^n$ on $S = [0,1]$. If $0 \leq x < 1$ notice that $\lim\limits_{n\rightarrow \infty}x^n = 0$ (geometric sequence). If $x = 1$, then $f_n(1) = 1^n = 1$, which converges to $1$ as $n$ goes to infinity. Thus, $f_n$ converges pointwise to \begin{equation*}
         f(x) = \left\{\begin{array}{lc} 0 & 0 \leq x < 1 \\ 1 & x = 1\end{array}\right.
     \end{equation*}
     Notice each $f_n$ is continuous on $[0,1]$, but $f$ is not.
@@ -766,6 +766,8 @@ This example answers the following question in the negative:
     \end{equation*}
 \end{qst}
 
+In particular, in our example we take $a = 1$, then $\lim\limits_{x\rightarrow a}f_n(x) = \lim\limits_{x\rightarrow 1}x^n = 1$, so $\lim\limits_{n\rightarrow \infty}1 = 1$, but $\lim\limits_{x\rightarrow 1}f(x) = 0$.
+
 
 \begin{eg}
     Consider the sequence $g_n(x) = \frac{1}{1+x^n}$ on $S = (-\infty,-1)\cup(-1,\infty)$. As $n$ goes to infinity we have that the sequence converges pointwise to $1$ for $|x| < 1$, $1/2$ for $x = 1$, and $0$ for $|x| > 1$.
@@ -775,7 +777,7 @@ This example answers the following question in the negative:
     Let $S = [0,\infty)$ and define \begin{equation*}
         f_n(x) = \left\{\begin{array}{lc} n^2x & 0 \leq x \leq \frac{1}{n} \\ -n^2\left(x-\frac{2}{n}\right) & \frac{1}{n} < x \leq \frac{2}{n} \\ 0 & x > \frac{2}{n}\end{array}\right.
     \end{equation*}
-    We claim that $\lim\limits_{n\rightarrow \infty}f_n(x) = 0$ for all $x \geq 0$. When $x=0$, $f_n(0) = 0$ which converges to $0$. If $0 < x$: By the Archimedian property there exists $N \in \N$ such that $\frac{2}{N} < x$. Then $f_N(x) = 0$ and $f_n(x) = 0$ for all $n \geq N$. Thus, $\lim\limits_{n\rightarrow \infty}f_n(x) = 0$, as claimed. This argument can be intuitively realized by noting that for $n$ large enought, the tent is always to the left of any $0 < x$.
+    We claim that $\lim\limits_{n\rightarrow \infty}f_n(x) = 0$ for all $x \geq 0$. When $x=0$, $f_n(0) = 0$ which converges to $0$. If $0 < x$: By the Archemedean property there exists $N \in \N$ such that $\frac{2}{N} < x$. Then $f_N(x) = 0$ and $f_n(x) = 0$ for all $n \geq N$. Thus, $\lim\limits_{n\rightarrow \infty}f_n(x) = 0$, as claimed. This argument can be intuitively realized by noting that for $n$ large enough, the tent is always to the left of any $0 < x$.
 \end{eg}
 
 We note that this gives an example of an unbounded sequence $\{f_n\}$ converging pointwise to a bounded function.
@@ -785,9 +787,6 @@ We note that this gives an example of an unbounded sequence $\{f_n\}$ converging
 \end{eg}
 
 This is an example of pointwise convergence where the derivatives do not converge pointwise. Moreover, as we will see, the original sequence actually converges uniformly (the bound on the terms does not depend on $x$), which suggests we need a stronger requirement for convergence of derivatives.
-
-
-
 
 
 \begin{defn}
@@ -816,12 +815,12 @@ We will use the notation $f_n\rightarrow_uf$ sometimes to denote uniform converg
         ||f||_S := \sup\limits_{x\in S}|f(x)|
     \end{equation*}
 \end{defn}
-We note that this may not be finite. When the context is clear we will write $||f||_{\infty}$.
+We note that this may not be finite. When the context is clear we will write $||f||_{\infty}$. 
 
 \begin{rmk}
     Suppose $f:S\rightarrow \R$ is a function: \begin{enumerate}
         \item[(i)] $f$ is bounded on $S$ if and only if $||f||_S < \infty$
-        \item[(ii)] If $f$ is continous on $S$ and $S$ is compact, then $||f||_S = \max\limits_{s \in S}|f(x)|$
+        \item[(ii)] If $f$ is continous on $S$ and $S$ is compact, then $||f||_S = \max\limits_{s \in S}|f(x)|$ (e.g. $||x^n||_{[0,1]} = 1$)
     \end{enumerate}
 \end{rmk}
 
@@ -832,7 +831,7 @@ We note that this may not be finite. When the context is clear we will write $||
 \begin{proof}
     Let $f_n$ be a sequence of functions, each defined on $S$, and let $f$ be another function on $S$.
 
-    First, let us suppose that the $f_n$ converge uniformly to $f$ on $S$. Fix $\varepsilon > 0$. Then there exists $N \in \N$ such that for $n \geq N$, $|f_n(x) - f(x)| < \varepsilon/2$ for all $x \in S$. This implies that $\varepsilon/2$ is an upper bound of all $|f_n(x)-f(x)|$, so by definition $||f_n-f||_S \leq \varepsilon/2 < \varepsilon$ for all $n \geq N$. Hence, as $||f_n-f||_S = |||f_n -f||_S - 0|$, we have that the sequence $||f_n-f||_S$ converges to $0$.
+    First, let us suppose that the $f_n$ converge uniformly to $f$ on $S$. Fix $\varepsilon > 0$. Then there exists $N \in \N$ such that for $n \geq N$, $|f_n(x) - f(x)| < \varepsilon/2$ for all $x \in S$. This implies that $\varepsilon/2$ is an upper bound of all $|f_n(x)-f(x)|$, so by definition $||f_n-f||_S \leq \varepsilon/2 < \varepsilon$ for all $n \geq N$. Hence, as $||f_n-f||_S = |||f_n -f||_S - 0|$, we have that the sequence $||f_n-f||_S$ converges to $0$ in $\R$.
 
     Conversely, suppose that $||f_n-f||_S$ converges to $0$, and let $\varepsilon > 0$. Then, there exists $N \in \N$ such that for all $n \geq N$, $||f_n-f||_S < \varepsilon$. It follows that for all $x \in S$, $|f_n(x) - f(x)| \leq ||f_n-f||_S < \varepsilon$ for $n \geq N$, so we find that $f_n$ converges uniformly to $f$ on $S$ by definition.
 \end{proof}
@@ -841,56 +840,100 @@ We note that this may not be finite. When the context is clear we will write $||
     Let $S = [0,1]$ and $f_n(x) = x^n$. $f_n$ does not converge uniformly to any function. Indeed if $f_n$ converges uniformly to anything on $[0,1]$, it must be the pointwise limit $f(x) = 0, 0 \leq x < 1$ and $f(x) = 1, x =1$, since uniform implies pointwise convergence (and limits are unique in Hausdorff spaces). This implies $\sup\limits_{x \in [0,1]}|f_n(x) - f(x)|$ goes to zero as $n$ goes to infinity. But if $x = 1-\frac{1}{n}$, then $|f_n(1-1/n)-f(1-1/n)| = (1-1/n)^n$, which converges to $e^{-1} = \frac{1}{e}$, and not zero. Further, this must be less than what the limit of the supremums converges to, so the supremums cannot converge to $0$, as that would result in a contradiction. Hence, the sequence does not converge uniformly.
 \end{eg}
 
-The tent function is another example of pointwise but not uniform convergence, since $||f_n-0||_{\infty} = n$, which does not converge to $0$. (CONTINUE HAM HERE)
+The tent function is another example of pointwise but not uniform convergence, since $||f_n-0||_{\infty} = n$, which does not converge to $0$. 
+
+\begin{thm}[Cauchy Criterion for Uniform Convergence]
+    Suppose $f_n:S\rightarrow \R$. Then $f_n$ converges uniformly on $S$ if and only if for all $\varepsilon > 0$ there is an $N \in \N$ such that $m,n \geq N$ implies $$||f_n - f_m||_{\infty} < \varepsilon$$
+\end{thm}
+\begin{proof}
+    Let $f_n:S\rightarrow \R$ be a sequence of functions.
+
+    First, suppose $f_n$ converges uniformly on $S$ to some $f:S\rightarrow \R$. Fix $\varepsilon > 0$. Then there exists $N \in \N$ such that for $n \geq N$, $|f_n(x) - f(x)| < \varepsilon/3$, for all $x \in S$. It follows by the triangle inequality that for $k,m \geq N$, $|f_k(x) - f_m(x)| < 2\varepsilon/3$ for all $x \in S$. Thus, $||f_k - f_m||_{\infty} \leq 2\varepsilon/3 < \varepsilon$, so $f_n$ is uniformly Cauchy (i.e. it is Cauchy with respect to the uniform norm $||\cdot||_{\infty}$)
+
+    Conversely, suppose $f_n$ is uniformly Cauchy on $S$. Let $\varepsilon > 0$. Then there exists $N \in \N$ such that for $k,m \geq N$, $||f_k - f_m||_{\infty} < \varepsilon/2$. Then for all $x \in S$, $|f_k(x) - f_m(x)| < \varepsilon/2$ for $k,m \geq N$. As $(\R, |\cdot|)$ is a complete metric space, for each $x \in S$ there exists $f(x) \in \R$ such that $f_k(x)$ converges to $f(x)$. Then, taking the limit as $m$ goes to infinity in $|f_k(x) - f_m(x)| < \varepsilon/2$, and using the order properties of limits in $\R$, we have that $|f_k(x) - f(x)| \leq \varepsilon/2$ for all $x \in S$ and $k \geq N$. Thus, for $k \geq N$ we have that $||f_k - f||_{\infty} < \varepsilon$, so $f_k$ converges to $f$ uniformly on $S$, as desired.
+\end{proof}
+
+\begin{eg}
+    Let $S = [0,1]$ and $f_n(x) = nx(1-x^2)^n$. We claim that $f_n$ converges pointwise to $0$, but not uniformly. If $x = 0,1,$ then $f_n(x) = 0\rightarrow 0$. If $0 < x < 1$, then $0 < 1-x^2 < 1$. Then $1/(1-x^2) > 1$, so there exists $y > 0$ such that $1/(1-x^2) = 1+y$. Then, for $n \geq 2$ we have by the binomial theorem that $(1+y)^n \leq 1 + ny + n(n+1)/2y^2 \leq 1 +ny + n^2y^2/2$. It follows that \begin{align*}
+        0 \leq \lim\limits_{n\rightarrow \infty}nx(1-x^2)^n &\leq \lim\limits_{n\rightarrow \infty}\frac{nx}{1+ny+n^2y^2/2} \tag{for some $y > 0$} \\
+        &= x\lim\limits_{n\rightarrow \infty}\frac{1}{1/n+y+ny^2/2} \\
+        &= x\cdot 0 = 0
+    \end{align*}
+    as claimed. But, the convergence is not uniform since if $||f_n||_{\infty}\rightarrow 0$, then $|f_n(x_n)|\rightarrow 0$ for any sequence $x_n$ in $[0,1]$. Let $x_n = \frac{1}{\sqrt{n}}$. Then $f_n(x_n) = n\frac{1}{\sqrt{n}}(1-1/n)^n = \sqrt{n}(1-1/n)^n$, which converges to $\infty$ as $\sqrt{n}\rightarrow \infty$ and $(1-1/n)^n\rightarrow e^{-1}$.
+\end{eg}
+
+\begin{eg}
+    Let $S = [0,b]$ for some $b > 0$. Then $f_n(x) = n\sin(x/n)$ converges uniformly on $S$ but not on $[0,\infty)$. Note if we fix $x$ and take $n$ large enough, then $\sin(x/n) \approx x/n$. Then $$\lim\limits_{n\rightarrow \infty}f_n(x) = \lim\limits_{n\rightarrow \infty}\frac{\sin(x/n)}{x/n}x = x$$ so $f_n(x)\rightarrow x$ for all $x$. We first show $f_n\cancel{\rightarrow_u} x$ on $[0,\infty)$. Suppose it did. Then $|f_n(x_n)-x_n|\rightarrow 0$ for any sequence $x_n$ in $[0,\infty)$. Try $x_n = n^2$. Then $|f_n(n^2) - n^2| = |n\sin(n)-n^2| = n|\sin(n) - n|\rightarrow \infty$, which is a contradiction, so the claim holds. To show uniform convergence on $[0,b]$, note that $\sin(x/n) \leq x/n$ for all $x \geq 0$, so $n\sin(x/n) \leq x$. Let $g(x) = x-n\sin(x/n) \geq 0$. Then $g'(x) = 1-\cos(x/n) \geq 0$. Thus, $g$ is a monotone increasing function on $[0,b]$. Thus, $||g||_{\infty} = g(b) = b-n\sin(b/n)$. Then $||f_n - x||_{[0,b]} = ||g||_{[0,b]} = b-n\sin(b/n)$, which converges to $b-b = 0$ as $n\rightarrow \infty$.
+\end{eg}
+
+Note that $[0,\infty) = \bigcup_{b > 0}[0,b]$, sp this gives an example of uniform convergence on many sets, but not on the union of those sets.
+
+
+
 
 
 \begin{thm}
-    Suppose that $\{f_n\}$ is a sequence of functions which are integrable on $[a,b]$, and that $\{f_n\}$ converges uniformly on $[a,b]$ to a function $f$ which is also integrable on $[a,b]$. Then \begin{equation*}
-        \int_a^bf = \lim\limits_{n\rightarrow \infty}\int_a^bf_n
-    \end{equation*}
+    Suppose $S \subseteq \R$, and $f_n:S\rightarrow \R$ are continuous functions. If $f_n$ converges uniformly to $f$ on $S$, then $f$ is also continuous on $S$.
 \end{thm}
 \begin{proof}
-    Let $\varepsilon > 0$. Then since $\{f_n\}$ converges uniformly to $f$, there exists $N \in \N$ such that for all $x \in [a,b]$, if $n \geq N$ \begin{equation*}
-        |f(x) f_n(x)| < \varepsilon
-    \end{equation*}
-    Then for all $n \geq N$, we have that \begin{align*}
-        \left|\int_a^bf(x)dx - \int_a^bf_n(x)dx\right| &= \left|\int_a^b[f(x) - f_n(x)]dx\right| \\
-        &\leq \int_a^b |f(x) - f_n(x)| dx \\
-        &\leq \int_a^b\varepsilon dx \\
-        &= \varepsilon (b-a)
+    First, fix $\varepsilon > 0$. Then there exists $N \in \N$ such that for $k \geq N$, $||f_k - f||_S < \varepsilon/3$. Let $x \in S$. As $f_N$ is continuous at $x$, there exists $\delta > 0$ such that for $y \in B_{\delta}^*(x)$, $|f_N(y) -f_N(x)| < \varepsilon/3$. Then, for $|x-y| < \delta$ we have that \begin{align*}
+        |f(x) - f(y)| &\leq |f(x) - f_N(x)| + |f_N(x) - f_N(y)| + |f_N(y) - f(y)| < 3\varepsilon/3 = \varepsilon
     \end{align*}
-    Since this is true for all $\varepsilon > 0$, it follows that \begin{equation*}
-        \int_a^bf = \lim\limits_{n\rightarrow \infty}\int_a^bf_n
-    \end{equation*}
+    so $f$ is indeed continuous at $x$, and hence on $S$.
+\end{proof}
+
+
+\begin{prop}
+    If $f_n$ converges uniformly to $f$ on $S$ and each $f_n$ is uniformly continuous on $S$, then $f$ is uniformly continuous on $S$.
+\end{prop}
+\begin{proof}
+    First, fix $\varepsilon > 0$. As $f_n\rightarrow_uf$, there exists $N \in \N$ such that for $k \geq N$, $||f_k - f||_S < \varepsilon/3$. Then, as $f_N$ is uniformly continuous there exists $\delta > 0$ such that if $|x-y| < \delta$, $|f_N(x) - f_N(y)| < \varepsilon/3$ for all $x,y \in S$. Thus, if $|x-y| < \delta$ and $x,y \in S$, it follows that \begin{align*}
+        |f(x) - f(y)| &\leq |f(x) - f_N(x)| + |f_N(x) - f_N(y)| + |f_N(y) - f(y)| \\
+        &< 3\varepsilon/3 = \varepsilon
+    \end{align*}
+    so $f$ is uniformly continuous on $S$, as desired.
+\end{proof}
+
+\begin{eg}
+    Let $S = [0,1]$ and $f_n(x) = \frac{1}{1+x^n}$. We have seen that $f_n(x) \rightarrow 1$ for $x \in [0,1)$, and $f_n(1)\rightarrow 1/2$, pointwise. Evidently, the convergence is not uniform since each $f_n$ is continuous on $[0,1]$, but the limit function is not.
+\end{eg}
+
+\begin{lem}
+    Suppose $f_n$ converges uniformly to $f$ on $S$. If each $f_n$ are bounded on $S$, then $f$ is bounded on $S$ as well. Moreover, the sequence is \Emph{uniformly bounded}: $$\sup_{n \in \N}||f_n||_S < \infty$$
+\end{lem}
+\begin{proof}
+    First, there exists $N \in \N$ such that if $k \geq N$, $||f_k - f||_S < 1$, by uniform convergence. Then, for all $x \in S$, $|f(x)| \leq |f(x)-f_N(x)| + |f_N(x)| < ||f_N||_S + 1$. But $f_N$ is assumed bounded on $S$, so $||f_N||_S < \infty$, and hence $||f||_S \leq ||f_N||_S + 1 < \infty$, so $f$ is also bounded on $S$. Now, for all $k \geq N$ we have that $||f_k||_S \leq ||f||_S + 1$. Let $M = \max\{||f_1||_S,...,||f_{N-1}||_S,||f_N||_S + 1\}$. Then it follows that $||f_n||_S \leq M$ for all $n \in \N$, and $M < \infty$ is finite, so $\sup_{n \in \N}||f_n||_S \leq M < \infty$, as desired.
+\end{proof}
+
+
+\begin{thm}
+    Suppose that $f_n$ are bounded and integrable functions on $[a,b]$, $f_n \in \mathcal{R}([a,b])$, converging uniformly to $f$ on $[a,b]$. Then $f$ is integrable on $[a,b]$ and $$\lim\limits_{n\rightarrow \infty}\int_a^bf_n(x)dx = \int_a^bf(x)dx$$
+\end{thm}
+\begin{proof}
+    By the previous lemma we have that $f$ is bounded on $[a,b]$. First, if $f$ is integrable on $[a,b]$, then \begin{align*}
+        \left|\int_a^bf_n(x)dx - \int_a^bf(x)dx\right| &\leq \int_a^b|f_n(x)-f(x)|dx \\
+        &\leq \int_a^b||f_n-f||_{\infty}dx \\
+        &= (b-a)||f_n-f||_{\infty}
+    \end{align*}
+    which goes to $0$ as $n\rightarrow \infty$ by uniform convergence. Thus, all we need to show is $f$ is integrable. Fix $\varepsilon > 0$. Then there exists $N \in \N$ such that $||f_n - f|| < \frac{\varepsilon}{3(b-a)}$. Since each $f_n$ is integrable, there exists a partition $P_n \in \prod([a,b])$ with $$U(f_n,P_n) - L(f_n,P_n) < \frac{\varepsilon}{3}$$ Write $P_n = \{a=x_{0,n},x_{1,n},...,x_{M_n,n} = b\}$. Let $J_{k,n} = [x_{k,n},x_{k+1,n}]$ for $0 \leq k \leq N_n$. Then $||f-f_n||_{J_k} < \frac{\varepsilon}{3(b-a)}$ for $n \geq N$. Then $$||f||_{J_k} \leq \frac{\varepsilon}{3(b-a)} + ||f_n||_{J_k}$$ and $$||f_n||_{J_k} \leq \frac{\varepsilon}{3(b-a)}$$, so $$|\sup_{J_k}(f) - \sup_{J_k}(f_n)| \leq \frac{\varepsilon}{3(b-a)}$$ for all $n \geq N$. It follows that \begin{align*}
+        |U(f,P_n) - U(f_n,P_n)| &= \left|\sum_{k=0}^{M_n-1}(\sup_{J_k}(f) - \sup_{J_k}(f_n))\ell(J_k)\right| \\
+        &\leq \sum_{k=0}^{M_n - 1}|\sup_{J_k}(f) - \sup_{J_k}(f_n)|\ell(J_k) \\
+        &< \sum_{k=0}^{M_n-1}\frac{\varepsilon}{3(b-a)}\ell(J_k) \\
+        &= \frac{\varepsilon}{3(b-a)}\ell([a,b]) = \frac{\varepsilon}{3}
+    \end{align*}
+    Similarly, $|L(f,P_n) - L(f_n,P_n)| < \varepsilon/3$. Finally, \begin{align*}
+        U(f,P_n) - L(f,P_n) &= U(f,P_n) - U(f_n,P_n) + U(f_n,P_n) - L(f_n,P_n) + L(f_n,P_n) - L(f,P_n) \\
+        &\leq |U(f,P_n) - U(f_n,P_n)| + |U(f_n,P_n) - L(f_n,P_n)| + |L(f_n,P_n) - L(f,P_n)|\\
+        &< 3\cdot \frac{\varepsilon}{3} = \varepsilon
+    \end{align*}
+    Thus, $f$ is Riemann integrable on $[a,b]$.
 \end{proof}
 
 
 
-\begin{thm}
-    Suppose that $\{f_n\}$ is a sequence of functions which are continuous on $[a,b]$, and that $\{f_n\}$ converges uniformly on $[a,b]$ to $f$. Then $f$ is also continuous on $[a,b]$.
-\end{thm}
-\begin{proof}
-    For each $x \in [a,b]$ we must prove that $f$ is continuous at $x$. We first deal with $x \in (a,b)$. Fix $\varepsilon > 0$. Since $\{f_n\}$ converges uniformly to $f$ on $[a,b]$, there is some $N$ such that for all $n \geq N$ and all $y \in [a,b]$, \begin{equation*}
-        |f(y) - f_n(y)| < \varepsilon/3
-    \end{equation*}
-    In particular, for all $h$ such that $x+ h \in [a,b]$, we have \begin{align*}
-        |f(x) - f_n(x)| &< \varepsilon/3, \\
-        |f(x+h) - f_n(x+h)| &< \varepsilon/3
-    \end{align*}
-    Now $f_n$ is continuous, so there is some $\delta > 0$ such that for $|h| < \delta$ we have \begin{equation*}
-        |f_n(x) - f_n(x+h)| < \varepsilon/3
-    \end{equation*}
-    Thus, if $|h| < \delta$, then \begin{align*}
-        |f(x+h)-f(x)| &= |f(x+h)-f_n(x+h)+f_n(x+h) - f_n(x)+f_n(x)-f(x)| \\
-        &\leq |f(x+h) - f_n(x+h)| + |f_n(x+h)-f_n(x)| + |f_n(x) - f(x)| \\
-        &<\varepsilon/3 + \varepsilon/3 + \varepsilon/3 \\
-        &= \varepsilon
-    \end{align*}
-    This proves that $f$ is continuous at $x$.
-\end{proof}
 
 \begin{rmk}
-    Allow this last two theorems are great successes, differentiability sadly fails. Even if each $f_n$ is differentiable and $\{f_n\}$ converges uniformly to $f$, it need not be the case that $f$ is differentiable. Moreover, even if $f$ is itself differentiable, it need not be the case that \begin{equation*}
+    Although these last two theorems are great successes, differentiability sadly fails. Even if each $f_n$ is differentiable and $\{f_n\}$ converges uniformly to $f$, it need not be the case that $f$ is differentiable. Moreover, even if $f$ is itself differentiable, it need not be the case that \begin{equation*}
         f'(x) = \lim\limits_{n\rightarrow \infty}f_n'(x)
     \end{equation*}
 \end{rmk}
@@ -920,11 +963,27 @@ The tent function is another example of pointwise but not uniform convergence, s
     Since $g$ is continuous, it follows that $f'(x) = g(x) = \lim\limits_{n\rightarrow \infty}f_n'(x)$ for all $x$ in the interval $[a,b]$, by \ref{thmname:FTC}.
 \end{proof}
 
+\begin{eg}
+    Consider $\int_0^{\pi}\frac{n+\sin x}{3n+\sin^2(nx)}dx$. Observe that \begin{align*}
+        \left|\frac{n+\sin x}{3n+\sin^2(nx)} - \frac{1}{3}\right| &= \left|\frac{3n+3\sin x-3n-\sin^2(nx)}{3(3n+\sin^2(nx))}\right| \\
+        &\leq \frac{|3\sin x - \sin^2(nx)|}{9n} \leq \frac{3+1}{9n} = \frac{4}{9n}
+    \end{align*}
+    for all $x \in [0,\pi]$. Thus, $||f_n-\frac{1}{3}||_{[0,\pi]} \leq \frac{4}{9n}\rightarrow 0$, so it converges uniformly. It follows that \begin{align*}
+        \lim\limits_{n\rightarrow \infty}\int_0^{\pi}\frac{n+\sin x}{3n+\sin^2(nx)}dx &= \int_0^{\pi}\lim\limits_{n\rightarrow \infty}\frac{n+\sin x}{3n+\sin^2(nx)}dx \\
+        &= \int_0^{\pi}\frac{1}{3}dx \\
+        &= \frac{\pi}{3}
+    \end{align*}
+\end{eg}
+
 \begin{defn}
     The series $\sum\limits_{n=1}^{\infty}f_n$ \Emph{converges uniformly} (more formally, the sequence $\{f_n\}$ is \Emph{uniformly summable}) \Emph{to $f$ on $A$}, if the sequence \begin{equation*}
         f_1, f_1+f_2,f_1+f_2+f_3,...
     \end{equation*}
     converges uniformly to $f$ on $A$.
+\end{defn}
+
+\begin{defn}[Series of Functions (alt.)]
+    Suppose $S$ is a subset of $\R$ and $f_n:S\rightarrow \R$. We say that the series $\sum_{n=1}^{\infty}f_n(x)$ \Emph{converges pointwise} if the sequence of partial sums $s_k(x) = \sum_{n=1}^kf_n(x)$ converges pointwise to a function $f:S\rightarrow \R$. In this case, write $f(x) = \sum_{n=1}^{\infty}f_n(x)$. We say that the series $\sum_{n=1}^{\infty}f_n(x)$ \Emph{converges uniformly} if $s_k$ converges uniformly to $f$ on $S$.
 \end{defn}
 
 
@@ -933,7 +992,7 @@ The tent function is another example of pointwise but not uniform convergence, s
     Let $\sum\limits_{n=1}^{\infty}f_n$ converge uniformly to $f$ on $[a,b]$. \begin{enumerate}
         \item If each $f_n$ is continuous on $[a,b]$, then $f$ is continuous on $[a,b]$.
         \item If $f$ and each $f_n$ is integrable on $[a,b]$, then \begin{equation*}
-                \int_a^bf = \sum\limits_{n=1}^{\infty}\int_a^bf_n
+                \int_a^bf = \int_a^b\sum_{n=1}^{\infty}f_n = \sum\limits_{n=1}^{\infty}\int_a^bf_n
         \end{equation*}
     \end{enumerate}
     Moreover, if $\sum\limits_{n=1}^{\infty}f_n$ converges (pointwise) to $f$ on $[a,b]$, each $f_n$ has an integrable derivative $f_n'$ and $\sum\limits_{n=1}^{\infty}f'_n$ converges uniformly on $[a,b]$ to some continuous function, then \begin{enumerate}
@@ -955,6 +1014,17 @@ The tent function is another example of pointwise but not uniform convergence, s
     \end{equation*}
 \end{proof}
 
+\begin{eg}
+    Let $S = [-r,r]$ with $0 < r < 1$. Let $f(t) = \sum_{n=0}^{infty}(-r)^n$. Then as $t \in [-r,r] \subset ( -1,1)$ we have $f(t) = \frac{1}{t}$. Convergence is uniform on $[-r,r]$ since $|t| \leq r$, so $|(-t)^n| \leq r^n$, and $\sum_{n=0}^{\infty}r^n$ converges. By the last corollary, we have that for $x \in [-r,r]$, \begin{align*}
+        \log(1+x) &= \int_0^x\frac{1}{1+t}dt \tag{by the FTC} \\
+        &= \int_0^x\sum_{n=0}^{\infty}(-t)^ndt \\
+        &= \sum_{n=0}^{\infty}\int_0^x(-1)^nt^ndt \\
+        &= \sum_{n=0}^{\infty}(-1)^n\frac{x^{n+1}}{n+1} \tag{by the FTC}
+    \end{align*}
+    Thus, $\log(1+x) = \sum_{n=0}^{\infty}(-1)^n\frac{x^{n+1}}{n+1}$ for all $x \in (-1,1)$
+\end{eg}
+
+
 
 \begin{namthm}[The Weierstrass M-Test]\label{thmname:mtest}
     Let $\{f_n\}$ be a sequence of functions defined on $A$, and suppose that $\{M_n\}$ is a sequence of numbers such that \begin{equation*}
@@ -974,6 +1044,48 @@ The tent function is another example of pointwise but not uniform convergence, s
 \end{proof}
 
 
+\begin{eg}
+    The series $\sum_{n=0}^{\infty}\frac{x^n}{n!}$ converges uniformly on $[-R,R]$ for any $R > 0$, but not on $\R$. If $-R \leq x \leq R$, then $\left|\frac{x^n}{n!}\right| \leq \frac{R^n}{n!} =: M_n$. Note that $\sum_{n=0}^{\infty}M_n$ converges by the ratio test. This implies by the Weierstrass M-test that $\sum_{n=0}^{\infty}\frac{x^n}{n!}$ converges uniformly on $[-R,R]$. Note if $\sum_nf_n$ converges uniformly on $S$ to some function $s$, then $f_n\rightarrow_u 0$. In particular, $||f_n||_{\infty}\rightarrow 0$. But, $||x^n/n!||_{\R} = \infty$, so the series cannot be uniformly convergent on all of $\R$.
+\end{eg}
+
+The converse to the uniform limit of the terms needing to go to zero for the series to converge is false. For example, if $f_n(x) = 1/n, x \in \R$, then $||f_n||_{\R} = 1/n\rightarrow 0$, but $\sum_{n=1}^{\infty}\frac{1}{n}$ diverges (the harmonic series).
+
+\begin{eg}
+    Recall we saw that $\sum_{n=0}^{\infty}\frac{x^n}{n!}$ converges uniformly on $[-R,R]$ for any $R > 0$ by Weierstrass M-test. Since $\sum_{n=0}^N\frac{x^n}{n!}$ are continuous, $\sum_{n=0}^{\infty}\frac{x^n}{n!}$ is continuous on $[-R,R]$ for all $R$ so it is continuous on $\R$.
+\end{eg}
+
+
+\begin{thm}[Riemann 1861; Weierstrass 1872; du Bois-Reymond 1875]
+    There is a continuous function on $\R$ that is nowhere differentiable.
+\end{thm}
+\begin{proof}
+    Let $g(x) = |x|$ on $[-1,1]$, and continuously and periodically extend to $\R$ so $g(x+2) =g(x)$ for all $x$. Let $r,s \in \R$. If $|r-s| > 1$, then $|r-s| > 1 \geq |g(r) - g(s)|$, as $-1 = 0-1\geq g(r)-g(s) \leq 1 - 0 = 1$. Otherwise, suppose $|r-s| \leq 1$. Without loss of generality suppose $r \geq s$. If there does not exist $s \leq n \leq r$ for some $n \in \Z$, then there exists $n \in \Z$ such that $n \leq s \leq r \leq n+1$. It follows that either $g(r) - g(s) = r-n-(s-n) = r-s$, or $g(r) - g(s) = -(r-n-1)+(s-n-1) = s-r$. In either case $|g(r) - g(s)| = |r-s|$. Otherwise, there exists $n \in \Z$ such that $n-1 \leq s \leq n \leq r \leq n+1$. Then $$g(r) - g(s) = (r-n)-|s-n| = r-n-n+s=r+s-2n\leq r+s-2s = r-s = |r-s|$$ or $$g(r)-g(s) = |r-(n+1)| -(s-(n-1)) = n+1-r-s+n-1 = 2n-r-s \leq 2r-r-s = r-s = |r-s|$$ Thus, in any case we have $|g(r) - g(s)| \leq |r-s|$ for all $r,s \in \R$. This says that $g$ is Lipshitz continuous, and in particular is uniformly continuous on $\R$. Now, for all $n \in \N$, let $g_n(x) = \frac{3^n}{4^n}g(4^nx)$. Notice that $|g_n(x)| \leq \left(\frac{3}{4}\right)^n$, so the sum $\sum_n g_n$ converges uniformly on $\R$ by the Weierstrass M-test. Let $f(x) = \sum_{n=0}^{\infty}g_n(x)$, where $g_0(x) = g(x)$. Then $f$ is continuous on $\R$ as the $g_n$ are continuous and they converge uniformly (in particular, $f$ is uniformly continuous on $\R$). Fix $x \in \R$ and $m \in \N$. Define $\delta_m = \pm\frac{1}{2}\cdot\frac{1}{4^m}$, where $+$ or $-$ is selected so that there is no integer between $4^mx$ and $4^m(x+\delta)$, which has distance $\frac{1}{2}$. We have $|4^mx - 4^m(x+\delta_m)| = \frac{1}{2}$. We will show $\left|\frac{f(x+\delta_m) - f(x)}{\delta_m}\right|\rightarrow \infty$ as $m\rightarrow \infty$, so $\delta_m\rightarrow 0$. We compute \begin{align*}
+        f(x+\delta_m) - f(x) &= \sum_{n=0}^{\infty}g_n(x+\delta_m) - g_n(x) \\
+        &= \sum_{n=0}^{\infty}\frac{3^n}{4^n}\left[g(4^nx+4^n\delta_m) - g(4^nx)\right] 
+    \end{align*}
+    We have three cases on each term: \begin{itemize}
+        \item[(i)] $n > m$: Then $4^n\delta_m = \frac{\pm 4^{n-m}}{2}$ is an even integer. Since $g(t+2)=g(t)$ for all $t$, $g(4^nx+4^n\delta_m) = g(4^nx)$. So $$f(x+\delta_m) - f(x) = \sum_{n=0}^m\frac{3^n}{4^n}[g(4^nx+4^n\delta_m) - g(4^nx)]$$
+        \item[(ii)] $n < m$: We have $|g(r) - g(s)| \leq |r-s|$ for all $r,s \in \R$. Thus $$|g(4^nx+4^n\delta_m) - g(4^nx)| \leq 4^n|\delta_m|$$
+        \item[(iii)] $n=m$: There is no integer between $4^nx+4^n\delta_n$ and $4^nx$ which means $g$ maps these two points to the same line segment. Then $|g(4^nx+4^n\delta_n) - g(4^nx)| = |4^n\delta_n| = \frac{1}{2}$
+    \end{itemize}
+    Now we compute \begin{align*}
+        \left|\frac{f(x+\delta_m)-f(x)}{\delta_m}\right| &= \left|\sum_{n=0}^m{3^n}{4^n}\frac{g(4^nx+4^n\delta_m) - g(4^nx)}{\delta_m}\right| \\
+        &\geq \left|\frac{3^m}{4^m}\frac{1/2}{\delta_m}\right| -\sum_{n=0}^{m-1}\left|\frac{3^n(g(4^nx+4^n\delta_m) - g(4^nx))}{4^n\delta_m}\right| \\
+        &\geq 3^m - \sum_{n=0}^{m-1}\frac{4^n|\delta_m|}{|\delta_m|}\frac{3^n}{4^n} \\
+        &= 3^m - \sum_{n=0}^{m-1}3^n \\
+        &= 3^m - \frac{1-3^m}{1-3} \\
+        &= \frac{2\cdot3^m+1-3^m}{2} \\
+        &= \frac{1}{2}(3^m+1)\rightarrow \infty
+    \end{align*}
+    as $m\rightarrow \infty$, as desired. Thus, as if $f$ was differentiable this limit would be its derivative, so $f$ is not differentiable at any $x \in \R$.
+\end{proof}
+
+\begin{eg}
+    Let $S = (0,1)$ and $f(x) = \sum_{n=0}^{\infty}\frac{1}{n^2x+1}$. Determine where $f$ is continuous and where the convergence of the series is uniform. Note that $f_n(1/n^2) = \frac{1}{1+1} = \frac{1}{2}\cancel{\rightarrow} 0$, so $f_n$ does not converge uniformly to $0$ on $S$, and hence the sum does not converge uniformly. Let $0 < a < 1$, and consider $f$ on $[a,1)$. Then $|f_n(x)| = \frac{1}{n^2x+1} \leq \frac{1}{n^2a+1}$ for $x \in [a,1)$. But $\sum_{n=0}^{\infty}\frac{1}{n^2a+1} < \infty$, so by the Weierstrass M-test, $\sum_{n=0}^{\infty}f_n$ converges uniformly on $[a,1)$. Since each $f_n$ is continuous on $[a,1)$, this implies $f$ is continuous on $[a,1)$. Finally, $0 < a < 1$ is arbitrary, so $f(x) = \sum_{n=0}^{\infty}f_n(x)$ is continuous on $S = (0,1)$.
+\end{eg}
+
+
+\subsection{Power Series}
 
 
 \begin{defn}
@@ -985,6 +1097,8 @@ The tent function is another example of pointwise but not uniform convergence, s
     \end{equation*}
     where $f$ is some infinitely differentiable function at $a$; this series is called the \Emph{Taylor series for $f$ at $a$}.
 \end{defn}
+
+A power series is a formal notion. It may not converge for many values of $x$. It always converges at $x = 0$ ($a$, its center).
 
 
 \begin{rmk}
@@ -1043,9 +1157,111 @@ The tent function is another example of pointwise but not uniform convergence, s
     for all $x \in [-a,a]$. Since we could have chosen any $a$ with $0 < a < |x_0|$, this result holds for all $x$ with $|x| < |x_0|$.
 \end{proof}
 
+\begin{thm}[Ratio and Root Test]
+    If $\sum_{n=0}^{\infty}a_n$ for $a_n \in \C$ non-zero, then we have \begin{itemize}
+        \item If $\lim\sup\frac{|a_{n+1}|}{|a_n|} < 1$, then $\sum_na_n$ converges absolutely
+        \item If $\lim\sup\frac{|a_{n+1}|}{|a_n|} > 1$, then $\sum_na_n$ diverges
+        \item If $\lim\sup|a_n|^{\frac{1}{n}} < 1$, then $\sum_na_n$ converges absolutely
+        \item If $\lim\sup|a_n|^{\frac{1}{n}} > 1$, then $\sum_na_n$ diverges
+    \end{itemize}
+\end{thm}
+
+\begin{eg}
+    If $a_n = 1$ for all $n$, we get the geometric series $\sum_{n=0}^{\infty}x^n = \frac{1}{1-x}$ provided $|x| < 1$.
+\end{eg}
+The natural domain of a power series $f(x) = \sum_{n=0}^{\infty}a_nx^n$ is all $x$ for which the sum converges.
+
+\begin{prop}[Radius of Convergence]
+    Let $\sum_na_nx^n$ be a power series and define $\alpha:= \lim\sup|a_n|^{1/n}$. Define $$R = \left\{\begin{array}{cc}\frac{1}{\alpha} & 0 < \alpha < \infty \\ \infty & \alpha = 0 \\ 0 & \alpha = \infty \end{array}\right.$$
+    which we call the \Emph{radius of convergence} of the power series. Then $\sum_na_nx^n$ converges absolutely for $|x| < R$. If $R = 0$, it converges only when $x = 0$. If $R = \infty$, it converges absolutely on all of $\R$. The series may or may not converge when $|x| = R$.
+\end{prop}
+\begin{proof}
+    Let $b_n = a_nx^n$, and \begin{align*}
+        \beta = \lim\sup|b_n|^{1/n} = \lim\sup|a_n|^{1/n}|x^n|^{1/n} = |x|\alpha
+    \end{align*}
+    Apply the root test to $\sum_{n=0}^{\infty}b_n$: \begin{itemize}
+        \item[(i)] If $\alpha = 0$ then $\beta = 0 <1$, so the series converges absolutely for all $x \in \R$
+        \item[(ii)] If $\alpha = \infty$, $\beta = 0$ if $x = 0$ and $\infty$ otherwise, so the series converges absolutely only at $x  =0$
+        \item[(iii)] If $0 < \alpha < \infty$, $\beta = |x| \alpha < 1$ if and only if $|x| < \frac{1}{\alpha} = R$, so the series converges absolutely for $|x| < R$ and diverges for $|x| > R$.
+    \end{itemize}
+\end{proof}
+
+\begin{cor}
+    If $\lim\limits_{n\rightarrow \infty}\frac{|a_n|}{|a_{n+1}|}$ exists, it equals $R$ above.
+\end{cor}
+
+\begin{eg}
+    Consider $\sum_{n=0}^{\infty}\frac{n!x^n}{n^n}$, so $a_n = \frac{n!}{n^n}$. Observe that \begin{align*}
+        \lim\limits_{n\rightarrow \infty}\frac{a_n}{a_{n+1}} = \lim\limits_{n\rightarrow \infty}\frac{(n+1)^n}{n^n} = \lim\limits_{n\rightarrow \infty}\left(1+\frac{1}{n}\right)^n = e = R
+    \end{align*}
+    For $x = \pm e$ we must use stirling's approximation $n! \approx \sqrt{2\pi n}\frac{n^n}{e^n}$, which becomes exact in the limit.
+\end{eg}
 
 
-\subsection{Complex Power Series}
+\begin{prop}
+    Suppose $\sum_{n}a_nx^n$ has radius of convergence $R > 0$. Then $\sum_na_nx^n$ converges uniformly on any set of the form $[-K,K]$ for $0 \leq K < R$.
+\end{prop}
+\begin{proof}
+    Suppose $x \in [-K,K]$. Then $|a_nx^n| \leq |a_n|K^n$. But $\sum_{n=0}^{\infty}|a_n|K^n$ converges since $K \in (-R,R)$. Thus, by the Weierstrass M test $\sum_{n=0}^{\infty}a_nx^n$ converges uniformly on $[-K,K]$.
+\end{proof}
+In particular, this tells us that $\sum_{n=0}^{\infty}a_nx^n$ is continuous on $[-K,K]$ for any $0 < K < R$, so it is continuous on $(-R,R)$.
+
+\begin{prop}
+    Suppose $f(x) = \sum_na_nx^n$ has radius of convergence $R > 0$. Then $f$ is differentiable on $(-R,R)$ and $f'(x) = \sum_nna_nx^{n-1}$. Moreover, $f'$ also has radius of convergence $R$.
+\end{prop}
+\begin{proof}
+    We have shown previously that if $f_n\rightarrow f$ pointwise, $f'_n$ are continuous, and $f'_n\rightarrow_ug$ for some $g$, then $f$ is differentiable and $f' = g$. Let $s_m(x) = \sum_{n=0}^ma_nx^n$, which converges uniformly to $\sum_{n=0}^{\infty}a_nx^n=f(x)$ on $[-K,K]$ for any $0 \leq K < R$. Note $s_m$ is differentiable with $s_m'(x) = \sum_{n=1}^mna_nx^{n-1}$, which converges uniformly to $\sum_{n=1}^{\infty}na_nx^{n-1} =: g(x)$ on $[-K,K]$ for all $0 \leq K < R$ as $\frac{1}{R'} = \lim\sup\frac{|(n+1)a_{n+1}|}{|na_n|} = \lim\sup\frac{|a_{n+1}|}{|a_n|} = \frac{1}{R}$, so $g$'s radius of convergence is also $R$. This implies that $f$ is differentiable on $(-K,K)$ and $f'(x) = g(x)$ for all $x \in (-K,K)$. As this holds for all $0 \leq K < R$, this implies $f'(x) = g(x)$ on $(-R,R)$
+\end{proof}
+
+\begin{cor}
+    The power series $f(x) = \sum_na_nx^n$ with radius of convergence $R > 0$ has derivatives of all orders on $(-R,R)$ and $f^{(k)}(x) = \sum_{n\geq k}\frac{n!}{(n-k)!}a_nx^{n-k}$ on $(-R,R)$.
+\end{cor}
+\begin{proof}
+    From the previous proposition we have $f'(x) = \sum_{n=1}^{\infty}na_nx^{n-1}$ with radius of convergence $R$. Applying this result repeatedly we have $f^{(k)}(x) = \sum_{n=k}^{\infty}\frac{n!}{(n-k)!}a_nx^{n-k}$ has radius of convergence $R$.
+\end{proof}
+
+Note that in the formula above, it follows that $f^{(k)}(0) = k!a_k$, so $a_k = \frac{f^{(k)}(0)}{k!}$.
+
+\begin{cor}
+    If $\sum_na_nx^n = \sum_nb_nx^n$ for all $x \in (-R,R)$, where $R$ is the radius of convergence of both series, then $a_n = b_n$ for all $n$.
+\end{cor}
+Using the remark above, letting $f(x) = \sum_na_nx^n = \sum_nb_nx^n$, we have $a_n = \frac{f^{(n)}(0)}{n!} = b_n$ for all $n$.
+
+\begin{defn}[Power Series Representation]
+    A function $f:S\rightarrow \R$ has a \Emph{power series representation on $S$} if there exists a sequence $(a_n)$ such that $$f(x) = \sum_{n=0}^{\infty}a_nx^n$$ for all $x \in S$. In particular, the series on the right hand side above converges for all $x \in S$.
+\end{defn}
+
+We recall Taylor's Theorem:
+
+\begin{thm}[Taylor's Theorem]
+    Suppose $f$ is $(n+1)$ times differentiable on $(a,b)$ containing $0$, then $$f(x) = \underbrace{\sum_{k=0}^n\frac{f^{(k)}(0)}{k!}x^k}_{\text{Taylor Polynomial } P_n(x)} + \underbrace{\frac{f^{(n+1)}(c)}{(n+1)!}x^{n+1}}_{\text{Taylor remainder }R_n(x)}$$ for somce $c \in (0,x)$ (or $(x,0)$). We get $|f(x) - P_n(x)| = |R_n(x)|$. If $R_n(x)\rightarrow 0$ as $n\rightarrow \infty$, then $f(x) = \lim\limits_{n\rightarrow \infty}P_n(x) = \sum_{k=0}^{\infty}\frac{f^{(k)}(0)}{k!}x^k$.
+\end{thm}
+
+This result gives a sufficient condition for a function admitting a power series representation. Note that if $f$ admits a power series representation, it automatically has derivatives of all orders on the radius of convergence.
+
+\begin{eg}
+    Consider $$f(x) = \left\{\begin{array}{cc} e^{-1/x^2} & x \neq 0 \\ 0 & x =0\end{array}\right.$$ $f$ has derivatives of all orders at $x = 0$: $$f'(0) = \lim\limits_{h\rightarrow 0}\frac{e^{-1/h^2}}{h} = \lim\limits_{h\rightarrow 0}\frac{2h}{e^{1/h^2}} = 0$$ Similarly, $f^{(k)}(0) = 0$ for all $k$. So, $\sum_{n=0}^{\infty}\frac{f^{(n)}(0)}{n!}x^n = 0$, which converges for all $x$ but only agrees with $f(x)$ at $x = 0$. So $f$ has only a power series representation at $x = 0$.
+\end{eg}
+
+\begin{thm}[Abel]
+    Suppose the power series $\sum_na_nx^n$ has radius of convergence $R \in (0,\infty)$. If $\sum_na_nx^n$ converges at $x = R$, then $\sum_na_nx^n$ converges uniformly on $[0,R]$. Similarly, if $\sum_na_nx^n$ converges at $x = -R$, then $\sum_na_nx^n$ converges uniformly on $[-R,0]$.
+\end{thm}
+\begin{proof}
+    By rescaling if necessary, we can assume $R = 1$ (i.e. replace $f(x)$ with $f_R(x) = f(x/R)$) We use the Cauchy criterion for uniform convergence. Fix $\varepsilon > 0$. We have convergence at $x = 1$, so there exists $N \in \N$ such that $m \geq N$ implies $\left|\sum_{n=m}^{m+k}a_n\right| < \varepsilon$ for all $k \in \N$. For $m \geq N$ and for each $j \in \N\cup\{0\}$, define $s_j = \sum_{n=m}^{m+j}a_n$, so $|s_j| < \varepsilon$ for all $j$. Then write \begin{align*}
+        \sum_{n=m}^{m+k}a_nx^n &= s_0x^m + \sum_{n=1}^k(s_n-s_{n-1})x^{m+n} \\
+        &= \sum_{n=0}^{k-1}s_n(x^{m+n}-x^{m+n+1}) + s_kx^{m+k} \\
+        &= x^m\left[ \sum_{n=0}^{k-1}s_n(x^{n}-x^{n+1}) + s_kx^{k}\right] \\
+        &=x^m\left[ \sum_{n=0}^{k-1}s_nx^n(1-x) + s_kx^{k}\right] \\
+        &= x^m(1-x)\sum_{n=0}^{k-1}s_nx^n + s_kx^{m+k}
+    \end{align*}
+    For $x \in [0,1]$ \begin{align*}
+        \left|\sum_{n=m}^{m+k}a_nx^n\right| &\leq |x|^m|1-x|\sum_{n=0}^{k-1}|s_n||x|^n + |s_k||x|^{m+k} \\
+        &< x^m(1-x)[\varepsilon+\varepsilon x+...+\varepsilon x^{k-1}] + \varepsilon x^{m+k} \\
+        &= \varepsilon x^m(1-x^k) + \varepsilon x^{m+k} \\
+        &= \varepsilon x^m < \varepsilon
+    \end{align*}
+    as desired. The proof for $[-1,0]$ is similar.
+\end{proof}
 
 
 We now investigate power series in the complex numbers. First, recall that if $r \in \C$, $|r| < 1$, then we have the geometric series \begin{equation*}

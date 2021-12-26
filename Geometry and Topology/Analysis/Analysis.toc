@@ -32,51 +32,57 @@
 \contentsline {section}{\numberline {4.2}Infinite Sequences}{89}{section.4.2}%
 \contentsline {section}{\numberline {4.3}Infinite Series}{92}{section.4.3}%
 \contentsline {section}{\numberline {4.4}Uniform Convergence and Power Series}{101}{section.4.4}%
-\contentsline {subsection}{Complex Power Series}{110}{thm.4.4.6}%
-\contentsline {subsection}{Products of Series}{112}{defn.4.4.11}%
-\contentsline {part}{II\hspace {1em}Higher-Dimesional Analysis}{115}{part.2}%
-\contentsline {chapter}{\numberline {5}Metric Spaces}{116}{appendix.5}%
-\contentsline {section}{\numberline {5.1}Euclidean Spaces}{116}{section.5.1}%
-\contentsline {subsection}{Sequences and Convergence}{117}{thm.5.1.2}%
-\contentsline {subsection}{Topological Properties of Euclidean Space}{118}{thm.5.1.3}%
-\contentsline {section}{\numberline {5.2}Metric Space Properties}{119}{section.5.2}%
-\contentsline {subsection}{Completion of a Metric Space}{119}{defn.5.2.3}%
-\contentsline {section}{\numberline {5.3}Compactness for Metric Spaces}{121}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Product Spaces}{123}{section.5.4}%
-\contentsline {section}{\numberline {5.5}Baire Category Theorem}{125}{section.5.5}%
-\contentsline {section}{\numberline {5.6}continuous Functions on Metric Spaces}{126}{section.5.6}%
-\contentsline {subsection}{Uniform Continuity}{127}{defn.5.6.3}%
-\contentsline {subsection}{Sequences and Series of Functions}{128}{thm.5.6.5}%
-\contentsline {section}{\numberline {5.7}Connected Sets}{130}{section.5.7}%
-\contentsline {chapter}{\numberline {6}Higher-Dimensional Differentiation}{132}{appendix.6}%
-\contentsline {chapter}{\numberline {7}Higher-Dimensional Integration}{133}{appendix.7}%
-\contentsline {chapter}{\numberline {8}Manifolds}{134}{appendix.8}%
-\contentsline {chapter}{\numberline {9}Differential Forms}{135}{appendix.9}%
-\contentsline {chapter}{\numberline {10}Integration On Chains}{136}{appendix.10}%
-\contentsline {chapter}{\numberline {11}Integration on Manifolds}{137}{appendix.11}%
-\contentsline {part}{III\hspace {1em}Function Spaces}{138}{part.3}%
-\contentsline {chapter}{\numberline {12}Normed Spaces}{139}{appendix.12}%
-\contentsline {chapter}{\numberline {13}Hilbert Spaces}{140}{appendix.13}%
-\contentsline {chapter}{\numberline {14}Banach Spaces}{141}{appendix.14}%
-\contentsline {chapter}{\numberline {15}Differentiation and Integration on Functions}{142}{appendix.15}%
-\contentsline {chapter}{\numberline {16}Banach Algebras}{143}{appendix.16}%
-\contentsline {part}{IV\hspace {1em}Measure Theory}{144}{part.4}%
-\contentsline {chapter}{\numberline {17}Basic Measure Spaces}{145}{appendix.17}%
-\contentsline {chapter}{\numberline {18}$L^p$ Spaces}{146}{appendix.18}%
-\contentsline {chapter}{\numberline {19}Radon Measures}{147}{appendix.19}%
-\contentsline {chapter}{Appendices}{148}{section*.1}%
-\contentsline {section}{\numberline {.1}Multivariate Calculus - with Applications}{149}{section.4..1}%
-\contentsline {subsection}{Vector Functions and Derivatives}{149}{section*.2}%
-\contentsline {subsection}{Parametric Curves and Paths}{151}{Item.112}%
-\contentsline {subsection}{Curvature and the Frenet Frame}{153}{equation.4..1.20}%
-\contentsline {subsection}{Functions of Several Variables}{155}{thm.4..1.4}%
-\contentsline {subsection}{Partial Derivatives}{158}{equation.4..1.35}%
-\contentsline {subsection}{Implicit Differentiation}{160}{thm.4..1.11}%
-\contentsline {subsection}{Differentials}{161}{equation.4..1.57}%
-\contentsline {subsection}{Taylor Polynomials}{161}{equation.4..1.59}%
-\contentsline {subsection}{Local Extrema of Multivariate Functions}{163}{equation.4..1.70}%
-\contentsline {subsection}{Vector Fields}{164}{Item.144}%
-\contentsline {subsection}{Line Integrals}{166}{thm.4..1.17}%
-\contentsline {subsection}{Line Integral Theorems}{166}{equation.4..1.85}%
-\contentsline {subsection}{Surface Integrals}{168}{equation.4..1.92}%
+\contentsline {subsection}{Power Series}{113}{eg.4.4.16}%
+\contentsline {subsection}{Products of Series}{120}{defn.4.4.13}%
+\contentsline {part}{II\hspace {1em}Higher-Dimesional Analysis}{123}{part.2}%
+\contentsline {chapter}{\numberline {5}Metric Spaces}{124}{appendix.5}%
+\contentsline {section}{\numberline {5.1}Euclidean Spaces}{124}{section.5.1}%
+\contentsline {subsection}{Sequences and Convergence}{125}{thm.5.1.2}%
+\contentsline {subsection}{Topological Properties of Euclidean Space}{126}{thm.5.1.3}%
+\contentsline {section}{\numberline {5.2}Metric Space Properties}{127}{section.5.2}%
+\contentsline {subsection}{Normed Linear Spaces}{128}{eg.5.2.3}%
+\contentsline {subsection}{Sequences and Limits}{133}{eg.5.2.6}%
+\contentsline {section}{\numberline {5.3}Topology of Metric Spaces}{137}{section.5.3}%
+\contentsline {subsection}{Boundary and Limit Points}{141}{eg.5.3.12}%
+\contentsline {section}{\numberline {5.4}Completion of a Metric Space}{145}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Compactness for Metric Spaces}{146}{section.5.5}%
+\contentsline {section}{\numberline {5.6}Product Spaces}{149}{section.5.6}%
+\contentsline {section}{\numberline {5.7}Baire Category Theorem}{150}{section.5.7}%
+\contentsline {section}{\numberline {5.8}Continuous Functions on Metric Spaces}{151}{section.5.8}%
+\contentsline {subsection}{Operators and NLS}{153}{eg.5.8.4}%
+\contentsline {subsection}{Maps on Compact Spaces}{162}{eg.5.8.18}%
+\contentsline {subsection}{Uniform Continuity}{163}{defn.5.8.11}%
+\contentsline {subsection}{Sequences and Series of Functions}{165}{thm.5.8.19}%
+\contentsline {section}{\numberline {5.9}Connected Sets}{167}{section.5.9}%
+\contentsline {chapter}{\numberline {6}Higher-Dimensional Differentiation}{169}{appendix.6}%
+\contentsline {chapter}{\numberline {7}Higher-Dimensional Integration}{170}{appendix.7}%
+\contentsline {chapter}{\numberline {8}Manifolds}{171}{appendix.8}%
+\contentsline {chapter}{\numberline {9}Differential Forms}{172}{appendix.9}%
+\contentsline {chapter}{\numberline {10}Integration On Chains}{173}{appendix.10}%
+\contentsline {chapter}{\numberline {11}Integration on Manifolds}{174}{appendix.11}%
+\contentsline {part}{III\hspace {1em}Function Spaces}{175}{part.3}%
+\contentsline {chapter}{\numberline {12}Normed Spaces}{176}{appendix.12}%
+\contentsline {chapter}{\numberline {13}Hilbert Spaces}{177}{appendix.13}%
+\contentsline {chapter}{\numberline {14}Banach Spaces}{178}{appendix.14}%
+\contentsline {chapter}{\numberline {15}Differentiation and Integration on Functions}{179}{appendix.15}%
+\contentsline {chapter}{\numberline {16}Banach Algebras}{180}{appendix.16}%
+\contentsline {part}{IV\hspace {1em}Measure Theory}{181}{part.4}%
+\contentsline {chapter}{\numberline {17}Basic Measure Spaces}{182}{appendix.17}%
+\contentsline {chapter}{\numberline {18}$L^p$ Spaces}{183}{appendix.18}%
+\contentsline {chapter}{\numberline {19}Radon Measures}{184}{appendix.19}%
+\contentsline {chapter}{Appendices}{185}{section*.1}%
+\contentsline {section}{\numberline {.1}Multivariate Calculus - with Applications}{186}{section.4..1}%
+\contentsline {subsection}{Vector Functions and Derivatives}{186}{section*.2}%
+\contentsline {subsection}{Parametric Curves and Paths}{188}{Item.112}%
+\contentsline {subsection}{Curvature and the Frenet Frame}{190}{equation.4..1.20}%
+\contentsline {subsection}{Functions of Several Variables}{192}{thm.4..1.4}%
+\contentsline {subsection}{Partial Derivatives}{195}{equation.4..1.35}%
+\contentsline {subsection}{Implicit Differentiation}{197}{thm.4..1.11}%
+\contentsline {subsection}{Differentials}{198}{equation.4..1.57}%
+\contentsline {subsection}{Taylor Polynomials}{198}{equation.4..1.59}%
+\contentsline {subsection}{Local Extrema of Multivariate Functions}{200}{equation.4..1.70}%
+\contentsline {subsection}{Vector Fields}{201}{Item.144}%
+\contentsline {subsection}{Line Integrals}{203}{thm.4..1.17}%
+\contentsline {subsection}{Line Integral Theorems}{203}{equation.4..1.85}%
+\contentsline {subsection}{Surface Integrals}{205}{equation.4..1.92}%
 \contentsfinish 
