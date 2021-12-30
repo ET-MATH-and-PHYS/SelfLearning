@@ -1,0 +1,221 @@
+%%%%%%%%%% Approximations and Continuous Functions %%%%%%%%%%
+\chapter{Approximations and Continuous Functions}
+
+\section{Algebras}
+
+\begin{defn}[Algebras and Subalgebras]
+    Suppose $\mathcal{A}$ is a (real or complex) vector space. We say that $\mathcal{A}$ is an \Emph{algebra} if there is a multiplication $\mathcal{A}\times \mathcal{A}\rightarrow \mathcal{A}$ satisfying the following properties for all $A,B,C \in \mathcal{A}$ and constants $r$: \begin{itemize}
+        \item[(1)] $(AB)C = A(BC)$ (associative)
+        \item[(2)] $r(AB) = (rA)B = A(rB)$ (scalar multiplication)
+        \item[(3)] $A(B+C) = AB+AC$ and $(A+B)C = AC+BC$ (distributive)
+    \end{itemize}
+    If in addition there is an element $1 \in \mathcal{A}$ satisfying $1A = A1 = A$ for all $A$, then we say that $\mathcal{A}$ is \Emph{unital}. A subspace $\mathcal{B}$ of $\mathcal{A}$ is called a \Emph{subalgebra} if $\mathcal{B}$ is itself an algebra with the multiplication inherited from $\mathcal{A}$.
+\end{defn}
+
+\begin{defn}
+    If $\mathcal{A}$ is an algebra equipped with a vector space norm that also satisfies $||AB||\leq ||A||\;||B||$ for all $A,B \in \mathcal{A}$, it is called a \Emph{normed algebra}. If $\mathcal{A}$ is complete with respect to this norm, it is called a \Emph{Banach algebra}.
+\end{defn}
+
+\begin{eg}
+    Algebras of matrices: $M_n(\R)$ or $M_n(\C)$ is a unital Banach algebra under the spectral norm and matrix multiplication. Recall the spectral norm is an operator norm for maps from $\ell_n^2\rightarrow \ell_n^2$. Such norms always satisfy $||AB|| \leq ||A||\;||B||$, as shown in a separate section. The upper triangular matrices $T_n(\R)\{[a_{ij}]\vert a_{i,j} = 0\;if\; i > j\}$ is a unital subalgebra of $M_n(\R)$. The strictly upper triangular $J_n(\R) = \{[a_{ij}\vert a_{i,j} = 0\;if\;i\geq j\}$ are a non-unital subalgebra of $T_n(\R)$ and $M_n(\R)$.
+\end{eg}
+
+\begin{defn}
+    Let $X$ be a compact metric space. Define the space of continuous functions on $X$ by $$\mathcal{C}(X) = \{f:X\rightarrow \R\vert f\text{ is continuous}\}$$ 
+\end{defn}
+Note, we can replace $\R$ with $\C$ above, but for the remainder of this section we will restrict to the real case.
+
+\begin{prop}
+    $\mathcal{C}(X)$ is a Banach algebra with the uniform norm and pointwise product.
+\end{prop}
+\begin{proof}
+    As $X$ is compact and $f \in \mathcal{C}(X)$ is continuous, $||f||_{\infty} := \sup_{x\in X}|f(x)| < \infty$. The product is pointwise, so $fg(x) = f(x)g(x)$. It is evident that $\mathcal{C}(X)$ is a NLS under $||\cdot||_{\infty}$. It is also a normed algebra since for $f,g \in \mathcal{C}(X)$, $$|f(x)g(x)| = |f(x)||g(x)| \leq ||f||_{|infty}||g||_{\infty}$$ Taking the supremum, $||fg||_{\infty} \leq ||f||_{\infty}||g||_{\infty}$. For sompleteness, suppose $(f_n)$ is Cauchy. Then $$|f_n(x) - f_m(x)| \leq ||f_n-f_m||_{\infty}$$ which implies $(f_n(x))$ is Cauchy in $\R$ for each $x \in X$, and hence there is a pointwise limit $\lim\limits_{n\rightarrow \infty}f_n(x) =: f(x)$. For every $\varepsilon > 0$, there exists $N \in \N$ such that for $n\geq N$ and $k \in \N$, $||f_n-f_{n+k}||_{\infty} < \varepsilon$. Taking the limit as $k\rightarrow \infty$, $||f_n-f||_{\infty} \leq \varepsilon$. Thus, $||f_n-f||_{\infty}\rightarrow 0$. Further, for all $x, y \in X$, $$|f(x) - f(y)| \leq |f(x) - f_n(x)| + |f_n(x) - f_n(y)| + |f_n(y) - f(y)|\rightarrow 0$$ as $d_X(x,y)\rightarrow 0$, so $f \in \mathcal{C}(X)$.
+\end{proof}
+
+\begin{defn}
+    Let $X$ be a compact metric space. A subset $S \subseteq \mathcal{C}(X)$ is said to \Emph{separate} $X$ if for all $x \neq y$ in $X$, there is an $f \in S$ such that $f(x) \neq f(y)$.
+\end{defn}
+
+\begin{eg}
+    The algebra of even polynomials on $[-1,1]$: Let $\mathcal{A} = \text{span}\{1,x^2,x^4,...\} \subseteq \mathcal{C}([-1,1])$. $\mathcal{A}$ is a unital subalgebra of $\mathcal{C}([-1,1])$. $\mathcal{A}$ does not separate $[-1,1]$. If $f$ is any function in $\mathcal{A}$ we have $f(-x) = f(x)$ for all $x \in [-1,1]$. $\mathcal{A}$ does seperate $[01,]$. For example, if $0 \leq x < y \leq 1$, then $f(x) = x^2 \neq y^2 = f(y)$.
+\end{eg}
+
+\begin{eg}
+    Let $S = \text{span}\{1,x(x-1)f(x)\vert f \in \mathcal{C}([0,1])\}\subseteq \mathcal{C}([0,1])$. A generic element in $S$ is of the form $g(x) = c+x(x-1)f(x)$ where $f \in \mathcal{C}([0,1])$. $S$ is a subspace since it is a span. $S$ is also a subalgebra since $$[c_1+x(x-1)f_1(x)][c_2+x(x-1)f_2(x)] = c_1c_2 + x(x-1)[c_2+c_2+x(x-1)f_1(x)f_2(x)] \in S$$ $S$ does not seperate $[0,1]$ since $g(0) = g(1)$ for all $g \in S$.
+\end{eg}
+
+\begin{eg}
+    The algebra of polynomials: Let $K \subseteq \R$ be compact. The algebra of polynomials $\mathcal{P} \subseteq \mathcal{C}(K)$ separates $K$. If $x_1 \neq y_1$ are in $K$ and $a,b \in \R$, then define $$p_1(x) = \frac{a}{x_1-y_1}(x-y_1)\;\text{ and }\;p_2(x) = \frac{b}{y_1-x_1}(x-x_1)$$ and notice $p_1(x_1) = a, p_1(y_1) = 0$, and $p_2(x_1) = 0, p_2(y_1) = b$.
+\end{eg}
+
+\section{Stone-Weierstrass}
+
+\begin{thm}[Weierstrass 1885]
+    Suppose $K \subseteq \R^n$ is compact. Then for each $f$ in $\mathcal{C}(K)$, there is a sequence of polynomials $p_n$ so that $p_n$ converges uniformly to $f$.
+\end{thm}
+
+We will not prove this result exactly, but instead a more general formulation of it due to Stone.
+
+\begin{eg}
+    If $S = [0,1]$, the polynomials in Weierstrass' theorem can be explicitly written down. Define $$b_{1,n}(t) = \left(\begin{array}{c} n\\ i\end{array}\right)t^i(1-t)^{n-1},\;\;p_n(t) = \sum_{k=0}^nf(k/n)b_{k,n}(t)$$ Then $||p_n-f||_{\infty}\rightarrow 0$.
+\end{eg}
+
+One of our main results is Stone's theorem:
+
+\begin{namthm}[Stone 1941]
+    Suppose $X$ is a compact metric space and $\mathcal{A}$ is a \Emph{unital subalgebra} of $\mathcal{C}(X)$. Then $\overline{A}=\mathcal{C}(X)$ if and only if $\mathcal{A}$ separates $X$.
+\end{namthm}
+
+We first must prove several preliminary results:
+
+\begin{namthm}[Dini's Theorem]
+    Suppose $X$ is a compact metric space and $f_n$ is a sequence in $\mathcal{C}(X)$ converging pointwise to $f \in \mathcal{C}(X)$. Suppose further that $f_n(x)$ is a monotonically increasing sequence for each $x \in X$, so $f_{n+1}(x) \geq f_n(x)$ for all $n \in \N$. Then $f_n$ converges uniformly to $f$ on $X$.
+\end{namthm}
+\begin{proof}
+    Let $g_n(x) = f(x) - f_n(x) \geq 0$ for all $x \in X$. $g_n(x)$ is decreasing in $n$ to $0$. Fix $\varepsilon > 0$ and let $E_n = \{x \in X\vert g_n(x) < \varepsilon\} = g_n^{-1}((-\infty,\varepsilon))$, so $E_n$ is continuous as $g_n$ is continuous and $(-\infty,\varepsilon)$ is open. Note $E_n \subseteq E_{n+1}$ since $g_{n+1}(x) \leq g_n(x)$. Since $g_n(x)\rightarrow 0$, this implies that $X = \bigcup_{n=1}^{\infty}E_n$. 
+
+    By compactness there exists a finite subcover $X = E_{n_1}\cup...\cup E_{n_k} = E_N$ where $N = \max\{n_1,...,n_k\}$. Then $X = E_N$ implies $g_N(x) < \varepsilon$ for all $x \in X$. But then for $n \geq N$, $0 \leq g_n(x) \leq g_N(x) < \varepsilon$. So $g_n\rightarrow_u 0$, so $$||f-f_n||_{\infty}=||g_n||_{\infty}\rightarrow 0$$ and $f_n\rightarrow_uf$ as desired.
+\end{proof}
+
+\begin{lem}
+    Suppose $X$ is compact and $\mathcal{A}$ is a subalgebra of $\mathcal{C}(X)$. If $f \in \mathcal{A}$ and $0 \leq f(x) \leq 1$ for all $x \in X$, then $\sqrt{f} \in \overline{\mathcal{A}}$. 
+\end{lem}
+\begin{proof}
+    Let $f_1 = 0 \in \mathcal{A}$ and $f_{n+1} = f_n + \frac{f-f_n^2}{2}$. By induction, $f_n \in \mathcal{A}$. We claim $0 \leq f_n(x) \leq \sqrt{f(x)}$ for all $x \in X$. If $n = 1$, the result is immediate. Suppose inductively that the result holds for some $n$. Then $f(x) - f_n(x)^2 \geq 0$ for all $x$, so $$f_{n+1}(x) = f_n(x) + \frac{f(x) - f_n(x)^2}{2} \geq 0$$ We also have \begin{align*}
+        f_{n+1}(x) &= f_n(x)+\frac{1}{2}(\sqrt{f(x)}-f_n(x))(\sqrt{f(x)}+f_n(x)) \\
+        &\leq f_n(x) + \frac{1}{2}(\sqrt{f(x)} - f_n(x))(\sqrt{f(x)} + \sqrt{f(x)}) \\
+        &\leq f_n(x) + \frac{1}{2}2(\sqrt{f(x)}-f_n(x)) = \sqrt{f(x)}
+    \end{align*}
+    We also get $f_{n+1}(x) \geq f_n(x)$ for all $x \in X$ since $f_{n+1}(x) - f_n(x) = \frac{f(x) - f_N(x)^2}{2} \geq 0$. By Dini's Theorem, $f_n\rightarrow_ug \in \mathcal{C}(X)$ and $g(x) \leq \sqrt{f(x)}$. But then $$f_{n+1}=f_n + \frac{f-f_n^2}{2} \implies g = g + \frac{f-g^2}{2} \implies g = \sqrt{f}$$ so $f_n\rightarrow_u\sqrt{f}$ and $\sqrt{f} \in \overline{\mathcal{A}}$.
+\end{proof}
+
+\begin{defn}[Lattice]
+    Suppose $X$ is a compact metric space. A subspace $L$ of $\mathcal{C}(X)$ is called a \Emph{lattice} if $|f| \in L$ whenever $f \in L$.
+\end{defn}
+
+\begin{eg}
+    The lemma above shows that if $\mathcal{A}$ is a subalgebra of $\mathcal{C}(X)$, then $\overline{\mathcal{A}}$ is a lattice. Let $f \neq 0$ in $\mathcal{A}$, and $g = \frac{f^2}{||f||_{\infty}^2}$ so that $0 \leq g \leq 1$. By the aboce result, $\sqrt{g} \in \overline{\mathcal{A}}$, but $\sqrt{g} = \frac{|f|}{||f||_{\infty}}$, so $|f|$ is in $\overline{\mathcal{A}}$.
+\end{eg}
+
+If $f,g \in L$, a lattice, then $$\max\{f(x),g(x)\} = \frac{f(x)+g(x)+|f(x)-g(x)|}{2} \in L$$ and $$\min\{f(x),g(x)\} = \frac{f(x)+g(x)-|f(x)-g(x)|}{2} \in L$$
+
+\begin{lem}[Key part of Stone's]
+    Suppose $X$ is compact and $L \subseteq \mathcal{C}(X)$ is a lattice. Suppose further that for each $x,y \in X$ and $a,b \in \R$, there is a function $f_{xy} \in L$ with $f_{xy}(x) =a $ and $f_{xy}(y) = b$. Then $\overline{L} = \mathcal{C}(X)$.
+\end{lem}
+\begin{proof}
+    Let $f \in \mathcal{C}(X)$ and fix $\varepsilon > 0$. Let $x,y \in X$ and write $a := f(x)$ and $b := f(y)$. Find $f_{xy} \in L$ by assumption with $f_{xy}(x) = a, f_{xy}(y) = b$. Let $$U_{xy} = \{z \in X\vert f_{xy}(z) < f(z)+\varepsilon\}$$ which is non-empty since $x,y \in U_{xy}$, and $$V_{xy} = \{z \in X\vert f(z) - \varepsilon < f_{xy}(z)\}$$ which is also non-empty. Both are pre-images of open sets for continuous functions and are therefore open. 
+
+    Fix $y \in X$, then $X = \bigcup_{x \in X}U_{xy}$ since $x \in U_{xy}$. By compactness, there exist $x_1,...,x_n \in X$ with $X = \bigcup_{i=1}^nU_{x_iy}$. Let $h_y = \min\{f_{x_1y},f_{x_2y},...,f_{x_ny}\} \in L$ as each $f_{xy} \in L$ by assumption and $L$ is a lattice. Then, by definition, $h_y(z) < f(z) + \varepsilon$ for all $z \in X$. Also note that $f(z) - \varepsilon < h_y(z)$ for all $z \in \bigcap_{i=1}^nV_{x_iy}$, which is open. Let $V_y = \bigcap_{i=1}^nV_{x_iy}$, and note $y \in V_y$. Then $X = \bigcup_{y \in X}V_y$, so by compactness there exist $y_1,...,y_m \in X$ with $X = \bigcup_{j=1}^mV_{y_j}$. Let $h = \max\{h_{y_1},h_{y_2},...,h_{y_m}\}$. We already know $h(z) < f(z) + \varepsilon$ for all $z \in X$. Further, $h(z) > f(z) - \varepsilon$ for all $z \in X$, so $$|h(z) - f(z)| < \varepsilon$$ for all $z$ so $||h-f||_{\infty} \leq \varepsilon$. As $h \in L$ and $f \in \mathcal{C}(X)$, and this holds for all $\varepsilon > 0$, $f \in \overline{L}$, and $\overline{L} = \mathcal{C}(X)$.
+\end{proof}
+
+\begin{proof}[Stone's Theorem Proof]
+    Let $\mathcal{A}$ be a unital subalgebra of $\mathcal{C}(X)$ that separates points in $X$. We already know $\overline{\mathcal{A}}$ is a lattice. By the lemma above, we need to show for all $x \neq y \in X$ and $a,b \in \R$, there exists $f_{xy} \in \overline{\mathcal{A}}$ with $f_{xy}(x) = a$ and $f_{xy}(y) = b$. This will prove by the lemma that $\overline{\mathcal{A}} = \overline{\overline{\mathcal{A}}} = \mathcal{C}(X)$. Assume $x \neq y$ and find $g \in A$ with $g(x) \neq g(y)$. Let $$f_{xy}(t) = a\left(\frac{g(t) - g(y)}{g(x) - g(y)}\right) + b \left(\frac{g(t) - g(x)}{g(y) - g(x)}\right) \in \mathcal{A}$$ Then $f_{xy}(x) = a+0 = a$ and $f_{xy}(y) = 0+b= b$, as desired.
+
+    The converse is also true. If $\mathcal{A}$ is unital and $\overline{\mathcal{A}} = \mathcal{C}(X)$, then $\mathcal{A}$ separates $X$. Suppose $\mathcal{A}$ does not seperate $X$. Then there exists $x \neq y$ in $X$ with $f(x) = f(y)$ for all $f \in \mathcal{A}$. But then $g(x) = g(y)$ for all $g \in \mathcal{C}(X)$ since univorm convergence implies pointwise convergence, and $\mathcal{A}$ is dense in $\mathcal{C}(X)$. This is a contradiction, as all $\mathcal{C}(X)$ separates $X$.
+\end{proof}
+
+\begin{eg}
+    The polynomials $\mathcal{P}$ are a separating unital subalgebra for $\mathcal{C}(K)$, $K \subseteq \R$ compact. So $\overline{\mathcal{P}} = \mathcal{C}(K)$, i.e. Stone's theorem implies Weierstrass' polynomial approximation theorem.
+\end{eg}
+
+Further, Ston'es theorem implies Weierstrass' theorem in the general case since the polynomials are an algebra separating any subset of points in $\R^n$.
+
+\begin{eg}
+    Take $\mathcal{A} = \text{span}\{f(x)g(y)\vert f,g \in \mathcal{C}([0,1])\}$ is dense in $\mathcal{C}([0,1]\times[0,1])$. Note something like $x^2y + 1 + \frac{x}{y^2+1}$ is in $\mathcal{A}$, but $\sin^{-1}(x+y)$ is not, so it is a proper subspace. Not $\mathcal{A}$ is unital since we can just let $f(x) = 1 = g(y)$. $\mathcal{A}$ is a subalgebra as \begin{equation*}
+        \left(\sum_{i=1}^nf_i(x)g_i(y)\right)\left(\sum_{j=1}^mh_j(x)k_j(y)\right) = \sum_{i,j}f_i(x)h_j(x)g_i(y)k_j(y)
+    \end{equation*}
+    To confirm $\overline{\mathcal{A}} = \mathcal{C}([0,1]\times [0,1])$, we show $\mathcal{A}$ separates points and then use Stone's theorem. Suppose $(x_0,y_0) \neq (x_1,y_1) \in [0,1]^2$. If $x_0 \neq x_1$, then $f(x,y) = x \in \mathcal{A}$ and $f(x_0,y_0) = x_0 \neq x_1 = f(x_1,y_1)$. If $y_0 \neq y_1$, we just use $f(x,y) = y$ instead.
+\end{eg}
+
+\begin{eg}[Real Trig Polynomials]
+    Let $\mathcal{A} = \text{span}_{m,n\in\N\cup\{0\}}\{\cos(nx),\sin(mx)\} \subseteq \mathcal{C}([0,1])$. Note $1 \in \mathcal{A}$ setting $m = n= 0$. $\mathcal{A}$ is a span, and hence a subspace. $\mathcal{A}$ is an algebra using angle reduction formulas, such as $\cos^2(x) = \frac{1+\cos(2x)}{2}$. $\mathcal{A}$ separate $[0,\pi]$ since, for example, $f(x) = \cos(x)$ is injective on $[0,\pi]$. Thus, $\overline{\mathcal{A}} = \mathcal{C}([0,\pi])$.
+\end{eg}
+
+Stone's theorem also works for complex-valued functions, but we need the following additional assumption on $\mathcal{A}$; for every $f \in \mathcal{A}$ we also have $\overline{f} \in \mathcal{A}$.
+
+\begin{eg}[Complex trig polynomials on the torus]
+    Let $\prod = \{z \in \C\vert |z| = 1\}$ (the unit circle). Let $\mathcal{A} = \text{span}_{n\in\Z}\{e^{in\theta}\vert\theta \in [0,2\pi]\} \subseteq \mathcal{C}(\prod,\C)$. $\mathcal{A}$ is unital since $e^{i0\theta} = e^0 = 1 \in \mathcal{A}$. If $f \in \mathcal{A}$ then $\overline{f} \in \mathcal{A}$ since $\overline{e^{in\theta}} = e^{-in\theta} \in \mathcal{A}$. Just as in the previous example, $\mathcal{A}$ separates $\prod$, so $\overline{\mathcal{A}} = \mathcal{C}(\prod,\C)$.
+\end{eg}
+
+\begin{eg}[Density of nowhere differentiable functions]
+    Recall there exist $W \in \mathcal{C}([0,1])$ that is nowhere differentiable. We know if $f \in \mathcal{C}([0,1])$, there exist polynomials $p_n\rightarrow_uf$ by Stone-Weierstrass. Let $f_n := p_n + \frac{1}{n}W$, which are nowhere differentiable. Then $$||f-f_n||_{\infty} \leq ||f-p_n||_{\infty}+\frac{1}{n}||W||_{\infty}\rightarrow 0$$ 
+\end{eg}
+
+
+
+\section{Equicontinuity and Arz\'{e}la-Ascoli}
+
+\begin{defn}[Equicontinuity]
+    Suppose $X$ is a compact metric space and $\mathcal{F} \subseteq \mathcal{C}(X)$. We say that $\mathcal{F}$ is \Emph{equicontinuous on $X$} if for every $\varepsilon > 0$ there is a $\delta > 0$ such that for any $x,y \in X$ satisfying $d_X(x,y) < \delta$, we have $$|f(x) - f(y)| < \varepsilon$$ for every $f \in \mathcal{F}$.
+\end{defn}
+Note $\delta $ only depends on $\varepsilon $. This can be thought of as simultaneous uniform continuity.
+
+\begin{rmk}
+    Think of: \begin{itemize}
+        \item Separating $X$ corresponds to ``many function"
+        \item Equicontinuous corresponds to ``few functions"
+    \end{itemize}
+\end{rmk}
+
+\begin{defn}
+    In general, for metric spaces $X$ and $Y$, $\mathcal{F} \subseteq \mathcal{C}(X,Y)$ is equicontinuous if for every $\varepsilon > 0$ there exists $\delta > 0$ such that if $f \in \mathcal{F}$ then $d_Y(f(x),f(z)) < \varepsilon$ for all $x,z \in X$ such that $d_X(x,z) < \delta$.
+\end{defn}
+
+\begin{prop}
+    Let $X$ and $Y$ be metric spaces with $X$ compact, and equip $\mathcal{C}(X,Y)$ with the $L_{\infty}$-norm. That is, the distance $d$ in $\mathcal{C}(X,Y)$ is $$d(f,g) = \sup_{x\in X}d_Y(f(x),g(x))$$ Then if $\mathcal{F}\subseteq \mathcal{C}(X,Y)$ is compact, it is equicontinuous.
+\end{prop}
+\begin{proof}
+    Suppose $\mathcal{F} \subseteq \mathcal{C}(X,Y)$ is compact. Fix $\varepsilon > 0$. As $X$ is compact, each $f \in \mathcal{C}(X,Y)$ is uniformly continuous, so there exists $\delta_f > 0$ such that $d_Y(f(x),f(y)) < \varepsilon/3$ for all $x,y \in X$ such that $d_X(x,y) < \delta_f$. Then $\mathcal{F} \subseteq \bigcup_{f \in \mathcal{F}}B_{\varepsilon/3}(f)$ is an open cover, so as $\mathcal{F}$ is compact there exist $f_1,...,f_N$ such that $\mathcal{F} \subseteq \bigcup_{j=1}^NB_{\varepsilon/3}(f_j)$. Then, let $\delta = \min_{1\leq j \leq N}\{\delta_{f_j}\}$. Now let $f \in \mathcal{F}$ and let $x,y \in X$ with $d_X(x,y) < \delta$. Then there exists $j$ such that $f \in B_{\varepsilon/3}(f_j)$. It follows that $$d_Y(f(x),f(y) \leq d_Y(f(x),f_j(x))+d_Y(f_j(x),f_j(y)) + d_Y(f_j(y),d(y) < \varepsilon/3 + \varepsilon/3+\varepsilon/3 = \varepsilon$$ so indeed $\mathcal{F}$ is equicontinuous.
+\end{proof}
+
+\begin{eg}[Uniformly converging sequences are equicontinuous]
+    If $\mathcal{F} = \{f\}$ is a singleton, then $\{f\}$ is equicontinuous since $f$ is uniformly continuous. If $\mathcal{F} = \{f_1,...,f_n\} \subseteq \mathcal{C}(X)$ then it is equicontinuous. Fix $\varepsilon > 0$. For each $f_i$, there exists $\delta_i > 0$ from uniform continuity of $f_i$. Then $\delta = \min\{\delta_1,...,\delta_n\}$ works for the definition of uniform continuity. Equivalently, we could recognize that every finite subset of a topological space is compact, and use the previous result.
+
+    Suppose $f_n\rightarrow_uf$ in $\mathcal{C}(X)$. Then $\mathcal{F} = \{f_n\}_{n \in \N}$ is equicontinuous: $$|f_n(x) - f_n(y)| \leq |f_n(x) - f(x)| + |f(x)-f(y)| + |f(y) - f_n(y)|$$ $f$ is uniformly continous so there exists $\delta > 0$ such that $d_X(x,y) < \delta$ implies $|f(x)-f(y)| < \varepsilon/3$. By uniform convergence there exist $N \in \N$ such that $n \geq N$ implies $|f(x) - f_n(x)| < \varepsilon/3$ for all $x \in X$. For $d_X(x,y) < \delta$, we obtain $|f_n(x) - f_n(y)| < \varepsilon$ (then $k < N$ is a finite set and we can use the previous part for that).
+\end{eg}
+
+\begin{eg}
+    Totally bounded subsets of $\mathcal{C}(X)$ are equicontinuous. Recall that compact is equivalent to complete and totally bounded in metric spaces. Suppose $\mathcal{F} \subseteq \mathcal{C}(X)$ is totally bounded. Then if $\varepsilon > 0$, there exist $f_1,...,f_n$ such that $\mathcal{F} \subseteq \bigcup_{i=1}^nB_{\varepsilon/3}(f_i)$. If $f \in \mathcal{F}$, find $i$ such that $||f-f_i||_{\infty} < \varepsilon/3$. Then $$|f(x)-f(y)| < 2\varepsilon/3 + |f_i(x) - f_i(y)|$$ As $\{f_1,...,f_n\}$ is equicontinuous, there exists $\delta > 0$ such that $d_X(x,y) < \delta$ implies $|f_i(x) - f_i(y)| <\varepsilon/3$, and the result follows.
+\end{eg}
+
+Note this result holds in general for totally bounded subsets of $\mathcal{C}(X,Y)$ for $X$ compact.
+
+\begin{eg}
+    Let $\alpha$ and $K$ be fixed positive constants. The set $$\mathcal{F} = \{f \in \mathcal{C}([0,1])\vert\;|f(x)-f(y)| \leq L(x-y|^{\alpha}\;\text{ for all }\;x,y \in [0,1]\}$$ is equicontinuous. 
+
+    Fix $\varepsilon > 0$. Let $\delta = (\varepsilon/K)^{1/\alpha}$. If $|x-y| < \delta$, $$|f(x) - f(y)| < K((\varepsilon/K)^{1/\alpha})^{\alpha} = \varepsilon$$ for all $f \in \mathcal{F}$.
+
+    Let $G = \{f \in \mathcal{C}([0,1])\vert f'\text{ is continuous on }[0,1] \text{ and } ||f'||_{\infty}\leq 1\}$. $G$ is equicontinuous since if $x < y$ there exists $c \in (x,y)$ with $$|f'(c)| = \frac{|f(y) - f(x)|}{|y-x|}$$ implies $$|f(y)-f(x)| = |f'(c)|\;|y-x| \leq |y-x|$$ So $G \subseteq \mathcal{F}$ with $\alpha = K = 1$.
+\end{eg}
+
+\begin{eg}
+    Let $$\mathcal{F} = \left\{F(x) = \int_0^xf(t)dt\vert f \in \mathcal{C}([0,1])\;\text{ and }\;||f||_{\infty} \leq 1\right\} \subseteq \mathcal{C}([0,1])$$ is equicontinuous and not closed. $F(0) = 0$ for all $F \in \mathcal{F}$. If $F = \int_0^xf$, then $F'(x) = f(x)$ by the FTOC1. Then $$|F(x) - F(y)| = \left|\int_y^xf(t)dt\right| \leq \left|\int_y^x|f(t)|dt\right| \leq \left|\int_y^x1dt\right| = |y-x|$$ So $\mathcal{F}$ is a subset of the $\mathcal{F}$ in the previous example with $\alpha = K = 1$.
+
+    $\mathcal{F}$ is not closed in $\mathcal{C}([0,1])$, as $$f_n(x) = \sqrt{(x-1/2)^2+1/n} - \sqrt{1/4+1/n}$$ has $f_n(0) = 0$, and $|f_n'(x)| = \frac{|x-1/2|}{\sqrt{(x-1/2)^2+1/n}} \leq 1$ and $f_n' \in \mathcal{C}([0,1])$, so $$f_n(x) = \int_0^xf_n'(t)dt \in \mathcal{F}$$ by FTOC2. But $f_n \rightarrow |x-1/2| - 1/2$ which is not differentiable, and hence not in $\mathcal{F}$.
+\end{eg}
+
+\begin{namthm}[Arz\'{e}la 1884; Ascoli 1895]
+    Let $X$ be a compact metric space. A set $\mathcal{F} \subseteq \mathcal{C}(X)$ is compact in $\mathcal{C}(X)$ if and only if $\mathcal{F}$ is closed, bounded, and equicontinuous.
+\end{namthm}
+\begin{proof}
+    We saw $\mathcal{F}$ compact implies $\mathcal{F}$ equicontinuous. We also already know compact implies closed and bounded in metric spaces. Conversely, let $(f_n) \subseteq \mathcal{F}$ with $\mathcal{F}$ equicontinuous. We will show $(f_n)$ admits a uniformly convergent subsequence.
+
+    Note since $X$ is compact, it is totally bounded. Then for each $n \in \N$, there exists $x_{n(1)},...,x_{n(k)}$ with $X \subseteq \bigcup_{j=1}^kB_{1/n}(x_{n(j)})$. Then the countable set $\bigcup_{n\in\N}\{x_{n(j)}\}$ is dense in $X$.
+
+    Let $\{x_1,x_2,...\}$ be a countable dense subset in $X$. The sequence $\{f_n(x_1)\}_{n=1}^{\infty}$ is bounded in $\R$ since $\mathcal{F}$ is assumed bounded, so there exists $C > 0$ such that $||f||_{\infty} \leq C$ for all $f \in \mathcal{F}$. By Bolzano-Weierstrass, $\{f_n(x_1)\}$ has a convergent subsequence $\{f_{s_1(n)}(x_1)\}$. Then $\{f_{s_2(n)}(x_2)\}$ is a bounded sequence in $\R$, and also has a convergent subsequence $\{f_{s_2(n)}(x_2)\}$. Inductively define $\{f_{s_k(n)}\}\subseteq \{f_{s_{k-1}(n)}\} \subseteq ... \subseteq \{f_n\}\subseteq \mathcal{F}$, with $\{f_{s_k(n)}(x_k)\}$ convergent. Define the subsequence $\xi_{\nu} = f_{s_{\nu}(\nu)}$. By construction, $\xi_{\nu}(x_i)$ converges for all $x_i$. Fix $\varepsilon > 0$ and find $\delta > 0$ by equicontinuity such that $d_X(x,y) < \delta$ implies $|\xi_n(x) - \xi_n(y)| < \varepsilon$ for all $n \in \N$. We want to establish the Cauchy criterion for $\xi_{\nu}$. Then $$|\xi_n(x) - \xi_m(x)| \leq |\xi_n(x) - \xi_n(x_i)| + |\xi_n(x_i) - \xi_m(x_i)| + |\xi_m(x_i) - \xi_m(x)|$$ We can find $x_i$ such that $x \in B_j(x_i)$ by density, so using equicontinuity and the fact $\xi_n$ is cauchy on the countable dense subset, we obtain an $\varepsilon/3$ argument yielding our desired result.
+\end{proof}
+
+We can extend this result, without any difficulty, to subsets of $\mathcal{C}(X,\R^n)$ for $n \in \N$.
+
+\begin{cor}
+    $\mathcal{F} \subseteq \mathcal{C}(X)$ is totally bounded if and only if $\mathcal{F}$ is bounded and equicontinuous.
+\end{cor}
+\begin{proof}
+    $\mathcal{F}$ is totally bounded if and only if $\overline{\mathcal{F}}$ is totally bounded. The if direction is immediate, and for the only if direction, fix $\varepsilon > 0$. Then there exist $f_1,...,f_n$ such that $\mathcal{F} \subseteq \bigcup_{i=1}^nB_{\varepsilon}(f_i)$, then $$\overline{\mathcal{F}} \subseteq \overline{\bigcup_{i=1}^nB_{\varepsilon}(f_i)} \subseteq \bigcup_{i=1}^n\overline{B_{\varepsilon}(f_i)} \subseteq \bigcup_{i=1}^nB_{2\varepsilon}(f_i)$$
+    Then, $\overline{\mathcal{F}}$ is totally bounded if and only if it $\overline{\mathcal{F}}$ is complete and totally bounded since $\mathcal{C}(X)$ is complete and $\overline{\mathcal{F}}$ is closed, which occurs if and only if $\mathcal{F}$ is complete, if and only if $\overline{\mathcal{F}}$ is closed, bounded, and equicontinuous by Arz\'{e}la-Ascoli, which holds if and only if $\mathcal{F}$ is bounded and equicontinuous.
+\end{proof}
+
+\begin{eg}
+    Closed balls in $\mathcal{C}([0,1])$ are not equicontinuous. Consider $\overline{B}_r(f_0)$, which contains the sequence $f_0+\frac{1}{2r}x^n$, which we know has no uniformly convergent subsequence, and is not compact and hence is not equicontinuous by Arz\'{e}la-Ascoli.
+\end{eg}
+

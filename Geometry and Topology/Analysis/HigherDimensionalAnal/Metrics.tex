@@ -813,14 +813,122 @@ and
 which follow similarly to the case of $\R$.
 
 
+We now proceed with a full derivation:
+
+\begin{thm}[Completion of a Metric Space]
+    Suppose $(X,d)$ is a metric space. There exists a complete metric space $(\hat{X},\hat{d})$ and an isometry $\varphi:X\rightarrow \hat{X}$ so that $\varphi(X)$ is dense in $\hat{X}$ (i.e. that $\overline{\varphi(X)} = \hat{X}$) Moreover, $\hat{X}$ is uniquely determined by this property up to homeomorphism.
+\end{thm}
+
+\begin{defn}
+    The space $\hat{X}$ above is called the \Emph{completion} of $X$.
+\end{defn}
+
+What do we mean when we say unique? Suppose $(Y,d_Y)$ is a metric space with an isometry $\varphi:X\rightarrow Y$ such that $\overline{\varphi(X)} = Y$, with $Y$ complete. Then there is a bijective isometry $\Gamma:Y\rightarrow \hat{X}$ such that 
+\begin{center}
+    \begin{tikzcd}
+	X & Y \\
+	{\hat{X}}
+	\arrow["\psi", from=1-1, to=1-2]
+	\arrow["\varphi"', from=1-1, to=2-1]
+	\arrow["{\exists!\Gamma}", dashed, from=1-2, to=2-1]
+\end{tikzcd}
+\end{center}
+the diagram commutes. Defin $\gamma:\psi(X)\rightarrow \hat{X}$ by $\gamma(\psi(x)) := \varphi(x)$ for all $x \in X$. Then $\gamma$ is an isometry: $$\hat{d}(\gamma(\psi(x)),\gamma(\psi(y)) := \hat{d}(\varphi(x),\varphi(y)) = d(x,y)$$ since $\varphi$ is an isometry. Let's extend $\gamma$ to a map $\Gamma:Y\rightarrow \hat{X}$ by $$\Gamma(y) = \lim\limits_{n\rightarrow \infty}\gamma(\psi(x_n)) = \lim\limits_{n\rightarrow \infty}\varphi(x_n)$$ where $\psi(x_n)\rightarrow y$, where $(x_n)$ exists since $\overline{\psi(X)} = Y$. Then the following hold: \begin{itemize}
+    \item $\Gamma$ is well-defined and isometric
+    \item $\Gamma$ is onto
+\end{itemize}
+
+Note that if $S \subseteq X$ and $X$ is complete, then $\hat{S} \cong \overline{S}$. In this case, $\Gamma$ is just the identity $\id:S\rightarrow \overline{S}$, and note $\overline{S}$ is complete since $X$ is complete. 
+
+\begin{eg}[The Hardy space of the disk]
+    Let $P = \{a_0 +a_1z+...+z_nz^n\vert n \in \N\cup\{0\},a_i \in \C\}$ denote the polynomials with complex variable $z$. Define a norm $||\cdot||_2$ on $P$ as follows $$||a_0+a_1z+...+a_nx^n||_2 = \sqrt{\sum_{i=0}^n|a_i|^2}$$ $P$ is infinite dimensional with basis $\{1,z,z^2,z^3,...\}$, but $P$ is not complete. Let $p_n(z) = \sum_{k=0}^n\frac{z^k}{k!}$. Then $\{p_n\}$ is Cauchy, but cannot converge to any $g(z) = b_0+b_1z+...+b_mz^m$ with respect to $||\cdot ||_2$, since for $n >> m$, $$||p_n-g||_2^2 = \sum_{k=0}^m\left|\frac{1}{k!}-b_k\right|^2 + \sum_{k=m+1}^n\frac{1}{(k!)^2} \geq\frac{1}{[(m+1)!]^2} > 0$$ So as $n\rightarrow \infty$, there is no way the right hand side goes to $0$. The completion of $P$ is called $H^2(\mathbb{D})$, the \Emph{Hardy space of the unit disk}. We define $$H^2(\mathbb{D}) := \{f:\mathbb{D}\rightarrow \C\vert f\text{ is analytic and }f(z) = \sum_{n=0}^{\infty}a_nz^n\text{ with }\sum_{n=0}^{\infty}|a_n|^2 < \infty\}$$ where $\mathbb{D} = \{z \in \C\vert |z| < 1\}$ with norm $||f||_2 = \sqrt{\sum_{n=0}^{\infty}|a_n|^2}$.
+\end{eg}
+
+We know prove the completion theorem:
+
+\begin{proof}
+    Let $(X,d)$ be a metric space. Let $X'$ denote the set of Cauchy sequences in $X$. Define a relation on $X'$ as follows: $(x_n)\sim(y_n)$ if and only if $d(x_n,y_n)\rightarrow 0$. $\sim$ is an equivalence relation. Indeed, $d(x_n,x_n) = 0\rightarrow 0$, $d(y_n,x_n) = d(x_n,y_n)\rightarrow 0$, and if $(x_n)\sim (y_n)\sim (z_n)$, then $$d(x_n,z_n)\leq d(x_n,y_n)+d(y_n,z_n)\rightarrow 0$$ Let $\hat{X}$ denote the set of aequivalence classes arising from $\sim$. Given $[(x_n)]$ and $[(y_n)]$ in $\hat{X}$, define $a_n := d(x_n,y_n)$. $(a_n)$ is Cauchy in $\R$ since $$|a_n - a_m| = |d(x_n,y_n) - d(x_m,y_m)| \leq d(x_n,x_m) + d(y_n,y_m)\rightarrow 0$$ since $(x_n)$ and $(y_n)$ are Cauchy in $X$. $\R$ is complete with respect to $|\cdot|$, so $a_n$ has a limit, say $a$. Define $\hat{d}$ on $\hat{X}\times \hat{X}$ by $$\hat{d}([(x_n)],[(y_n)]) := \lim\limits_{n\rightarrow \infty}a_n = \lim\limits_{n\rightarrow \infty}d(x_n,y_n)$$ We must show $\hat{d}$ is well defined, so suppose $(x_n) \sim (x_n')$ and $(y_n) \sim (y_n')$. Then $$|d(x_n,y_n) - d(x_n',y_n')| \leq d(x_n,x_n')+d(y_n,y_n')\rightarrow 0$$ so $\lim\limits_{n\rightarrow \infty}d(x_n,y_n) = \lim\limits_{n\rightarrow \infty}d(x_n',y_n')$. 
+
+    Since $d$ is a metric, $\hat{d}$ is a metric as it is the limit of this metric and limits are additive and satisfy order preservation properties. Define $\varphi:X\rightarrow \hat{X}$ by $\varphi(x) = [(x,x,x,...)]$, which is the equivalence class of all Cauchy sequences $(y_n)$ with $d(y_n,x)\rightarrow 0$, i.e. all sequences converging to $x$. $\varphi$ is an isometry since $$\hat{d}(\varphi(x),\varphi(y)) = \lim\limits_{n\rightarrow \infty}d(x,y) = d(x,y)$$ Next, to show $\overline{\varphi(X)} = \hat{X}$, let $\hat{x} = [(x_n)] \in \hat{X}$ and fix $\varepsilon > 0$. $(x_n)$ is Cauchy in $X$ by construction. So there exists $N \in \N$ such that for $m \geq N$, $d(x_N,x_m) < \varepsilon$. Then it follows that $$\hat{d}(\hat{x},\varphi(x_N)) = \lim\limits_{n\rightarrow \infty}d(x_n,x_N) \leq \varepsilon$$
+
+    Finally, we show $\hat{X}$ is complete. Suppose $(\hat{x}_k)$ is a Cauchy sequence in $\hat{X}$. For $k \in \N$, choose $\hat{z}_k$ in $\varphi(X)$ such that $$\hat{d}(\hat{x}_k,\hat{z}_k) < \frac{1}{k}$$ Then $$\hat{d}(\hat{z}_k,\hat{z}_m) \leq \hat{d}(\hat{z}_k,\hat{x}_k)+\hat{d}(\hat{x}_k,\hat{x}_m)+\hat{d}(\hat{x}_m,\hat{z}_m) \leq \frac{1}{k} + \hat{d}(\hat{x}_k,\hat{x}_m) + \frac{1}{m}$$ which goes to zero as $m$ and $k$ go to infinity. So $(\hat{z}_k)$ is Cauchy in $\varphi(X)$. Noting that $\varphi:X\rightarrow \varphi(X)$ is invertible since $\varphi$ is Cauchy, let $y_k = \varphi^{-1}(\hat{z}_k) \in X$. Then $(y_k)$ is Cauchy in $X$ since $(\hat{z}_k)$ is Cauchy in $\varphi(X)$, and $\varphi^{-1}$ is an isometry. Let $\hat{y}$ be the equivalence class in $\hat{X}$ which includes $(y_k)$. Then $$\hat{d}(\hat{x}_k,\hat{y}) \leq \hat{d}(\hat{x}_k,\hat{z}_k) + \hat{d}(\hat{z}_k,\hat{y}) < \frac{1}{k} + \lim\limits_{n\rightarrow \infty}d(y_k,y_n)$$ which goes to zero as $(y_k)$ is Cauchy, so $\hat{y}$ is the limit of $\hat{x}_k$ in $\hat{X}$, and $\hat{X}$ is complete!
+\end{proof}
+
+\section{Contractive Maps and Fixed Points}
+
+\begin{defn}[Contractive Map]
+    Suppose $X$ is a metric space. A function $f:X\rightarrow X$ is a \Emph{contractive map} (distance shrinking) if there is a constant $r \in (0,1)$ with $d(f(x),f(y)) \leq rd(x,y)$ for all $x,y \in X$.
+\end{defn}
+
+Contractive maps are \Emph{uniformly continuous}, as they are Lipschitz.
+
+\begin{eg}
+    A bounded operator $T:V\rightarrow V$ is contractive if $||T|| \leq r < 1$ for some $r$, so $$||Tv-Tw|| \leq ||T||||v-w|| \leq r||v-w||$$
+\end{eg}
+
+\begin{namthm}[Banach Fixed Point Theorem (or the Contraction Mapping Principle)]
+    Suppose $X$ is a \Emph{complete metric space} and $f:X\rightarrow X$ is a contractive map. Then $f$ has a \Emph{unique} fixed point. That is there is a unique $x_0 \in X$ such that $f(x_0) = x_0$.
+\end{namthm}
+\begin{proof}
+    For uniqueness suppose $x_1$ and $x_2$ are both fixed points, $f(x_1) = x_1$ and $f(x_2) = x_2$. Then $$d(x_1,x_2) = d(f(x_1),f(x_2)) \leq rd(x_1,x_2)$$ for some $0 < r < 1$. This holds if and only if $d(x_1,x_2) = 0$, which is to say $x_1 = x_2$. 
+
+    For existence suppose $x_1 \in X$. Define $x_2 = f(x_1)$, $x_2 = f(x_2)$, and in general $x_n = f^{n-1}(x_1)$. For $n \in \N$ and $k \in \N$, \begin{align*}
+        d(x_{n+k},x_n) &= d(f^{n+k-1}(x_1),f^{n-1}(x_1)) \\
+        &\leq r^{n-1}d(f^k(x_1),x_1) = r^{n-1}d(x_{k+1},x_1) \\
+        &\leq r^{n-1}[d(x_{k+1},x_k)+d(x_k,x_{k-1})+...+d(x_2,x_1)] \\
+        &=r^{n-1}\sum_{j=0}^{k-1}r^jd(x_2,x_1) \\
+        &\leq r^{n-1}\frac{1}{1-r}d(x_2,x_1)
+    \end{align*}
+    This implies $(x_n)$ is Cauchy in $X$, and so there exists $x_0$ with $x_n\rightarrow x_0$ by completeness. Then $$f(x_0) = f(\lim\limits_{n\rightarrow \infty}x_n) = \underbrace{\lim\limits_{n\rightarrow\infty}f(x_n)}_{\text{continuity}} = \lim\limits_{n\rightarrow \infty}x_{n+1} = x_0$$ so $f(x_0) = x_0$.
+\end{proof}
+
+
+\begin{thm}[Picard's Theorem for First Order Differential Equations]
+    Suppose $(x_0,y_0) \in \ell_2^2$, $r > 0$, and let $B = B_r(x_0,y_0)$. If $f:B\rightarrow \R$ is continuous and bounded and there is a $C > 0$ such that $$|f(x,y_1)-f(x,y_2)| \leq C|y_1-y_2|$$ for all pairs $(x,y_1)$ and $(x,y_2)$ in $B$, then there exists a unique solution $y$ to the initial value problem $$\frac{dy}{dx} = f(x,y); y(x_0) = y_0$$ on the interval $(x_0 - \delta,x_0+\delta)$ for some $\delta > 0$.
+\end{thm}
+\begin{proof}
+    Let $M = \sup_{(x,y) \in B}|f(x,y)|$. Find $\delta > 0$ such that \begin{itemize}
+        \item[(i)] $\delta < \frac{1}{M}$
+        \item[(ii)] $\{(x,y)\vert |x-x_0| < \delta, |y-y_0| <M\delta\} \subseteq B$
+        \item[(iii)] $\delta < \frac{1}{C}$
+    \end{itemize}
+    Let $X = \{\varphi \in \mathcal{C}([x_0-\delta,x_0+\delta])\vert |\varphi(x)-y_0| \leq M\delta\}$. $X$ consists of continuous functions whose graph is in the open rectangle described in (ii). Note $\mathcal{C}([x_0-\delta,x_0+\delta])$ is a complete space, with uniform metric. $X$ is a closed subset of $\mathcal{C}([x_0-\delta,x_0+\delta])$. Indeed, if $f_n \in X$ and $f_n\rightarrow_u f$, then $\lim\limits_{n\rightarrow\infty}|f_n(x)-y_0| \leq M\delta$, so $|f(x) - y_0| \leq M\delta$. Thus, $X$ is complete itself. Define a map $T:X\rightarrow X$ by $$T\varphi(x) = y_0 + \int_{x_0}^xf(t,\varphi(t))dt$$ and this process is called the \Emph{Picard iteration}. Note $T\varphi$ is continuous on $[x_0-\delta,x_0+\delta]$. Further, $$|T\varphi(x) - y_0| \leq \left|\int_{x_0}^x|f(t,\varphi(t))|dt\right| \leq \delta M$$ so $T\varphi \in X$, and $T$ is well-defined. Further, $T$ is contractive since \begin{align*}
+        |T\varphi_1(x) - T\varphi_2(x)|&\leq \int_{x_0}^x|f(t,\varphi_1(t)) - f(t,\varphi_2(t))|dt \\
+        &\leq \int_{x_0}^x C|\varphi_1(t) - \varphi_2(t)|dt
+        &\leq \int_{x_0}^xC\sup_{x_0-\delta < t < x_0+\delta}|\varphi_1(t) - \varphi_2(t)| dt \\
+        &= |x-x_0|C\sup|\varphi_1(t) - \varphi_2(t)| \\
+        &< \delta C||\varphi_1-\varphi_2||_{[x_0-\delta,x_0+\delta]} 
+    \end{align*}
+    Taking the supremum $$||T\varphi_1 - T\varphi_2||_{\infty} \leq \delta C||\varphi_1-\varphi_2||_{\infty} < ||\varphi_1-\varphi_2||_{\infty}$$ since we assumed $\delta < \frac{1}{C}$. So $T$ is contractive and hence has a fixed point. In particular, there exists $\varphi_0 \in X$ with $\varphi_0(x) = T\varphi_0(x) = y_0+\int_{x_0}^xf(t,\varphi_0(t))dt$. Then $\varphi_0(x_0) = y_0 + 0 = y_0$. Finally, by the FTOC1, $$\frac{d}{dx}\varphi_0(x) = f(x,\varphi_0(x))$$ which is to say $y = \varphi_0(x)$ solves the DE $\frac{dy}{dx} = f(x,y)$ with initial condition $y(x_0) = y_0$.
+\end{proof}
+
+
 
 \section{Compactness for Metric Spaces}
 
-Recall that $(X,d)$ denotes an arbitrary metric space.
+Recall that $\emptyset \neq S \subseteq \R$ is \Emph{compact} if every sequence in $S$ has a convergent subsequence with limit in $S$. Further, the Heine-Borel theorem told us that $\emptyset \neq S$ is compact if and only if it is closed and bounded. This is not the case for a general metric space, as we shall now show:
+
+\begin{eg}
+    Let $S = \overline{B}_1(0) \subseteq \mathcal{C}([0,1])$ with the supremum norm. $S$ is closed and bounded, but the sequence $f_n(x) = x^n$ has no uniformly convergent subsequences (it converges pointwise to a discontinuous function).
+\end{eg}
+
+We now introduce a more topologicall useful definition.
+
+\begin{defn}[Open Covers]
+    Let $X$ be a metric space and $A$ a subset of $X$. A collection $\{U_i\}_{i \in I}$ of open subsets of $X$ is said to be an \Emph{open cover} for $A$ if $$A \subseteq \bigcup_{i\in I}U_i$$ Given such a cover for $A$, a \Emph{finite subcover for $A$} is a finite subcollection $U_{i_1},...,U_{i_n}$ of $\{U_i\}_{i \in I}$ such that $$A \subseteq \bigcup_{j=1}^nU_{i_j}$$
+\end{defn}
+
+\begin{defn}[Compactness]
+    A non-empty susbet $A$ of a metric space $X$ is \Emph{compact in $X$} if every open cover of $A$ in $X$ has a finite subcover. A non-empty subset $A$ is \Emph{sequentially compact in $X$} if every sequence in $A$ has a convergent subsequence whose limit is in $A$.
+\end{defn}
+
+In other words:
 
 \begin{defn}
     $X$ is \Emph{sequentially compact} if every sequence $(x_j) \subseteq X$ has a convergent subsequence.
 \end{defn}
+
+And we also have:
 
 \begin{defn}
     $X$ is \Emph{limit point compact} if every infinite subset of $X$ has an accumulation point in $X$.
@@ -828,11 +936,65 @@ Recall that $(X,d)$ denotes an arbitrary metric space.
 
 These are equivalent for metric spaces by the axiom of choice.
 
+\begin{eg}
+    $\R$ is not compact. Indeed, we have the open cover $\R = \bigcup_{n=1}^{\infty}(-n,n)$ which has no finite subcover, as $\R \cancel{\subseteq} \bigcup_{k=1}^N(-n_k,n_k) = (-K,K)$ for some $K > 0$. Similarly, $(0,1)$ is not compact since $$(0,1) = \bigcup_{n=1}^{\infty}(0,1-1/n)$$ has no finite subcover.
+\end{eg}
+
+\begin{eg}
+    Let $X$ be any set with the discrete metric. Then $A \subseteq X$ is compact if and only if $A$ is finite. If $A$ is finite and $A \subseteq \bigcup_{i \in I}U_i$, then write $A = \{a_1,...,a_n\}$, and for each $k \in \{1,...,n\}$ there exists $U_{i_k}$ such that $a_k \in U_{i_k}$. Then $A \subseteq \bigcup_{k=1}^nU_{i_k}$, which gives a finite subcover. If $A$ is infinite, then $A = \bigcup_{a \in A}\{a\}$ is an open cover with no finite subcover since singletons are open in the discrete metric.
+\end{eg}
+
+\begin{eg}
+    I claim that open balls in normed linear spaces are not compact. Indeed, $$B_r(0) = \{v \in V\vert ||v|| < r\} = \bigcup_{0 < s < r}B_s(0)$$ has no finite subcover since $$\bigcup_{j=1}^nB_{s_j}(0) = B_s(0) \subsetneq B_r(0)$$ as $s = \max_{1\leq j \leq n}s_j < r$.
+\end{eg}
+
+Although not all closed and bounded sets are compact in metric spaces in general, we do have the converse:
+
+\begin{prop}
+    Compact subsets of a metric space are closed and bounded.
+\end{prop}
+\begin{proof}
+     Let $a \in \mathcal{A}$ with $\mathcal{A}$ compact in $X$. Then $\{B_n(a)\vert n \in \N\}$ is an open cover for $\mathcal{A}$. By compactness there exist $n_1,...,n_k$ such that $$\mathcal{A} \subseteq \bigcup_{j=1}^kB_{n_j}(a) = B_{\max_{1\leq j \leq k}n_j}(a)$$ so $\mathcal{A}$ is bounded.
+
+     To show $\mathcal{A}$ is closed, suppose $x_0 \in \mathcal{A}'$. Assume $x_0 \notin \mathcal{A}$. Define $r_a := \frac{d(a,x_0)}{2}$ for each $a \in \mathcal{A}$, and note $r_a > 0$ as $x_0 \notin \mathcal{A}$. Then $\mathcal{A} \subseteq \bigcup_{a \in \mathcal{A}}B_{r_a}(a)$, so $\{B_{r_a}(a)\vert a \in \mathcal{A}\}$ is an open cover for $\mathcal{A}$. By compactness, there exist $a_1,...,a_n \in \mathcal{A}$ with $\mathcal{A} \subseteq \bigcup_{i=1}^nB_{r_{a_i}}(a_i)$. Let $r = \min\{r_{a_1},...,r_{a_n}\} > 0$. Then $B_r(x_0) \cap B_{r_{a_i}}(a) = \emptyset$ for all $1 \leq i \leq n$. In particular, $B_r(x_0) \cap \mathcal{A} = \emptyset$. But $x_0 \in \mathcal{A}'$, a contradiction.
+\end{proof}
+
+We will now show compactness implies sequential compactness - this result will later be repeated with a similar proof.
+
+\begin{prop}
+    Every infintie subset of a compact subset $A$ of a metric space $X$ has an accumulation point in $A$. In particular, if $A$ contains a sequence of distinct points, then that sequence must contain a convergent subsequence. Consequently, compactness implies sequential compactness.
+\end{prop}
+\begin{proof}
+    Suppose $C \subseteq A$ with $C$ infinite; if $A$ is finite every sequence has a convergent subseqeunce since every sequence must repeat some point an infinite number of times (pigeon hole principle). We want to show $C'\cap A \neq \emptyset$. Suppose $C'\cap A = \emptyset$. Then for all $a \in A$, there exists $r_a > 0$ with $$(B_{r_a}(a)\backslash\{a\})\cap C = \emptyset$$ The collection $\{B_{r_a}(a):a \in A\}$ is an open cover for $A$. By compactness there exist $a_1,...,a_n$ with $C \subseteq A \subseteq \bigcup_{i=1}^nB_{r_{a_i}}(a_i)$. But then $C$ intersects only the $a_i$, at most, so $C \subseteq \{a_1,...,a_n\}$, contradicting the assumption that $C$ is infinite.
+\end{proof}
+
+\begin{prop}
+    Suppose $A$ is a compact subset in a metric space $X$ and $C$ is a closed subset of $A$ (or $X$). Then $C$ is compact in $A$ (in $X$).
+\end{prop}
+\begin{proof}
+    Let $\{U_i\}$ be an open cover for $C$. $C$ is closed in $A$ so $A \backslash C$ is open in $A$. But then $$A \subseteq \left(\bigcup_{i \in I}U_i\right)\cup\left(A\backslash C\right)$$ so $\{U_i\}\cup\{A\backslash C\}$ is an open cover of $A$. But $A$ is compact, so there exist $i_1,...,i_n$ such that $$A \subseteq U_{i_1}\cup...\cup U_{i_n}\cup(A\backslash C)$$ and $C \subseteq U_{i_1}\cup ... \cup U_{i_n}$, so $C$ has a finite subcover and hence is compact.
+\end{proof}
+
+\begin{eg}
+    As we show in our function section, if $f:X\rightarrow Y$ is continuous and if $X$ is compact, then $f(X)$ is compact in $Y$. Indeed, suppose $\{U_i\}_{i \in I}$ is an open cover for $f(X)$, so $f(X) \subseteq \bigcup_{i \in I}U_i$. Then $$X \subseteq f^{-1}\left(\bigcup_{i \in I}U_i\right) = \bigcup_{i \in I}f^{-1}(U_i)$$ which is an open cover as $f$ is continuous. So $X \subseteq f^{-1}(U_{i_1})\cup...\cup f^{-1}(U_{i_n})$ for some finite subcover, which implies $$f(x) \subseteq U_{i_1}\cup...\cup U_{i_n}$$
+\end{eg}
+
+\begin{eg}
+    As we shall show later, continuous invertible maps on compact spaces are homeomorphisms. Suppose $f:X\rightarrow Y$ is continuous and invertible with $X$ compact. Then $f^{-1}$ is continuous and hence $f$ is a homeomorphism. To see this we will show $f(C) = (f^{-1})^{-1}(C)$ is closed whenever $C$ is closed in $X$. But $X$ is compact, so $C$ is compact as it is closed. Then $f(C)$ is compact in $Y$ by the previous result, so $f(C)$ is closed in $Y$, completing the claim.
+\end{eg}
+
+Note that, as stated above, the property that every infinite subset of $A$ has an accumulation point, often coined \Emph{limit point compactness}, is equivalent to sequential compactness for $A$ in metric spaces.
+
 \begin{defn}
-    $X$ is \Emph{totally bounded} if for every $\varepsilon > 0$ there exists a finite set $\{x_1,...,x_N\} \subseteq X$ such that \begin{equation*}
-        X = \cup_{j=1}^NB_{\varepsilon}(x_j)
+    A subset $A$ of a metric space $X$ is \Emph{totally bounded} if for every $\varepsilon > 0$ there exists a finite set $\{x_1,...,x_N\} \subseteq X$ such that \begin{equation*}
+        A \subseteq \cup_{j=1}^NB_{\varepsilon}(x_j)
     \end{equation*}
 \end{defn}
+
+\begin{eg}
+    Balls may not be totally bounded. Indeed, $\overline{B}_1(0)$ in $\mathcal{C}([0,1])$ is not totally bounded. For example, take $f_n(x) = 0$ for $0 \leq x \leq 1/2^n$, $f_n(x) = 2^{n+1}(x-1/2^n)$ for $1/2^n \leq x \leq 1/2^n+1/2^{n+1}$, $f_m(x) = -2^{n+1}(x-1/2^{n-1})$ for $1/2^n+1/2^{n+1} \leq x \leq 1/2^{n-1}$, and $f_n(x) = 0$ for $1/2^{n-1}\leq x\leq 1$ (disjoint triangles of height $1$)
+\end{eg}
+
 
 \begin{prop}\label{prop:2.3.1}
     If $X$ is a sequentially compact metric space, then $X$ is totally bounded.
@@ -877,10 +1039,6 @@ The proof of this result is identical to that of the case for Euclidean Spaces, 
     Proposition \ref{prop:2.3.5} is the forward implication, so suppose $X$ is topologically compact. We show the equivalence with limit point compactness. We argue by contrapositive and suppose $S \subseteq X$ has no accumulation points. Then in particular $S$ is closed, as $\overline{S} = S \cup S' = S$, since $S' = \emptyset$. Then $S_x = S\backslash \{x\}$ for all $x \in S$ is also closed, also having no accumulation points. Then $U_x \in X\backslash S_x$ is a cover for $S$, with $U_x \cap S = \{x\}$. But then $\{U_x\}_{x \in S}\cup\{X\backslash S\}$ is an open cover for $X$. As $X$ is open cover compact, we have $x_1,...,x_n$ such that $U_{x_1},...,U_{x_n},X\backslash S$ covers $X$. But then $U_{x_1},...,U_{x_n}$ covers $S$, so $S = \bigcup_{i=1}^nS\cap U_{x_i} = \{x_1,...,x_n\}$ so $S$ is finite. Thus, $X$ is limit point compact, completing the proof.
 \end{proof}
 
-\begin{defn}
-    Let $S \subseteq X$ be a subset of a metric space $(X,d)$. We say that $p \in X$ is an \Emph{accumulation point} of $S$ if for every $\varepsilon > 0$ there exists $q \neq p$ with $q \in S$ such that $q \in B_{\varepsilon}(p)$. That is $B_{\varepsilon}(p)^*\cap S \neq \emptyset$ for all $\varepsilon > 0$.
-\end{defn}
-
 
 Note that a metric space which is compact is totally bounded and complete. Now we have the converse:
 
@@ -894,6 +1052,18 @@ Note that a metric space which is compact is totally bounded and complete. Now w
     is infinite. Let $X_j$ be the closure of this $j$th set, so we have a decreasing chain $X_1 \supseteq X_2 \supseteq ...$ of non-empty closed sets, such that $X_j \cap S$ is infinite for all $j$. Pick $z_1\in X_1\cap S$, and $z_{j+1} \in X_{j+1}\cap S\backslash \{z_1,...,z_j\}$, which is possible using the axiom of choice as each set is infinite. Then $(z_j) \subseteq X_1 \cap S$ is a Cauchy sequence. By completeness there exists $z \in X$ such that $z_j$ converges to $z$. But $(z_j) \subseteq S$, and the $z_j$ are distinct, so $z \in X$ is an accumulation point of $S$.
 \end{proof}
 
+We prove this result again, with its converse, as follows
+
+\begin{thm}
+    A non-empty subset $A$ of a metric space $X$ is compact in $X$ if and only if $A$ is complete and totally bounded.
+\end{thm}
+\begin{proof}
+    Suppose $A$ is compact and $r>0$. Then $\{B_r(x)\vert x \in A\}$ is an open cover for $A$. So there exist $x_1,...,x_n \in X$ with $A \subseteq B_r(x_1)\cup ... \cup B_r(x_n)$. So $A$ is totally bounded. If $\{x_n\} \subseteq A$ is Cauchy, then there exists a subsequence $x_{n_k}\rightarrow x \in A$ by sequential compactness. Then as the sequence is Cauchy and a subsequence converges, $x_n\rightarrow x$. So $A$ is complete. 
+
+    Conversely, suppose $A$ is complete and totally bounded. If $A$ is finite it is compact and we're done. So assume $A$ is infinite. Let $\{x_n\}$ be any sequence of distinct points in $A$. Cover $A$ by finitely many balls of radius $1$ by total boundedness. At least one of these, say $B_1(y_1)$, contains infinitely many $x_i$. $A \cap B_1(y_1)$ is also totally bounded, and hence can be covered with finitely many balls of radius $1/2$. At least one of these, say $B_{1/2}(y_2)$, contains infinitely many of the $x_i$. Thus, for each $k$, there exists $x_{n_k} \in B_{1/2^k}(y_k)$. These can be chosen such that $\{x_{n_k}\}_{k\geq l} \subseteq B_{1/2^l}(y_l)$. This implies $d(x_{n_k},x_{n_m}) < 1/2^{l-1}$ for $k,m \geq l$. Thus $\{x_{n_k}\}$ is Cauchy. By completeness, there exists $x \in A$ with $x_{n_k}\rightarrow x$. Thus $A$ is sequentially compact, and the result follows.
+\end{proof}
+
+
 \begin{prop}\label{prop:2.3.8}
     If $X$ is a compact metric space, then $\text{diam}(X) < \infty$, where \begin{equation*}
         \text{diam}(X) = \sup\{d(x,y):x,y \in X\}
@@ -902,6 +1072,40 @@ Note that a metric space which is compact is totally bounded and complete. Now w
 \begin{proof}
      As $X$ is compact there exist $x_1,...,x_N \in X$ such that $X \subseteq \bigcup_{j=1}^NB_1(x_j)$. Then, let $M = \max\{d(x_i,x_j):1\leq i,j\leq N\}$. Now, let $x,y \in X$. Then there exist $i,j$ such that $x \in B_1(x_i)$ and $y \in B_1(x_j)$. It follows that $$d(x,y) \leq d(x,x_i) + d(x_i,x_j) + d(x_j,y) < 1+M+1 = M+2$$ Thus, we have that $\text{diam}(X) \leq M+2 < \infty$, as desired.
 \end{proof}
+
+
+We now prove this result ones more using a slightly different technique, and slightly different results. 
+
+\begin{defn}
+    Let $X$ be a metric space and let $\{U_n\}_{n \in \N}$ be a countable collection of open sets in $X$. If for any open set $V$ of $X$, and any $x \in V$, there exists $i$ such that $x \in U_i \subseteq V$, then $\{U_n\}_{n\in\N}$ is a countable bases for the topology on $X$, and is called a \Emph{countable base for $A$}.
+\end{defn}
+
+\begin{lem}
+    Suppose $A$ is a non-empty subset of a metric space $X$ with the property that every infinite subset of $A$ has an accumulation point (i.e. that $\overline{A}$ is sequentially compact). Then there are open sets $\{U_n\}_{n \in \N}$ of $X$ with the property that if $V$ is any open set in $X$ and $x \in A \cap V$, then there is a $U_i$ with $x \in U_i \subseteq V$.
+\end{lem}
+That is $A$ has a countable base.
+\begin{proof}
+    We claim for each $n \in \N$ there is a finite set $\{x_1,...,x_{N(n)}\}\subseteq X$ such that $$A \subseteq \bigcup_{j=1}^{N(n)}B_{1/n}(x_j)$$ We show this by contradiction, assuming the inclusion does not hold. Thus, there is no finite collection of balls of radius $1/n$ covering $A$, for some $n$. Let $y_1 \in A$ with $A \cancel{\subseteq}B_{1/n}(y_1)$, $y_2 \in A\backslash B_{1/n}(y_1)$ with $d(y_2,y_1) \geq 1/n$, and inductively take $y_{k+1} \in A\backslash\bigcup_{j=1}^kB_{1/n}(y_j)$ with $d(y_j,y_{k+1}) \geq 1/n$ for all $1 \leq j \leq k$. By construction $\{y_k\}$ consists of infinitely many points. But it has no accumulation points since $d(y_i,y_j) \geq 1/n$ for all $i$ and $j$. This contradicts the assumption that any infinite set in $\overline{A}$ has an accumulation point. So we take the countable collection $$\{B_{1/n}(x_i)\vert n \in \N,1 \leq i \leq N(n)\}$$ This collection satisfies the conclusion of the theorem.
+\end{proof}
+
+\begin{thm}
+    A non-empty subset $A$ of a metric space $X$ is compact in $X$ if and only if it is sequentially compact in $X$.
+\end{thm}
+
+\begin{proof}
+    We already have compactness implies sequential compactness. Suppose $A$ is sequentially compact. Suppose $A \subseteq \bigcup_{i\in I}U_i$ is an open cover. We first prove $A$ has a countable subcover. Let $x \in A$ so $x \in U_i$ for some $i$. $\overline{A} = A$ satisfies the hypotheses of the result above. Let $\{V_n\}_{n \in \N}$ be the collection in the conclusion. There exists $V_j$ with $x \in V_j \subseteq U_i$. Thus, $$A \subseteq \bigcup_{j=1}^{\infty}V_j \subseteq \bigcup_{countable}U_i$$ taking the countable subcover of $U_i$'s associated to the $V_j$'s. We can write $A \subseteq \bigcup_{j=1}^{\infty}U_{i_j}$, and we want a finite subcover. Towards a contradiction suppose there is no finite subcollection covering $A$. Then there exists $x_1 \in A\backslash U_{i_1}, x_2 \in A\backslash U_{i_1}\cup U_{i_2}$, and in general $x_k \in A \backslash \bigcup_{j=1}^kU_{i_j}$. By assumption there exists a subsequence $x_{n_k}\rightarrow x \in A$. The $U_{i_j}$ cover $A$. So there exists $N \in \N$ such that $x \in U_{i_N}$. But $U_{i_N}$ is open. So there exists $M$ such that for $n_k \geq M$, $x_{n_k} \in U_{i_N}$. So $U_{i_N}$ contains all but finitely many of the $x_{n_k}$. But by construction each $U_{i_j}$ can only contain finitely many $x_k$, which is a contradiction. Thus, a finite subcover must exist.
+\end{proof}
+
+\begin{thm}[Heine-Borel]
+    A non-empty subset $A$ of $\ell_n^p$ is compact if and only if $A$ is closed and bounded.
+\end{thm}
+\begin{proof}
+    We know compact implies closed and bounded. Suppose $A \subseteq \ell_n^p$ is closed and bounded. We show $A$ is sequentially compact. Let $\vec{x}_k \in A$. By Bolzano-Weierstrass, since $A$ is bounded, $\vec{x}_{n_k} \rightarrow \vec{x} \in \ell_n^p$ for some subsequence. Since $A$ is closed, $\vec{x} \in A$.
+\end{proof}
+
+A reminder that Heine-Borel fails in other metric spaces, such as the example $f_n(x) = x^n$ in $\mathcal{C}([0,1])\cap \overline{B}_1(0)$, which has no (uniformly) convergent subsequence as discussed previously.
+
+
 
 \section{Product Spaces}
 
@@ -963,15 +1167,15 @@ We have that compactness of product spaces occurs if and only if we have compact
 We now construct a result on the size of complete metric spaces, known as the Baire's Category Theorem. First we define the notion of a category for a topological space:
 
 \begin{defn}
-    A topological space $(X,\tau)$ is said to be of the \Emph{first category} if and only if $X$ can be written as a countable union of nowhere dense sets.
+    For a topological space $(X,\tau)$, a subset $A$ is said to be of the \Emph{first category} in $X$ if and only if $A$ can be written as a countable union of nowhere dense subsets of $X$.
 \end{defn}
 
 \begin{defn}
-    A subset $S \subseteq X$ is \Emph{nowhere dense} if and only if $\overline{S}$ does not contain any non-empty open subsets, which occurs in a metric space if and only if $\overline{S}$ does not contain any open ball $B_r(x)$ for $r > 0$ and $x \in X$.
+    A subset $S \subseteq X$ is \Emph{nowhere dense} if and only if $\overline{S}$ does not contain any non-empty open subsets, which occurs in a metric space if and only if $\overline{S}$ does not contain any open ball $B_r(x)$ for $r > 0$ and $x \in X$. Equivalently, $S$ is nowhere dense if and only if $X\backslash\overline{A} = \overline{A}^c$ is dense in $X$.
 \end{defn}
 
 \begin{defn}
-    A topological space $X$ is said to be of the \Emph{second category} if and only if $X$ is not of the first category.
+    For a topological space $X$, a subset $A$ is said to be of the \Emph{second category} in $X$ if and only if $A$ is not of the first category.
 \end{defn}
 
 \begin{namthm}[Baire's Category Theorem]
@@ -980,6 +1184,121 @@ We now construct a result on the size of complete metric spaces, known as the Ba
 \begin{proof}
     Let $S_k \subseteq X$ be a sequence of nowhere dense sets. We claim $X \backslash \bigcup_{k\geq 1}S_k \neq \emptyset$. Let $T_k = \overline{\bigcup_{j=1}^kS_j} = \bigcup_{j=1}^k\overline{S}_j$, so $T_k$ is closed and nowhere dense. Further, $T_1 \subseteq T_2 \subseteq ...$. Let $U_k = X\backslash T_k$, so $U_k$ is open and dense. Indeed, if $x \in X$, and $N_x \subseteq N(x)$, an open neighborhood, $N_x \cancel{\subseteq}T_k$, so $N_x\cap U_k \neq \emptyset$. Thus $\overline{U_k} = X$, so $U_k$ is dense. Then we have $U_1 \supseteq U_2 \supseteq ...$. We claim that the intersection is non-empty. Let $p_1 \in U_1$, so there exists $\varepsilon_1 > 0$ such that $\overline{B_{\varepsilon}(p_1)} \subseteq U_1$. By density of $U_2$, there exists $p_2 \in B_{\varepsilon/2}\cap U_2$. But $U_2$ is open so there exists $\varepsilon_2 < \varepsilon/2$ such that $\overline{B_{\varepsilon_2}(p_2)} \subseteq B_{\varepsilon}(p_1)\cap U_2$. Inductively, take $p_{k+1} \in B_{\varepsilon_k}(p_k) \cap U_{k+1}$, and $\varepsilon_{k+1} < \varepsilon_k/2$ such that $\overline{B_{\varepsilon_{k+1}}(p_{k+1})} \subseteq B_{\varepsilon_k}(p_k) \cap U_{k+1}$. Then $\varepsilon_k < \varepsilon/2^{k-1}$. Note $(p_k)$ is a Cauchy sequence, because $p_l \in \overline{B_{\varepsilon_l}(p_l)} \subseteq B_{\varepsilon_k}(p_k)$ for all $l > k$, where $\varepsilon_k < \varepsilon/2^{k-1}$. By completeness of $X$, there exists $p \in X$ such that $p_l \rightarrow p$. Then $p \in \overline{B_{\varepsilon_k}(p_k)}$ for all $k$ as they are closed, so in particular $p \in U_k$ for all $k$. Therefore, $p \in \bigcap_{i=1}^{\infty}U_i$, so $\bigcap_{i=1}^{\infty}U_i\neq \emptyset$, as claimed.
 \end{proof}
+
+We re-visit this investigation through a slightly different light:
+
+\begin{lem}
+    $A$ is nowhere dense in $X$ if and only if $\overline{A}^{\circ} = \emptyset$.
+\end{lem}
+\begin{proof}
+    First, if $B \subseteq X$, $X\backslash \overline{B} = (X\backslash B)^{\circ}$ and $X\backslash B^{\circ} = \overline{X\backslash B}$. Indeed, $X\backslash \overline{B} \subseteq X\backslash B$ and is open so $X\backslash \overline{B} \subseteq (X\backslash B)^{circ}$. Conversely, $(X\backslash B)^{\circ} \subseteq X\backslash B$, so $X\backslash(X\backslash B)^{\circ} \supseteq B$ is a closed set containing $B$, implying $X\backslash(X\backslash B)^{\circ} \supseteq \overline{B}$. It follows that $(X\backslash B)^{\circ} \subseteq X\backslash\overline{B}$ and we have equaltiy, $X\backslash\overline{B} = (X\backslash B)^{\circ}$. For the other equality, $X\backslash B^{\circ} \supseteq X\backslash B$ is a closed cover, so $X\backslash B^{\circ} \supseteq \overline{X\backslash B}$. Conversely, $X\backslash (\overline{X\backslash B})\subseteq B$ is open, so $X\backslash(\overline{X\backslash B}) \subseteq B^{\circ}$, so $\overline{X\backslash B}\supseteq X\backslash B^{circ}$, and we have equality $X\backslash B^{\circ} = \overline{X\backslash B}$.
+
+
+    Then $\overline{A}^{\circ} = \emptyset$ if and only if $X\backslash \overline{A}^{\circ} = X$, if and only if $\overline{X\backslash \overline{A}} = X$, if and only if $X\backslash\overline{A}$ is dense in $X$, if and only if $A$ is nowhere dense.
+\end{proof}
+
+\begin{eg}
+    If $\{x_0\}$ in $X$ is not isolated, then $\{x_0\}$ is nowhere dense, since $\overline{\{x_0\}} = \{x_0\}$ and it has no interior points. If $X$ has no isolated points, then countable sets are of the fisrt category.
+\end{eg}
+
+\begin{eg}
+    $\Q$ is of the first category, being the countable union of singletons and having no isolated points. $\R\backslash\Q$ is of the second category, which follows from Baire's theorem.
+\end{eg}
+
+\begin{eg}
+    The middle thirds Cantor set $C$ is nowhere dense. It is compact, and hence closed, and contains no intervals, and hence no interior.
+\end{eg}
+
+\begin{eg}
+    Collection of lines in $\R^2$: in $\ell_2^2$, the line $\{(x,mx+b) \vert m,b \in \R\}$ is nowhere dense, since it is already closed and each point is a boundary point.
+\end{eg}
+
+\begin{thm}[Baire]
+    Suppose $X$ is a complete metric space and $\{U_n\}$ is a denumerable collection of open and dense subsets of $X$. Then $$\bigcap_{n\in\N}U_n$$ is dense in $X$.
+\end{thm}
+\begin{proof}
+    Note that $\overline{A} = X$ if and only if, for all $x \in X$, either $x \in A$ or $x \in A'$. If $x \in A$, then for every open neighborhood $U \subseteq X$ of $x$, $A \cap U \neq \emptyset$. If $x \in A'$, then for every $U \subseteq X$ open neighborhood of $x$, $A\cap (U\backslash\{x\})\neq \emptyset$, so in particular $A\cap U \neq \emptyset$.
+
+    We must show that if $V \subseteq X$ is open and non-empty, then $\bigcap_{n=1}^{\infty}U_n\cap V \neq \emptyset$. Let $x_1 \in V\cap U_1$, which is possible since $U_1$ is dense. Then there exists $r_1 > 0$ with $\overline{B}_{r_1}(x_1) \subseteq V\cap U_1$, since $V\cap U_1$ is open. As $U_2$ is dense and $B_{r_1}(x_1)$ is open there exists $x_2 \in U_2 \cap B_{r_1}(x_1) \subseteq U_2 \cap U_1 \cap V$. Repeating this process, we can find $r_2 < r_1/2$ with $$\overline{B}_{r_2}(x_2) \subseteq B_{r_1}(x_1)\cap U_2\subseteq U_2\cap U_1\cap V$$ Inductively, find $x_n \in X$ and $r_n < r_{n-1}/2$ with $$\overline{B}_{r_n}(x_n) \subseteq B_{r_{n-1}}(x_{n-1})\cap U_n\subseteq \bigcap_{j=1}^nU_j\cap V$$ By construction, $(x_k)_{k\geq n} \subseteq \overline{B}_{r_n}(x_n)$. Since $r_n\rightarrow 0$, $(x_k)$ is Cauchy and therefore has a limit $x_0$ since $X$ is complete. Moreover, $\overline{B}_{r_n}(x_n)$ contains $x_0$ since it is closed. So by construction $$x_0 \in \bigcap_{j=1}^{\infty}B_{r_j}(x_j) \subseteq \left(\bigcap_{j=1}^{\infty}U_j\right)\cap V$$
+\end{proof}
+
+
+\begin{cor}[The Baire Category Theorem]
+    Complete metric spaces are of the second category.
+\end{cor}
+\begin{proof}
+    Suppose the proposition does not hold. Let $X = \bigcup_{n=1}^{\infty}A_n$ with $A_n$ nowhere dense (i.e. $X\backslash \overline{A_n}$ is dense in $X$, and open). By Baire's theorem $\bigcap_{n=1}^{\infty}X\backslash \overline{A_n}$ is dense in $X$, which holds if and only if $X\backslash\bigcup_{n=1}^{\infty}\overline{A_n}$ is dense in $X$. But, $\bigcup_{n=1}^{\infty}\overline{A_n} = X$, so this holds if and only if $\emptyset$ is dense in $X$.
+\end{proof}
+
+\begin{eg}
+    The irrationals: $\Q$ is of the first category, so $\R\backslash \Q$ must be of the second, as otherwise $\R = \Q\cup (\R\backslash \Q)$ would be of the first, which it is not being a complete metric space.
+\end{eg}
+
+\begin{eg}
+    Any basis of an infinite dimensional complete normed linear space is necessarily uncountable. However, there are infinite dimensional incomplete space having a countable basis: for example, the normed linear space of polynomials with norm $||a_0+a_1x+...+a_nx^n|| = \sum_{i=1}^n|a_i|$ has countable basis $\{1,x,x^2,x^3,...\}$ since each polynomial can be written as a unique finite linear combination of these elements.
+
+    Now, suppose to the contrary that $\{v_1,v_2,...\}$ is a vector space basis for such a NLS $V$. For each $n$, let $V_n = \text{span}\{v_1,...,v_n\}$. Each $V_n$ is nowhere dense. Indeed, each $V_n$ is closed, as to be shown below, and if $U$ is an open ball in $V_n$, by subtracting the center of this ball we are still in $V_n$. So we may assume $B_r(0) \subseteq V_n$. So if $v \in V\backslash \{0\}$, we have $\frac{v}{2||v||}r \in V_n$. But $V_n$ is a subspace, so $v \in V_n$. This implies $V = V_n$, contradicting the fact that $V$ is finite dimensional. Thus $V_n$ is nowhere dense. 
+
+    Notice by assumption $V = \bigcup_{n=1}^{\infty}V_n$. By Baire's theorem, this contradicts the completeness of $V$.
+\end{eg}
+
+\begin{namthm}[Uniform Boundedness Principal]
+    Let $X$ be a complete metric space and $S \subseteq C(X)$. Suppose that for each $x \in X$ there exists a positive constant $M_x > 0$ such that $|f(x)| \leq M_x$ for all $f \in S$ (pointwise bound). Then there is a non-empty open subset $U$ of $X$ and $M > 0$ such that $|f(x)| \leq M$ for all $f$ in $S$ and all $x$ in $U$ (uniform bound).
+\end{namthm}
+If $\sup_XM_x < \infty$, we can just use this as $M$ and $U = X$
+\begin{proof}
+    Fix $n \in \N$ and $f \in S$. Define $$S_{n,f} = \{x \in X\vert |f(x)| \leq n\} = f^{-1}([-n,n])$$ $S_{n,f}$ is closed being the pre-image of a closed set under a continuous map. Define $S_n := \bigcap_{f \in S}S_{n,f}$, which is again closed. Note $S_n \subseteq S_{n+1}$. Note $x \in S_n$ if and only if $|f(x)| \leq n$ for all $f \in S$. By assumption, $X = \bigcup_{n=1}^{\infty}S_n$, which is a countable union of closed sets. By Baire's theorem, at least one of the $S_N$ must contain an open set $U \subseteq S_N \subseteq X$. This means for all $x \in U$, we have $|f(x)| \leq N$ for all $f \in S$, as desired.
+\end{proof}
+
+\begin{eg}
+    Let $X = [0,\infty)$ with the usual metric, and let $S = \{f_n(x)=\sqrt[n](x)\}\subseteq C(X)$.  For fixed $x \geq 0$, $|f_n(x)| = \sqrt[n]{x} \leq \max\{1,x\} =: M_x$. Note $\sup_xM_x = \infty$. Observe that $U = [0,a)$ is open in $[0,\infty)$ for any $a > 0$. In this case, $|f_n(x)| \leq \max\{1,a\}$, for all $x \in U$ and all $n$.
+\end{eg}
+
+Using this result we can explore certain examples of Banach spaces.
+
+\begin{defn}[Banach Space]
+    A complete normed linear space is called a \Emph{Banach space}.
+\end{defn}
+
+\begin{eg}
+    Note we have already shown that $\ell_n^p$ is a Banach space for $p \in [1,\infty]$ and $n \in \N$. 
+\end{eg}
+
+\begin{eg}
+    We have also shown that $\mathcal{C}_b(S)$ is a Banach space for $S \subseteq \R$.
+\end{eg}
+
+\begin{eg}
+    The classical Banach sequence spaces, $\ell^p$, for $1 \leq p < \infty$: If $1 \leq p < \infty$, $$\ell^p = \left\{x=(x_k)\text{ sequence of real or complexes}\vert||x||_p := \left(\sum_{k=1}^{\infty}|x_k|^p\right)^{1/p} < \infty\right\}$$ and for $p = \infty$: $$\ell^{\infty} = \{x=(x_k)\vert \vert ||x||_{\infty}\sup_k|x_k| < \infty\}$$ We claim that $||\cdot||_p$ are all norms for $1 \leq p \leq \infty$. The first two axioms, positive definiteness and absolute homegeneity, are similar to the finite case. For the triangle inequality for $||\cdot||_{\infty}$, $|x_i+y_i|\leq |x_i|+|y_i|\leq ||x||_{\infty}+||y||_{\infty}$ for all $i$, so $||x+y||_{\infty} \leq ||x||_{\infty}+||y||_{\infty}$. 
+    For $p = 1$, $$\sum_{i=1}^n|x_i + y_i| \leq \sum_{i=1}^n|x_i| + \sum_{i=1}^n|y_i| \leq ||x||_1+||y||_1$$ for all $n$, so $||x+y||_1 \leq ||x||_1+||y||_1$.
+
+    For $1 < p < \infty$, we have by H\"{o}lder's inequality that $$\sum_{k=1}^n|x_k||y_k| \leq ||x||_p||y||_q$$ for $x = [x_1\;...\;x_n],y = [y_1\;...\;y_n]$ and $\frac{1}{p}+\frac{1}{q} = 1$. Now, let $x \in \ell^p$ and $y \in \ell^q$ such that $\frac{1}{p}+\frac{1}{q} = 1$. Then \begin{align*}
+        \sum_{k=1}^n|x_k||y_k| &\leq \left(\sum_{k=1}^n|x_k|^p\right)^{1/p}\left(\sum_{k=1}^n|y_k|^q\right)^{1/q} \\
+        &\leq \left(\sum_{k=1}^{\infty}|x_k|^p\right)^{1/p}\left(\sum_{k=1}^{\infty}|y_k|^q\right)^{1/q} = ||x||_p||y||_q
+    \end{align*}
+    This holds for all $n$, so the sum on the left converges as $n\rightarrow \infty$ and $$\sum_{k=1}^{\infty}|x_k||y_k| \leq ||x||_p||y||_q$$ The triangle inequality now follows from H\"{o}lder's inequality, using the same argument as the finite dimensional case.
+
+    We claim $\ell^p$ is complete. For $1 \leq p < \infty$, let $(x_m)$ be a Cauchy sequence in $\ell^p$. Write $x_m = (x_{m,1},x_{m,2},...)$. For each $i$, $$|x_{m,i} - x_{l,i}|^p \leq \sum_{j=1}^{\infty}|x_{m,j}-x_{l,j}|^p = ||x_m - x_l||_p^p$$ which implies $(x_{m_i})_{m=1}^{\infty}$ is Cauchy for each $i$, and hence has a limit, say $\hat{x}_i$ since $\R$ is complete. Let $x = (\hat{x}_1,\hat{x}_2,...)$. Fix $\varepsilon > 0$ and any $n \in \N$. Find $m,l \geq N$ such that $$\sum_{j=1}^m|x_{m,k} - x_{l,j}|^p\leq ||x_m - x_l||_p^p < \varepsilon^p$$ The left hand side is a finite sum so we can let $l\rightarrow \infty$, giving $$\sum_{j=1}^n|x_{m,j} - \hat{x}_j|^p\leq \varepsilon^p$$ But this is true for all $n$. So taking the limit on $n$, $||x_m-x||_p^p < \varepsilon^p$, so $x_m\rightarrow x$ in $\ell^p$. Now, $x \in \ell^p$ since $$\sum_{j=1}^n|\hat{x}_j|^p \leq ||x-x_m||_p + ||x_m||_p$$ for all $n$, and taking the sup over all $n$ we have our result.
+\end{eg}
+
+Recall that if $V$ is a finite dimensional vector space over $\R$ with basis $\{v_1,...,v_n\}$, there is a vector space isomorphism, the coordinate isomorphism for the basis, sending $e_i \in \R^n$ to $v_i$ in $V$. Any norm on $\R^n$ imparts a norm onto $V$ with $||r_1v_1+...+r_nv_n|| := ||[r_1\;...\;r_n]||$.
+
+\begin{thm}
+    Any two norms on $\R^n$ are equivalent.
+\end{thm}
+\begin{proof}
+    Let $\{e_1,...,e_n\}$ be the standard orthonormal basis for $\R^n$. Each $v \in \R^n$ can be written uniquely as $v = r_1e_1+...+r_ne_n$. Let $||\cdot||$ be any norm on $\R^n$. Then $$||v|| \leq \sum_{i=1}^n|r_i|||e_i|| \leq C\sum_{i=1}^n|r_o| = C||v||_1$$ where $C = \max_{1\leq i \leq n}\{||e_i||\}$. Let $S = \{v \in \R^n\vert ||v||_1 = 1\}$. $S$ is compact by Heine-Borel. Define $\alpha:S\rightarrow [0,\infty)$ by $\alpha(v) = ||v||$. $\alpha$ is continuous since $|||v|| - ||w||| \leq ||v-w||$. This implies $\alpha(S)$ is compact in $[0,\infty)$. Thus, $\alpha$ achieves its minimum at some $v_0 \in S$. That is, $\alpha(v_0) \leq \alpha(v)$ for all $v \in S$. Let $d = \alpha(v_0)$. If $v \neq 0$, we have $\frac{v}{||v||_1} \in S$, so $$\left|\left|\frac{v}{||v||_1}\right|\right| = \alpha\frac{v}{||v||_1} \geq d$$ so $||v|| \geq d||v||_1$. Thus $||\cdot||$ and $||\cdot||_1$ are equivalent.
+\end{proof}
+
+\begin{cor}
+    Finite dimensional vector spaces over $\R$ (or $\C$) are Banach spaces.
+\end{cor}
+\begin{proof}
+    From the theorem above, $\R^n$ is complete with any norm. Any finite dimensional vector space $V$ will then be complete by the induced norm on it.
+\end{proof}
+
+
+
 
 \section{Continuous Functions on Metric Spaces}
 
@@ -1452,7 +1771,27 @@ We now define a notion for what it means for a space to be connected, or not dis
     If no such $U$ and $V$ exist, then $X$ is said to be \Emph{connected}.
 \end{defn}
 
-Equivalently a space $X$ is connected if and only if the only clopen sets are $X$ and $\emptyset$.
+Equivalently a space $X$ is connected if and only if the only clopen sets are $X$ and $\emptyset$. For metric spaces we say:
+
+\begin{defn}
+    A subset $S$ of a metric space $X$ is \Emph{disconnected} if there are open subsets $U$ and $V$ of $X$ such that \begin{itemize}
+        \item The intersection $U\cap S$ and $V\cap S$ are non-empty
+        \item $(U\cap S) \cap (V\cap S) = \emptyset$
+        \item $S = (U\cap S)\cup(V\cap S)$
+    \end{itemize}
+    The pair $(U,V)$ is called a \Emph{separation of $S$}. If $S$ has no separations, then we say that $S$ is \Emph{connected}
+\end{defn}
+
+If $S = X$, this just means $X = U\cap V$ with $U\cap V = \emptyset$.
+
+\begin{eg}
+    A disconnected set in $\ell_2^2$ is $B_1((-1,0)) \cup B_1((1,0))$.
+\end{eg}
+
+\begin{eg}
+    Connected subsets of a discrete space: $Y \subseteq X$ is connected if and only if $Y = \{y\}$. $\{y\}$ is connected. If $|Y| \geq 2$, let $y_0 \in Y$, $U = \{y_0\}$, and $V = Y\backslash \{y_0\}$, which is a separation.
+\end{eg}
+
 
 \begin{prop}\label{prop:3.1.6}
     All intervals in $\R$ are connected.
@@ -1497,5 +1836,11 @@ Equivalently a space $X$ is connected if and only if the only clopen sets are $X
     Let $A = f^{-1}((-\infty,c))$ and $B = f^{-1}((c,\infty))$, so $A$ and $B$ are open, non-empty, and disjoint. Thus, as $X$ is connected, $X \neq A \cup B$ so there must exist $t \in f^{-1}(\{c\})$, so in particular $f(t) =c$.
 \end{proof}
 
+\begin{prop}
+    Suppose $X$ and $Y$ are metric spaces and $f:X\rightarrow Y$ is continuous. If $S$ is connected in $X$, then $f(S)$ is connected in $Y$.
+\end{prop}
+\begin{proof}
+    If $U,V$ is a separation of $f(S)$, so $f(S) \subseteq U\cup V$, then $$S \subseteq f^{-1}(U\cup V) = f^{-1}(U)\cup f^{-1}(V)$$ Since $f$ is continuous, these are both open, and are in fact a separation of $S$, which is a contradiction.
+\end{proof}
 
 

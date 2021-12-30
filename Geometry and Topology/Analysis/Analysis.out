@@ -45,43 +45,50 @@
 \BOOKMARK [1][-]{section.5.3}{Topology of Metric Spaces}{appendix.5}% 45
 \BOOKMARK [2][-]{eg.5.3.12}{Boundary and Limit Points}{section.5.3}% 46
 \BOOKMARK [1][-]{section.5.4}{Completion of a Metric Space}{appendix.5}% 47
-\BOOKMARK [1][-]{section.5.5}{Compactness for Metric Spaces}{appendix.5}% 48
-\BOOKMARK [1][-]{section.5.6}{Product Spaces}{appendix.5}% 49
-\BOOKMARK [1][-]{section.5.7}{Baire Category Theorem}{appendix.5}% 50
-\BOOKMARK [1][-]{section.5.8}{Continuous Functions on Metric Spaces}{appendix.5}% 51
-\BOOKMARK [2][-]{eg.5.8.4}{Operators and NLS}{section.5.8}% 52
-\BOOKMARK [2][-]{eg.5.8.18}{Maps on Compact Spaces}{section.5.8}% 53
-\BOOKMARK [2][-]{defn.5.8.11}{Uniform Continuity}{section.5.8}% 54
-\BOOKMARK [2][-]{thm.5.8.19}{Sequences and Series of Functions}{section.5.8}% 55
-\BOOKMARK [1][-]{section.5.9}{Connected Sets}{appendix.5}% 56
-\BOOKMARK [0][-]{appendix.6}{Higher-Dimensional Differentiation}{part.2}% 57
-\BOOKMARK [0][-]{appendix.7}{Higher-Dimensional Integration}{part.2}% 58
-\BOOKMARK [0][-]{appendix.8}{Manifolds}{part.2}% 59
-\BOOKMARK [0][-]{appendix.9}{Differential Forms}{part.2}% 60
-\BOOKMARK [0][-]{appendix.10}{Integration On Chains}{part.2}% 61
-\BOOKMARK [0][-]{appendix.11}{Integration on Manifolds}{part.2}% 62
-\BOOKMARK [-1][-]{part.3}{III Function Spaces}{}% 63
-\BOOKMARK [0][-]{appendix.12}{Normed Spaces}{part.3}% 64
-\BOOKMARK [0][-]{appendix.13}{Hilbert Spaces}{part.3}% 65
-\BOOKMARK [0][-]{appendix.14}{Banach Spaces}{part.3}% 66
-\BOOKMARK [0][-]{appendix.15}{Differentiation and Integration on Functions}{part.3}% 67
-\BOOKMARK [0][-]{appendix.16}{Banach Algebras}{part.3}% 68
-\BOOKMARK [-1][-]{part.4}{IV Measure Theory}{}% 69
-\BOOKMARK [0][-]{appendix.17}{Basic Measure Spaces}{part.4}% 70
-\BOOKMARK [0][-]{appendix.18}{Lp Spaces}{part.4}% 71
-\BOOKMARK [0][-]{appendix.19}{Radon Measures}{part.4}% 72
-\BOOKMARK [0][-]{section*.1}{Appendices}{part.4}% 73
-\BOOKMARK [1][-]{section.4..1}{Multivariate Calculus - with Applications}{section*.1}% 74
-\BOOKMARK [2][-]{section*.2}{Vector Functions and Derivatives}{section.4..1}% 75
-\BOOKMARK [2][-]{Item.112}{Parametric Curves and Paths}{section.4..1}% 76
-\BOOKMARK [2][-]{equation.4..1.20}{Curvature and the Frenet Frame}{section.4..1}% 77
-\BOOKMARK [2][-]{thm.4..1.4}{Functions of Several Variables}{section.4..1}% 78
-\BOOKMARK [2][-]{equation.4..1.35}{Partial Derivatives}{section.4..1}% 79
-\BOOKMARK [2][-]{thm.4..1.11}{Implicit Differentiation}{section.4..1}% 80
-\BOOKMARK [2][-]{equation.4..1.57}{Differentials}{section.4..1}% 81
-\BOOKMARK [2][-]{equation.4..1.59}{Taylor Polynomials}{section.4..1}% 82
-\BOOKMARK [2][-]{equation.4..1.70}{Local Extrema of Multivariate Functions}{section.4..1}% 83
-\BOOKMARK [2][-]{Item.144}{Vector Fields}{section.4..1}% 84
-\BOOKMARK [2][-]{thm.4..1.17}{Line Integrals}{section.4..1}% 85
-\BOOKMARK [2][-]{equation.4..1.85}{Line Integral Theorems}{section.4..1}% 86
-\BOOKMARK [2][-]{equation.4..1.92}{Surface Integrals}{section.4..1}% 87
+\BOOKMARK [1][-]{section.5.5}{Contractive Maps and Fixed Points}{appendix.5}% 48
+\BOOKMARK [1][-]{section.5.6}{Compactness for Metric Spaces}{appendix.5}% 49
+\BOOKMARK [1][-]{section.5.7}{Product Spaces}{appendix.5}% 50
+\BOOKMARK [1][-]{section.5.8}{Baire Category Theorem}{appendix.5}% 51
+\BOOKMARK [1][-]{section.5.9}{Continuous Functions on Metric Spaces}{appendix.5}% 52
+\BOOKMARK [2][-]{eg.5.9.4}{Operators and NLS}{section.5.9}% 53
+\BOOKMARK [2][-]{eg.5.9.18}{Maps on Compact Spaces}{section.5.9}% 54
+\BOOKMARK [2][-]{defn.5.9.11}{Uniform Continuity}{section.5.9}% 55
+\BOOKMARK [2][-]{thm.5.9.19}{Sequences and Series of Functions}{section.5.9}% 56
+\BOOKMARK [1][-]{section.5.10}{Connected Sets}{appendix.5}% 57
+\BOOKMARK [0][-]{appendix.6}{Approximations and Continuous Functions}{part.2}% 58
+\BOOKMARK [1][-]{section.6.1}{Algebras}{appendix.6}% 59
+\BOOKMARK [1][-]{section.6.2}{Stone-Weierstrass}{appendix.6}% 60
+\BOOKMARK [1][-]{section.6.3}{Equicontinuity and Arz\351la-Ascoli}{appendix.6}% 61
+\BOOKMARK [0][-]{appendix.7}{Higher-Dimensional Differentiation}{part.2}% 62
+\BOOKMARK [1][-]{section.7.1}{Basic Notions of Higher-Dimensional Derivatives}{appendix.7}% 63
+\BOOKMARK [1][-]{section.7.2}{The Inverse and Implicit Function Theorems}{appendix.7}% 64
+\BOOKMARK [0][-]{appendix.8}{Higher-Dimensional Integration}{part.2}% 65
+\BOOKMARK [0][-]{appendix.9}{Manifolds}{part.2}% 66
+\BOOKMARK [0][-]{appendix.10}{Differential Forms}{part.2}% 67
+\BOOKMARK [0][-]{appendix.11}{Integration On Chains}{part.2}% 68
+\BOOKMARK [0][-]{appendix.12}{Integration on Manifolds}{part.2}% 69
+\BOOKMARK [-1][-]{part.3}{III Function Spaces}{}% 70
+\BOOKMARK [0][-]{appendix.13}{Normed Spaces}{part.3}% 71
+\BOOKMARK [0][-]{appendix.14}{Hilbert Spaces}{part.3}% 72
+\BOOKMARK [0][-]{appendix.15}{Banach Spaces}{part.3}% 73
+\BOOKMARK [0][-]{appendix.16}{Differentiation and Integration on Functions}{part.3}% 74
+\BOOKMARK [0][-]{appendix.17}{Banach Algebras}{part.3}% 75
+\BOOKMARK [-1][-]{part.4}{IV Measure Theory}{}% 76
+\BOOKMARK [0][-]{appendix.18}{Basic Measure Spaces}{part.4}% 77
+\BOOKMARK [0][-]{appendix.19}{Lp Spaces}{part.4}% 78
+\BOOKMARK [0][-]{appendix.20}{Radon Measures}{part.4}% 79
+\BOOKMARK [0][-]{section*.1}{Appendices}{part.4}% 80
+\BOOKMARK [1][-]{section.4..1}{Multivariate Calculus - with Applications}{section*.1}% 81
+\BOOKMARK [2][-]{section*.2}{Vector Functions and Derivatives}{section.4..1}% 82
+\BOOKMARK [2][-]{Item.112}{Parametric Curves and Paths}{section.4..1}% 83
+\BOOKMARK [2][-]{equation.4..1.20}{Curvature and the Frenet Frame}{section.4..1}% 84
+\BOOKMARK [2][-]{thm.4..1.4}{Functions of Several Variables}{section.4..1}% 85
+\BOOKMARK [2][-]{equation.4..1.35}{Partial Derivatives}{section.4..1}% 86
+\BOOKMARK [2][-]{thm.4..1.11}{Implicit Differentiation}{section.4..1}% 87
+\BOOKMARK [2][-]{equation.4..1.57}{Differentials}{section.4..1}% 88
+\BOOKMARK [2][-]{equation.4..1.59}{Taylor Polynomials}{section.4..1}% 89
+\BOOKMARK [2][-]{equation.4..1.70}{Local Extrema of Multivariate Functions}{section.4..1}% 90
+\BOOKMARK [2][-]{Item.144}{Vector Fields}{section.4..1}% 91
+\BOOKMARK [2][-]{thm.4..1.17}{Line Integrals}{section.4..1}% 92
+\BOOKMARK [2][-]{equation.4..1.85}{Line Integral Theorems}{section.4..1}% 93
+\BOOKMARK [2][-]{equation.4..1.92}{Surface Integrals}{section.4..1}% 94

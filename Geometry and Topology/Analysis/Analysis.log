@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.8.13)  24 DEC 2021 18:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.8.13)  29 DEC 2021 19:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1510,7 +1510,7 @@ File: fc-english.def 2016/01/12
 LaTeX Font Warning: Font shape `OT1/txr/m/scit' undefined
 (Font)              using `OT1/txr/m/it' instead on input line 44.
 
-<../../Crab.jpg, id=356, 962.09438pt x 769.37437pt>
+<../../Crab.jpg, id=384, 962.09438pt x 769.37437pt>
 File: ../../Crab.jpg Graphic file (type jpg)
 <use ../../Crab.jpg>
 Package pdftex.def Info: ../../Crab.jpg  used on input line 48.
@@ -1717,20 +1717,22 @@ ML/txmi/m/it/12 d\U/matha/m/n/12 p\OML/txmi/m/it/12 p; q\U/matha/m/n/12 q ^^P [
 ^A
  []
 
-[145] [146]
+[145] [146] [147] [148] [149] [150] [151] [152] [153]
 
-LaTeX Warning: Reference `prop:2.3.2' on page 147 undefined on input line 870.
+LaTeX Warning: Reference `prop:2.3.2' on page 154 undefined on input line 1032.
 
-[147] [148] [149] [150] [151] [152] [153]
-Overfull \hbox (1.29716pt too wide) in paragraph at lines 1092--1092
-[][]\OT1/txr/bx/n/12 Example 5.8.7. []\OT1/txr/m/n/12 The dif-fer-en-ti-a-tion 
+
+[154] [155] [156] [157] [158] [159] [160] [161] [162] [163] [164] [165]
+[166]
+Overfull \hbox (1.29716pt too wide) in paragraph at lines 1411--1411
+[][]\OT1/txr/bx/n/12 Example 5.9.7. []\OT1/txr/m/n/12 The dif-fer-en-ti-a-tion 
 map on smooth func-tions: Let $\OMS/txsy/m/n/12 C[]\U/matha/m/n/12 pr\OT1/txr/m
 /n/12 0\OML/txmi/m/it/12 ; \OT1/txr/m/n/12 1\U/matha/m/n/12 sq$\OT1/txr/m/n/12 
 , which is a normed
  []
 
-[154] [155] [156] [157] [158] [159] [160] [161] [162] [163] [164] [165]
-Overfull \hbox (14.11063pt too wide) in paragraph at lines 1438--1438
+[167] [168] [169] [170] [171] [172] [173] [174] [175] [176] [177] [178]
+Overfull \hbox (14.11063pt too wide) in paragraph at lines 1757--1757
 [][]\OT1/txr/m/sl/12 Let $\OML/txmi/m/it/12 f[] \OT1/txr/m/n/12 : \OML/txmi/m/i
 t/12 X \U/matha/m/n/12 Ñ \U/txsyb/m/n/12 R[]$ \OT1/txr/m/sl/12 be a se-quence o
 f func-tions. As-sume there ex-ist $\OML/txmi/m/it/12 M[] \U/matha/m/n/12 P \U/
@@ -1738,67 +1740,157 @@ txsyb/m/n/12 R$ \OT1/txr/m/sl/12 such that $[][] \U/matha/m/n/12 ||\OML/txmi/m/
 it/12 f[]\U/matha/m/n/12 p\OML/txmi/m/it/12 x\U/matha/m/n/12 q|| ¤
  []
 
-[166] [167]) (./HigherDimensionalAnal/HigherDiff.tex [168]
+[179] [180]) (./HigherDimensionalAnal/Approx.tex [181]
 Chapter 6.
-) (./HigherDimensionalAnal/HigherInt.tex [169
+[182
 
-]
+] [183] [184] [185]
+Overfull \hbox (3.06291pt too wide) in paragraph at lines 131--132
+[][]\OT1/txr/bx/n/12 Example 6.2.5 \OT1/txr/m/n/12 (Real Trig Poly-no-mi-als)\O
+T1/txr/bx/n/12 . []\OT1/txr/m/n/12 Let $\OMS/txsy/m/n/12 A \U/matha/m/n/12 ^^P 
+[][]t[]p\OML/txmi/m/it/12 nx\U/matha/m/n/12 q\OML/txmi/m/it/12 ; []\U/matha/m/n
+/12 p\OML/txmi/m/it/12 mx\U/matha/m/n/12 qu „ \OMS/txsy/m/n/12 C\U/matha/m/n/12
+ pr\OT1/txr/m/n/12 0\OML/txmi/m/it/12 ; \OT1/txr/m/n/12 1\U/matha/m/n/12 sq$\OT
+1/txr/m/n/12 .
+ []
+
+[186] [187] [188]
+Overfull \hbox (0.90228pt too wide) in paragraph at lines 203--204
+[]\OT1/txr/m/n/12 Note since $\OML/txmi/m/it/12 X$ \OT1/txr/m/n/12 is com-pact,
+ it is to-tally bounded. Then for each $\OML/txmi/m/it/12 n \U/matha/m/n/12 P \
+U/txsyb/m/n/12 N$\OT1/txr/m/n/12 , there ex-ists $\OML/txmi/m/it/12 x[]; :::; x
+[]$
+ []
+
+[189]) (./HigherDimensionalAnal/HigherDiff.tex [190]
 Chapter 7.
-) (./HigherDimensionalAnal/Manifolds.tex [170
+[191
 
 ]
+Overfull \hbox (86.75151pt too wide) detected at line 48
+[]
+ []
+
+[192]
+Overfull \hbox (446.77484pt too wide) detected at line 63
+[]
+ []
+
+[193] [194] [195] [196]
+Overfull \hbox (33.58047pt too wide) detected at line 151
+[]\U/matha/m/n/12 p\OML/txmi/m/it/12 x; y\U/matha/m/n/12 q ^^P []
+ []
+
+[197]
+Overfull \hbox (4.50867pt too wide) in paragraph at lines 182--182
+\OML/txmi/m/it/12 f \OT1/txr/m/n/12 : \U/txsyb/m/n/12 R \U/matha/m/n/12 Ñ \U/tx
+syb/m/n/12 R[]$ \OT1/txr/m/n/12 dif-fer-en-tiable. Write $\OML/txmi/m/it/12 f\U
+/matha/m/n/12 p\OML/txmi/m/it/12 t\U/matha/m/n/12 q ^^P p\OML/txmi/m/it/12 f[]\
+U/matha/m/n/12 p\OML/txmi/m/it/12 t\U/matha/m/n/12 q\OML/txmi/m/it/12 ; f[]\U/m
+atha/m/n/12 p\OML/txmi/m/it/12 t\U/matha/m/n/12 q\OML/txmi/m/it/12 ; f[]\U/math
+a/m/n/12 p\OML/txmi/m/it/12 t\U/matha/m/n/12 qq[]$\OT1/txr/m/n/12 , so that $\O
+ML/txmi/m/it/12 f[]\U/matha/m/n/12 p\OML/txmi/m/it/12 t\U/matha/m/n/12 q ^^P p\
+OML/txmi/m/it/12 f[]\U/matha/m/n/12 p\OML/txmi/m/it/12 t\U/matha/m/n/12 q\OML/t
+xmi/m/it/12 ; f[]\U/matha/m/n/12 p\OML/txmi/m/it/12 t\U/matha/m/n/12 q\OML/txmi
+/m/it/12 ; f[]\U/matha/m/n/12 p\OML/txmi/m/it/12 t\U/matha/m/n/12 qq[]$\OT1/txr
+/m/n/12 .
+ []
+
+
+Overfull \hbox (185.47163pt too wide) detected at line 196
+[]
+ []
+
+
+Overfull \hbox (77.34686pt too wide) detected at line 197
+\OML/txmi/m/it/12 f\U/matha/m/n/12 p\OML/txmi/m/it/12 x[]; :::; x[] \U/matha/m/
+n/12 ^^@ \OML/txmi/m/it/12 h[]; x[] \U/matha/m/n/12 ^^@ \OML/txmi/m/it/12 h[]; 
+:::; x[] \U/matha/m/n/12 ^^@ \OML/txmi/m/it/12 h[]\U/matha/m/n/12 q ^^A \OML/tx
+mi/m/it/12 f\U/matha/m/n/12 p\OML/txmi/m/it/12 x[]; :::; x[]; x[] \U/matha/m/n/
+12 ^^@ \OML/txmi/m/it/12 h[]; :::; x[] \U/matha/m/n/12 ^^@ \OML/txmi/m/it/12 h[
+]\U/matha/m/n/12 q ^^P \OML/txmi/m/it/12 D[]f\U/matha/m/n/12 p\OML/txmi/m/it/12
+ x[]; :::; c[]; x[] \U/matha/m/n/12 ^^@ \OML/txmi/m/it/12 h[]; :::; x[] \U/math
+a/m/n/12 ^^@ \OML/txmi/m/it/12 h[]\U/matha/m/n/12 q\OML/txmi/m/it/12 h[]
+ []
+
+
+Overfull \hbox (2.18802pt too wide) detected at line 201
+[]
+ []
+
+[198] [199] [200] [201] [202] [203]
+Overfull \hbox (33.47206pt too wide) detected at line 336
+[]
+ []
+
+[204] [205]
+Overfull \hbox (2.31964pt too wide) in paragraph at lines 370--371
+\OT1/txr/m/n/12 So $\OML/txmi/m/it/12 F$ \OT1/txr/m/n/12 is $\OMS/txsy/m/n/12 C
+[]$ \OT1/txr/m/n/12 and $\OML/txmi/m/it/12 DF\U/matha/m/n/12 p[]\OML/txmi/m/it/
+12 ; []\U/matha/m/n/12 q$ \OT1/txr/m/n/12 is in-vert-ible since $\OML/txmi/m/it
+/12 A[]$ \OT1/txr/m/n/12 is in-vert-ible, so $[]\U/matha/m/n/12 p\OML/txmi/m/it
+/12 DF\U/matha/m/n/12 p[]\OML/txmi/m/it/12 ; []\U/matha/m/n/12 qq ^^P []p\OML/t
+xmi/m/it/12 A[]\U/matha/m/n/12 q []p\OML/txmi/m/it/12 I[]\U/matha/m/n/12 q \U/t
+xsyc/m/n/12 ,
+ []
+
+[206] [207]) (./HigherDimensionalAnal/HigherInt.tex [208]
 Chapter 8.
-) (./HigherDimensionalAnal/DiffForms.tex [171
+) (./HigherDimensionalAnal/Manifolds.tex [209
 
 ]
 Chapter 9.
-) (./HigherDimensionalAnal/IntOnChains.tex [172
+) (./HigherDimensionalAnal/DiffForms.tex [210
 
 ]
 Chapter 10.
-) (./HigherDimensionalAnal/IntOnManif.tex [173
+) (./HigherDimensionalAnal/IntOnChains.tex [211
 
 ]
 Chapter 11.
-) [174
-
-] [175
-
-] (./FunctionSpaces/NormedSps.tex
-Chapter 12.
-) (./FunctionSpaces/HilbertSps.tex [176
+) (./HigherDimensionalAnal/IntOnManif.tex [212
 
 ]
+Chapter 12.
+) [213
+
+] [214
+
+] (./FunctionSpaces/NormedSps.tex
 Chapter 13.
-) (./FunctionSpaces/BanachSps.tex [177
+) (./FunctionSpaces/HilbertSps.tex [215
 
 ]
 Chapter 14.
-) (./FunctionSpaces/DiffAndIntOnFuncs.tex [178
+) (./FunctionSpaces/BanachSps.tex [216
 
 ]
 Chapter 15.
-) (./FunctionSpaces/BanachAlgs.tex [179
+) (./FunctionSpaces/DiffAndIntOnFuncs.tex [217
 
 ]
 Chapter 16.
-) [180
-
-] [181
-
-] (./MeasureTheory/BasicMeasureSps.tex
-Chapter 17.
-) (./MeasureTheory/LpSps.tex [182
+) (./FunctionSpaces/BanachAlgs.tex [218
 
 ]
+Chapter 17.
+) [219
+
+] [220
+
+] (./MeasureTheory/BasicMeasureSps.tex
 Chapter 18.
-) (./MeasureTheory/RadonMeasures.tex [183
+) (./MeasureTheory/LpSps.tex [221
 
 ]
 Chapter 19.
-) (./Appendices.tex [184
+) (./MeasureTheory/RadonMeasures.tex [222
 
-] [185
+]
+Chapter 20.
+) (./Appendices.tex [223
+
+] [224
 
 
 ]
@@ -1806,7 +1898,7 @@ Chapter 19.
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
 (hyperref)                be the same. Added a new anchor on input line 5.
 
-[186] [187]
+[225] [226]
 Overfull \hbox (9.37679pt too wide) in paragraph at lines 122--123
 [][]\OT1/txr/bx/n/12 Remark .1.7. []\OT1/txr/m/n/12 The pair $\U/matha/m/n/12 p
 []p\OML/txmi/m/it/12 t\U/matha/m/n/12 q\OML/txmi/m/it/12 ; J\U/matha/m/n/12 q$ 
@@ -1816,7 +1908,7 @@ Overfull \hbox (9.37679pt too wide) in paragraph at lines 122--123
 12 C\U/matha/m/n/12 q$
  []
 
-[188] [189] [190] [191] [192] [193] [194] [195] [196]
+[227] [228] [229] [230] [231] [232] [233] [234] [235]
 Overfull \hbox (14.20198pt too wide) in paragraph at lines 579--579
 [][][]\OT1/txr/bx/n/12 Theorem .1.13 \OT1/txr/m/n/12 (Im-plicit Func-tion The-o
 -rem (n vari-ables))\OT1/txr/bx/n/12 . [][]\OT1/txr/m/sl/12 Con-sider $\OML/txm
@@ -1825,14 +1917,14 @@ i/m/it/12 F\U/matha/m/n/12 p[]q ^^P \OT1/txr/m/n/12 0\U/matha/m/n/12 p^^Nq$\OT1
 /m/n/12 q$\OT1/txr/m/sl/12 .
  []
 
-[197] [198] [199] [200] [201] [202] [203] [204] [205]) [206]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 164.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 164.
+[236] [237] [238] [239] [240] [241] [242] [243] [244]) [245]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 167.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 167.
  (./Analysis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 164.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 164.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 167.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 167.
 Package rerunfilecheck Info: File `Analysis.out' has not changed.
-(rerunfilecheck)             Checksum: 15615ECDE65159DA1CEC35113A755697;6052.
+(rerunfilecheck)             Checksum: E23D5CD10BF0D9D3D9179EEA4002B6D5;6606.
 
 
 LaTeX Warning: There were undefined references.
@@ -1840,16 +1932,16 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 164.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 167.
  ) 
 Here is how much of TeX's memory you used:
- 26006 strings out of 481239
- 465691 string characters out of 5920377
- 744277 words of memory out of 5000000
- 39365 multiletter control sequences out of 15000+600000
+ 26261 strings out of 481239
+ 469285 string characters out of 5920377
+ 744290 words of memory out of 5000000
+ 39450 multiletter control sequences out of 15000+600000
  616184 words of font info for 227 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 76i,16n,84p,1909b,722s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 76i,16n,84p,2219b,995s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/share/texliv
 e/texmf-dist/fonts/type1/public/mathabx-type1/matha12.pfb></usr/share/texlive/t
@@ -1874,10 +1966,10 @@ w/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a
 .pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Analysis.pdf (207 pages, 1338611 bytes).
+Output written on Analysis.pdf (246 pages, 1508736 bytes).
 PDF statistics:
- 2717 PDF objects out of 2984 (max. 8388607)
- 2456 compressed objects within 25 object streams
- 1256 named destinations out of 1440 (max. 500000)
- 714 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 3077 PDF objects out of 3580 (max. 8388607)
+ 2774 compressed objects within 28 object streams
+ 1423 named destinations out of 1440 (max. 500000)
+ 770 words of extra memory for PDF output out of 10000 (max. 10000000)
 
