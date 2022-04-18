@@ -1,0 +1,46 @@
+%%%%%%%%%% Lebesgue Measure in 1D %%%%%%%%%%
+\chapter{Lebesgue Measure on a Line}
+
+
+In this chapter we restrict ourselves to the concept of the Lebesgue measure of subsets of $\R$.
+
+\begin{defn}
+    If $S$ is a subset of an interval $I = [a,b]$, then we define the \Emph{outer measure} of $S$ by $$m^*(S) = \inf\left\{\sum_{k\geq 0}\ell(J_k):S\subseteq \bigcup_{k\geq 0}J_k\right\},\;\;J_k\;\text{ intervals}$$
+\end{defn}
+Note that the definition works equally well with all open or closed intervals in $I$. We can let $J_k$ be intervals in $\R$, or we can require $J_k \subseteq I$. In particular, if $\mathcal{O} \subseteq (a,b)$ is open, then $\mathcal{O}$ is a disjoint union of a countable collection of open intervals $\mathcal{O}_k$, and $$m^*(\mathcal{O}) = \sum_{k\geq 0}\ell(\mathcal{O}_k)$$
+Furthermore, for any $S \subseteq (a,b)$, $$m^*(S) = \inf\{m^*(\mathcal{O}):\mathcal{O}\subseteq S,\mathcal{O}\text{ open}\}$$
+using the fact that $\R$ is second countable (has a countable base).
+
+If $C = \{c_1,c_2,...\}$ is a countable subset of $I$, we can write $C \subseteq \bigcup_{k\geq 1}J_k(\varepsilon)$, where $J_k(\varepsiloN)$ is an open interval of length $2^{-k}\varepsilon$, centered at $c_k$. Thus $m^*(C) \leq \sum_{k\geq 1}2^{-k}\varepsilon = \varepsilon$, so $$C \subseteq I\;\text{ countable }\implies m^*(C) = 0$$
+
+Note that if $\{J_{1,k}:k\geq 0\}$ covers $S_1$ and $\{J_{2,k}:k\geq 0\}$ covers $S_2$, then $\{J_{1,k},J_{2,k}:k\geq 0\}$ is a cover of $S_1\cup S_2$, so $$m^*(S_1\cup S_2) \leq m^*(S_1) + m^*(S_2)$$
+This subadditivity property is shared by the upper content, but outer measure is distinguished from the upper content by its $\sigma$-subadditivity, or countable subadditivity:
+
+\begin{prop}
+    If $\{S_j:j\geq 0\}$ is a countable family of subsets of $I$, then $$m^*\left(\bigcup_jS_j\right) \leq \sum_jm^*(S_j)$$
+\end{prop}
+\begin{proof}
+    Pick $\varepsilon > 0$. Each $S_j$ has a countable cover $\{J_{j,k}:k\geq 0\}$, by intervals such that $m^*(S_j) \geq \sum_k\ell(J_{j,k}) -2^{-j}\varepsilon$. Then $\{J_{j,k}:j,k\geq 0\}$ is a countable cover of $\bigcup_jS_j$ by intervals, so $m^*\left(\bigcup_jS_j\right) \leq \sum_jm^*(S_j) + 2\varepsilon$, for all $\varepsilon > 0$. Letting $\varepsilon\rightarrow 0$ we obtain the result.
+\end{proof}
+
+We aim to find a collection $\mathfrak{L}$ on which $m^*$ is countably additive on disjoint subsets. First, consider $S_1 = K$ to be compact and $S_2 = I\backslash K$. Note that the outer measure of a compact set restricts to an upper content since all countable covers can be reduced to finite subcovers of smaller length. That is $$m^*(K) = \inf\left\{\sum_{k=1}^N\ell(J_k):K\subseteq \bigcup_{k=1}^NJ_k\right\}$$ for $K$ compact, where $J_k$ are open intervals. This implies that given $\varepsilon > 0$, we can pick a finite collection of disjoint open intervals $\{J_k:1\leq k \leq N\}$ such that $\mathcal{O} = \bigcup_{k=1}^NJ_k\supseteq K$ and such that we have $$m^*(K) \leq m^*(\mathcal{O}) = \sum_{k=1}^N\ell(J_k)\leq m^*(K)+\varepsilon$$
+
+\begin{lem}
+    Given $\varepsilon > 0$, we can construct $\mathcal{O} = \bigcup_{k=1}^NJ_k \supseteq K$ such that $$m^*\left(\mathcal{O}\backslash K\right) \leq \varepsilon$$
+\end{lem}
+\begin{proof}
+    Start with the $\mathcal{O}$ described above. Then $\mathcal{O}\backslash K = \mathcal{A}$ is open (since $\R$ is Hausdorff so $K$ is closed), so write $\mathcal{A} = \bigcup_{k\geq 1}\mathcal{A}_k$, a countable disjoint union of open intervals. We need $\sum_{k\geq 1}\ell(\mathcal{A}_k) \leq \varepsilon$, after possibly shrinking $\mathcal{O}$.
+
+    To do this, pick $M$ large enough that $\sum_{k > M}\ell(\mathcal{A}_k) \leq \varepsilon/2$, which can be done since the series must converge to $\ell(\mathcal{A})$, and so is Cauchy. Let $\mathcal{A}_k^{\#} \subseteq \mathcal{A}_k$ be a closed interval with the same center as $\mathcal{A}_k$, such that $\ell(\mathcal{A}_k^{\#}) \geq \ell(\mathcal{A}_k) - \varepsilon/2M$. We replace $\mathcal{O}$ by $\mathcal{O}\backslash\bigcup_{k=1}^M\mathcal{A}_k^{\#}$; note that this set is open, and still covers $K$ since all the $\mathcal{A}_k^{\#}$ are in $\mathcal{A}$. The lemma then follows.
+\end{proof}
+
+\begin{prop}
+    If $K \subseteq I$ is compact, then $$m^*(K) + m^*(I\backslash K) = \ell(I)$$
+\end{prop}
+\begin{proof}
+    To begin, we note that if $\mathcal{O} = \bigcup_{k=1}^NJ_k$ is a cover of $K$ satisfying the conditions of the previous Lemma, then $I\backslash \mathcal{O}$ is a finite disjoint union of intervals, say $I \backslash\mathcal{O} = \bigcup_{j=1}^{\nu}J_j'$, and $m^*(I\backslash\mathcal{O}) = \sum_{j=1}^{\nu}\ell(J'_j)$, so $$m^*(\mathcal{O})+m^*(I\backslash\mathcal{O}) = \ell(I)$$
+    Furthermore, $I\backslash K = (I\backslash\mathcal{O}) \cup(\mathcal{O}\backslash K)$, so by the Lemma and our result on sub-additivity $$m^*(I\backslash K) \leq m^*(I\backslash\mathcal{O}) + \varepsilon$$ 
+    It follows that $$m^*(K) + m^*(I\backslash K) \leq m^*(\mathcal{O}) + m^*(I\backslash \mathcal{O}) + \varepsilon = \ell(I)+\varepsilon$$
+    for all $\varepsilon > 0$ (To Be Continued)
+\end{proof}
+

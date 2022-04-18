@@ -74,21 +74,23 @@
 \BOOKMARK [0][-]{appendix.16}{Differentiation and Integration on Functions}{part.3}% 74
 \BOOKMARK [0][-]{appendix.17}{Banach Algebras}{part.3}% 75
 \BOOKMARK [-1][-]{part.4}{IV Measure Theory}{}% 76
-\BOOKMARK [0][-]{appendix.18}{Basic Measure Spaces}{part.4}% 77
-\BOOKMARK [0][-]{appendix.19}{Lp Spaces}{part.4}% 78
-\BOOKMARK [0][-]{appendix.20}{Radon Measures}{part.4}% 79
-\BOOKMARK [0][-]{section*.1}{Appendices}{part.4}% 80
-\BOOKMARK [1][-]{section.4..1}{Multivariate Calculus - with Applications}{section*.1}% 81
-\BOOKMARK [2][-]{section*.2}{Vector Functions and Derivatives}{section.4..1}% 82
-\BOOKMARK [2][-]{Item.112}{Parametric Curves and Paths}{section.4..1}% 83
-\BOOKMARK [2][-]{equation.4..1.20}{Curvature and the Frenet Frame}{section.4..1}% 84
-\BOOKMARK [2][-]{thm.4..1.4}{Functions of Several Variables}{section.4..1}% 85
-\BOOKMARK [2][-]{equation.4..1.35}{Partial Derivatives}{section.4..1}% 86
-\BOOKMARK [2][-]{thm.4..1.11}{Implicit Differentiation}{section.4..1}% 87
-\BOOKMARK [2][-]{equation.4..1.57}{Differentials}{section.4..1}% 88
-\BOOKMARK [2][-]{equation.4..1.59}{Taylor Polynomials}{section.4..1}% 89
-\BOOKMARK [2][-]{equation.4..1.70}{Local Extrema of Multivariate Functions}{section.4..1}% 90
-\BOOKMARK [2][-]{Item.144}{Vector Fields}{section.4..1}% 91
-\BOOKMARK [2][-]{thm.4..1.17}{Line Integrals}{section.4..1}% 92
-\BOOKMARK [2][-]{equation.4..1.85}{Line Integral Theorems}{section.4..1}% 93
-\BOOKMARK [2][-]{equation.4..1.92}{Surface Integrals}{section.4..1}% 94
+\BOOKMARK [0][-]{appendix.18}{Riemann Integration}{part.4}% 77
+\BOOKMARK [0][-]{appendix.19}{Basic Measure Spaces}{part.4}% 78
+\BOOKMARK [0][-]{appendix.20}{Basic Measure Spaces}{part.4}% 79
+\BOOKMARK [0][-]{appendix.21}{Lp Spaces}{part.4}% 80
+\BOOKMARK [0][-]{appendix.22}{Radon Measures}{part.4}% 81
+\BOOKMARK [0][-]{section*.1}{Appendices}{part.4}% 82
+\BOOKMARK [1][-]{section.4..1}{Multivariate Calculus - with Applications}{section*.1}% 83
+\BOOKMARK [2][-]{section*.2}{Vector Functions and Derivatives}{section.4..1}% 84
+\BOOKMARK [2][-]{Item.112}{Parametric Curves and Paths}{section.4..1}% 85
+\BOOKMARK [2][-]{equation.4..1.20}{Curvature and the Frenet Frame}{section.4..1}% 86
+\BOOKMARK [2][-]{thm.4..1.4}{Functions of Several Variables}{section.4..1}% 87
+\BOOKMARK [2][-]{equation.4..1.35}{Partial Derivatives}{section.4..1}% 88
+\BOOKMARK [2][-]{thm.4..1.11}{Implicit Differentiation}{section.4..1}% 89
+\BOOKMARK [2][-]{equation.4..1.57}{Differentials}{section.4..1}% 90
+\BOOKMARK [2][-]{equation.4..1.59}{Taylor Polynomials}{section.4..1}% 91
+\BOOKMARK [2][-]{equation.4..1.70}{Local Extrema of Multivariate Functions}{section.4..1}% 92
+\BOOKMARK [2][-]{Item.144}{Vector Fields}{section.4..1}% 93
+\BOOKMARK [2][-]{thm.4..1.17}{Line Integrals}{section.4..1}% 94
+\BOOKMARK [2][-]{equation.4..1.85}{Line Integral Theorems}{section.4..1}% 95
+\BOOKMARK [2][-]{equation.4..1.92}{Surface Integrals}{section.4..1}% 96

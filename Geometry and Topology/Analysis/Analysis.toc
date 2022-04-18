@@ -74,22 +74,24 @@
 \contentsline {chapter}{\numberline {16}Differentiation and Integration on Functions}{218}{appendix.16}%
 \contentsline {chapter}{\numberline {17}Banach Algebras}{219}{appendix.17}%
 \contentsline {part}{IV\hspace {1em}Measure Theory}{220}{part.4}%
-\contentsline {chapter}{\numberline {18}Basic Measure Spaces}{221}{appendix.18}%
-\contentsline {chapter}{\numberline {19}$L^p$ Spaces}{222}{appendix.19}%
-\contentsline {chapter}{\numberline {20}Radon Measures}{223}{appendix.20}%
-\contentsline {chapter}{Appendices}{224}{section*.1}%
-\contentsline {section}{\numberline {.1}Multivariate Calculus - with Applications}{225}{section.4..1}%
-\contentsline {subsection}{Vector Functions and Derivatives}{225}{section*.2}%
-\contentsline {subsection}{Parametric Curves and Paths}{227}{Item.112}%
-\contentsline {subsection}{Curvature and the Frenet Frame}{229}{equation.4..1.20}%
-\contentsline {subsection}{Functions of Several Variables}{231}{thm.4..1.4}%
-\contentsline {subsection}{Partial Derivatives}{234}{equation.4..1.35}%
-\contentsline {subsection}{Implicit Differentiation}{236}{thm.4..1.11}%
-\contentsline {subsection}{Differentials}{237}{equation.4..1.57}%
-\contentsline {subsection}{Taylor Polynomials}{237}{equation.4..1.59}%
-\contentsline {subsection}{Local Extrema of Multivariate Functions}{239}{equation.4..1.70}%
-\contentsline {subsection}{Vector Fields}{240}{Item.144}%
-\contentsline {subsection}{Line Integrals}{242}{thm.4..1.17}%
-\contentsline {subsection}{Line Integral Theorems}{242}{equation.4..1.85}%
-\contentsline {subsection}{Surface Integrals}{244}{equation.4..1.92}%
+\contentsline {chapter}{\numberline {18}Riemann Integration}{221}{appendix.18}%
+\contentsline {chapter}{\numberline {19}Basic Measure Spaces}{226}{appendix.19}%
+\contentsline {chapter}{\numberline {20}Basic Measure Spaces}{227}{appendix.20}%
+\contentsline {chapter}{\numberline {21}$L^p$ Spaces}{228}{appendix.21}%
+\contentsline {chapter}{\numberline {22}Radon Measures}{229}{appendix.22}%
+\contentsline {chapter}{Appendices}{230}{section*.1}%
+\contentsline {section}{\numberline {.1}Multivariate Calculus - with Applications}{231}{section.4..1}%
+\contentsline {subsection}{Vector Functions and Derivatives}{231}{section*.2}%
+\contentsline {subsection}{Parametric Curves and Paths}{233}{Item.112}%
+\contentsline {subsection}{Curvature and the Frenet Frame}{235}{equation.4..1.20}%
+\contentsline {subsection}{Functions of Several Variables}{237}{thm.4..1.4}%
+\contentsline {subsection}{Partial Derivatives}{240}{equation.4..1.35}%
+\contentsline {subsection}{Implicit Differentiation}{242}{thm.4..1.11}%
+\contentsline {subsection}{Differentials}{243}{equation.4..1.57}%
+\contentsline {subsection}{Taylor Polynomials}{243}{equation.4..1.59}%
+\contentsline {subsection}{Local Extrema of Multivariate Functions}{245}{equation.4..1.70}%
+\contentsline {subsection}{Vector Fields}{246}{Item.144}%
+\contentsline {subsection}{Line Integrals}{248}{thm.4..1.17}%
+\contentsline {subsection}{Line Integral Theorems}{248}{equation.4..1.85}%
+\contentsline {subsection}{Surface Integrals}{250}{equation.4..1.92}%
 \contentsfinish 

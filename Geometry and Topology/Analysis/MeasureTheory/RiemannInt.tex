@@ -1,0 +1,134 @@
+%%%%%%%%%% Riemann Integration %%%%%%%%%%
+\chapter{Riemann Integration}
+
+
+In this chapter we define the Riemann integral for bounded functions on a closed interval $I = [a,b]$ in the real line. To do this we partition $I$ into smaller intervals.
+
+\begin{defn}
+    A \Emph{partition} $\mathcal{P}$ of $I$ is a finite collection of subintervals $\{J_k:0 \leq k \leq N\}$, disjoint except for their endpoints, whose union is $I$. We can order the $J_k$ so that $J_k = [x_k,x_{k+1}]$, where $$x_0 < x_1 < \cdots < x_N < x_{N+1},\;x_0 = a, x_{N+1} = b$$
+    We call the points $x_k$ the \Emph{endpoints} of $\mathcal{P}$. We set $$\ell(J_k) = x_{k+1} - x_k,\;\text{maxsize}(\mathcal{P}) = \max_{0\leq k \leq N}\ell(J_k)$$ $$\text{minsize}(\mathcal{P}) = \min_{0\leq k \leq N}\ell(J_k)$$
+\end{defn}
+
+\begin{defn}
+    Let $f:[a,b]\rightarrow \R$ be a bounded function, and let $\mathcal{P} \in \prod([a,b])$ be a partition. We then define the \Emph{upper sum} and \Emph{lower sum} of $f$ on $[a,b]$ with respect to $\mathcal{P}$ to be \begin{align*}
+        \overline{I}_{\mathcal{P}}(f) &= \sum_k\sup_{J_k}f(x)\ell(J_k) \\
+        \underline{I}_{\mathcal{P}}(f) &= \sum_k\inf_{J_k}f(x)\ell(J_k)
+    \end{align*}
+\end{defn}
+
+Note that $\underline{I}_{\mathcal{P}}(f) \leq \overline{I}_{\mathcal{P}}(f)$. These quantities should approximate the Riemann integral of $f$ if the partition $\mathcal{P}$ is sufficiently ``fine."
+
+\begin{defn}
+    Let $I = [a,b] \subseteq \R$. For $\mathcal{P},\mathcal{Q} \in \prod([a,b])$, we say that $\mathcal{P}$ \Emph{refines} $\mathcal{Q}$, and we write $\mathcal{P}\succ \mathcal{Q}$, if $\mathcal{P}$ is formed by partitioning each interval in $\mathcal{Q}$. Equivalently, $\mathcal{P} \succ \mathcal{Q}$ if and only if all the endpoints of $\mathcal{Q}$ are also endpoints of $\mathcal{P}$.
+\end{defn}
+
+Note that if $\mathcal{P},\mathcal{Q} \in \prod(I)$, then $\mathcal{P}\succ\mathcal{Q}$ implies that $$\overline{I}_{\mathcal{P}}(f) \leq \overline{I}_{\mathcal{Q}}(f)\; \text{ and }\; \underline{I}_{\mathcal{P}}(f) \geq \underline{I}_{\mathcal{Q}}(f)$$
+since we are taking infimums and supremums over smaller sets. Consequently, if $\mathcal{P}_1,\mathcal{P}_2$ are any partitions of $I$, with common refinement $\mathcal{Q}$, $$\underline{I}_{\mathcal{P}_1}(f) \leq \underline{I}_{\mathcal{Q}}(f) \leq \overline{I}_{\mathcal{Q}}(f) \leq \overline{I}_{\mathcal{P}_2}(f)$$
+We remind ourselves that if $f:I\rightarrow \R$ is bounded, all of these quantities are well defined.
+
+\begin{defn}
+    Let $f:[a,b]\rightarrow \R$ be a bounded function. Then we define the upper and lower Riemann sums to be $$\overline{I}(f) = \inf_{\mathcal{P} \in \prod([a,b])}\overline{I}_{\mathcal{P}}(f),\;\;\underline{I}(f) = \sup_{\mathcal{P} \in \prod([a,b])}\underline{I}_{\mathcal{P}}(f)$$
+    Evidently $\underline{I}(f)\leq \overline{I}(f)$. We then say that $f$ is \Emph{Riemann integrable} provided $\overline{I}(f) = \underline{I}(f)$, and in such a case we write $$\int_If(x)dx = \overline{I}(f) = \underline{I}(f)$$
+    We denote the set of Riemann integrable functions on an interval $I$ by $\mathcal{R}(I)$.
+\end{defn}
+
+\begin{prop}
+    If $f,g \in \mathcal{R}(I)$, then $f+g \in \mathcal{R}(I)$ and $$\int_I(f+g)dx = \int_Ifdx + \int_Igdx$$
+\end{prop}
+\begin{proof}
+    If $J_k$ is any subinterval of $I$, then $\sup_{J_k}(f+g) \leq \sup_{J_k}f+\sup_{J_k}g$ and $\inf_{J_k}(f+g) \geq \inf_{J_k}f+\inf_{J_k}g$. So for any partition $\mathcal{P}$, $$\underline{I}_{\mathcal{P}}(f) + \underline{I}_{\mathcal{P}}(g) \leq \underline{I}_{\mathcal{P}}(f+g) \leq \overline{I}_{\mathcal{P}}(f+g) \leq \overline{I}_{\mathcal{P}}(f)+\overline{I}_{\mathcal{P}}(g)$$ We can simultaneously approximate the upper and lower Riemann sums to obtain $$\underline{I}(f) + \underline{I}(g) \leq \underline{I}(f+g) \leq \overline{I}(f+g) \leq \overline{I}(f)+\overline{I}(g)$$ But the leftmost and rightmost terms are equal, so the whole inequality chain must be equalities and we obtain the desired result.
+\end{proof}
+
+\begin{prop}
+    If $f$ is continuous on $I$, then $f$ is Riemann integrable.
+\end{prop}
+\begin{proof}
+    Since $I$ is a compact set, $f$ is uniformly continuous on $I$. Let $\omega(\delta)$ be a modulus of continuity for $f$, so $|x-y| \leq \delta$ implies $|f(x)-f(y)|\leq \omega(\delta)$, and $\omega(\delta)\rightarrow 0$ as $\delta \rightarrow 0$. Then for $\text{maxsize}(\mathcal{P})\leq \delta$, $\overline{I}_{\mathcal{P}}(f) - \underline{I}_{\mathcal{P}}(f) \leq \omega(\delta)\cdot\ell(I)$, which yields the proposition.
+\end{proof}
+
+\begin{prop}
+    Let $f \in \mathcal{R}(I)$, and take $\varepsilon > 0$. Let $\mathcal{P}_0$ be a partition such that $$\overline{\mathcal{P}_0}(f) - \varepsilon \leq \int_Ifdx \leq \underline{I}_{\mathcal{P}_0}(f) + \varepsilon$$ Let $M = \sup_I|f(x)|$ and $\delta = \text{minsize}(\mathcal{P}_0)$. If $\mathcal{P} \in \prod(I)$, satisfying $\text{maxsize}(\mathcal{P}) \leq \frac{\delta}{k}$, for $k \in \N$, then $$\overline{I}_{\mathcal{P}}(f) - \varepsilon_1 \leq \int_Ifdx \leq \underline{I}_{\mathcal{P}}(f) + \varepsilon_1,\;\text{ with }\;\varepsilon_1 = \varepsilon + \frac{2M}{k}\ell(I)$$
+\end{prop}
+\begin{proof}
+    Consider those intervals in $\mathcal{P}$ that are contained in intervals in $\mathcal{P}_0$ and those not contained in intervals in $\mathcal{P}_0$, whose lengths sum to $\leq \ell(I)/k$. Let $\mathcal{P}_1$ be the minimal common refinement of $\mathcal{P}$ and $\mathcal{P}_0$. We obtain \begin{equation*}
+        \overline{I}_{\mathcal{P}}(f) \leq \overline{I}_{\mathcal{P}_1}(f) +\frac{2M}{k}\ell(I),\;\;\underline{I}_{\mathcal{P}}(f) \geq \underline{I}_{\mathcal{P}_1}(f) - \frac{2M}{k}\ell(I)
+    \end{equation*}
+    Since also $\overline{I}_{\mathcal{P}_1}(f) \leq \overline{I}_{\mathcal{P}_0}(f)$ and $\underline{I}_{\mathcal{P}_1}(f) \geq \underline{I}_{\mathcal{P}_0}(f)$, this implies the result.
+\end{proof}
+
+\begin{cor}[Darboux's Theorem]
+    Let $\mathcal{P}_\nu$ be any sequence of partitions of $I$ into $\nu$ intervals $J_{\nu k}$, $1 \leq k \leq \nu$, such that $$\text{maxsize}(\mathcal{P}_\nu) = \delta_\nu\rightarrow 0$$
+    and let $\xi_{\nu k}$ be any choice of one point in each interval $J_{\nu k}$ of the partition $\mathcal{P}_\nu$. Then whenever $f \in \mathcal{R}(I)$, $$\int_If(x)dx = \lim\limits_{\nu\rightarrow \infty}\sum_{k=1}^\nu f(\xi_{\nu k})\ell(J_{\nu k})$$
+\end{cor}
+
+\begin{eg}
+    For $x \in I$, set $\vartheta(x) = 1$ if $x \in \Q$, and $\vartheta(x) = 0$ if $x \notin \Q$. Now, as $\Q$ is dense in $\R$, for any partition $\mathcal{P}$ of $I$, we have $\overline{I}_{\mathcal{P}}(\vartheta) = \ell(I)$ and $\underline{I}_{\mathcal{P}}(\vartheta) = 0$, so $\overline{I}(\vartheta) = \ell(I)$ and $\underline{I}(\vartheta) = 0$. Note that we could make a sum like the one in the last corollary to converge if we choose rational $\xi_{\nu,k}$, which is why the corollary requires that the convergence must hold for arbitrary $\xi_{\nu,k}$.
+\end{eg}
+
+\begin{prop}
+    Let $f_k \in \mathcal{R}(I)$ be a uniformly bounded monotonically increasing sequence of functions. Then there is a bounded function $f$ on $I$ such that as $k\rightarrow \infty$, $f_k(x)\nearrow f(x)$, for all $x \in I$.
+\end{prop}
+
+Although we would hope $\int_If_k(x)dx\rightarrow \int_If(x)dx$, for Riemann integration such a limit might not belong to $\mathcal{R}(I)$. The Lebesgue theory of integration remedies this defect, which we will discuss next. Now, associated to the Riemann integral is a notion of the size of a set $S$, called its \Emph{content}.
+
+\begin{defn}
+    If $S \subseteq I$, define the \Emph{characteristic function} $$\chi_S(x) = 1,\;if\;x\in S,\;0\;if\;x\notin S$$ We define the \Emph{upper content} $\cont^+$ and the \Emph{lower content} $\cont^-$ by $$\cont^+(S) = \overline{I}(\chi_S),\;\;\cont^-(S) = \underline{I}(\chi_S)$$
+    We say $S$ \Emph{has content}, or \Emph{is contented}, if these quantities are equal, or equivalently if and only if $\chi_S \in \mathcal{R}(I)$, in which case we denote the common value $m(S) = \int_I\chi_S(x)dx$.
+\end{defn}
+
+From the definition we have that $$\cont^+(S) = \inf\left\{\sum_{k=1}^N\ell(J_k):S \subseteq J_1\cup \cdots \cup J_N\right\}$$
+where $J_k$ are intervals. Here we require $S$ to be a union of a finite collection of intervals.
+
+The key to the construction of the Lebesgue measure is to cover a set $S$ by a countable set of intervals. 
+
+\begin{defn}
+    The \Emph{outer measure} on $S \subseteq I$ will be defined by $$m^*(S) := \inf\left\{\sum_{k\geq 1}\ell(J_k):S\subseteq \bigcup_{k\geq 1}J_k\right\}$$ where $J_k$ are intervals.
+\end{defn}
+
+Evidently, $m^*(S) \leq \cont^+(S)$ since we are taking an infimum over a larger set. Note that if $S = I\cap \Q$, then $\chi_S = \vartheta$. In this case $\cont^+(S) = \ell(I)$, but $m^*(S) = 0$. In a sense zero is the ``right" measure of this set - countable sets should be considered as ``small" in $\R$. We continue with a few more properties of the Riemann integral.
+
+\begin{prop}
+    If $a < b < c$, $f: [a,c]\rightarrow \R$, $f_1 = f\vert_{[a,b]}, f_2 = f\vert_{[b,c]}$, then $$f \in \mathcal{R}([a,c]) \iff f_1 \in \mathcal{R}([a,b])\text{ and }f_2 \in \mathcal{R}([b,c])$$
+    and if this holds, $$\int_a^cfdx = \int_a^bf_1dx + \int_b^cf_2dx$$
+\end{prop}
+\begin{proof}
+    Since any partition of $[a,c]$ has a refinement for which $b$ is an endpoint, we may consider without loss of generality $\mathcal{P} = \mathcal{P}_1\cup\mathcal{P}_2$, where $\mathcal{P}_1$ is a partition of $[a,b]$ and $\mathcal{P}_2$ is a partition of $[b,c]$. Then $$\overline{\mathcal{P}}(f) = \overline{I}_{\mathcal{P}_1}(f_1) + \overline{\mathcal{P}_2}(f_2),\;\;\underline{I}_{\mathcal{P}}(f) = \underline{I}_{\mathcal{P}_1}(f_1)+\underline{I}_{\mathcal{P}_2}(f_2)$$
+    so $$\overline{I}_{\mathcal{P}}(f) - \underline{I}_{\mathcal{P}}(f) = [\overline{I}_{\mathcal{P}_1}(f_1) - \underline{I}_{\mathcal{P}_1}(f_1)] +  [\overline{I}_{\mathcal{P}_2}(f_2) - \underline{I}_{\mathcal{P}_2}(f_2)]$$ 
+    Since both terms in braces are $\geq 0$, we have equivalence of Riemann integrability. Then the second result follows from the two equalities above for the upper and lower sums upon taking infimums or supremums.
+\end{proof}
+
+Let $I = [a,b]$. If $f \in \mathcal{R}(I)$, then $f \in \mathcal{R}([a,x])$ for all $x \in [a,b]$, and we can consider the function $$g(x) = \int_a^xf(t)dt$$ 
+If $a \leq x_0 \leq x_1 \leq b$, then $$g(x_1) - g(x_0) = \int_{x_0}^{x_1}f(t)dt$$
+so, if $||f||_I \leq M$, then $$|g(x_1)-g(x_0)| \leq M|x_1-x_0|$$
+In other words, if $f \in \mathcal{R}(I)$, then $g$ is Lipschitz continuous on $I$. To finish this section we prove the Fundamental Theorems of Calculus.
+
+\begin{thm}[Fundamental Theorem of Calculus Part I]
+    If $f \in C([a,b])$, then the function $g$ defined above is differentiable at each point $x \in (a,b)$, and $$g'(x) = f(x)$$
+\end{thm}
+\begin{proof}
+    For $h > 0$ we have $$\frac{1}{h}[g(x+h) - g(x)] = \frac{1}{h}\int_x^{x+h}f(t)dt$$
+    If $f$ is continuous at $x$, then for any $\varepsilon > 0$ there exists $\delta > 0$ such that $|f(t) - f(x)| \leq \varepsilon$ whenever $|t-x| \leq \delta$. Thus, the right side is within $\varepsilon$ of $f(x)$ whenever $h \in (0,\delta]$. Thus, the desired limit exists as $h\searrow 0$. A similar argument treats $h\nearrow 0$.
+\end{proof}
+
+\begin{thm}[Fundamental Theorem of Calculus Part II]
+    If $G$ is differentiable and $G'(x)$ is continuous on $[a,b]$, then $$\int_a^bG'(t)dt = G(b) - G(a)$$
+\end{thm}
+\begin{proof}
+    Consider the function $g(x) = \int_a^xG'(t)dt$. We have $g \in C([a,b])$, $g(a) = 0$, and by FTOCI, $g'(x) = G'(x)$ for all $x \in (a,b)$. Thus $f(x) = g(x)-G(x)$ is continuous on $[a,b]$, and $f'(x) = 0$ for all $x \in (a,b)$. By the Mean Value Theorem this implies $f$ is constant on $[a,b]$. Granted this, since $f(a) = g(a)-G(a)= -G(a)$, we have $f(x) = -G(a)$ for all $x \in [a,b]$, so $g(x) = G(x) - G(a)$ for all $x \in [a,b]$. Taking $x = b$ yields the result.
+\end{proof}
+
+The hypothesis of this result can be weakened from $G' \in C([a,b])$ to $G' \in \mathcal{R}([a,b])$ using Darboux's theorem and a telescoping sum. We recall the Mean Value Theorem:
+
+\begin{namthm}[Mean Value Theorem]
+    Let $f:[\alpha,\beta]\rightarrow \R$ be continuous, and assume $f$ is differentiable on $(\alpha,\beta)$. Then there exists $\xi \in (\alpha, \beta)$ such that $$f'(\xi) = \frac{f(\beta) - f(\alpha)}{\beta - \alpha}$$
+\end{namthm}
+\begin{proof}
+    Consider $g(x) = f(x) - h(x-a)$, where $h = \frac{f(\beta) - f(\alpha)}{\beta - \alpha}$. Then $g(\alpha) = g(\beta)$. We claim $g'(\xi) = 0$ for some $\xi \in (\alpha,\beta)$. Indeed, since $[\alpha,\beta]$ is compact, $g$ must assume a maximum and a minimum on $[\alpha,\beta]$. If $g(\alpha) = g(\beta)$ is the minimum, then the maximum must occur in $(\alpha,\beta)$, at some $\xi$. Then $g'(\xi)$ must vanish at such a point. It follows that $f'(\xi) = h = \frac{f(\beta) - f(\alpha)}{\beta-\alpha}$.
+\end{proof}
+
+
+\begin{nota}
+    If $G$ is a function that is differentiable on $(a,b)$ and $G'$ is continuous on $(a,b)$, we say $G$ is a $C^1$ function and write $G \in C^1((a,b))$. Inductively we say $G \in C^k((a,b))$ provided $G' \in C^{k-1}((a,b))$. Similarly, define $C^k([a,b])$.
+\end{nota}
+
+
