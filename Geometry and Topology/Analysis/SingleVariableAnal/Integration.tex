@@ -1,17 +1,19 @@
 %%%%%%%%%% Integration %%%%%%%%%%
-\chapter{Integration}
+\chapter{Integration}\label{Int}
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
 
 \section{Introduction to Definite Integrals}
 
-\begin{defn}
+\begin{definition}\index{Partition}
     Let $a < b$. A \Emph{partition} of the interval $I= [a,b]$ is a finite collection of points in $[a,b]$, one of which is $a$, and one of which is $b$. Equivalently, a partition of $I$ into $N$ subintervals consists pf endpoints $x_0 = a<x_1 < ... < x_N = b$ with subinterval $k$ being $J_k = [x_k,x_{k+1}]$ for $0 \leq k \leq N-1$.
-\end{defn}
+\end{definition}
 The points in a partition can be numbered $t_0,...,t_n$ so that \begin{equation}
     a = t_0 < t_1 < ... < t_{n-1} < t_n = b
 \end{equation}
 we shall always assume that such a numbering has been assigned.
 
-\begin{defn}
+\begin{definition}\index{Upper sum}\index{Lower sum}
     Suppose $f:I\rightarrow \R$ is bounded on $I=[a,b]$ so there exists $M \in \R^+$ such that $||f||_I \leq M$. Let $P = \{t_0,...,t_N\} \in \prod([a,b])$ be a partition of $[a,b]$. The \Emph{lower Riemann sum} of $f$ for $P$, denoted $L(f,P)$, is defined as \begin{equation}
         L(f,P) := \sum\limits_{k=0}^{N-1}\inf_{J_k}(f)\ell(J_k)
     \end{equation}
@@ -19,10 +21,10 @@ we shall always assume that such a numbering has been assigned.
         U(f,P) = \sum\limits_{i=0}^{N-1}\sup_{J_k}(f)\ell(J_k)
     \end{equation}
     where $\ell(J_k) = t_{k+1} - t_k > 0$. Note $$-M \leq \sup_{J_k}(f) \leq M$$ and $$-M\leq \inf_{J_k}(f) \leq M$$
-\end{defn}
+\end{definition}
 
 
-\begin{rmk}
+\begin{remark}
     If $P$ is any partition, then \begin{equation}
         L(f,P) \leq U(f,P)
     \end{equation}
@@ -31,17 +33,17 @@ we shall always assume that such a numbering has been assigned.
         U(f,P) &= \sum\limits_{i=0}^{N-1}\sup_{J_k}(f)\ell(J_k)
     \end{align*}
     and for each $i$ we have $\inf_{J_k}(f)\ell(J_k) \leq \sup_{J_k}(f)\ell(J_k)$.
-\end{rmk}
+\end{remark}
 
-\begin{defn}
+\begin{definition}\index{Refinement}
     Given two partitions $P$ adn $Q$ of $I$, we say $P$ is a \Emph{refinement} of $Q$ if every endpoint in $Q$ belongs to $P$, and we write $$P \succ Q$$
-\end{defn}
+\end{definition}
 
-\begin{lem}
+\begin{lemma}
     If $P$ is a partition of $[a,b]$ which contains $Q$, that is $P \succ Q$, then \begin{align*}
         L(f,Q) &\leq L(f,P) \text{ and } U(f,Q) &\geq U(f,P)
     \end{align*}
-\end{lem}
+\end{lemma}
 \begin{proof}
     Consider first the special case in which $Q$ contains just one more point than $P$;\begin{align*}
         P &=\{t_0,...,t_n\} \\
@@ -105,34 +107,34 @@ we shall always assume that such a numbering has been assigned.
 
 
 
-\begin{thm}
+\begin{theorem}
     Let $P_1$ and $P_2$ be partitions of $[a,b]$, and let $f$ be a function which is bounded on $[a,b]$. Then \begin{equation}
         L(f,P_1) \leq U(f,P_2)
     \end{equation}
-\end{thm}
+\end{theorem}
 \begin{proof}
     There is a partition $P$ which contains both $P_1$ and $P_2$ (let $P = P_1 \cup P_2$). According to the lemma \begin{equation*}
         L(f,P_1) \leq L(f,P) \leq U(f,P) \leq U(f,P_1)
     \end{equation*}
 \end{proof}
 
-\begin{defn}
+\begin{definition}
     Let $\prod(I)$ denote the set of all partitions of $I$. We define the \Emph{upper} and \Emph{lower Riemann integrals} by $$U_{I}(f) = \inf_{P\in \prod(I)}U(f,P) \geq L_I(f) = \sup_{P\in \prod(I)}L(f,P)$$
-\end{defn}
+\end{definition}
 
 
 
-\begin{defn}[Definite Integral]
+\begin{definition}[Definite Integral]\index{Integral}
     A function $f$ which is bounded on $[a,b]$ is said to be \Emph{Riemann integrable} on $[a,b]$ if and only if $$L_I(f) = U_I(f)$$ In this case, this common number is called the \Emph{integral} of $f$ on $[a,b]$ and is denoted by \begin{equation}                            
         \int_If = \int_a^bf(x)dx = L_I(f) = U_I(f)
     \end{equation}
     The integral $\int_If$ is also called the \Emph{area} of $R(f,a,b)$ when $f(x) \geq 0$ for all $x \in [a,b]$.
-\end{defn}
+\end{definition}
 
 
-\begin{thm}
+\begin{theorem}
     If $f$ is bounded on $[a,b]$, then $f$ is integrable on $[a,b]$ if and only if for every $\epsilon > 0$ there is a partition $P$ of $[a, b]$ such that $$U(f,P) - L(f,P) < \epsilon$$
-\end{thm}
+\end{theorem}
 \begin{proof}
     Suppose first that for every $\epsilon > 0$ there is such a partition $P$. Since \begin{align*}
         U_I(f) &\leq U(f,P) \\
@@ -155,14 +157,14 @@ we shall always assume that such a numbering has been assigned.
 	\end{equation*}
 \end{proof}
 
-\begin{eg}
+\begin{example}
     Define $f(x) = \left\{\begin{array}{cc} 1 & x \in \Q\cap[0,1] \\ 0 & x \notin \Q\cap [0,1]  \end{array}\right.$ Since both $S = \Q\cap [0,1]$ and $[0,1]\backslash S$ are dense in $[0,1]$, for any subinterval $J_k$ we have $\sup_{J_k}(f) = 1$ and $\inf_{J_k}(f) = 0$ so $L_I(f) = 0 < 1 = U_I(f)$. Thus $f$ is not Riemann integrable, but it is Lebesque integrable since $\Q$ is a set of measure $0$.
-\end{eg}
+\end{example}
 
 
-\begin{thm}
+\begin{theorem}
     If $f \in \mathcal{C}(I)$ is continuous on $I=[a,b]$, then $f \in \mathcal{R}(I)$ is integrable on $I=[a,b]$.
-\end{thm}
+\end{theorem}
 \begin{proof}
     Notice, first, that $f$ is bounded on $[a,b]$, because it is continuous on $[a,b]$. To prove that $f$ is integrable on $[a,b]$, we want to use our previous theorem, and show that for every $\epsilon > 0$ there is a partition $P$ of $[a,b]$ such that \begin{equation*}
         U(f,P) - L(f,P) < \epsilon
@@ -180,9 +182,9 @@ we shall always assume that such a numbering has been assigned.
 \end{proof}
 
 
-\begin{prop}\label{prop:4.2.1}
+\begin{proposition}\label{prop:4.2.1}
     $\mathcal{R}(I)$ is a $\R$-vector space. If $f,g \in \mathcal{R}(I), a \in \R$, then $af+g \in \mathcal{R}(I)$, and $$\int_I(af+g) = a\int_If+\int_Ig$$
-\end{prop}
+\end{proposition}
 \begin{proof}
     First we do additivity. Let $J_k \subseteq I$. Then $\sup_{J_k}(f+g) \leq \sup_{J_k}(f) + \sup_{J_k}(g)$ and $\inf_{J_k}(f+g) \geq \inf_{J_k}(f) + \inf_{J_k}(f)$. So it follows that $U(f+g,P) \leq U(f,P) + U(g,P)$ for any $P \in \prod(I)$ and $L(f+g,P) \geq L(f,P) + L(g,P)$. Then we have $$L_I(f) + L_I(g) \leq L_I(f+g) \leq U_I(f+g) \leq U_I(f) + U_I(g)$$ where by assumption $L_I(f) = U_I(f)$ and $L_I(g) = U_I(g)$, so $U_I(f+g) = L_I(f+g)$, and $f+g \in \mathcal{R}(I)$. Further, $\int_I(f+g) = U_I(f+g) = U_I(f) + U_I(g) = \int_If + \int_Ig$. 
 
@@ -191,11 +193,11 @@ we shall always assume that such a numbering has been assigned.
 
 
 
-\begin{thm}
+\begin{theorem}
     Let $a < c < b$. If $f$ is integrable on $[a,b]$, then $f$ is integrable on $[a,c]$ and one $[c,b]$. Conversely, if $f$ is integrable on $[a,c]$ and on $[c,b]$, then $f$ is integrable on $[a.b]$. Finally, if $f$ is integrable on $[a,b]$, then \begin{equation}
         \int_a^bf = \int_a^cf + \int_c^bf
     \end{equation}
-\end{thm}
+\end{theorem}
 \begin{proof}
     (1) Suppose $f$ is integrable on $[a,b]$. Then $f$ is bounded on $[a,b]$, so it is bounded on $[a,c]$ and $[c,b]$. Indeed, $f$ being bounded implies that there exists $M \in \R$ such that for all $x \in [a,b]$ $|f(x)| \leq M$. Thus, as this applies for all $x \in [a,b]$ and $[a,c],[c,b] \subset [a,b]$, we have that it holds for all $x \in [a,c]$ and all $x \in [c,b]$. Now fix $\epsilon > 0$. Then there exists a partition $P$ of $[a,b]$ such that $$U(f,P) - L(f,P) < \epsilon$$
     Without loss of generality suppose $c=t_j$ for some $t_j \in P = \{t_0,t_1,...,t_n\}$. Then we have partitions $P' = \{t_0,...,t_j\}$ and $P'' = \{t_j,...,t_n\}$ for $[a,c]$ and $[c,b]$ respectively. Moreover, \begin{align*}
@@ -237,21 +239,21 @@ we shall always assume that such a numbering has been assigned.
 \end{proof}
 
 
-\begin{defn}
+\begin{definition}
     Using the previous theorem, we define \begin{equation}
         \int_a^af := 0 \;\;\;and\;\;\;\int_a^bf := -\int_b^af,\;for\;a>b
     \end{equation}
-\end{defn}
+\end{definition}
 
 
-\begin{thm}\label{thm:boundint}
+\begin{theorem}\label{thm:boundint}
     Suppose $f$ is integrable on $[a,b]$ and that \begin{equation}
         m \leq f(x) \leq M \forall x \in [a,b]
     \end{equation}
     Then \begin{equation}
         m(b-a) \leq \int_a^bf \leq M(b-a)
     \end{equation}
-\end{thm}
+\end{theorem}
 \begin{proof}
     It is clear that $M \geq \sup\{f(x):x \in [a,b]\}$ and $m \leq \inf\{f(x):x\in [a,b]\}$, so \begin{equation*}
         m(b-a) \leq L(f,P)\;and\;M(b-a) \geq U(f,P)
@@ -261,19 +263,18 @@ we shall always assume that such a numbering has been assigned.
     \end{equation*}
 \end{proof}
 
-\begin{rmk}
-    If $f$ is integrable on $[a,b]$, we can define a new function $F$ on $[a,b]$ by \begin{equation}
-        F(x) = \int_a^xf = \int_a^xf(t)dt
-    \end{equation}
-\end{rmk}
+If $f$ is integrable on $[a,b]$, we can define a new function $F$ on $[a,b]$ by \begin{equation}
+    F(x) = \int_a^xf = \int_a^xf(t)dt
+\end{equation}
 
 
-\begin{thm}
+
+\begin{theorem}
     If $f$ is integrable on $[a,b]$ and $F$ is defined on $[a,b]$ by \begin{equation*}
         F(x) = \int_a^xf
     \end{equation*}
     then $F$ is continuous on $[a,b]$.
-\end{thm}
+\end{theorem}
 \begin{proof}
     Suppose $c \in [a,b]$. Since $f$ is integrable on $[a,b]$ it is, by definition, bounded on $[a,b]$; let $M$ be a number such that \begin{equation*}
         |f(x)| \leq M,\forall x \in [a,b]
@@ -304,7 +305,7 @@ we shall always assume that such a numbering has been assigned.
 
 \section{Reimann Sums}
 
-\begin{defn}
+\begin{definition}\index{Riemann sum}
     Suppose $P = \{t_0,...,t_N\}$ is a partition of $[a,b]$, and for each $k$ choose $\xi_k \in J_k$. Then we clearly have that \begin{equation}
         L(f,P) \leq \sum\limits_{k=0}^{N-1}f(\xi_k)\ell(J_k) \leq U(f,P)
     \end{equation}
@@ -312,14 +313,14 @@ we shall always assume that such a numbering has been assigned.
         \sum\limits_{k=0}^{N-1}f(\xi_k)\ell(J_k)
     \end{equation}
     is called a \Emph{Reimann sum} of $f$ for $P$.
-\end{defn}
+\end{definition}
 
 
 Before proving an important result related to Riemann sums and definite integrals, we handle the following proposition:
 
-\begin{prop}
+\begin{proposition}
     Suppose $f:[a,b]\rightarrow \R$ is bounded by $M \in \R^+$. If $P$ and $Q$ are partitions of $[a,b]$ such that for some $k > 1$ $$\text{maxsize}(P) \leq \frac{\text{minsize}(Q)}{k}$$ then $$U(f,P) \leq U(f,Q) + \frac{2M\ell([a,b])}{k}$$ and $$L(f,P) \geq L(f,Q) - \frac{2M\ell([a,b])}{k}$$
-\end{prop}
+\end{proposition}
 \begin{proof}
     Let $P_1 = P\cup Q$ be the common refinement of $P$ and $Q$. The intervals in $P$, denoted $\tilde{J}_i$, can be separated into two classes, \begin{enumerate}
         \item[(i)] $\tilde{J}_i \subseteq J_k$ for some $k$, where $J_k$ are the intervals in $Q$
@@ -337,9 +338,9 @@ Before proving an important result related to Riemann sums and definite integral
 
 Now we move on to our fundamental result:
 
-\begin{namthm}[Darboux's Theorem]
+\begin{theorem}[Darboux's Theorem]\index{Darboux's Theorem}
     Let $f:[a,b]\rightarrow \R$ be bounded. Let $P_{\nu} \in \prod([a,b])$ be a sequence of partitions of $I=[a,b]$ such that $$\lim\limits_{\nu\rightarrow \infty}\text{maxsize}(P_{\nu}) = 0$$ Then $$U_I(f) = \lim\limits_{\nu\rightarrow \infty}U(f,P_{\nu})$$ and $$L_I(f) = \lim\limits_{\nu\rightarrow \infty}L(f,P_{\nu})$$ In particular, $f \in \R([a,b])$ if and only if $$\int_If = \lim\limits_{\nu\rightarrow \infty}\sum_{k=0}^{N_{\nu}-1}f(\xi_{\nu,k})\ell(J_{\nu,k})$$ where $P_{\nu} = (a=x_{\nu,0} < ... < x_{\nu,N_{\nu}}=b)$, $J_{\nu,k} = [x_{\nu,k},x_{\nu,k+1}]$, and where $\xi_{\nu,k}$ is an arbitrary point of $J_{\nu,k}$.
-\end{namthm}
+\end{theorem}
 \begin{proof}
     Let $P_{\nu} \in \prod([a,b])$ be a sequence of partition such that $\lim\limits_{\nu\rightarrow \infty}\text{maxsize}P_{\nu} = 0$. Note $U_I(f) = \inf_{P\in\prod([a,b])}U(f,P)$, which exists and is well defined if $f$ is bounded, and similarly for $L_I(f) = \sup_{P \in \prod([a,b])}L(f,P)$. Given $\varepsilon > 0$, there exists $Q \in \prod(I)$ such that $U_I(f) + \varepsilon \geq U(f,Q) \geq U_I(f)$ and taking a refinement if needed, $L_I(f) - \varepsilon \leq L(f,Q) \leq L_I(f)$. Let $\nu,\mu \geq N$ such that $$\text{maxsize}P_{\nu} \leq \varepsilon\text{minsize}Q,\;\forall\nu\geq N$$ In particular, we can choose $\varepsilon = \frac{1}{k}$, $k \in \N$, $k > 1$. By the previous proposition \begin{align*}
         U(f,P_{\nu}) &\leq U(f,Q) + \varepsilon 2M\ell(I) \\
@@ -354,7 +355,7 @@ Now we move on to our fundamental result:
 
 \section{The Fundamental Theorem of Calculus}
 
-\begin{namthm}[The Fundamental Theorem of Calculus Part 1]\label{thm:FTC1}
+\begin{theorem}[The Fundamental Theorem of Calculus Part 1]\label{thm:FTC1}\index{FTC I}
     Let $f \in \mathcal{R}([a,b])$ be integrable on $[a,b]$, and define $F$ on $[a,b]$ by \begin{equation}
         F(x) = \int_a^xf = \int_a^xf(t)dt
     \end{equation}
@@ -362,7 +363,7 @@ Now we move on to our fundamental result:
         F'(c) = f(c)
     \end{equation}
     (if $c = a$ or $b$, then $F'(c)$ is understood to mean the right or left hand derivative of $F$).
-\end{namthm}
+\end{theorem}
 \begin{proof}
     First, consider $c \in (a,b)$. By definition,\begin{equation*}
         F'(c) = \lim\limits_{h\rightarrow 0}\frac{F(c+h)-F(c)}{h}
@@ -431,9 +432,9 @@ so for $c \in [a,b]$, \begin{equation}
 \end{equation}
 as before.
 
-\begin{namthm}[Fundamental Theorem of Calculus Part 2]\label{thm:FTC2}
+\begin{theorem}[Fundamental Theorem of Calculus Part 2]\label{thm:FTC2}\index{FTC II}
     Suppose $G$ is continuous in $[a,b]$ and differentiable in $(a,b)$, with $G' \in \mathcal{R}([a,b])$. Then $$\int_a^bG'(t)dt = G(b)-G(a)$$
-\end{namthm}
+\end{theorem}
 \begin{proof}
     Let $G$ be as described. Let $P_n$ be a partition with endpoints $a + \frac{b-a}{n}k$ for $0 \leq k \leq n$. By Darboux's theorem, for arbitrary $\xi_{n,k} \in J_{n,k} = \left[a+\frac{b-a}{n}k,a+\frac{b-a}{n}(k+1)\right]$, \begin{equation*}
         \int_a^bG'(t)dt = \lim\limits_{n\rightarrow \infty}\sum_{k=0}^{n-1}G'(\xi_{n,k})\ell(J_{n,k}) = \lim\limits_{n\rightarrow \infty}\sum_{k=0}^{n-1}G'(\xi_{n,k})\frac{b-a}{n}
@@ -473,9 +474,9 @@ We shall now demonstrate an alternate proof for the following theorem stated pre
 
 
 
-\begin{thm}
+\begin{theorem}
     If $f$ is continuous on $[a,b]$, then $f$ is integrable on $[a,b]$.
-\end{thm}
+\end{theorem}
 \begin{proof}
     Define function $L$ and $U$ on $[a,b]$ by \begin{equation*}
         L(x) = \mathbf{L}\int_a^xf\;\;and\;\;U(x) = \mathbf{U}\int_a^xf
@@ -522,7 +523,7 @@ We shall now demonstrate an alternate proof for the following theorem stated pre
 
 Using properties of sets, we can investigate the collection of Riemann integrable functions more carefully.
 
-\begin{defn}
+\begin{definition}\index{Content}
     Given $S \subseteq I$ we define the \Emph{characteristic function for $S$} by \begin{equation*}
         \chi_S(x) = \left\{\begin{array}{cc} 1 & x \in S \\ 0 & x \notin S \end{array}\right.
     \end{equation*}
@@ -530,26 +531,26 @@ Using properties of sets, we can investigate the collection of Riemann integrabl
         \text{cont}^+(S) := U_I(\chi_S)\;\text{ and }\;\text{cont}^-(S) = L_I(\chi_S)
     \end{equation*}
     If $\text{cont}^+(S) = \text{cont}^-(S)$ we say that $S$ has \Emph{content} $$m(S) = \text{cont}^+(S) = \text{cont}^-(S)$$ and say $S$ is \Emph{contented}.
-\end{defn}
+\end{definition}
 
 We observe by Darboux's theorem $\text{cont}^+(S) = U_I(\chi_S) = \lim\limits_{\nu\rightarrow \infty}U(\chi_S,P_{\nu})$ if $\text{maxsize}P_{\nu}\rightarrow 0$. Since $\sup_{J}\chi_S = 1$ if $S \cap J \neq \emptyset$, $\sup_{J}\chi_S = 0$ if $S\cap J = \emptyset$, $\inf_J(\chi_S) = 1$ if $S \supseteq J$, and $\inf_J(\chi_S) = 0$ if $S \cancel{\supseteq} J$, we can formulate the upper and lower contents by $$\text{cont}^+(S) = \inf\left\{\sum_{k=1}^N\ell(J_k):S \subseteq \bigcup_{k=1}^NJ_k\right\}$$ and $$\text{cont}^-(S) = \sup\left\{\sum_{k=1}^N\ell(J_k):S \supseteq \sqcup_{k=1}^NJ_k\right\}$$ (Note we need disjoint sets for the lower content)
 
 We now define the Lebesque measure, which extends the upper content to what is known as an outer measure.
 
 
-\begin{defn}
+\begin{definition}\index{Lebesque measure}
     We define the \Emph{Lebesque measure} by $$m^*(S) = \inf\left\{\sum_{k\geq 1}\ell(J_k): S\subseteq \bigcup_{k\geq 1}J_k\right\}$$ which is an \Emph{outer measure}, and we can define the associated \Emph{inner measure} by $$m_*(S) = \sup\left\{\sum_{k\geq 1}\ell(J_k):S\supseteq \sqcup_{k\geq 1}J_k\right\}$$
-\end{defn}
+\end{definition}
 
-\begin{eg}
+\begin{example}
     We observe that $\text{cont}^+(\Q\cap [0,1]) = 1$ and $\text{cont}^-(\Q\cap [0,1]) = 0$, but $m^*(\Q\cap [0,1]) = 0$. Indeed, as $\Q\cap [0,1] = \{q_1,q_2,...\}$ is countable, if $\varepsilon > 0$ we can choose $J_k = \left[q_k - \frac{\varepsilon}{2^{k+2}}, q_k + \frac{\varepsilon}{2^{k+2}}\right]\cap[0,1]$. Then $\Q\cap[0,1] \subseteq \bigcup_{k\geq 1}J_k$ and $$\sum_{k\geq 1}\ell(J_k) \leq \sum_{k\geq 1}\frac{\varepsilon}{2^{k+1}} \leq \frac{\varepsilon}{2} < \varepsilon$$ 
-\end{eg}
+\end{example}
 
 In general, if $S$ is countable then $m^*(S) = 0$. We can now investigate a necessary and sufficient condition for Riemann integrability: 
 
-\begin{prop}\label{prop:4.2.12}
+\begin{proposition}\label{prop:4.2.12}
     If $f:I=[a,b]\rightarrow \R$ is bounded, and $S$ is the set of points of discontinuity of $f$ in $[a,b]$, then $m^*(S) 0$ implies $f \in \mathcal{R}(I)$, where $$m^*(S) = \inf\left\{\sum_{k\geq 1}\ell(J_k):S\subseteq \bigcup_{k\geq 1}J_k\right\}$$
-\end{prop}
+\end{proposition}
 \begin{proof}
     As $f$ is bounded, there exists $M > 0$ such that $||f||_{\infty} \leq M$. Let $\varepsilon > 0$. As $m^*(S) = 0$, there exists $J_k$, $k\geq 1$, such that $$S \subseteq \bigcup_{k\geq 1}J_k\;\text{ and }\;\sum_{k=1}^{\infty}\ell(J_k) < \varepsilon$$ If $x \in I\backslash S$, then there exists an open interval $K_x$ containing $x$ such that $$0 \leq \sup_{K_x}(f) - \inf_{K_x}(f) < \varepsilon$$ as $f$ is continuous at $x$. Then $I \subseteq \left(\bigcup_{k\geq 1}J_k\right) \cup\left(\bigcup_{x \in I\backslash S}K_x\right)$. But $I$ is compact so there exists a finite covering $$I \subseteq \left(\bigcup_{k=1}^NJ_k\right) \cup\left(\bigcup_{i=1}^MK_i\right)$$ Let $P \in \prod(I)$ be the partition conformed by all the endpoints of intervals $J_l, 1 \leq l \leq N$, and $K_i, 1 \leq i \leq M$. Write $P = \{L_1,...,L_{\mu}\}$. We have two cases: \begin{enumerate}
         \item $L_j \subseteq K_i$ for some $i$ or 
@@ -565,366 +566,367 @@ In general, if $S$ is countable then $m^*(S) = 0$. We can now investigate a nece
 \end{proof}
 
 
-\begin{subappendices}
-    \section{Trigonometric Functions}
+%
+\section*{Appendix A: Trigonometric Functions}
+\addcontentsline{toc}{section}{Appendix A: Trigonometric Functions}
+%
 
-    \begin{defn}
-        We define the mathematical constant $\pi$ as the area of the unit circle, or in this case, twice the area of a semi-circle:\begin{equation}
-            \pi:=2\cdot \int_{-1}^1\sqrt{1-x^2}dx
-        \end{equation}
-    \end{defn}
-
-
-    \begin{defn}
-        If $-1 \leq x \leq 1$, then the area of the sector bounded between the upper unit circle from $[x,1]$ and the $x$-axis and radial arm is \begin{equation}
-            A(x) := \frac{x\sqrt{1-x^2}}{2} + \int_x^1\sqrt{1-t^2}dt
-        \end{equation}
-    \end{defn}
-
-    \begin{rmk}
-        For $-1 < x < 1$, $A$ is differentiable at $x$ and \begin{align*}
-            A'(x) &= \frac{1}{2}\left[\sqrt{1-x^2} +x\cdot\frac{-2x}{2\sqrt{1-x^2}}\right] -\sqrt{1-x^2} \\
-            &= \frac{1}{2}\frac{1-x^2-x^2}{\sqrt{1-x^2}} - \frac{1-x^2}{\sqrt{1-x^2}} \\
-            &= \frac{1}{2}\frac{-1}{\sqrt{1-x^2}} \\
-            &= \frac{-1}{2\sqrt{1-x^2}}
-        \end{align*}
-        Note that on $[-1,1]$, the function $A$ decreases from $A(-1) = \frac{\pi}{2}$ to $A(1) = 0$.
-    \end{rmk}
-
-    \begin{defn}
-        If $0 \leq x \leq \pi$, then $\cos x$ is the unique number in $[-1,1]$ such that \begin{equation}
-            A(\cos x) = \frac{x}{2}
-        \end{equation}
-        and \begin{equation}
-            \sin x := \sqrt{1-(\cos x)^2}
-        \end{equation}
-        Note that such a $\cos x$ exists as $A$ is continuous on $[-1,1]$, and $A(-1) = \frac{\pi}{2}$ while $A(1) = 0$. Hence, by \ref{thmname:intval} there exists $y \in [-1,1]$ such that $A(y) = \frac{x}{2}$ for all $x \in [0,\pi]$.
-    \end{defn}
+\begin{definition}
+    We define the mathematical constant $\pi$ as the area of the unit circle, or in this case, twice the area of a semi-circle:\begin{equation}
+        \pi:=2\cdot \int_{-1}^1\sqrt{1-x^2}dx
+    \end{equation}
+\end{definition}
 
 
-    \begin{thm}
-        If $0 < x < \pi$, then \begin{align*}
-            \cos'(x) &= -\sin x \\
-            \sin'(x) &= \cos x
-        \end{align*}
-    \end{thm}
-    \begin{proof}
-        If $B = 2A$, then the definition $A(\cos x) = x/2$ can be written \begin{equation*}
-            B(\cos x) = x
-        \end{equation*}
-        in other words, $\cos$ is just the inverse of $B$. We have already computed taht \begin{equation*}
-            A'(x) = -\frac{1}{2\sqrt{1-x^2}}
-        \end{equation*}
-        from which we conclude \begin{equation*}
-            B'(x) = -\frac{1}{\sqrt{1-x^2}}
-        \end{equation*}
-        Consequently we have that \begin{align*}
-            \cos'(x) &= (B^{-1})'(x) \\
-            &= \frac{1}{B'(B^{-1}(x))} \\
-            &= \frac{1}{-\frac{1}{\sqrt{1-[B^{-1}(x)]^2}}} \\
-            &= -\sqrt{1-(\cos x)^2} \\
-            &= - \sin x
-        \end{align*}
-        Then, since $\sin x = \sqrt{1-(\cos x)^2}$ we also obtain \begin{align*}
-            \sin'(x) &= \frac{1}{2}\cdot \frac{-2\cos x\cdot \cos'(x)}{\sqrt{1-(\cos x)^2}} \\
-            &= \frac{-\cos x\cdot (-\sin x)}{\sin x}\\
-            &= \cos x
-        \end{align*}
-    \end{proof}
-    
+\begin{definition}
+    If $-1 \leq x \leq 1$, then the area of the sector bounded between the upper unit circle from $[x,1]$ and the $x$-axis and radial arm is \begin{equation}
+        A(x) := \frac{x\sqrt{1-x^2}}{2} + \int_x^1\sqrt{1-t^2}dt
+    \end{equation}
+\end{definition}
 
-    \begin{defn}
-        Now, to define $\sin$ and $\cos$ on $\R$, we proceed as follows \begin{enumerate}
-            \item If $\pi \leq x \leq 2\pi$, the \begin{align*}
-                    \sin x &= -\sin(2\pi - x) \\
-                    \cos x &= \cos(2\pi - x)
-                \end{align*}
-            \item If $x = 2\pi k+x'$ for some integer $k$ and some $x' \in [0,2\pi]$, then \begin{align*}
-                    \sin x &= \sin x' \\
-                    \cos x &= \cos x'
+\begin{remark}
+    For $-1 < x < 1$, $A$ is differentiable at $x$ and \begin{align*}
+        A'(x) &= \frac{1}{2}\left[\sqrt{1-x^2} +x\cdot\frac{-2x}{2\sqrt{1-x^2}}\right] -\sqrt{1-x^2} \\
+        &= \frac{1}{2}\frac{1-x^2-x^2}{\sqrt{1-x^2}} - \frac{1-x^2}{\sqrt{1-x^2}} \\
+        &= \frac{1}{2}\frac{-1}{\sqrt{1-x^2}} \\
+        &= \frac{-1}{2\sqrt{1-x^2}}
+    \end{align*}
+    Note that on $[-1,1]$, the function $A$ decreases from $A(-1) = \frac{\pi}{2}$ to $A(1) = 0$.
+\end{remark}
+
+\begin{definition}
+    If $0 \leq x \leq \pi$, then $\cos x$ is the unique number in $[-1,1]$ such that \begin{equation}
+        A(\cos x) = \frac{x}{2}
+    \end{equation}
+    and \begin{equation}
+        \sin x := \sqrt{1-(\cos x)^2}
+    \end{equation}
+    Note that such a $\cos x$ exists as $A$ is continuous on $[-1,1]$, and $A(-1) = \frac{\pi}{2}$ while $A(1) = 0$. Hence, by \ref{thmname:intval} there exists $y \in [-1,1]$ such that $A(y) = \frac{x}{2}$ for all $x \in [0,\pi]$.
+\end{definition}
+
+
+\begin{theorem}
+    If $0 < x < \pi$, then \begin{align*}
+        \cos'(x) &= -\sin x \\
+        \sin'(x) &= \cos x
+    \end{align*}
+\end{theorem}
+\begin{proof}
+    If $B = 2A$, then the definition $A(\cos x) = x/2$ can be written \begin{equation*}
+        B(\cos x) = x
+    \end{equation*}
+    in other words, $\cos$ is just the inverse of $B$. We have already computed taht \begin{equation*}
+        A'(x) = -\frac{1}{2\sqrt{1-x^2}}
+    \end{equation*}
+    from which we conclude \begin{equation*}
+        B'(x) = -\frac{1}{\sqrt{1-x^2}}
+    \end{equation*}
+    Consequently we have that \begin{align*}
+        \cos'(x) &= (B^{-1})'(x) \\
+        &= \frac{1}{B'(B^{-1}(x))} \\
+        &= \frac{1}{-\frac{1}{\sqrt{1-[B^{-1}(x)]^2}}} \\
+        &= -\sqrt{1-(\cos x)^2} \\
+        &= - \sin x
+    \end{align*}
+    Then, since $\sin x = \sqrt{1-(\cos x)^2}$ we also obtain \begin{align*}
+        \sin'(x) &= \frac{1}{2}\cdot \frac{-2\cos x\cdot \cos'(x)}{\sqrt{1-(\cos x)^2}} \\
+        &= \frac{-\cos x\cdot (-\sin x)}{\sin x}\\
+        &= \cos x
+    \end{align*}
+\end{proof}
+
+
+\begin{definition}
+    Now, to define $\sin$ and $\cos$ on $\R$, we proceed as follows \begin{enumerate}
+        \item If $\pi \leq x \leq 2\pi$, the \begin{align*}
+                \sin x &= -\sin(2\pi - x) \\
+                \cos x &= \cos(2\pi - x)
             \end{align*}
-        \end{enumerate}
-    \end{defn}
-
-
-    \begin{lem}
-        Suppose $f$ has a second derivative everywhere and that \begin{align*}
-            f''+f&= 0\\
-            f(0) &= 0\\
-            f'(0) &= 0\\
+        \item If $x = 2\pi k+x'$ for some integer $k$ and some $x' \in [0,2\pi]$, then \begin{align*}
+                \sin x &= \sin x' \\
+                \cos x &= \cos x'
         \end{align*}
-        Then $f = 0$
-    \end{lem}
-    \begin{proof}
-        Multiplying both sides of the first equation by $f'$ yields \begin{equation*}
-            f'f'' + ff' = 0
-        \end{equation*}
-        Thus \begin{equation*}
-            [(f')^2+f^2]' = 2(f'f'' + ff') = 0
-        \end{equation*}
-        so $(f')^2+f^2$ is a constant function. From $f(0) = 0$ and $f'(0) = 0$ it follows that the constant is $0$; thus \begin{equation*}
-            [f'(x)]^2+[f(x)]^2=0\forall x
-        \end{equation*}
-        This implies that \begin{equation*}
-            f(x) = 0 \forall x
-        \end{equation*}
-    \end{proof}
-
-    \begin{thm}
-        If $f$ has a second derivative everywhere and \begin{align*}
-            f'' + f &= 0 \\
-            f(0) &= a \\
-            f'(0) &= b 
-        \end{align*}
-        then \begin{equation*}
-            f = b\cdot \sin + a \cdot \cos
-        \end{equation*}
-    \end{thm}
-    \begin{proof}
-        Let \begin{equation*}
-            g(x) = f(x) - b\sin x - a \cos x
-        \end{equation*}
-        Then \begin{align*}
-            g'(x) &= f'(x) - b\cos x + a \sin x \\
-            g''(x) &= f''(x) + b\sin x + a\cos x
-        \end{align*}
-        Consequently, \begin{align*}
-            g'' + g &= 0 \\
-            g(0) &= 0 \\
-            g'(0) &= 0
-        \end{align*}
-        which shows by the previous lemma that \begin{equation*}
-            0 = g(x) = f(x) - b\sin x - a\cos x, \forall x
-        \end{equation*}
-    \end{proof}
+    \end{enumerate}
+\end{definition}
 
 
-    \begin{thm}
-        If $x$ and $y$ are any two numbers, then \begin{align*}
-            \sin(x+y) &= \sin x\cos y + \cos x \sin y \\
-            \cos(x+y) &= \cos x\cos y - \sin x \sin y
-        \end{align*}
-    \end{thm}
-    \begin{proof}
-        For any particular $y \in \R$, we can define a function $f$ by \begin{equation*}
-            f(x) = \sin(x+y)
-        \end{equation*}
-        Then $f'(x) = \cos(x+y)$ and $f''(x) = -\sin(x+y)$. Consequently, \begin{align*}
-            f'' + f &= 0 \\
-            f(0) &= \sin y \\
-            f'(0) &= \cos y
-        \end{align*}
-        It follows from the previous theorem that \begin{equation*}
-            f = (\cos y)\cdot \sin + (\sin y) \cdot \cos
-        \end{equation*}
-        that is \begin{equation*}
-            \sin(x+y) = \cos y\sin x+\sin y \cos x,\forall x
-        \end{equation*}
-        Since any number $y$ could have been chosen to begin with, this proves the first formula for $x$ and $y$.
+\begin{lemma}
+    Suppose $f$ has a second derivative everywhere and that \begin{align*}
+        f''+f&= 0\\
+        f(0) &= 0\\
+        f'(0) &= 0\\
+    \end{align*}
+    Then $f = 0$
+\end{lemma}
+\begin{proof}
+    Multiplying both sides of the first equation by $f'$ yields \begin{equation*}
+        f'f'' + ff' = 0
+    \end{equation*}
+    Thus \begin{equation*}
+        [(f')^2+f^2]' = 2(f'f'' + ff') = 0
+    \end{equation*}
+    so $(f')^2+f^2$ is a constant function. From $f(0) = 0$ and $f'(0) = 0$ it follows that the constant is $0$; thus \begin{equation*}
+        [f'(x)]^2+[f(x)]^2=0\forall x
+    \end{equation*}
+    This implies that \begin{equation*}
+        f(x) = 0 \forall x
+    \end{equation*}
+\end{proof}
+
+\begin{theorem}
+    If $f$ has a second derivative everywhere and \begin{align*}
+        f'' + f &= 0 \\
+        f(0) &= a \\
+        f'(0) &= b 
+    \end{align*}
+    then \begin{equation*}
+        f = b\cdot \sin + a \cdot \cos
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    Let \begin{equation*}
+        g(x) = f(x) - b\sin x - a \cos x
+    \end{equation*}
+    Then \begin{align*}
+        g'(x) &= f'(x) - b\cos x + a \sin x \\
+        g''(x) &= f''(x) + b\sin x + a\cos x
+    \end{align*}
+    Consequently, \begin{align*}
+        g'' + g &= 0 \\
+        g(0) &= 0 \\
+        g'(0) &= 0
+    \end{align*}
+    which shows by the previous lemma that \begin{equation*}
+        0 = g(x) = f(x) - b\sin x - a\cos x, \forall x
+    \end{equation*}
+\end{proof}
 
 
-        Similarly, for any $y \in \R$ define $f(x) = \cos(x+y)$, so $f'(x) = -\sin(x+y)$ and $f''(x) = -\cos(x+y)$. Then $f'' + f = 0$, $f(0) = \cos y$ and $f'(0) = -\sin y$. Then we have that \begin{equation*}
-            \cos(x+y) = \cos y\cos x - \sin y \sin x
-        \end{equation*}
-        proving the second formula.
-    \end{proof}
+\begin{theorem}
+    If $x$ and $y$ are any two numbers, then \begin{align*}
+        \sin(x+y) &= \sin x\cos y + \cos x \sin y \\
+        \cos(x+y) &= \cos x\cos y - \sin x \sin y
+    \end{align*}
+\end{theorem}
+\begin{proof}
+    For any particular $y \in \R$, we can define a function $f$ by \begin{equation*}
+        f(x) = \sin(x+y)
+    \end{equation*}
+    Then $f'(x) = \cos(x+y)$ and $f''(x) = -\sin(x+y)$. Consequently, \begin{align*}
+        f'' + f &= 0 \\
+        f(0) &= \sin y \\
+        f'(0) &= \cos y
+    \end{align*}
+    It follows from the previous theorem that \begin{equation*}
+        f = (\cos y)\cdot \sin + (\sin y) \cdot \cos
+    \end{equation*}
+    that is \begin{equation*}
+        \sin(x+y) = \cos y\sin x+\sin y \cos x,\forall x
+    \end{equation*}
+    Since any number $y$ could have been chosen to begin with, this proves the first formula for $x$ and $y$.
 
-    \begin{rmk}
-        Since \begin{equation*}
-            \arcsin'(x) = \frac{1}{\sqrt{1-x^2}}, -1 < x < 1
-        \end{equation*}
-        it follows from \ref{thm:FTC2} that \begin{equation*}
-            \arcsin x = \arcsin x - \arcsin 0 = \int_0^x\frac{1}{\sqrt{1-t^2}}dt
-        \end{equation*}
-        Using this definition of $\arcsin$ we could define $\sin$ as $\arcsin^{-1}$, and the formula for the derivative of an inverse function would show that \begin{equation*}
-            \sin'(x) = \sqrt{1-\sin^2 x}
-        \end{equation*}
-        which could be defined as $\cos x$.
-    \end{rmk}
 
+    Similarly, for any $y \in \R$ define $f(x) = \cos(x+y)$, so $f'(x) = -\sin(x+y)$ and $f''(x) = -\cos(x+y)$. Then $f'' + f = 0$, $f(0) = \cos y$ and $f'(0) = -\sin y$. Then we have that \begin{equation*}
+        \cos(x+y) = \cos y\cos x - \sin y \sin x
+    \end{equation*}
+    proving the second formula.
+\end{proof}
 
-    \section{The Logarithm and Exponential Functions}
+\begin{remark}
+    Since \begin{equation*}
+        \arcsin'(x) = \frac{1}{\sqrt{1-x^2}}, -1 < x < 1
+    \end{equation*}
+    it follows from \ref{thm:FTC2} that \begin{equation*}
+        \arcsin x = \arcsin x - \arcsin 0 = \int_0^x\frac{1}{\sqrt{1-t^2}}dt
+    \end{equation*}
+    Using this definition of $\arcsin$ we could define $\sin$ as $\arcsin^{-1}$, and the formula for the derivative of an inverse function would show that \begin{equation*}
+        \sin'(x) = \sqrt{1-\sin^2 x}
+    \end{equation*}
+    which could be defined as $\cos x$.
+\end{remark}
+
+%
+\section*{Appendix B: The Logarithm and Exponential Functions}
+\addcontentsline{toc}{section}{Appendix B: The Logarithm and Exponential Functions}
+%
+
     
-    \begin{defn}
-        If $x > 0$, then define \begin{equation}
-            \log x := \int_1^x\frac{1}{t}dt
-        \end{equation}
-    \end{defn}
+\begin{definition}
+    If $x > 0$, then define \begin{equation}
+        \log x := \int_1^x\frac{1}{t}dt
+    \end{equation}
+\end{definition}
 
-    \begin{thm}
-        If $x.y > 0$, then \begin{equation}
-            \log(xy) = \log x+ \log y
-        \end{equation}
-    \end{thm}
-    \begin{proof}
-        Notice first that $\log'(x) = 1/x$, by \ref{thm:FTC1}. Now, choose a number $y > 0$ and let \begin{equation*}
-            f(x) = \log(xy)
-        \end{equation*}
-        Then\begin{equation*}
-            f'(x) = \log'(xy)\cdot y = \frac{1}{xy}\cdot y = \frac{1}{x}
-        \end{equation*}
-        Thus, $f' = \log'$. This means that there is a number $c$ such that $f(x) = \log(x) + c$ for all $x > 0$, that is, \begin{equation*}
-            \log(xy) = \log x+c,\;\forall x > 0
-        \end{equation*}
-        The number $c$ can be evaluated by noting that $\log(1) = 0$, so $\log(1\cdot y) = c$. Thus \begin{equation*}
-            \log(xy) = \log x + \log y
-        \end{equation*}
-        for all $x$. Since this is true for all $y > 0$, the theorem is proved.
-    \end{proof}
+\begin{theorem}
+    If $x.y > 0$, then \begin{equation}
+        \log(xy) = \log x+ \log y
+    \end{equation}
+\end{theorem}
+\begin{proof}
+    Notice first that $\log'(x) = 1/x$, by \ref{thm:FTC1}. Now, choose a number $y > 0$ and let \begin{equation*}
+        f(x) = \log(xy)
+    \end{equation*}
+    Then\begin{equation*}
+        f'(x) = \log'(xy)\cdot y = \frac{1}{xy}\cdot y = \frac{1}{x}
+    \end{equation*}
+    Thus, $f' = \log'$. This means that there is a number $c$ such that $f(x) = \log(x) + c$ for all $x > 0$, that is, \begin{equation*}
+        \log(xy) = \log x+c,\;\forall x > 0
+    \end{equation*}
+    The number $c$ can be evaluated by noting that $\log(1) = 0$, so $\log(1\cdot y) = c$. Thus \begin{equation*}
+        \log(xy) = \log x + \log y
+    \end{equation*}
+    for all $x$. Since this is true for all $y > 0$, the theorem is proved.
+\end{proof}
 
-    \begin{cor}
-        If $n$ is a natural number and $x > 0$, then \begin{equation}
-            \log(x^n) = n\log x
-        \end{equation}
-    \end{cor}
-    \begin{proof}
-        We proceed by induction on $n \in \N$. If $n = 1$ we simply have $\log(x^1) = 1\cdot \log x$, so the base case holds. Now suppose inductively that there exists $k \geq 1$ such that if $n = k$, \begin{equation*}
-            \log(x^k) = k\log x
-        \end{equation*}
-        Then, observe that by the previous theorem \begin{align*}
-            \log(x^{k+1}) &= \log(x^kx) \\
-            &= \log(x^k) + \log x \\
-            &= k\log x + \log x \tag{by the Induction Hypothesis} \\
-            &= (k+1)\log x
-        \end{align*}
-        as desired. Thus by mathematical induction we conclude that for all $n \geq 1$, $\log(x^n) = n\log x$.
-    \end{proof}
-
-
-    \begin{cor}
-        If $x,y > 0$, then \begin{equation*}
-            \log\left(\frac{x}{y}\right) = \log x - \log y
-        \end{equation*}
-    \end{cor}
-    \begin{proof}
-        This result follows from the equation \begin{equation*}
-            \log x = \log \left(\frac{x}{y}\cdot y\right) = \log\left(\frac{x}{y}\right) + \log y
-        \end{equation*}
-    \end{proof}
-
-    \begin{defn}
-        The \Emph{exponential function}, $\exp$, is defined as $\log^{-1}$.
-    \end{defn}
-
-    \begin{thm}
-        For all numbers $x$,\begin{equation*}
-            \exp'(x) = \exp(x)
-        \end{equation*}
-    \end{thm}
-    \begin{proof}
-        Observe that \begin{align*}
-            \exp'(x) &= (\log^{-1})'(x) \\
-            &= \frac{1}{\log'(\log^{-1}(x))} \\
-            &= \frac{1}{\frac{1}{\log^{-1}(x)}} \\
-            &= \log^{-1}(x) = \exp(x)
-        \end{align*}
-    \end{proof}
-
-    \begin{thm}
-        If $x$ and $y$ are any two numbers, then \begin{equation*}
-            \exp(x+y) = \exp(x)\cdot \exp(y)
-        \end{equation*}
-    \end{thm}
-    \begin{proof}
-        Let $x' = \exp(x)$ and $y' = \exp(y)$, so that $x = \log x'$ and $y = \log y'$. Then \begin{equation*}
-            x+y = \log x' + \log y' = \log(x'y')
-        \end{equation*}
-        This means that \begin{equation*}
-            \exp(x+y) = x'y' = \exp(x) \cdot \exp(y)
-        \end{equation*}
-    \end{proof}
+\begin{corollary}
+    If $n$ is a natural number and $x > 0$, then \begin{equation}
+        \log(x^n) = n\log x
+    \end{equation}
+\end{corollary}
+\begin{proof}
+    We proceed by induction on $n \in \N$. If $n = 1$ we simply have $\log(x^1) = 1\cdot \log x$, so the base case holds. Now suppose inductively that there exists $k \geq 1$ such that if $n = k$, \begin{equation*}
+        \log(x^k) = k\log x
+    \end{equation*}
+    Then, observe that by the previous theorem \begin{align*}
+        \log(x^{k+1}) &= \log(x^kx) \\
+        &= \log(x^k) + \log x \\
+        &= k\log x + \log x \tag{by the Induction Hypothesis} \\
+        &= (k+1)\log x
+    \end{align*}
+    as desired. Thus by mathematical induction we conclude that for all $n \geq 1$, $\log(x^n) = n\log x$.
+\end{proof}
 
 
-    \begin{defn}
-        We define \begin{equation}
-            e := \exp(1)
-        \end{equation}
-        and this is equivalent to the equation \begin{equation}
-            1 = \log e = \int_1^e\frac{1}{t}dt
-        \end{equation}
-        Then, we note that $\exp(x) = [\exp(1)]^x = e^x$ for rational $x$, so we define for any $x \in \R$, \begin{equation}
-            e^x =\exp(x)
-        \end{equation}
-    \end{defn}
+\begin{corollary}
+    If $x,y > 0$, then \begin{equation*}
+        \log\left(\frac{x}{y}\right) = \log x - \log y
+    \end{equation*}
+\end{corollary}
+\begin{proof}
+    This result follows from the equation \begin{equation*}
+        \log x = \log \left(\frac{x}{y}\cdot y\right) = \log\left(\frac{x}{y}\right) + \log y
+    \end{equation*}
+\end{proof}
+
+\begin{definition}
+    The \Emph{exponential function}, $\exp$, is defined as $\log^{-1}$.
+\end{definition}
+
+\begin{theorem}
+    For all numbers $x$,\begin{equation*}
+        \exp'(x) = \exp(x)
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    Observe that \begin{align*}
+        \exp'(x) &= (\log^{-1})'(x) \\
+        &= \frac{1}{\log'(\log^{-1}(x))} \\
+        &= \frac{1}{\frac{1}{\log^{-1}(x)}} \\
+        &= \log^{-1}(x) = \exp(x)
+    \end{align*}
+\end{proof}
+
+\begin{theorem}
+    If $x$ and $y$ are any two numbers, then \begin{equation*}
+        \exp(x+y) = \exp(x)\cdot \exp(y)
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    Let $x' = \exp(x)$ and $y' = \exp(y)$, so that $x = \log x'$ and $y = \log y'$. Then \begin{equation*}
+        x+y = \log x' + \log y' = \log(x'y')
+    \end{equation*}
+    This means that \begin{equation*}
+        \exp(x+y) = x'y' = \exp(x) \cdot \exp(y)
+    \end{equation*}
+\end{proof}
 
 
-    \begin{defn}
-        If $a > 0$, then, for any real number $x$, \begin{equation}
-            a^x := e^{x\log a}
-        \end{equation}
-        If $a = e$ this definition agrees with our previous one.
-    \end{defn}
+\begin{definition}
+    We define \begin{equation}
+        e := \exp(1)
+    \end{equation}
+    and this is equivalent to the equation \begin{equation}
+        1 = \log e = \int_1^e\frac{1}{t}dt
+    \end{equation}
+    Then, we note that $\exp(x) = [\exp(1)]^x = e^x$ for rational $x$, so we define for any $x \in \R$, \begin{equation}
+        e^x =\exp(x)
+    \end{equation}
+\end{definition}
 
 
-    \begin{thm}
-        If $a > 0$, then \begin{equation*}
-            (1)\;\;(a^b)^c = a^{bc},\;\forall a,b\in\R
-        \end{equation*}
-        and \begin{equation*}
-            (2)\;\;a^1=a\;and\;a^{x+y}=a^x\cdot a^y,\;\forall x,y\in\R
-        \end{equation*}
-    \end{thm}
-    \begin{proof}
-        First, observe that \begin{align*}
-            (a^b)^c &= e^{c\log a^b} \\
-            &= e^{c\log e^{b\log a}} \\
-            &= e^{cb\log a} \\
-            &= a^{bc}
-        \end{align*}
-        Next, observe that \begin{equation*}
-            a^1 = e^{1\log a} = e^{\log a} = a
-        \end{equation*}
-        and \begin{align*}
-            a^{x+y} &= e^{(x+y)\log a} \\
-            &= e^{x\log a + y\log a} \\
-            &= e^{x\log a} \cdot e^{y\log a} \\
-            &= a^x \cdot a^y
-        \end{align*}
-    \end{proof}
-
-    \begin{thm}
-        If $f$ is differentiable and \begin{equation*}
-            f'(x) = f(x),\;\forall x\in\R
-        \end{equation*}
-        then there is a number $c$ such that \begin{equation*}
-            f(x) = ce^x,\;\forall x\in\R
-        \end{equation*}
-    \end{thm}
-    \begin{proof}
-        Let $g(x) = f(x)/e^x$, which is possible as $e^x \neq 0$ for all $x$. Then \begin{equation*}
-            g'(x) = \frac{e^xf'(x) - f(x)e^x}{(e^x)^2} = 0
-        \end{equation*}
-        THerefore, there is a number $c$ such that \begin{equation*}
-            g(x) = \frac{f(x)}{e^x} = c,\;\forall x
-        \end{equation*}
-    \end{proof}
-    
-
-    \begin{thm}
-        For any natural number $n$, \begin{equation}
-            \lim\limits_{x\rightarrow \infty}\frac{e^x}{x^n} = \infty
-        \end{equation}
-    \end{thm}
-    \begin{proof}
-        Step 1. We claim that $e^x > x$ for all $x$, and consequently $\lim\limits_{x\rightarrow \infty}e^x = \infty$.
-
-        For $x \leq 0$ this is immediate. Now, it suffices to show $x > \log x$ for all $x > 0$. If $x < 1$ this clearly holds since $\log x < 0$. If $x > 1$, then $x-1$ is an upper sum for $f(t) = \frac{1}{t}$ on $[1,x]$, so $\log x < x-1 < x$.
+\begin{definition}
+    If $a > 0$, then, for any real number $x$, \begin{equation}
+        a^x := e^{x\log a}
+    \end{equation}
+    If $a = e$ this definition agrees with our previous one.
+\end{definition}
 
 
-        Step 2. We claim $\lim\limits_{x\rightarrow \infty}\frac{e^x}{x} = \infty$. First, note that \begin{equation*}
-            \frac{e^x}{x} = \frac{e^{x/2}\cdot e^{x/2}}{\frac{x}{2}\cdot 2} = \frac{1}{2}\left(\frac{e^{x/2}}{\frac{x}{2}}\right)\cdot e^{x/2}
-        \end{equation*}
-        By Step 1. the expression in parentheses is greater than $1$, and $\lim\limits_{x\rightarrow \infty}e^{x/2} = \infty$; this shows that $\lim\limits_{x\rightarrow \infty}e^x/x = \infty$.
+\begin{theorem}
+    If $a > 0$, then \begin{equation*}
+        (1)\;\;(a^b)^c = a^{bc},\;\forall a,b\in\R
+    \end{equation*}
+    and \begin{equation*}
+        (2)\;\;a^1=a\;and\;a^{x+y}=a^x\cdot a^y,\;\forall x,y\in\R
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    First, observe that \begin{align*}
+        (a^b)^c &= e^{c\log a^b} \\
+        &= e^{c\log e^{b\log a}} \\
+        &= e^{cb\log a} \\
+        &= a^{bc}
+    \end{align*}
+    Next, observe that \begin{equation*}
+        a^1 = e^{1\log a} = e^{\log a} = a
+    \end{equation*}
+    and \begin{align*}
+        a^{x+y} &= e^{(x+y)\log a} \\
+        &= e^{x\log a + y\log a} \\
+        &= e^{x\log a} \cdot e^{y\log a} \\
+        &= a^x \cdot a^y
+    \end{align*}
+\end{proof}
+
+\begin{theorem}
+    If $f$ is differentiable and \begin{equation*}
+        f'(x) = f(x),\;\forall x\in\R
+    \end{equation*}
+    then there is a number $c$ such that \begin{equation*}
+        f(x) = ce^x,\;\forall x\in\R
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    Let $g(x) = f(x)/e^x$, which is possible as $e^x \neq 0$ for all $x$. Then \begin{equation*}
+        g'(x) = \frac{e^xf'(x) - f(x)e^x}{(e^x)^2} = 0
+    \end{equation*}
+    THerefore, there is a number $c$ such that \begin{equation*}
+        g(x) = \frac{f(x)}{e^x} = c,\;\forall x
+    \end{equation*}
+\end{proof}
 
 
-        Step 3. To prove the main claim note that \begin{equation*}
-            \frac{e^x}{x^n} = \frac{(e^{x/n})^x}{\left(\frac{x}{n}\right)^n\cdot n^n} = \frac{1}{n^n}\cdot \left(\frac{e^{x/n}}{\frac{x}{n}}\right)^n
-        \end{equation*}
-        The expression in parentheses becomes arbitrarily large, by Step 2., so the $n$th power certainly becomes arbitrarily large.
-    \end{proof}
+\begin{theorem}
+    For any natural number $n$, \begin{equation}
+        \lim\limits_{x\rightarrow \infty}\frac{e^x}{x^n} = \infty
+    \end{equation}
+\end{theorem}
+\begin{proof}
+    Step 1. We claim that $e^x > x$ for all $x$, and consequently $\lim\limits_{x\rightarrow \infty}e^x = \infty$.
+
+    For $x \leq 0$ this is immediate. Now, it suffices to show $x > \log x$ for all $x > 0$. If $x < 1$ this clearly holds since $\log x < 0$. If $x > 1$, then $x-1$ is an upper sum for $f(t) = \frac{1}{t}$ on $[1,x]$, so $\log x < x-1 < x$.
 
 
+    Step 2. We claim $\lim\limits_{x\rightarrow \infty}\frac{e^x}{x} = \infty$. First, note that \begin{equation*}
+        \frac{e^x}{x} = \frac{e^{x/2}\cdot e^{x/2}}{\frac{x}{2}\cdot 2} = \frac{1}{2}\left(\frac{e^{x/2}}{\frac{x}{2}}\right)\cdot e^{x/2}
+    \end{equation*}
+    By Step 1. the expression in parentheses is greater than $1$, and $\lim\limits_{x\rightarrow \infty}e^{x/2} = \infty$; this shows that $\lim\limits_{x\rightarrow \infty}e^x/x = \infty$.
 
 
-\end{subappendices}
+    Step 3. To prove the main claim note that \begin{equation*}
+        \frac{e^x}{x^n} = \frac{(e^{x/n})^x}{\left(\frac{x}{n}\right)^n\cdot n^n} = \frac{1}{n^n}\cdot \left(\frac{e^{x/n}}{\frac{x}{n}}\right)^n
+    \end{equation*}
+    The expression in parentheses becomes arbitrarily large, by Step 2., so the $n$th power certainly becomes arbitrarily large.
+\end{proof}
+
 

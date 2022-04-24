@@ -1,41 +1,43 @@
 %%%%%%%%%% Differentiation %%%%%%%%%%
-\chapter{Differentiation}
+\chapter{Differentiation}\label{Diff}
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
 
 \section{Introduction to Derivatives}
 
 
-\begin{defn}[Differentiability]
+\begin{definition}[Differentiability]\index{Differentiation}
     A function $f:\R\rightarrow \R$ is said to be \Emph{differentiable at $a$} if \begin{equation}
         \lim\limits_{h\rightarrow 0}\frac{f(a+h) - f(a)}{h}
     \end{equation}
     exists. In this case the limit is denoted by \Emph{$f'(a)$} and is called the \Emph{derivative of $f$ at $a$}. We also say that $f$ is \Emph{differentiable} if $f$ is differentiable at $a$ for all $a$ in its domain.
-\end{defn}
+\end{definition}
 
-\begin{defn}
+\begin{definition}\index{Tangent line}
     We define the \Emph{tangent line} to the graph of $f$ at $(a,f(a))$ to be the line through $(a,f(a))$ with slope $f'(a)$. That is, the tangent line at $(a,f(a))$ is well defined if and only if $f$ is differentiable at $a$.
-\end{defn}
+\end{definition}
 
 
-\begin{rmk}
+\begin{remark}
     Given a function $f$, we denote by $f'$ the function whose domain is the set of all numbers $a \in \R$ such that $f$ is differentiable at $a$, and whose value at such a number $a$ is \begin{equation}
         \lim\limits_{h\rightarrow 0}\frac{f(a+h) - f(a)}{h}
     \end{equation}
     The function $f'$ is called the \Emph{derivative} of $f$.
-\end{rmk}
+\end{remark}
 
-\begin{nota}
+\begin{note}
     For a given function $f:\R\rightarrow \R$, the derivative $f'$ is often denoted by \begin{equation}
         \frac{df(x)}{dx}
     \end{equation}
     and the number $f'(a)$ is denoted by \begin{equation}
         \left.\frac{df(x)}{dx}\right\vert_{x=a}
     \end{equation}
-\end{nota}
+\end{note}
 
 
-\begin{thm}
+\begin{theorem}
     If $f$ is differentiable at $a$, then $f$ is continuous at $a$.
-\end{thm}
+\end{theorem}
 \begin{proof}
     Suppose $f$ is differentiable at a point $a$. Then we have that the limit $$\lim\limits_{h\rightarrow 0}\frac{f(a+h) - f(a)}{h}$$ exists. It follows by \ref{thm:limlaws} that \begin{align*}
         \lim\limits_{h\rightarrow 0}f(a+h) - f(a) &= \lim\limits_{h\rightarrow 0}\frac{f(a+h)-f(a)}{h}\cdot h \\
@@ -47,7 +49,7 @@
 \end{proof}
 
 
-\begin{defn}[Higher Order Derivatives]
+\begin{definition}[Higher Order Derivatives]
     Since the derivative of a function $f$ is also a function, we can take its derivative to obtain the function $(f')' = f''$. In general, we denote the $k+1$-th derivative of $f$ inductively by \begin{align*}
         f^{(1)} &= f' \\
         f^{(k+1)} &= (f^{(k)})'
@@ -55,30 +57,30 @@
     These are called \Emph{higher order derivatives of $f$}. We also define $f^{(0)} = f$. In Leibnitzian notation we write \begin{equation}
         \frac{d^kf(x)}{dx} = f^{(k)}
     \end{equation}
-\end{defn}
+\end{definition}
 
 \section{Differentiation Results}
 
-\begin{thm}
+\begin{theorem}
     If $f$ is a constant function, $f(x) = c$, then $f'(a) = 0$ for all $a \in \R$.
-\end{thm}
+\end{theorem}
 \begin{proof}
     Observe that for $a \in \R$, $$f'(a) = \lim\limits_{h\rightarrow 0}\frac{f(a+h)-f(a)}{h} = \lim\limits_{h\rightarrow 0}\frac{c-c}{h} = 0$$
     as desired.
 \end{proof}
 
 
-\begin{thm}
+\begin{theorem}
     If $f$ is the identity function, $f(x) = x$, then $f'(a) = 1$ for all $a \in \R$.
-\end{thm}
+\end{theorem}
 \begin{proof}
     Observe that for $a \in \R$, $$f'(a) = \lim\limits_{h\rightarrow 0}\frac{f(a+h)-f(a)}{h} = \lim\limits_{h\rightarrow 0}\frac{a+h-a}{h} = \lim\limits_{h\rightarrow 0} 1 = 1$$
     as desired.
 \end{proof}
 
-\begin{thm}[Linearity]
+\begin{theorem}[Linearity]
     If $f$ and $g$ are differentiable at $a$, then $f+cg$ is differentiable for all $c \in \R$
-\end{thm}
+\end{theorem}
 \begin{proof}
     Observe that \begin{align*}
         (f+cg)'(a) &= \lim\limits_{h\rightarrow 0}\frac{(f+cg)(a+h) - (f+cg)(a)}{h} \\
@@ -92,9 +94,9 @@
     as desired.
 \end{proof}
 
-\begin{thm}[Product Rule]
+\begin{theorem}[Product Rule]
     If $f$ and $g$ are differentiable at $a$, then $f\cdot g$ is also differentiable at $a$ and $$(f\cdot g)'(a) = f'(a)\cdot g(a) + f(a) \cdot g'(a)$$
-\end{thm}
+\end{theorem}
 \begin{proof}
     Observe that \begin{align*}
         (f\cdot g)'(a) &= \lim\limits_{h\rightarrow 0}\frac{(f\cdot g)(a+h) - (f\cdot g)(a)}{h} \\
@@ -106,9 +108,9 @@
     as claimed, where $\lim\limits_{h\rightarrow 0}f(a+h) = f(a)$ since $f$ is differentiable at $a$, which implies it is also continuous at $a$.
 \end{proof}
 
-\begin{thm}[Power Rule]
+\begin{theorem}[Power Rule]
     IF $f(x) = x^n$ for some natural number $n$, then $$f'(a) = na^{n-1}$$ for all $a$.
-\end{thm}
+\end{theorem}
 \begin{proof}
     For the proof we will proceed by induction on $n$. For $n = 1$ we have shown that $f'(a) = 1 = 1\cdot a^0$, satisfying the base case. Assume that there exists $k \in \N$ such that if $n = k$, $f'(a) = ka^{k-1}$. Then, for the case of $n = k+1$ we may write $g(x) = x\cdot x^k = I(x)\cdot f(x)$. Hence, by the product rule we have that for all $a$ \begin{align*}
         g'(a) &= (I\cdot f)'(a) \\
@@ -120,9 +122,9 @@
 \end{proof}
 
 
-\begin{thm}[Derivative of a Quotient]
+\begin{theorem}[Derivative of a Quotient]
     If $g$ is differentiable at $a$, and $g(a) \neq 0$, then $1/g$ is differentiable at $a$ and $$\left(\frac{1}{g}\right)'(a) = \frac{-g'(a)}{|g(a)|^2}$$
-\end{thm}
+\end{theorem}
 \begin{proof}
     Note that since $g$ is differentiable at $a$ it is continuous at $a$. Moreover, since $g(a) \neq 0$, there exists $\delta > 0$ such that $g(a+h) \neq 0$ for $|h| < \delta$. Therefore, $(1/g)(a+h)$ is well defined for small enough $h$, and we can write \begin{align*}
         \lim\limits_{h\rightarrow 0}\frac{(1/g)(a+h) - (1/g)(a)}{h} &= \lim\limits_{h\rightarrow 0}\frac{1/g(a+h) - 1/g(a)}{h} \\
@@ -133,9 +135,9 @@
     where $\lim\limits_{h\rightarrow 0}1/g(a+h) = 1/g(a)$ by continuity of $g$.
 \end{proof}
 
-\begin{thm}[Quotient Rule]
+\begin{theorem}[Quotient Rule]
     If $f$ and $g$ are differentiable at $a$ and $g(a) \neq 0$, then $f/g$ is differentiable at $a$ and $$(f/g)'(a) = \frac{g(a)\cdot f'(a) - f(a) \cdot g'(a)}{|g(a)|^2}$$
-\end{thm}
+\end{theorem}
 \begin{proof}
     Note that $f/g = f\cdot (1/g)$, so we have \begin{align*}
         (f/g)'(a) &= (f\cdot 1/g)'(a) \\
@@ -146,9 +148,9 @@
     as claimed.
 \end{proof}
 
-\begin{thm}[General Product Rule]
+\begin{theorem}[General Product Rule]
     If $f_1,f_2,...,f_n$ are differentiable at $a$ for some $n \in \N$, then $f_1\cdot f_2\cdot ...\cdot f_n$ is differentiable at $a$ and $$(f_1\cdot...\cdot f_n)'(a) = \sum\limits_{i=1}^nf_1(a)\cdot...\cdot f_{i-1}(a)\cdot f'_i(a)\cdot f_{i+1}(a)\cdot...\cdot f_n(a)$$
-\end{thm}
+\end{theorem}
 \begin{proof}
     We proceed by induction on $n$. If $n = 1$ then $f_1'(a) = f_1'(a)$, so the base case holds. Now, suppose the claim is true for some $k \in \N$. Then it follows that if $n = k+1$ \begin{align*}
         (f_1\cdot ... \cdot f_k\cdot f_{k+1})'(a) &= (f_1\cdot ...\cdot f_k)'(a)f_{k+1}(a) + (f_1\cdot...\cdot f_k)(a)f_{k+1}'(a) \tag{Product Rule} \\
@@ -159,9 +161,9 @@
     as desired. Thus by mathematical induction we conclude that the formula holds for all $n \in \N$.
 \end{proof}
 
-\begin{thm}[Chain Rule]
+\begin{theorem}[Chain Rule]
     If $g$ is differentiable at $a$ and $f$ is differentiable at $g(a)$, then $f\circ g$ is differentiable at $a$ and $$(f\circ g)'(a) = f'(g(a))\cdot g'(a)$$
-\end{thm}
+\end{theorem}
 \begin{proof}
     Define a function $\phi$ as follows: \begin{equation}
         \phi(h) = \left\{\begin{array}{ll}
@@ -201,7 +203,7 @@
 
 \section{Applications of Derivatives}
 
-\begin{defn}[Extrema]
+\begin{definition}[Extrema]
     Let $f$ be a function and $A$ a set of numbers contained in the domain of $f$. A point $x \in A$ is \Emph{maximum point} for $f$ on $A$ if \begin{equation}
         f(x) \geq f(y) \forall y \in A
     \end{equation}
@@ -211,12 +213,12 @@
         f(x) \leq f(y) \forall y \in A
     \end{equation}
     The number $f(x)$ is itself called the \Emph{minimum value} of $f$ on $A$.
-\end{defn}
+\end{definition}
 
 
-\begin{thm}\label{thm:dirext}
+\begin{theorem}\label{thm:dirext}
     Let $f$ be any function defined on $(a,b)$. If $x$ is an extremum point for $f$ on $(a,b)$, and $f$ is differentiable at $x$, then $f'(x) = 0$.
-\end{thm}
+\end{theorem}
 \begin{proof}
     Consider the case where $f$ has a maximum at $x$. If $h$ is any number such that $x+h \in (a,b)$, then $$f(x) \geq f(x+h)$$
     since $f$ has a maximum on $(a,b)$ at $x$. This implies that $$f(x+h)-f(x) \leq 0$$
@@ -230,30 +232,30 @@
 \end{proof}
 
 
-\begin{defn}[Local Extrema]
+\begin{definition}[Local Extrema]
     Let $f$ be a function, and $A$ a set of numbers contained in the domain of $f$. A point $x$ in $A$ is a \Emph{local maximum [minimum] point} for $f$ on $A$ if there is some $\delta > 0$ such that $x$ is a maximum [minimum] point for $f$ on $A \cap(x-\delta,x+\delta)$.
-\end{defn}
+\end{definition}
 
 
-\begin{defn}
+\begin{definition}\index{Critical point}
     A \Emph{critical point} of a function $f$ is a number $x$ such that \begin{equation}
         f'(x) = 0
     \end{equation}
     The number $f(x)$ itself is called a \Emph{critical value} of $f$.
-\end{defn}
+\end{definition}
 
-\begin{rmk}
+\begin{remark}
     Give a function continuous $f$, if $x$ is an extrumum of $f$ on $[a,b]$, then one of the following must be satisfied: \begin{enumerate}
         \item $x$ is a critical point of $f$ in $[a,b]$
         \item $x = a$ or $x = b$ so $x$ is an endpoint of $[a,b]$
         \item $x$ is a point in $[a,b]$ such that $f$ is not differentiable at $x$
     \end{enumerate}
-\end{rmk}
+\end{remark}
 
 
-\begin{namthm}[Rolle's Theorem]\label{thmname:rol}
+\begin{theorem}[Rolle's Theorem]\label{thmname:rol}\index{Rolle's Theorem}
     If $f$ is continuous on $[a,b]$ and differentiable on $(a,b)$, and $f(a) = f(b)$, then there is a number $x \in (a,b)$ such that $f'(x) = 0$.
-\end{namthm}
+\end{theorem}
 \begin{proof}
     It follows from continuity of $f$ on $[a,b]$ that $f$ has a maximum or minimum value on $[a,b]$ (by the Extreme Value Theorem).
 
@@ -263,11 +265,11 @@
 \end{proof}
 
 
-\begin{namthm}[The Mean Value Theorem]\label{thmname:meanval}
+\begin{theorem}[The Mean Value Theorem]\label{thmname:meanval}\index{MVT}
     If $f$ is continuous on $[a,b]$ and differentiable on $(a,b)$, then there is a number $x \in (a,b)$ such that \begin{equation}
         f'(x) = \frac{f(b)-f(a)}{b-a} 
     \end{equation}
-\end{namthm}
+\end{theorem}
 \begin{proof}
     Let \begin{equation*}
         h(x) = f(x) - \left[\frac{f(b) - f(a)}{b-a}\right](x-a)
@@ -286,9 +288,9 @@
     as desired.
 \end{proof}
 
-\begin{cor}
+\begin{corollary}
     If $f$ is defined on an interval and $f'(x) = 0$ for all $x$ in the interval, then $f$ is constant on the interval.
-\end{cor}
+\end{corollary}
 \begin{proof}
     Let $a$ and $b$ be any two points in the interval with $a \neq b$. Then there is some $x \in (a,b)$ such that \begin{equation*}
         0 = f'(x) = \frac{f(b) - f(a)}{b-a}
@@ -296,22 +298,22 @@
     so $f(b) - f(a) = 0$ and consequently $f(a) = f(b)$. Thus the value of $f$ at any two points in the interval is the same, so $f$ is constant on the interval.
 \end{proof}
 
-\begin{cor}
+\begin{corollary}
     If $f$ and $g$ are defined on the same interval, and $f'(x) = g'(x)$ for all $x$ in the interval, then there is come number $c$ such that $f = g+c$.
-\end{cor}
+\end{corollary}
 \begin{proof}
     For all $x$ in the interval we have $(f-g)'(x) = f'(x) - g'(x) = 0$, so by the previous corollary there is some number $c$ such that $f-g = c$.
 \end{proof}
 
 
-\begin{defn}
+\begin{definition}
     A function is \Emph{increasing} on an interval $I$ if $f(a) < f(b)$ whenever $a,b \in I$ with $a < b$. The function $f$ is \Emph{decreasing} on an interval $I$ if $f(a) > f(b)$ for all $a,b \in I$ with $a < b$.
-\end{defn}
+\end{definition}
 
 
-\begin{cor}
+\begin{corollary}
     If $f'(x) > 0$ for all $x$ in an interval, then $f$ is increasing on the interval; if $f'(x) < 0$ for all $x$ in the interval, then $f$ is decreasing on the interval.
-\end{cor}
+\end{corollary}
 \begin{proof}
     Consider the case where $f'(x) > 0$. Let $a,b \in I$ with $a < b$. Then by \ref{thmname:meanval} there exists $x \in (a,b)$ such that \begin{equation*}
         f'(x) = \frac{f(b) - f(a)}{b-a}
@@ -323,9 +325,9 @@
 \end{proof}
 
 
-\begin{thm}[Second Derivative Test]
+\begin{theorem}[Second Derivative Test]
     Suppose $f'(a) = 0$. If $f''(a) > 0$, then $f$ has a local minimum at $a$; if $f''(a) < 0$ then $f$ has a local maximum at $a$.
-\end{thm}
+\end{theorem}
 \begin{proof}
     By definition \begin{equation*}
         f''(a) = \lim\limits_{h\rightarrow 0} \frac{f'(a+h) - f'(a)}{h}
@@ -339,9 +341,9 @@
 \end{proof}
 
 
-\begin{thm}
+\begin{theorem}
     Suppose $f''(a)$ exists. If $f$ has a local minimum at $a$, then $f''(a) \geq 0$; if $f$ has a local maximum at $a$, then $f''(a) \leq 0$.
-\end{thm}
+\end{theorem}
 \begin{proof}
     Suppose $f$ has a local minimum at $a$. If $f''(a) < 0$ then by our previous result $f$ would have a local maximum at $a$. But, this implies that $f$ would be constant in some interval containing $a$, so that $f''(a) = 0$, which is a contradiction. Thus, we must have that $f''(a) \geq 0$.
 
@@ -349,11 +351,11 @@
 \end{proof}
 
 
-\begin{thm}
+\begin{theorem}
     Suppose that $f$ is continuous at $a$, and that $f'(x)$ exists for all $x$ in some interval containing $a$, except perhaps for $x = a$. Suppose, moreover, that $\lim\limits_{x\rightarrow a}f'(x)$ exists. Then $f'(a)$ also exists and \begin{equation}
         f'(a) = \lim\limits_{x\rightarrow a}f'(x)
     \end{equation}
-\end{thm}
+\end{theorem}
 \begin{proof}
     By definition \begin{equation*}
         f'(a) = \lim\limits_{h\rightarrow 0}\frac{f(a+h) - f(a)}{h}
@@ -364,11 +366,11 @@
 \end{proof}
 
 
-\begin{namthm}[The Cauchy Mean Value Theorem]\label{thmname:caumeanval}
+\begin{theorem}[The Cauchy Mean Value Theorem]\label{thmname:caumeanval}\Alsoindex{MVT}{Cauchy MVT}
     If $f$ and $g$ are continuous on $[a,b]$ and differentiable on $(a,b)$, then there is a number $x \in (a,b)$ such that \begin{equation}
         [f(b) - f(a)]g'(x) = [g(b) - g(a)]f'(x)
     \end{equation}
-\end{namthm}
+\end{theorem}
 \begin{proof}
     Let $$h(x) = f(x)[g(b) - g(a)] - g(x)[f(b)-f(a)]$$
     Then $h$ is continuous on $[a,b]$, differentiable on $(a,b)$, and $$h(a) = f(a)g(b) - g(a)f(b) = h(b)$$
@@ -379,14 +381,14 @@
 \end{proof}
 
 
-\begin{namthm}[L'H\^{o}pital's Rule]
+\begin{theorem}[L'H\^{o}pital's Rule]
     Suppose that \begin{equation}
         \lim\limits_{x\rightarrow a}f(x) = 0\;and\;\lim\limits_{x\rightarrow a}g(x) = 0
     \end{equation}
     and suppose also that $\lim\limits_{x\rightarrow a}f'(x)/g'(x)$ exists. Then $\lim\limits_{x\rightarrow a}f(x)/g(x)$ exists, and \begin{equation}
         \lim\limits_{x\rightarrow a}\frac{f(x)}{g(x)} = \lim\limits_{x\rightarrow a}\frac{f'(x)}{g'(x)}
     \end{equation}
-\end{namthm}
+\end{theorem}
 \begin{proof}
     The hypothesis that $\lim\limits_{x\rightarrow a}f'(x)/g'(x)$ exists contains two implicit assumptions: \begin{enumerate}
         \item there is an interval $(a-\delta,a+\delta)$ such that $f'(x)$ and $g'(x)$ exist for all $x \in (a - \delta, a + \delta)$, except, perhaps, $x = a$,
@@ -411,27 +413,27 @@
 \subsection{Convexity}
 
 
-\begin{defn}
+\begin{definition}\index{Convex}
     A function $f$ is \Emph{convex} on an interval $I$, if for all $a,b \in I$, the line segment joining $(a,f(a))$ and $(b,f(b))$ lies above the graph of $f$.
 
     This is equivalent to stating that for all $x \in (a,b)$, \begin{equation}
         \frac{f(x) - f(a)}{x-a} < \frac{f(b) - f(a)}{b-a}
     \end{equation}
-\end{defn}
+\end{definition}
 
 
-\begin{defn}
+\begin{definition}\index{Concave}
     A function $f$ is \Emph{concave} on an interval $I$, if for all $a,b \in I$, the line segment joining $(a,f(a))$ and $(b,f(b))$ lies below the graph of $f$.
 
     This is equivalent to stating that for all $x \in (a,b)$, \begin{equation}
         \frac{f(x) - f(a)}{x-a} > \frac{f(b) - f(a)}{b-a}
     \end{equation}
-\end{defn}
+\end{definition}
 
 
-\begin{thm}
+\begin{theorem}
     Let $f$ be convex. If $f$ is differentiable at $a$, then the graph of $f$ lies above the tangent line through $(a,f(a))$, except at $(a,f(a))$ itself. If $a < b$ and $f$ is differentiable at $a$ and $b$, then $f'(a) < f'(b)$.
-\end{thm}
+\end{theorem}
 \begin{proof}
     If $0 < h_1 < h_2$, then $a < a+h_1 < a+h_2$, and applying $f$'s convexity we have that \begin{equation*}
         \frac{f(a+h_1) - f(a)}{h_1} < \frac{f(a+h_2)-f(a)}{h_2}
@@ -452,9 +454,9 @@
 \end{proof}
 
 
-\begin{lem}
+\begin{lemma}
     Suppose $f$ is differentiable and $f'$ is increasing. If $a < b$ and $f(a) = f(b)$, then $f(x) < f(a) = f(b)$ for $a < x < b$.
-\end{lem}
+\end{lemma}
 \begin{proof}
     Suppose towards a contradiction that $f(x) \geq f(a) = f(b)$ for some $x \in (a,b)$. Then the maximum of $f$ on $[a,b]$ occurs at some point $x_0 \in (a,b)$ with $f(x_0) \geq f(a)$ and, of course, $f'(x_0) = 0$. On the other hand, applying \ref{thmname:meanval} to the interval $[a,x_0]$, we find that there is $x_1$ with $a < x_1 < x_0$ and \begin{equation*}
         f'(x_1) = \frac{f(x_0) - f(a)}{x_0 - a}\geq 0
@@ -462,9 +464,9 @@
     contradicting the fact that $f'$ is increasing (since $f'(x_0) = 0$ and $x_1 < x_0$).
 \end{proof}
 
-\begin{thm}
+\begin{theorem}
     If $f$ is differentiable and $f'$ is increasing, then $f$ is convex.
-\end{thm}
+\end{theorem}
 \begin{proof}
     Let $a < b$. Define $g$ by \begin{equation*}
         g(x) = f(x) - \frac{f(b) - f(a)}{b-a}(x-a)
@@ -480,9 +482,9 @@
 \end{proof}
 
 
-\begin{thm}
+\begin{theorem}
     If $f$ is differentiable and the graph of $f$ lies above each tangent line except at the point of contact, then $f$ is convex.
-\end{thm}
+\end{theorem}
 \begin{proof}
     Let $a < b$. Since the tangent lien at $(a,f(a))$ is the graph of the function \begin{equation*}
         g(x) = f'(a)(x-a) + f(a)
@@ -501,18 +503,18 @@
 \section{Inverse Functions}
 
 
-\begin{defn}
+\begin{definition}
     For any function $f$. the \Emph{inverse image} of $f$, denoted by $f^{-1}$, is the set of all pairs $(a,b)$ such that $(b,a) \in f$.
-\end{defn}
+\end{definition}
 
-\begin{rmk}
+\begin{remark}
     $f^{-1}$ is a function if and only if $f$ is one-to-one.
-\end{rmk}
+\end{remark}
 
 
-\begin{thm}
+\begin{theorem}
     If $f$ is increasing (decreasing) on an interval $I$, then $f$ is injective on $I$ so $f^{-1}$ is a function and in fact $f^{-1}$ is increasing (decreasing).
-\end{thm}
+\end{theorem}
 \begin{proof}
     Consider the case that $f$ is increasing. Then suppose $a,b \in I$ with $a \neq b$. Without loss of generality suppose $a < b$. Then since $f$ is increasing $f(a) < f(b)$ so in particular $f(a) \neq f(b)$. Therefore, $f$ is injective as claimed, so $f^{-1}$ is a well-defined function on $I$. Now, consider $a' < b'$ in $f(I) = I'$. Then there exist $x,y \in I$ such that $f(x) = a'$ and $f(y) = b'$, so in particular $f^{-1}(a') = x$ and $f^{-1}(b') = y$. Since $f$ is increasing and $f(x) = a' < b' = f(y)$ we must have that $x < y$. Thus, $f^{-1}(a') = x < y = f^{-1}(b')$, so $f^{-1}$ is increasing as claimed.
 
@@ -520,9 +522,9 @@
 \end{proof}
 
 
-\begin{thm}
+\begin{theorem}
     If $f$ is continuous and one-to-one on an interval $I$, then $f$ is either increasing or decreasing on $I$.
-\end{thm}
+\end{theorem}
 \begin{proof}
     We proceed in three steps:
 
@@ -536,9 +538,9 @@
 \end{proof}
 
 
-\begin{thm}
+\begin{theorem}
     If $f$ is continuous and one-to-one on an interval, then $f^{-1}$ is also continuous.
-\end{thm}
+\end{theorem}
 \begin{proof}
     Since $f$ is continuous and injective on the interval, it is either increasing or decreasing. Consider the case that $f$ is increasing. We must show that \begin{equation*}
         \lim\limits_{x\rightarrow b}f^{-1}(x) = f^{-1}(b)
@@ -550,9 +552,9 @@
 \end{proof}
 
 
-\begin{thm}
+\begin{theorem}
     If $f$ is a continuous one-to-one function defined on an interval $I$, and $f'(f^{-1}(a)) = 0$, then $f^{-1}$ is not differentiable at $a$.
-\end{thm}
+\end{theorem}
 \begin{proof}
     We have $f(f^{-1}(x)) = x$. If $f^{-1}$ were differentiable at $a$, then the chain rule would imply that $$f'(f^{-1}(a))\cdot (f^{-1})'(a) = 1$$
     hence $$0\cdot (f^{-1})'(a) = 1$$
@@ -560,11 +562,11 @@
 \end{proof}
 
 
-\begin{thm}
+\begin{theorem}
     Let $f$ be a continuous one-to-one function defined on an interval $I$, and suppose that $f$ is differentiable at $f^{-1}(b)$, with derivative $f'(f^{-1}(b)) \neq 0$. Then $f^{-1}$ is differentiable at $b$, and \begin{equation}
         (f^{-1})'(b) = \frac{1}{f'(f^{-1}(b))}
     \end{equation}
-\end{thm}
+\end{theorem}
 \begin{proof}
     Let $b = f(a)$. Then \begin{equation*}
         \lim\limits_{h\rightarrow 0}\frac{f^{-1}(b+h)-f^{-1}(b)}{h} = \lim\limits_{h\rightarrow 0}\frac{f^{-1}(b+h) - a}{h}
@@ -578,132 +580,820 @@
     \end{equation*}
 \end{proof}
 
-\begin{subappendices}
-    \section{Alternative Differentiation Formulation}
 
-    \begin{defn}
-        A function $f:(a,b)\subseteq \R\rightarrow \R$ (or $\C$) is said to be \Emph{differentiable} at $x \in (a,b)$ with derivative $f'(x)$ if the limit \begin{equation*}
-            f'(x) = \lim\limits_{h\rightarrow 0}\frac{f(x+h) - f(x)}{h}
+
+%
+\section*{Appendix A: Alternative Differentiation Formulation}
+\addcontentsline{toc}{section}{Appendix A: Alternative Differentiation Formulation}
+%
+
+
+\begin{definition}\index{Differentiation}
+    A function $f:(a,b)\subseteq \R\rightarrow \R$ (or $\C$) is said to be \Emph{differentiable} at $x \in (a,b)$ with derivative $f'(x)$ if the limit \begin{equation*}
+        f'(x) = \lim\limits_{h\rightarrow 0}\frac{f(x+h) - f(x)}{h}
+    \end{equation*}
+    exists.
+\end{definition}
+
+If $f$ is differentiable at $x \in (a,b)$, it is immediate that $f$ is continuous at $x$. Indeed, let $\varepsilon > 0$. Then there exists $\delta > 0$ such that if $0 < |h| < \delta$, $\left|\frac{f(x+h)-f(x)}{h} - f'(x)\right| < \varepsilon$. Then let $\delta' = \min\left\{\delta, |f'(x)| + \varepsilon\right\}$. Then for $x+h \in B_{\delta'}(x)$, $h \neq 0$, we ahve \begin{equation*}
+    |f(x+h) - f(x)| = |h|\left|\frac{f(x+h)-f(x)}{h}\right| < \delta'(|f'(x)| + \varepsilon) \leq \varepsilon
+\end{equation*}
+
+Now a useful equivalent condition to differentiability at $x \in (a,b)$ is the existence of a function $r(x,h)$ for $h$ close to $0$ such that $f(x+h) = f(x) + Dh + r(x,h)$ such that $\frac{r(x,h)}{h}\rightarrow 0$ as $h\rightarrow 0$, and then $D = f'(x)$. Indeed if $f$ is differentiable set $r(x,h) = f(x+h) - (f(x) + f'(x)h)$. On the other hand, if such an $r(x,h)$ exists, then $$\frac{f(x+h)-f(x)}{h} = \frac{r(x,h)}{h}+D\rightarrow D$$ so the limit exists and is $D$.
+
+\begin{definition}
+    We say that $f$ is differentiable on $(a,b)$ if it is differentiable at all $x \in (a,b)$.
+\end{definition}
+
+\begin{proposition}
+    Let $f$ and $g$ be differentiable at $x$. Then \begin{itemize}
+        \item $f\pm g$ is differentiable at $x$ with $(f\pm g)'(x) = f'(x)\pm g'(x)$ (additivity) 
+        \item $fg$ is differentiable at $x$ with $(fg)'(x) = f'(x)g(x)+f(x)g'(x)$ (Liebnitz's rule) 
+        \item If $g(y) \neq 0$ in a neighborhood of $x$, then $(1/g)$ is differentiable at $x$ with $(1/g)'(x) = -\frac{g'(x)}{g(x)^2}$
+        \item For all $c \in \R$ $cf$ is differentiable at $x$ with $(cf)'(x) = cf'(x)$
+    \end{itemize}
+\end{proposition}
+\begin{proof}
+    The first bullet is by linearity of limits. The second bullet follows from the computation \begin{equation*}
+        \frac{(fg)(x+h) - (fg)(x)}{h} = \frac{(f(x+h)-f(x))g(x+h)}{h} + \frac{f(x)(g(x+h)-g(x)}{h}
+    \end{equation*}
+    and the fact that $g$ is continuous at $x$ and the product of limits is the limit of the product, if the limits involved all exist. The quotient also follows by a similar computation \begin{equation*}
+        \frac{\frac{1}{g(x+h)} - \frac{1}{g(x)}}{h} = \frac{-(g(x+h)-g(x))}{hg(x+h)g(x)}
+    \end{equation*}
+    and the same properties of limits and $g$ at $x$. Finally, bullet follows simply by the calculation \begin{equation*}
+        \frac{cf(x+h) - cf(x)}{h} = c\frac{f(x+h)-f(x)}{h}
+    \end{equation*}
+\end{proof}
+
+Some basic derivatives from the definition are $f'(x) = 0$ if $f(x) = c\in\R$ is a constant, and later we shall show the converse also holds. Additionally, $id'(x) = 1$, for $id(x) = x$. Then by induction $\frac{d}{dx}x^n = nx^{n-1}$ for all $n = 0,1,2,3,...$.
+
+\begin{proposition}
+    If $f:(a,b)\rightarrow (\alpha,\beta)$ is differentiable at $x \in (a,b)$ and $g:(\alpha,\beta)\rightarrow \R$ is differentiable at $f(x) \in (\alpha,\beta)$, then $g\circ f$ is differentiable at $x$ with \begin{equation*}
+        (g\circ f)'(x) = g'(f(x))f'(x)
+    \end{equation*}
+\end{proposition}
+\begin{proof}
+    We use the remainder definition of differentiability to prove the claim. As $f$ is differentiable at $x$ we have $r_f(x,h)$ such that $f(x+h) = f(x) + f'(x)h + r_f(x,h)$, and as $g$ is differentiable at $f(x)$ we have $r_g(x,h)$ such that $g(f(x)+h) = g(f(x)) + g'(f(x))h + r_g(f(x),h)$. Then \begin{align*}
+        g\circ f(x+h) &= g(f(x)+f'(x)h+r_f(x,h)) \\
+        &= g(f(x)) + g'(f(x))(f'(x)h+r_f(x,h)) + r_g(f(x),\tilde{h}) \tag{$\tilde{h}:= f'(x)h+r_f(x,h)$} 
+    \end{align*}
+    Let $r_{g\circ f}(x,h) = g'(f(x))r_f(x,h) + r_g(f(x),\tilde{h})$. Then we have $\lim\limits_{h\rightarrow 0}g'(f(x))\frac{r_f(x,h)}{h} = 0$ and $\lim\limits_{h\rightarrow 0}\tilde{h} = 0$, so $$\lim\limits_{h\rightarrow 0}\frac{r_g(f(x),\tilde{h})}{h} = \lim\limits_{h\rightarrow 0}\frac{r_g(f(x),\tilde{h})}{\tilde{h}}\frac{\tilde{h}}{h} = 0\cdot f'(x) = 0$$ Thus, we have that $g\circ f$ is differentiable at $x$ with $(g\circ f)'(x) = g'(f(x))f'(x)$, as desired.
+\end{proof}
+
+\begin{proposition}\label{prop:4.1.1}
+    If $f:(a,b)\rightarrow \R$ and $x \in (a,b)$ such that \begin{equation*}
+        f(x) \geq f(y) (\text{or }f(x) \leq f(y))\forall y \in (a,b)
+    \end{equation*}
+    then if $f$ is differentiable at $x$ it follows that $$f'(x) = 0$$
+\end{proposition}
+\begin{proof}
+    First, note that $$f'(x) = \lim\limits_{h\rightarrow 0}\frac{f(x+h)-f(x)}{h} = \lim\limits_{h\rightarrow 0^+}\frac{f(x+h) - f(x)}{h} = \lim\limits_{h\rightarrow 0^-}\frac{f(x+h)-f(x)}{h}$$ But for $h$ such that $x+h \in (a,b)$, and $h > 0$, we have $$\frac{f(x+h) - f(x)}{h} \leq 0 (\text{respectively } \geq 0)$$ while if $h < 0$, $$\frac{f(x+h) - f(x)}{h} \geq 0 (\text{respectively }\leq 0)$$ Thus, by order properties of limits $f'(x) \leq 0$ and $f'(x) \geq 0$, so $f'(x) = 0$.
+\end{proof}
+
+Next we explore a funcdamental result for differentiable functions on an interval, which we will use to prove the fundamental theorem of calculus.
+
+\begin{theorem}[Mean Value Theorem]\index{MVT}
+    Suppose $f$ is continuous on $[a,b]$ and is differentiable on $(a,b)$. Then there exists $\xi \in (a,b)$ such that $$f'(\xi) = \frac{f(b) - f(a)}{b-a}$$
+\end{theorem}
+\begin{proof}
+    Consider $f(x) = f(x) - (x-a)\frac{f(b) - f(a)}{b-a}$. Then $g$ is continuous on $[a,b]$, differentiable on $(a,b)$, and $g(a) = f(a)$ while $g(b) = f(a)$ as well, so $\frac{g(b) - g(a)}{b-a} = 0$. Since $g$ is continuous on the compact set $[a,b]$, $g$ attains a maximum on $[a,b]$. If it occurs at $\xi \in (a,b)$, then $g'(\xi) = 0$. On the other hand, if the maximum occurs at $a$ or $b$, then since $g(a) = g(b) = \max_{[a,b]}g$, $g$ must attain its minimum in $(a,b)$. Thus, there exists $\zeta \in (a,b)$ such that $g(\zeta)$ is a minimum and $g'(\zeta) = 0$. Thus in either case we have a $\xi \in (a,b)$ such that $f'(\xi) - \frac{f(b)-f(a)}{b-a} = 0$, so $f'(\xi) = \frac{f(b) - f(a)}{b-a}$ as desired.
+\end{proof}
+
+
+\begin{theorem}[Inverse Function Theorem]\index{IFT}
+    Suppose $f$ is continuous on $[a,b]$ and differentiable on $(a,b)$, and there exists $\gamma_0,\gamma_1 \in \R$ such that $0 < \gamma_0 \leq f'(x) \leq \gamma_1 < \infty$ (or $-\infty < \gamma_0 \leq f'(x) \leq \gamma_1 < 0$) for all $x \in (a,b)$. Let $\alpha = f(a)$ and $\beta = f(b)$. Then there exists an inverse function $g:[\alpha,\beta]\rightarrow [a,b]$ (or $g:[\beta,\alpha]\rightarrow[a,b]$) which is continuous on $[\alpha,\beta]$ and differentiable on $(\alpha,\beta)$, with derivative \begin{equation*}
+        (f^{-1})'(y) = g'(y) = \frac{1}{f'(g(y))} = \frac{1}{f'(f^{-1}(y))}
+    \end{equation*}
+    for all $y \in (\alpha,\beta)$.
+\end{theorem}
+\begin{proof}
+    Let $x_1,x_2 \in [a,b]$, with $a \leq x_1 < x_2 \leq b$. By the mean value theorem there exists $\xi \in (x_1,x_2)$ such that $$f'(\xi) = \frac{f(x_2) - f(x_1)}{x_2-x_1}$$ This implies $$0 < \gamma_0 \leq \frac{f(x_2) - f(x_1)}{x_2-x_2} \leq \gamma_1 < \infty$$ so $$0<\gamma_0(x_2-x_1) \leq f(x_2) - f(x_1) \leq \gamma_1(x_2-x_1)$$ for all $a \leq x_1 < x_2 \leq b$. This implies that $f$ is strictly increasing, and so injective. Further, $f(x) \in [\alpha,\beta]$ for all $x \in [a,b]$ since $\alpha = f(a)$ and $\beta = f(b)$. By the intermediate value theorem it follows that $f$ is surjective onto $[\alpha,\beta]$. Since $f:[a,b]\rightarrow [\alpha,\beta]$ is a continuous bijection on a compact set, $f$ is a homeomorphism and $f^{-1}:[\alpha,\beta]\rightarrow [a,b]$ is also a homeomorphism. As $f$ is differentiable on $(a,b)$, there exists $r_f(x,h)$ satisfying certain properties discussed previously. Then for $y \in (\alpha,\beta)$, there exists $x \in (a,b)$ such that $f^{-1}(y) = x,$ so $f(x) = y$. Then \begin{align*}
+        f^{-1}(y) + h = x+h = f^{-1}(f(x+h)) &= f^{-1}(f(x)+f'(x)h+r_f(x,h)) \\
+        &= f^{-1}(y+f'(x)h+r_f(x,h))
+    \end{align*}
+    Let $\tilde{h} = f'(x)h+r_f(x,h)$, so $h = \frac{\tilde{h}}{f'(x)} - \frac{r_f(x,h)}{f'(x)}$. Then \begin{equation*}
+        f^{-1}(y+\tilde{h}) = f^{-1}(y) + \frac{1}{f'(x)}\tilde{h} - \frac{r_f(x,h)}{f'(x)}
+    \end{equation*}
+    Recall $r_f(x,h) = f(x+h) - f(x) - f'(x)h$. Then let $r_g(x,\tilde{h}) = -\frac{[f(x+h) - f(x) - f'(x)h]}{f'(x)}$. Note $\gamma_0h + r_f(x,h) \leq \tilde{h} \leq \gamma_1 h + r_f(x,h)$, so $$\gamma_0+\frac{r_f(x,h)}{h} \leq \frac{\tilde{h}}{h} \leq \gamma_1 + \frac{r_f(x,h)}{h}$$ which implies $\frac{\tilde{h}}{h}$ and $\frac{h}{\tilde{h}}$ are bounded. Thus $$\frac{r_g(x,\tilde{h})}{\tilde{h}} = -\frac{1}{f'(x)}\frac{h}{\tilde{h}}\frac{r_f(x,h)}{h}$$ which goes to $0$ as $\tilde{h}$ goes to $0$, since $\tilde{h}\rightarrow 0$ implies $h\rightarrow 0$. Thus, $g=f^{-1}$ is differentiable at $y = f(x)$, and \begin{equation*}
+        (f^{-1})'(y) = \frac{1}{f'(f^{-1}(y))}
+    \end{equation*}
+\end{proof}
+
+The result for a negative derivative follows by replacing $f$ with $-f$.
+
+Note that if $f$ is differentiable in $(a,b)$ then $f'(x)$ is a function on $(a,b)$. If $f'(x)$ is differentiable at $x_0$ we may write \begin{equation*}
+    f''(x_0) = \lim\limits_{h\rightarrow 0}\frac{f'(x_0+h)-f'(x_0)}{h}
+\end{equation*}
+and in general $f^{(k+1)}(x) = \frac{d}{dx}f^{(k)}(x)$, for all $k \in \N\cup\{0\}$.
+
+\begin{proposition}\label{prop:4.1.4}
+    If $f$ is differentiable on $(a,b)$ and $x_0 \in (a,b)$, $f'(x_0) = 0$ but $f''(x_0) > 0$, then there exists $\delta > 0$: $$f(x_0) < f(x),\;\;\forall x \in (x_0-\delta,x_0+\delta)\backslash \{x_0\}$$ We say that $f$ has a local minimum at $x_0$.
+\end{proposition}
+\begin{proof}
+    Note $$f''(x_0) = \lim\limits_{h\rightarrow 0}\frac{f'(x_0+h) - f'(x_0)}{h} > 0$$ Then there exists $\delta >0$ such that $\frac{f'(x_0+h) - f'(x_0)}{h} > 0$ for all $h \in [-\delta,\delta]$. In particular, as $f'(x_0) = 0$, $f'(x_0+h) > 0$ for $h \in (0,\delta]$ and $f'(x_0+h) < 0$ for $h \in [-\delta, 0)$. Consider $h \in (0,\delta]$. By the mean value theorem there exists $c \in (x_0,x_0+h)$ such that \begin{equation*}
+        f(x_0+h) - f(x_0) = hf'(c) > 0
+    \end{equation*}
+    so $f(x_0) < f(x_0+h)$. If $h \in [-\delta,0)$, by the mean value theorem there exists $c \in (x_0+h,x_0)$ such that \begin{equation*}
+        f(x_0+h) - f(x_0) = hf'(c) < 0
+    \end{equation*}
+    so $f(x_0) < f(x_0+h)$ again. Thus, for all $x \in (x_0 - \delta,x_0+\delta)\backslash\{x_0\}$, we have $f(x_0) < f(x)$.
+\end{proof}
+
+The result for a local maximum is then given by replacing $f$ by $-f$ in the previous result.
+
+\begin{proposition}\label{prop:4.1.5}
+    Suppose $f$ is twice differentiable on $(a,b)$ and $f''(x) > 0$ on $(a,b)$. Then for all $a < x_0 < x_1 < b$ and $\lambda \in (0,1)$, $$f(\lambda x_0+(1-\lambda)x_1) < \lambda f(x_0) + (1-\lambda)f(x_1)$$
+\end{proposition}
+\begin{proof}
+    Let $g(s) = sf(x_0) + (1-s)f(x_1) - f(sx_0+(1-s)x_1)$. Then $g(0) = f(x_1) - f(x_1) = 0$ and $g(1) = f(x_0) - f(x_0) = 0$. Note $g$ is also twice differentiable. Towards a contradiction suppose there exists $c \in (0,1)$ such that $g(c) < 0$. Since $g$ is continuous it attains its minimum, so there exists $s_0 \in (0,1)$ such that $g(s_0) \leq g(c) < 0$. Further, $g'(s_0) = 0$, where $g'(s) = f(x_0) - f(x_1) - f'(sx_0+(1-s)x_1)(x_0-x_1)$. Then $$f'(s_0x_0+(1-s_0)x_1) = \frac{f(x_1)-f(x_0)}{x_1-x_0}$$ and $g''(s) = -f''(sx_0 + (1-s)x_0)(x_0-x_1)^2 < 0$. In particular, $g''(s_0) < 0$, contradicting the fact that $g(s_0)$ is a minimum and Proposition \ref{prop:4.1.4}
+\end{proof}
+
+
+
+
+
+
+%
+\section*{Appendix B: Functional Sequences and Series}
+\addcontentsline{toc}{section}{Appendix B: Functional Sequences and Series}
+%
+We are now interested in the study of series of functions, or in other words functions of the form \begin{equation*}
+    f(x) = f_1(x) + f_2(x) + f_3(x) + \hdots
+\end{equation*}
+In such a situation $\{f_n\}$ will be some sequence of functions; for each $x$ we obtain a sequence of numbers $\{f_n(x)\}$, and $f(x)$ is the sum of this sequence. Recall that each sum $f_1(x)+f_2(x)+f_3(x) + \hdots$ is, by definition, the limit of the sequence $f_1(x),f_1(x)+f_2(x),f_1(x)+f_2(x)+f_3(x),...$. If we define a new sequence of functions $\{s_n\}$ by \begin{equation*}
+    s_n = f_1 + \hdots + f_n
+\end{equation*}
+then we can express this fact more succinctly by writing \begin{equation*}
+    f(x) = \lim\limits_{n\rightarrow \infty}s_n(x)
+\end{equation*}
+for some $x \in \R$.
+
+First let us consider functions of the form \begin{equation*}
+    f(x) = \lim\limits_{n\rightarrow\infty}f_n(x)
+\end{equation*}
+All this form may seem simple, it is very important to note that \Emph{nothing one would hope to be true actually is}. Instead we have a flurry of lovely counter-examples.
+
+
+\begin{example}[Counter-Example 1]
+    Even if each $f_n$ is continuous, the function $f$ may not be! Indeed, consider the sequence of functions \begin{equation*}
+        f_n(x) = \left\{\begin{array}{lc} x^n, & 0\leq x \leq 1 \\ 1, & x \geq 1 \end{array}\right.
+    \end{equation*}
+    These functions are all continuous, but the function $f(x) = \lim\limits_{n\rightarrow \infty}f_n(x)$ is not continuous; in fact, \begin{equation*}
+        \lim\limits_{n\rightarrow \infty}f_n(x) = \left\{\begin{array}{lc} 0, & 0\leq x < 1 \\ 1, & x \geq 1 \end{array}\right.
+    \end{equation*}
+    Another example of this phenomenon is illustrated by the family of functions \begin{equation*}
+        f_n(x) = \left\{\begin{array}{lc} -1, &  x \leq -\frac{1}{n} \\ nx, & -\frac{1}{n} \leq x \leq \frac{1}{n} \\ 1, & \frac{1}{n} \leq x \end{array}\right.
+    \end{equation*}
+    In this case, if $x < 0$ $f_n(x)$ is eventually $-1$, and if $x > 0$, then $f_n(x)$ is eventually $1$, while $f_n(0) = 0$ for all $n$. Thus, \begin{equation*}
+        \lim\limits_{n\rightarrow \infty}f_n(x) = \left\{\begin{array}{lc} -1, & x < 0 \\ 0, & x = 0 \\ 1, & x > 0 \end{array}\right.
+    \end{equation*}
+    so once again $f(x) = \lim\limits_{n\rightarrow \infty}f_n(x)$ is not continuous.
+\end{example}
+
+\begin{example}[Counter-Example 2]
+    It is even possible to produce a sequence of differentiable functions $\{f_n\}$ for which the function $f(x) = \lim\limits_{n\rightarrow \infty}f_n(x)$ is not continuous. One such sequence is \begin{equation*}
+        f_n(x) = \left\{\begin{array}{lc} -1, &  x \leq -\frac{1}{n} \\ \sin\left(\frac{n\pi x}{2}\right), & -\frac{1}{n} \leq x \leq \frac{1}{n} \\ 1, & \frac{1}{n} \leq x \end{array}\right.
+    \end{equation*}
+    These functions are differentiable, but we still have  \begin{equation*}
+        \lim\limits_{n\rightarrow \infty}f_n(x) = \left\{\begin{array}{lc} -1, & x < 0 \\ 0, & x = 0 \\ 1, & x > 0 \end{array}\right.
+    \end{equation*}
+\end{example}
+
+\begin{definition}\index{Pointwise convergence}
+    If $f$ is a function defined on some set $A$, and a sequence of functions $\{f_n\}$, all defined on the same set $A$, are such that only \begin{equation*}
+        f(x) = \lim\limits_{n\rightarrow \infty}f_n(x)
+    \end{equation*}
+    for all $x \in A$. Precisely, $\{f_n\}$ is said to \Emph{converge pointwise to $f$ on $A$} if for all $\varepsilon > 0$, and for all $x \in A$, there is some $N$ such that if $n \geq N$, then $|f(x) - f_n(x)| < \varepsilon$.
+\end{definition}
+
+\begin{definition}[Pointwise Convergence (alt.)]
+    Suppose $S \subseteq \R$ and $f_n:S\rightarrow \R$ is a real-valued function for each $n \in \N$. We say that the sequence of functions $\{f_n\}$ \Emph{converges pointwise on $S$} to $f:S\rightarrow \R$ if for every $x \in S$ and every $\varepsilon > 0$, there exists $N \in \N$ such that if $n \geq N$, $|f_n(x) - f(x)| < \varepsilon$.
+\end{definition}
+
+\begin{example}
+    Take $f_n(x) = x^n$ on $S = [0,1]$. If $0 \leq x < 1$ notice that $\lim\limits_{n\rightarrow \infty}x^n = 0$ (geometric sequence). If $x = 1$, then $f_n(1) = 1^n = 1$, which converges to $1$ as $n$ goes to infinity. Thus, $f_n$ converges pointwise to \begin{equation*}
+        f(x) = \left\{\begin{array}{lc} 0 & 0 \leq x < 1 \\ 1 & x = 1\end{array}\right.
+    \end{equation*}
+    Notice each $f_n$ is continuous on $[0,1]$, but $f$ is not.
+\end{example}
+
+This example answers the following question in the negative:
+
+\begin{question}[Question]
+    Suppose $f_n$ converges pointwise to $f$ on $S \subseteq \R$. If $a \in S'$ (an accumulation/limit point for $S$), $\lim\limits_{x\rightarrow a}f(x)$ exists and $\lim\limits_{x\rightarrow a}f_n(x)$ exists for all $n$, is it true that \begin{equation*}
+        \lim\limits_{x\rightarrow a}\lim\limits_{n\rightarrow \infty}f_n(x) = \lim\limits_{n\rightarrow \infty}\lim\limits_{x\rightarrow a}f_n(x)?
+    \end{equation*}
+\end{question}
+
+In particular, in our example we take $a = 1$, then $\lim\limits_{x\rightarrow a}f_n(x) = \lim\limits_{x\rightarrow 1}x^n = 1$, so $\lim\limits_{n\rightarrow \infty}1 = 1$, but $\lim\limits_{x\rightarrow 1}f(x) = 0$.
+
+
+\begin{example}
+    Consider the sequence $g_n(x) = \frac{1}{1+x^n}$ on $S = (-\infty,-1)\cup(-1,\infty)$. As $n$ goes to infinity we have that the sequence converges pointwise to $1$ for $|x| < 1$, $1/2$ for $x = 1$, and $0$ for $|x| > 1$.
+\end{example}
+
+\begin{example}
+    Let $S = [0,\infty)$ and define \begin{equation*}
+        f_n(x) = \left\{\begin{array}{lc} n^2x & 0 \leq x \leq \frac{1}{n} \\ -n^2\left(x-\frac{2}{n}\right) & \frac{1}{n} < x \leq \frac{2}{n} \\ 0 & x > \frac{2}{n}\end{array}\right.
+    \end{equation*}
+    We claim that $\lim\limits_{n\rightarrow \infty}f_n(x) = 0$ for all $x \geq 0$. When $x=0$, $f_n(0) = 0$ which converges to $0$. If $0 < x$: By the Archemedean property there exists $N \in \N$ such that $\frac{2}{N} < x$. Then $f_N(x) = 0$ and $f_n(x) = 0$ for all $n \geq N$. Thus, $\lim\limits_{n\rightarrow \infty}f_n(x) = 0$, as claimed. This argument can be intuitively realized by noting that for $n$ large enough, the tent is always to the left of any $0 < x$.
+\end{example}
+
+We note that this gives an example of an unbounded sequence $\{f_n\}$ converging pointwise to a bounded function.
+
+\begin{example}
+    Take $S = \R$ and define $f_n(x) = \frac{\sin(nx)}{\sqrt{n}}$, waves of declining amplitude but increasing frequency. Note that $0 \leq |f_n(x)| = \left|\frac{\sin(nx)}{\sqrt{n}}\right| \leq \frac{1}{\sqrt{n}}$ which goes to $0$ as $n$ goes to infinity, so the sequence converges pointwise to $0$. Notice $f_n'(x) = \frac{n}{\sqrt{n}}\cos(nx) = \sqrt{n}\cos(nx)$, which has no limit for any $x \in \R$.
+\end{example}
+
+This is an example of pointwise convergence where the derivatives do not converge pointwise. Moreover, as we will see, the original sequence actually converges uniformly (the bound on the terms does not depend on $x$), which suggests we need a stronger requirement for convergence of derivatives.
+
+
+\begin{definition}\index{Uniform Convergence}
+    Let $\{f_n\}$ be a sequence of functions defined on $A$, and let $f$ be a function which is also defined on $A$. Then $f$ is called the \Emph{uniform limit of $\{f_n\}$ on $A$} if for every $\varepsilon > 0$ there is some $N$ such that for all $x \in A$, \begin{equation*}
+        \text{if } n> N, \text{ then } |f(x) - f_n(x)| < \varepsilon
+    \end{equation*}
+    We also say that $\{f_n\}$ \Emph{converges uniformly to $f$ on $A$}, or that $f_n$ \Emph{approaches $f$ uniformly on $A$}.
+\end{definition}
+
+
+\begin{definition}[Uniform Convergence (alt.)]
+    Suppose $S \subseteq \R$ and $f_n:S\rightarrow \R$ are real-valued functions for each $n \in \N$. We say that $f_n$ \Emph{converges uniformly on $S$} to $f:S\rightarrow \R$ if for all $\varepsilon > 0$, there is an $N \in \N$ (depends only on $\varepsilon$) such that $n \geq N$ implies \begin{equation*}
+        |f_n(x) - f(x)| < \varepsilon
+    \end{equation*}
+    for all $x \in S$.
+\end{definition}
+
+We will use the notation $f_n\rightarrow_uf$ sometimes to denote uniform convergence. Intuitively uniform convergence can be understood by saying that given any band or tube containing $f$ on $S$, there is a point past which the tail functions of the sequence reside entirely in this band.
+
+\begin{remark}
+    Note that uniform convergence implies pointwise convergence, but the converse is not true.
+\end{remark}
+
+\begin{definition}[Uniform Norm]\index{Uniform norm}
+    Suppose $S \subseteq \R$ and $f$ is a function on $S$. The \Emph{uniform norm} of $f$ on $S$ is given by \begin{equation*}
+        ||f||_S := \sup\limits_{x\in S}|f(x)|
+    \end{equation*}
+\end{definition}
+We note that this may not be finite. When the context is clear we will write $||f||_{\infty}$. 
+
+\begin{remark}
+    Suppose $f:S\rightarrow \R$ is a function: \begin{enumerate}
+        \item[(i)] $f$ is bounded on $S$ if and only if $||f||_S < \infty$
+        \item[(ii)] If $f$ is continous on $S$ and $S$ is compact, then $||f||_S = \max\limits_{s \in S}|f(x)|$ (e.g. $||x^n||_{[0,1]} = 1$)
+    \end{enumerate}
+\end{remark}
+
+
+\begin{proposition}
+    A sequence of functions $f_n$ converges uniformly to $f$ on $S$ if and only if $||f_n-f||_S\rightarrow 0$.
+\end{proposition}
+\begin{proof}
+    Let $f_n$ be a sequence of functions, each defined on $S$, and let $f$ be another function on $S$.
+
+    First, let us suppose that the $f_n$ converge uniformly to $f$ on $S$. Fix $\varepsilon > 0$. Then there exists $N \in \N$ such that for $n \geq N$, $|f_n(x) - f(x)| < \varepsilon/2$ for all $x \in S$. This implies that $\varepsilon/2$ is an upper bound of all $|f_n(x)-f(x)|$, so by definition $||f_n-f||_S \leq \varepsilon/2 < \varepsilon$ for all $n \geq N$. Hence, as $||f_n-f||_S = |||f_n -f||_S - 0|$, we have that the sequence $||f_n-f||_S$ converges to $0$ in $\R$.
+
+    Conversely, suppose that $||f_n-f||_S$ converges to $0$, and let $\varepsilon > 0$. Then, there exists $N \in \N$ such that for all $n \geq N$, $||f_n-f||_S < \varepsilon$. It follows that for all $x \in S$, $|f_n(x) - f(x)| \leq ||f_n-f||_S < \varepsilon$ for $n \geq N$, so we find that $f_n$ converges uniformly to $f$ on $S$ by definition.
+\end{proof}
+
+\begin{example}
+    Let $S = [0,1]$ and $f_n(x) = x^n$. $f_n$ does not converge uniformly to any function. Indeed if $f_n$ converges uniformly to anything on $[0,1]$, it must be the pointwise limit $f(x) = 0, 0 \leq x < 1$ and $f(x) = 1, x =1$, since uniform implies pointwise convergence (and limits are unique in Hausdorff spaces). This implies $\sup\limits_{x \in [0,1]}|f_n(x) - f(x)|$ goes to zero as $n$ goes to infinity. But if $x = 1-\frac{1}{n}$, then $|f_n(1-1/n)-f(1-1/n)| = (1-1/n)^n$, which converges to $e^{-1} = \frac{1}{e}$, and not zero. Further, this must be less than what the limit of the supremums converges to, so the supremums cannot converge to $0$, as that would result in a contradiction. Hence, the sequence does not converge uniformly.
+\end{example}
+
+The tent function is another example of pointwise but not uniform convergence, since $||f_n-0||_{\infty} = n$, which does not converge to $0$. 
+
+\begin{theorem}[Cauchy Criterion for Uniform Convergence]\Alsoindex{Uniform convergence}{Cauchy criterion}
+    Suppose $f_n:S\rightarrow \R$. Then $f_n$ converges uniformly on $S$ if and only if for all $\varepsilon > 0$ there is an $N \in \N$ such that $m,n \geq N$ implies $$||f_n - f_m||_{\infty} < \varepsilon$$
+\end{theorem}
+\begin{proof}
+    Let $f_n:S\rightarrow \R$ be a sequence of functions.
+
+    First, suppose $f_n$ converges uniformly on $S$ to some $f:S\rightarrow \R$. Fix $\varepsilon > 0$. Then there exists $N \in \N$ such that for $n \geq N$, $|f_n(x) - f(x)| < \varepsilon/3$, for all $x \in S$. It follows by the triangle inequality that for $k,m \geq N$, $|f_k(x) - f_m(x)| < 2\varepsilon/3$ for all $x \in S$. Thus, $||f_k - f_m||_{\infty} \leq 2\varepsilon/3 < \varepsilon$, so $f_n$ is uniformly Cauchy (i.e. it is Cauchy with respect to the uniform norm $||\cdot||_{\infty}$)
+
+    Conversely, suppose $f_n$ is uniformly Cauchy on $S$. Let $\varepsilon > 0$. Then there exists $N \in \N$ such that for $k,m \geq N$, $||f_k - f_m||_{\infty} < \varepsilon/2$. Then for all $x \in S$, $|f_k(x) - f_m(x)| < \varepsilon/2$ for $k,m \geq N$. As $(\R, |\cdot|)$ is a complete metric space, for each $x \in S$ there exists $f(x) \in \R$ such that $f_k(x)$ converges to $f(x)$. Then, taking the limit as $m$ goes to infinity in $|f_k(x) - f_m(x)| < \varepsilon/2$, and using the order properties of limits in $\R$, we have that $|f_k(x) - f(x)| \leq \varepsilon/2$ for all $x \in S$ and $k \geq N$. Thus, for $k \geq N$ we have that $||f_k - f||_{\infty} < \varepsilon$, so $f_k$ converges to $f$ uniformly on $S$, as desired.
+\end{proof}
+
+\begin{example}
+    Let $S = [0,1]$ and $f_n(x) = nx(1-x^2)^n$. We claim that $f_n$ converges pointwise to $0$, but not uniformly. If $x = 0,1,$ then $f_n(x) = 0\rightarrow 0$. If $0 < x < 1$, then $0 < 1-x^2 < 1$. Then $1/(1-x^2) > 1$, so there exists $y > 0$ such that $1/(1-x^2) = 1+y$. Then, for $n \geq 2$ we have by the binomial theorem that $(1+y)^n \leq 1 + ny + n(n+1)/2y^2 \leq 1 +ny + n^2y^2/2$. It follows that \begin{align*}
+        0 \leq \lim\limits_{n\rightarrow \infty}nx(1-x^2)^n &\leq \lim\limits_{n\rightarrow \infty}\frac{nx}{1+ny+n^2y^2/2} \tag{for some $y > 0$} \\
+        &= x\lim\limits_{n\rightarrow \infty}\frac{1}{1/n+y+ny^2/2} \\
+        &= x\cdot 0 = 0
+    \end{align*}
+    as claimed. But, the convergence is not uniform since if $||f_n||_{\infty}\rightarrow 0$, then $|f_n(x_n)|\rightarrow 0$ for any sequence $x_n$ in $[0,1]$. Let $x_n = \frac{1}{\sqrt{n}}$. Then $f_n(x_n) = n\frac{1}{\sqrt{n}}(1-1/n)^n = \sqrt{n}(1-1/n)^n$, which converges to $\infty$ as $\sqrt{n}\rightarrow \infty$ and $(1-1/n)^n\rightarrow e^{-1}$.
+\end{example}
+
+\begin{example}
+    Let $S = [0,b]$ for some $b > 0$. Then $f_n(x) = n\sin(x/n)$ converges uniformly on $S$ but not on $[0,\infty)$. Note if we fix $x$ and take $n$ large enough, then $\sin(x/n) \approx x/n$. Then $$\lim\limits_{n\rightarrow \infty}f_n(x) = \lim\limits_{n\rightarrow \infty}\frac{\sin(x/n)}{x/n}x = x$$ so $f_n(x)\rightarrow x$ for all $x$. We first show $f_n\cancel{\rightarrow_u} x$ on $[0,\infty)$. Suppose it did. Then $|f_n(x_n)-x_n|\rightarrow 0$ for any sequence $x_n$ in $[0,\infty)$. Try $x_n = n^2$. Then $|f_n(n^2) - n^2| = |n\sin(n)-n^2| = n|\sin(n) - n|\rightarrow \infty$, which is a contradiction, so the claim holds. To show uniform convergence on $[0,b]$, note that $\sin(x/n) \leq x/n$ for all $x \geq 0$, so $n\sin(x/n) \leq x$. Let $g(x) = x-n\sin(x/n) \geq 0$. Then $g'(x) = 1-\cos(x/n) \geq 0$. Thus, $g$ is a monotone increasing function on $[0,b]$. Thus, $||g||_{\infty} = g(b) = b-n\sin(b/n)$. Then $||f_n - x||_{[0,b]} = ||g||_{[0,b]} = b-n\sin(b/n)$, which converges to $b-b = 0$ as $n\rightarrow \infty$.
+\end{example}
+
+Note that $[0,\infty) = \bigcup_{b > 0}[0,b]$, sp this gives an example of uniform convergence on many sets, but not on the union of those sets.
+
+
+
+
+
+\begin{theorem}
+    Suppose $S \subseteq \R$, and $f_n:S\rightarrow \R$ are continuous functions. If $f_n$ converges uniformly to $f$ on $S$, then $f$ is also continuous on $S$.
+\end{theorem}
+\begin{proof}
+    First, fix $\varepsilon > 0$. Then there exists $N \in \N$ such that for $k \geq N$, $||f_k - f||_S < \varepsilon/3$. Let $x \in S$. As $f_N$ is continuous at $x$, there exists $\delta > 0$ such that for $y \in B_{\delta}^*(x)$, $|f_N(y) -f_N(x)| < \varepsilon/3$. Then, for $|x-y| < \delta$ we have that \begin{align*}
+        |f(x) - f(y)| &\leq |f(x) - f_N(x)| + |f_N(x) - f_N(y)| + |f_N(y) - f(y)| < 3\varepsilon/3 = \varepsilon
+    \end{align*}
+    so $f$ is indeed continuous at $x$, and hence on $S$.
+\end{proof}
+
+
+\begin{proposition}
+    If $f_n$ converges uniformly to $f$ on $S$ and each $f_n$ is uniformly continuous on $S$, then $f$ is uniformly continuous on $S$.
+\end{proposition}
+\begin{proof}
+    First, fix $\varepsilon > 0$. As $f_n\rightarrow_uf$, there exists $N \in \N$ such that for $k \geq N$, $||f_k - f||_S < \varepsilon/3$. Then, as $f_N$ is uniformly continuous there exists $\delta > 0$ such that if $|x-y| < \delta$, $|f_N(x) - f_N(y)| < \varepsilon/3$ for all $x,y \in S$. Thus, if $|x-y| < \delta$ and $x,y \in S$, it follows that \begin{align*}
+        |f(x) - f(y)| &\leq |f(x) - f_N(x)| + |f_N(x) - f_N(y)| + |f_N(y) - f(y)| \\
+        &< 3\varepsilon/3 = \varepsilon
+    \end{align*}
+    so $f$ is uniformly continuous on $S$, as desired.
+\end{proof}
+
+\begin{example}
+    Let $S = [0,1]$ and $f_n(x) = \frac{1}{1+x^n}$. We have seen that $f_n(x) \rightarrow 1$ for $x \in [0,1)$, and $f_n(1)\rightarrow 1/2$, pointwise. Evidently, the convergence is not uniform since each $f_n$ is continuous on $[0,1]$, but the limit function is not.
+\end{example}
+
+\begin{lemma}
+    Suppose $f_n$ converges uniformly to $f$ on $S$. If each $f_n$ are bounded on $S$, then $f$ is bounded on $S$ as well. Moreover, the sequence is \Emph{uniformly bounded}: $$\sup_{n \in \N}||f_n||_S < \infty$$
+\end{lemma}
+\begin{proof}
+    First, there exists $N \in \N$ such that if $k \geq N$, $||f_k - f||_S < 1$, by uniform convergence. Then, for all $x \in S$, $|f(x)| \leq |f(x)-f_N(x)| + |f_N(x)| < ||f_N||_S + 1$. But $f_N$ is assumed bounded on $S$, so $||f_N||_S < \infty$, and hence $||f||_S \leq ||f_N||_S + 1 < \infty$, so $f$ is also bounded on $S$. Now, for all $k \geq N$ we have that $||f_k||_S \leq ||f||_S + 1$. Let $M = \max\{||f_1||_S,...,||f_{N-1}||_S,||f_N||_S + 1\}$. Then it follows that $||f_n||_S \leq M$ for all $n \in \N$, and $M < \infty$ is finite, so $\sup_{n \in \N}||f_n||_S \leq M < \infty$, as desired.
+\end{proof}
+
+
+\begin{theorem}
+    Suppose that $f_n$ are bounded and integrable functions on $[a,b]$, $f_n \in \mathcal{R}([a,b])$, converging uniformly to $f$ on $[a,b]$. Then $f$ is integrable on $[a,b]$ and $$\lim\limits_{n\rightarrow \infty}\int_a^bf_n(x)dx = \int_a^bf(x)dx$$
+\end{theorem}
+\begin{proof}
+    By the previous lemma we have that $f$ is bounded on $[a,b]$. First, if $f$ is integrable on $[a,b]$, then \begin{align*}
+        \left|\int_a^bf_n(x)dx - \int_a^bf(x)dx\right| &\leq \int_a^b|f_n(x)-f(x)|dx \\
+        &\leq \int_a^b||f_n-f||_{\infty}dx \\
+        &= (b-a)||f_n-f||_{\infty}
+    \end{align*}
+    which goes to $0$ as $n\rightarrow \infty$ by uniform convergence. Thus, all we need to show is $f$ is integrable. Fix $\varepsilon > 0$. Then there exists $N \in \N$ such that $||f_n - f|| < \frac{\varepsilon}{3(b-a)}$. Since each $f_n$ is integrable, there exists a partition $P_n \in \prod([a,b])$ with $$U(f_n,P_n) - L(f_n,P_n) < \frac{\varepsilon}{3}$$ Write $P_n = \{a=x_{0,n},x_{1,n},...,x_{M_n,n} = b\}$. Let $J_{k,n} = [x_{k,n},x_{k+1,n}]$ for $0 \leq k \leq N_n$. Then $||f-f_n||_{J_k} < \frac{\varepsilon}{3(b-a)}$ for $n \geq N$. Then $$||f||_{J_k} \leq \frac{\varepsilon}{3(b-a)} + ||f_n||_{J_k}$$ and $$||f_n||_{J_k} \leq \frac{\varepsilon}{3(b-a)}$$, so $$|\sup_{J_k}(f) - \sup_{J_k}(f_n)| \leq \frac{\varepsilon}{3(b-a)}$$ for all $n \geq N$. It follows that \begin{align*}
+        |U(f,P_n) - U(f_n,P_n)| &= \left|\sum_{k=0}^{M_n-1}(\sup_{J_k}(f) - \sup_{J_k}(f_n))\ell(J_k)\right| \\
+        &\leq \sum_{k=0}^{M_n - 1}|\sup_{J_k}(f) - \sup_{J_k}(f_n)|\ell(J_k) \\
+        &< \sum_{k=0}^{M_n-1}\frac{\varepsilon}{3(b-a)}\ell(J_k) \\
+        &= \frac{\varepsilon}{3(b-a)}\ell([a,b]) = \frac{\varepsilon}{3}
+    \end{align*}
+    Similarly, $|L(f,P_n) - L(f_n,P_n)| < \varepsilon/3$. Finally, \begin{align*}
+        U(f,P_n) - L(f,P_n) &= U(f,P_n) - U(f_n,P_n) + U(f_n,P_n) - L(f_n,P_n) + L(f_n,P_n) - L(f,P_n) \\
+        &\leq |U(f,P_n) - U(f_n,P_n)| + |U(f_n,P_n) - L(f_n,P_n)| + |L(f_n,P_n) - L(f,P_n)|\\
+        &< 3\cdot \frac{\varepsilon}{3} = \varepsilon
+    \end{align*}
+    Thus, $f$ is Riemann integrable on $[a,b]$.
+\end{proof}
+
+
+
+
+\begin{remark}
+    Although these last two theorems are great successes, differentiability sadly fails. Even if each $f_n$ is differentiable and $\{f_n\}$ converges uniformly to $f$, it need not be the case that $f$ is differentiable. Moreover, even if $f$ is itself differentiable, it need not be the case that \begin{equation*}
+        f'(x) = \lim\limits_{n\rightarrow \infty}f_n'(x)
+    \end{equation*}
+\end{remark}
+
+\begin{example}[Counter Example 3]
+    Consider the family of functions \begin{equation*}
+        f_n(x) = \frac{1}{n}\sin(n^2x)
+    \end{equation*}
+    then $\{f_n\}$ converges uniformly to the function $f(x) = 0$, but \begin{equation*}
+        f_n'(x) = n\cos(n^2x)
+    \end{equation*}
+    and $\lim\limits_{n\rightarrow\infty}n\cos(n^2x)$ does not even always exist (for example if $x =0$).
+\end{example}
+
+
+\begin{theorem}
+    Suppose that $\{f_n\}$ is a sequence of functions which are differentiable on $[a,b]$, with integrable derivatives $f'_n$, and that $\{f_n\}$ converges (pointwise) to $f$. Suppose, moreover, that $\{f_n'\}$ converges uniformly on $[a,b]$ to some continuous function $g$. Then $f$ is differentiable and \begin{equation*}
+        f'(x) = \lim\limits_{n\rightarrow \infty}f_n'(x)
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    Applying Theorem $1$ to the interval $[a,x]$, we see that for each $x$ we have \begin{align*}
+        \int_a^xg &= \lim\limits_{n\rightarrow \infty}\int_a^xf'_n \\
+        &= \lim\limits_{n\rightarrow \infty}[f_n(x) - f_n(a)] \tag{by \ref{thmname:FTC2}} \\
+        &= f(x) - f(a)
+    \end{align*}
+    Since $g$ is continuous, it follows that $f'(x) = g(x) = \lim\limits_{n\rightarrow \infty}f_n'(x)$ for all $x$ in the interval $[a,b]$, by \ref{thmname:FTC}.
+\end{proof}
+
+\begin{example}
+    Consider $\int_0^{\pi}\frac{n+\sin x}{3n+\sin^2(nx)}dx$. Observe that \begin{align*}
+        \left|\frac{n+\sin x}{3n+\sin^2(nx)} - \frac{1}{3}\right| &= \left|\frac{3n+3\sin x-3n-\sin^2(nx)}{3(3n+\sin^2(nx))}\right| \\
+        &\leq \frac{|3\sin x - \sin^2(nx)|}{9n} \leq \frac{3+1}{9n} = \frac{4}{9n}
+    \end{align*}
+    for all $x \in [0,\pi]$. Thus, $||f_n-\frac{1}{3}||_{[0,\pi]} \leq \frac{4}{9n}\rightarrow 0$, so it converges uniformly. It follows that \begin{align*}
+        \lim\limits_{n\rightarrow \infty}\int_0^{\pi}\frac{n+\sin x}{3n+\sin^2(nx)}dx &= \int_0^{\pi}\lim\limits_{n\rightarrow \infty}\frac{n+\sin x}{3n+\sin^2(nx)}dx \\
+        &= \int_0^{\pi}\frac{1}{3}dx \\
+        &= \frac{\pi}{3}
+    \end{align*}
+\end{example}
+
+\begin{definition}
+    The series $\sum\limits_{n=1}^{\infty}f_n$ \Emph{converges uniformly} (more formally, the sequence $\{f_n\}$ is \Emph{uniformly summable}) \Emph{to $f$ on $A$}, if the sequence \begin{equation*}
+        f_1, f_1+f_2,f_1+f_2+f_3,...
+    \end{equation*}
+    converges uniformly to $f$ on $A$.
+\end{definition}
+
+\begin{definition}[Series of Functions (alt.)]
+    Suppose $S$ is a subset of $\R$ and $f_n:S\rightarrow \R$. We say that the series $\sum_{n=1}^{\infty}f_n(x)$ \Emph{converges pointwise} if the sequence of partial sums $s_k(x) = \sum_{n=1}^kf_n(x)$ converges pointwise to a function $f:S\rightarrow \R$. In this case, write $f(x) = \sum_{n=1}^{\infty}f_n(x)$. We say that the series $\sum_{n=1}^{\infty}f_n(x)$ \Emph{converges uniformly} if $s_k$ converges uniformly to $f$ on $S$.
+\end{definition}
+
+
+
+\begin{corollary}
+    Let $\sum\limits_{n=1}^{\infty}f_n$ converge uniformly to $f$ on $[a,b]$. \begin{enumerate}
+        \item If each $f_n$ is continuous on $[a,b]$, then $f$ is continuous on $[a,b]$.
+        \item If $f$ and each $f_n$ is integrable on $[a,b]$, then \begin{equation*}
+                \int_a^bf = \int_a^b\sum_{n=1}^{\infty}f_n = \sum\limits_{n=1}^{\infty}\int_a^bf_n
         \end{equation*}
-        exists.
-    \end{defn}
-
-    If $f$ is differentiable at $x \in (a,b)$, it is immediate that $f$ is continuous at $x$. Indeed, let $\varepsilon > 0$. Then there exists $\delta > 0$ such that if $0 < |h| < \delta$, $\left|\frac{f(x+h)-f(x)}{h} - f'(x)\right| < \varepsilon$. Then let $\delta' = \min\left\{\delta, |f'(x)| + \varepsilon\right\}$. Then for $x+h \in B_{\delta'}(x)$, $h \neq 0$, we ahve \begin{equation*}
-        |f(x+h) - f(x)| = |h|\left|\frac{f(x+h)-f(x)}{h}\right| < \delta'(|f'(x)| + \varepsilon) \leq \varepsilon
+    \end{enumerate}
+    Moreover, if $\sum\limits_{n=1}^{\infty}f_n$ converges (pointwise) to $f$ on $[a,b]$, each $f_n$ has an integrable derivative $f_n'$ and $\sum\limits_{n=1}^{\infty}f'_n$ converges uniformly on $[a,b]$ to some continuous function, then \begin{enumerate}
+        \item[3.] $f'(x) = \sum\limits_{n=1}^{\infty}f_n'(x)$   for all $x \in [a,b]$
+    \end{enumerate}
+\end{corollary}
+\begin{proof}
+    Let $\{s_n\}$ be the sequence of partial sums of the $\{f_n\}$. Then since each $f_n$ is continuous, so is each $s_n$. Then as $\{s_n\}$ converges uniformly to $f$ we have by a previous theorem that $f$ is also continuous on $[a,b]$. Next, since each $f_n$ is integrable on $[a,b]$, so is each $s_n$. Then as $\{s_n\}$ converges uniformly to $f$ we have that \begin{align*}
+        \int_a^bf &= \lim\limits_{n\rightarrow \infty}\int_a^bs_n \\
+        &= \lim\limits_{n\rightarrow\infty}t_n \\
+        &= \sum\limits_{n=1}^{\infty}\int_a^bf_n
+    \end{align*}
+    where $\{t_n\}$ is the sequence such that \begin{equation*}
+        t_n = \sum\limits_{i=1}^n\int_a^bf_n = \int_a^bs_n
     \end{equation*}
 
-    Now a useful equivalent condition to differentiability at $x \in (a,b)$ is the existence of a function $r(x,h)$ for $h$ close to $0$ such that $f(x+h) = f(x) + Dh + r(x,h)$ such that $\frac{r(x,h)}{h}\rightarrow 0$ as $h\rightarrow 0$, and then $D = f'(x)$. Indeed if $f$ is differentiable set $r(x,h) = f(x+h) - (f(x) + f'(x)h)$. On the other hand, if such an $r(x,h)$ exists, then $$\frac{f(x+h)-f(x)}{h} = \frac{r(x,h)}{h}+D\rightarrow D$$ so the limit exists and is $D$.
-
-    \begin{defn}
-        We say that $f$ is differentiable on $(a,b)$ if it is differentiable at all $x \in (a,b)$.
-    \end{defn}
-
-    \begin{prop}
-        Let $f$ and $g$ be differentiable at $x$. Then \begin{itemize}
-            \item $f\pm g$ is differentiable at $x$ with $(f\pm g)'(x) = f'(x)\pm g'(x)$ (additivity) 
-            \item $fg$ is differentiable at $x$ with $(fg)'(x) = f'(x)g(x)+f(x)g'(x)$ (Liebnitz's rule) 
-            \item If $g(y) \neq 0$ in a neighborhood of $x$, then $(1/g)$ is differentiable at $x$ with $(1/g)'(x) = -\frac{g'(x)}{g(x)^2}$
-            \item For all $c \in \R$ $cf$ is differentiable at $x$ with $(cf)'(x) = cf'(x)$
-        \end{itemize}
-    \end{prop}
-    \begin{proof}
-        The first bullet is by linearity of limits. The second bullet follows from the computation \begin{equation*}
-            \frac{(fg)(x+h) - (fg)(x)}{h} = \frac{(f(x+h)-f(x))g(x+h)}{h} + \frac{f(x)(g(x+h)-g(x)}{h}
-        \end{equation*}
-        and the fact that $g$ is continuous at $x$ and the product of limits is the limit of the product, if the limits involved all exist. The quotient also follows by a similar computation \begin{equation*}
-            \frac{\frac{1}{g(x+h)} - \frac{1}{g(x)}}{h} = \frac{-(g(x+h)-g(x))}{hg(x+h)g(x)}
-        \end{equation*}
-        and the same properties of limits and $g$ at $x$. Finally, bullet follows simply by the calculation \begin{equation*}
-            \frac{cf(x+h) - cf(x)}{h} = c\frac{f(x+h)-f(x)}{h}
-        \end{equation*}
-    \end{proof}
-
-    Some basic derivatives from the definition are $f'(x) = 0$ if $f(x) = c\in\R$ is a constant, and later we shall show the converse also holds. Additionally, $id'(x) = 1$, for $id(x) = x$. Then by induction $\frac{d}{dx}x^n = nx^{n-1}$ for all $n = 0,1,2,3,...$.
-
-    \begin{prop}
-        If $f:(a,b)\rightarrow (\alpha,\beta)$ is differentiable at $x \in (a,b)$ and $g:(\alpha,\beta)\rightarrow \R$ is differentiable at $f(x) \in (\alpha,\beta)$, then $g\circ f$ is differentiable at $x$ with \begin{equation*}
-            (g\circ f)'(x) = g'(f(x))f'(x)
-        \end{equation*}
-    \end{prop}
-    \begin{proof}
-        We use the remainder definition of differentiability to prove the claim. As $f$ is differentiable at $x$ we have $r_f(x,h)$ such that $f(x+h) = f(x) + f'(x)h + r_f(x,h)$, and as $g$ is differentiable at $f(x)$ we have $r_g(x,h)$ such that $g(f(x)+h) = g(f(x)) + g'(f(x))h + r_g(f(x),h)$. Then \begin{align*}
-            g\circ f(x+h) &= g(f(x)+f'(x)h+r_f(x,h)) \\
-            &= g(f(x)) + g'(f(x))(f'(x)h+r_f(x,h)) + r_g(f(x),\tilde{h}) \tag{$\tilde{h}:= f'(x)h+r_f(x,h)$} 
-        \end{align*}
-        Let $r_{g\circ f}(x,h) = g'(f(x))r_f(x,h) + r_g(f(x),\tilde{h})$. Then we have $\lim\limits_{h\rightarrow 0}g'(f(x))\frac{r_f(x,h)}{h} = 0$ and $\lim\limits_{h\rightarrow 0}\tilde{h} = 0$, so $$\lim\limits_{h\rightarrow 0}\frac{r_g(f(x),\tilde{h})}{h} = \lim\limits_{h\rightarrow 0}\frac{r_g(f(x),\tilde{h})}{\tilde{h}}\frac{\tilde{h}}{h} = 0\cdot f'(x) = 0$$ Thus, we have that $g\circ f$ is differentiable at $x$ with $(g\circ f)'(x) = g'(f(x))f'(x)$, as desired.
-    \end{proof}
-
-    \begin{prop}\label{prop:4.1.1}
-        If $f:(a,b)\rightarrow \R$ and $x \in (a,b)$ such that \begin{equation*}
-            f(x) \geq f(y) (\text{or }f(x) \leq f(y))\forall y \in (a,b)
-        \end{equation*}
-        then if $f$ is differentiable at $x$ it follows that $$f'(x) = 0$$
-    \end{prop}
-    \begin{proof}
-        First, note that $$f'(x) = \lim\limits_{h\rightarrow 0}\frac{f(x+h)-f(x)}{h} = \lim\limits_{h\rightarrow 0^+}\frac{f(x+h) - f(x)}{h} = \lim\limits_{h\rightarrow 0^-}\frac{f(x+h)-f(x)}{h}$$ But for $h$ such that $x+h \in (a,b)$, and $h > 0$, we have $$\frac{f(x+h) - f(x)}{h} \leq 0 (\text{respectively } \geq 0)$$ while if $h < 0$, $$\frac{f(x+h) - f(x)}{h} \geq 0 (\text{respectively }\leq 0)$$ Thus, by order properties of limits $f'(x) \leq 0$ and $f'(x) \geq 0$, so $f'(x) = 0$.
-    \end{proof}
-
-    Next we explore a funcdamental result for differentiable functions on an interval, which we will use to prove the fundamental theorem of calculus.
-
-    \begin{namthm}[Mean Value Theorem]
-        Suppose $f$ is continuous on $[a,b]$ and is differentiable on $(a,b)$. Then there exists $\xi \in (a,b)$ such that $$f'(\xi) = \frac{f(b) - f(a)}{b-a}$$
-    \end{namthm}
-    \begin{proof}
-        Consider $f(x) = f(x) - (x-a)\frac{f(b) - f(a)}{b-a}$. Then $g$ is continuous on $[a,b]$, differentiable on $(a,b)$, and $g(a) = f(a)$ while $g(b) = f(a)$ as well, so $\frac{g(b) - g(a)}{b-a} = 0$. Since $g$ is continuous on the compact set $[a,b]$, $g$ attains a maximum on $[a,b]$. If it occurs at $\xi \in (a,b)$, then $g'(\xi) = 0$. On the other hand, if the maximum occurs at $a$ or $b$, then since $g(a) = g(b) = \max_{[a,b]}g$, $g$ must attain its minimum in $(a,b)$. Thus, there exists $\zeta \in (a,b)$ such that $g(\zeta)$ is a minimum and $g'(\zeta) = 0$. Thus in either case we have a $\xi \in (a,b)$ such that $f'(\xi) - \frac{f(b)-f(a)}{b-a} = 0$, so $f'(\xi) = \frac{f(b) - f(a)}{b-a}$ as desired.
-    \end{proof}
-
-
-    \begin{namthm}[Inverse Function Theorem]
-        Suppose $f$ is continuous on $[a,b]$ and differentiable on $(a,b)$, and there exists $\gamma_0,\gamma_1 \in \R$ such that $0 < \gamma_0 \leq f'(x) \leq \gamma_1 < \infty$ (or $-\infty < \gamma_0 \leq f'(x) \leq \gamma_1 < 0$) for all $x \in (a,b)$. Let $\alpha = f(a)$ and $\beta = f(b)$. Then there exists an inverse function $g:[\alpha,\beta]\rightarrow [a,b]$ (or $g:[\beta,\alpha]\rightarrow[a,b]$) which is continuous on $[\alpha,\beta]$ and differentiable on $(\alpha,\beta)$, with derivative \begin{equation*}
-            (f^{-1})'(y) = g'(y) = \frac{1}{f'(g(y))} = \frac{1}{f'(f^{-1}(y))}
-        \end{equation*}
-        for all $y \in (\alpha,\beta)$.
-    \end{namthm}
-    \begin{proof}
-        Let $x_1,x_2 \in [a,b]$, with $a \leq x_1 < x_2 \leq b$. By the mean value theorem there exists $\xi \in (x_1,x_2)$ such that $$f'(\xi) = \frac{f(x_2) - f(x_1)}{x_2-x_1}$$ This implies $$0 < \gamma_0 \leq \frac{f(x_2) - f(x_1)}{x_2-x_2} \leq \gamma_1 < \infty$$ so $$0<\gamma_0(x_2-x_1) \leq f(x_2) - f(x_1) \leq \gamma_1(x_2-x_1)$$ for all $a \leq x_1 < x_2 \leq b$. This implies that $f$ is strictly increasing, and so injective. Further, $f(x) \in [\alpha,\beta]$ for all $x \in [a,b]$ since $\alpha = f(a)$ and $\beta = f(b)$. By the intermediate value theorem it follows that $f$ is surjective onto $[\alpha,\beta]$. Since $f:[a,b]\rightarrow [\alpha,\beta]$ is a continuous bijection on a compact set, $f$ is a homeomorphism and $f^{-1}:[\alpha,\beta]\rightarrow [a,b]$ is also a homeomorphism. As $f$ is differentiable on $(a,b)$, there exists $r_f(x,h)$ satisfying certain properties discussed previously. Then for $y \in (\alpha,\beta)$, there exists $x \in (a,b)$ such that $f^{-1}(y) = x,$ so $f(x) = y$. Then \begin{align*}
-            f^{-1}(y) + h = x+h = f^{-1}(f(x+h)) &= f^{-1}(f(x)+f'(x)h+r_f(x,h)) \\
-            &= f^{-1}(y+f'(x)h+r_f(x,h))
-        \end{align*}
-        Let $\tilde{h} = f'(x)h+r_f(x,h)$, so $h = \frac{\tilde{h}}{f'(x)} - \frac{r_f(x,h)}{f'(x)}$. Then \begin{equation*}
-            f^{-1}(y+\tilde{h}) = f^{-1}(y) + \frac{1}{f'(x)}\tilde{h} - \frac{r_f(x,h)}{f'(x)}
-        \end{equation*}
-        Recall $r_f(x,h) = f(x+h) - f(x) - f'(x)h$. Then let $r_g(x,\tilde{h}) = -\frac{[f(x+h) - f(x) - f'(x)h]}{f'(x)}$. Note $\gamma_0h + r_f(x,h) \leq \tilde{h} \leq \gamma_1 h + r_f(x,h)$, so $$\gamma_0+\frac{r_f(x,h)}{h} \leq \frac{\tilde{h}}{h} \leq \gamma_1 + \frac{r_f(x,h)}{h}$$ which implies $\frac{\tilde{h}}{h}$ and $\frac{h}{\tilde{h}}$ are bounded. Thus $$\frac{r_g(x,\tilde{h})}{\tilde{h}} = -\frac{1}{f'(x)}\frac{h}{\tilde{h}}\frac{r_f(x,h)}{h}$$ which goes to $0$ as $\tilde{h}$ goes to $0$, since $\tilde{h}\rightarrow 0$ implies $h\rightarrow 0$. Thus, $g=f^{-1}$ is differentiable at $y = f(x)$, and \begin{equation*}
-            (f^{-1})'(y) = \frac{1}{f'(f^{-1}(y))}
-        \end{equation*}
-    \end{proof}
-
-    The result for a negative derivative follows by replacing $f$ with $-f$.
-
-    Note that if $f$ is differentiable in $(a,b)$ then $f'(x)$ is a function on $(a,b)$. If $f'(x)$ is differentiable at $x_0$ we may write \begin{equation*}
-        f''(x_0) = \lim\limits_{h\rightarrow 0}\frac{f'(x_0+h)-f'(x_0)}{h}
+    Finally, suppose $s_n$ converges (pointwise) to $f$ on $[a,b]$, and each $f_n$ has an integrable derivative $f_n'$. Then each $s_n$ has an integrable derivative $s_n'$ on $[a,b]$ by the linearity of the derivative and integral operators. Moreover, suppose $s_n'$ converges uniformly on $[a,b]$ to some continuous function $g$. Then it follows that for all $x \in [a,b]$ \begin{equation*}
+        f'(x) = \lim\limits_{n\rightarrow \infty}s_n'(x) = \sum\limits_{n=1}^{\infty}f_n'(x)
     \end{equation*}
-    and in general $f^{(k+1)}(x) = \frac{d}{dx}f^{(k)}(x)$, for all $k \in \N\cup\{0\}$.
+\end{proof}
 
-    \begin{prop}\label{prop:4.1.4}
-        If $f$ is differentiable on $(a,b)$ and $x_0 \in (a,b)$, $f'(x_0) = 0$ but $f''(x_0) > 0$, then there exists $\delta > 0$: $$f(x_0) < f(x),\;\;\forall x \in (x_0-\delta,x_0+\delta)\backslash \{x_0\}$$ We say that $f$ has a local minimum at $x_0$.
-    \end{prop}
-    \begin{proof}
-        Note $$f''(x_0) = \lim\limits_{h\rightarrow 0}\frac{f'(x_0+h) - f'(x_0)}{h} > 0$$ Then there exists $\delta >0$ such that $\frac{f'(x_0+h) - f'(x_0)}{h} > 0$ for all $h \in [-\delta,\delta]$. In particular, as $f'(x_0) = 0$, $f'(x_0+h) > 0$ for $h \in (0,\delta]$ and $f'(x_0+h) < 0$ for $h \in [-\delta, 0)$. Consider $h \in (0,\delta]$. By the mean value theorem there exists $c \in (x_0,x_0+h)$ such that \begin{equation*}
-            f(x_0+h) - f(x_0) = hf'(c) > 0
-        \end{equation*}
-        so $f(x_0) < f(x_0+h)$. If $h \in [-\delta,0)$, by the mean value theorem there exists $c \in (x_0+h,x_0)$ such that \begin{equation*}
-            f(x_0+h) - f(x_0) = hf'(c) < 0
-        \end{equation*}
-        so $f(x_0) < f(x_0+h)$ again. Thus, for all $x \in (x_0 - \delta,x_0+\delta)\backslash\{x_0\}$, we have $f(x_0) < f(x)$.
-    \end{proof}
-
-    The result for a local maximum is then given by replacing $f$ by $-f$ in the previous result.
-
-    \begin{prop}\label{prop:4.1.5}
-        Suppose $f$ is twice differentiable on $(a,b)$ and $f''(x) > 0$ on $(a,b)$. Then for all $a < x_0 < x_1 < b$ and $\lambda \in (0,1)$, $$f(\lambda x_0+(1-\lambda)x_1) < \lambda f(x_0) + (1-\lambda)f(x_1)$$
-    \end{prop}
-    \begin{proof}
-        Let $g(s) = sf(x_0) + (1-s)f(x_1) - f(sx_0+(1-s)x_1)$. Then $g(0) = f(x_1) - f(x_1) = 0$ and $g(1) = f(x_0) - f(x_0) = 0$. Note $g$ is also twice differentiable. Towards a contradiction suppose there exists $c \in (0,1)$ such that $g(c) < 0$. Since $g$ is continuous it attains its minimum, so there exists $s_0 \in (0,1)$ such that $g(s_0) \leq g(c) < 0$. Further, $g'(s_0) = 0$, where $g'(s) = f(x_0) - f(x_1) - f'(sx_0+(1-s)x_1)(x_0-x_1)$. Then $$f'(s_0x_0+(1-s_0)x_1) = \frac{f(x_1)-f(x_0)}{x_1-x_0}$$ and $g''(s) = -f''(sx_0 + (1-s)x_0)(x_0-x_1)^2 < 0$. In particular, $g''(s_0) < 0$, contradicting the fact that $g(s_0)$ is a minimum and Proposition \ref{prop:4.1.4}
-    \end{proof}
+\begin{example}
+    Let $S = [-r,r]$ with $0 < r < 1$. Let $f(t) = \sum_{n=0}^{infty}(-r)^n$. Then as $t \in [-r,r] \subset ( -1,1)$ we have $f(t) = \frac{1}{t}$. Convergence is uniform on $[-r,r]$ since $|t| \leq r$, so $|(-t)^n| \leq r^n$, and $\sum_{n=0}^{\infty}r^n$ converges. By the last corollary, we have that for $x \in [-r,r]$, \begin{align*}
+        \log(1+x) &= \int_0^x\frac{1}{1+t}dt \tag{by the FTC} \\
+        &= \int_0^x\sum_{n=0}^{\infty}(-t)^ndt \\
+        &= \sum_{n=0}^{\infty}\int_0^x(-1)^nt^ndt \\
+        &= \sum_{n=0}^{\infty}(-1)^n\frac{x^{n+1}}{n+1} \tag{by the FTC}
+    \end{align*}
+    Thus, $\log(1+x) = \sum_{n=0}^{\infty}(-1)^n\frac{x^{n+1}}{n+1}$ for all $x \in (-1,1)$
+\end{example}
 
 
 
+\begin{theorem}[The Weierstrass M-Test]\label{thmname:mtest}\index{Weierstrass M-Test}
+    Let $\{f_n\}$ be a sequence of functions defined on $A$, and suppose that $\{M_n\}$ is a sequence of numbers such that \begin{equation*}
+        |f_n(x)|\leq M_n,\forall x \in A
+    \end{equation*}
+    Suppose moreover that $\sum\limits_{n=1}^{\infty}M_n$ converges. Then for each $x$ in $A$ the series $\sum\limits_{n=1}^{\infty}f_n(x)$ converges absolutely, and $\sum\limits_{n=1}^{\infty}f_n$ converges uniformly on $A$ to the function \begin{equation*}
+        f(x) = \sum\limits_{n=1}^{\infty}f_n(x)
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    For each $x \in A$, the series $\sum\limits_{n=1}^{\infty}|f_n(x)|$ converges by \ref{thmname:comptest}; consequently $\sum\limits_{n=1}^{\infty}f_n(x)$ converges absolutely. Moreover, for all $x \in A$ we have \begin{align*}
+        \left|f(x) - \sum\limits_{i=1}^{N}f(x)\right| &= \left|\sum\limits_{n=N+1}^{\infty}f_n(x)\right| \\
+        &\leq \sum\limits_{n=N+1}^{\infty}|f_n(x)| \\
+        &\leq \sum\limits_{n=N+1}^{\infty}M_n
+    \end{align*}
+    Since $\sum\limits_{n=1}^{\infty}M_n$ converges, the number $\sum\limits_{n=N+1}^{\infty}M_n$ can be made as small as desired (by \ref{thmname:cauchcrit}), by choosing $N$ sufficiently large.
+\end{proof}
 
-\end{subappendices}
+
+\begin{example}
+    The series $\sum_{n=0}^{\infty}\frac{x^n}{n!}$ converges uniformly on $[-R,R]$ for any $R > 0$, but not on $\R$. If $-R \leq x \leq R$, then $\left|\frac{x^n}{n!}\right| \leq \frac{R^n}{n!} =: M_n$. Note that $\sum_{n=0}^{\infty}M_n$ converges by the ratio test. This implies by the Weierstrass M-test that $\sum_{n=0}^{\infty}\frac{x^n}{n!}$ converges uniformly on $[-R,R]$. Note if $\sum_nf_n$ converges uniformly on $S$ to some function $s$, then $f_n\rightarrow_u 0$. In particular, $||f_n||_{\infty}\rightarrow 0$. But, $||x^n/n!||_{\R} = \infty$, so the series cannot be uniformly convergent on all of $\R$.
+\end{example}
+
+The converse to the uniform limit of the terms needing to go to zero for the series to converge is false. For example, if $f_n(x) = 1/n, x \in \R$, then $||f_n||_{\R} = 1/n\rightarrow 0$, but $\sum_{n=1}^{\infty}\frac{1}{n}$ diverges (the harmonic series).
+
+\begin{example}
+    Recall we saw that $\sum_{n=0}^{\infty}\frac{x^n}{n!}$ converges uniformly on $[-R,R]$ for any $R > 0$ by Weierstrass M-test. Since $\sum_{n=0}^N\frac{x^n}{n!}$ are continuous, $\sum_{n=0}^{\infty}\frac{x^n}{n!}$ is continuous on $[-R,R]$ for all $R$ so it is continuous on $\R$.
+\end{example}
+
+
+\begin{theorem}[Riemann 1861; Weierstrass 1872; du Bois-Reymond 1875]\index{Nowhere differentiable}
+    There is a continuous function on $\R$ that is nowhere differentiable.
+\end{theorem}
+\begin{proof}
+    Let $g(x) = |x|$ on $[-1,1]$, and continuously and periodically extend to $\R$ so $g(x+2) =g(x)$ for all $x$. Let $r,s \in \R$. If $|r-s| > 1$, then $|r-s| > 1 \geq |g(r) - g(s)|$, as $-1 = 0-1\geq g(r)-g(s) \leq 1 - 0 = 1$. Otherwise, suppose $|r-s| \leq 1$. Without loss of generality suppose $r \geq s$. If there does not exist $s \leq n \leq r$ for some $n \in \Z$, then there exists $n \in \Z$ such that $n \leq s \leq r \leq n+1$. It follows that either $g(r) - g(s) = r-n-(s-n) = r-s$, or $g(r) - g(s) = -(r-n-1)+(s-n-1) = s-r$. In either case $|g(r) - g(s)| = |r-s|$. Otherwise, there exists $n \in \Z$ such that $n-1 \leq s \leq n \leq r \leq n+1$. Then $$g(r) - g(s) = (r-n)-|s-n| = r-n-n+s=r+s-2n\leq r+s-2s = r-s = |r-s|$$ or $$g(r)-g(s) = |r-(n+1)| -(s-(n-1)) = n+1-r-s+n-1 = 2n-r-s \leq 2r-r-s = r-s = |r-s|$$ Thus, in any case we have $|g(r) - g(s)| \leq |r-s|$ for all $r,s \in \R$. This says that $g$ is Lipshitz continuous, and in particular is uniformly continuous on $\R$. Now, for all $n \in \N$, let $g_n(x) = \frac{3^n}{4^n}g(4^nx)$. Notice that $|g_n(x)| \leq \left(\frac{3}{4}\right)^n$, so the sum $\sum_n g_n$ converges uniformly on $\R$ by the Weierstrass M-test. Let $f(x) = \sum_{n=0}^{\infty}g_n(x)$, where $g_0(x) = g(x)$. Then $f$ is continuous on $\R$ as the $g_n$ are continuous and they converge uniformly (in particular, $f$ is uniformly continuous on $\R$). Fix $x \in \R$ and $m \in \N$. Define $\delta_m = \pm\frac{1}{2}\cdot\frac{1}{4^m}$, where $+$ or $-$ is selected so that there is no integer between $4^mx$ and $4^m(x+\delta)$, which has distance $\frac{1}{2}$. We have $|4^mx - 4^m(x+\delta_m)| = \frac{1}{2}$. We will show $\left|\frac{f(x+\delta_m) - f(x)}{\delta_m}\right|\rightarrow \infty$ as $m\rightarrow \infty$, so $\delta_m\rightarrow 0$. We compute \begin{align*}
+        f(x+\delta_m) - f(x) &= \sum_{n=0}^{\infty}g_n(x+\delta_m) - g_n(x) \\
+        &= \sum_{n=0}^{\infty}\frac{3^n}{4^n}\left[g(4^nx+4^n\delta_m) - g(4^nx)\right] 
+    \end{align*}
+    We have three cases on each term: \begin{itemize}
+        \item[(i)] $n > m$: Then $4^n\delta_m = \frac{\pm 4^{n-m}}{2}$ is an even integer. Since $g(t+2)=g(t)$ for all $t$, $g(4^nx+4^n\delta_m) = g(4^nx)$. So $$f(x+\delta_m) - f(x) = \sum_{n=0}^m\frac{3^n}{4^n}[g(4^nx+4^n\delta_m) - g(4^nx)]$$
+        \item[(ii)] $n < m$: We have $|g(r) - g(s)| \leq |r-s|$ for all $r,s \in \R$. Thus $$|g(4^nx+4^n\delta_m) - g(4^nx)| \leq 4^n|\delta_m|$$
+        \item[(iii)] $n=m$: There is no integer between $4^nx+4^n\delta_n$ and $4^nx$ which means $g$ maps these two points to the same line segment. Then $|g(4^nx+4^n\delta_n) - g(4^nx)| = |4^n\delta_n| = \frac{1}{2}$
+    \end{itemize}
+    Now we compute \begin{align*}
+        \left|\frac{f(x+\delta_m)-f(x)}{\delta_m}\right| &= \left|\sum_{n=0}^m{3^n}{4^n}\frac{g(4^nx+4^n\delta_m) - g(4^nx)}{\delta_m}\right| \\
+        &\geq \left|\frac{3^m}{4^m}\frac{1/2}{\delta_m}\right| -\sum_{n=0}^{m-1}\left|\frac{3^n(g(4^nx+4^n\delta_m) - g(4^nx))}{4^n\delta_m}\right| \\
+        &\geq 3^m - \sum_{n=0}^{m-1}\frac{4^n|\delta_m|}{|\delta_m|}\frac{3^n}{4^n} \\
+        &= 3^m - \sum_{n=0}^{m-1}3^n \\
+        &= 3^m - \frac{1-3^m}{1-3} \\
+        &= \frac{2\cdot3^m+1-3^m}{2} \\
+        &= \frac{1}{2}(3^m+1)\rightarrow \infty
+    \end{align*}
+    as $m\rightarrow \infty$, as desired. Thus, as if $f$ was differentiable this limit would be its derivative, so $f$ is not differentiable at any $x \in \R$.
+\end{proof}
+
+\begin{example}
+    Let $S = (0,1)$ and $f(x) = \sum_{n=0}^{\infty}\frac{1}{n^2x+1}$. Determine where $f$ is continuous and where the convergence of the series is uniform. Note that $f_n(1/n^2) = \frac{1}{1+1} = \frac{1}{2}\cancel{\rightarrow} 0$, so $f_n$ does not converge uniformly to $0$ on $S$, and hence the sum does not converge uniformly. Let $0 < a < 1$, and consider $f$ on $[a,1)$. Then $|f_n(x)| = \frac{1}{n^2x+1} \leq \frac{1}{n^2a+1}$ for $x \in [a,1)$. But $\sum_{n=0}^{\infty}\frac{1}{n^2a+1} < \infty$, so by the Weierstrass M-test, $\sum_{n=0}^{\infty}f_n$ converges uniformly on $[a,1)$. Since each $f_n$ is continuous on $[a,1)$, this implies $f$ is continuous on $[a,1)$. Finally, $0 < a < 1$ is arbitrary, so $f(x) = \sum_{n=0}^{\infty}f_n(x)$ is continuous on $S = (0,1)$.
+\end{example}
+
+
+\subsection{Power Series}
+
+
+\begin{definition}\index{Power series}
+    An infinite sum of functions of the form \begin{equation*}
+        f(x) = \sum\limits_{n=0}^{\infty}a_n(x-a)^n
+    \end{equation*}
+    is called a \Emph{power series centered at $a$}. One especially important family of power series are those of the form \begin{equation*}
+        \sum\limits_{n=0}^{\infty}\frac{f^{(n)}(a)}{n!}(x-a)^n
+    \end{equation*}
+    where $f$ is some infinitely differentiable function at $a$; this series is called the \Emph{Taylor series for $f$ at $a$}.
+\end{definition}
+
+A power series is a formal notion. It may not converge for many values of $x$. It always converges at $x = 0$ ($a$, its center).
+
+
+\begin{remark}
+    Given a function $f$ infinitely differentiable at $a$, we have for $x \in \R$ that \begin{equation*}
+        f(x) = \sum\limits_{n=0}^{\infty}\frac{f^{(n)}(a)}{n!}(x-a)^n
+    \end{equation*}
+    if and only if the remainder terms satisfy $\lim\limits_{n\rightarrow \infty}R_{n,a}(x) = 0$.
+\end{remark}
+
+
+\begin{theorem}
+    Suppose that the series \begin{equation*}
+        f(x_0) = \sum\limits_{n=0}^{\infty}a_nx_0^n
+    \end{equation*}
+    converges, and let $a$ be any number with $0 < a < |x_0|$. Then on $[-a,a]$ the series \begin{equation*}
+        f(x) = \sum\limits_{n=0}^{\infty}a_nx^n
+    \end{equation*}
+    converges uniformly (and absolutely). Moreover, the same is true for the series \begin{equation*}
+        g(x) = \sum\limits_{n=1}^{\infty}na_nx^{n-1}
+    \end{equation*}
+    Finally, $f$ is differentiable and \begin{equation*}
+        f'(x) = \sum\limits_{n=1}^{\infty}na_nx^{n-1}
+    \end{equation*}
+    for all $x$ with $|x| < |x_0|$.
+\end{theorem}
+\begin{proof}
+    First, since $\sum\limits_{n=0}^{\infty}a_nx_0^n$ converges, $\lim\limits_{n\rightarrow \infty}a_nx_0^n = 0$. Hence, the sequence $\{a_nx_0^n\}$ is surely bounded: there is some number $M$ such that \begin{equation*}
+        |a_nx_0|^n = |a_n|\cdot|x_0|^n \leq M
+    \end{equation*}
+    for all $n$. Now if $x$ is in $[-a,a]$, then $|x| \leq |a|$, so \begin{align*}
+        |a_nx^n| &= |a_n|\cdot |x|^n \\
+        &\leq |a_n|\cdot|a|^n \\
+        &= |a_n|\cdot|x_0|^n\cdot\left|\frac{a}{x_0}\right|^n \\
+        &\leq M\left|\frac{a}{x_0}\right|^n
+    \end{align*}
+    But $|a/x_0| < 1$, so the (geometric) series \begin{equation*}
+        \sum\limits_{n=0}^{\infty}M\left|\frac{a}{x_0}\right|^n = M\sum\limits_{n=0}^{\infty}\left|\frac{a}{x_0}\right|^n
+    \end{equation*}
+    converges. Choosing $M\cdot|a/x_0|^n$ as the number $M_n$ in \ref{thmname:mtest}, it follows that $\sum\limits_{n=0}^{\infty}a_nx^n$ converges uniformly on $[-a,a]$.
+
+
+    To prove the same assertion for $g(x) = \sum\limits_{n=1}^{\infty}na_nx^{n-1}$ notice that \begin{align*}
+        |na_nx^{n-1}| &= n|a_n|\cdot |x^{n-1}| \\
+        &\leq n|a_n|\cdot|a^{n-1}| \\
+        &= \frac{|a_n|}{|a|}\cdot|x_0|^nn\left|\frac{a}{x_0}\right|^n \\
+        &\leq \frac{M}{|a|}n\left|\frac{a}{x_0}\right|^n
+    \end{align*}
+    Since $|a/x_0| < 1$, the series \begin{equation*}
+        \sum\limits_{n=1}^{\infty} \frac{M}{|a|}n\left|\frac{a}{x_0}\right|^n = \frac{M}{|a|}\sum\limits_{n=1}^{\infty}n\left|\frac{a}{x_0}\right|^n
+    \end{equation*}
+    converges (by an application of the Ratio Tes). Another appeal to \ref{thmname:mtest} proves that $\sum\limits_{n=1}^{\infty}na_nx^{n-1}$ converges uniformly on $[-a,a]$.
+
+    Finally, our corollary proves, first that $g$ is continuous, and then that \begin{equation*}
+        f'(x) = g(x) = \sum\limits_{n=1}^{\infty}na_nx^{n-1}
+    \end{equation*}
+    for all $x \in [-a,a]$. Since we could have chosen any $a$ with $0 < a < |x_0|$, this result holds for all $x$ with $|x| < |x_0|$.
+\end{proof}
+
+\begin{theorem}[Ratio and Root Test]
+    If $\sum_{n=0}^{\infty}a_n$ for $a_n \in \C$ non-zero, then we have \begin{itemize}
+        \item If $\lim\sup\frac{|a_{n+1}|}{|a_n|} < 1$, then $\sum_na_n$ converges absolutely
+        \item If $\lim\sup\frac{|a_{n+1}|}{|a_n|} > 1$, then $\sum_na_n$ diverges
+        \item If $\lim\sup|a_n|^{\frac{1}{n}} < 1$, then $\sum_na_n$ converges absolutely
+        \item If $\lim\sup|a_n|^{\frac{1}{n}} > 1$, then $\sum_na_n$ diverges
+    \end{itemize}
+\end{theorem}
+
+\begin{example}
+    If $a_n = 1$ for all $n$, we get the geometric series $\sum_{n=0}^{\infty}x^n = \frac{1}{1-x}$ provided $|x| < 1$.
+\end{example}
+The natural domain of a power series $f(x) = \sum_{n=0}^{\infty}a_nx^n$ is all $x$ for which the sum converges.
+
+\begin{proposition}[Radius of Convergence]\Alsoindex{Power series}{Radius of convergence}
+    Let $\sum_na_nx^n$ be a power series and define $\alpha:= \lim\sup|a_n|^{1/n}$. Define $$R = \left\{\begin{array}{cc}\frac{1}{\alpha} & 0 < \alpha < \infty \\ \infty & \alpha = 0 \\ 0 & \alpha = \infty \end{array}\right.$$
+    which we call the \Emph{radius of convergence} of the power series. Then $\sum_na_nx^n$ converges absolutely for $|x| < R$. If $R = 0$, it converges only when $x = 0$. If $R = \infty$, it converges absolutely on all of $\R$. The series may or may not converge when $|x| = R$.
+\end{proposition}
+\begin{proof}
+    Let $b_n = a_nx^n$, and \begin{align*}
+        \beta = \lim\sup|b_n|^{1/n} = \lim\sup|a_n|^{1/n}|x^n|^{1/n} = |x|\alpha
+    \end{align*}
+    Apply the root test to $\sum_{n=0}^{\infty}b_n$: \begin{itemize}
+        \item[(i)] If $\alpha = 0$ then $\beta = 0 <1$, so the series converges absolutely for all $x \in \R$
+        \item[(ii)] If $\alpha = \infty$, $\beta = 0$ if $x = 0$ and $\infty$ otherwise, so the series converges absolutely only at $x  =0$
+        \item[(iii)] If $0 < \alpha < \infty$, $\beta = |x| \alpha < 1$ if and only if $|x| < \frac{1}{\alpha} = R$, so the series converges absolutely for $|x| < R$ and diverges for $|x| > R$.
+    \end{itemize}
+\end{proof}
+
+\begin{corollary}
+    If $\lim\limits_{n\rightarrow \infty}\frac{|a_n|}{|a_{n+1}|}$ exists, it equals $R$ above.
+\end{corollary}
+
+\begin{example}
+    Consider $\sum_{n=0}^{\infty}\frac{n!x^n}{n^n}$, so $a_n = \frac{n!}{n^n}$. Observe that \begin{align*}
+        \lim\limits_{n\rightarrow \infty}\frac{a_n}{a_{n+1}} = \lim\limits_{n\rightarrow \infty}\frac{(n+1)^n}{n^n} = \lim\limits_{n\rightarrow \infty}\left(1+\frac{1}{n}\right)^n = e = R
+    \end{align*}
+    For $x = \pm e$ we must use stirling's approximation $n! \approx \sqrt{2\pi n}\frac{n^n}{e^n}$, which becomes exact in the limit.
+\end{example}
+
+
+\begin{proposition}
+    Suppose $\sum_{n}a_nx^n$ has radius of convergence $R > 0$. Then $\sum_na_nx^n$ converges uniformly on any set of the form $[-K,K]$ for $0 \leq K < R$.
+\end{proposition}
+\begin{proof}
+    Suppose $x \in [-K,K]$. Then $|a_nx^n| \leq |a_n|K^n$. But $\sum_{n=0}^{\infty}|a_n|K^n$ converges since $K \in (-R,R)$. Thus, by the Weierstrass M test $\sum_{n=0}^{\infty}a_nx^n$ converges uniformly on $[-K,K]$.
+\end{proof}
+In particular, this tells us that $\sum_{n=0}^{\infty}a_nx^n$ is continuous on $[-K,K]$ for any $0 < K < R$, so it is continuous on $(-R,R)$.
+
+\begin{proposition}
+    Suppose $f(x) = \sum_na_nx^n$ has radius of convergence $R > 0$. Then $f$ is differentiable on $(-R,R)$ and $f'(x) = \sum_nna_nx^{n-1}$. Moreover, $f'$ also has radius of convergence $R$.
+\end{proposition}
+\begin{proof}
+    We have shown previously that if $f_n\rightarrow f$ pointwise, $f'_n$ are continuous, and $f'_n\rightarrow_ug$ for some $g$, then $f$ is differentiable and $f' = g$. Let $s_m(x) = \sum_{n=0}^ma_nx^n$, which converges uniformly to $\sum_{n=0}^{\infty}a_nx^n=f(x)$ on $[-K,K]$ for any $0 \leq K < R$. Note $s_m$ is differentiable with $s_m'(x) = \sum_{n=1}^mna_nx^{n-1}$, which converges uniformly to $\sum_{n=1}^{\infty}na_nx^{n-1} =: g(x)$ on $[-K,K]$ for all $0 \leq K < R$ as $\frac{1}{R'} = \lim\sup\frac{|(n+1)a_{n+1}|}{|na_n|} = \lim\sup\frac{|a_{n+1}|}{|a_n|} = \frac{1}{R}$, so $g$'s radius of convergence is also $R$. This implies that $f$ is differentiable on $(-K,K)$ and $f'(x) = g(x)$ for all $x \in (-K,K)$. As this holds for all $0 \leq K < R$, this implies $f'(x) = g(x)$ on $(-R,R)$
+\end{proof}
+
+\begin{corollary}
+    The power series $f(x) = \sum_na_nx^n$ with radius of convergence $R > 0$ has derivatives of all orders on $(-R,R)$ and $f^{(k)}(x) = \sum_{n\geq k}\frac{n!}{(n-k)!}a_nx^{n-k}$ on $(-R,R)$.
+\end{corollary}
+\begin{proof}
+    From the previous proposition we have $f'(x) = \sum_{n=1}^{\infty}na_nx^{n-1}$ with radius of convergence $R$. Applying this result repeatedly we have $f^{(k)}(x) = \sum_{n=k}^{\infty}\frac{n!}{(n-k)!}a_nx^{n-k}$ has radius of convergence $R$.
+\end{proof}
+
+Note that in the formula above, it follows that $f^{(k)}(0) = k!a_k$, so $a_k = \frac{f^{(k)}(0)}{k!}$.
+
+\begin{corollary}
+    If $\sum_na_nx^n = \sum_nb_nx^n$ for all $x \in (-R,R)$, where $R$ is the radius of convergence of both series, then $a_n = b_n$ for all $n$.
+\end{corollary}
+Using the remark above, letting $f(x) = \sum_na_nx^n = \sum_nb_nx^n$, we have $a_n = \frac{f^{(n)}(0)}{n!} = b_n$ for all $n$.
+
+\begin{definition}[Power Series Representation]
+    A function $f:S\rightarrow \R$ has a \Emph{power series representation on $S$} if there exists a sequence $(a_n)$ such that $$f(x) = \sum_{n=0}^{\infty}a_nx^n$$ for all $x \in S$. In particular, the series on the right hand side above converges for all $x \in S$.
+\end{definition}
+
+We recall Taylor's Theorem:
+
+\begin{theorem}[Taylor's Theorem]\index{Taylor's Theorem}
+    Suppose $f$ is $(n+1)$ times differentiable on $(a,b)$ containing $0$, then $$f(x) = \underbrace{\sum_{k=0}^n\frac{f^{(k)}(0)}{k!}x^k}_{\text{Taylor Polynomial } P_n(x)} + \underbrace{\frac{f^{(n+1)}(c)}{(n+1)!}x^{n+1}}_{\text{Taylor remainder }R_n(x)}$$ for somce $c \in (0,x)$ (or $(x,0)$). We get $|f(x) - P_n(x)| = |R_n(x)|$. If $R_n(x)\rightarrow 0$ as $n\rightarrow \infty$, then $f(x) = \lim\limits_{n\rightarrow \infty}P_n(x) = \sum_{k=0}^{\infty}\frac{f^{(k)}(0)}{k!}x^k$.
+\end{theorem}
+
+This result gives a sufficient condition for a function admitting a power series representation. Note that if $f$ admits a power series representation, it automatically has derivatives of all orders on the radius of convergence.
+
+\begin{example}
+    Consider $$f(x) = \left\{\begin{array}{cc} e^{-1/x^2} & x \neq 0 \\ 0 & x =0\end{array}\right.$$ $f$ has derivatives of all orders at $x = 0$: $$f'(0) = \lim\limits_{h\rightarrow 0}\frac{e^{-1/h^2}}{h} = \lim\limits_{h\rightarrow 0}\frac{2h}{e^{1/h^2}} = 0$$ Similarly, $f^{(k)}(0) = 0$ for all $k$. So, $\sum_{n=0}^{\infty}\frac{f^{(n)}(0)}{n!}x^n = 0$, which converges for all $x$ but only agrees with $f(x)$ at $x = 0$. So $f$ has only a power series representation at $x = 0$.
+\end{example}
+
+\begin{theorem}[Abel's Theorem]\index{Abel's Theorem}
+    Suppose the power series $\sum_na_nx^n$ has radius of convergence $R \in (0,\infty)$. If $\sum_na_nx^n$ converges at $x = R$, then $\sum_na_nx^n$ converges uniformly on $[0,R]$. Similarly, if $\sum_na_nx^n$ converges at $x = -R$, then $\sum_na_nx^n$ converges uniformly on $[-R,0]$.
+\end{theorem}
+\begin{proof}
+    By rescaling if necessary, we can assume $R = 1$ (i.e. replace $f(x)$ with $f_R(x) = f(x/R)$) We use the Cauchy criterion for uniform convergence. Fix $\varepsilon > 0$. We have convergence at $x = 1$, so there exists $N \in \N$ such that $m \geq N$ implies $\left|\sum_{n=m}^{m+k}a_n\right| < \varepsilon$ for all $k \in \N$. For $m \geq N$ and for each $j \in \N\cup\{0\}$, define $s_j = \sum_{n=m}^{m+j}a_n$, so $|s_j| < \varepsilon$ for all $j$. Then write \begin{align*}
+        \sum_{n=m}^{m+k}a_nx^n &= s_0x^m + \sum_{n=1}^k(s_n-s_{n-1})x^{m+n} \\
+        &= \sum_{n=0}^{k-1}s_n(x^{m+n}-x^{m+n+1}) + s_kx^{m+k} \\
+        &= x^m\left[ \sum_{n=0}^{k-1}s_n(x^{n}-x^{n+1}) + s_kx^{k}\right] \\
+        &=x^m\left[ \sum_{n=0}^{k-1}s_nx^n(1-x) + s_kx^{k}\right] \\
+        &= x^m(1-x)\sum_{n=0}^{k-1}s_nx^n + s_kx^{m+k}
+    \end{align*}
+    For $x \in [0,1]$ \begin{align*}
+        \left|\sum_{n=m}^{m+k}a_nx^n\right| &\leq |x|^m|1-x|\sum_{n=0}^{k-1}|s_n||x|^n + |s_k||x|^{m+k} \\
+        &< x^m(1-x)[\varepsilon+\varepsilon x+...+\varepsilon x^{k-1}] + \varepsilon x^{m+k} \\
+        &= \varepsilon x^m(1-x^k) + \varepsilon x^{m+k} \\
+        &= \varepsilon x^m < \varepsilon
+    \end{align*}
+    as desired. The proof for $[-1,0]$ is similar.
+\end{proof}
+
+
+We now investigate power series in the complex numbers. First, recall that if $r \in \C$, $|r| < 1$, then we have the geometric series \begin{equation*}
+    \sum_{k=0}^{\infty}r^k = \frac{1}{1-r}
+\end{equation*}
+
+\begin{definition}
+    A \Emph{power series} (in $\C$) is a series of functions of the form \begin{equation*}
+        f(z) = \sum_{k=0}^{\infty}a_kz^k,\;\;\;a_k \in \C, z \in \C
+    \end{equation*}
+\end{definition}
+Note by definition $f(z) = \lim\limits_{n\rightarrow \infty}\sum_{k=0}^na_kz^k$.
+
+\begin{proposition}\label{prop:3.3.1}
+    If $f(z) = \sum_{k=0}^{\infty}a_kz^k$ is defined for some $z_0 \in \C, z_0 \neq 0$, then $f(z)$ converges absolutely and uniformly for all $|z| < |z_0|$.
+\end{proposition}
+\begin{proof}
+    Note that if $|z| < |z_0|$, $|a_kz^k| < |a_k||z_0|^k$ for all $k \geq 0$. Further, as $\sum_{k=0}^na_kz_0^k$ is convergent, it is Cauchy so $|a_kz^k|\rightarrow 0$, and in particular $|a_kz_0^k| \leq C$ for all $ k\geq 0$ for some $C \in \R$. Then $0 \leq \frac{|z|}{|z_0|} = r < 1$. So $$\left|\sum_{k=0}^na_kz^k\right| \leq \sum_{k=0}^n|a_kz_0^k|r^k \leq C\sum_{k=0}^nr^k \leq \frac{C}{1-r}$$ Thus $\sum_{k=0}^n|a_kz^k|$ is a bounded increasing sequence, and so converges. In particular, letting $M_k = Cr^k = C\frac{|z_1|^k}{|z_0|^k}$, we have that for all $|z| < |z_1| < |z_0|$, $|a_kz^k| \leq M_k$ and $\sum_{k=0}^{\infty}M_k < \infty$, so $\sum_{k=0}^na_kz^k$ is uniformly convergent to $f(z)$ on $|z| < |z_1|$ for all $|z_1| < |z_0|$, so in particular it is uniformly convergent on $|z| < |z_0|$.
+\end{proof}
+
+From this theorem we have a few cases for $f(z)$: \begin{itemize}
+    \item $f(z)$ converges for all $z \in \C$
+    \item There exists $R  > 0$ such that the series converges absolutely for $|z| < R$, but diverges for $|z| > R$.
+    \item The series does not converge for any $z \neq 0$ ($R = 0$)
+\end{itemize}
+
+\begin{proposition}\label{prop:3.3.2}
+    If $f(z) = \sum_{k=0}^{\infty}a_kz^k$ converges in $D_R = \{z \in \C:|z| < R\}$, then it converges uniformly in any disk $D_S$ with $0 < S < R$. In particular, this yields $f(z)$ is continuous on $D_R$.
+\end{proposition}
+\begin{proof}
+    Let $0 < S < R$ and pick $T$ such that $0 < S < T<R$. Then the series converges for any $|z| = T$. In particular, there exists $C > 0$ such that $|a_kT^k| < C$ for all $k \geq 0$. If $z \in D_S$, then $|a_kz^k| \leq |a_kT^k|\frac{|z|^k}{|T|^k} \leq Cr^k$, where $0 \leq r = \frac{|z|}{|T|} < 1$. As $|r| < 1$, $C\sum_{k=0}^nr^k$ converges, and so is Cauchy. Thus, for $\varepsilon > 0$, there exists $N \in \N$ such that if $m > n \geq N$, \begin{equation*}
+        \sum_{k=n}^m||a_kz^k||_{D_S} \leq \sum_{k=n}^mCr^k < \varepsilon
+    \end{equation*}
+    so $\sum_{k=0}^na_kz^k$ is uniformly Cauchy on $D_S$. So it converges uniformly to $f(z)$ in $D_S$ for all $S < R$. So $f(z)$ is continuous in $D_S$ for all $S < R$, and in particular $f$ is continuous on $D_R$.
+\end{proof}
+
+\begin{definition}
+    For $f(z) = \sum_{k=0}^{\infty}(z-z_0)^k$, let the \Emph{radius of convergence} $R$ be defined by \begin{equation*}
+        \frac{1}{R} = \lim\sup_{n\rightarrow \infty}|a_n|^{1/n}
+    \end{equation*}
+    If the right hand side is $0$, $R = \infty$, and if the right hand side is $\infty$, $R = 0$.
+\end{definition}
+
+\begin{proposition}\label{prop:3.3.3}
+    The series $f(z) = \sum_{k=0}^{\infty}a_k(z-z_0)^k$ converges absolutely for $|z-z_0| < R$, and diverges when $|z-z_0| > R$. Then when $R > 0$, $f$ is a continuous function $f:D_R(z_0) \rightarrow \C$.
+\end{proposition}
+\begin{proof}
+    If $R' < R$, and $R' \neq 0$, $\frac{1}{R} < \frac{1}{R'}$. Note $\frac{1}{R} = \lim\sup_{n\rightarrow \infty}|a_n|^{1/n}$, and let $\varepsilon = \left(\frac{1}{R'} - \frac{1}{R}\right)$. Then there exists $N \in \N$ such that for $n \geq N$, $\sup_{k\geq n}|a_k|^{1/k} < \frac{1}{R}+\varepsilon$, so $\sup_{k\geq n}|a_k|^{1/k} < \frac{1}{R'}$, so $|a_n|^{1/n}R' < 1$ and $|a_n|{R'}^n < 1$ for all $n \geq N$. If $|z-z_0| < R'$, then $\frac{|z-z_0|}{R'} = r < 1$, so $|a_n(z-z_0)^n| = |a_n|{R'}^nr^n < r^n$ for all $n \geq N$. Then $\sum_{n=m}^{'infty}||a_n(z-z_0)||_{D_{R'}} \leq \sum_{n=m}^{\infty}r^n\rightarrow 0$ for all $m \geq N$. So we have absolute uniform convergence in $D_{R'}(z_0)$, for all $0 < R' < R$.
+
+    Divergence: Let $R'' > R$, so $\frac{1}{R''} < \frac{1}{R} = \lim\sup_{n\rightarrow \infty}|a_n|^{1/n}$. Then for all $n$, $\sup_{k\geq n}|a_n|^{1/n} > \frac{1}{R''}$, and in particular there are infinitely many $k \geq n$, for all $n$, such that $|a_k|^{1/k} > \frac{1}{R''}$, so $|a_k|{R''}^k > 1$. If $|z-z_0| \geq R''$, then $|a_n(z-z_0)^n| \geq |a_n|{R''}^n > 1$ for infinitely many $n \geq 0$. Thus, $|a_n(z-z_0)^n|$ does not converge to $0$, so the series diverges.
+\end{proof}
+
+\begin{definition}
+    A function defined by $\sum_{k=0}^{\infty}a_kz^k$ with radius of convergence $R > 0$ is said to be \Emph{analytic} on $D_R$.
+\end{definition}
+
+\begin{definition}
+    In $\R^n$ with $x = (x_1,...,x_n)$, for any multi-index $\alpha = (\alpha_1,...,\alpha_n)$ with $\alpha_j \in \N_0$, we define \begin{equation*}
+        x^{\alpha} = x_1^{\alpha_1}\cdots x_n^{\alpha_n}
+    \end{equation*}
+    and we define a power series in $\R^n$ by \begin{equation*}
+        f(x) = \sum_{|\alpha| \geq 0}a_{\alpha}x^{\alpha}
+    \end{equation*}
+\end{definition}
+
+
+\subsection{Products of Series}
+
+We investigate when we can distribute multiplication of two series:
+
+\begin{proposition}\label{prop:3.3.4}
+    If $A = \sum_{k=0}^{\infty}a_k$ and $B = \sum_{k=0}^{\infty}b_k$ are absolutely convergent, then \begin{equation*}
+        AB = \sum_{k=0}^{\infty}c_k,\;\;c_k = \sum_{j=0}^ka_{k-j}b_j
+    \end{equation*}
+\end{proposition}
+\begin{proof}
+    Let $A_k = \sum_{n=0}^ka_n$ and $B_k = \sum_{n=0}^kb_n$. Then \begin{align*}
+        A_kB_k &= \sum_{n=0}^k\sum_{m=0}^ka_nb_m \\
+        &= \sum_{l=0}^k\sum_{j=0}^la_jb_{l-j} + R_l = \sum_{l=0}^kc_l+R_k
+    \end{align*}
+    where $R_k = \sum_{(n,m) \in \sigma(k)}a_nb_m$ where $\sigma(k) := \{(n,m) \in \N_0\times \N_0:n,m\leq k,n+m > k\}$. Then \begin{align*}
+        |R_k| &\leq \sum_{(n,m) \in \sigma(k)}|a_nb_m| \\
+        &\leq \sum_{k\geq n\geq k/2}\sum_{m\leq k}|a_n||b_m| + \sum_{n\leq k}\sum_{k/2\leq m\leq k}|a_n||b_m| \\
+        &\leq \sum_{k/2\leq n \leq k}\sum_{m=0}^{\infty}|a_n||b_m| + \sum_{k/2\leq m\leq k}\sum_{n=0}^{\infty}|b_m||a_n| \\
+        &\leq A \sum_{k/2\leq m}|b_m| + B\sum_{k/2\leq n}|a_n|
+    \end{align*}
+    where both sums on the right go to zero as $k$ goes to infinity. So for all $\varepsilon > 0$, there exists $N \in \N$ such that $k \geq N$ implies $|R_k| < \varepsilon$. Then $$A_kB_k = \sum_{l=0}^kc_l+R_k$$ so $$\lim\limits_{k\rightarrow \infty}\sum_{l=0}^kc_l = \lim\limits_{k\rightarrow \infty}(A_kB_k-R_k) = AB+0 + AB$$ and we conclude $$AB = \sum_{l=0}^{\infty}c_l$$ as claimed.
+\end{proof}
+
+\begin{corollary}
+    If the series $$f(z) = \sum_{n=0}^{\infty}a_n(z-z_0)^n,\;\;g(z) = \sum_{n=0}^{\infty}b_n(z-z_0)^n$$ converge for some $|z-z_0| < R$, then $$f(z)g(z) = \sum_{n=0}^{\infty}c_n(z-z_0)^n$$ converges for $|z-z_0| < R$ with $$c_n = \sum_{j=0}^na_jb_{n-j}$$
+\end{corollary}
+
+It follows that the set of analytic functions on some disk is an algebra over $\C$.
+
+\begin{proposition}\label{prop:3.3.6}
+    If $a_{jk} \in \C$ and $\sum_{j,k=0}^{\infty}|a_{j,k}| < \infty$, then for each $k$, $\alpha_k = \sum_{j=0}^{\infty}a_{j,k}$ and for each $j$ $\beta_j = \sum_{k=0}^{\infty}a_{j,k}$ are absolutely convergent, where \begin{equation*}
+        \lim\limits_{n\rightarrow \infty}\sum_{j=0}^n\sum_{k=0}^n|a_{j,k}| =: \sum_{j,k=0}^{\infty}|a_{j,k}|
+    \end{equation*}
+    Then \begin{equation*}
+        \sum_{j=0}^{\infty}\beta_j = \sum_{k=0}^{\infty}\alpha_k = \sum_{j,k=0}^{\infty}a_{j,k}
+    \end{equation*}
+    or equivalently \begin{equation*}
+        \sum_{j=0}^{\infty}\left(\sum_{k=0}^{\infty}a_{j,k}\right)= \sum_{k=0}^{\infty}\left(\sum_{j=0}^{\infty}a_{j,k}\right) = \sum_{j,k=0}^{\infty}a_{j,k}
+    \end{equation*}
+\end{proposition}
+\begin{proof}
+    For all $\varepsilon > 0$ there exists $N \in \N$ such that $$\sum_{j,k\geq n}|a_{j,k}| < \varepsilon$$ Thus for all $j \in \N$ and all $k \in \N$, $$\sum_{k=0}^{\infty}|a_{j,k}| < \sum_{j,k}|a_{j,k}| < \infty$$ and $$\sum_{j=0}^{\infty}|a_{j,k}| < \sum_{j,k}|a_{j,k}| <\infty$$ Then for all $M,K \geq N$, $$\left|\sum_{k=0}^M\sum_{j=0}^Ka_{j,k} - \sum_{j,k}^Na_{j,k}\right| < \sum_{j,k \geq N}|a_{j,k}| < \varepsilon$$ In particular, taking the limit as $K$ goes to infinity, $$\left|\sum_{k=0}^M\sum_{j=0}^{\infty}a_{j,k} - \sum_{j,k}^Na_{j,k}\right| \leq \sum_{j,k \geq N}|a_{j,k}| < \varepsilon$$
+    and $$\left|\sum_{k=0}^{\infty}\sum_{j=0}^{\infty}a_{j,k} - \sum_{j,k}^Na_{j,k}\right| \leq \sum_{j,k \geq N}|a_{j,k}| < \varepsilon$$
+    Reversing the sums before taking the limits, we obtain the other direction, so \begin{equation*}
+        \sum_{j=0}^{\infty}\left(\sum_{k=0}^{\infty}a_{j,k}\right) = \sum_{j,k=0}^{\infty}a_{j,k} = \sum_{k=0}^{\infty}\left(\sum_{j=0}^{\infty}a_{j,k}\right)
+    \end{equation*}
+    as desired.
+\end{proof}
 
 

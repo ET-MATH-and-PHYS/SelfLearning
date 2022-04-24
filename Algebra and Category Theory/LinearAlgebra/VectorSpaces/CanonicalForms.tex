@@ -1,2 +1,219 @@
 %%%%%%%%%% Canonical Forms %%%%%%%%%%
-\chapter{Canonical Forms}
+\chapter{Canonical Forms}\label{CanonicalForms}
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+This chapter aims to investigate the canonical forms of linear operators on finite dimensional vector spaces. A canonical form for linear operators $\mathcal{L}(V,W)$ is a collection of representatives for some equivalence relation on $\mathcal{L}(V,W)$, such that we only have one representative for each equivalence class. Some of the constructions in this chapter follow from results on module theory over PIDs which is discussed in Chapter \ref{PIDMod}. We begin by investigating the general form for operators in $\mathcal{L}(V,W)$ known as the Singular Value Decomposition.
+
+\section{Singular Value Decomposition}\label{sec:SVD}
+
+\begin{theorem}[Singular Value Decomposition]\index{Singular Value Decomposition}
+    Let $V$ and $W$ be finite dimensional inner product spaces over $k$ ($= \C$ or $\R$) and let $\tau \in \mathcal{L}(V,W)$ have rank $r$. Then there are ordered orthonormal bases $\mathcal{B}$ and $\mathcal{C}$ for $V$ and $W$, respectively, for which $\mathcal{B} = (u_1,..,u_r,u_{r+1},...,u_n)$ where up to $r$ is an ONB of $\ran(\tau^*)$ and from $r+1$ to $n$ is an ONB for $\ker(\tau)$, and where $\mathcal{C} = (v_1,...,v_r,v_{r+1},...,v_m)$ with the vectors up to $r$ being an ONB for $\ran(\tau)$ and the vectors from $r+1$ to $m$ being an ONB for $\ker(\tau^*)$. Moreover, for $1 \leq k \leq r$, \begin{equation*}
+        \tau u_i = s_iv_i,\;\;\tau^*v_i = s_iu_i
+    \end{equation*}
+    where $s_i > 0$ are called the \textbf{singular values} of $\tau$ and defined by $\tau^*\tau u_i = s_i^2u_i,s_i > 0$ for $i \leq r$.
+\end{theorem}
+\begin{proof}
+    First observe that $\tau^*\tau$ is self-adjoint and positive definite. Additionally $r = \text{rank}(\tau) = \text{rank}(\tau^*\tau)$, and by the spectral theorems $V$ has an ordered orthonormal basis $\mathcal{B} = (u_1,...,u_r,u_{r+1},...,r_n)$ of eigenvectors for $\tau^*\tau$, where the corresponding eigenvalues can be arranged so that $\lambda_1\geq \cdots \geq \lambda_r > 0 = \lambda_{r+1}=\cdots = \lambda_n$. The set $(u_{r+1},...,u_n)$ is an ONB for $\ker(\tau^*\tau) = \ker(\tau)$, and so $(u_1,...,u_r)$ is an ONB for $\ker(\tau)^{\perp} = \ran(\tau^*)$. For $i = 1,...,r$, the positive numbers $s_i = \sqrt{\lambda_i}$ are called the \textbf{singular values} of $\tau$. If we set $s_i = 0$ for $i > r$, then $\tau^*\tau u_i = s_i^2u_i$ for $i = 1,...,n$. Set $v_i = (1/s_i)\tau u_i$ for each $i \leq r$, so $\tau u_i = s_iv_i$ for $i \leq r$, and $\tau^*v_i = s_iu_i$ for $i \leq r$. The vectors $v_1,...,v_r$ are orthonormal, since if $i,j \leq r$, then \begin{equation*}
+        \langle v_i,v_j\rangle = \frac{1}{s_is_j}\langle \tau u_i,\tau u_j\rangle = \frac{1}{s_is_j}\langle \tau^*\tau u_i,u_j\rangle = \frac{s_i}{s_j}\langle u_i,u_j\rangle = \delta_{i,j}
+    \end{equation*}
+    Hence $(v_1,...,v_r)$ is an orthonormal basis for $\ran(\tau) = \ker(\tau^*)^{\perp}$, which can be extended to an orthonormal basis $\mathcal{C} = (v_1,...,v_m)$ for $v$, with the extension $(v_{r+1},...,v_m)$ being an orthonormal basis for $\ker(\tau^*)$. Moreover, since $\tau\tau^*v_i = s_i\tau u_i = s_i^2v_i$, the vectors $v_1,...,v_r$ are eigenvectors for $\tau\tau^*$ with the same eigenvalues $\lambda_i = s_i^2$ as for $\tau^*\tau$. This completes the proof.
+\end{proof}
+
+Writing this result in the language of matrices gives the following decomposition.
+
+\begin{corollary}[Singular Value Decomposition]
+    If $A \in M_{m,n}(k)$ of rank $r$ then there exists an $n\times n$ unitary matrix $Q = [q_1\;q_2\;\cdots \;q_n]$ where the columns of $Q$ are eigenvectors of $A^*A$ ordered in decreasing eigenvalue $\lambda_1 \geq \cdots \geq \lambda_r > 0 = \lambda_{r+1}=\cdots = \lambda_n$, where $p_1 = \frac{1}{\sqrt{\lambda_1}}Aq_1,...,p_r = \frac{1}{\sqrt{\lambda_r}}Aq_r$ forms an orthonormal basis for $\ran(A)$, and extending it to an orthonormal basis of $k^m$, $p_1,...,p_m$, the matrix $P = [p_1\;\cdots \;p_m]$ is unitary. Finally, we have that \begin{equation*}
+        P^*AQ = \sum = \left[\begin{array}{c|c} \begin{array}{ccc} \sqrt{\lambda_1} &  &  \\  & \ddots &  \\  &  & \sqrt{\lambda_r} \end{array} & \mathbf{0} \\ \hline \mathbf{0} & \mathbf{0} \end{array}\right]
+    \end{equation*}
+\end{corollary}
+
+
+\section{Eigenspaces and Diagonalization}\label{sec:Eigen}
+
+Next we investigate a special form for square matrices. However, this form is not canonical as it is too restrictive, so not every equivalence class has a diagonal representative. 
+
+To discuss the notion of diagaonalization we note that having a diagonal basis is equivalent to having a basis for which our operator acts by scaling on each vector.
+
+\begin{definition}\index{Eigenvalue}\index{Eigenvector}
+    Let $V \in \Vect$ and $\tau \in \mathcal{L}(V)$. A scalar $\lambda \in k$ is called an \textbf{eigenvalue} of $\tau$ if there exists a nonzero vector $v \in V$ for which $\tau v = \lambda v$. In this case $v$ is called an \textbf{eigenvector} of $\tau$ with associated eigenvalue $\lambda$. The collection of all eigenvectors associated with $\lambda$, together with $0$, forms a subspace of $V$ called the \textbf{eigenspace} of $\lambda$ and denoted by $E_{\lambda}$. The collection of all eigenvalues of $\tau$ is called its \textbf{spectrum}.
+\end{definition}
+
+We have the following result.
+
+\begin{theorem}
+    Let $\tau \in \mathcal{L}(V)$. A scalar $\lambda \in k$ is an eigenvalue of $\tau$ if and only if $\tau - \lambda I_V$ is singular.
+\end{theorem}
+
+Thus we can find the eigenvalues of an operator by finding the roots of the \textbf{characteristic polynomial} given by $c_{\tau}(\lambda) = \det(\tau-\lambda I_V)$, where we take any matrix representation of the transformation.
+
+\begin{theorem}
+    Suppose $\lambda_1,...,\lambda_k \in \text{Spec}(\tau)$ are distinct eigenvalues of a linear operator $\tau \in \mathcal{L}(V)$. Then if $v_i \in E_{\lambda_i}$ are non-zero eigenvectors, $\{v_1,...,v_k\}$ are linearly independent.
+\end{theorem}
+\begin{proof}
+    Suppose we have a linear relation of minimal size $r_1v_1+\cdots+r_jv_j = 0$. Applying $\tau$ to both sides $r_1\lambda_1v_1+\cdots+r_j\lambda_jv_j = 0$. Subtracting $\lambda_1$ times the first equation from the second, $r_2(\lambda_2-\lambda_1)v_2+\cdots+r_j(\lambda_j-\lambda_1)v_j = 0$. This is a smaller linear relation, contradicting minimality, so we must have that $\{v_1,...,v_k\}$ is linearly independent.
+\end{proof}
+
+Since the eigenvalues of $\tau$ are given by the roots of a polynomial of order $\dim V$, $\tau$ has at most $\dim V$ eigenvalues. This can also be seen using the previous theorem and the uniqueness of the dimension of a space.
+
+\begin{corollary}
+    Let $V \in \Vect$. If $\lambda_1,...,\lambda_k$ are pairwise distinct eigenvalues of $\tau \in \mathcal{L}(V)$, then the sum $E_{\lambda_1}+\cdots+E_{\lambda_k}$ is direct.
+\end{corollary}
+
+We can now characterize diagonalizability of operators.
+
+\begin{theorem}
+    Let $V \in \Vect$, $\dim V = n \in \N$, and let $\tau \in \mathcal{L}(V)$. Then $T$ is diagonalizable if and only if $V = \bigoplus_{\lambda \in \text{Spec}(\tau)}E_{\lambda}$.
+\end{theorem}
+
+\begin{definition}\index{Algebraic multiplicity}
+    Let $V \in \Vect, \dim V = n\in \N$. Let $\tau \in \mathcal{L}(V)$ and $\lambda$ a root of $c_{\tau}(t)$. Then the \textbf{algebraic multiplicity of} $\lambda$ is the largest positive integer $k$ such that $c_{\tau}(t) = (t-\lambda)^kq(t)$ with $q(\lambda) \neq 0$.
+\end{definition}
+
+\begin{theorem}
+    Let $V \in \Vect, \dim V = n \in \N$ and let $\tau \in \mathcal{L}(V)$. If $\lambda \in \text{Spec}(\tau)$ with algebraic multiplicity $k$, then $1 \leq \dim(E_{\lambda}) \leq k$.
+\end{theorem}
+\begin{proof}
+    Since $\lambda$ is an eigenvalue of $\tau$, $\dim(E_{\lambda}) \geq 1$. Now let $\{v_1,...,v_p\}$ be a basis of $E_{\lambda}$ and extend it into a basis $\mathcal{B}$ of $V$. Then \begin{equation*}
+        [\tau]_{\mathcal{B}}^{\mathcal{B}} = \left[\begin{array}{c|c} \begin{array}{ccc} \lambda & & \\ & \ddots & \\ & & \lambda \end{array} & \mathbf{A} \\ \mathbf{0} & \mathbf{B} \end{array}\right]
+    \end{equation*}
+    so $c_{\tau}(t) = (t-\lambda)^pc_{\mathbf{B}}(t)$. Thus we must have that $p \leq k$, so $\dim(E_{\lambda}) \leq k$.
+\end{proof}
+
+\begin{definition}
+    Let $\tau \in \mathcal{L}(V)$ and $\lambda \in \text{Spec}(\tau)$. Then $\dim(E_{\lambda})$ is called the \textbf{geometric multiplicity} of $\lambda$.
+\end{definition}
+
+We then have the following result.
+
+\begin{theorem}
+    Let $V \in \Vect, \dim V = n\in \N$, and let $\tau \in \mathcal{L}(V)$. Then $\tau$ is diagonalizable if and only if for all $\lambda \in \text{Spec}(\tau)$, $\dim(E_{\lambda}) = $ the algebraic multiplicity of $\lambda$.
+\end{theorem}
+
+\subsection{Invariant Subspaces}
+
+\begin{definition}\index{Invariant subspace}
+    Let $V \in \Vect$ and $\tau \in \mathcal{L}(V)$. A subspace $U \leq V$ is said to be \textbf{invariant under} $\tau$ or $\tau$-\textbf{invariant} if $\tau(U) \subseteq U$.
+\end{definition}
+
+This means that $\tau$ restricts to a linear operator on $U$, or $\tau\vert_U \in \mathcal{L}(U)$. 
+
+\begin{theorem}
+    Let $V \in\Vect, \dim V =n\in\N$ and let $\tau \in \mathcal{L}(V)$. If $U \leq V$ is $\tau$-invariant, then the characteristic polynomial of $\tau\vert_U$ divides the characteristic polynomial of $\tau$.
+\end{theorem}
+\begin{proof}
+    Let $\beta = \{u_1,...,u_m\}$ be a basis of $U$ and extend to a basis $\mathcal{B} = \{u_1,...,u_m,v_{m+1},...,v_n\}$ of $V$. Then \begin{equation*}
+        [\tau]_{\mathcal{B}} = \begin{bmatrix} [\tau\vert_U]_{\beta} & \mathbf{A} \\ \mathbf{0} & \mathbf{B} \end{bmatrix}
+    \end{equation*}
+    so $c_{\tau}(t) = c_{\tau\vert_U}(t)c_{\mathbf{B}}(t)$, as desired.
+\end{proof}
+
+\begin{corollary}
+    Let $V \in \Vect,\dim V = n\in\N$ and $\tau \in \mathcal{L}(V)$. If $V = U_1\oplus \cdots \oplus U_k$ for $\tau$-invariant subspaces $U_i$, then we have that \begin{equation*}
+        c_{\tau}(t) = \prod_{i=1}^kc_{\tau\vert_{U_i}}(t)
+    \end{equation*}
+\end{corollary}
+
+We have the following important result which shall be used in deriving our next canonical form.
+
+\begin{theorem}
+    Let $V \in \Vect, \dim V = n\in\N$ and let $\tau \in \mathcal{L}(V)$. For $u \in V\backslash\{0\}$ let $U = \spn(u,\tau u,\tau^2u,...)$. Then $\dim(U) = k \leq n$, and we have \begin{itemize}
+        \item $\{u,\tau u,...,\tau^{k-1}u\}$ is a basis of $U$
+        \item $U$ is $\tau$-invariant
+        \item $U$ is the smallest invariant subspace of $V$ that contains $u$
+        \item If $a_0,a_1,...,a_{k-1} \in k$ such that $a_0u+a_1\tau u+\cdots +a_{k-1}\tau^{k-1}u+\tau^ku = 0$, then $c_{\tau\vert_U}(t) = a_0+a_1t+\cdots+a_{k-1}t^{k-1}+t^k$.
+    \end{itemize}
+\end{theorem}
+\begin{proof}
+    First let $k\in \N$ be the largest integer for which $\{u,\tau u,...,\tau^{k-1}u\}$ is linearly independent. Since $\dim V = n$ $k$ exists and is $\leq n$, and as $u\neq 0$, $k \geq 1$. It follows that $\tau^ku \in \spn(u,\tau u,...,\tau^{k-1}u)$, and so if $\tau^{k+l}u = \sum_{i=0}^{k-1}a_i\tau^iu$ for some $l \geq 0$, $\tau^{k+l+1}u = \sum_{i=0}^{k-1}a_i\tau^{i+1}u \in \spn(u,\tau u,...,\tau^{k-1}u)$. Hence $U \subseteq \spn(u,\tau u,...,\tau^{k-1}u)\subseteq U$, so $\mathcal{B} = \{u,\tau u,...,\tau^{k-1}u\}$ is a basis for $U$. By construction $U$ is $\tau$ invariant and the smallest subspace of $V$ that contains $u$ and is $\tau$-invariant. As $\tau^ku \in \spn(u,\tau u,...,\tau^{k-1}u)$, there exist unique $a_0,...,a_{k-1} \in k$ such that $a_0u+a_1\tau u+\cdots +a_{k-1}\tau^{k-1}u + \tau^ku = 0$. Now we have the matrix representation \begin{equation*}
+        [\tau\vert_U]_{\mathcal{B}} = \begin{bmatrix} 0 & 0 & 0 & \cdots & -a_1 \\ 1 & 0 & 0 & \cdots & -a_2 \\ 0 & 1 & 0 & \cdots & -a_3 \\ \vdots & \vdots & \ddots & \ddots & \vdots \\ 0 & 0 & \cdots & 1 & -a_{k-1} \end{bmatrix}
+    \end{equation*}
+    so $c_{\tau\vert_U}(t) = a_0+a_1t+\cdots+a_{k-1}t^{k-1}+t^k$.
+\end{proof}
+
+We then obtain the following well known result.
+
+\begin{theorem}[Cayley-Hamilton]\index{Cayley-Hamilton Theorem}
+    Let $V \in \Vect,\dim V = n\in \N$, and let $\tau \in \mathcal{L}(V)$. Then $c_{\tau}(\tau) = 0 \in \mathcal{L}(V)$.
+\end{theorem}
+
+This result follows from the previous theorem and our result that the characteristic polynomial of inveriant subspaces divides the characteristic polynomial of the operator.
+
+
+\section{Jordan Canonical Form}\label{sec:Jord}
+
+Now we lessen the condition of diagonalization to obtain a true canonical form. In order to derive this form we introudce the notion of a generalized eigenvector.
+
+\begin{definition}\index{Generalized eigenvector}
+    Let $V \in \Vect$ and $\tau \in \mathcal{L}(V)$ with $\lambda \in \text{Spec}(\tau)$. A nonzero vector $v \in V$ is said to be a \textbf{generalized eigenvector} of $\tau$ associated with $\lambda$ if there exists $k \geq 1$ such that $(\tau-\lambda \id_V)^kv = 0$ and $(\tau - \lambda \id_V)^{k-1}v \neq 0$. $k$ is called the \textbf{index} of the generalized eigenvector $v$.
+\end{definition}
+
+Note eigenvectors are generalized eigenvectors of index $1$, and in general $(\tau-\lambda I)^{k-1}v$ is an eigenvector of $\tau$ associated with $\lambda$. To show a vector $v \in V$, $v\neq 0$, is a generalized eigenvector of $\tau$ associated with $\lambda$, it sufficies to show that $(\tau - \lambda \id_V)^mv = 0$ for some $m \geq 1$. Now, from our previous result we know $U = \spn(u,(\tau - \lambda \id_V)v,...)$ is a $\tau$-invariant subspace with basis $u,(\tau-\lambda \id_V)u,...,(\tau-\lambda\id_V)^{k-1}u$. We now define the generalized eigenspace.
+
+\begin{definition}
+    Let $\tau \in \mathcal{L}(V)$ and $\lambda \in \text{Spec}(\tau)$. We define the \textbf{generalized eigenspace} of $\lambda$ to be $G_{\lambda}$ which consists of all generalized eigenvectors as well as $v = 0$.
+\end{definition}
+
+If $r$ is the largest index of all generalized eigenvectors in $G_{\lambda}$, $G_{\lambda} = \ker (\tau - \lambda \id_V)^r$. As $r \leq n$ by our previous result and the fact that $\dim V = n$, we have always that $G_{\lambda} = \ker (\tau - \lambda \id_V)^n$. 
+
+\begin{definition}
+    The largest index $r$ of all generalized eigenvectors in $G_{\lambda}$ is called the \textbf{index} of $G_{\lambda}$.  
+\end{definition}
+
+Although eigenspaces often were of insufficient dimension to give a full basis of the space, this issue doesn't arise anymore for generalized eigenspaces. We show this after showing we can construct bases of a particular type.
+
+\begin{theorem}
+    Let $V \in \Vect,\dim V = n\in \N$ and $N \in \mathcal{L}(V)$ a nilpotent operator. Then there exists a basis $\{N^{k_1}v_1,...,Nv_1,v_1,...,N^{k_j}v_j,...,Nv_j,v_j\}$ of $V$.
+\end{theorem}
+\begin{proof}
+    We proceed by induction on the dimension $n$ of $V$. If $n = 1$ then taking any nonzero $v_1$ gives a basis $\{v_1\}$ of $V$. Suppose the claim holds for all dimensions $< n$. Then as $N$ is nilpotent $\dim(\ran N) < n$, so there exists a basis $\{N^{k_1}v_1,...,Nv_1,v_1,...,N^{k_j}v_j,...,Nv_j,v_j\}$ of $\ran N$. Then there exists $u_1,...,u_j$ such that $Nu_i = v_i$, so $\mathcal{A} = \{N^{k_1+1}u_1,...,Nu_1,u_1,...,N^{k_j+1}u_j,...,Nu_j,u_j\}$ is a linearly independent set in $V$. We extend to a basis of $V$ by adding $w_{j+1},...,w_m$. As $Nw_i \in \ran N$ there exists $v_i \in \spn(\mathcal{A})$ such that $Nw_i = Nv_i$. Letting $u_i = w_i-v_i \notin \spn(\mathcal{A})$ as $w_i \notin \spn(\mathcal{A})$, we have our desired basis \begin{equation*}
+        \{N^{k_1+1}u_1,...,Nu_1,u_1,...,N^{k_j+1}u_j,...,Nu_j,u_j,u_{j+1},...,u_m\}
+    \end{equation*}
+\end{proof}
+
+
+\begin{theorem}
+    Let $V \in \Vect,\dim V = n\in \N$ and $\tau \in \mathcal{L}(V)$. Let $\lambda \in\text{Spec}(\tau)$ with algebraic multiplicity $m$. Then $\dim(G_{\lambda}) = m$.
+\end{theorem}
+\begin{proof}
+    First note that $\tau\vert_{G_{\lambda}}$ is a nilpotent mapping, so by the previous theorem we have a basis $\{(\tau-\lambda\id_V)^{k_1}v_1,...,(\tau-\lambda\id_V)v_1,v_1,...,(\tau-\lambda\id_V)^{k_j}v_j,...,(\tau-\lambda\id_V)v_j,v_j\}$ of $G_{\lambda}$. Now, as both are terminal in their respective sequences, $\ker(\tau-\lambda\id_V)^n\cap\ran(\tau-\lambda\id_V)^n = \{0\}$, so by the dimension theorem $V = G_{\lambda}\oplus \ran(\tau-\lambda\id_V)^n$, both of which are $\tau$-invariant. Then we can extend this to a basis $\mathcal{B}$ of $V$ with a basis of $\ran(\tau-\lambda \id_V)^n$. Then the associated matrix representation is \begin{equation*}
+        [\tau]_{\mathcal{B}} = \left[\begin{array}{c|c} \text{diag}(J_{k_1}(\lambda),...,J_{k_j}(\lambda)) & \mathbf{0} \\ \mathbf{0} & \mathbf{A}\end{array}\right]
+    \end{equation*}
+    where $J_k(\lambda) = \begin{bmatrix} \lambda & 1 & 0&  \cdots & 0 \\ 0 & \lambda & 1 & \cdots & 0 \\ \vdots & \vdots & \ddots & \ddots & \vdots \\ 0 & \cdots & 0 & \lambda & 1 \\ 0 & \cdots & 0 & 0 & \lambda \end{bmatrix}$ is the \textbf{Jordan block of size $k$}. Then $c_{\tau}(t) = (t-\lambda)^{\dim G_{\lambda}}c_{\mathbf{A}}(t)$. As $G_{\lambda}\cap \ran(\tau-\lambda\id_V)^n = \{0\}$ and all $\lambda$ eigenvectors are in $G_{\lambda}$, we must have that $c_{\mathbf{A}}(\lambda) \neq 0$. Hence, $\dim G_{\lambda} = m$ must be the algebraic multiplicity of $\lambda$.
+\end{proof}
+
+We now have a type of spectral theorem for generalized eigenspaces.
+
+\begin{theorem}
+    Let $V\in\Vect, \dim V = n\in \N$ be a vector space over an algebraically closed field $k$. Let $\tau \in \mathcal{L}(V)$ and let $\lambda_1,...,\lambda_k$ be the distinct eigenvalues of $T$ with multiplicities $n_1,...,n_k$. Then $V = G_{\lambda_1}\oplus\cdots\oplus G_{\lambda_k}$.
+\end{theorem}
+\begin{proof}
+    By the previous theorem it is sufficient to show that for $v_1 \in G_{\lambda_1},...,v_k \in G_{\lambda_k}$, not all zero, $v_1+\cdots + v_k \neq 0$. Towards a contradiction suppose $v_1+\cdots+v_k = 0$. Without loss of generality we may suppose $v_1 \neq 0$, and that $v_1$ has index $k_1$, and in general $v_i$ has index $k_i$. Then if $(\tau-\lambda_1\id_V)^{k_1-1}v_1 = w \neq 0$, $\tau w = \lambda_1 w$, so $\prod_{i=2}^{k}(\tau-\lambda_i\id_V)^{k_i}w = \prod_{i=1}^2(\lambda_1-\lambda_i)^{k_i}w \neq 0$. However, $0 = (\tau-\lambda_1\id_V)^{k_1-1}\prod_{i=2}^{k}(\tau-\lambda_i\id_V)^{k_i}(v_1+\cdots+v_k) = \prod_{i=1}^2(\lambda_1-\lambda_i)^{k_i}w$, which is a contradiction. Hence the generalized eigenspaces must be linearly independent. Hence, as $\dim(G_{\lambda_i}) = n_i$ from the previous result, and $n_1+\cdots+n_k = n$, we have that $$V=\bigoplus_{i=1}^kG_{\lambda_i}$$
+\end{proof}
+
+The bases with Jordan blocks we used in the previous proofs is known as the \textbf{Jordan canonical basis} of $\tau$, and gives the Jordan canonical form when the operator is represented in that basis.
+
+\begin{definition}
+    Let $V \in \Vect$ and $\tau \in \mathcal{L}(V)$. Let $v \in G_{\lambda}\backslash\{0\}$ for $\lambda \in \text{Spec}(\tau)$. Let $k \geq 1$ be the index of $v$. Then we call the ordered linearly independent set $\{(\tau-\lambda \id_V)^{k-1}v,...,(\tau-\lambda\id_V)v,v\}$ is called a \textbf{cycle} of generalized eigenvectors of $\tau$ associated with the eigenvalue $\lambda$. $(\tau-\lambda\id_V)^{k-1}v$ is called the \textbf{initial vector} of the cycle and $v$ is called the \textbf{end vector} of the cycle. $k$ is called the \textbf{length} of the cycle.
+\end{definition}
+
+Note that the number of Jordan blocks total is given by the number of linearly independent eigenvectors, since all cycles must end in an eigenvector. The next result gives how to determine the number of blocks of any size.
+
+
+\begin{theorem}
+    Let $\tau \in \mathcal{L}(V)$ for $\dim V = n$. Let $k_j = \dim(\ker(\tau-\lambda\id_V)^j)$. Then the number of Jordan blocks of eigenvalue $\lambda$ of size $j$ is given by $$m_j = 2k_j - k_{j+1}-k_{j-1}$$
+\end{theorem}
+\begin{proof}
+    First I claim that there are $k_{j+1}-k_j$ Jordan blocks of size $> j$. As each Jordan block of size $> j$ will contribute $+1$ to the dimension of $k_{j+1}$ versus $k_j$, $k_{j+1}-k_j$ must be the number of Jordan blocks of size $> j$. Thus, the number of Jordan blocks of size exactly $j$ is $k_j - k_{j-1} - (k_{j+1} - k_j) = 2k_j - k_{j-1} - k_{j+1}$.
+\end{proof}
+
+Then we have the following algorithm for determining the Jordan canonical basis of an operator $\tau \in \mathcal{L}(V)$: 
+
+\begin{itemize}
+    \item[(1)] Find the value minimal $k$ for which $\ker(\tau-\lambda \id_V)^k = G_{\lambda}$
+    \item[(2)] Find a basis $(v_k^1,...,v_k^{m_k})$ of the subspace of $\ker(\tau-\lambda\id_V)^k$ not including $\ker(\tau-\lambda\id_V)^{k-1}$, where $m_k = k_k-k_{k-1}$
+    \item[(3)] If $k = 1$, stop, Else, apply $(\tau - \lambda\id_V)$ to the vectors from the previous part. Extend $((\tau-\lambda \id_V)v_k^1,...,(\tau-\lambda\id_V)v_k^{m_k})$ to a basis of $\ker(\tau-\lambda\id_V)^{k-1}$ not including $\ker(\tau-\lambda\id_V)^{k-2}$.
+    \item[(4)] Repeat step (3) replacing $k$ with $k-1$ until we hit $k = 1$.
+\end{itemize}
+
+

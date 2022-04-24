@@ -1,7 +1,221 @@
 %%%%%%%%%% Vector Spaces %%%%%%%%%%
-\chapter{Vector Spaces}
+\chapter{Vector Spaces}\label{VecSpaces}
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+In this chapter we shall build up the basic formulation of abstract linear algebra in terms of vector spaces and their basic formulations.
+
+\section{Vector Space Basics}\label{sec:vecSps}
+
+Before defining a vector space we need the notion of a field.
+
+\begin{definition}\index{Field}
+    A triple $(F,+,\cdot)$ of a set $F$ with two binary operations $+:F\times F\rightarrow F$ and $\cdot:F\times F\rightarrow F$ satisfying the following properties is known as a field. \begin{itemize}
+        \item The pair $(F,+)$ is an abelian group with identity $0_F$
+        \item The pair $(F^*,\cdot)$ is an abelian group with identity $1_F$, with $F^* = F\backslash\{0_F\}$
+        \item For any $a,b,c \in F$, the distributive laws hold \begin{equation*}
+            a\cdot(b+c) = a\cdot b+a\cdot c,\;\;(b+c)\cdot a = b\cdot a + c\cdot a
+        \end{equation*}
+    \end{itemize}
+\end{definition} 
+
+Moving forward we shall denote a general field by $k$. Now we have the notion of a vector space.
+
+\begin{definition}\index{Vector Space}
+    A vector space is a quadruple $(V,+,k,\cdot)$ where $(V,+)$ is an abelian group with identity $0_V$, and $k$ is a field wtih a left field action $\cdot:k\times V\rightarrow V$ known as \textbf{scalar multiplication} satisfying the following properties. For all $a,b \in F$ and all $u,v \in V$ we have distributivity \begin{equation*}
+                a\cdot (u+v) = a\cdot u + a \cdot v,\;\; (a+b)\cdot u = a\cdot u + b\cdot u
+    \end{equation*}
+        associativity \begin{equation*}
+            (ab)\cdot u = a\cdot (b\cdot u)
+        \end{equation*}
+        and identity \begin{equation*}
+            1_k\cdot u = u
+            \end{equation*}
+\end{definition}
+
+The collection of all (small) vector spaces form a category $\Vect$ with maps to be defined in Chapter \ref{LinMaps}. As with all algebraic structures we have the notion of a \textbf{subspace}\index{Subspace} which consists of a subset $U \subseteq V$ which is a vector space under the restrictions of the operations on $V$. We shall write $U \leq V$ to denote a subspace, and $U < V$ to denote a proper subspace.
+
+\begin{example}
+    A few common examples of vector spaces and subspaces are as follows. \begin{itemize}
+        \item The field $k$ is a vector space over itself with multiplication in place of scalar multiplication.
+        \item For any set $X$ and any vector space $V \in \Vect$, the set of functions $V^X$ from $X$ to $V$ inherits a vector space structure from $V$ with pointwise addition and scalar multiplication of functions. A notable subspace is the space $(V^X)_0$ of such functions with finite support.
+        \item A special case is the space $V^{\N}$ of all sequences in $V$ and the subspace $(V^{\N})_0$ of all sequences with finite support. For example in $\C^{\N}$ we have the subspace $\ell^{\infty}$ of all bounded complex sequences, or for any $p > 1$ we have the subspace $\ell^p$ of all complex sequences $(z_n)_{n\in\N}$ for which $\left(\sum_{n=1}^{\infty}|z_n|^p\right)^{1/p} < \infty$.
+        \item The set $M_{m,n}(k)$ of all $m\times n$ matrices with entries in $k$ is a vector space over $k$ with element wise addition and scalar multiplication.
+        \item A special case is the space $k^n = M_{n,1}(k)$ of $n$-tuples whose components lie in $k$.
+        \item The polynomial ring $k[X]$ in one indeterminate is a vector space over $k$ with standard addition and multiplication by scalars. It is often denoted $\mathbb{P}(k)$. Additionally, for any $n \in \N$ the space $\mathbb{P}_n(k)$ of polynomials of degree less than or equal to $n$ is a subspace.
+    \end{itemize}
+\end{example}
+
+Subspaces hold a special structure in vector spaces. If $V \in \Vect$ let $\mathcal{S}(V)$ denote the collection of all subspaces of $V$. Then $\mathcal{S}(V)$ is partially ordered by inclusion and contains both a minimal element $\{0\}$ and a maximal element $V$. In addition, for $S,T \in \mathcal{S}(V)$ the intersection $S\cap T$ forms the largest subspace of $V$ containing both $S$ and $T$, or in other words the greatest lower bound of $S$ and $T$ with respect to inclusion. Similarly, for any family $\{S_{\alpha}\}_{\alpha \in I}$ we can form the intersection $\bigcap_{\alpha \in I}S_{\alpha}$ which is the greatest lower bound of the family. Similarly, we also have a notion of least upper bound formed by \textbf{sums}.
+
+\begin{definition}\index{Sum}
+    Let $S,T \leq V$. The \textbf{sum} of $S$ and $T$ is defined to be \begin{equation*}
+        S+T := \{u+v|u \in S,v \in T\}
+    \end{equation*}
+    In general, for a family $\{S_{\alpha}\}_{\alpha \in I}$ the sum is the set of all finite sums of vectors from $\bigcup_{\alpha \in I}S_{\alpha}$: \begin{equation*}
+        \sum_{\alpha \in I}S_{\alpha} := \left\{s_{\alpha_1}+\cdots + s_{\alpha_n}\Bigg\vert n \in \N, s_{\alpha_j} \in \bigcup_{\alpha \in I}S_{\alpha}\right\}
+    \end{equation*}
+\end{definition}
+
+This construction in fact defines the least upper bound of $S$ and $T$ in $\mathcal{S}(V)$, or of $\{S_{\alpha}\}_{\alpha \in I}$ in $\mathcal{S}(V)$ with respect to inclusion. This shows that the collection $\mathcal{S}(V)$ forms a \textbf{lattice} with respect to the partial ordering of inclusion. 
+
+\section{Direct Sums}\label{sec:DirectSum}
+
+We start our journey into vector space constructions with the notion of \textbf{direct sums}.
+
+\begin{definition}\index{External direct sum}
+    Let $V_1,...,V_n \in \Vect$. The \textbf{external direct sum} of $V_1,...,V_n$ is the vector space \begin{equation*}
+        V_1\boxplus\cdots \boxplus V_n := \{(v_1,...,v_n)|v_i \in V_i,i = 1,...,n\}
+    \end{equation*}
+    with operations of componentwise addition and scalar multiplication. In general for an index set $I$ and a family of vector space $\{V_{\alpha}\}_{\alpha \in I}$, the direct sum is the space subspace of $(\amalg_{\alpha \in I}V_{\alpha})^I_0$ consisting of functions such that $f(\alpha) \in V_{\alpha}$. We denote this space by \begin{equation*}
+        \bigoplus_{\alpha \in I}^{ext}V_{\alpha} = \left\{f:I\rightarrow \amalg_{\alpha \in I}V_{\alpha}\Bigg\vert f(i) \in V_i,f\;\text{has finite support}\right\}
+    \end{equation*}
+\end{definition}
+
+We also call the subspace of $(\amalg_{\alpha \in I}V_{\alpha})^I$ consisting of all functions such that $f(\alpha) \in V_{\alpha}$ to be the \textbf{direct product} of the family, and denote it by \begin{equation*}
+    \prod_{\alpha \in I}V_{\alpha} :=\left\{f:I\rightarrow \amalg_{\alpha \in I}V_{\alpha}\Bigg\vert f(i) \in V_i\right\}
+\end{equation*}
+In the case that $V_{\alpha} = V \in \Vect$ for all $\alpha$, these spaces are just $(V^I)_0$ and $V^I$ respectively. In the case of $I$ finite we have that these constructions coincide.
+
+Identically to the external direct sum we define the notion of an internal direct sum.
+
+\begin{definition}\Alsoindex{External direct sum}{Internal direct sum}\index{Internal direct sum}
+    A vector space $V \in \Vect$ is the \textbf{internal direct sum} of a family $\mathcal{F} = \{S_{\alpha}\}_{\alpha \in I}$ of subspaces of $V$, written \begin{equation*}
+        V = \bigoplus \mathcal{F} = \bigoplus_{\alpha \in I}S_{\alpha}
+    \end{equation*}
+    if the following hold: \begin{itemize}
+        \item $V$ is the sum, or join, of the family $\mathcal{F}$: \begin{equation*}
+                V = \sum_{\alpha \in I}S_{\alpha}
+        \end{equation*}
+        \item For each $\alpha \in I$, \begin{equation*}
+            S_{\alpha}\cap\left(\sum_{\alpha \neq \beta \in I}S_{\beta}\right) = \{0\}
+        \end{equation*}
+    \end{itemize}
+    In this case each $S_{\alpha}$ is called a direct summand of $V$.
+\end{definition}
+
+In the case that $V = S\oplus T$ we say that the subspace $T$ is a \textbf{complement} of $S$ in V.\index{Complement} One should note that a subspace generally has many distinct complements. For example consider lines in $\R^2$ (one-dimensional subspaces). There are also equivalent ways to characterize the independence of a family in a direct sum, as we now show.
+
+\begin{theorem}
+    Let $\mathcal{F} = \{S_{\alpha}\}_{\alpha \in I}$ be a family of distinct subspaces of $V$. The following are equivalent: \begin{itemize}
+        \item For each $\alpha \in I$, \begin{equation*}
+                S_{\alpha}\cap\left(\sum_{\alpha\neq \beta \in I}S_{\beta}\right) = \{0\}
+        \end{equation*}
+        \item The zero vector $0$ cannot be written as a sum of nonzero vectors from distinct subspaces of $\mathcal{F}$
+        \item Every nonzer $v \in V$ has a unique, except for order of terms, expression as a sum $$v = s_1+\cdots + s_n$$
+            of nonzero vectors from distinct subspaces in $\mathcal{F}$.
+    \end{itemize}
+\end{theorem}
+\begin{proof}
+    First assume the first claim and that the second fails. Then there exist $v_1,...,v_n$ in distinct families which are non-zero and $v_1+\cdots +v_n = 0$. However this implies $-v_1 = v_2+\cdots + v_n$, or $v_1 \in S_{\alpha_1}\cap\left(\sum_{\alpha_1\neq \beta}S_{\beta}\right)$ for $v_1 \neq 0$, contradicting the first claim. 
+
+    Next if the second claim holds and $\sum_{\alpha \in I}s_{\alpha} = \sum_{\alpha \in I}r_{\alpha}$, then $\sum_{\alpha \in I}(s_{\alpha}-r_{\alpha}) = 0$ is an expression of zero in terms of elements of the summands, so $s_{\alpha} = r_{\alpha}$ for each $\alpha \in I$. Finally, if the third claim holds, any non-zero element of $S_{\alpha}$ cannot be written as a sum of elements in $\{S_{\beta}\}_{\beta \neq \alpha}$, so we have that the first statement holds.
+\end{proof}
 
 
-\begin{subappendices}
-    \section{Constructions}
-\end{subappendices}
+\section{Spans and Linear Independence}\label{sec:SpanLinInd}
+
+We now investigate possibly one of the most central concepts in vector space theory: the notion of spanning and linearly independent sets.
+
+\begin{definition}\index{Span}
+    Let $S \subseteq V$ be a nonempty set. We define the span of $S$ to be the set of all linear combinations of vectors from $S$: \begin{equation*}
+        \langle S\rangle = \spn(S) = \{r_1v_1+\cdots r_nv_n| n\in \N, r_i \in k,v_i \in S\}
+    \end{equation*}
+    The set $S$ is said to \textbf{span} or generate $V$ if $V = \spn(S)$. 
+\end{definition}
+
+By convention we take $\spn\emptyset = \{0\}$. The span gives us the smallest subspace of $V$ which contains the subset $S$. Next we have the notion of linear independence, relating to minimal generating sets.
+
+\begin{definition}\index{Linearly independence}
+    Let $V \in \Vect$. A nonempty set $S \subseteq V$ is \textbf{linearly independent} if for any distinct vectors $s_1,...,s_n \in S$, \begin{equation*}
+        a_1s_1+\cdots +a_ns_n = 0\implies a_i = 0,\;\forall i \in \{1,...,n\}
+    \end{equation*}
+    If $S$ is not linearly independent we say that it is \textbf{linearly dependent}.
+\end{definition}
+
+For convenience we consider the emptyset $\emptyset$ to be linearly independent. It is an immediate consequence that a set $S$ is linearly independent if and only if every vector $v \in \spn(S)$ can be expressed uniquely as a linear combination of vectors in $S$, and no vector in $S$ is a linear combination of other vectors in $S$. 
+
+\begin{theorem}
+    Let $V \in \Vect$ and let $S \subseteq V$ be linearly independent. If $v \in V$ and $v \notin S$, then $S \cup \{v\}$ is linearly independent if and only if $v \notin \spn(S)$.
+\end{theorem}
+\begin{proof}
+    First if $v \in \spn(S)$ then we could express $v = a_1v_1+\cdots +a_nv_n$ for $v_i \in S$, or in other words $v-a_1v_1-\cdots - a_nv_n = 0$, implying that $S\cup\{v\}$ is not linearly independent. Conversely, if $S \cup \{v\}$ is linearly independent, we have $av+a_1v_1+\cdots +a_nv_n = 0$ for some $a_i \in S$, where $a \neq 0$ since $S$ is linearly independent. Hence $v = -\frac{1}{a}(a_1v_1+\cdots +a_nv_n) \in \spn(S)$.
+\end{proof}
+
+Combining linear independence and spanning we arrive at the notion of a basis.
+
+\begin{definition}\index{Basis}
+    A subset $\mathcal{B}$ of $V \in \Vect$ is said to be a \textbf{basis} if it is linearly independent and spans $V$.
+\end{definition}
+
+Combining with our previous we find equivalently that a every vector in $V$ can be expressed uniquely as a linear combination of vectors in $\mathcal{B}$, $\mathcal{B}$ is a minimal spanning set, and $\mathcal{B}$ is a maximal linearly independent set. Additionally, if $\mathcal{B} = \{v_1,...,v_n\}$ is finite, we can write $V = \langle v_1\rangle \oplus \cdots \oplus \langle v_n\rangle$.
+
+\begin{theorem}
+    Let $V \in \Vect$ be a non-zero vector space. Let $I$ be a linearly independent set in $V$ and $S$ a spanning set containing $I$. Then there is a basis $\mathcal{B}$ of $V$ for which $I \subseteq \mathcal{B} \subseteq S$.
+\end{theorem}
+\begin{proof}
+    Let $\mathcal{A}$ denote the collection of all linearly independent subsets of $V$ containing $I$ and contained in $S$. Since $I \in \mathcal{A}$ this is non-empty. Now if $\mathcal{C} = \{I_{\alpha}\}_{\alpha \in J}$ is a chain in $\mathcal{A}$, then the union $U = \bigcup_{\alpha \in J}I_{\alpha}$ is linearly independent and satisfies $I \subseteq U \subseteq S$. Indeed any linear dependence on $U$ would simplify to a linear dependence on an element of $\mathcal{C}$. Hence every chain in $\mathcal{A}$ has an upper bound in $\mathcal{A}$, so by Zorn's lemma $\mathcal{A}$ must contain a maximal element $\mathcal{B}$ which is linearly independent.
+
+    This $\mathcal{B}$ is a basis for $\langle S\rangle = S$, since if any $s \in S$ is not in $\spn(\mathcal{B}$, then $\mathcal{B}\cup\{s\} \subseteq S$ would be a larger linearly independent set, contradicting maximality of $\mathcal{B}$.
+\end{proof}
+
+In the case of finite sets we perform an inductive argument. We enumerate $S_1 = S\backslash I = \{v_1,...,v_n\}$. Then if $v_1 \notin \spn(I)$ we form $I_2 = I\cup\{v_1\}$ which is linearly independent and set $S_2 = S_1\backslash\{v_1\}$, and otherwise we simply remove $v_1$. We repeat this process until we arrive at $S_{n+1} = \emptyset$, at which point $I_{n+1}$ is a linearly independent set with equivalent span to $S$.
+
+\begin{theorem}
+    If $v_1,...,v_n$ are linearly independent in $V$ and $s_1,...,s_m$ span $V$ then $n \leq m$.
+\end{theorem}
+\begin{proof}
+    First we list the vectors as $s_1,...,s_m;v_1,...,v_n$. Since $s_1,...,s_m$ span $V$, $v_1$ is a linear combination of the $s_i$'s. This implies that there exists $s_i$ which by re-indexing we can choose to be $s_1$ such that $\spn(v_1,s_2,...,s_m) = \spn(s_1,s_2,...,s_m)$. Then $v_1,s_2,...,s_m;v_2,...,v_n$ still represents a spanning and linearly independent set. Now if $m < n$ we can repeat this process to obtain $v_1,...,v_m;v_{m+1},...,v_n$. However, $v_1,...,v_m$ must span $V$ but since $\{v_1,...,v_n\}$ is linearly independent $v_n \notin \spn(v_1,...,v_m)$, which is a contradiction. Hence, $n \leq m$.
+\end{proof}
+
+\begin{corollary}
+    If $V$ has a finite spanning set, then any two bases of $V$ have the same size.
+\end{corollary}
+
+For arbitrary vector spaces we have the following theorem.
+
+\begin{theorem}
+    If $V \in \Vect$, then any two bases for $V$ have the same cardinality.
+\end{theorem}
+\begin{proof}
+    We have already covered the finite case, so we may assume all bases of $V$ are infinite. Let $\mathcal{B}$ and $\mathcal{C}$ be bases. Then any vector in $\mathcal{C}$ can be written as a linear combination of vectors in $\mathcal{B}$, and every vector in $\mathcal{B}$ must appear in at least one linear combination as otherwise a proper subset of $\mathcal{B}$ would span $V$. Thus $|\mathcal{B}| \leq \aleph_0|\mathcal{C}| = |\mathcal{C}|$ since the bases are infinite, and reversing the roles we obtain the reverse inequality so $|\mathcal{B}| = |\mathcal{C}|$ by the Schr\"{o}der-Bernstein theorem.
+\end{proof}
+
+In the finite dimensional case we find that being a basis of $V$ is equivalent to being a spanning set with size $\dim V$ or a linearly independent set with size $\dim V$.
+
+\begin{theorem}
+    If $S \leq V$, then there exists $T \leq V$ such that $V = S\oplus T$.
+\end{theorem}
+\begin{proof}
+    Let $S \leq V$ and let $\mathcal{B}$ be a basis for $S$. As $\mathcal{B}$ is linearly independent in $V$ we can extend it to a basis $\mathcal{B}\cup \mathcal{C}$ of $V$. Let $T = \spn(\mathcal{C})$. By linear independent of $\mathcal{B}\cup\mathcal{C}$ we must have that $S\cap T = \{0\}$, and $V = S+T$ by construction, so $V = S\oplus T$.
+\end{proof}
+
+\begin{theorem}
+    Let $S,T \leq V \in \Vect$. Then \begin{equation*}
+        \dim(S) + \dim(T) = \dim(S+T) + \dim(S\cup T)
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    Suppose $\mathcal{B}$ is a basis for $S\cap T$. Extend this to a basis $\mathcal{A}\cup\mathcal{B}$ for $S$ and a basis $\mathcal{B}\cup\mathcal{C}$ for $T$. We claim $\mathcal{A}\cup\mathcal{B}\cup\mathcal{C}$ is a basis for $S+T$. Evidently it spans $S+T$. To see linear independence suppose to the contrary that we have a linear dependence $\alpha_1v_1+\cdots \alpha_nv_n$ with $\alpha_i \neq 0$ for all $i$. As $\mathcal{A}\cup\mathcal{B}$ and $\mathcal{B}\cup\mathcal{C}$ are linearly independent, this expression must involve elements of $\mathcal{A}$ and $\mathcal{C}$. Isolating the components of $\mathcal{A}$ on one side we have a nonzero vector $x \in \langle \mathcal{A}\rangle \cap\langle \mathcal{B}\cup\mathcal{C}\rangle$. But then $x \in S\cap T$, so $x \in \langle \mathcal{A}\rangle \cap \langle \mathcal{B}\rangle$, which implies $x = 0$, a contradiction. Hence they indeed form a basis for $S+T$, and \begin{equation*}
+        \dim(S)+\dim(T) = |\mathcal{A}\cup\mathcal{B}|+|\mathcal{B}\cup\mathcal{C}| = \dim(S+T) + \dim(S\cap T)
+    \end{equation*}
+\end{proof}
+
+
+\section{Ordered Bases and Coordinates}\label{sec:coord}
+
+Now that we have a notion of minimal spanning sets which uniquely represent the vectors in a vector space, we can investigate how to represent vector spaces in a canonical fashion. 
+
+\begin{definition}\index{Ordered basis}
+    Let $V \in \Vect$ with $\dim V = n \in \N$. An \textbf{ordered basis} for $V$ is an ordered $n$-tuple $(v_1,...,v_n)$ of vectors for which the set $\{v_1,...,v_n\}$ is a basis for $V$.
+\end{definition}
+
+If $\mathcal{B} = (v_1,...,v_n)$ is an ordered basis for $V$, then for each $v \in V$ we have a unique ordered $n$-tuple $(r_1,...,r_n)$ of scalars for which $v = r_1v_1+\cdots +r_nv_n$. This defines a bijection known as the \textbf{coordinate map}: $\varphi_{\mathcal{B}}:V\rightarrow k^n$, with $\varphi_{\mathcal{B}}(v) = [v]_{\mathcal{B}} = \begin{bmatrix} r_1 \\ \vdots \\ r_n\end{bmatrix}$. 
+
+
+
+
+%
+\section*{Appendices: Constructions}
+%
+\addcontentsline{toc}{section}{Appendix: Constructions}

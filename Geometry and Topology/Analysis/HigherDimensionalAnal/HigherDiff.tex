@@ -1,73 +1,84 @@
-%%%%%%%%%% Higher Dim Diff %%%%%%%%%%
+%%%%%%%%% Higher Dim Diff %%%%%%%%%%
 \chapter{Higher-Dimensional Differentiation}
-
-
+\label{HigherDiff}
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
 \section{Basic Notions of Higher-Dimensional Derivatives}
+\label{sec:basicHigherDiff}
 
 In this section, we will always use the $2$-norm on $\R^n$ and denote it $||\cdot||$. For a linear operator or matrix, $||\cdot||$ will also denote the operator or spectral norm. $U$ will denote an open subset of $\R^n$.
 
-\begin{defn}[The Derivative]
+\begin{definition}[The Derivative]\index{Higher order derivative}
     Let $f:U\rightarrow \R^m$. We say that $f$ is \Emph{differentiable} at $a \in U$ if there exists a linear transformation $T:\R^n\rightarrow \R^m$ such that $$\lim\limits_{h\rightarrow 0}\frac{||f(a+h) - f(a) - Th||_{\R^m}}{||h||_{\R^n}} = 0$$ for $a+h \in U$, where as $U$ is open $a+h \in U$ for $h$ small enough. This can be interpreted to mean $f(a+h) \approx f(a)+Th$ for $h$ small enough. We call $T$ the \Emph{derivative of $f$ at $a$} and write it as $T = Df(a)$. We say that $f$ is \Emph{differentiable on $U$} if $f$ is differentiable at each $a \in U$.
-\end{defn}
+\end{definition}
 
-\begin{rmk}
+\begin{remark}
     The linear transformation $T$ in the above definition is unique. Suppose $S$ and $T$ both satisfy the definition of th ederivative at $a$. Then $$\frac{||Th - Sh||}{||h||} \leq \frac{||f(a+h) - f(a) - Th||}{||h||} + \frac{||f(a+h)-f(a)-Sh||}{||h||}\rightarrow 0$$ Indeed, for any $\alpha > 0$ constant, and $1 \leq j \leq n$, $$0 = \lim\limits_{\alpha\rightarrow 0}\frac{||T\alpha e_j - S\alpha e_j||}{||\alpha e_j||} = \lim\limits_{\alpha\rightarrow 0}||T e_j - S e_j||$$ so $T e_j = Se_j$, and hence $T = S$.
-\end{rmk}
+\end{remark}
 
 If the case of $m = n =1$, if $f:U\rightarrow \R$ is a function with $U \subseteq \R$ open, the linear transformation $T$ is just the constant $f'(a)$, where as $f'(a) = \lim\limits_{h\rightarrow 0}\frac{f(a+h)-f(a)}{h}$, $$0 = \lim\limits_{h\rightarrow 0}\frac{|f(a+h) - f(a) - f'(a)h|}{|h|}$$ and in this case $f(a+h) \approx f(a) + f'(a)h$.
 
-\begin{nota}
+\begin{note}
     Given a function $f:U\rightarrow \R^m$, we will write $f$ as $f(x) = (f_1(x),...,f_m(x))^T$, where each $f_i:U\rightarrow \R$ and $f_i = p_i\circ f$, for $p_i:\R^m\rightarrow \R$ the $i$-th projection function.
-\end{nota}
+\end{note}
 
-\begin{prop}
+\begin{proposition}
     If $f:U\rightarrow \R^m$ is differentiable at $a \in U$, then $f$ is continuous at $a$.
-\end{prop}
+\end{proposition}
 \begin{proof}
     We must show that $\lim\limits_{h\rightarrow 0}f(a+h) = f(a)$. Find $\delta > 0$ such that $||h|| < \delta$ implies $$\frac{||f(a+h)-f(a)-Df(a)h||}{||h||} < 1$$ Then $||f(a+h) - f(a) - Df(a)h|| \leq ||h||$, so by the triangle inequality, and using the spectral norm, $$||f(a+h) - f(a)|| \leq ||Df(a)h|| + ||h|| \leq ||Df(a)||\;||h|| + ||h||\rightarrow 0$$ as $h\rightarrow 0$, so $f$ is continuous at $a$.
 \end{proof}
 
-\begin{defn}[Directional Derivative]
+\begin{definition}[Directional Derivative]\index{Directional derivative}
     Let $f:U\rightarrow \R^m$ and let $v \in \R^n$ be a unit vector. The \Emph{directional derivative for $f$ at $a \in U$ in the direction of $v$} is given by $$D_vf(a) := \lim\limits_{t\rightarrow 0}\frac{f(a+tv)-f(a)}{t} \in \R^m$$ for all $a \in U$ and $t$ small enough such that $a+tv \in U$, provided the limit above exists. If $v = e_i$, the canonical orthonormal basis element for $\R^n$, we call $D_{e_i}f(a)$ the \Emph{partial derivative of $f$ with respect to $x_i$ at $a$} and denote it $D_if(a)$ or $\frac{\partial f}{\partial x_i}(a)$.
-\end{defn}
+\end{definition}
 
 Note that the limit for $D_vf(a)$ can be written as \begin{equation*}
     D_vf(a) = \lim\limits_{t\rightarrow 0}\begin{pmatrix} \frac{f_1(a+tv)-f_1(a)}{t} \\ \vdots \\ \frac{f_m(a+tv) - f_m(a)}{t} \end{pmatrix} = \begin{pmatrix} D_vf_1(a) \\ \vdots \\ D_vf_n(a)\end{pmatrix}
 \end{equation*}
 if the $D_vf_i(a)$ existm as we know that sequences in $\R^m$ converge if and only if each component sequence converges. Thus, $D_vf(a)$ exists if and only if $D_vf_i(a)$ exists for each $i = 1,...,m$.
 
-\begin{eg}[Affine maps are differentiable]
+\begin{example}[Affine maps are differentiable]\index{Affine maps}
     Let $f:\R^n\rightarrow \R^m$ be defined by $f(x) = Ax+b$ for $A$ $m\times n$ and $b \in \R^m$. Then $Df(x) = A$ for all $x \in \R^n$, since for any $h \in \R^n$ $$||f(a+h) - f(a) - Ah|| = ||Aa+Ah-Aa-Ah|| = 0$$
-\end{eg}
+\end{example}
 
-\begin{eg}
+\begin{example}
     The function $f:\R^2\rightarrow \R^2$ given by $f(x,y) = (x^2,y^2)^T$ is differentiable. We claim $Df(x,y) = \begin{bmatrix} 2x & 0 \\ 0 & 2y \end{bmatrix}$. To see this, let $h = [h_1\;h_2]^T$. Since all norms on $\R^n$ and $\R^m$ are equivalent, we can use whichever norm makes the easiest computation: \begin{align*}
         \lim\limits_{h\rightarrow 0}\frac{||\langle (x+h_1)^2 - x^2, (y+h_2)^2 - y^2\rangle - \langle 2xh_1, 2yh_2\rangle||_1}{||h||_1} &= \lim\limits_{h\rightarrow 0}\frac{|(x+h_1)^2-x^2-2xh_1| + |(y+h_2)^2-y^2-2yh_2|}{|h_1|+|h_2|} \\
         &= \lim\limits_{h\rightarrow 0}\frac{h_1^2+h_2^2}{|h_1|+|h_2|} \\
         &\leq \lim\limits_{h\rightarrow 0}\frac{h_1^2}{|h_1|} + \frac{h_2^2}{|h_2|} = 0
     \end{align*}
-\end{eg}
+\end{example}
 
 
-\begin{prop}
+\begin{proposition}
     If $f:U\rightarrow \R^m$ and $g:U\rightarrow \R$ are differentiable at $a \in U$, then so is $fg$ and $$D(fg)(a) = f(a)Dg(a) + g(a)Df(a)$$
-\end{prop}
+\end{proposition}
 \begin{proof}
     First, note that $fg:U\rightarrow \R^m$. Then observe that for all $||h|| > 0$, with $a+h \in U$, \begin{align*}
-        \frac{||fg(a+h) - fg(a) - f(a)Dg(a)h-g(a)Df(a)h||}{||h||} &= \frac{||f(a+h)g(a+h)-f(a)g(a+h)+f(a)g(a+h)-f(a)g(a)-f(a)Dg(a)h-g(a)Df(a)h||}{||h||} \\
-        &\leq \frac{||f(a+h)g(a+h)-f(a)g(a+h)-g(a)Df(a)h||}{||h||} + \frac{||f(a)g(a+h)-f(a)g(a)-f(a)Dg(a)h||}{||h||} \\
-        &= \frac{||f(a+h)g(a+h)-f(a)g(a+h)-g(a+h)Df(a)h + (g(a+h)-g(a))Df(a)h||}{||h||} + \frac{||f(a)g(a+h)-f(a)g(a)-f(a)Dg(a)h||}{||h||} \\
-        &\leq \frac{|g(a+h)|\;||f(a+h)-f(a)-Df(a)h||}{||h||} + \frac{||Df(a)h||\;|g(a+h)-g(a)|}{||h||} + \frac{||f(a)(g(a+h)-g(a)-Dg(a)h)||}{||h||} \\
-        &\leq \frac{|g(a+h)|\;||f(a+h)-f(a)-Df(a)h||}{||h||} + \frac{||Df(a)||\;||h||\;|g(a+h)-g(a)|}{||h||} + \frac{||f(a)||\;|g(a+h)-f(a)g(a)-f(a)Dg(a)h|}{||h||} \\
-        &= \frac{|g(a+h)|\;||f(a+h)-f(a)-Df(a)h||}{||h||} + ||Df(a)||\;|g(a+h)-g(a)| + \frac{||f(a)||\;|g(a+h)-f(a)g(a)-f(a)Dg(a)h|}{||h||}
+        \frac{||fg(a+h) - fg(a) - f(a)Dg(a)h-g(a)Df(a)h||}{||h||} &= \frac{\begin{array}{l} |
+||f(a+h)g(a+h)-f(a)g(a+h)+f(a)g(a+h) \\ -f(a)g(a)-f(a)Dg(a)h-g(a)Df(a)h||\end{array}}{||h||} \\
+        &\leq \frac{||f(a+h)g(a+h)-f(a)g(a+h)-g(a)Df(a)h||}{||h||} \\
+        &+ \frac{||f(a)g(a+h)-f(a)g(a)-f(a)Dg(a)h||}{||h||} \\
+        &= \frac{\begin{array}{l}||f(a+h)g(a+h)-f(a)g(a+h) \\ -g(a+h)Df(a)h + (g(a+h)-g(a))Df(a)h|| \end{array}}{||h||} \\
+        &+ \frac{||f(a)g(a+h)-f(a)g(a)-f(a)Dg(a)h||}{||h||} \\
+        &\leq \frac{|g(a+h)|\;||f(a+h)-f(a)-Df(a)h||}{||h||} \\
+        &+ \frac{||Df(a)h||\;|g(a+h)-g(a)|}{||h||} \\
+        &+ \frac{||f(a)(g(a+h)-g(a)-Dg(a)h)||}{||h||} \\
+        &\leq \frac{|g(a+h)|\;||f(a+h)-f(a)-Df(a)h||}{||h||} \\
+        &+ \frac{||Df(a)||\;||h||\;|g(a+h)-g(a)|}{||h||} \\
+        &+ \frac{||f(a)||\;|g(a+h)-f(a)g(a)-f(a)Dg(a)h|}{||h||} \\
+        &= \frac{|g(a+h)|\;||f(a+h)-f(a)-Df(a)h||}{||h||} \\
+        &+ ||Df(a)||\;|g(a+h)-g(a)| \\
+        &+ \frac{||f(a)||\;|g(a+h)-f(a)g(a)-f(a)Dg(a)h|}{||h||}
     \end{align*}
     Then, note that each term in the above expansion goes to zero since $g$ being differentiable implies it is continuous.
 \end{proof}
 
 
-\begin{prop}
+\begin{proposition}
     Suppose $f:U\rightarrow \R^m$ is differentiable at $a \in U$. Then $D_vf(a)$ exists for all unit vectors $v$. Moreover, $$D_vf(a) = Df(a)v$$ (note $D_vf(a) \in \R^m$, $Df(a) \in \R^{m\times n}$, and $v \in \R^n$)
-\end{prop}
+\end{proposition}
 \begin{proof}
     We need to show $\lim\limits_{t\rightarrow 0}\frac{f(a+tv)-f(a)}{t}$ exists. In the definition of $Df(a)$, let $h = tv$. Then $||h|| = |t|$, so $h\rightarrow 0$ if and only if $t\rightarrow 0$, since $v$ is assumed to be a unit vector. Then \begin{align*}
         0 &= \lim\limits_{t\rightarrow 0}\frac{||f(a+tv) - f(a) - Df(a)tv||}{|t|} \\
@@ -77,39 +88,39 @@ if the $D_vf_i(a)$ existm as we know that sequences in $\R^m$ converge if and on
     Thus, the limit exists and $\lim\limits_{t\rightarrow 0}\frac{f(a+tv)-f(a)}{t} = Df(a)v$.
 \end{proof}
 
-\begin{eg}
+\begin{example}
     If $U \subseteq \R^n$ and $f:U\rightarrow \R$, then $Df$ is a $1\times n$ row (called the gradient), so $Df(a)v = Df(a)\cdot v$ for $v \in \R^n$.
-\end{eg}
+\end{example}
 
 If $\{e_1,...,e_n\}$ is the canonical orthonormal basis for $\R^n$, then $Ae_i$ is the $i$th column of $A$. The $i$th partial derivative for $f$ at $a$ is $Df(a)e_i = D_if(a) = $ the $i$th column of $Df(a)$, so $Df(a) = [D_1f(a)\;D_2f(a)\;...\;D_nf(a)]$. Now, if $f = (f_1,...,f_m)^T$, then by the chain rule, which we shall prove shortly, $Df(a)$ exists if and only if $Df_i(a)$ exists for all $i = 1,...,m$ and $$Df(a) = \begin{bmatrix} Df_1(a) \\ \vdots \\ Df_m(a)\end{bmatrix}$$ Together we get $Df(a) = [D_if_j(a)]$ for $i = 1,...,n$, $j = 1,...,m$, provided $Df(a)$ exists.
 
 
-\begin{eg}
+\begin{example}
     Consider $$f(x,y) = \left\{\begin{array}{cc} 0 & (x,y) = (0,0) \\ \frac{xy}{x^2+y^2} & (x,y) \neq (0,0)\end{array}\right.$$ which is not continuous, and hence not differentiable, at $(0,0)$. Indeed, $$f(1/n,1/n) = \frac{1/n^2}{2/n^2} = \frac{1}{2}\cancel{\rightarrow}0 = f(0,0)$$ Then, let $v = (v_1,v_2)^T$ be a unit vector, so $v_1^2+v_2^2 = 1$. Then \begin{align*}
         D_vf(0,0) &= \lim\limits_{t\rightarrow 0}\frac{f(tv_1,tv_2)-f(0,0)}{t} \\
         &= \lim\limits_{t\rightarrow 0}\frac{tv_1v_2}{t^2v_1^2+t^2v_2^2} \\
         &= \lim\limits_{t\rightarrow 0}\frac{v_1v_2}{t}
     \end{align*}
     which does not exist for any unit vector $v$ unless $v_1 = \pm 1$ and $v_2 = 0$, or $v_1 = 0$ and $v_2 = \pm 1$. So $D_1f(0,0) = D_2f(0,0) = 0$, but no other directionals exist!
-\end{eg}
+\end{example}
 
-\begin{eg}
+\begin{example}
     Consider $$f(x,y) = \left\{\begin{array}{cc} 0 & (x,y) = (0,0) \\ \frac{x^3}{x^2+y^2} & (x,y) \neq (0,0) \end{array}\right.$$ which is continuous at $(0,0)$, all directional derivatives exist at $(0,0)$, but $f$ is not differentiable at $(0,0)$. For continuity $$\left|\frac{x^3}{x^2+y^2}\right| = \frac{|x|x^2}{x^2+y^2} \leq \frac{\sqrt{x^2+y^2}}{x^2+y^2}x^2 \leq \frac{\sqrt{x^2+y^2}}{x^2+y^2}(x^2+y^2) = \sqrt{x^2+y^2}\rightarrow 0$$ as $(x,y) \rightarrow 0$. For directionals, let $v = (v_1,v_2)$ be a unit vector. Then $\lim\limits_{t\rightarrow 0}\frac{t^2v_1^3}{t^2v_1^2+t^2v_2^2} = \lim\limits_{t\rightarrow 0}v_1^3 = v_1^3$ So $D_vf(0,0)$ exists for all $v$. In particular, $D_1f(0,0) = 1^3 = 1$ and $D_2f(0,0) = 0$. We know that if $Df(0,0)$ exists, it must be $[1\;0]$. Then \begin{align*}
         \lim\limits_{h\rightarrow 0}\frac{|f(h_1,h_2) - f(0,0) - [1\;0](h_1,h_2)^T|}{||h||} &= \lim\limits_{h\rightarrow 0}\frac{\left|\frac{h_1^3}{h_1^2+h_2^2} - h_1\right|}{\sqrt{h_1^2+h_2^2}} \\
         &= \lim\limits_{h\rightarrow 0}\frac{|h_1h_2^2|}{(h_1^2+h_2^2)^{3/2}}
     \end{align*}
     which does not tend to $0$ since the sequence $(1/n,1/n)^T$ yields $$\lim\limits_{n\rightarrow \infty}\frac{1/n^3}{(2/n^2)^{3/2}} = \frac{1}{2^{3/2}} \neq 0$$
-\end{eg}
+\end{example}
 
 
 
-\begin{eg}[Projection maps are Differentiable]
+\begin{example}[Projection maps are Differentiable]
     Define $\pi_i :\R^n\rightarrow \R$ by $\pi_i(x_1,...,x_n) = x_i$. $\pi_i$ is linear, given by the matrix $\pi_i(x) = [0\;...\;0\;1\;0\;...\;0]x$, for $1$ in the $i$th position. Thus, as it is linear it is its own derivative at any point $a \in \R^n$.
-\end{eg}
+\end{example}
 
-\begin{prop}[Chain Rule]
+\begin{proposition}[Chain Rule]
     Suppose $U \subseteq \R^n$ is open, that $f:U\rightarrow \R^m$ is differentiable on $U$, and that $g:V\rightarrow \R^p$ is differentiable on an open set $V \subseteq \R^m$ containing $f(U)$. Then $g\circ f$ is differentiable on $U$, and $$D(g\circ f)(a) = Dg(f(a))Df(a)$$ where $Dg(f(a))$ is a $p\times m$ matrix and $Df(a)$ is an $m\times n$ matrix, and $D(g\circ f)(a)$ is $p\times n$.
-\end{prop}
+\end{proposition}
 \begin{proof}
     Let $b = f(a), L = Df(a), M = Dg(b)$, and define \begin{align*}
         \varphi(x) &= f(x) - f(a) - L(x-a),\;\varphi:U\rightarrow \R^m \\
@@ -120,13 +131,13 @@ If $\{e_1,...,e_n\}$ is the canonical orthonormal basis for $\R^n$, then $Ae_i$ 
 \end{proof}
 
 
-\begin{eg}
+\begin{example}
     Let $g:\R\rightarrow \R^n$ be differentiable with $g(t) = \begin{pmatrix} g_1(t) \\ \vdots \\ g_n(t)\end{pmatrix}$, a parametric curve, and $f:\R^n\rightarrow \R$ also differentiable. Then $Dg(t) = \begin{pmatrix} g_1'(t) \\ \vdots \\ g_n'(t)\end{pmatrix}$, and $n\times 1$ column, and $Df(x_1,...,x_n) = \left[D_1f(x_1,...,x_n)\;\cdots \; D_nf(x_1,...,x_n)\right]$, a $1\times n$ row. Then $f\circ g:\R\rightarrow \R$, with $f(g_1(t),...,g_n(t)$, and $$D(f\circ g)(t) = Df(g(t))Dg(t) = \left[D_1f(g(t))\;\cdots \; D_nf(g(t))\right] \begin{bmatrix} g_1'(t) \\ \vdots \\ g_n'(t) \end{bmatrix} = \sum_{i=1}^nD_if(g(t))g_i'(t)$$
-\end{eg}
+\end{example}
 
-\begin{prop}
+\begin{proposition}
     $f = (f-1,...,f_m)^T:U\rightarrow \R^m$ is differentiable at $a \in U$ if and only if each $f_i$ is differentiable at $a$.
-\end{prop}
+\end{proposition}
 \begin{proof}
     Recall $\pi_i:\R^m\rightarrow \R$ with $\pi_i(x_1,...,x_m) = x_i$, which is a linear transformation, and so differentiable. If $f$ is differentiable then so is $\pi_i \circ f = f_i$ by the chain rule, and $$Df_i(x) = D\pi_i(f(x))Df(x) = \pi_i Df(x)$$ which is the $i$th row of $Df(x)$. That is, $$Df(x) = \begin{bmatrix} Df_1(x) \\ \vdots \\ Df_m(x) \end{bmatrix}$$
 
@@ -138,7 +149,7 @@ If $\{e_1,...,e_n\}$ is the canonical orthonormal basis for $\R^n$, then $Ae_i$ 
     which goes to zero by the differentiability of the $f_i$.
 \end{proof}
 
-\begin{eg}
+\begin{example}
     Consider \begin{equation*}
         f(x,y) = \left\{\begin{array}{lc} 0 & (x,y) = (0,0) \\ (x^2+y^2)\sin\left(\frac{1}{\sqrt{x^2+y^2}}\right) & (x,y) \neq (0,0)\end{array}\right.
     \end{equation*}
@@ -150,11 +161,11 @@ If $\{e_1,...,e_n\}$ is the canonical orthonormal basis for $\R^n$, then $Ae_i$ 
         \frac{\partial f}{\partial x}(x,y) = \left\{\begin{array}{cc} (x^2+y^2)\cos\left(\frac{1}{\sqrt{x^2+y^2}}\right)(x^2+y^2)^{-3/2}\cdot\left(\frac{-1}{2}\right)\cdot 2x + 2x\sin\left(\frac{1}{\sqrt{x^2+y^2}}\right) & (x,y)\neq (0,0) \\ 0 & (x,y) = (0,0) \end{array}\right.
     \end{equation*}
     which has an infinite discontinuity at $(0,0)$, and similarly for $\frac{\partial f}{\partial x}(x,y)$.
-\end{eg}
+\end{example}
 
 
 
-\begin{eg}
+\begin{example}
     Consider \begin{equation*}
         f(x,y) = \left\{\begin{array}{cc} 0 & (x,y) = (0,0) \\ \frac{x^2y}{x^4+y^2} & (x,y) \neq (0,0) \end{array}\right.
     \end{equation*}
@@ -164,9 +175,9 @@ If $\{e_1,...,e_n\}$ is the canonical orthonormal basis for $\R^n$, then $Ae_i$ 
         &= \lim\limits_{t\rightarrow 0}\frac{u_1^2u_2^2}{t^2u_1^4+u_2^2} = \frac{u_1^2u_2}{u_2^2} = \frac{u_1^2}{u_2}
     \end{align*}
     provided $u_2 \neq 0$. But it is $0$ if $u_2 = 0$, $u_1 = \pm 1$.
-\end{eg}
+\end{example}
 
-\begin{eg}
+\begin{example}
     Consider \begin{equation*}
         f(x,y) = \left\{\begin{array}{cc} 0 & (x,y) = (0,0) \\ \frac{x^2y\sqrt{x^2+y^2}}{x^4+y^2} & (x,y) \neq (0,0)  \end{array}\right.
     \end{equation*}
@@ -176,23 +187,23 @@ If $\{e_1,...,e_n\}$ is the canonical orthonormal basis for $\R^n$, then $Ae_i$ 
         &= \lim\limits_{t\rightarrow 0}\frac{tu_1^2u_2^2}{t^2u_1^4+u_2^2} = 0
     \end{align*}
     so $D_1f(0,0) = 0 = D_2f(0,0)$. If $Df(0,0)$ exists, it must be $[0\;0]$. But then $$0 = \lim\limits_{h\rightarrow 0}\frac{|f(h_1,h_2) - f(0,0) - [0\;0](h_1,h_2)^T|}{\sqrt{h_1^2+h_2^2}} = \lim\limits_{h\rightarrow 0}\frac{h_1^2h_2}{h_1^4+h_2^2}$$ which does not hold since for $h_1 = 1/n$, $h_2 = 1/n^2,$ the limit is $$\lim\limits_{h\rightarrow 0}\frac{1/n^4}{1/n^4+1/n^4} = \frac{1}{2}$$
-\end{eg}
+\end{example}
 
-\begin{eg}
+\begin{example}
     Space curves on the unit sphere are orthogonal to their derivative. Consider $f:\R\rightarrow \R^3$ differentiable. Write $f(t) = (f_1(t),f_2(t),f_3(t))^T$, so that $f'(t) = (f_1'(t),f_2'(t),f_3'(t))^T$. Further suppose $||f(t)|| = 1$ for all $t$ (that is the curve is on the unit sphere). Then $f_1(t)^2+f_2(t)^2+f_3(t)^2 = 1$, and so we have $$2f_1(t)f_1'(t) +2f_2(t)f_2'(t)+2f_3(t)f_3'(t) = 0$$ which implies $f(t)\cdot f'(t) = 0$.
-\end{eg}
+\end{example}
 
-\begin{eg}
+\begin{example}
     Define $f:[0,\infty)\times [0,2\pi]\times [0,\pi]$ by $$f(p,\theta,\varphi) = \begin{pmatrix} p\cos\theta\sin\varphi \\ p\sin\theta\sin\varphi \\ p\cos\varphi\end{pmatrix} = \begin{pmatrix} x \\ y \\ z \end{pmatrix}$$ Then $$Df(p,\theta,\varphi) = \begin{bmatrix} \cos\theta\sin\varphi & -p\sin\theta\sin\varphi & p\cos\theta\cos\varphi \\ \sin\theta\sin\varphi & p\cos\theta\sin\varphi & p\sin\theta\cos\varphi \\ \cos\varphi & 0 & -p\sin\varphi \end{bmatrix}$$
     Recall the change of volume element: $$\det(Df(p,\theta,\varphi)) = p^2\sin\varphi$$
-\end{eg}
+\end{example}
 
-\begin{prop}
+\begin{proposition}
     Suppose $f:U\rightarrow \R^m$ and write $f= (f_1,...,f_m)^T$. Suppose that all partial derivatives for the $f_i$ exist and that $D_jf_i$ are continuous on $U$ for all $i,j$. Then $f$ is differentiable on $U$ (and $Df(a) = [D_jf_i(a)]_{ij}$ for all $a \in U$)
-\end{prop}
+\end{proposition}
 \begin{proof}
-    Assume $m = 1$. (If we can prove this case we already have $Df$ exists if and only if $Df_i$ exist). Suppose $x=(x_1,...,x_n) \in U$ and $h = (h_1,...,h_n) \in \R^n$ such that $x+h \in \R^n$. Observe that \begin{align*}
-        \frac{|f(x+h) - f(x) - \sum_{i=1}^nD_if(x)h_i|}{||h||} \leq \sum_{i=1}^n\frac{|f(x_1,...,x_i+h_i,x_{i+1}+h_{i+1},...,x_n+h_n) - f(x_1,...,x_i,x_{i+1}+h_{i+1},...,x_n+h_n) -D_if(x)h_i|}{||h||}
+    Assume $m = 1$. (If we can prove this case we already have $Df$ exists if and only if $Df_i$ exist). Suppose $x=(x_1,...,x_n) \in U$ and $h = (h_1,...,h_n) \in \R^n$ such that $x+h \in \R^n$. Let $\tilde{h}_i = (0,...,0,h_i,...,h_n)$.  Then observe that \begin{align*}
+        \frac{|f(x+h) - f(x) - \sum_{i=1}^nD_if(x)h_i|}{||h||} \leq \sum_{i=1}^n\frac{|f(x+\tilde{h}_i) - f(x+\tilde{h}_{i+1}) -D_if(x)h_i|}{||h||}
     \end{align*}
     By the Mean Value Theorem, there exist $c_i$ in between $x_i$ and $x_i+h_i$ with $$f(x_1,...,x_i+h_i,x_{i+1}+h_{i+1},...,x_n+h_n) - f(x_1,...,x_i,x_{i+1}+h_{i+1},...,x_n+h_n)  = D_if(x_1,...,c_i,x_{i+1}+h_{i+1},...,x_n+h_n)h_i$$ Then \begin{align*}
         \frac{|f(x+h) - f(x) - \sum_{i=1}^nD_if(x)h_i|}{||h||} &\leq \sum_{i=1}^n\frac{|D_if(x_1,...,c_i,x_{i+1}+h_{i+1},...,x_n+h_n)h_i-D_if(x)h_i|}{||h||} \\
@@ -202,52 +213,52 @@ If $\{e_1,...,e_n\}$ is the canonical orthonormal basis for $\R^n$, then $Ae_i$ 
     Since the $D_if$ are continuous by assumption, and as $h\rightarrow 0$ so $h_i\rightarrow 0$, we have $c_i\rightarrow x_i$, so the above limit tends to $0$.
 \end{proof}
 
-\begin{eg}
+\begin{example}
     Suppose $f:\R^n\rightarrow \R$ satisfies $|f(x)| \leq ||x||^{\alpha}$ for all $x \in \R^n$ where $\alpha > 1$. Show that $f$ is differentiable at $0$ and show that $Df(0) = [0\;...\;0]$.
     
     Observe that $$\frac{|f(0+h)-f(0)-[0\;...\;0]h|}{||h||} = \frac{|f(h)|}{||h||} \leq ||h||^{\alpha -1}\rightarrow 0$$ as $\alpha - 1 > 0$.
-\end{eg}
+\end{example}
 
-\begin{namthm}[Mean value Theorem in Several Variables]
+\begin{theorem}[Mean value Theorem in Several Variables]\index{General MVT}
     Suppose $U$ is an open and convex subset of $\R^n$. (Note: Convex means that if $x,y \in U$, then the entire line segment connecting $x$ and $y$ is also in $U$). If $f:U\rightarrow \R$ is differentiable, then for all $x \neq y \in U$ there is a $c \in (0,1)$ so that $$f(y) - f(x) = Df(z)(y-x)$$ where $z = (1-c)x+cy$.
-\end{namthm}
+\end{theorem}
 \begin{proof}
     Convex means if $x \neq y$ are in $U$, then $(1-t)x+ty \in U$ for all $0 \leq t \leq 1$. Defin $F:[0,1]\rightarrow \R$ by $F(t) = f((1-t)x+ty)$ where $x \neq y$ are fixed in $U$. By the chain rule, $$F'(t) = Df((1-t)x+ty)\frac{d}{dt}((1-t)x+ty) = Df((1-t)x+ty)(y-x)$$ By the Mean Value Theorem, there exists $c \in (0,1)$ such that $$f(y) - f(x) = F(1) = F(0) = F'(c) = Df((1-c)x+cy)(y-x)$$ as desired.
 \end{proof}
 
-\begin{cor}
+\begin{corollary}
     Suppose $f:U\rightarrow \R$ is differentiable where $U$ is an open and convex subset of $\R^n$. If $Df(a) = 0$ for all $a \in U$, then $f$ is constant in $U$.
-\end{cor}
+\end{corollary}
 By the generalized mean value theorem $f(y)-f(x) = 0$ for all $x \neq y$, so $f$ must be constant.
 
-\begin{cor}
+\begin{corollary}
     Suppose $f:U\rightarrow \R^m$ is differentiable with $U$ open and convex in $\R^n$. If $x \neq y \in U$ and $v \in \R^m$, then there exists a $c \in (0,1)$ so that $$v\cdot(f(y) - f(x)) = v\cdot(Df(z)(y-x))$$ for $z  = (1-c)x+cy$.
-\end{cor}
+\end{corollary}
 We apply the theorem to the function $v\cdot f(x) = \sum_{j=1}^mv_if_i(x)$, so $D(v\cdot f)(z) = \sum_{j=1}^mv_iDf_i(z)$, by linearity of $D$.
 
-\begin{defn}[Higher Order Derivatives]
+\begin{definition}[Higher Order Derivatives]
     Given a differentiable function $f:U\subseteq \R^n\rightarrow \R^m$, we may regard $Df:U\rightarrow \R^{mn}$ and discuss its differentiability. If $Df$ is differentiable on $U$, we say that $f$ is \Emph{twice differentiable}. In this case, we may identify $D(Df)(a)$ with an $mn\times n$ matrix.
-\end{defn}
+\end{definition}
 
-\begin{prop}
+\begin{proposition}
     If $f:U\rightarrow \R^m$ is differentiable on $U$ and $Df:U\rightarrow \R^{mn}$ is differentiable at $a \in U$, then $D(Df)(a) = [D_i(D_jf_k)]$ where $1 \leq i,j\leq n$ and $1 \leq k \leq m$.
-\end{prop}
+\end{proposition}
 \begin{proof}
     First, we note that $Df(a) = [D_1f_1(a)\;...\;D_nf_1(a)\;...\;D_1f_m(a)\;...\;D_nf_m(a)]^T \in \R^{mn}$. Then, by the chain rule row $1 \leq (k-1)n+i \leq mn$, with $1 \leq k \leq m$, $1\leq i \leq n$, is $D(D_if_{k})(a)$. Next, for $1 \leq j \leq n$ column $j$ of $D(D_if_{k})(a)$ is $D(D_if_{k})(a)e_j = D_j(D_if_k)(a)$. Thus, the entries of $D(Df)(a)$ are $D_j(D_if_k)$ for $1 \leq i,j \leq n$ and $1 \leq k \leq m$, as desired.
 \end{proof}
 
 Note that $\R^{mn}\cong M_{m\times n}(\R)$ as linear spaces. Further, the $2$-norm on $\R^{mn}$ is equivalent to the spectral norm on $M_{m\times n}(\R)$ since all norms on finite dimensional vector spaces are equivalent. Thus $\R^{mn}\cong M_{m\times n}(\R)$ are isomorphic as normed linear spaces, and hence metric spaces.
 
-\begin{eg}
+\begin{example}
     Consider \begin{equation*}
         f(x,y) = \left\{\begin{array}{cc} 0 & (x,y) = (0,0) \\ \frac{x^3y - xy^3}{x^2+y^2} & (x,y) \neq (0,0)  \end{array}\right.
     \end{equation*}
     is twice differentiable at $(0,0)$, but $D_{12}f(0,0) \neq D_{21}f(0,0)$. Note $D_1f(0,0) = f_x(0,0) = 0 = D_2f(0,0)$. For $x,y \neq 0$ $$f_x(x,y) = \frac{4x^2y^3+x^4y-y^5}{(x^2+y^2)^2}$$ Now $$f_{xy}(0,0) = \lim\limits_{k\rightarrow 0}\frac{f_x(0,k)-f_x(0,0)}{k} = \lim\limits_{k\rightarrow 0}(-1) = -1$$ Similarly we find $f_{yx}(0,0) \neq -1$.
-\end{eg}
+\end{example}
 
-\begin{prop}
+\begin{proposition}
     Suppose $f:U\rightarrow \R^m$ is twice differentiable. If $D_i(D_jf)$ and $D_j(D_if)$ are continuous on $U$, then they are equal.
-\end{prop}
+\end{proposition}
 \begin{proof}
     Without loss of generality we may suppose $m = 1$, and glue together rows in the general case using the Chain rule. So $Df = [D_1f\;...\;D_nf]$, is $1 \times n$. Since we are considering all others variables besides $i$ and $j$ to be fixed when taking partial derivatives, they can be regarded as constants and we can regard $f$ as a function of two variables. That is $n = 2$. Let $(a,b) \in U$ and find $h > 0$ such that $B_{2h}(a,b) \subseteq U$. Define $$A(h) = \frac{1}{h^2}\left[f(a+h,b+h) - f(a,b+h) + f(a+h,b)-f(a,b)\right]$$ where all of the inputs to $f$ are in $U$. By the mean value theorem there exist $c_1,c_2 \in (a,a+h)$ with \begin{align*}
         f(a+h,b+h)-f(a,b+h) &= f_x(c_1,b+h)h \\
@@ -258,27 +269,27 @@ Note that $\R^{mn}\cong M_{m\times n}(\R)$ as linear spaces. Further, the $2$-no
 
 
 \section{The Inverse and Implicit Function Theorems}
-
+\label{sec:InvAndImpl}
 
 Simple cases of what we are trying to do: \begin{itemize}
     \item $f:I\rightarrow \R$, where $I$ is an interval, and $f'(x) \neq 0$ on $I$. From analysis one we have $f$ is invertible, and $f^{-1}:f(I)\rightarrow I$. $f^{-1}$ is differentiable on $f(I)$, and $(f^{-1})'(f(x)) = \frac{1}{f'(x)}$
     \item Suppose $f:\R^m\rightarrow \R^n$ is affine, so $f(x) = Ax+b$, where $A$ is $n\times n$ and $b \in \R^n$. Then $Df = A$. If $A$ is invertible, then $f$ is invertible and $f^{-1}(x) = A^{-1}(x-b)$, so $Df^{-1} = A^{-1}$
 \end{itemize}
 
-\begin{defn}
+\begin{definition}
     If $f:U\rightarrow \R^m$ is differentiable and $Df:U\rightarrow \R^{mn}$ is continuous, we say that $f$ is $\mathcal{C}^1$.
-\end{defn}
+\end{definition}
 
-\begin{lem}
+\begin{lemma}
     $f:U\rightarrow \R^,$ is $\mathcal{C}^1$ if and only if all partials $D_if_j$ exist and are continuous on $U$.
-\end{lem}
+\end{lemma}
 \begin{proof}[Sketch]
     If $D_if_j$ are all continuous, we know by a previous result that $Df$ exists. Moreover, $$Df(a+h) - Df(a) = [D_if_j(a+h)-D_if_j(a)]\rightarrow 0$$ since each entry goes to $0$ by continuity of $D_if_j$. On the other hand, if $Df$ is continuous, so is $\pi_iDf\pi_j = $ the $ij$-th entry of $Df$, which is $D_jf_i$.
 \end{proof}
 
-\begin{lem}[Key to Inverse Function Theorem]
+\begin{lemma}[Key to Inverse Function Theorem]
     Suppose $f:U\rightarrow \R^n$ is $\mathcal{C}^1$ and $x_0 \in U$ with $Df(x_0)$ an invertible $n\times n$ matrix. There is an open set $W \subseteq U$ containing $x_0$ and a $c > 0$ such that $$||f(y) - f(x)||\geq c||y-x||$$ for all $x,y \in W$.
-\end{lem}
+\end{lemma}
 \begin{proof}
     If $A \in M_n$ then $||Ax-Ay|| \leq ||A||\;||x-y||$, where $||A||$ is the spectral norm. If $A$ is invertible, then $$||x-y|| = ||A^{-1}Ax - A^{-1}Ay|| \leq ||A^{-1}||\;||Ax-Ay||$$ Since $A^{-1} \neq 0$, $||A^{-1}|| > 0$ and we can divide by it to obtain $$\frac{1}{||A^{-1}||}||x-y|| \leq ||Ax-Ay||$$ Now suppose $Df(x_0)$ is invertible and let $c = \frac{1}{2||Df(x)^{-1}||}$. Let $f = (f_1,...,f_n)$. All $f_i$ are $\mathcal{C}^1$ on $U$, so there exists an open ball $W$ in $U$ containing $x_0$ such that $$||Df_i(y) - Df_i(x_0)|| \leq \frac{c}{n}$$ when $y \in W$, where the left hand side is the spectral or operator norm of a row. 
 
@@ -293,19 +304,19 @@ Simple cases of what we are trying to do: \begin{itemize}
     Then we have that $$||Df(x_0)(y-x)|| - ||f(y)-f(x)|| \leq ||f(y) - f(x)-Df(x_0)(y-x)|| \leq c||y-x||$$ This implies $$||Df(x_0)(y-x)||-c||y-x|| \leq ||f(y)-f(x)||$$ By the first part of the proof, $$||Df(x_0)(y-x)|| \geq \frac{1}{||Df(x_0)^{-1}||}||y-x||$$ By our previous inequality this implies $$||f(y) - f(x)|| \geq \frac{1}{||Df(x_0)^{-1}||}||y-x|| - c||y-x|| = c||y-x||$$ since $c = \frac{1}{2||Df(x_0)^{-1}||}$.
 \end{proof}
 
-\begin{cor}
+\begin{corollary}
     Suppose $f:U\rightarrow \R^n$ is $\mathcal{C}^1$ and $x_0 \in U$ with $Df(x_0)$ an invertible $n\times n$ matrix. There is an open set $W \subseteq V$ containing $x_0$ so that $f:W\rightarrow f(W)$ is invertible.
-\end{cor}
+\end{corollary}
 
 Using $W$ from the proof above, $f(x) = f(y)$ for $x,y \in W$ only if $x = y$ by the inequality $||f(x) - f(y)|| \geq c||x-y||$, so $f\vert_W$ is injective.
 
-\begin{eg}
+\begin{example}
     The assumption that $f$ is $\mathcal{C}^1$ in the above results is required. Consider $$f(x) = \left\{\begin{array}{cc} x+2x^2\sin(1/x) & x \neq 0 \\ 0 & x = 0\end{array}\right.$$ is differentiable on $\R$ but $f'$ is not continuous. $f'(0) = 1$ (so invertible), but $f$ is not monotone in any neighborhood of $0$. Hence it cannot be invertible in any neighborhood of $0$.
-\end{eg}
+\end{example}
 
-\begin{lem}
+\begin{lemma}
     Suppose $f:U\rightarrow \R^n$ is $\mathcal{C}^1$ and $x_0 \in U$ with $Df(x_0)$ an invertible $n\times n$ matrix. There is an open ball $V \subseteq U$ containing $x_0$ so that $f\vert_V$ is a homeomorphism.
-\end{lem}
+\end{lemma}
 \begin{proof}
     There exists an open ball $W$ containing $x_0$ so that \begin{itemize}
         \item[(i)] there exists $c > 0$ with $||f(y) - f(x)|| \geq 0||y-x||$ for all $x,y \in W$
@@ -322,12 +333,12 @@ Using $W$ from the proof above, $f(x) = f(y)$ for $x,y \in W$ only if $x = y$ by
     It follows that $dist(z,f(S)) \geq d/2$. For $x \in \overline{\mathcal{O}} = \mathcal{O}\cup S$, define $$g(x) = ||z-f(x)||^2 = \sum_{i=1}^n|z_i-f_i(x)|^2$$ $\overline{\mathcal{O}}$ is compact and $g$ is continuous, hence it attains its minimum on some $x_1 \in \overline{\mathcal{O}}$, that is $$||z-f(x_1)|| = dist(z,f(\overline{\mathcal{O}})$$ We claim $x_1 \in \mathcal{O}$ and not in $S$. Otherwise, $$d/2 \leq dist(z,f(S)) = dist(z,f(\overline{\mathcal{O}})) < d/2$$ a contradiction. So $x_1 \in \mathcal{O}$. So $x_1$ is interior which implies $Dg(x_1) = 0$. For $1 \leq j \leq n$, $$0 = D_jg(x_1) = -2\sum_{i=1}^n(z_i-f_i(x_1))D_jf_i(x_1)$$ by the chain rule, so $$Df(x_1)(z-f(x_1)) = 0$$ which implies $z = f(x_1) \in f(\mathcal{O})$ since $Df(x_1)$ is invertible.
 \end{proof}
 
-\begin{namthm}[Inverse Function Theorem]
+\begin{theorem}[Inverse Function Theorem]\index{IFT}
     Suppose $f:U\rightarrow \R^n$ is $\mathcal{C}^1$ and $x_0 \in U$ with $Df(x_0)$ an invertible $n\times n$ matrix. There is an open ball $V \subseteq U$ containing $x_0$ with \begin{itemize}
         \item[(1)] $f:V\rightarrow f(V)$ is a homeomorphism
         \item[(2)] $f^{-1}:f(V)\rightarrow V$ is $\mathcal{C}^1$ and $$Df^{-1}(f(x)) = Df(x)^{-1}$$ for all $x \in V$ (that is $Df^{-1}(y) = Df(f^{-1}(y))^{-1}$)
     \end{itemize}
-\end{namthm}
+\end{theorem}
 \begin{proof}
     Let $V$ be as in the previous proof. (1) is already established by the previous result. We also know by the proof that $Df(x)$ is invertible for $x \in V$. Let $x \in V$ and $y = f(x)$. Write for $z \in f(V)$, \begin{align*}
         \frac{||f^{-1}(z) - f(y) - Df(x)^{-1}(z-y)||}{||z-y||} &= \frac{||Df(x)^{-1}(Df(x)f^{-1}(z) - Df(x)f^{-1}(y)) - Df(x)^{-1}(z-y)||}{||z-y||} \\
@@ -340,29 +351,29 @@ Using $W$ from the proof above, $f(x) = f(y)$ for $x,y \in W$ only if $x = y$ by
 \end{proof}
 
 
-\begin{eg}
+\begin{example}
     Consider the function $f(x,y) = (e^x\cos y,e^x\sin y)^T = (u,v)^T$, $f:\R^2\rightarrow \R^2$. Note if $z = x+iy$, this $f$ is the complex exponential. $f$ is not invertible, since $f(x,y) = f(x,y+2\pi)$ for all $x,y \in \R^2$. Observe $$Df(x,y) = \begin{bmatrix} u_x & u_y \\ v_x & v_y \end{bmatrix} = \begin{bmatrix} e^x\cos y & -e^x\sin y \\ e^x\sin y & e^x \cos y\end{bmatrix}$$ and $\det(Df(x,y)) = e^{2x} > 0$, so $Df(x,y)$ is invertible and the inverse function theorem applies. THis means there is a neighborhood $U$ of $(x,y)$ such that $f\vert_U$ is invertible, and $$\begin{bmatrix} x_u & x_v \\ y_u & y_v \end{bmatrix} = Df^{-1}(u(x,y),v(x,y)) = \begin{bmatrix} u_x & u_y \\ v_x & v_y \end{bmatrix}^{-1}$$
-\end{eg}
+\end{example}
 
-\begin{eg}
+\begin{example}
     More generally, if $f(x,y) = (u(x,y), v(x,y))^T$ is $\mathcal{C}^1$ with $$Df(x,y) = \begin{bmatrix} u_x & u_y \\ v_x & v_y\end{bmatrix}$$ invertible, then $$\begin{bmatrix} x_u & x_v \\ y_u & y_v \end{bmatrix} = Df^{-1}(u,v) = \begin{bmatrix} u_x & u_y \\ v_x & v_y \end{bmatrix}^{-1}$$ by the IFT.
-\end{eg}
+\end{example}
 
-\begin{eg}
+\begin{example}
     Consider $x^2+y^2 = 1$, the unit circle. Implicitly, $y$ as a function of $x$ for $x \neq \pm 1$ and $\frac{dy}{dx} = \frac{-x}{y}$. Of course $y = \pm\sqrt{1-x^2}$ is an explicit representation of this, but depends on the sign of $y$. We can also view $x$ as a function of $y$ for $x \neq 0$, and $\frac{dx}{dy} = -\frac{y}{x}$. For all $(x,y)$ on the unit circle, one variable can be implicitly written as a $\mathcal{C}^1$ function of the other.
-\end{eg}
+\end{example}
 
-\begin{eg}[Systems of linear equations]
+\begin{example}[Systems of linear equations]
     Let $\vec{x} = (x_1,...,x_n)^T \in \R^n$ and $\vec{y} = (y_1,...,y_m)^T \in \R^m$, so $(\vec{x},\vec{y}) \in \R^{n+m}$. Suppose $A$ is an $n\times (n+m)$ matrix. Write $$A = \left[ A_x \Bigg\vert A_y\right]$$ where $A_x$ is an $n\times n$ matrix block and $A_y$ is an $n\times m$ matrix block. The linear system $A(\vec{x},\vec{y}) = 0$ is a system of $n$ equations in $m+n$ variables, has $m$ parameters in its solution if $A_x$ is invertible (i.e. $A$ has rank $n$). In this case $0 = A(\vec{x},\vec{y}) = A_x\vec{x} + A_y\vec{y}$ if and only if $\vec{x} = -A_x^{-1}(A_y\vec{y})$ ($\vec{x}$ is our $n$ variables and $\vec{y}$ is our $m$ parameters).
-\end{eg}
+\end{example}
 
 For the next few results, a point $(x_1,...,x_n,y_1,...,y_m)$ in $\R^{n+m}$ will be abbreviated as $(\vec{x},\vec{y})$ with $\vec{x} = (x_1,...,x_n) \in \R^n$ and $\vec{y} = (y_1,...,y_m) \in \R^m$.
 
-\begin{namthm}[Implicit Function Theorem]
+\begin{theorem}[Implicit Function Theorem]\index{ImFT}
     Suppose $U$ is an open subset of $\R^{m+n}$ and $f:U\rightarrow \R^n$ is $\mathcal{C}^1$. Suppose $f(\vec{a},\vec{b}) = 0$ where $a \in \R^n$ and $b \in \R^m$ and $$A = Df(\vec{a},\vec{b}) = \left[A_x\Bigg\vert A_y\right]$$ where $A_x$ is $n\times n$ and $A_y$ is $n\times m$. Write $f = (f_1,...,f_n)^T$, each $f_i$ depends on $m+n$ variables. Note $f(\vec{a},\vec{b}) = 0$ is $n$ equations in $m+n$ variables.
 
     If $A_x$ is invertible, then there exist open sets $V \subseteq U$ and $W \subseteq \R^m$ with $(a,b) \in V$ and $b \in W$ so that for all $y \in W$ there is a unique $x$ with $(x,y) \in V$ and $f(x,y) = 0$. Write $x = g(y)$ in this case, so that $f(g(y),y) = 0$ on $W$. Then $g:W\rightarrow \R^n$ is $\mathcal{C}^1$, $g(b) = a$, and $$Dg(b) = -A_x^{-1}A_y$$ 
-\end{namthm}
+\end{theorem}
 
 In other words, we can implicitly solve for the variables $x_1,...,x_n$ in terms of the parameters $y_1,...,y_m$ with a $\mathcal{C}^1$ function on $W$.
 
@@ -374,12 +385,12 @@ In other words, we can implicitly solve for the variables $x_1,...,x_n$ in terms
 
 
 
-\begin{eg}
+\begin{example}
     Consider the unit sphere $x^2+y^2+z^2=1.$ Here $f(x,y,z) = x^2+y^2+z^2 - 1 = 0$. Note $$Df(x,y,z) = [2x\; \vert\; 2y\;2z]$$ If $x \neq 0$, then $A_x$ is invertible, so there exists $g$ $\mathcal{C}^1$ such that $x = g(y,z)$. In this case $$Dg(y,z) = -A_x^{-1}A_y = \frac{-1}{2x}[2y\;2z]$$ Note we could have used any square block in $Df$ as our $A_x$. For example, taking $A_x = 2y$, $A_y = [2x\;2z]$, if $y \neq 0$ then there exists $\mathcal{C}^1$ $h$ with $y = h(x,z)$ and $Dh(x,z) = -\frac{1}{2y}[2x\;2z]$.
-\end{eg}
+\end{example}
 
 
-\begin{eg}
+\begin{example}
     Consider $$f(x_1,x_2,y_1,y_2,y_3) = \begin{bmatrix} 2e^{x_1}+x_2y_1-4y_2+3 \\ x_2\cos(x_1)-6x_1+2y_1-y_3\end{bmatrix}:\R^5\rightarrow \R^2$$
     We have the solution $f(0,1,3,2,7) = [0\;0]^T$, which corresponds with $2$ equations in $5$ unknowns. Applying the implicit function theorem to $\vec{a} = (0,1)^T$ and $\vec{b} = (3,2,7)^T$ (i.e. solve for $x_1,x_2$ in terms of $y_1,y_2,y_3$), \begin{align*}
         Df(\vec{a},\vec{b}) &= \begin{bmatrix} 2e^{x_1} & y_1 & x_2 & -4 & 0 \\ (-x_2\sin(x_1) - 6) & \cos(x_1) & 2 & 0 & -1 \end{bmatrix}\Bigg\rvert_{(\vec{a},\vec{b})} \\
@@ -393,5 +404,5 @@ In other words, we can implicitly solve for the variables $x_1,...,x_n$ in terms
         &= \begin{bmatrix} 1/4 & 0 \\ 0 & 1 \end{bmatrix}\begin{bmatrix} 2 & 3 & 1 \\ -6 & 1 & 2 \end{bmatrix} \\
         &= \begin{bmatrix} 1/2 & 3/4 & 1/4 \\ -6 & 1 & 2 \end{bmatrix}
     \end{align*}
-\end{eg}
+\end{example}
 

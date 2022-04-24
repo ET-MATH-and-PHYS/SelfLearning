@@ -1,0 +1,36 @@
+\contentsline {part}{Part\ I\hspace {\betweenumberspace }Vector Spaces}{1}{part.1}%
+\contentsline {chapter}{\numberline {1}Vector Spaces}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Vector Space Basics}{3}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Direct Sums}{5}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Spans and Linear Independence}{6}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Ordered Bases and Coordinates}{9}{section.1.4}%
+\contentsline {section}{Appendix: Constructions}{9}{definition.1.9}%
+\contentsline {chapter}{\numberline {2}Linear Maps}{11}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Basic Linear Maps}{11}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Quotients and Dimension Theory}{13}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Matrix Representations}{13}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Dual Space}{14}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Operator Adjoints}{15}{subsection.2.4.1}%
+\contentsline {section}{Appendix A: Multilinear Maps}{15}{proof.9}%
+\contentsline {subsection}{\numberline {2.4.2}Matrix Representations of Bilinear Forms}{17}{subsection.2.4.2}%
+\contentsline {section}{Appendix B: Quadratic Forms}{19}{corollary.2.2}%
+\contentsline {chapter}{\numberline {3}Matrix Algebra}{21}{chapter.3}%
+\contentsline {chapter}{\numberline {4}Inner Product Spaces}{23}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Inner Product Construction}{23}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Orthogonality}{26}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Orthogonal Projections}{28}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Riesz Representation Theory}{29}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}Adjoint of a Linear Operator}{29}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Spectral Theory}{31}{section.4.4}%
+\contentsline {chapter}{\numberline {5}Spectral Theory}{35}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Canonical Forms}{37}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Singular Value Decomposition}{37}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Eigenspaces and Diagonalization}{38}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Invariant Subspaces}{40}{subsection.6.2.1}%
+\contentsline {section}{\numberline {6.3}Jordan Canonical Form}{41}{section.6.3}%
+\contentsline {part}{Part\ II\hspace {\betweenumberspace }Module Theory}{45}{part.2}%
+\contentsline {chapter}{\numberline {7}General Theory}{47}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Universal Constructions}{49}{chapter.8}%
+\contentsline {chapter}{\numberline {9}Modules Over PIDs}{51}{chapter.9}%
+\contentsline {chapter}{\numberline {10}Tensor Products}{53}{chapter.10}%
+\contentsfinish 

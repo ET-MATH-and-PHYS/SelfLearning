@@ -1,2 +1,338 @@
 %%%%%%%%%% Linear Maps %%%%%%%%%%
-\chapter{Linear Maps}
+\chapter{Linear Maps}\label{LinMaps}
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+As with all algebraic structures, one of the most important concepts is the structure preserving maps between the algebraic objects of interest. In this chapter we study these maps and their properties on abstract vector spaces.
+
+\section{Basic Linear Maps}\label{sec:LinMaps}
+
+\begin{definition}\index{Linear Map}
+    Let $V,W \in \Vect$. A function $\tau:V\rightarrow W$ is a \textbf{linear transformation} if \begin{equation*}
+        \tau(u+v) = \tau(u)+\tau(v),\;\tau(ru) = r\tau(u)
+    \end{equation*}
+    for all scalars $r \in k$ and vectors $u,v \in V$. The set of all linear transformations from $V$ to $W$ forms a vector space $\mathcal{L}(V,W)$.
+\end{definition}
+Linear maps of the form $\tau:V\rightarrow V$ are known as \textbf{linear operators} and their vector space is denoted $\mathcal{L}(V)$. Additionally, linear maps of the form $\tau:V\rightarrow k$ are known as \textbf{linear functionals}, and their vector space is denoted $V^*$ and called the \textbf{dual space} of $V$. 
+
+\begin{example}
+    A few examples of important and well known linear transformations are as follows: \begin{itemize}
+        \item The derivative $D:C^{\infty}(\R)\rightarrow C^{\infty}(\R)$ is a linear operator.
+        \item The integral operator $\tau:\R[x]\rightarrow \R[x]$ defined by $\tau f = \int_0^xf(t)dt$ is a linear operator on $k[x]$.
+        \item If $A \in M_{m,n}(k)$, the function $\tau_A:k^n\rightarrow k^m$ defined by $\tau_Av = Av$, where all vectors are written as column vectors, is a linear transformation from $k^n$ to $k^m$.
+        \item The coordinate map $\varphi:V\rightarrow k^n$ of an $n$-dimensional vector space is a linear transformation from $V$ to $k^n$.
+    \end{itemize}
+\end{example}
+
+We note that in the case of $\mathcal{L}(V)$, the space is actually an associative algebra with unity, where multiplication is simply composition of operators. Now, recall that every vector space has a basis by an application of Zorn's Lemma. This provides vector spaces with an important universal property associated with maps on free structures.
+
+\begin{theorem}
+    Let $V$ and $W$ be vector spaces and let $\mathcal{B} = \{v_i|i \in I\}$ be a basis for $V$. Then there is a unique linear transformation $\tau \in \mathcal{L}(V,W)$ for which $\tau(v_i) = w_i \in W$.
+\end{theorem}
+\begin{proof}
+    Since each vector in $V$ is a unique linear combination of vectors in the basis, defining $\tau(a_1v_1+\cdots+a_nv_n) = a_1\tau v_1+\cdots + a_n\tau v_n = a_1w_1+\cdots + a_nw_n$ for an arbitrary vector in $V$ is a well-defined operation giving a linear map. Additionally this formula uniquely specifies the action of the map on any vector based solely on its action on a basis, so the map is unique.
+\end{proof}
+
+We briefly note that the category $\Vect$ is abelian, or in other words its arrows are enriched over $\catname{Ab}$. That is $S\circ (T_1+T_2) = S\circ T_1+S\circ T_2$ and $(T_1+T_2)\circ S = T_1\circ S+T_2\circ S$. Now, for each linear map we have two important subspaces.
+
+\begin{definition}
+    Let $V,W \in \Vect$ and $T \in \mathcal{L}(V,W)$. The subset $\ker(T) = \{v \in V|T(v) = 0\}$ of $V$ is called the \textbf{kernel} or \textbf{null space} of $T$, and the subset $\ran(T) = \{T(v)| v \in V\}$ of $W$ is called the \textbf{image} or \textbf{range} of $T$.
+\end{definition}
+
+These are subspaces of $V$ and $W$, respectively. We call $\dim(\ker(T))$ the \textbf{nullity} of $T$ and $\dim(\ran(T))$ the \textbf{rank} of $T$, respectively. Note that by linearity the map $\tau\in\mathcal{L}(V,W)$ being injective is equivalent to $\ker(\tau) = \{0\}$.
+
+\begin{definition}
+    A bijective linear transformation $\tau:V\rightarrow W$ is called a \textbf{linear isomorphism} from $V$ to $W$. If a linear isomorphism from $V$ to $W$ exists we say they are \textbf{isomorphic} and write $V\cong W$.
+\end{definition}
+
+The most common and useful example of a linear isomorphism in the case of finite dimensional vector spaces comes in the form of the coordinate map for a choice of ordered basis. An important point to note is that linear isomorphisms preserve the linear structure of a space entirely, so linearly independent sets are sent to linearly independent sets, spanning sets are sent to spanning sets, and consequently bases are sent to bases. In particular, a linear map is an isomorphism if and only if it sends some basis of the domain to some basis of the codomain.
+
+\begin{theorem}
+    Let $V,W\in \Vect$. Then $V\cong W$ if and only if $\dim(V) = \dim(W)$.
+\end{theorem}
+If two vector spaces are isomorphic we know that we bijectively map bases to bases so the dimensions are equivalent. Conversely, if they have bases of cardinality $\kappa$, for $B$ a set of cardinality $\kappa$ we have $V \cong (k^B)_0 \cong W$ by a choice of basis.
+
+\section{Quotients and Dimension Theory}\label{sec:Dim}
+
+One of the most important results in linear algebra is the dimension theorem. It relies on the central algebraic notion of the first isomorphism theorem.
+
+\begin{definition}\label{Quotient space}
+    Let $V \in \Vect$ and let $W \leq V$. Then the coset space $V/W = \{v+W:v \in V\}$ forms a vector space under the natural induced operations from $V$ such that the projection $\pi:V\rightarrow V/W$ is a linear map with kernel $\ker\pi = W$.
+\end{definition}
+
+Then we have the first isomorphism theorem.
+
+\begin{theorem}
+    Let $\tau \in \mathcal{L}(V,W)$. Then there exists a unique map $\overline{\tau}:V/W\rightarrow W$ such that $\overline{\tau} \circ \pi = \tau$, and $\overline{\tau}$ is an isomorphism onto $\tau(W)$.
+\end{theorem}
+
+As a corollary we obtain the dimension theorem.
+
+\begin{corollary}[Dimension Theorem]
+    Let $\tau \in \mathcal{L}(V,W)$. Then $\dim V = \dim W + \dim V/W = \dim\ker(\tau)+\dim\ran(\tau)$.
+\end{corollary}
+
+
+\section{Matrix Representations}\label{sec:MatrixRep}
+
+First, we observe that for any linear transformation $\tau \in \mathcal{L}(k^n,k^m)$, by construction of matrix multiplication $\tau$ is simply given by matrix multiplication in the sense that $[\tau e_1\;\cdots \tau e_n]e_i = \tau e_i$, and so $\tau = \tau_A$ for $A = [\tau e_1\;\cdots \;\tau e_n$. This association is a linear isomorphism, so $\mathcal{L}(k^n,k^m) \cong M_{m,n}(k)$. In particular, $\tau_A:k^n\rightarrow k^m$ is injective if and only if $\textbf{rank}(A) = n$ and surjective if and only if $\textbf{rank}(A) = m$, using the dimension theorem.
+
+In general, for linear operator $\tau \in \mathcal{L}(V,W)$ between finite dimensional vector spaces, a choice of bases $\beta = \{v_1,...,v_n\}$ and $\gamma = \{w_1,...,w_m\}$ specifies a linear isomorphism \begin{equation*}
+    [\cdot]_{\beta}^{\gamma}:\mathcal{L}(V,W)\rightarrow M_{m,n}(k)
+\end{equation*}
+sending $\tau$ to the matrix $$[\tau]_{\beta}^{\gamma} = \left[[\tau v_1]_{\gamma}\;\cdots\;[\tau v_n]_{\gamma}\right]$$
+In particular, by definition of matrix multiplication we have that $[\tau v]_{\gamma} = [\tau]_{\beta}^{\gamma}[v]_{\beta}$. Not only is the map a linear isomorphism, it also satisfies the property that if $\sigma\in\mathcal{L}(W,U)$ with basis $\rho$ for $U$, then $$[\sigma\tau]_{\beta}^{\rho} = [\sigma]_{\gamma}^{\rho}[\tau]_{\beta}^{\gamma}$$
+Consequently we find that isomorphisms are sent to invertible matrices, with the inverse of the matrix being the representation of the inverse map in those bases.
+
+Now, how would one go about moving between basis representations? The intuition comes from the fact that going from bases $\beta$ to $\beta'$ of $V$ should be the matrix representation $[\id_V]_{\beta}^{\beta'}$. In particular, this is simply the matrix representation of the map $\phi_{\beta'}\circ \phi_{\beta}^{-1}:k^n\rightarrow k^n$ in the canonical coordinates on $k^n$.We write $P_{\beta'\leftarrow \beta} := [\id_V]_{\beta}^{\beta'}$. Then for any map $\tau \in \mathcal{L}(V,W)$ and any bases $\beta,\beta'$ of $V$ and $\gamma,\gamma'$ of $W$, \begin{equation*}
+    [\tau]_{\beta'}^{\gamma'} = P_{\gamma'\leftarrow \gamma}[\tau]_{\beta}^{\gamma}P_{\beta\leftarrow \beta'}
+\end{equation*}
+Note that $P_{\beta'\leftarrow \beta} = P_{\beta\leftarrow \beta'}^{-1}$, as they correspond with the linear maps $\phi_{\beta'}\circ \phi_{\beta}^{-1}$ and $\phi_{\beta}\circ \phi_{\beta'}^{-1}$, respectively.
+
+
+
+\section{Dual Space}\label{sec:dual}
+
+As defined previously, for a vector space $V \in \Vect$ we define its dual space to be $V^* = \mathcal{L}(V,k)$, the space of linear functionals on $V$.
+
+\begin{theorem}
+    Suppose $V \in \Vect$ with basis $\mathcal{B} = \{v_i|i \in I\}$. For each $i \in I$ we can define a linear functional $v_i^* \in V^*$ by the orthogonality condition $v_i^*(v_j) = \delta_{i,j}$ and extend by linearity. Then the set $\mathcal{B}^* = \{v_i^*|i\in I\}$ is a linearly independent subset.
+\end{theorem}
+
+This result follows simply since for any relation $0 = a_{i_1}v_{i_1}^*+\cdots+a_{i_n}v_{i_n}^*$, if we evaluate it at $v_{i_j}$, for $1\leq j \leq n$, we find $a_{i_j} = 0$ so the relation is trivial. In th case that $V$ is finite dimensional this is a basis for $V^*$, called the \textbf{dual basis} of $\mathcal{B}$. Indeed, if $f \in V^*$ and $\mathcal{B} = \{v_1,...,v_n\}$, we have \begin{equation*}
+    f(v_i) = \sum_{j=1}^nf(v_j)v_j^*(v_i)
+\end{equation*}
+so $f = \sum_{j=1}^nf(v_j)v_j^*$. We also have for finite dimensional vector spaces a natural isomorphism from $V$ to the double dual $V^{**}$, given by the evaluation map $v \mapsto \text{ev}_v$.
+
+An important concept to dual spaces is the notion of annihilators.
+
+\begin{definition}\index{Annihilator (dual)}
+    Let $V \in \Vect$ and let $M \subseteq V$ be non-empty. The \textbf{annihilator} $M^0$ of $M$ is \begin{equation*}
+        M^0 = \{f \in V^*|f(M) = \{0\}\}
+    \end{equation*}
+\end{definition}
+
+Observe $M^0$ is a subspace of $V^*$. Additionally, if $M \subseteq N$, $N^0 \subseteq M^0$ so the operation is order reversing. 
+
+\begin{theorem}
+    Let $S,T \leq V \in \Vect$ and $M \subseteq V$. Then \begin{itemize}
+        \item if $\dim V < \infty$, then the natural map $\tau:\spn(M)\rightarrow M^{00}$ is an isomorphism.
+        \item For $S,T$, $(S\cap T)^0 = S^0+T^0$ and $(S+T)^0 = S^0\cap T^0$.
+    \end{itemize}
+\end{theorem}
+
+
+\textbf{To be continued}
+
+\subsection{Operator Adjoints}
+
+For $\tau \in \mathcal{L}(V,W)$, we can define a map $\tau^t:W^*\rightarrow V^*$ by \begin{equation*}
+    \tau^t(f) = f\circ \tau = f\tau
+\end{equation*}
+for all $f \in W^*$. This map is called the \textbf{operator adjoint} of $\tau$.\index{Operator adjoint}
+
+\begin{theorem}
+    For $\tau,\sigma \in \mathcal{L}(V,W)$ and $a,b \in k$ we have $(a\tau+b\sigma)^t = a\tau^t+b\sigma^t$, and if $\rho\in \mathcal{L}(W,U)$, then $(\rho\sigma)^t = \sigma^t\rho^t$. Finally for invertible $\tau \in \mathcal{L}(V)$, $(\tau^{-1})^t = (\tau^t)^{-1}$.
+\end{theorem}
+
+In relation to annihilators we have the following result.
+
+\begin{theorem}
+    Let $\tau \in \mathcal{L}(V,W)$, then \begin{itemize}
+        \item $\ker(\tau^t) = \ran(\tau)^0$
+        \item $\ran(\tau^t) = \ker(\tau)^0$
+    \end{itemize}
+\end{theorem}
+
+Finally we can consider the matrix representation of the operator adjoint with respect to the dual bases for finite dimensional spaces.
+
+\begin{theorem}
+    Let $\tau \in \mathcal{L}(V,W)$ where $V$ and $W$ have bases $\mathcal{B} = \{v_1,...,v_n\}$ and $\mathcal{C} = \{w_1,...,w_m\}$, respectively, and corresponding dual bases $\mathcal{B}^*$ and $\mathcal{C}^*$. Then it follows that \begin{equation*}
+        [\tau^t]_{\mathcal{C}^*}^{\mathcal{B}^*} = ([\tau]_{\mathcal{B}}^{\mathcal{C}})^T
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    First we note that $\tau^t(w_j^*)(v_i)$ gives the $i,j$ entry of its matrix with respect to the dual bases. Then we have \begin{equation*}
+        \tau^t(w_j^*)(v_i) = w_j^*(\tau(v_i))
+    \end{equation*}
+    which is the $j,i$ entry of $[\tau]_{\mathcal{B}}^{\mathcal{C}}$. Hence \begin{equation*}
+        [\tau^t]_{\mathcal{C}^*}^{\mathcal{B}^*} = ([\tau]_{\mathcal{B}}^{\mathcal{C}})^T
+    \end{equation*}
+\end{proof}
+
+
+
+%
+\section*{Appendices A: Multilinear Maps}
+%
+\addcontentsline{toc}{section}{Appendix A: Multilinear Maps}
+
+In this section we investigate the generalization of linear maps, known as multilinear maps.
+
+\begin{definition}\index{Multilinear map}
+    Let $V,W \in \Vect$. A function $\phi:V^m\rightarrow W$ is called an $m$-linear form on $V$ if it is linear in each component, where $V^m = \bigoplus_{i=1}^mV$.
+\end{definition}
+
+We shall first consider the special case of multilinear forms, or multilinear maps of the form $\varphi:V\times ...\times V\rightarrow k$.
+
+\begin{example}
+    Let $k$ be a field and $A \in M_{m,m}(k)$. Then we define $\varphi:M_{m,n}(k)\times M_{m,n}(k)\rightarrow k$ by \begin{equation*}
+        \varphi(X,Y) = \text{tr}(X^TAY),\;\;X,Y \in M_{m,n}(k)
+    \end{equation*}
+    is a bilinear form on $M_{m,n}(k)$.
+\end{example}
+
+Another important example of a bilinear form are inner products on real vector spaces, which has been well-studied in the spectral theorems of this document. We also have the following important and recurring example.
+
+\begin{example}
+    For $A \in M_{n,n}(k)$ fixed, consider the function $\varphi:k^n\times k^n\rightarrow k$ defined by $\varphi(x,y) = x^TAy$.
+\end{example}
+
+We shall denote the $m$-linear maps from $V$ to $W$ by $\mathcal{L}_m(V,W)$, which is a vector space over $k$. An important construction of vector spaces which we shall justify more fully in our part on module theory is the notion of a tensor product of vector spaces. Here we shall simply state how a tensor space operates and its universal property without proof.
+
+\begin{definition}\index{Tensor product}
+    Let $V,W \in \Vect$. Then the tensor product over $k$ is the vector space $V\otimes_kW$ generated by simple tensors $v\otimes w \in V\otimes_kW$ for $v \in V$ and $w \in W$, which are linear in each term. That is an arbitrary element is of the form \begin{equation*}
+        \sum_{i=1}^na_i(v_i\otimes w_i)
+    \end{equation*}
+\end{definition}
+
+The tensor product satisfies the following universal property.
+
+\begin{theorem}
+    Let $V,W,U \in \Vect$. Let $\iota:V\oplus W\rightarrow V\otimes W$ be the canonical map. Then for any multilinear map $\varphi:V\oplus W\rightarrow U$ there exists a unique linear map $\psi:V\otimes W\rightarrow U$ such that $\psi\circ \iota = \varphi$. This is characterized by the following commuting triangle.
+    \begin{center}
+        \begin{tikzcd}
+	{V\oplus W} & {V\otimes W} \\
+	& U
+	\arrow["\varphi"', from=1-1, to=2-2]
+	\arrow["\iota", hook, from=1-1, to=1-2]
+	\arrow["{\exists!\psi}", dashed, from=1-2, to=2-2]
+\end{tikzcd}
+    \end{center}
+\end{theorem}
+
+This property implies that $\otimes:\Vect\times \Vect\rightarrow \Vect$ is a bi-functor of abelian categories. Now, the space $\mathcal{L}_m(V,k)$ is un-naturally isomorphic to $\bigotimes_{i=1}^mV^*$ for finite-dimensional $V$.
+
+\begin{theorem}
+    Let $V \in \Vect$ be of dimension $n$ with basis $\mathcal{B} = \{v_1,...,v_n\}$. Let $\mathcal{B}^* = \{v_1^*,...,v_n^*\}$ denote the dual basis of $V^*$. Then the map $\Psi:\bigotimes_{i=1}^mV^*\rightarrow \mathcal{L}_m(V,k)$ defined on the basis of $\bigotimes_{i=1}^mV^*$ by \begin{equation*}
+        \Psi(v_{i_1}^*\otimes\cdots \otimes v_{i_m}^*)(u_1,...,u_m) = v_{i_1}^*(u_1)...v_{i_m}^*(u_m)
+    \end{equation*}
+    and extending by linearity is a linear isomorphism. In particular under this identification we denote $\{v_{i_1}^*\otimes\cdots \otimes v_{i_m}^*:1\leq i_j\leq n, 1\leq j \leq m\}$ as the dual basis for $\mathcal{L}_m(V,k)$, so $\dim\mathcal{L}_m(V,k) = n^m$.
+\end{theorem}
+
+In particular in the case of bilinear forms we have a basis $\{v_i^*\otimes v_j^*:1\leq i,j\leq n\}$. 
+
+\subsection{Matrix Representations of Bilinear Forms}
+
+Throughout let $V$ be an $n$-dimensional vector space over $k$, and let $\mathcal{B} = \{v_1,...,v_n\}$ be an ordered basis of $V$. If $\varphi \in \mathcal{L}_2(V,k)$, and $x,y \in V$ with $[x]_{\mathcal{B}} = [x_1\;\cdots \;x_n]^T,[y]_{\mathcal{B}} = [y_1\;\cdots\;y_n]^T$ the coordinate vectors of $x$ and $y$, we have \begin{equation*}
+    \varphi(x,y) = \varphi\left(\sum_{i=1}^nx_iv_i,\sum_{j=1}^ny_jv_j\right) = \sum_{i=1}^n\sum_{j=1}^nx_ix_j\varphi(v_i,v_j) = [x]_{\mathcal{B}}^T\begin{bmatrix} \varphi(v_1,v_1) & \varphi(v_1,v_2)  &\cdots & \varphi(v_1,v_n) \\ \varphi(v_2,v_1) & \varphi(v_2,v_2) & \cdots & \varphi(v_2,v_n) \\ \vdots & \vdots & \ddots & \vdots \\ \varphi(v_n,v_1) & \varphi(v_n,v_2) & \cdots & \varphi(v_n,v_n)\end{bmatrix}[y]_{\mathcal{B}}
+\end{equation*}
+This suggests how we define a matrix representation of a bilinear form, being \begin{equation*}
+    [\varphi]_{\mathcal{B}} = [\varphi(v_i,v_j)]_{1\leq i,j\leq n}
+\end{equation*}
+Now we want to know how to change bases for bilinear forms as we did for linear maps.
+
+\begin{theorem}
+    Let $\mathcal{A} = \{u_1,...,u_n\}$ and $\mathcal{B} = \{v_1,...,v_n\}$ be ordered bases of $V$ and $P_{\mathcal{A}\leftarrow \mathcal{B}} = \left[[v_1]_{\mathcal{A}}\;\cdots \;[v_n]_{\mathcal{A}}\right]$ the change of bases matrix from $\mathcal{B}$ to $\mathcal{A}$. Then if $\varphi \in \mathcal{L}_2(V,k)$, \begin{equation*}
+        [\varphi]_{\mathcal{B}} = P_{\mathcal{A}\leftarrow \mathcal{B}}^T[\varphi]_{\mathcal{A}}P_{\mathcal{A}\leftarrow \mathcal{B}}
+    \end{equation*}
+    Since change of variable matrices are invertible, both matrix representations of $\varphi$ have the same rank.
+\end{theorem}
+\begin{proof}
+    We observe that for $x,y \in V$, \begin{align*}
+        [x]_{\mathcal{B}}^T[\varphi]_{\mathcal{B}}[y]_{\mathcal{B}} &= \varphi(x,y) = [x]_{\mathcal{A}}^T[\varphi]_{\mathcal{A}}[y]_{\mathcal{A}} \\
+        &= (P_{\mathcal{A}\leftarrow \mathcal{B}}[x]_{\mathcal{B}})^T[\varphi]_{\mathcal{A}}(P_{\mathcal{A}\leftarrow \mathcal{B}}[y]_{\mathcal{B}}) \\
+        &= [x]_{\mathcal{B}}^T(P_{\mathcal{A}\leftarrow \mathcal{B}}^T[\varphi]_{\mathcal{A}}P_{\mathcal{A}\leftarrow \mathcal{B}})[y]_{\mathcal{B}}
+    \end{align*}
+    As this holds for all $x,y \in V$, in particular it holds for $v_i$ and $v_j$, which gives $(P_{\mathcal{A}\leftarrow \mathcal{B}}^T[\varphi]_{\mathcal{A}}P_{\mathcal{A}\leftarrow \mathcal{B}})_{i,j} = ([\varphi]_{\mathcal{B}})_{i,j}$. Hence the change of basis formula holds.
+\end{proof}
+
+We then define the \textbf{rank} of a bilinear form to be the rank of any of its matrix representations. If $\text{rank}(\varphi) = \dim V$, we say that $\varphi$ is \textbf{nondegenerate} or \textbf{nonsingular}. This is equivalent to the statement that for all $u \in V$, $u \neq 0$, there exists $v \in V$ such that $\varphi(u,v) \neq 0$, and for all $v \in V$, $v \neq 0$, there exists $u \in V$ such that $\varphi(u,v) \neq 0$.
+
+We now explore special multilinear forms. 
+\begin{definition}
+    Let $V \in \Vect$. We say a multilinear form $\varphi \in \mathcal{L}_m(V,k)$ is \textbf{symmetric} if $\varphi(u_1,...,u_m) = \varphi(u_{\sigma(1)},...,u_{\sigma(m)})$ for any permutation $\sigma \in S_m$. If instead we have $\varphi(u_1,...,u_m) = \text{sign}(\sigma)\varphi(u_{\sigma(1)},...,u_{\sigma(m)})$ for any $\sigma \in S_m$, we say that $\varphi$ is \textbf{anti-symmetric}.
+\end{definition}
+
+In the case of a bilinear form, symmetric forms correspond to symmetric matrix representations, and anti-symmetric forms correspond to skew-symmetric matrix representations. Now we explore when a bilinear form has a diagonal matrix representation.
+
+\begin{definition}
+    Let $V$ be a finite dimensional vector space over a field $k$. A bilinear form $\varphi \in \mathcal{L}_2(V,k)$ is called \textbf{diagonalizable} if there exists an ordered basis $\mathcal{B} = \{v_1,...,v_n\}$ of $V$ such that the matrix $[\varphi]_{\mathcal{B}}$ of $\varphi$, relative to $\mathcal{B}$, is a \textbf{diagonal} matrix.
+\end{definition}
+
+Notice that if the matrix representation is diagonal it is in particular symmetric. Consequently in order for a bilinear form to be diagonalizable it must be symmetric. In the case of fields of characteristic not equal to $2$ this condition is also sufficient. First we prove a preliminary result.
+
+\begin{lemma}
+    Let $V \in \Vect$ with $\text{char}(k) \neq 2$. If $\varphi \in \mathcal{L}_2(V,k)$ is \textbf{symmetric} and not identically zero, then there exists $u \in V$, $u \neq 0$, such that $\varphi(u,u) \neq 0$.
+\end{lemma}
+\begin{proof}
+    Since $\varphi \neq 0$, there exists $x,y \in V$ such that $\varphi(x,y) \neq 0$. If either $\varphi(x,x) \neq 0$ or $\varphi(y,y) \neq 0$ we are done. Otherwise if $\varphi(x,x) = \varphi(y,y) = 0$, we have \begin{equation*}
+        \varphi(x+y,x+y) = \varphi(x,y) + \varphi(y,x) = 2\varphi(x,y) \neq 0
+    \end{equation*}
+    as desired.
+\end{proof}
+
+Now we have our main result.
+
+\begin{theorem}
+    Let $V \in \Vect$, with $\text{char}(k) \neq 2$ and $\dim V = n \in \N$. Let $\varphi:V\times V\rightarrow k$ be a symmetric bilinear form on $V$. Then there exists an ordered basis $\mathcal{B} = \{v_1,...,v_n\}$ of $V$ such that $[\varphi]_{\mathcal{B}}$ is a diagonal matrix.
+\end{theorem}
+\begin{proof}
+    If $\varphi = 0$ the claim immediately holds. Hence suppose $\varphi \neq 0$. We proceed by induction on $n$. If $n = 1$ any choice of basis diagonalizes $\varphi$. Suppose inductively that the claim holds for dimension $< n$. Now since $\varphi \neq 0$ we have $v_1 \in V$ such that $\varphi(v_1,v_1) \neq 0$ by the previous lemma. Consider the map $g:V\rightarrow k$ defined by $g(u) = \varphi(u,v_1)$. Then $g\neq 0$, so $\text{rank}(g) =1$, do $\dim\ker(g) = n-1$. Let $\{v_2,...,v_n\}$ be a basis of $\ker(g)$ which diagonalizes $\varphi\vert_{\ker(g)}$ by the induction hypothesis. Observe $\varphi(v_i,v_1) = 0$ for all $2 \leq i \leq n$, and by our induction hypothesis $\varphi(v_i,v_j) = 0$ for all $2 \leq i\neq j \leq n$. Thus we have that $\varphi(v_i,v_j) = 0$ for all $1\leq i\neq j\leq n$, so $[\varphi]_{\mathcal{B}}$ is diagonal for $\mathcal{B} = \{v_1,...,v_n\}$.
+\end{proof}
+
+\begin{corollary}
+    If $k$ is a field of characteristic different from $2$, and $A \in M_{n,n}(k)$ is a symmetric matrix, then there exists an invertible matrix $P$ over $k$ such that $P^TAP$ is diagonal.
+\end{corollary}
+
+
+
+
+%
+\section*{Appendices B: Quadratic Forms}
+%
+\addcontentsline{toc}{section}{Appendix B: Quadratic Forms}
+
+
+We now study the notion of quadratic forms, which relate in a particular manner to symmetric bilinear forms.
+
+\begin{definition}\index{Quadratic form}
+    Let $V \in \Vect$. A \textbf{quadratic form} is a map $Q:V\rightarrow k$ such that $Q(\alpha v) = \alpha^2Q(v)$ for all $\alpha \in k$ and $v \in V$, and $\omega_Q(x,y) = Q(x+y) - Q(x) - Q(y)$ is a symmetric bilinear form.
+\end{definition}
+
+For finite dimensional vector spaces the matrix of a quadratic form is the matrix of its associated symmetric form. In particular, the matrix is always symmetric and for fields of characteristic different from $2$, \begin{equation*}
+    Q(x) = \frac{1}{2}\omega_Q(x,x)
+\end{equation*}
+In particular from our results on symmetric bilinear forms all quadratic forms are diagonalizable. In the case of $k = \R$ we have by the real spectral theory that for an orthonormal basis $\{v_1,...,v_n\}$ of eigenvectors with eigenvalues $\{\lambda_1,...,\lambda_n\}$, then for any vector $x = x_1v_1+\cdots+x_nv_n$ we have \begin{equation*}
+    Q(x) = \lambda_1x_1^2+\cdots +\lambda_nx_n^2
+\end{equation*}
+Then we can easily determine the sign of $Q(x)$ with it being always positive if $\lambda_i > 0$ for all $i$, and always negative if $\lambda_i < 0$ for all $i$.
+
+\begin{definition}
+    Let $A \in \text{Sym}_n(\R)$. We say that $A$ is \textbf{positive definite} if $x^TAx > 0$ for all $x \neq 0$, \textbf{positive semi-definite} if $x^TAx \geq 0$ for all $x \neq 0$, \textbf{negative definite} if $x^TAx < 0$ for all $x \neq 0$, \textbf{negative semi-definite} if $x^TAx \leq 0$ for all $x \neq 0$, and \textbf{indefinite} if $x^TAx$ takes on positive and negative values.
+\end{definition}
+
+\begin{theorem}
+    If $A$ is positive definite, then $A$ is invertible.
+\end{theorem}
+
+Indeed singular matrices have $0$ as an eigenvalue.
+
+\begin{theorem}
+    Let $A \in \text{Sym}_n(\R)$. The statements below are all equivalent. \begin{itemize}
+        \item $A$ is positive definite
+        \item All eigenvalues of $A$ are positive
+        \item All the principal submatrices of $A$ are positive definite
+        \item All the principal minors of $A$ are positive
+    \end{itemize}
+\end{theorem}
+
+The $k$th principal submatrix of $A$ is defined as $A_k = (A_{i,j})_{1\leq i,j\leq k}$, where $A = (A_{i,j})_{1\leq i,j\leq n}$. Then the $k$th principal minor of $A$ is $\det A_k = \Delta_k$.
+
+\begin{corollary}
+    Let $A \in \text{Sym}_n(\R)$. Then \begin{itemize}
+        \item $A$ is \textbf{negative definite} if and only if $\Delta_1 < 0,\Delta_2 > 0, \Delta_3 < 0,...$
+        \item $A$ is \textbf{indefinite} if and only if either $A$ has a negative principal minor of even order or $A$ has two principal minors of odd order with opposite signs.
+    \end{itemize}
+\end{corollary}
+

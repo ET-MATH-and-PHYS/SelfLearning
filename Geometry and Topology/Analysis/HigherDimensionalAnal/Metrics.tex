@@ -1,63 +1,65 @@
 %%%%%%%%%% Metric Spaces %%%%%%%%%%
-\chapter{Metric Spaces}
+\chapter{Metric Spaces}\label{Metrics}
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
 
 \section{Euclidean Spaces}
 
 We begin our study with one of the most well studied metric spaces, Euclidean $n$-space.
 
-\begin{defn}
+\begin{definition}\index{Euclidean Space}
     \Emph{Euclidean} $n$-space is defined as the product \begin{equation*}
         \R^n := \R\times \cdots \times \R = \{(x_1,...,x_n):x_1,...,x_n \in \R\}
     \end{equation*}
     We define $+:\R^n\times \R^n\rightarrow \R^n$ component-wise, and we define a module action $\cdot:\R\times \R^n\rightarrow \R^n$ also component-wise, turning $\R^n$ into an $\R$-linear space.
-\end{defn}
+\end{definition}
 
 Euclidean space is a special type of vector space which satisfies certain additional structures:
 
-\begin{defn}
+\begin{definition}\index{Inner product space}
     A \Emph{real-inner product} on a real vector space $V$ is a map $\langle , \rangle: V\times V\rightarrow \R$ such that \begin{enumerate}
         \item $\langle v,v\rangle \geq 0$ for all $v \in V$, and $\langle v,v\rangle = 0$ if and only if $v = 0_V$
         \item $\langle v,w\rangle = \langle w,v\rangle$ for all $v,w \in V$
         \item $\langle av+bu,w\rangle = a\langle v,w\rangle + b\langle u,w\rangle$ for all $v,u,w \in V$ and all $a,b \in \R$.
     \end{enumerate}
-\end{defn}
+\end{definition}
 
-\begin{defn}
+\begin{definition}\index{Norm}
     A \Emph{norm} on a real vector space $V$ is a map $||\cdot||:V\rightarrow \R$ such that \begin{enumerate}
         \item $|| v|| \geq 0$ for all $v \in V$, and $||v|| = 0$ if and only if $v = 0_V$
         \item $||av|| = |a|\cdot||v||$ for all $v \in V$ and all $a \in \R$
         \item $||v+w|| \leq ||v|| + ||w||$ for all $v,w \in V$ (triangle inequality)
     \end{enumerate}
     Then $(V,||\cdot||)$ is called a \Emph{normed linear space}.
-\end{defn}
+\end{definition}
 
-\begin{defn}
+\begin{definition}\index{Metric}
     A \Emph{metric} on a set $X$ is a map $d:X\times X\rightarrow \R$ such that \begin{enumerate}
         \item $d(x,y) \geq 0$ for all $x,y \in X$, and $d(x,y) = 0$ if and only if $x=y$
         \item $d(x,y) = d(y,x)$ for all $x,y \in X$
         \item $d(x,z) \leq d(x,y)+d(y,z)$ for all $x,y,z \in X$ (triangle inequality)
     \end{enumerate}
     In this case we call $(X,d)$ a \Emph{metric space}.
-\end{defn}
+\end{definition}
 
-\begin{prop}
+\begin{proposition}
     If $\langle ,\rangle:V\times V\rightarrow \R$ is an inner product, $||\cdot ||:V\rightarrow \R$ defined by $||\cdot || = \sqrt{\langle \cdot,\cdot\rangle}$ is a norm, and $d:V\times V\rightarrow \R$ defined by $d(a,b) = ||a-b||$ is a metric.
-\end{prop}
+\end{proposition}
 
 We now define the inner product on Euclidean $n$-space:
 
-\begin{defn}
+\begin{definition}
     The Euclidean inner product on $\R^n$ is given by \begin{equation*}
         \langle x,y\rangle = x\cdot y = \sum_{i=1}^nx_iy_i
     \end{equation*}
     for all $x = (x_1,...,x_n),y=(y_1,...,y_n) \in \R^n$.
-\end{defn}
+\end{definition}
 
-\begin{prop}[Cauchy-Schwarz Inequality]
+\begin{proposition}[Cauchy-Schwarz Inequality]
     For any inner product $\langle ,\rangle:V\times V\rightarrow \R$\begin{equation*}
         |\langle v,w\rangle|\leq |\langle v,v\rangle||\langle w,w\rangle|
     \end{equation*}
-\end{prop}
+\end{proposition}
 \begin{proof}
     Let $t > 0$, and consider $0 \leq \langle tx-t^{-1}y,tx-t^{-1}y\rangle$, so $0 \leq t^2||x||^2-2\langle x,y\rangle + t^{-2}||y||^2$. Without loss of generality suppose $x,y \neq 0$. Then let $t^2 = \frac{||y||}{||x||}$, so we have $2\langle x,y\rangle \leq 2||y||\cdot||x||$, so we have our desired result. Replacing $x$ with $-x$ we obtain $-\langle x,y\rangle \leq ||y||\cdot||x||$, so $|\langle x,y\rangle| \leq ||x||\cdot ||y||$.
 \end{proof}
@@ -68,15 +70,15 @@ The triangle inequality follows from this Cauchy-Schwarz inequality. Thus, $\R^n
 
 We can now use the metric on $\R^n$ to define notions of convergence for sequences.
 
-\begin{defn}
+\begin{definition}\index{Convergence}
     If $(\vec{x}_j)_{j=1}^{\infty} \subset \R^n$, then $\vec{x}_j\rightarrow \vec{x} \in \R^n$ if and only if $||\vec{x}_j-\vec{x}||$ converges to $0$ in $\R$. Further, we say such a sequence is \Emph{Cauchy} if and only if for all $\varepsilon > 0$, there exists $N \in \N$ such that for $j,k \geq N$, $||\vec{x}_j - \vec{x}_k|| < \varepsilon$.
-\end{defn}
+\end{definition}
 
 We note that we can consider $\C \cong \R^2$ as normed linear spaces over $\R$.
 
-\begin{prop}
+\begin{proposition}
     $\R^n$ is a complete metric space.
-\end{prop}
+\end{proposition}
 \begin{proof}
     By completeness of $\R$, and the fact that $(x_j)_{j=1}^{\infty} = (\langle x_{j,1},...,x_{j,n}\rangle)_{j=1}^{\infty}$ is Cauchy if and only if the $(x_{j,i})_{j=1}^{\infty}$ are Cauchy for all $i$.
 \end{proof}
@@ -85,56 +87,56 @@ We note that we can consider $\C \cong \R^2$ as normed linear spaces over $\R$.
 
 First we define the notions of open and closed sets in $\R^n$: 
 
-\begin{defn}
+\begin{definition}
     We say that $S \subseteq \R^n$ is \Emph{closed} if and only if for all sequences $(x_j)_{j=1}^{\infty} \subseteq S$ such that $x_j$ converges to $x \in \R^n$, $x \in S$.
-\end{defn}
+\end{definition}
 
-\begin{defn}
+\begin{definition}\index{Balls}
     We say that a set $U \subseteq \R^n$ is \Emph{open} if and only if $\R^n\backslash U = U^C$ is closed. This holds if and only if for all $x \in U$, there exists $\varepsilon > 0$ such that $B_{\varepsilon}(x) \subseteq U$, where \begin{equation*}
         B_{\varepsilon}(x) := \{y \in \R^n:d(x,y) < \varepsilon\}
     \end{equation*}
     is the $\varepsilon$-ball centered at $x \in \R^n$.
-\end{defn}
+\end{definition}
 
-\begin{defn}
+\begin{definition}\index{Sequentially compact}
     A set $K \subseteq \R^n$ is \Emph{sequentially compact} if and only if for all $(p_j)_{j=1}^{\infty} \subseteq K$, there exists a subsequence $(p_{j_k})_{k=1}^{\infty} \subseteq K$ and a $p \in K$ such that $p_{j_k}$ converges to $p$.
-\end{defn}
+\end{definition}
 
 That is every sequence in a sequentially compact set has a convergent subsequence.
 
-\begin{defn}
+\begin{definition}
     A set $S \subseteq T\subseteq \R^n$ is said to be \Emph{dense} in $T$ if $\overline{S} \supseteq T$, where $\overline{S}$ is the \Emph{closure} of $S$: \begin{equation*}
         \overline{S} := \bigcap\{\mathcal{C}\subseteq \R^n:S\subseteq \mathcal{C}\text{ and }\mathcal{C}\text{ is closed}\}
     \end{equation*}
-\end{defn}
+\end{definition}
 
 Note that the closure of a set $S$ is the smallest closed set containing $S$.
 
-\begin{defn}
+\begin{definition}\index{Separable}
     A topological space $(X,\tau)$ is said to be \Emph{separable} if it has a \Emph{countable dense subset}.
-\end{defn}
+\end{definition}
 
 We note that $\R^n$ is separable with countable dense subset $\Q^n$. Indeed, for all $U \subseteq \R^n$, $U$ is open if and only if for all $p \in U$, there exists $q \in \Q^n$ and $r \in \Q^+$ such that $p \in B_r(q) \subseteq U$. Hence, \begin{equation*}
     \mathcal{B} := \{B_r(q):r\in \Q^+,q \in \Q^n\}
 \end{equation*}
 is a countable base for the topology on $\R^n$, so $\R^n$ is a \Emph{second countable space}. We have the following useful results about compactness in Euclidean spaces:
 
-\begin{cor}
+\begin{corollary}
     If $K\subseteq \R^n$ is sequentially compact then it is topologically compact.
-\end{cor}
+\end{corollary}
 
 To prove this corollary we first prove some intermediate results.
 
-\begin{prop}
+\begin{proposition}
     If $K \subseteq \R^n$ is sequentially compact, and $X_1 \supseteq X_2\supseteq X_3\supseteq ...$ is a chain of nonempty closed subsets of $K$, then $\bigcap_{j\geq 1}X_j \neq \emptyset$.
-\end{prop}
+\end{proposition}
 \begin{proof}
     Let $x_j \in X_j \subseteq K$ for each $j$. Then $(x_j)_{j=1}^{\infty} \subseteq K$, so as $K$ is compact we have a subsequence $(x_{j_k})_{k=1}^{\infty} \subseteq K$ such that $x_{j_k}\rightarrow x \in K$. But, for each $m \in \N$, $\{x_{j_k}:k \geq m\} \subseteq X_m$, so as $X_m$ is closed it follows that $x \in X_m$. Thus, $x \in \bigcap_{j\geq 1}X_j$, so $\bigcap_{j\geq 1}X_j \neq \emptyset$.
 \end{proof}
 
-\begin{prop}
+\begin{proposition}
     If $K \subseteq \R^n$ is compact and $U_1\subseteq U_2\subseteq ...$ is a chain of open sets which cover $K$, $K \subseteq \bigcup_{j\geq 1}U_j$, then there exists $M \in \N$ such that $K \subseteq U_M$.
-\end{prop}
+\end{proposition}
 \begin{proof}
     Consider $X_m = K\backslash U_m$, which gives a chain of open sets. We have that $\bigcap_{j\geq 1}X_j = \emptyset$, so by the contrapositive of the previous proposition there exists $M \in \N$ such that $X_M = \emptyset$. Then $K \subseteq U_M$, as desired.
 \end{proof}
@@ -151,84 +153,84 @@ Now we proceed to the proof of the corollary:
 
 \section{Metric Space Properties}
 
-\begin{defn}[Metric Space]
+\begin{definition}[Metric Space]\index{Metric space}
     A set $X$ together with a function $d:X\times X\rightarrow [0,\infty)$ is called a \Emph{metric space} if the function $d$, called a \Emph{metric} satisfies the following properties for all $x,y,z \in X$:
     \begin{itemize}
         \item[(1)] $d(x,y) = 0$ if and only if $x = y$ (Positive definiteness)
         \item[(2)] $d(x,y) = d(y,x)$ (Symmetry) 
         \item[(3)] $d(x,y) \leq d(x,z) + d(z,y)$ (Triangle inequality)
     \end{itemize}
-\end{defn}
+\end{definition}
 
-\begin{eg}
+\begin{example}
     $\R$ and $\C$ with the usual modulus are metric spaces. In this case $d(x,y) = |x-y|$. Additionally, as seen in the last section $\R^n$ and $\C^n$ are metric spaces, with the Euclidean metric $$d(\vec{x},\vec{y}) = \sqrt{\sum_{j=1}^n|x_i - y_i|^2}$$ where the triangle inequality follows by the Cauchy-Schwartz inequality.
-\end{eg}
+\end{example}
 
-\begin{prop}
+\begin{proposition}
     Let $V$ be a real inner product space. Then for all $u,v \in V$, $$|\langle u,v\rangle|^2 \leq \langle u,u\rangle \cdot\langle v,v\rangle$$
-\end{prop}
+\end{proposition}
 \begin{proof}
     Let $t \in \R\backslash\{0\}$, and consider $$0\leq \langle tx-t^{-1}y,tx-t^{-1}y\rangle = t^2|x|^2 - 2\langle x,y\rangle + t^{-2}|y|^2$$ Now, if $x$ or $y$ is the zero vector, then the result holds trivially. Thus, suppose $x,y\neq 0$, and let $t^2 = \frac{|y|}{|x|}$. It follows that $$2\langle x,y\rangle \leq |y||x| + |x||y| = 2|x||y|$$ so $\langle x,y\rangle \leq |x||y|$. Exchanging $x$ with $-x$ we obtain $-\langle x,y\rangle \leq |x||y|$, so $|\langle x,y\rangle| \leq |x||y|$. Squaring both sides we obtain the desired inequality.
 \end{proof}
 
 
-\begin{eg}[Discrete Metric]
+\begin{example}[Discrete Metric]
     Let $X$ be any set. Then we can define the \Emph{discrete metric} on $X$ by $$d(x,y) = \left\{\begin{array}{cc} 1 & x\neq y\\ 0 & x=y \end{array}\right.$$ which gives $X$ the discrete topology, in which $\tau_X = \mathcal{P}(X)$.
-\end{eg}
+\end{example}
 
-\begin{eg}[Subsets of Metric Spaces]
+\begin{example}[Subsets of Metric Spaces]
     If $Y \subseteq X$ and $(X,d)$ is a metric space, then $(Y,d\vert_Y)$ is also a metric space, with topology corresponding to the subspace topology.
-\end{eg}
+\end{example}
 
 
 \subsection{Normed Linear Spaces}
 
-\begin{defn}[Normed Linear Space]
+\begin{definition}[Normed Linear Space]\index{NLS}
     Let $V$ be a vector space over $\R$ or $\C$. We say that $V$ is a \Emph{normed linear space} if there is a function $||\cdot||:V\rightarrow [0,\infty)$ called a \Emph{norm} satisfying the following properties for all $v,w \in V$ and constants $c$: \begin{itemize}
         \item[(1)] $||v|| = 0$ if and only if $v = 0$ (Positive definitiness)
         \item[(2)] $||cv|| = |c|||v||$, (Absolute homegeneity)
         \item[(3)] $||v+w|| \leq ||v|| + ||w||$ (triangle inequality)
     \end{itemize}
-\end{defn}
+\end{definition}
 
-\begin{prop}
+\begin{proposition}
     A normed linear space $(V,||\cdot||)$ is also a metric space with metric $d(v,w) = ||v-w||$.
-\end{prop}
+\end{proposition}
 \begin{proof}
     First, observe that $d(v,v) = ||v-v|| = ||0|| = 0$, and if $d(v,w) = ||v-w|| = 0$ then $v-w = 0_V$, so $v = w$. Next, $$d(v,w) = ||v-w|| = ||-(w-v)|| = |-1|||w-v|| = d(w,v)$$ so we have symmetry. Finally, for all $u,v,w \in V$, $$d(v,w) = ||v-w|| = ||v-u+u-w|| \leq ||v-u||+||u-w|| = d(v,u)+d(u,w)$$ so the triangle inequality is satisfied.
 \end{proof}
 
 
 This leads to the question: 
-\begin{qst}
+\begin{question}{Question}
     Does every metric on a vector space arise from a norm?
-\end{qst}
+\end{question}
 The answer is negative. Let $V$ be a vector space and assume $\dim V \geq 1$ (so it isn't the zero vector space). Equip $V$ with the discrete metric. For the sake of contradiction assume there is a norm $||\cdot||$ on $V$ with $d(v,w) = ||v-w||$. If $v \neq 0$, then $$1 = d(v,0) = ||v-0|| = ||v||$$ But, using absolute homogeneity, $$1 = d(2v,0) = ||2v|| = 2||v||$$ which is a contradiction.
 
-\begin{eg}
+\begin{example}
     We define the Euclidean norm on $\R^n$ and $\C^n$ by $$||\vec{x}||_2 := \sqrt{\sum_{j=1}^n|x_j|^2}$$ This norm induces the Euclidean metric.
-\end{eg}
+\end{example}
 
-\begin{eg}[Spaces of Continuous Functions]
+\begin{example}[Spaces of Continuous Functions]
     Let $S \subseteq \R$. Define the following: \begin{itemize}
         \item[(i)] Continuous functions on $S$: $$\mathcal{C}(S) = \left\{f:S\rightarrow \R\vert f\text{ is continuous}\right\}$$ This is an $\R$-vector space since $f+g$ and $cf$ are continuous on $S$ whenever $f,g$ are and $c \in \R$
         \item[(ii)] Continuous bounded functions on $S$: $$\mathcal{C}_b(S) = \{f:S\rightarrow \R\vert f\text{ is continuous and }||f||_S < \infty\}$$ This is a subspace of $\mathcal{C}(S)$ and is also a normed linear space with norm $||f||_S = \sup_{x\in S}|f(x)|$. Indeed, $||f||_S = 0$ if and only if $|f(x)| = 0$ for all $x \in S$, if and only if $f \equiv 0$. Further, $|cf(x)| = |c||f(x)|$, and taking the supremum of both sides $||cf||_S = |c|||f||S$. Finally, if $f,g \in \mathcal{C}_b(S)$, then $$|f(x) + g(x)| \leq |f(x)| + |g(x)| \leq ||f||_S+||g||_S$$ for all $x \in S$, so $||f+g||_S \leq ||f||_S + ||g||_S$.
         \item[(iii)] Continuous functions vanishing at $\infty$: $$\mathcal{C}_0(S) = \{f:S\rightarrow \R\vert f\text{ is continuous and }\forall \varepsilon > 0,\exists K \subseteq S\text{ compact}; \sup_{x\in S\backslash K}|f(x)| < \varepsilon\}$$ That is to say $f$ is ``small" outside of a compact set. $\mathcal{C}_0(S)$ is a subspace of $\mathcal{C}_b(S)$ with norm $||\cdot||_{\infty}$. Note that $$\mathcal{C}_0(\R) = \{f:\R\rightarrow \R\vert\lim\limits_{x\rightarrow \infty}f(x) = 0 = \lim\limits_{x\rightarrow -\infty}f(x)\}$$
         \item[(iv)] Continuous functions with compact suppose on $S$: $$\mathcal{C}_c(S) = \{f:S\rightarrow \R\vert \exists K \subseteq S\text{ with }\overline{K}\text{ compact and }f(x) = 0\forall x \in S\backslash K\}$$ $K$ is called the \Emph{support} of $f$. $\mathcal{C}_c(S)$ is a subspace of $\mathcal{C}_0(S)$.
     \end{itemize}
-\end{eg}
+\end{example}
 
-\begin{rmk}
+\begin{remark}\index{Function spaces}
     We note that \begin{itemize}
         \item[(i)] If $S$ is compact, $C(S) = C_b(S) = C_0(S) = C_c(S)$
         \item[(ii)] All of these may be defined for $\C$ valued functions as well
         \item[(iii)] If $S = [a,b]$, then there are many familiar norms on $\mathcal{C}([a,b])$, one such being $$||f||_p := \left[\int_a^b|f(x)|^pdx\right]^{1/p}$$ for any $p\geq 1$.
     \end{itemize}
-\end{rmk}
+\end{remark}
 
-\begin{prop}
+\begin{proposition}
     Suppose $n \in \N$. The quantity $$||x||_{\infty} = \max\{|x_k|:1\leq k \leq n\}$$ defines a norm called the \Emph{$\infty$-norm} on $\R^n$ and $\C^n$.
-\end{prop}
+\end{proposition}
 \begin{proof}
     First, observe that $||x||_{\infty} = 0$ if $x = \vec{0}$. Further, if $||x||_{\infty} = 0$, then $0 \leq |x_k| \leq 0$ for all $1 \leq k \leq n$, so $x_k = 0$ for all $k$ and hence $x = (0,0,...,0)$. Then, if $c \in \C$, it follows that \begin{align*}
         ||cx||_{\infty} &= \max\{|cx_k|:1\leq k \leq n\} \\
@@ -241,31 +243,31 @@ The answer is negative. Let $V$ be a vector space and assume $\dim V \geq 1$ (so
     for all $k$, since $|\cdot|$ is a norm on $\C$, so $$||x+y||_{\infty} = \max\{|x_k+y_k|:1\leq k \leq n\} \leq ||x||_{\infty} + ||y||_{\infty}$$
 \end{proof}
 
-\begin{prop}
+\begin{proposition}
     Suppose $n \in \N$. The quantity $$||x_1|| = \sum_{k=1}^n|x_k|$$ defines a norm called the \Emph{$1$-norm} on $\R^n$ and $\C^n$.
-\end{prop}
+\end{proposition}
 \begin{proof}
     First, $||x||_1 = 0$ if and only if $\sum_{k=1}^n|x_k| = 0$ if and only if $|x_k| = 0$ for all $k$ if and only if $x_k = 0$ for all $k$, if and only if $x = \vec{0}$. Next, $$||cx||_1 = \sum_{k=1}^n|cx_k| = |c|\sum_{k=1}^n|x_k| = |c|||x||_1$$ and $$||x + y||_1 = \sum_{k=1}^n|x_k+y_k| \leq \sum_{k=1}^n|x_k|+|y_k| = ||x||_1 + ||y||_1$$
 \end{proof}
 
-\begin{defn}[$\ell^p$ norm]
+\begin{definition}[$\ell^p_n$ norm]\index{$\ell^p_n$ spaces}
     Suppose $p \geq 1$ and $n \in \N$. For any vector $x = (x_1,...,x_n) \in \R^n$ or $\C^n$, the quantity $$||x||_p = \left(\sum_{k=1}^n|x_k|^p\right)^{1/p}$$ is called the \Emph{$p$-norm}. When $p = \infty$ we use $$||x||_{\infty} = \max\{|x_k|:1\leq k\leq n\}$$
-\end{defn}
+\end{definition}
 
 We now aim to verify this is a norm for the case of $p$ not equal to $1$ or $\infty$.
 
-\begin{lem}[Young's Inequality]
+\begin{lemma}[Young's Inequality]
     Suppose $p > 1$ and $q > 1$ satisfy $\frac{1}{p} + \frac{1}{q} = 1$. If $a > 0$ and $b> 0$ then $$ab \leq \frac{a^p}{p} + \frac{b^q}{q}$$ Equality holds if and only if $a^p=b^q$.
-\end{lem}
+\end{lemma}
 \begin{proof}
     If $p = q = 2$, then $(a-b)^2 \geq 0$ so $a^2-2ab + b^2 \geq 0$, so $\frac{a^2+b^2}{2} \geq ab$. Further, note $\frac{p-1}{p} = 1-\frac{1}{p} = \frac{1}{q}$, and so $q = \frac{p}{p-1}$ for $p \neq 1$.
 
     Now, define $y = x^{p-1}$ for $x > 0$. Then $y$ is invertible as a function of $x$ and $x = y^{q-1}$ since $\frac{1}{p-1} = \frac{q}{p} = q-1$. Then $$\int_0^ax^{p-1}dx + \int_0^by^{q-1}dy = \frac{x^p}{p}\Big\rvert_{x=0}^a + \frac{y^q}{q}\Big\rvert_{y=0}^b = \frac{a^p}{p} + \frac{b^q}{q}$$ The area of the box corresponding to sidelengths $a$ and $b$ is $ab \leq \frac{a^p}{p}+\frac{b^q}{q}$, and equality holds if and only if $(a,b)$ is on the graph of $y=x^{p-1}$, or in other words $b = a^{p-1}$, which happens if and only if $b^q = a^{(p-1)q} = a^p$.
 \end{proof}
 
-\begin{lem}[H\"{o}lder's Inequality]
+\begin{lemma}[H\"{o}lder's Inequality]
     Suppose $p > 1$ and $q > 1$ satisfy $\frac{1}{p} + \frac{1}{q} = 1$. For any vectors $x = (x_1,...,x_n)$ and $y = (y_1,...,y_n)$ in $\R^n$ or $\C^n$ we have $$\sum_{k=1}^n|x_ky_k| \leq ||x||_p||y||_q$$
-\end{lem}
+\end{lemma}
 Note taht the case of $p = q = 2$ is the Cauchy-Schwartz Inequality.
 
 \begin{proof}
@@ -279,9 +281,9 @@ Note taht the case of $p = q = 2$ is the Cauchy-Schwartz Inequality.
     Multiplying both sides by $||\vec{x}||_p||\vec{y}||_q$ we obtain the desired inequality $$\sum_{j=1}^n|x_jy_j| \leq ||\vec{x}||_p||\vec{y}||_q$$
 \end{proof}
 
-\begin{thm}
+\begin{theorem}
     For any $p \geq 1$, including $p  = \infty$, and $n \in \N$, the vector space $\R^n$ or $\C^n$ together with the norm $||\cdot||_p$ is a normed linear space.
-\end{thm}
+\end{theorem}
 \begin{proof}
     Without loss of generality we may assume $1 < p < \infty$. Then $||\vec{x}||_p = \left(\sum_{j=1}^n|x_j|^p\right)^{1/p} = 0$ if and only if $|x_j|^p = 0$ for all $j$, which occurs if and only if $x_j = 0$ for all $j$, or $\vec{x} = \vec{0}$. Secondly, for all $c \in \C$, $$||c\vec{x}||_p = \left(\sum_{j=1}^n|cx_j|^p\right)^{1/p} = \left(|c|^p\sum_{j=1}^n|x_j|^p\right)^{1/p} = |c|\left(\sum_{j=1}^n|x_j|^p\right)^{1/p} = |c|||\vec{x}||_p$$
     Finally, write $\vec{x} = (x_1,...,x_n)^T$ and $\vec{y} = (y_1,...,y_n)^T$. Then \begin{align*}
@@ -294,18 +296,18 @@ Note taht the case of $p = q = 2$ is the Cauchy-Schwartz Inequality.
     Note that if $\vec{x}+\vec{y} = 0$, the triangle inequality follows by definition of the $p$-norm. Assuming $||\vec{x}+\vec{y}||_p \neq 0$ and dividing the above inequality by $||\vec{x}+\vec{y}||_p^{p-1} > 0$ we obtain $$||\vec{x} + \vec{y}||_p \leq ||\vec{x}||_p + ||\vec{y}||_p$$ known as \Emph{Minkowski's Inequality}
 \end{proof}
 
-\begin{defn}
+\begin{definition}\index{$\ell^p_n$ spaces}
     We denote $\R^n$ or $\C^n$ together with the $p$-norm as $\ell_n^p$.
-\end{defn}
+\end{definition}
 
-\begin{eg}
+\begin{example}
     Let $(X,d)$ be a metric space. Then $X$ is also a metric space with the metric $\tilde{d} = \frac{d}{1+d}$. The first two axioms are immediate from the fact that $d$ is a metric. Now, if $0 \leq a \leq b$, then $\frac{a}{1+a} \leq \frac{b}{1+b}$ since this is true if and only if $a+ab \leq b + ab$, which holds if and only if $a \leq b$. Then \begin{align*}
         \tilde{d}(x,y) = \frac{d(x,y)}{1+d(x,y)} &\leq \frac{d(x,z) + d(z,y)}{1+d(x,z)+d(z,y)} \\
         &= \frac{d(x,z)}{1+d(x,z)+d(z,y)} + \frac{d(z,y)}{1+d(x,z)+d(z,y)} \\
         &\leq \frac{d(x,z)}{1+d(x,z)} + \frac{d(z,y)}{1+d(z,y)} \\
         &= \tilde{d}(x,z) + \tilde{d}(z,y)
     \end{align*}
-\end{eg}
+\end{example}
 
 Even if $V$ is a normed linear space, and $d$ is induced by a norm, the metric $\tilde{d}$ is never induced by a norm, unless $V$ is zero dimensional. Indeed, suppose $d(v,w) = ||v-w||$ and $\dim V > 0$, then $\tilde{d}(v,w) = \frac{||v-w||}{1+||v-w||}$. Assume for the sake of contradiction that $\tilde{d}(v,w) = |||v-w|||$ for some norm $|||\cdot |||$. If $v \neq 0$, $\tilde{d}(v,0) = |||v||| = \frac{||v||}{1+||v||}$. But $$|||2v||| = \frac{||2v||}{1+||2v||} = \frac{2||v||}{1+2||v||} \neq \frac{2||v||}{1+||v||} = 2|||v|||$$
 
@@ -314,50 +316,50 @@ Even if $V$ is a normed linear space, and $d$ is induced by a norm, the metric $
 
 Throughout this section let $(X,d)$ be a metric space. Then we can define convergence of sequences as follows: 
 
-\begin{defn}
+\begin{definition}\index{Convergence}
     A sequence, that is a denumerable list of elements, $(x_n)$ in a metric space $(X,d)$ is said to converge if there is an $x \in X$ such that for all $\varepsilon > 0$ there is an $N \in \N$ such that $n \geq N$ implies $d(x_n,x) < \varepsilon$. Equivalently, if $\lim\limits_{n\rightarrow \infty}d(x_n,x) = 0$.
-\end{defn}
+\end{definition}
 
-\begin{eg}
+\begin{example}
     Vectors $\vec{x}_n$ in $\ell_n^p$ converge to $\vec{x}$ if and only if $||\vec{x}_n - \vec{x}||_p\rightarrow 0$.
-\end{eg}
+\end{example}
 This is identical for all normed linear spaces
 
-\begin{eg}
+\begin{example}
     $f_n$ in $\mathcal{C}_b(S)$ for $S \subseteq \R$ converge to $f \in \mathcal{C}_b(S)$ if and only if $||f_n-f||_{\infty}\rightarrow 0$. That is, convergence in this space is uniform convergence.
-\end{eg}
+\end{example}
 
 
-\begin{defn}
+\begin{definition}\index{Cauchy}
     A sequence $(x_j)_{j=1}^{\infty}$ in a metric space $X$ is said to be \Emph{Cauchy} (with respect to $d$) if and only if $d(x_j,x_k)$ converges to $0$ in $\R$ as $k$ and $j$ go to infinity. Equivalently, if and only if for all $\varepsilon > 0$ there is an $N \in \N$ such that $m,n \geq N$ implies $$d(x_n,x_m) < \varepsilon$$
-\end{defn}
+\end{definition}
 
-\begin{prop}
+\begin{proposition}
     In any metric space $(X,d)$, convergent sequences are Cauchy.
-\end{prop}
+\end{proposition}
 \begin{proof}
     Suppose $x_n\rightarrow x$ in $X$. Then for $\varepsilon > 0$ there exists $N \in \N$ such that for $n \geq N$, $d(x_n,x) < \varepsilon/2$. It follows that for $m,n \geq N$, $$d(x_n,x_m) \leq d(x_n,x) + d(x,x_m) < \varepsilon/2+\varepsilon/2 = \varepsilon$$ so the sequence is Cauchy.
 \end{proof}
 
 
-\begin{defn}
+\begin{definition}\index{Completeness}
     $X$ is said to be a \Emph{complete metric space}, or a \Emph{Fr\'{e}chet space}, if and only if for all Cauchy sequences $(x_j)_{j=1}^{\infty} \subseteq X$, there exists $x \in X$ such that $x_j$ converges to $x$.
-\end{defn}
+\end{definition}
 
-\begin{eg}
+\begin{example}
     With respect to the usual absolute value metric, $\R$ is complete. With this same metric, $\Q$ is not complete. For $\Q$, let $x_n = $ the $n$th decimal truncation of $\sqrt{2}$. In $\R$ $x_n\rightarrow \sqrt{2}$, and limits are unique. Since $\Q$ is a metric subspace of $\R$ under the same metric, it must have the same limit. But $\sqrt{2} \notin \Q$.
-\end{eg}
+\end{example}
 
-\begin{eg}
+\begin{example}
     Every discrete space is complete. Indeed, if $(X,d)$ is a discrete space, then $x_n$ converges to $x \in X$ if and only if there exists $N \in \N$ such that $x_n = x$ for all $n \geq N$, and equivalently, $x_n$ is Cauchy if and only if there exists $N \in \N$ such that $x_n = x_m$ for all $n,m \geq N$.
-\end{eg}
+\end{example}
 
-\begin{eg}
+\begin{example}
     The space $\mathcal{C}_b(S)$ for $S \subseteq \R$ is complete. The norm here is the supremum norm, $||\cdot||_{\infty}$. Recall the Cauchy criterion for uniform convergence: $f_n\rightarrow_uf$ if and only if $f_n$ is Cauchy with respect to $||\cdot||_{\infty}$. Additionally, as the uniform limit of a sequence of bounded functions is bounded, the limit function will also be in $\mathcal{C}_b(S)$. But, $\mathcal{C}_c(S)$ is not generally complete. Consider $f_n \in \mathcal{C}_c(\R)$, with $$f_n(x) = \left\{\begin{array}{cc}\frac{1}{1+x^2} & x \in [-n,n] \\ \text{``continuous linear piecewise"} & x \in [-n-1,-n]\cup[n,n+1] \\ 0 & x < -(n+1)\text{ or } x > n+1\end{array}\right.$$ $f_n \in \mathcal{C}_c(\R)$ since $(-n-1,n+1) = \{x\vert f_n(x) \neq 0\}$ has compact closure $[-n-1,n+1]$. First, for $\varepsilon > 0$, there exists $N \in \N$ such that $\frac{1}{1+N^2} < \varepsilon$. Then for $n \geq N$ we have that $||f_n-f||_{\infty} \leq \frac{1}{1+N^2} < \varepsilon$, so $f_n\rightarrow_uf$. But, $f(x) = \frac{1}{1+x^2} \notin \mathcal{C}_c(\R)$. So $\mathcal{C}_c(\R)$ is not complete.
-\end{eg}
+\end{example}
 
 
-\begin{eg}
+\begin{example}
     The continuous function on $[0,1]$ with norm $||f||_1 = \int_0^1|f(x)|dx$ is not complete. Let $f_n$ be the piecewise continuous function $$f_n(x) = \left\{\begin{array}{cc} 1 & 0 \leq x \leq 1/2 \\ -\frac{2}{n}\left(x-\frac{n+2}{2n}\right) & \frac{1}{2} \leq x \leq \frac{1}{2}+\frac{1}{n} \\ 0& 1\geq x \geq \frac{1}{2}+\frac{1}{n} \end{array}\right.$$ Let $n\geq m \in \N$. Then for $0 \leq x \leq 1/2$, $|f_n(x)-f_m(x)| = 0 \leq \frac{1}{n}+\frac{1}{m}$. If $1/2\leq x \leq 1/2+1/n$, then \begin{align*}
         ||f_n - f_m||_1 &= \int_0^1|f_n(x) - f_m(x)|dx \\
         &= \int_{1/2}^{1/2+1/n}|f_n(x)-f_m(x)|dx + \int_{1/2+1/n}^{1/2+1/m}|f_n(x)-f_m(x)|dx \\
@@ -373,19 +375,19 @@ This is identical for all normed linear spaces
         &= \frac{1}{2n}\rightarrow 0
     \end{align*}
     But $f$ is not continuous, and so not in $\mathcal{C}([0,1])$. The limit $f$ does however reside in the larger space $L^1([0,1])$, where it is the limit of $f_n$. In the subspace $\mathcal{C}([0,1])$, there is no limit.
-\end{eg}
+\end{example}
 
-\begin{prop}
+\begin{proposition}
     Limits of convergent sequences are unique in any metric space.
-\end{prop}
+\end{proposition}
 \begin{proof}
     Suppose $x_n\rightarrow x$ and $x_n \rightarrow y$. Then $d(x,y) \leq d(x,x_n)+d(x_n,y)\rightarrow 0+0 = 0$, so $d(x,y) = 0$ which holds if and only if $x=y$ by properties of metrics.
 \end{proof}
 
 
-\begin{thm}
+\begin{theorem}
     Let $\{\vec{x}_m\}$ be a sequence of vectors in $\R^n$. Write $\vec{x}_m = (x_{m,1},...,x_{m,n})$ so that each $\{x_{m,i}\}$ is a sequence of real numbers. Then $\vec{x}_m$ converges in any $p$-norm if and only if each $x_{m,i}$ converges.
-\end{thm}
+\end{theorem}
 \begin{proof}
     First, if $p = \infty$, then $||\vec{x}_k-\vec{x}||_{\infty}\rightarrow 0$ if and only if $\max_{1\leq k \leq n}|x_{k,i}-x_i|\rightarrow 0$, which occurs if and only if $|x_{k,i}-x_i| \rightarrow 0$ for all $1 \leq i \leq n$, as desired.
 
@@ -397,15 +399,15 @@ This is identical for all normed linear spaces
     so if $||\vec{x}_k-\vec{x}||_p\rightarrow 0$, then $|x_{k,i} - x_i|\rightarrow 0$ for all $1 \leq i \leq n$. Conversely, if each $x_{k,i}\rightarrow x_i$ for all $1 \leq i \leq n$, then $$||\vec{x}_k-\vec{x}||_p^p = \sum_{i=1}^n|x_{k,i}-x_i|^p \rightarrow 0+...+0$$ so$ ||\vec{x}_k-\vec{x}||_p\rightarrow 0$
 \end{proof}
 
-\begin{cor}
+\begin{corollary}
     The space $\ell_n^p$ is complete for any $p \geq 1$, including $p = \infty$, and any $n \geq 1$.
-\end{cor}
+\end{corollary}
 \begin{proof}
     Using the same notation and argument in the previous proposition, we can show $(\vec{x}_k)$ in $\ell_n^p$ is Cauchy if and only if $\{x_{k,i}\}$ is Cauchy in $\R$ for all $1 \leq i \leq n$. But $\{x_{k,i}\}$ is Cauchy in $\R$ if and only if it converges since $\R$ is a cmoplete metric space. Thus, by the proposition $(\vec{x}_k)$ converges in $\ell_n^p$
 \end{proof}
 
 
-\begin{eg}[Doubly recursive sequence in $\R^2$]
+\begin{example}[Doubly recursive sequence in $\R^2$]
     In $\ell_2^2$ let $\vec{v}_0 = [0\;0]^T$ and $\vec{v}_n = [x_n\;y_n]$ where $$x_{n+1} = \frac{x_n+y_n+1}{2}$$ and $$y_{n+1} = \frac{x_n - y_n+1}{2}$$ So for instance $\vec{v}_1 = [1/2\;1/2]^T,\vec{v}_2 = [1\;1/2]^T,\vec{v}_3 = [5/4\;3/4]^T,$ and $\vec{v}_4 = [3/2\;3/4]^T$. I claim that $\vec{v}_n\rightarrow [2\;1]^T$. For now, assume it converges to $[x\;y]^T$. Then \begin{align*}
         [x\;y]^T = \lim\limits_{n\rightarrow \infty}\frac{1}{2}[x_n+y_n+1\;x_n-y_n+1]^T = \frac{1}{2}[x+y+1\;x-y+1]^T
     \end{align*}
@@ -424,18 +426,18 @@ This is identical for all normed linear spaces
         &=\frac{5}{2^{n+1}}\rightarrow 0
     \end{align*}
     as claimed.
-\end{eg}
+\end{example}
 
 
 \section{Topology of Metric Spaces}
 
 We now define the natural topology on metric spaces defined by their metrics:
 
-\begin{defn}
+\begin{definition}\index{Balls}
     Let $(X,d)$ be a metric space. For $x_0 \in X$ and $r > 0$, define the \Emph{open ball centred at $x_0$ of radius $r$} by $$B_r(x_0) = \{x \in X\vert d(x,x_0) < r\}$$ The \Emph{closed ball centred at $x_0$ of radius $r$} is $$\overline{B}_r(x_0) = \{x \in X\vert d(x,x_0) \leq r\}$$ If $V$ is a normed linear space, the \Emph{unit ball} is the set $B_1(0)$ and the \Emph{closed unit ball} is the set $\overline{B}_1(0)$.
-\end{defn}
+\end{definition}
 
-\begin{eg}
+\begin{example}
     We draw the unit balls for $\ell_2^1, \ell_2^2,\ell_2^4$, and $\ell_2^{\infty}$. Note for $p=1$ $$B_1(\vec{0}) = \{[x\;y]^T\vert|x|+|y| < 1\}$$ for $p = 2$, $$B_1(\vec{0}) = \{[x\;y]^T\vert x^2+ y^2 < 1\}$$ for $p = 4$ $$B_1(\vec{0}) = \{[x\;y]^T\vert x^4+ y^4 < 1\}$$ and for $p = \infty$ $$B_1(\vec{0}) = \{[x\;y]^T\vert \max\{|x|,|y|\}< 1\}$$
     \begin{center}
         \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
@@ -539,162 +541,162 @@ We now define the natural topology on metric spaces defined by their metrics:
 
 \end{tikzpicture}
     \end{center}
-\end{eg}
+\end{example}
 
 
-\begin{eg}
+\begin{example}
     The closed unit ball for $\mathcal{C}([0,1])$ is given by $$\overline{B}_1(0) = \{f\vert||f||_{\infty} \leq 1\}$$ which is any function $f \in \mathcal{C}([0,1])$ contained in the unit rectangle.
-\end{eg}
+\end{example}
 
-\begin{defn}[Interior]
+\begin{definition}[Interior]\index{Interior}
     Suppose $(X,d)$ is a metric space and $x_0 \in S \subseteq X$. We say that $x_0$ is an \Emph{interior point for $S$} if there is an $r > 0$ such that $B_r(x_0) \subseteq S$. The \Emph{interior of $S$}, denoted $\text{Int}S$ of $S^{\circ}$ is the set of all interior points for $S$. We say that $S$ is \Emph{open in $X$} if $S = S^{\circ}$.
-\end{defn}
+\end{definition}
 
-\begin{eg}
+\begin{example}
     In any metric space $X$, both $X$ and $\emptyset$ are always open. $\emptyset$ is open since it contains only interior points, vacuously. If $x_0 \in X$, then $B_r(x_0) \subseteq X$ for any $r > 0$ by definition.
-\end{eg}
+\end{example}
 
-\begin{eg}
+\begin{example}
     Any open ball is open. Fix $x_0 \in X$ and $r > 0$. Let $y \in B_r(x_0)$. Let $\delta = r - d(y,x_0) > 0$. Then for all $z \in B_{\delta}(y)$, $d(z,x) \leq d(z,y) + d(y,x_0) < r-d(y,x_0) + d(y,x_0) = r$, so $z \in B_r(x_0)$. Thus $B_{\delta}(y) \subseteq B_r(x_0)$, so the ball is indeed open.
-\end{eg}
+\end{example}
 
-\begin{eg}
+\begin{example}
     Suppose $X$ is any set and $d$ the discrete metric. Then every subset of $X$ is open. Indeed, for any $x_0$, $B_{1/2}(x_0) = \{x_0\}$. Thus, if $S \subseteq X$, for all $x \in S$, $B_{1/2}(x) \subseteq S$ so $S$ is open.
-\end{eg}
+\end{example}
 
-\begin{eg}
+\begin{example}
     The set $S = \{(x,y)\vert y > x^2\}$ is open in $\ell_2^p$ for any $p \geq 1$. Let $f(x,y) = y-x^2$, so $S = f^{-1}((0,\infty)) = \{(x,y)\vert f(x,y) > 0\}$. Then $f$ is continuous and as we will show later, this implies the inverse image of an open set is open in $X$.
-\end{eg}
+\end{example}
 
-\begin{prop}
+\begin{proposition}
     Let $I$ be an arbitrary index set and $\{V_i\}_{i \in I}$ a collection of open sets in a metric space $X$. Then $\bigcup_{i \in I}V_i$ is open in $X$. If $U_1,...,U_n$ are open sets in $X$, then $\bigcap_{i=1}^nU_i$ is open in $X$.
-\end{prop}
+\end{proposition}
 \begin{proof}
     Let $V = \bigcup_{i\in I}U_i$, and let $x \in V$. Then there exists $i \in I$ such that $x \in U_i$. As $U_i$ is open there exists $r > 0$ such that $B_r(x) \subseteq U_i \subseteq V$, so $V$ is also open. Let $U = \bigcap_{i=1}^nU_i$ and let $x \in U$. Then for each $i$, $x \in U_i$ so as $U_i$ is open there exists $r_i > 0$ such that $B_{r_i}(x) \subseteq U_i$. Let $r = \min\{r_1,...,r_n\} > 0$. Then $B_r(x) \subseteq B_{r_i}(x) \subseteq U_i$ for all $i$, so $B_r(x) \subseteq U$. Thus, $U$ is indeed open as claimed.
 \end{proof}
 
-\begin{eg}
+\begin{example}
     The intersection of infinitely many open sets may not be open. Using the usual metric on $\R$, $\bigcap_{n=1}^{\infty}(-1/n,1/n) = \{0\}$, which is not open in $\R$.
-\end{eg}
+\end{example}
 
-\begin{defn}
+\begin{definition}\index{Closed sets}
     Let $X$ be a metric space. We say that $S \subseteq X$ is \Emph{closed in $X$} if $X\backslash S$ is open in $X$.
-\end{defn}
+\end{definition}
 
-\begin{eg}
+\begin{example}
     In any metric space $X$, the subsets $X$ and $\emptyset$ are always closed.
-\end{eg}
+\end{example}
 
-\begin{eg}
+\begin{example}
     Closed balls are closed: \begin{equation*}
         \overline{B}_r(x_0) = \{y \in X\vert d(x_0,y) \leq r\}
     \end{equation*}
     So $X \backslash \overline{B}_r(x_0) = \{y \in X\vert d(x_0,y) > r\}$ This is open by the same argument used for $B_r(x_0)$.
-\end{eg}
+\end{example}
 
-\begin{eg}
+\begin{example}
     In any discrete space, all subsets are closed. Every $X \backslash Y$ is open, so $Y = X\backslash(X\backslash Y)$ is closed.
-\end{eg}
+\end{example}
 
 
-\begin{prop}
+\begin{proposition}
     Let $I$ be an arbitrary index set and $\{S_i\}_{i \in I}$ a collection of closed sets in a metric space $X$. Then $\bigcap_{i \in I}S_i$ is closed in $X$. If $T_1,...,T_n$ are closed sets in $X$, then $\bigcup_{i=1}^nT_i$ is closed in $X$.
-\end{prop}
+\end{proposition}
 The proof of these statements follow by the corresponding statements for open sets and deMorgan's laws.
 
-\begin{eg}
+\begin{example}
     In $\R$ the intervals $(a,b), (-\infty,b),(a,\infty)$, and $\R$ are open, the intervals $[a,b],[a,\infty),(-\infty,b]$ and $\R$ are closed, and $(a,b]$ and $[a,b)$ are neither.
-\end{eg}
+\end{example}
 
 With all of this discussion of open and closed, we not that this rely's heavily on what our parent space is. For example, if $Z \subseteq Y \subseteq X$ are all metric spaces with the same metric, questions like: is $Z$ open in $Y$? Open in $X$? Do these coincide? are answered depending on the exact sets $X$ and $Y$, with the answer to the third being in general no. Consider $Y = [0,1)$ as a metric space under $d(x,y) = |x-y|$. $Y$ is both open and closed in itself, but neither in $\R$. A ball in $Y$ is given by $B_r(y_0) = \{y \in Y\vert d(y_0,y) < r\}$. For instance, $[1/2,1)$ is closed in $Y$ since $Y\backslash[1/2,1) = [0,1/2)$ which is open. Why? Well $(0,1/2)$ are all interior points evidently, but $\{0\}$ is also an interior point since $B_{1/4}(0) = \{y \in [0,1)\vert |y| < 1/4\} = [0,1/4) \subseteq [0,1/2)$.
 
-\begin{prop}
-    Suppose $X$ is a metric space, and $Y \subseteq$ is the induced metric space taken by restricting $d$. Then $V \subseteq Y$ is open in $Y$ if and only if $V = Y\cap U$ for some $U$ which is open in $X$.
-\end{prop}
+\begin{proposition}\index{Subspace}
+    Suppose $X$ is a metric space, and $Y \subseteq X$ is the induced metric space taken by restricting $d$. Then $V \subseteq Y$ is open in $Y$ if and only if $V = Y\cap U$ for some $U$ which is open in $X$.
+\end{proposition}
 \begin{proof}
     Suppose $V \subseteq Y$ is open in $Y$. Then, for all $x \in V$, there exists $r_x > 0$ such that $B_{r_x}^Y(x) = \{y \in Y\vert d(x,y) <r_x\} \subseteq V$. But, $$B_{r_x}^Y(x) = \{y \in X\vert d(x,y) <r_x\}\cap Y = B_{r_x}(x)\cap Y$$ Then, observe that $$V = \bigcup_{x \in V}B_{r_x}^Y(x) = \bigcup_{x \in V}B_{r_x}(x)\cap Y = Y\cap \bigcup_{x\in V}B_{r_x}(x)$$ But, $B_{r_x}(x)$ is open in $X$ for all $x$, so the union is also open in $X$, and $V = Y\cap U$ for $U = \bigcup_{x \in V}B_{r_x}(x)$ open in $X$.
 
     Conversely, suppose $U$ is open in $X$ and let $V = U\cap Y$. Let $x \in V$. Then there exists $r > 0$ such that $B_r(x) \subseteq U$ since $U$ is open. Then $$B_r^Y(x) = B_r(x)\cap Y \subseteq U\cap Y = V$$ so $V$ is open in $Y$, as claimed.
 \end{proof}
 
-\begin{eg}[Products of open sets]
+\begin{example}[Products of open sets]
     Suppose $U_1$ and $U_2$ are open in $(\R,|\cdot |)$. Show that $U_1\times U_2 = \{(x,y)\vert x \in U_1,y \in U_2\}$ is open in $\ell_2^2$. Let $(x_0,y_0) \in U_1\times U_2$. Then there exists $r_i > 0$ such that $B_{r_1}(x_0) \subseteq U_1$ and $B_{r_2}(y_0) \subseteq U_2$. Let $r = \min\{r_1,r_2\}/2$. We claim $B_r((x_0,y_0)) \subseteq U_1\times U_2$. If $(x,y) \in B_r((x_0,y_0))$, then $$|x-x_0| \leq \sqrt{(x-x_0)^2+(y-y_0)^2} < r \leq r_1/2 < r_1$$ and identially for $|y-y_0|$, so $x \in U_1$ and $y \in U_2$, so $(x,y) \in U_1\times U_2$. Thus $B_r((x_0,y_0)) \subseteq U_1\times U_2$ so $U_1\times U_2$ is open.
-\end{eg}
+\end{example}
 
 If $X_1,...,X_n$ are metric spaces with metrics $d_1,...,d_n$, then for any $p\geq 1$ the set $X_1\times...\times X_n$ is a metric space under the metric $$d\left((x_1,...,x_n),(y_1,...,y_n)\right) :=\left[\sum_{i=1}^nd_i(x_i,y_i)^p\right]^{1/p}$$
 
 \subsection{Boundary and Limit Points}
 
 
-\begin{defn}
+\begin{definition}\index{Boundary}\index{Accumulation point}\index{Isolated point}
     Suppose $X$ is a metric space and $S \subseteq X$. We say that $x_0 \in X$ is a \Emph{boundary point for $S$} if for all $r > 0$, the intersections $B_r(x_0) \cap S$ and $B_r(x_0)\cap (X\backslash S)$ are non-empty. The \Emph{boundary of $S$}, denoted $\text{Bd}S$ or $\partial S$, is the set of all boundary points for $S$.
 
     $x_0$ is said to be an \Emph{accumulation point for $S$} (or limit point, or cluster point) if for all $r > 0$, the intersection $(B_r(x_0) \backslash \{x_0\})\cap S$ is non-empty. The set of accumulation points for $S$ is denoted $S'$, and called the \Emph{derived set}. 
 
     $x_0 \in S$ is said to be an \Emph{isolated point for $S$} if $x_0$ is not in $S'$. Equivalently, there exists $r > 0$ such that $(B_r(x_0)\backslash\{x_0\})\cap S = \emptyset$.
-\end{defn}
+\end{definition}
 
 The interior and isolated points for $S$ belong to $S$, by definition. But boundary points and accumulation points for $S$ may or may not belong to $S$.
 
-\begin{eg}[Subsets of $\R$]
+\begin{example}[Subsets of $\R$]
     Let $S = (-\infty,-3)\cup[1,2)\cup\{3\}\cup\{\pi\}$. Then $S^{\circ} = (-\infty,-3)\cup(1,2)$, $\partial S = \{-3,1,2,3,\pi\}$, $S' = (-\infty,-3]\cup[1,2]$, and the isolated points are $S\backslash S' = \{3,\pi\}$. Note that $S\cup S' = S\cup \partial S$ (this isn't a coincidence).
-\end{eg}
+\end{example}
 
-\begin{eg}
+\begin{example}
     Consider $S = \{(x,y) \in \ell_2^2\vert y^2-x^2 > 1\}$. $S$ is open, so $S^{\circ} =S$. $\partial S \{(x,y)\vert y^2-x^2 = 1\}$, and in this case $S^{\circ} \subseteq S'$, so $S' = S \cup \partial S = \{(x,y)\vert y^2-x^2\geq 1\}$. There are no isolated points for this set.
-\end{eg}
+\end{example}
 
-\begin{eg}
+\begin{example}
     Consider $\Q^n \subseteq \ell_n^p$. Then $\partial \Q^n = \R^n$, $(\Q^n)' = \R^n$ ($\Q^n$ is dense in $\R^n$), ${\Q^n}^{\circ} = \emptyset$, and there are no isolated points. This follows from $\Q' = \partial \Q = \R$ and $\Q^{\circ}  = \emptyset$ in $\R$ under the usual metric.
-\end{eg}
+\end{example}
 
-\begin{eg}
+\begin{example}
     Let $V$ be a normed linear space, $r > 0$, and $v_0 \in V$. Then $B_r(v_0)$ is open so $B_r^{\circ}(v_0) = B_r(v_0)$. Further, $\partial(B_r(v_0)) = \{v \in V\vert ||v-v_0|| = r\}$ (the sphere of radius $r$).
-\end{eg}
+\end{example}
 
-\begin{eg}
+\begin{example}
     If $X$ is any set under the discrete metric, we've already seen that any $S \subseteq X$ is both open and closed. Every point in $S$ is isolated since $B_{1/2}(x_0) = \{x_0\} \subseteq S$. But, $\partial S = \emptyset$ since $B_{1/2}(x_0) = \{x_0\}$, so either $B_r(x_0)\cap S$ or $B_r(x_0) \cap (X\backslash S)$ is empty.
-\end{eg}
+\end{example}
 
-\begin{prop}
+\begin{proposition}
     A subset $S$ of a metric space $X$ is closed in $X$ if and only if $S' \subseteq S$.
-\end{prop}
+\end{proposition}
 \begin{proof}
     Suppose $S$ is closed in $X$ and $x_0 \in S'$. For the sake of contradiction suppose $x_0 \in X\backslash S = U$, which is open. Then there exists $r > 0$ such that $B_r(x_0) \subseteq U$. But then $B_r(x_0) \cap S = \emptyset$, which implies $(B_r(x_0)\backslash\{x_0\})\cap S = \emptyset$, contradicting the fact that $x_0 \in S'$. Thus, $S' \subseteq S$.
 
     Conversely, suppose $S' \subseteq S$, and towards a contradiction suppose $S$ is not closed, so $U = X\backslash S$ is not open. Then there exists $x \in U$ such that for all $r > 0$, $B_r(x) \cancel{\subseteq} U$, and in particular $(B_r(x)\cap \{x\})\cap S \neq \emptyset$ for all $r > 0$. Thus, by definition $x \in S'$. But then $x \in S$ as $S' \subseteq S$, and $x \in X\backslash S$ which implies $x \notin S$, which is a contradiction. Consequently we conclude that $S$ must be closed.
 \end{proof}
 
-\begin{prop}
+\begin{proposition}
     Suppose $X$ is a metric space with $x_0 \in X$ and $S \subseteq X$. Then $x_0 \in S'$ if and only if there is a sequence $\{x_n\}$ in $S\backslash\{x_0\}$ with $x_n$ converging to $x_0$.
-\end{prop}
+\end{proposition}
 \begin{proof}
     If $x_0 \in S'$, then for all $n \in \N$, $B^*_{1/n}(x_0) \cap S\neq \emptyset$, where $B^*_{1/n}(x_0) = (B_{1/n}(x_0)\backslash \{x_0\})$. Then by the axiom od choice, for each$ n \in \N$ we can choose $x_n \in (B_{1/n}(x_0)\backslash\{x_0\})\cap S$. Then $0 < d(x_0,x_n) < 1/n$ for each $n$. Thus $\lim\limits_{n\rightarrow \infty}d(x_0,d_n) = 0$, so $\lim\limits_{n\rightarrow \infty}x_n = x_0$.
 
     Conversely, suppose there exists $(x_n) \subseteq S\backslash\{x_0\}$ with $d(x_n,x_0)\rightarrow 0$. If $r > 0$, find $N \in \N$ such that if $n \geq N$, $d(x_n,x_0) < r$. Then $x_N \in B_r^*(x_0)\cap S$, so as $r$ was arbitrary $x_0 \in S'$.
 \end{proof}
 
-\begin{eg}
+\begin{example}
     The \Emph{general linear group} over the reals of order $2$ is given by $$\GL_2(\R) := \{A \in M_2(\R)\vert \det A \neq 0\}$$ Think of $\GL_2(\R)$ as a subset of $\ell_4^2$ (as a metric space). That is, $$d\left(\begin{bmatrix} a & b \\ c & d\end{bmatrix},\begin{bmatrix} x & y \\ z & t\end{bmatrix}\right) := \sqrt{(a-x)^2+(b-y)^2 + (c-z)^2 + (d-t)^2}$$ Then $\GL_2(\R)$ is open in $M_2(\R)$. We will show $M_2(\R)\backslash GL_2(\R)$ is closed. Combining the above two results, it suffices to show that if $A_n = \begin{bmatrix} a_n & b_n \\ c_n & d_n\end{bmatrix} \in M_2(\R) \backslash\GL_2(\R)$ and $A_n \rightarrow A = \begin{bmatrix} a & b \\ c & d\end{bmatrix} \in M_2(\R)$, then $A \in M_2(\R)\backslash\GL_2(\R)$. We know in $\ell_4^2$ that $\begin{bmatrix} a_n & b_n \\ c_n & d_n\end{bmatrix}\rightarrow \begin{bmatrix} a & b \\ c & d\end{bmatrix}$ if and only if $a_n\rightarrow a,b_n\rightarrow b, c_n\rightarrow c$, and $d_n\rightarrow d$. Then $0 = a_nd_n - b_nc_n\rightarrow ad-bc = \det(A)$, so $\det(A) = 0$ and $A \in M_2(\R)\backslash\GL_2(\R)$ as desired.
-\end{eg}
+\end{example}
 
-\begin{defn}[Closures]
+\begin{definition}[Closures]\index{Closure}
     Suppose $X$ is a metric space and $S \subseteq X$. The \Emph{closure of $S$ in $X$} is the set $$\overline{S} = \bigcap\{B\subseteq X\vert S\subseteq B\text{ and $B$ is closed}\}$$
-\end{defn}
+\end{definition}
 
 Note that $\overline{S}$ is an intersection of closed sets, and hence closed. Additionally, $S \subseteq \overline{S}$ by construction. Finally, $\overline{S}$ is the smallest closed set containing $S$. If $S \subseteq C$ and $C$ is closed, then $C$ is a part of the collection being intersected so $C \supseteq \overline{S}$.
 
-\begin{prop}
+\begin{proposition}
     Suppose $X$ is a metric space and $S \subseteq X$. Then $S$ is closed in $X$ if and only if $\overline{S} = S$.
-\end{prop}
+\end{proposition}
 \begin{proof}
     If $S = \overline{S}$, then $S$ is closed from the discussion above. If $S$ is closed then it is in the collection being intersected so $\overline{S} \subseteq S$. But $S \subseteq \overline{S}$, by construction, so $S = \overline{S}$.
 \end{proof}
 
 
-\begin{prop}
+\begin{proposition}
     Suppose $X$ is a metric space and $S \subseteq X$. Then $S$ is closed in $X$ if and only if whenever $x_n$ is a convergent sequence in $S$ then its limit also belongs to $S$.
-\end{prop}
+\end{proposition}
 \begin{proof}
     If $S$ is closed, we know $S' \subseteq S$. Suppose $(x_n) \subseteq S$, with $x_n\rightarrow x \in X$. If $x \in S'$, then $x \in S$ and we are done. Otherwise $x \notin S'$. So there exists $r > 0$ such that $B_r^*(x) \cap S = \emptyset$. But, there exists $N \in \N$ such that $x_n \in B_r(x)$ for $n \geq N$, while $x_n \notin B_r^*(x)$, so $x_n \in \{x\}$ for all $n \geq N$. Thus, $x = x_N \in S$.
 
@@ -702,64 +704,64 @@ Note that $\overline{S}$ is an intersection of closed sets, and hence closed. Ad
 \end{proof}
 
 
-\begin{eg}
+\begin{example}
     Suppose $A \subseteq B \subseteq X$. We claim $A^{\circ}\subseteq B^{\circ}$. Indeed, if $x_0 \in A^{\circ}$, then there exists $r > 0$ such that $B_r(x_0) \subseteq A \subseteq B$, and hence $x_0 \in B^{\circ}$. However, both statements $\partial A \subseteq \partial B$ and $\partial B \subseteq \partial A$ are false in general. Take $A = [0,1]$, $B = [-1,2]$. Then $\partial A = \{0,1\}$ and $\partial B = \{-1,2\}$.
-\end{eg}
+\end{example}
 
-\begin{eg}
+\begin{example}
     Consider the balls $B_r(x_0) = \{x \in X\vert d(x,x_0) < r\}$ and $\overline{B}_r(x_0) = \{x \in X\vert d(x,x_0) \leq r\}$. What is $\overline{B_r(x_0)}$? First, we have $B_r(x_0) \subseteq \overline{B}_r(x_0)$, which is closed, so $\overline{B_r(x_0)} \subseteq \overline{B}_r(x_0)$. This inclusion can be in some cases strict:
 
     Let $X$ be any set with at least two elements equipped with the discrete metric. Then $\overline{B}_1(x_0) = X$, but $B_1(x_0) = \{x_0\}$ is closed so $\overline{B_1(x_0)} = \{x_0\} \neq X$. 
 
     In a normed linear space, we always have $\overline{B_r(v_0)} = \overline{B}_r(v_0)$. First look at $v_0 = 0$. Then $B_r(0) = \{v \vert ||v|| < r\}$ and if $||v|| = r$ then let $v_n = (1-1/n)v$; Then $||v_n|| = (1-1/n)r < r$, so $v_n \in B_r(0)$ for all $n$ and $||v_n-v||\rightarrow 0$. This implies $v \in B_r(0)'$, so $v \in \overline{B_r(0)}$ and $\overline{B_r(0)} = \overline{B}_r(0)$. If $v_0\neq 0$, we use the identities $$B_r(v_0) = \{v\vert ||v-v_0|| < r\} = \{v+v_0\vert ||v|| < r\}$$ and $\overline{B}_r(v_0) = \{v+v_0\vert ||v|| \leq r\}$. Then, take $v_n = v_0 + (1-1/n)v$ for $||v|| = r$, and the same result holds.
-\end{eg}
+\end{example}
 
 
-\begin{prop}
+\begin{proposition}
     Suppose $X$ is a metric space and $S \subseteq X$. Then \begin{itemize}
         \item[(1)] $S^{\circ} = \bigcup\{U\subseteq S\vert \text{$U$ is open in $X$}\}$
         \item[(2)] $S$ is open if and only if $S^{\circ} = S$.
     \end{itemize}
-\end{prop}
+\end{proposition}
 \begin{proof}
     (1): Suppose $x_0 \in S^{\circ}$. Then there exists $r > 0$ such that $B_r(x_0) \subseteq S$. But $B_r(x_0)$ is open, so $x_0 \in $ union. If $x_0 \in $ union, then $x_0 \in U$ for some open set $U \subseteq S$. $U$ being open implies there exists $r > 0$ such that $B_r(x_0) \subseteq U \subseteq S$, so $x_0 \in S^{\circ}$ and we have set equality.
 
     (2): $S^{\circ}$ is open, so evidently if $S^{\circ} =S$ then $S$ is open. Conversely, if $S$ is open then $x_0 \in S^{\circ}$ for all $x_0 \in S$, so $S^{\circ} \subseteq S \subseteq S^{\circ}$. Hence $S = S^{\circ}$.
 \end{proof} 
 
-\begin{eg}
+\begin{example}
     Note that $B_r(x_0) = B_r(x_0)^{\circ}$ as they are open. As $B_r(x_0) \subseteq \overline{B}_r(x_0)$, we also have $B_r(x_0) = B_r(x_0)^{\circ} \subseteq [\overline{B}_r(x_0)]^{\circ}$. In a normed linear space we have equality, but in a discrete space, equality may fail. 
-\end{eg}
+\end{example}
 
-\begin{qst}
+\begin{question}{Question}
     If $S$ is closed, is it true that $\overline{S^{\circ}} = S$? If $S$ is open, is it true that $\overline{S}^{\circ} = S$?
-\end{qst}
+\end{question}
 The answer is no to both! In $\R$, let $S = \Z$. Then $S^{\circ} = \emptyset$, and $\overline{\emptyset} = \emptyset \neq \Z$. For the second, $\overline{S} = \Z$ since the space has no accumulation points, and $S^{\circ} = \emptyset \neq \Z$.
 
 
-\begin{defn}[Bounded Set]
+\begin{definition}[Bounded Set]\index{Bounded}
     A subset $S$ of a metric space $X$ is said to be \Emph{bounded} if there is an $x_0 \in X$ and $r > 0$ such that $S \subseteq B_r(x_0)$.
-\end{defn}
+\end{definition}
 
-\begin{eg}
+\begin{example}
     The usual intervals $(a,b),[a,b),(a,b],[a,b]$ are all bounded. All of which are contained in $B_{2\max\{|a|,|b|\}}(0)$.
-\end{eg}
+\end{example}
 
-\begin{eg}
+\begin{example}
     Bounded subsets of a normed linear space are of the form $S \subseteq B_r(v)$, which implies $||v-v_0|| < r$ for all $v \in S$, or $||v|| < r+||v_0|| = M$ for all $v \in S$, which implies $S \subseteq B_M(0)$. Thus, $S$ is bounded if and only if $||v|| \leq M$ for all $v \in S$ and for some $M > 0$.
-\end{eg}
+\end{example}
 
-\begin{namthm}[Bolzano-Weierstrass]
+\begin{theorem}[Bolzano-Weierstrass]\index{Bolzano-Weierstrass}
     Suppose $p \in [1,\infty]$ and $n \in \N$. Any bounded sequence in $\ell_n^p$ has a convergent subsequence.
-\end{namthm}
+\end{theorem}
 \begin{proof}
     Let $(\vec{x}_k) = ((x_{k,1},...,x_{k,n}))$ be a bounded sequence in $\ell_2^p$, so there exists $M > 0$ such that $$||\vec{x}_k||_p \leq M$$ for all $k \in \N$. If $p < \infty,$ we have $|x_{k,j}| = (|x_{k,j}|^p)^{1/p} \leq M$, and for $p = \infty$ we have directly $|x_{k,j}| \leq M$, for all $k$ and all $1 \leq j \leq n$. So by the Bolzano-Weierstrass theorem for $\R$, there exists a convergent subsequence $x_{s_1(k),1}$ converging to $x \in \R$. Then $x_{s_1(k),2}$ also has a convergent subsequence $x_{s_2(k),2}$ converging to some $x_2 \in \R$. Continuing in this manner we have that for all $1\leq j \leq n-1$ there exists a subsequence $x_{s_{j+1}(k),j+1}$ of $x_{s_j(k),j+1}$ converging to some $x_{j+1} \in \R$. Then $(\vec{x}_{s_n(k)})$ is a subsequence in which for all $1 \leq j \leq n$, $x_{s_n(k),j}$ converges to $x_j \in \R$, so $\vec{x}_{s_n(k)}\rightarrow \vec{x} = (x_1,...,x_n) \in \ell_n^p$. 
 \end{proof}
 
 
-\begin{cor}
+\begin{corollary}
     Any bounded and infinite subset $S$ of $\ell_n^p$ has an accumulation point.
-\end{cor}
+\end{corollary}
 \begin{proof}
     Choose a sequence of distinct points $(\vec{x}_k)$ in $S$, which is possible as $S$ is infinite. This sequence is bounded and hence has a convergent subsequence. Let $\vec{x} \in X$ be the limit. If $x$ occurs in the sequence at $N \in \N$, then $\vec{x} \notin (\vec{x}_{k_j})_{j > N}$ as the points are distinct, for our convergent subsequence. Thus, $(\vec{x}_{k_j})_{j > N} \subseteq S\backslash\{\vec{x}\}$, so by definition $\vec{x} \in S'$.
 \end{proof}
@@ -773,11 +775,11 @@ The answer is no to both! In $\R$, let $S = \Z$. Then $S^{\circ} = \emptyset$, a
 
 As in the case of $\Q$ to $\R$, we can form the completion of a general metric space.
 
-\begin{defn}
+\begin{definition}\Alsoindex{Completeness}{Completion}
     If $(X,d)$ is not complete, we can define its completion $(\hat{X},\hat{d})$ by taking $\hat{X} = \{[(x_j)_{j=1}^{\infty}] : (x_j)_{j=1}^{\infty}\subseteq X\text{ is Cauchy}\}$, where $[(x_j)]$ is the the equivalence class defined by $(x_j) \sim (x_j')$ if and only if $d(x_j,x_j') \rightarrow 0$ in $\R$. For $\xi = [(x_j)]$ and $\eta = [(y_j)]$, we define \begin{equation*}
         \hat{d}(\xi,\eta) := \lim\limits_{j\rightarrow \infty}d(x_j,y_j)
     \end{equation*}
-\end{defn}
+\end{definition}
 It remains to show that $\hat{d}$ is a well defined metric. Note by the triangle inequality $d(x,y) \leq d(x,z) + d(z,y)$, so $d(x,y) - d(x,z) \leq d(y,z)$ and using $d(x,z) \leq d(x,y) + d(y,z)$, $d(x,z) - d(x,y) \leq d(y,z)$. Thus $$|d(x,z) - d(x,y)| \leq d(y,z)$$ Then suppose $(x_j) \sim (x_j')$ and $(y_j) \sim (y_j')$. It follows that \begin{align*}
     |d(x_j,y_j) - d(x'_j,y'_j)| &= |d(x_j,y_j) - d(x_j,y_j') + d(x_j,y_j') - d(x'_j,y'_j)| \\
     &\leq |d(x_j,y_j) - d(x_j,y_j')| + |d(x_j,y_j') - d(x'_j,y'_j)| \\
@@ -794,34 +796,34 @@ and \begin{equation*}
 \end{equation*}
 for any $\mu = [(z_j)] \in \hat{X}$. Thus $(\hat{X},\hat{d})$ is indeed a metric space.
 
-\begin{eg}
+\begin{example}
     Consider $\Q[x]$, the set of polynomials over $\Q$, and define $d(p,q) = \max_{x \in [0,1]}|p(x) - q(x)|$. The max exists as $[0,1]$ is a compact set in $\R$ and all polynomials are continuous. Then $d(p,q) = 0$ if and only if $p = q$, as polynomials of degree $> 0$ have only a finite number of roots, $d(p,q) = d(q,p)$, and $d(p,q) \leq d(p,r) + d(r,q)$ using the triangle inequality for $|\cdot|$ on $\R$. Note this is a countable metric space. But, this is not complete as $\Q$ is not complete. Then $(\hat{X},\hat{d}) = \{[p_j]:(p_j)\text{ is Cauchy in }(\Q[x],d)\}$. We will see that $\hat{X} = \mathcal{C}([0,1])$, all continuous functions in $[0,1]$. This says if $f$ is continuous in $[0,1]$, for all $\varepsilon > 0$ there exists $p \in \Q[x]$ such that $\hat{d}(p,f) < \varepsilon$. Suppose now we define $X = \Q[x]$ with the distance \begin{equation*}
         d_1(p,q) = \max_{x \in [0,1]}|p(x) - q(x)| + \max_{x \in [0,1]}|p'(x) - q'(x)|
     \end{equation*}
     Note $X \subseteq \C^{\infty}([0,1])$. Upon completion we obtain $(\hat{X},\hat{d}_1) = \mathcal{C}^1([0,1])$, the space of all continuous functions with continuous first derivative.
-\end{eg}
+\end{example}
 
 We claim that $\hat{X}$ is indeed a complete metric space:
 
-\begin{lem}
+\begin{lemma}
     $X$ is dense in $\hat{X}$.
-\end{lem}
+\end{lemma}
 and 
-\begin{prop}
+\begin{proposition}
     $(\hat{X},\hat{d})$ is complete.
-\end{prop}
+\end{proposition}
 which follow similarly to the case of $\R$.
 
 
 We now proceed with a full derivation:
 
-\begin{thm}[Completion of a Metric Space]
+\begin{theorem}[Completion of a Metric Space]
     Suppose $(X,d)$ is a metric space. There exists a complete metric space $(\hat{X},\hat{d})$ and an isometry $\varphi:X\rightarrow \hat{X}$ so that $\varphi(X)$ is dense in $\hat{X}$ (i.e. that $\overline{\varphi(X)} = \hat{X}$) Moreover, $\hat{X}$ is uniquely determined by this property up to homeomorphism.
-\end{thm}
+\end{theorem}
 
-\begin{defn}
+\begin{definition}
     The space $\hat{X}$ above is called the \Emph{completion} of $X$.
-\end{defn}
+\end{definition}
 
 What do we mean when we say unique? Suppose $(Y,d_Y)$ is a metric space with an isometry $\varphi:X\rightarrow Y$ such that $\overline{\varphi(X)} = Y$, with $Y$ complete. Then there is a bijective isometry $\Gamma:Y\rightarrow \hat{X}$ such that 
 \begin{center}
@@ -840,9 +842,9 @@ the diagram commutes. Defin $\gamma:\psi(X)\rightarrow \hat{X}$ by $\gamma(\psi(
 
 Note that if $S \subseteq X$ and $X$ is complete, then $\hat{S} \cong \overline{S}$. In this case, $\Gamma$ is just the identity $\id:S\rightarrow \overline{S}$, and note $\overline{S}$ is complete since $X$ is complete. 
 
-\begin{eg}[The Hardy space of the disk]
+\begin{example}[The Hardy space of the disk]
     Let $P = \{a_0 +a_1z+...+z_nz^n\vert n \in \N\cup\{0\},a_i \in \C\}$ denote the polynomials with complex variable $z$. Define a norm $||\cdot||_2$ on $P$ as follows $$||a_0+a_1z+...+a_nx^n||_2 = \sqrt{\sum_{i=0}^n|a_i|^2}$$ $P$ is infinite dimensional with basis $\{1,z,z^2,z^3,...\}$, but $P$ is not complete. Let $p_n(z) = \sum_{k=0}^n\frac{z^k}{k!}$. Then $\{p_n\}$ is Cauchy, but cannot converge to any $g(z) = b_0+b_1z+...+b_mz^m$ with respect to $||\cdot ||_2$, since for $n >> m$, $$||p_n-g||_2^2 = \sum_{k=0}^m\left|\frac{1}{k!}-b_k\right|^2 + \sum_{k=m+1}^n\frac{1}{(k!)^2} \geq\frac{1}{[(m+1)!]^2} > 0$$ So as $n\rightarrow \infty$, there is no way the right hand side goes to $0$. The completion of $P$ is called $H^2(\mathbb{D})$, the \Emph{Hardy space of the unit disk}. We define $$H^2(\mathbb{D}) := \{f:\mathbb{D}\rightarrow \C\vert f\text{ is analytic and }f(z) = \sum_{n=0}^{\infty}a_nz^n\text{ with }\sum_{n=0}^{\infty}|a_n|^2 < \infty\}$$ where $\mathbb{D} = \{z \in \C\vert |z| < 1\}$ with norm $||f||_2 = \sqrt{\sum_{n=0}^{\infty}|a_n|^2}$.
-\end{eg}
+\end{example}
 
 We know prove the completion theorem:
 
@@ -856,19 +858,19 @@ We know prove the completion theorem:
 
 \section{Contractive Maps and Fixed Points}
 
-\begin{defn}[Contractive Map]
+\begin{definition}[Contractive Map]\index{Contraction}
     Suppose $X$ is a metric space. A function $f:X\rightarrow X$ is a \Emph{contractive map} (distance shrinking) if there is a constant $r \in (0,1)$ with $d(f(x),f(y)) \leq rd(x,y)$ for all $x,y \in X$.
-\end{defn}
+\end{definition}
 
 Contractive maps are \Emph{uniformly continuous}, as they are Lipschitz.
 
-\begin{eg}
+\begin{example}
     A bounded operator $T:V\rightarrow V$ is contractive if $||T|| \leq r < 1$ for some $r$, so $$||Tv-Tw|| \leq ||T||||v-w|| \leq r||v-w||$$
-\end{eg}
+\end{example}
 
-\begin{namthm}[Banach Fixed Point Theorem (or the Contraction Mapping Principle)]
+\begin{theorem}[Banach Fixed Point Theorem (or the Contraction Mapping Principle)]\index{Banach Fixed Point Theorem}
     Suppose $X$ is a \Emph{complete metric space} and $f:X\rightarrow X$ is a contractive map. Then $f$ has a \Emph{unique} fixed point. That is there is a unique $x_0 \in X$ such that $f(x_0) = x_0$.
-\end{namthm}
+\end{theorem}
 \begin{proof}
     For uniqueness suppose $x_1$ and $x_2$ are both fixed points, $f(x_1) = x_1$ and $f(x_2) = x_2$. Then $$d(x_1,x_2) = d(f(x_1),f(x_2)) \leq rd(x_1,x_2)$$ for some $0 < r < 1$. This holds if and only if $d(x_1,x_2) = 0$, which is to say $x_1 = x_2$. 
 
@@ -883,9 +885,9 @@ Contractive maps are \Emph{uniformly continuous}, as they are Lipschitz.
 \end{proof}
 
 
-\begin{thm}[Picard's Theorem for First Order Differential Equations]
+\begin{theorem}[Picard's Theorem for First Order Differential Equations]\index{Picard's Theorem}
     Suppose $(x_0,y_0) \in \ell_2^2$, $r > 0$, and let $B = B_r(x_0,y_0)$. If $f:B\rightarrow \R$ is continuous and bounded and there is a $C > 0$ such that $$|f(x,y_1)-f(x,y_2)| \leq C|y_1-y_2|$$ for all pairs $(x,y_1)$ and $(x,y_2)$ in $B$, then there exists a unique solution $y$ to the initial value problem $$\frac{dy}{dx} = f(x,y); y(x_0) = y_0$$ on the interval $(x_0 - \delta,x_0+\delta)$ for some $\delta > 0$.
-\end{thm}
+\end{theorem}
 \begin{proof}
     Let $M = \sup_{(x,y) \in B}|f(x,y)|$. Find $\delta > 0$ such that \begin{itemize}
         \item[(i)] $\delta < \frac{1}{M}$
@@ -908,51 +910,51 @@ Contractive maps are \Emph{uniformly continuous}, as they are Lipschitz.
 
 Recall that $\emptyset \neq S \subseteq \R$ is \Emph{compact} if every sequence in $S$ has a convergent subsequence with limit in $S$. Further, the Heine-Borel theorem told us that $\emptyset \neq S$ is compact if and only if it is closed and bounded. This is not the case for a general metric space, as we shall now show:
 
-\begin{eg}
+\begin{example}
     Let $S = \overline{B}_1(0) \subseteq \mathcal{C}([0,1])$ with the supremum norm. $S$ is closed and bounded, but the sequence $f_n(x) = x^n$ has no uniformly convergent subsequences (it converges pointwise to a discontinuous function).
-\end{eg}
+\end{example}
 
 We now introduce a more topologicall useful definition.
 
-\begin{defn}[Open Covers]
+\begin{definition}[Open Covers]\index{Open Cover}
     Let $X$ be a metric space and $A$ a subset of $X$. A collection $\{U_i\}_{i \in I}$ of open subsets of $X$ is said to be an \Emph{open cover} for $A$ if $$A \subseteq \bigcup_{i\in I}U_i$$ Given such a cover for $A$, a \Emph{finite subcover for $A$} is a finite subcollection $U_{i_1},...,U_{i_n}$ of $\{U_i\}_{i \in I}$ such that $$A \subseteq \bigcup_{j=1}^nU_{i_j}$$
-\end{defn}
+\end{definition}
 
-\begin{defn}[Compactness]
+\begin{definition}[Compactness]\index{Compactness}
     A non-empty susbet $A$ of a metric space $X$ is \Emph{compact in $X$} if every open cover of $A$ in $X$ has a finite subcover. A non-empty subset $A$ is \Emph{sequentially compact in $X$} if every sequence in $A$ has a convergent subsequence whose limit is in $A$.
-\end{defn}
+\end{definition}
 
 In other words:
 
-\begin{defn}
+\begin{definition}\index{Sequentially Compact}
     $X$ is \Emph{sequentially compact} if every sequence $(x_j) \subseteq X$ has a convergent subsequence.
-\end{defn}
+\end{definition}
 
 And we also have:
 
-\begin{defn}
+\begin{definition}\Alsoindex{Sequentially Compact}{Limit point compact}
     $X$ is \Emph{limit point compact} if every infinite subset of $X$ has an accumulation point in $X$.
-\end{defn}
+\end{definition}
 
 These are equivalent for metric spaces by the axiom of choice.
 
-\begin{eg}
+\begin{example}
     $\R$ is not compact. Indeed, we have the open cover $\R = \bigcup_{n=1}^{\infty}(-n,n)$ which has no finite subcover, as $\R \cancel{\subseteq} \bigcup_{k=1}^N(-n_k,n_k) = (-K,K)$ for some $K > 0$. Similarly, $(0,1)$ is not compact since $$(0,1) = \bigcup_{n=1}^{\infty}(0,1-1/n)$$ has no finite subcover.
-\end{eg}
+\end{example}
 
-\begin{eg}
+\begin{example}
     Let $X$ be any set with the discrete metric. Then $A \subseteq X$ is compact if and only if $A$ is finite. If $A$ is finite and $A \subseteq \bigcup_{i \in I}U_i$, then write $A = \{a_1,...,a_n\}$, and for each $k \in \{1,...,n\}$ there exists $U_{i_k}$ such that $a_k \in U_{i_k}$. Then $A \subseteq \bigcup_{k=1}^nU_{i_k}$, which gives a finite subcover. If $A$ is infinite, then $A = \bigcup_{a \in A}\{a\}$ is an open cover with no finite subcover since singletons are open in the discrete metric.
-\end{eg}
+\end{example}
 
-\begin{eg}
+\begin{example}
     I claim that open balls in normed linear spaces are not compact. Indeed, $$B_r(0) = \{v \in V\vert ||v|| < r\} = \bigcup_{0 < s < r}B_s(0)$$ has no finite subcover since $$\bigcup_{j=1}^nB_{s_j}(0) = B_s(0) \subsetneq B_r(0)$$ as $s = \max_{1\leq j \leq n}s_j < r$.
-\end{eg}
+\end{example}
 
 Although not all closed and bounded sets are compact in metric spaces in general, we do have the converse:
 
-\begin{prop}
+\begin{proposition}
     Compact subsets of a metric space are closed and bounded.
-\end{prop}
+\end{proposition}
 \begin{proof}
      Let $a \in \mathcal{A}$ with $\mathcal{A}$ compact in $X$. Then $\{B_n(a)\vert n \in \N\}$ is an open cover for $\mathcal{A}$. By compactness there exist $n_1,...,n_k$ such that $$\mathcal{A} \subseteq \bigcup_{j=1}^kB_{n_j}(a) = B_{\max_{1\leq j \leq k}n_j}(a)$$ so $\mathcal{A}$ is bounded.
 
@@ -961,51 +963,51 @@ Although not all closed and bounded sets are compact in metric spaces in general
 
 We will now show compactness implies sequential compactness - this result will later be repeated with a similar proof.
 
-\begin{prop}
+\begin{proposition}
     Every infintie subset of a compact subset $A$ of a metric space $X$ has an accumulation point in $A$. In particular, if $A$ contains a sequence of distinct points, then that sequence must contain a convergent subsequence. Consequently, compactness implies sequential compactness.
-\end{prop}
+\end{proposition}
 \begin{proof}
     Suppose $C \subseteq A$ with $C$ infinite; if $A$ is finite every sequence has a convergent subseqeunce since every sequence must repeat some point an infinite number of times (pigeon hole principle). We want to show $C'\cap A \neq \emptyset$. Suppose $C'\cap A = \emptyset$. Then for all $a \in A$, there exists $r_a > 0$ with $$(B_{r_a}(a)\backslash\{a\})\cap C = \emptyset$$ The collection $\{B_{r_a}(a):a \in A\}$ is an open cover for $A$. By compactness there exist $a_1,...,a_n$ with $C \subseteq A \subseteq \bigcup_{i=1}^nB_{r_{a_i}}(a_i)$. But then $C$ intersects only the $a_i$, at most, so $C \subseteq \{a_1,...,a_n\}$, contradicting the assumption that $C$ is infinite.
 \end{proof}
 
-\begin{prop}
+\begin{proposition}
     Suppose $A$ is a compact subset in a metric space $X$ and $C$ is a closed subset of $A$ (or $X$). Then $C$ is compact in $A$ (in $X$).
-\end{prop}
+\end{proposition}
 \begin{proof}
     Let $\{U_i\}$ be an open cover for $C$. $C$ is closed in $A$ so $A \backslash C$ is open in $A$. But then $$A \subseteq \left(\bigcup_{i \in I}U_i\right)\cup\left(A\backslash C\right)$$ so $\{U_i\}\cup\{A\backslash C\}$ is an open cover of $A$. But $A$ is compact, so there exist $i_1,...,i_n$ such that $$A \subseteq U_{i_1}\cup...\cup U_{i_n}\cup(A\backslash C)$$ and $C \subseteq U_{i_1}\cup ... \cup U_{i_n}$, so $C$ has a finite subcover and hence is compact.
 \end{proof}
 
-\begin{eg}
+\begin{example}
     As we show in our function section, if $f:X\rightarrow Y$ is continuous and if $X$ is compact, then $f(X)$ is compact in $Y$. Indeed, suppose $\{U_i\}_{i \in I}$ is an open cover for $f(X)$, so $f(X) \subseteq \bigcup_{i \in I}U_i$. Then $$X \subseteq f^{-1}\left(\bigcup_{i \in I}U_i\right) = \bigcup_{i \in I}f^{-1}(U_i)$$ which is an open cover as $f$ is continuous. So $X \subseteq f^{-1}(U_{i_1})\cup...\cup f^{-1}(U_{i_n})$ for some finite subcover, which implies $$f(x) \subseteq U_{i_1}\cup...\cup U_{i_n}$$
-\end{eg}
+\end{example}
 
-\begin{eg}
+\begin{example}
     As we shall show later, continuous invertible maps on compact spaces are homeomorphisms. Suppose $f:X\rightarrow Y$ is continuous and invertible with $X$ compact. Then $f^{-1}$ is continuous and hence $f$ is a homeomorphism. To see this we will show $f(C) = (f^{-1})^{-1}(C)$ is closed whenever $C$ is closed in $X$. But $X$ is compact, so $C$ is compact as it is closed. Then $f(C)$ is compact in $Y$ by the previous result, so $f(C)$ is closed in $Y$, completing the claim.
-\end{eg}
+\end{example}
 
 Note that, as stated above, the property that every infinite subset of $A$ has an accumulation point, often coined \Emph{limit point compactness}, is equivalent to sequential compactness for $A$ in metric spaces.
 
-\begin{defn}
+\begin{definition}\index{Totally bounded}
     A subset $A$ of a metric space $X$ is \Emph{totally bounded} if for every $\varepsilon > 0$ there exists a finite set $\{x_1,...,x_N\} \subseteq X$ such that \begin{equation*}
         A \subseteq \cup_{j=1}^NB_{\varepsilon}(x_j)
     \end{equation*}
-\end{defn}
+\end{definition}
 
-\begin{eg}
+\begin{example}
     Balls may not be totally bounded. Indeed, $\overline{B}_1(0)$ in $\mathcal{C}([0,1])$ is not totally bounded. For example, take $f_n(x) = 0$ for $0 \leq x \leq 1/2^n$, $f_n(x) = 2^{n+1}(x-1/2^n)$ for $1/2^n \leq x \leq 1/2^n+1/2^{n+1}$, $f_m(x) = -2^{n+1}(x-1/2^{n-1})$ for $1/2^n+1/2^{n+1} \leq x \leq 1/2^{n-1}$, and $f_n(x) = 0$ for $1/2^{n-1}\leq x\leq 1$ (disjoint triangles of height $1$)
-\end{eg}
+\end{example}
 
 
-\begin{prop}\label{prop:2.3.1}
+\begin{proposition}\label{prop:2.3.1}
     If $X$ is a sequentially compact metric space, then $X$ is totally bounded.
-\end{prop}
+\end{proposition}
 \begin{proof}
     Let $\varepsilon > 0$. If $X$ is empty, there is nothing to prove, so suppose $X \neq \emptyset$. Let $x_1 \in X$. If $X = B_{\varepsilon}(x_1)$ we're done. Otherwise, choose $x_2 \in X\backslash B_{\varepsilon}(x_1)$. If $X = B_{\varepsilon}(x_1)\cup B_{\varepsilon}(x_2)$, we're done. Then either this process terminates at a finite step, in which case we're done, or we obtain a sequence $x_1,x_2,...$ such that $d(x_j,x_i) \geq \varepsilon$ for all $i \neq j$. But then $(x_j)$ has no convergent subsequence, contradicting the assumption that $X$ is compact. Thus, this process must terminate at a finite step, so there exists $N \in \N$ such that $$X  = \bigcup_{j=1}^NB_{\varepsilon}(x_j)$$
 \end{proof}
 
-\begin{cor}\label{cor:2.3.2}
+\begin{corollary}\label{cor:2.3.2}
     If $X$ is a sequentially compact metric space, then $X$ has a countable dense subset, which is to say $X$ is separable.
-\end{cor}
+\end{corollary}
 \begin{proof}
     By Proposition \ref{prop:2.3.1} $X$ is totally bounded. Let $S_n = \{x_{n1},...,x_{nm_n}\}$ such that \begin{equation*}
         X = \bigcup_{j=1}^{m_n}B_{2^{-n}}(x_{nj}), \;\mathcal{C} := \bigcup_{n=1}^{\infty}S_n
@@ -1015,26 +1017,26 @@ Note that, as stated above, the property that every infinite subset of $A$ has a
 
 This implies a relation between sequentially compact metric spaces and its size. In particular, metric plus compact implies separable.
 
-\begin{prop}\label{prop:2.3.3}
+\begin{proposition}\label{prop:2.3.3}
     If $X$ is a sequentially compact metric space and $K_1 \supseteq K_2 \supseteq ...$ is a chain of non-empty closed subsets, then $\bigcap_{j=1}^{\infty}K_j \neq \emptyset$.
-\end{prop}
+\end{proposition}
 
 The proof of this result is identical to that of the case for Euclidean Spaces, and the same holds for its corollary:
 
-\begin{cor}\label{cor:2.3.4}
+\begin{corollary}\label{cor:2.3.4}
     If $X$ is a sequentially compact metric space and $U_1 \subseteq U_2 \subseteq ...$ is a chain of open sets such that $X = \bigcup_{j=1}^{\infty} U_j$, then there exists $M \in \N$ such that $X = U_M$.
-\end{cor}
+\end{corollary}
 
-\begin{prop}\label{prop:2.3.5}
+\begin{proposition}\label{prop:2.3.5}
     If $X$ is a sequentially compact metric space, then $X$ is topologically compact.
-\end{prop}
+\end{proposition}
 \begin{proof}
     Let $\{U_{\alpha}\}_{\alpha \in J}$ be an open cover of $X$. By Proposition \ref{prop:2.3.2} $X$ is separable, so we have a countable dense subset $\mathcal{C}$. Let $\mathcal{R} = \{B_q(x): x \in \mathcal{C},q \in \Q^+\}$. Then $\mathcal{R}$ is countable. Further, if $U \subseteq X$ is open, for all $p \in U$ there exists $\varepsilon > 0$ such that $B_{\varepsilon}(p) \subseteq U$. Then as $\mathcal{C}$ is dense, $\mathcal{C}\cap B_{\varepsilon/3}(p) \neq \emptyset$, so there exists $c \in \mathcal{C}$ such that $c \in B_{\varepsilon/3}(p)$. Then as $\Q$ is dense in $\R$ there exists $q \in \Q$ such that $\varepsilon/3 < q < 2\varepsilon/3$. It follows that $p \in B_q(c) \subseteq B_{\varepsilon}(p) \subseteq U$. Thus $U = \bigcup\{B \in \mathcal{R}:B \subseteq U\}$, so every open set can be written as a countable union of open sets in $\mathcal{R}$. Then $X = \bigcup_{\alpha \in J}U_{\alpha} = U_{\alpha \in J}\bigcup_{j\geq 1}B_{q_{\alpha,j}}(c_{\alpha,j})$. Suppose $\{B_1,B_2,...\}$ is a countable cover of $X$. Define $U_m = B_1 \cup...\cup B_m$. Then by Corollary \ref{cor:2.3.4} there exists $M \in \N$ such that $X = \bigcup_{j=1}^MB_j$. Thus as $\bigcup_{\alpha \in J}\bigcup_{j\geq 1}B_{q_{\alpha,j}}(c_{\alpha,j})$ is countable, there exists $M \in \N$ such that $X = B_{q_{\alpha_1,i_1}}(c_{\alpha_1,i_1})\cup ... \cup B_{q_{\alpha_M,i_M}}(c_{\alpha_M,i_M})$, so $X = U_{\alpha_1}\cup...\cup U_{\alpha_M}$ is a finite subcover.
 \end{proof}
 
-\begin{namthm}[Heine-Borel Property]\label{thm:2.3.6}
+\begin{theorem}\label{thm:2.3.6}
     If $X$ is a metric space, then $X$ is sequentially compact if and only if it is compact in terms of open covers.
-\end{namthm}
+\end{theorem}
 \begin{proof}
     Proposition \ref{prop:2.3.5} is the forward implication, so suppose $X$ is topologically compact. We show the equivalence with limit point compactness. We argue by contrapositive and suppose $S \subseteq X$ has no accumulation points. Then in particular $S$ is closed, as $\overline{S} = S \cup S' = S$, since $S' = \emptyset$. Then $S_x = S\backslash \{x\}$ for all $x \in S$ is also closed, also having no accumulation points. Then $U_x \in X\backslash S_x$ is a cover for $S$, with $U_x \cap S = \{x\}$. But then $\{U_x\}_{x \in S}\cup\{X\backslash S\}$ is an open cover for $X$. As $X$ is open cover compact, we have $x_1,...,x_n$ such that $U_{x_1},...,U_{x_n},X\backslash S$ covers $X$. But then $U_{x_1},...,U_{x_n}$ covers $S$, so $S = \bigcup_{i=1}^nS\cap U_{x_i} = \{x_1,...,x_n\}$ so $S$ is finite. Thus, $X$ is limit point compact, completing the proof.
 \end{proof}
@@ -1042,9 +1044,9 @@ The proof of this result is identical to that of the case for Euclidean Spaces, 
 
 Note that a metric space which is compact is totally bounded and complete. Now we have the converse:
 
-\begin{prop}\label{prop:2.3.7}
+\begin{proposition}\label{prop:2.3.7}
     If $X$ is a complete metric space which is totally bounded, then $X$ is compact.
-\end{prop}
+\end{proposition}
 \begin{proof}
     Let $S \subseteq X$ be infinite. Because $X$ is totally bounded, there exist $x_1,...,x_N \in X$ such that $X \subseteq \bigcup_{j=1}^NB_{1/2}(x_j)$. Since $S \subseteq X$ is infinite, by the pigeon hole principle there exists $x_j =: x^1$ such that $B_{1/2}(x^1)\cap S$ is infinite. Then there exists $\{x_{2,1},...,x_{2,N_2}\} \subseteq X$ such that $X \subseteq \bigcup_{j=1}^{N_2}B_{1/2^2}(x_{2,j})$ and again there exists $x_{2j} =: x^2$ such that $B_{1/2^2}(x^2) \cap (B_{1/2}(x^1)\cap S)$ is infinite. Continuing in this way there exists $x^j \in X$ such that \begin{equation*}
         B_{1/2^j}(x^j)\cap ... \cap B_{1/2}(x^1)\cap S
@@ -1054,9 +1056,9 @@ Note that a metric space which is compact is totally bounded and complete. Now w
 
 We prove this result again, with its converse, as follows
 
-\begin{thm}
+\begin{theorem}[General Heine-Borel Theorem]\Alsoindex{Heine-Borel}{Generalized Heine-Borel}
     A non-empty subset $A$ of a metric space $X$ is compact in $X$ if and only if $A$ is complete and totally bounded.
-\end{thm}
+\end{theorem}
 \begin{proof}
     Suppose $A$ is compact and $r>0$. Then $\{B_r(x)\vert x \in A\}$ is an open cover for $A$. So there exist $x_1,...,x_n \in X$ with $A \subseteq B_r(x_1)\cup ... \cup B_r(x_n)$. So $A$ is totally bounded. If $\{x_n\} \subseteq A$ is Cauchy, then there exists a subsequence $x_{n_k}\rightarrow x \in A$ by sequential compactness. Then as the sequence is Cauchy and a subsequence converges, $x_n\rightarrow x$. So $A$ is complete. 
 
@@ -1064,11 +1066,11 @@ We prove this result again, with its converse, as follows
 \end{proof}
 
 
-\begin{prop}\label{prop:2.3.8}
+\begin{proposition}\label{prop:2.3.8}
     If $X$ is a compact metric space, then $\text{diam}(X) < \infty$, where \begin{equation*}
         \text{diam}(X) = \sup\{d(x,y):x,y \in X\}
     \end{equation*}
-\end{prop}
+\end{proposition}
 \begin{proof}
      As $X$ is compact there exist $x_1,...,x_N \in X$ such that $X \subseteq \bigcup_{j=1}^NB_1(x_j)$. Then, let $M = \max\{d(x_i,x_j):1\leq i,j\leq N\}$. Now, let $x,y \in X$. Then there exist $i,j$ such that $x \in B_1(x_i)$ and $y \in B_1(x_j)$. It follows that $$d(x,y) \leq d(x,x_i) + d(x_i,x_j) + d(x_j,y) < 1+M+1 = M+2$$ Thus, we have that $\text{diam}(X) \leq M+2 < \infty$, as desired.
 \end{proof}
@@ -1076,29 +1078,29 @@ We prove this result again, with its converse, as follows
 
 We now prove this result ones more using a slightly different technique, and slightly different results. 
 
-\begin{defn}
+\begin{definition}\index{Base}
     Let $X$ be a metric space and let $\{U_n\}_{n \in \N}$ be a countable collection of open sets in $X$. If for any open set $V$ of $X$, and any $x \in V$, there exists $i$ such that $x \in U_i \subseteq V$, then $\{U_n\}_{n\in\N}$ is a countable bases for the topology on $X$, and is called a \Emph{countable base for $A$}.
-\end{defn}
+\end{definition}
 
-\begin{lem}
+\begin{lemma}
     Suppose $A$ is a non-empty subset of a metric space $X$ with the property that every infinite subset of $A$ has an accumulation point (i.e. that $\overline{A}$ is sequentially compact). Then there are open sets $\{U_n\}_{n \in \N}$ of $X$ with the property that if $V$ is any open set in $X$ and $x \in A \cap V$, then there is a $U_i$ with $x \in U_i \subseteq V$.
-\end{lem}
+\end{lemma}
 That is $A$ has a countable base.
 \begin{proof}
     We claim for each $n \in \N$ there is a finite set $\{x_1,...,x_{N(n)}\}\subseteq X$ such that $$A \subseteq \bigcup_{j=1}^{N(n)}B_{1/n}(x_j)$$ We show this by contradiction, assuming the inclusion does not hold. Thus, there is no finite collection of balls of radius $1/n$ covering $A$, for some $n$. Let $y_1 \in A$ with $A \cancel{\subseteq}B_{1/n}(y_1)$, $y_2 \in A\backslash B_{1/n}(y_1)$ with $d(y_2,y_1) \geq 1/n$, and inductively take $y_{k+1} \in A\backslash\bigcup_{j=1}^kB_{1/n}(y_j)$ with $d(y_j,y_{k+1}) \geq 1/n$ for all $1 \leq j \leq k$. By construction $\{y_k\}$ consists of infinitely many points. But it has no accumulation points since $d(y_i,y_j) \geq 1/n$ for all $i$ and $j$. This contradicts the assumption that any infinite set in $\overline{A}$ has an accumulation point. So we take the countable collection $$\{B_{1/n}(x_i)\vert n \in \N,1 \leq i \leq N(n)\}$$ This collection satisfies the conclusion of the theorem.
 \end{proof}
 
-\begin{thm}
+\begin{theorem}
     A non-empty subset $A$ of a metric space $X$ is compact in $X$ if and only if it is sequentially compact in $X$.
-\end{thm}
+\end{theorem}
 
 \begin{proof}
     We already have compactness implies sequential compactness. Suppose $A$ is sequentially compact. Suppose $A \subseteq \bigcup_{i\in I}U_i$ is an open cover. We first prove $A$ has a countable subcover. Let $x \in A$ so $x \in U_i$ for some $i$. $\overline{A} = A$ satisfies the hypotheses of the result above. Let $\{V_n\}_{n \in \N}$ be the collection in the conclusion. There exists $V_j$ with $x \in V_j \subseteq U_i$. Thus, $$A \subseteq \bigcup_{j=1}^{\infty}V_j \subseteq \bigcup_{countable}U_i$$ taking the countable subcover of $U_i$'s associated to the $V_j$'s. We can write $A \subseteq \bigcup_{j=1}^{\infty}U_{i_j}$, and we want a finite subcover. Towards a contradiction suppose there is no finite subcollection covering $A$. Then there exists $x_1 \in A\backslash U_{i_1}, x_2 \in A\backslash U_{i_1}\cup U_{i_2}$, and in general $x_k \in A \backslash \bigcup_{j=1}^kU_{i_j}$. By assumption there exists a subsequence $x_{n_k}\rightarrow x \in A$. The $U_{i_j}$ cover $A$. So there exists $N \in \N$ such that $x \in U_{i_N}$. But $U_{i_N}$ is open. So there exists $M$ such that for $n_k \geq M$, $x_{n_k} \in U_{i_N}$. So $U_{i_N}$ contains all but finitely many of the $x_{n_k}$. But by construction each $U_{i_j}$ can only contain finitely many $x_k$, which is a contradiction. Thus, a finite subcover must exist.
 \end{proof}
 
-\begin{thm}[Heine-Borel]
+\begin{theorem}[Heine-Borel]\index{Heine-Borel}
     A non-empty subset $A$ of $\ell_n^p$ is compact if and only if $A$ is closed and bounded.
-\end{thm}
+\end{theorem}
 \begin{proof}
     We know compact implies closed and bounded. Suppose $A \subseteq \ell_n^p$ is closed and bounded. We show $A$ is sequentially compact. Let $\vec{x}_k \in A$. By Bolzano-Weierstrass, since $A$ is bounded, $\vec{x}_{n_k} \rightarrow \vec{x} \in \ell_n^p$ for some subsequence. Since $A$ is closed, $\vec{x} \in A$.
 \end{proof}
@@ -1112,51 +1114,51 @@ A reminder that Heine-Borel fails in other metric spaces, such as the example $f
 
 We now define finite and countable products of metric spaces, and their associated properties.
 
-\begin{defn}
+\begin{definition}\index{Product Metric}
     If $(X_1,d_1),...,(X_N,d_N)$ are metric spaces, we define the product metric space \begin{equation*}
         X := X_1\times \cdots \times X_N = \prod_{j=1}^NX_j
     \end{equation*}
     and define a metric $d$ in $X$ for $x = (x_1,...,x_N),y = (y_1,...,y_N)$ by \begin{equation*}
         d(x,y) = \sum_{j=1}^Nd_j(x_j,y_j)
     \end{equation*}
-\end{defn}
+\end{definition}
 Equivalently, we could define \begin{equation*}
     \delta(x,y) = \sqrt{\sum_{j=1}^Nd_j(x_j,y_j)^2}
 \end{equation*}
 where the equivalence is in the sense that they define the same topology on the product. In particular, we characterize two metrics being equivalent as follows:
 
-\begin{defn}
+\begin{definition}
     If $X$ is a set with metrics $d_1$ and $d_2$, then $d_1$ and $d_2$ are said to be \Emph{equivalent} if there exists $0 < C_0 \leq C_1 < \infty$ such that \begin{equation*}
         C_0d_1(x,y) \leq d_2(x,y) \leq C_1d_1(x,y)
     \end{equation*}
     for all $x,y \in X$.
-\end{defn}
+\end{definition}
 
-\begin{defn}
+\begin{definition}
     For $p \in \N$, the $\ell_p$ norm on $\R^n$ is \begin{equation*}
         ||\vec{x}||_p = \left(\sum_{i=1}^n|x_i|^p\right)^{1/p}
     \end{equation*}
     which gives the metric $$d_p(\vec{x},\vec{y}) = ||\vec{x} - \vec{y}||_p$$ For $p = \infty$, define $$||\vec{x}||_{\infty} = \max_{1\leq j \leq n}|x_j|$$ and $$d_{\infty}(\vec{x},\vec{y}) = \max_{1\leq j \leq n}|x_j - y_j|$$
-\end{defn}
+\end{definition}
 
 It is an important, but non-trivial result, that $d_p$ and $d_q$ are equivalent for all $0 < p,q \leq \infty$. Now we define countable products:
 
-\begin{defn}
+\begin{definition}\index{Countable Product}
     Let $(X_1,d_1),(X_2,d_2),...$ be a countable collection of metric spaces. Define $$X = \prod_{j=1}^{\infty}X_j$$ where $x \in X$ is a sequence $x = (x_j)$, $x_j \in X_j$. We define the metric by $$d(x,y) = \sum_{j=1}^{\infty}2^{-j}\frac{d_j(x_j,y_j)}{1+d_j(x_j,y_j)}$$
-\end{defn}
+\end{definition}
 
 We have that compactness of product spaces occurs if and only if we have compactness of the individual component spaces.
 
-\begin{prop}
+\begin{proposition}
     The product $X = \prod_{j=1}^NX_j$ is compact if and only if $X_j$ is compact for all $j$.
-\end{prop}
+\end{proposition}
 \begin{proof}
     First, suppose the product is compact and let $(x_{n,j})_{n=1}^{\infty} \subseteq X_j$. Let $x_i \in X_i$ for $i \neq j$. Then $(x_1,...,x_{n,j},...,x_N) \subseteq X$ has a convergent subsequence $(x_1,...,x_{n_k,j},...,x_N)$ converging to $(x_1,...,x_j,...,x_N)$ in $X$ since $X$ is compact. Then for all $\varepsilon > 0$, there exists $M \in \N$ such that for $k \geq M$, $d_j(x_{n_k,j},x_j) = d((x_1,...,x_{n_k,j},...,x_N),(x_1,...,x_j,...,x_N)) < \varepsilon$, so $(x_{n_k,j})$ is a convergent subsequence of $(x_j)$. Thus $X_j$ is compact for all $j$, as desired. Now suppose that $X_j$ is compact for each $j$, and $((x_{n,1},...,x_{n,N})) \subseteq X$. As $X_1$ is compact there exists a subsequence $(x_{s_1(n),1})$ which converges to some $x_1 \in X_1$. Then $(x_{s_1(n),2}) \subseteq X_2$ has a convergent subsequence $(x_{s_2(n),2})$ since $X_2$ is compact, which converges to $x_2 \in X$. Proceeding in this way we arrive at $((x_{s_N(n),1},...,x_{s_N(n),N})) \subseteq ((x_{n,1},...,x_{n,N}))$, where $(x_{s_N(n),j}) \subseteq (x_{s_j(n),j})$ which converges to $x_j \in X_j$, and hence $(x_{s_N(n),1},...,x_{s_N(n),N})$ converges to $(x_1,...,x_N)$. Thus $X$ is compact, as desired.
 \end{proof}
 
-\begin{prop}
+\begin{proposition}
     The product $X = \prod_{j=1}^{\infty}X_j$ is compact if and only if $X_j$ is compact for all $j$.
-\end{prop}
+\end{proposition}
 \begin{proof}
     The forward implication follows analogously to the proof of the previous proposition. Now, suppose each $X_j$ is compact, and let $((x_{\nu,1},x_{\nu,2},...)) \subseteq X$ be an arbitrary sequence. Then, as $X_1$ is compact, we have a subsequence $x_{s_1(\nu),1}$ which converges to some $x_1 \in X_1$. Then, we can take a subsequence $x_{s_2(\nu),2}$ of $x_{s_1(\nu),2}$ which converges to some $x_2 \in X_2$ since $X_2$ is compact. Let $(x^j_{\nu}) = ((x_{s_j(\nu),1},x_{s_j(\nu),2},...))$. Then we have a decreasing sequence of subsequences $(x_{\nu}) \supseteq (x^1_{\nu}) \supseteq (x^2_{\nu}) \supseteq ...$, such that $x_{s_j(\nu),i}$ converges to $x_i \in X_i$ for all $1 \leq j \leq i$. Then, let $(\xi_{\nu})$ be the subsequence defined by $\xi_{\nu} = x^{\nu}_{\nu}$, the diagonal. Then for all $j \in \N$, $(\xi_{\nu})_{\nu=j}^{\infty} \subseteq (x^j_{\nu})_{\nu=1}^{\infty}$, so for each $j$ $x_{s_{\nu}(\nu),j}$ converges to $x_j \in X_j$. Thus, $\xi_{\nu}$ converges to $(x_1,x_2,....) \in X$, and hence $X$ is compact.
 \end{proof}
@@ -1166,30 +1168,30 @@ We have that compactness of product spaces occurs if and only if we have compact
 
 We now construct a result on the size of complete metric spaces, known as the Baire's Category Theorem. First we define the notion of a category for a topological space:
 
-\begin{defn}
+\begin{definition}\index{First Category}
     For a topological space $(X,\tau)$, a subset $A$ is said to be of the \Emph{first category} in $X$ if and only if $A$ can be written as a countable union of nowhere dense subsets of $X$.
-\end{defn}
+\end{definition}
 
-\begin{defn}
+\begin{definition}\index{Nowhere dense}
     A subset $S \subseteq X$ is \Emph{nowhere dense} if and only if $\overline{S}$ does not contain any non-empty open subsets, which occurs in a metric space if and only if $\overline{S}$ does not contain any open ball $B_r(x)$ for $r > 0$ and $x \in X$. Equivalently, $S$ is nowhere dense if and only if $X\backslash\overline{A} = \overline{A}^c$ is dense in $X$.
-\end{defn}
+\end{definition}
 
-\begin{defn}
+\begin{definition}\index{Second category}
     For a topological space $X$, a subset $A$ is said to be of the \Emph{second category} in $X$ if and only if $A$ is not of the first category.
-\end{defn}
+\end{definition}
 
-\begin{namthm}[Baire's Category Theorem]
+\begin{theorem}[Baire's Category Theorem]\index{Baire's Category Theorem}
     If $X$ is a complete metric space, then $X$ is of second category.
-\end{namthm}
+\end{theorem}
 \begin{proof}
     Let $S_k \subseteq X$ be a sequence of nowhere dense sets. We claim $X \backslash \bigcup_{k\geq 1}S_k \neq \emptyset$. Let $T_k = \overline{\bigcup_{j=1}^kS_j} = \bigcup_{j=1}^k\overline{S}_j$, so $T_k$ is closed and nowhere dense. Further, $T_1 \subseteq T_2 \subseteq ...$. Let $U_k = X\backslash T_k$, so $U_k$ is open and dense. Indeed, if $x \in X$, and $N_x \subseteq N(x)$, an open neighborhood, $N_x \cancel{\subseteq}T_k$, so $N_x\cap U_k \neq \emptyset$. Thus $\overline{U_k} = X$, so $U_k$ is dense. Then we have $U_1 \supseteq U_2 \supseteq ...$. We claim that the intersection is non-empty. Let $p_1 \in U_1$, so there exists $\varepsilon_1 > 0$ such that $\overline{B_{\varepsilon}(p_1)} \subseteq U_1$. By density of $U_2$, there exists $p_2 \in B_{\varepsilon/2}\cap U_2$. But $U_2$ is open so there exists $\varepsilon_2 < \varepsilon/2$ such that $\overline{B_{\varepsilon_2}(p_2)} \subseteq B_{\varepsilon}(p_1)\cap U_2$. Inductively, take $p_{k+1} \in B_{\varepsilon_k}(p_k) \cap U_{k+1}$, and $\varepsilon_{k+1} < \varepsilon_k/2$ such that $\overline{B_{\varepsilon_{k+1}}(p_{k+1})} \subseteq B_{\varepsilon_k}(p_k) \cap U_{k+1}$. Then $\varepsilon_k < \varepsilon/2^{k-1}$. Note $(p_k)$ is a Cauchy sequence, because $p_l \in \overline{B_{\varepsilon_l}(p_l)} \subseteq B_{\varepsilon_k}(p_k)$ for all $l > k$, where $\varepsilon_k < \varepsilon/2^{k-1}$. By completeness of $X$, there exists $p \in X$ such that $p_l \rightarrow p$. Then $p \in \overline{B_{\varepsilon_k}(p_k)}$ for all $k$ as they are closed, so in particular $p \in U_k$ for all $k$. Therefore, $p \in \bigcap_{i=1}^{\infty}U_i$, so $\bigcap_{i=1}^{\infty}U_i\neq \emptyset$, as claimed.
 \end{proof}
 
 We re-visit this investigation through a slightly different light:
 
-\begin{lem}
+\begin{lemma}
     $A$ is nowhere dense in $X$ if and only if $\overline{A}^{\circ} = \emptyset$.
-\end{lem}
+\end{lemma}
 \begin{proof}
     First, if $B \subseteq X$, $X\backslash \overline{B} = (X\backslash B)^{\circ}$ and $X\backslash B^{\circ} = \overline{X\backslash B}$. Indeed, $X\backslash \overline{B} \subseteq X\backslash B$ and is open so $X\backslash \overline{B} \subseteq (X\backslash B)^{circ}$. Conversely, $(X\backslash B)^{\circ} \subseteq X\backslash B$, so $X\backslash(X\backslash B)^{\circ} \supseteq B$ is a closed set containing $B$, implying $X\backslash(X\backslash B)^{\circ} \supseteq \overline{B}$. It follows that $(X\backslash B)^{\circ} \subseteq X\backslash\overline{B}$ and we have equaltiy, $X\backslash\overline{B} = (X\backslash B)^{\circ}$. For the other equality, $X\backslash B^{\circ} \supseteq X\backslash B$ is a closed cover, so $X\backslash B^{\circ} \supseteq \overline{X\backslash B}$. Conversely, $X\backslash (\overline{X\backslash B})\subseteq B$ is open, so $X\backslash(\overline{X\backslash B}) \subseteq B^{\circ}$, so $\overline{X\backslash B}\supseteq X\backslash B^{circ}$, and we have equality $X\backslash B^{\circ} = \overline{X\backslash B}$.
 
@@ -1197,25 +1199,25 @@ We re-visit this investigation through a slightly different light:
     Then $\overline{A}^{\circ} = \emptyset$ if and only if $X\backslash \overline{A}^{\circ} = X$, if and only if $\overline{X\backslash \overline{A}} = X$, if and only if $X\backslash\overline{A}$ is dense in $X$, if and only if $A$ is nowhere dense.
 \end{proof}
 
-\begin{eg}
+\begin{example}
     If $\{x_0\}$ in $X$ is not isolated, then $\{x_0\}$ is nowhere dense, since $\overline{\{x_0\}} = \{x_0\}$ and it has no interior points. If $X$ has no isolated points, then countable sets are of the fisrt category.
-\end{eg}
+\end{example}
 
-\begin{eg}
+\begin{example}
     $\Q$ is of the first category, being the countable union of singletons and having no isolated points. $\R\backslash\Q$ is of the second category, which follows from Baire's theorem.
-\end{eg}
+\end{example}
 
-\begin{eg}
+\begin{example}
     The middle thirds Cantor set $C$ is nowhere dense. It is compact, and hence closed, and contains no intervals, and hence no interior.
-\end{eg}
+\end{example}
 
-\begin{eg}
+\begin{example}
     Collection of lines in $\R^2$: in $\ell_2^2$, the line $\{(x,mx+b) \vert m,b \in \R\}$ is nowhere dense, since it is already closed and each point is a boundary point.
-\end{eg}
+\end{example}
 
-\begin{thm}[Baire]
+\begin{theorem}[Baire]
     Suppose $X$ is a complete metric space and $\{U_n\}$ is a denumerable collection of open and dense subsets of $X$. Then $$\bigcap_{n\in\N}U_n$$ is dense in $X$.
-\end{thm}
+\end{theorem}
 \begin{proof}
     Note that $\overline{A} = X$ if and only if, for all $x \in X$, either $x \in A$ or $x \in A'$. If $x \in A$, then for every open neighborhood $U \subseteq X$ of $x$, $A \cap U \neq \emptyset$. If $x \in A'$, then for every $U \subseteq X$ open neighborhood of $x$, $A\cap (U\backslash\{x\})\neq \emptyset$, so in particular $A\cap U \neq \emptyset$.
 
@@ -1223,52 +1225,52 @@ We re-visit this investigation through a slightly different light:
 \end{proof}
 
 
-\begin{cor}[The Baire Category Theorem]
+\begin{corollary}[The Baire Category Theorem]\index{Baire's Category Theorem}
     Complete metric spaces are of the second category.
-\end{cor}
+\end{corollary}
 \begin{proof}
     Suppose the proposition does not hold. Let $X = \bigcup_{n=1}^{\infty}A_n$ with $A_n$ nowhere dense (i.e. $X\backslash \overline{A_n}$ is dense in $X$, and open). By Baire's theorem $\bigcap_{n=1}^{\infty}X\backslash \overline{A_n}$ is dense in $X$, which holds if and only if $X\backslash\bigcup_{n=1}^{\infty}\overline{A_n}$ is dense in $X$. But, $\bigcup_{n=1}^{\infty}\overline{A_n} = X$, so this holds if and only if $\emptyset$ is dense in $X$.
 \end{proof}
 
-\begin{eg}
+\begin{example}
     The irrationals: $\Q$ is of the first category, so $\R\backslash \Q$ must be of the second, as otherwise $\R = \Q\cup (\R\backslash \Q)$ would be of the first, which it is not being a complete metric space.
-\end{eg}
+\end{example}
 
-\begin{eg}
+\begin{example}
     Any basis of an infinite dimensional complete normed linear space is necessarily uncountable. However, there are infinite dimensional incomplete space having a countable basis: for example, the normed linear space of polynomials with norm $||a_0+a_1x+...+a_nx^n|| = \sum_{i=1}^n|a_i|$ has countable basis $\{1,x,x^2,x^3,...\}$ since each polynomial can be written as a unique finite linear combination of these elements.
 
     Now, suppose to the contrary that $\{v_1,v_2,...\}$ is a vector space basis for such a NLS $V$. For each $n$, let $V_n = \text{span}\{v_1,...,v_n\}$. Each $V_n$ is nowhere dense. Indeed, each $V_n$ is closed, as to be shown below, and if $U$ is an open ball in $V_n$, by subtracting the center of this ball we are still in $V_n$. So we may assume $B_r(0) \subseteq V_n$. So if $v \in V\backslash \{0\}$, we have $\frac{v}{2||v||}r \in V_n$. But $V_n$ is a subspace, so $v \in V_n$. This implies $V = V_n$, contradicting the fact that $V$ is finite dimensional. Thus $V_n$ is nowhere dense. 
 
     Notice by assumption $V = \bigcup_{n=1}^{\infty}V_n$. By Baire's theorem, this contradicts the completeness of $V$.
-\end{eg}
+\end{example}
 
-\begin{namthm}[Uniform Boundedness Principal]
+\begin{theorem}[Uniform Boundedness Principal]\index{Uniform Boundedness Principal}
     Let $X$ be a complete metric space and $S \subseteq C(X)$. Suppose that for each $x \in X$ there exists a positive constant $M_x > 0$ such that $|f(x)| \leq M_x$ for all $f \in S$ (pointwise bound). Then there is a non-empty open subset $U$ of $X$ and $M > 0$ such that $|f(x)| \leq M$ for all $f$ in $S$ and all $x$ in $U$ (uniform bound).
-\end{namthm}
+\end{theorem}
 If $\sup_XM_x < \infty$, we can just use this as $M$ and $U = X$
 \begin{proof}
     Fix $n \in \N$ and $f \in S$. Define $$S_{n,f} = \{x \in X\vert |f(x)| \leq n\} = f^{-1}([-n,n])$$ $S_{n,f}$ is closed being the pre-image of a closed set under a continuous map. Define $S_n := \bigcap_{f \in S}S_{n,f}$, which is again closed. Note $S_n \subseteq S_{n+1}$. Note $x \in S_n$ if and only if $|f(x)| \leq n$ for all $f \in S$. By assumption, $X = \bigcup_{n=1}^{\infty}S_n$, which is a countable union of closed sets. By Baire's theorem, at least one of the $S_N$ must contain an open set $U \subseteq S_N \subseteq X$. This means for all $x \in U$, we have $|f(x)| \leq N$ for all $f \in S$, as desired.
 \end{proof}
 
-\begin{eg}
+\begin{example}
     Let $X = [0,\infty)$ with the usual metric, and let $S = \{f_n(x)=\sqrt[n](x)\}\subseteq C(X)$.  For fixed $x \geq 0$, $|f_n(x)| = \sqrt[n]{x} \leq \max\{1,x\} =: M_x$. Note $\sup_xM_x = \infty$. Observe that $U = [0,a)$ is open in $[0,\infty)$ for any $a > 0$. In this case, $|f_n(x)| \leq \max\{1,a\}$, for all $x \in U$ and all $n$.
-\end{eg}
+\end{example}
 
 Using this result we can explore certain examples of Banach spaces.
 
-\begin{defn}[Banach Space]
+\begin{definition}[Banach Space]\index{Banach space}
     A complete normed linear space is called a \Emph{Banach space}.
-\end{defn}
+\end{definition}
 
-\begin{eg}
+\begin{example}
     Note we have already shown that $\ell_n^p$ is a Banach space for $p \in [1,\infty]$ and $n \in \N$. 
-\end{eg}
+\end{example}
 
-\begin{eg}
+\begin{example}
     We have also shown that $\mathcal{C}_b(S)$ is a Banach space for $S \subseteq \R$.
-\end{eg}
+\end{example}
 
-\begin{eg}
+\begin{example}
     The classical Banach sequence spaces, $\ell^p$, for $1 \leq p < \infty$: If $1 \leq p < \infty$, $$\ell^p = \left\{x=(x_k)\text{ sequence of real or complexes}\vert||x||_p := \left(\sum_{k=1}^{\infty}|x_k|^p\right)^{1/p} < \infty\right\}$$ and for $p = \infty$: $$\ell^{\infty} = \{x=(x_k)\vert \vert ||x||_{\infty}\sup_k|x_k| < \infty\}$$ We claim that $||\cdot||_p$ are all norms for $1 \leq p \leq \infty$. The first two axioms, positive definiteness and absolute homegeneity, are similar to the finite case. For the triangle inequality for $||\cdot||_{\infty}$, $|x_i+y_i|\leq |x_i|+|y_i|\leq ||x||_{\infty}+||y||_{\infty}$ for all $i$, so $||x+y||_{\infty} \leq ||x||_{\infty}+||y||_{\infty}$. 
     For $p = 1$, $$\sum_{i=1}^n|x_i + y_i| \leq \sum_{i=1}^n|x_i| + \sum_{i=1}^n|y_i| \leq ||x||_1+||y||_1$$ for all $n$, so $||x+y||_1 \leq ||x||_1+||y||_1$.
 
@@ -1279,20 +1281,20 @@ Using this result we can explore certain examples of Banach spaces.
     This holds for all $n$, so the sum on the left converges as $n\rightarrow \infty$ and $$\sum_{k=1}^{\infty}|x_k||y_k| \leq ||x||_p||y||_q$$ The triangle inequality now follows from H\"{o}lder's inequality, using the same argument as the finite dimensional case.
 
     We claim $\ell^p$ is complete. For $1 \leq p < \infty$, let $(x_m)$ be a Cauchy sequence in $\ell^p$. Write $x_m = (x_{m,1},x_{m,2},...)$. For each $i$, $$|x_{m,i} - x_{l,i}|^p \leq \sum_{j=1}^{\infty}|x_{m,j}-x_{l,j}|^p = ||x_m - x_l||_p^p$$ which implies $(x_{m_i})_{m=1}^{\infty}$ is Cauchy for each $i$, and hence has a limit, say $\hat{x}_i$ since $\R$ is complete. Let $x = (\hat{x}_1,\hat{x}_2,...)$. Fix $\varepsilon > 0$ and any $n \in \N$. Find $m,l \geq N$ such that $$\sum_{j=1}^m|x_{m,k} - x_{l,j}|^p\leq ||x_m - x_l||_p^p < \varepsilon^p$$ The left hand side is a finite sum so we can let $l\rightarrow \infty$, giving $$\sum_{j=1}^n|x_{m,j} - \hat{x}_j|^p\leq \varepsilon^p$$ But this is true for all $n$. So taking the limit on $n$, $||x_m-x||_p^p < \varepsilon^p$, so $x_m\rightarrow x$ in $\ell^p$. Now, $x \in \ell^p$ since $$\sum_{j=1}^n|\hat{x}_j|^p \leq ||x-x_m||_p + ||x_m||_p$$ for all $n$, and taking the sup over all $n$ we have our result.
-\end{eg}
+\end{example}
 
 Recall that if $V$ is a finite dimensional vector space over $\R$ with basis $\{v_1,...,v_n\}$, there is a vector space isomorphism, the coordinate isomorphism for the basis, sending $e_i \in \R^n$ to $v_i$ in $V$. Any norm on $\R^n$ imparts a norm onto $V$ with $||r_1v_1+...+r_nv_n|| := ||[r_1\;...\;r_n]||$.
 
-\begin{thm}
+\begin{theorem}
     Any two norms on $\R^n$ are equivalent.
-\end{thm}
+\end{theorem}
 \begin{proof}
     Let $\{e_1,...,e_n\}$ be the standard orthonormal basis for $\R^n$. Each $v \in \R^n$ can be written uniquely as $v = r_1e_1+...+r_ne_n$. Let $||\cdot||$ be any norm on $\R^n$. Then $$||v|| \leq \sum_{i=1}^n|r_i|||e_i|| \leq C\sum_{i=1}^n|r_o| = C||v||_1$$ where $C = \max_{1\leq i \leq n}\{||e_i||\}$. Let $S = \{v \in \R^n\vert ||v||_1 = 1\}$. $S$ is compact by Heine-Borel. Define $\alpha:S\rightarrow [0,\infty)$ by $\alpha(v) = ||v||$. $\alpha$ is continuous since $|||v|| - ||w||| \leq ||v-w||$. This implies $\alpha(S)$ is compact in $[0,\infty)$. Thus, $\alpha$ achieves its minimum at some $v_0 \in S$. That is, $\alpha(v_0) \leq \alpha(v)$ for all $v \in S$. Let $d = \alpha(v_0)$. If $v \neq 0$, we have $\frac{v}{||v||_1} \in S$, so $$\left|\left|\frac{v}{||v||_1}\right|\right| = \alpha\frac{v}{||v||_1} \geq d$$ so $||v|| \geq d||v||_1$. Thus $||\cdot||$ and $||\cdot||_1$ are equivalent.
 \end{proof}
 
-\begin{cor}
+\begin{corollary}
     Finite dimensional vector spaces over $\R$ (or $\C$) are Banach spaces.
-\end{cor}
+\end{corollary}
 \begin{proof}
     From the theorem above, $\R^n$ is complete with any norm. Any finite dimensional vector space $V$ will then be complete by the induced norm on it.
 \end{proof}
@@ -1304,27 +1306,27 @@ Recall that if $V$ is a finite dimensional vector space over $\R$ with basis $\{
 
 We now explore the homomorphisms of the category of metric spaces: continuous functions.
 
-\begin{defn}
+\begin{definition}
     Suppose $(X,d_X)$ and $(Y,d_Y)$ are metric spaces and $f:X\rightarrow Y$ is a function. Given $x_0 \in X'\cap X$ we say that the \Emph{limit of $f$ as $x$ tends to $x_0$ is $L$ in $Y$} and write $$\lim\limits_{x\rightarrow x_0}f(x) = L$$ if for every $\varepsilon > 0$, there is a $\delta > 0$ such that $d_Y(f(x),L) < \varepsilon$ whenever $0 < d(x,x_0) < \delta$.
-\end{defn}
+\end{definition}
 
 
-\begin{defn}
+\begin{definition}\index{Continuity}
     A function $f:X\rightarrow Y$ for metric spaces $(X,d_X), (Y,d_Y)$, is \Emph{continuous at $x \in X$} if whenever $x_j \rightarrow x$ in $X$, then $f(x_j)\rightarrow f(x)$ in $Y$. We say $f$ is continuous on $X$ if and only if $f$ is continuous at $x \in X$ for all $x$.
 
     Equivalently, \Emph{$f$ is continuous at $x_0 \in X$} if for every $\varepsilon > 0$, there is a $\delta > 0$ such that $d_Y(f(x),f(x_0)) < \varepsilon$ whenever $d_X(x,x_0) < \delta$. Note we do not require $x_0$ to be an accumulation point for continuity. We say that $f$ is \Emph{continuous on $X$} if $f$ is continuous at each $x_0 \in X$.
-\end{defn}
+\end{definition}
 
 If $x_0$ is an accumulation point, continuity at $x_0$ is equivalent to $\lim\limits_{x\rightarrow x_0}f(x) = f(x_0)$. If $x_0$ is an isolated point, continuity is automatic.
 
-\begin{eg}
+\begin{example}
     If $X$ is discrete and $f:X\rightarrow Y$ then $f$ is continuous. Indeed, every singleton in $X$ is open so every point is isolated. If $\varepsilon > 0$, choosing $\delta = 1$ we have $d_X(x,x_0) < 1$ implies $x = x_0$ and so $d_Y(f(x),f(x_0)) = 0 < \varepsilon$.
-\end{eg}
+\end{example}
 
 
-\begin{prop}
+\begin{proposition}
     Suppose $(X,d_X)$ and $(Y,d_Y)$ are metric spaces and $f:X\rightarrow Y$. Then $\lim\limits_{x\rightarrow x_0}f(x) = L$ if and only if whenever $x_n$ is a sequence in $X\backslash\{x_0\}$ converging to $x_0$, then $f(x_n)$ converges to $L$ in $Y$.
-\end{prop}
+\end{proposition}
 \begin{proof}
     First assume $\lim\limits_{x\rightarrow x_0}f(x) = L$. Fix $\varepsilon > 0$ and find $\delta > 0$ such that $0 < d_X(x,x_0) < \delta$ implies $d_Y(f(x),L) < \varepsilon$. If $(x_n) \subseteq X\backslash\{x_0\}$ with $x_n\rightarrow x_0$, find $N \in \N$ such that $n \geq N$ implies $0 < d_X(x_n,x_0) < \delta$. Then for $n \geq N$ we have $d_Y(f(x_n),L) < \varepsilon$ so $f(x_n)\rightarrow L$. 
 
@@ -1335,32 +1337,32 @@ If $x_0$ is an accumulation point, continuity at $x_0$ is equivalent to $\lim\li
 We now show that our two characterizations of continuity are equivalent:
 
 
-\begin{prop}
+\begin{proposition}
     Suppose $(X,d_X)$ and $(Y,d_Y)$ are metric spaces and $f:X\rightarrow Y$. Then $f$ is continuous at $x_0$ if and only if $f(x_n)$ converges to $f(x_0)$ in $Y$ whenever $x_n$ converges to $x_0$ in $X$.
-\end{prop}
+\end{proposition}
 \begin{proof}
     If $x_0 \in X'$, use $L = f(x_0)$ in the proposition above. If $x_0$ is isolated, then $f$ is automatically continuous at $x_0$, and any sequence which converges to $x_0$ must be eventually constant and hence the images sequence becomes $f(x_0)$, which trivially converges to $f(x_0)$.
 \end{proof}
 
 
-\begin{prop}\label{prop:3.1.1}
+\begin{proposition}\label{prop:3.1.1}
     A function $f:X\rightarrow Y$ is continuous if and only if $U \subseteq Y$ open implies $f^{-1}(U) \subseteq X$ is open, where $f^{-1}(U) = \{x \in X:f(x) \in U\}$.
-\end{prop}
+\end{proposition}
 \begin{proof}
     Suppose $f:X\rightarrow Y$ is continuous and $U \subseteq Y$ is open. Let $x_0 \in f^{-1}(U)$, which is to say $f(x_0) \in U$. As $U$ is open in $Y$ there exists $\varepsilon > 0$ such that $B_{\varepsilon}(f(x_0)) \subseteq U$. By continuity, there exists $\delta > 0$ such that $x \in B_{\delta}(x_0)$ then $f(x) \in B_{\varepsilon}(f(x_0))$. This implies $$f(B_{\delta}(x_0)) \subseteq B_{\varepsilon}(f(x_0)) \implies B_{\delta}(x_0) \subseteq f^{-1}(B_{\varepsilon}(f(x_0))) \subseteq f^{-1}(U)$$ so $f^{-1}(U)$ is open. The converse is the same argument reversed.
 \end{proof}
 
-\begin{cor}
+\begin{corollary}
     Suppose $X$ and $Y$ are metric spaces and $f:X\rightarrow Y$ a function. $f$ is continuous on $X$ if and only if $f^{-1}(C)$ is closed in $X$ whenever $C$ is closed in $Y$.
-\end{cor}
+\end{corollary}
 
 Follows from the previous result and $X\backslash f^{-1}(C) = f^{-1}(Y\backslash C)$.
 
-\begin{eg}
+\begin{example}
     The function $f:\ell_2^2\rightarrow \R$ given by $$f(x,y) = \left\{\begin{array}{cc} \frac{x^2y}{x^4+y^2} & (x,y)\neq (0,0) \\ 0 & (x,y) = (0,0) \end{array}\right.$$ is discontinuous at $(0,0)$. Consider the sequence $(x_n,y_n) = (1/\sqrt{n},1/n)\rightarrow (0,0)$. Then $$f(1/\sqrt{n},1/n) = \frac{1/n^2}{1/n^2+1/n^2} = \frac{1}{2}\cancel{\rightarrow} 0 = f(0,0)$$ so the function is not continuous at $(0,0)$.
-\end{eg}
+\end{example}
 
-\begin{eg}
+\begin{example}
     The function $f:\ell_2^2\rightarrow \R$ given by $$f(x,y) = \left\{\begin{array}{cc} \frac{x^2y}{\sqrt{x^2+y^2}} & (x,y)\neq (0,0) \\ 0 & (x,y) = (0,0) \end{array}\right.$$ is continuous at $(0,0)$. Indeed, \begin{align*}
         |f(x,y) - f(0,0)| &= \frac{x^2|y|}{\sqrt{x^2+y^2}} \\
         &\leq \frac{(x^2+y^2)|y|}{\sqrt{x^2+y^2}} \\
@@ -1369,127 +1371,127 @@ Follows from the previous result and $X\backslash f^{-1}(C) = f^{-1}(Y\backslash
         &\leq ||(x,y)||_2^2
     \end{align*}
     Fix $\varepsilon > 0$ and choose $\delta = \sqrt{\varepsilon}$. If $||(x,y)||_2 < \delta$, then $|f(x,y) - f(0,0)| < \delta^2 = \varepsilon$, as desired.
-\end{eg}
+\end{example}
 
-\begin{eg}
+\begin{example}
     The evaluation and integration maps on $\mathcal{C}([0,1])$ are continuous. For any $x \in [0,1]$, define $E_x:\mathcal{C}([0,1])\rightarrow \R$ by $E_x(f) = f(x)$. Then $E_x$ is continuous. Suppose $(f_n) \subseteq \mathcal{C}([0,1])$ and $f_n\rightarrow_uf$, noting that $||\cdot||_{\infty}$ is the standard norm on $\mathcal{C}([0,1])$. Then $E_x(f_n) = f_n(x)$, which converges to $f(x) = E_x(f)$ since uniform convergence implies pointwise convergence. So $E_x$ is continuous at $f$ for any $f \in \mathcal{C}([0,1])$. Define the integral map $I:\mathcal{C}([0,1])\rightarrow \R$ by $I(f) = \int_0^1f(x)dx$. Suppose $f_n\rightarrow_uf$ in $\mathcal{C}([0,1])$. Then, since the convergence is uniform we have that $$\lim\limits_{n\rightarrow \infty}I(f_n) = \lim\limits_{n\rightarrow \infty}\int_0^1f_n(x)dx = \int_0^1f(x)dx = I(f)$$
-\end{eg}
+\end{example}
 
 
 \subsection{Operators and NLS}
 
-\begin{defn}[Bounded Operators]
+\begin{definition}[Bounded Operators]\index{Bounded operators}
     Suppose $V$ and $W$ are normed linear spaces and $T:V\rightarrow W$ is a linear transformation. We say that $T$ is a \Emph{bounded operator} (or bounded linear operator, or bounded linear transformation) if $T$ is continuous on $V$.
-\end{defn}
+\end{definition}
 
-\begin{qst}
+\begin{question}{Question}
     Why the word \emph{bounded}?
-\end{qst}
+\end{question}
 We will see later that the bounded linear maps are precisely the ones that map bounded sets to bounded sets. They are not ``bounded" in the usual sense of the word. For example, $\id:\R\rightarrow \R, \id(x) = x$, is continuous, linear, but ``unbounded" in the sense that $\sup_{\R}|f| = \infty$.
 
-\begin{prop}
+\begin{proposition}
     Suppose $V$ and $W$ are normed linear spaces and $T:V\rightarrow W$ is linear. Then $T$ is bounded if and only if $T$ is continuous at $0$.
-\end{prop}
+\end{proposition}
 \begin{proof}
     Fix $\varepsilon > 0$. Suppose $T$ is continuous at $0$. Then there exists $\delta > 0$ such that $||v||_V < \delta$ implies $||Tv||_W < \varepsilon$. If $u \in V$ and $||u-u_0||_V < \delta$, then we get $$||T(u-u_0)||_W < \varepsilon$$ by continuity at $0$. But, by linearity $T(u-u_0) = Tu - Tu_0$, so $||Tu-Tu_0||_W <\varepsilon$, so $T$ is continuous at $u_0$.
 
     The implication follows by definition of a bounded operator.
 \end{proof}
 
-\begin{eg}
+\begin{example}
     The identity map between the same space with different norms may not be bounded. Let $V = \{\mathcal{C}([0,1]),||\cdot||_{\infty}\}$, and $W = \left\{\mathcal{C}([0,1]),||\cdot||_1 = \int_0^1|\cdot|dx\right\}$, and consider $T:V\rightarrow W$ with $Tf = f$. $T$ is bounded. Indeed, assume $f_n\rightarrow_u0$. Then $Tf_n = f_n$, and we need to show $||f_n||_1 \rightarrow 0$. But, by uniform convergence of the $f_n$ to $0$, $$\int_0^1|f_n(x)|dx\rightarrow \int_0^10dx = 0$$ so indeed $T$ is continuous at $0$, and by the last result is consequently bounded. 
 
     However, $T^{-1}:W\rightarrow V$ is not bounded. We will find a sequence $f_n\rightarrow 0$ in $W$, but $T^{-1}f_n = f_n\cancel{\rightarrow}0$ in $V$. Define $f_n(x)$ as $f_n(x) = -n(x-1/n)$ for $0 \leq x \leq 1/n$ and $f_n(x) = 0$ for $1/n\leq x\leq 1$. Then $||f_n||_1 = \frac{1}{2n}\rightarrow 0$, but $||f_n||_{\infty} = 1\cancel{\rightarrow} 0$.
-\end{eg}
+\end{example}
 
 
-\begin{eg}
+\begin{example}
     The anti-differentiation map: Define $A:\mathcal{C}([0,1])\rightarrow \mathcal{C}([0,1])$, both with uniform norm, by $$Af(x) = \int_0^xf(t)dt$$ By the FTOC we have that $Af(x) \in \mathcal{C}([0,1])$, and $(Af)' = f$. $A$ is linear because the Riemann integral is linear. To show boundedness, suppose $f_n\rightarrow_u0$. Then $$|Af_n(x)| = \left|\int_0^xf_n(t)dt\right| \leq \int_0^x|f_n(t)|dt \leq x||f_n||_{\infty} \leq ||f_n||_{\infty}$$ Hence, it follows that $||Af_n||_{\infty} \leq ||f_n||_{\infty} \rightarrow 0$, so $Af_n\rightarrow_u0$, and $A$ is bounded.
-\end{eg}
+\end{example}
 
-\begin{eg}
+\begin{example}
     The differentiation map on smooth functions: Let $\mathcal{C}^1([0,1])$, which is a normed linear space with norm $|||f||| := ||f||_{\infty} + ||f'||_{\infty}$. Define $D:\mathcal{C}^1([0,1])\rightarrow \mathcal{C}([0,1])$, both with the uniform norm, where $Df = f'$. Although $D$ is linear, it is not continuous at $0$. Consider $$f_n(x) = \frac{\sin(nx)}{\sqrt{n}},\;||f_n||_{\infty} \leq \frac{1}{\sqrt{n}}\rightarrow 0$$ But $f'_n(x) = \sqrt{n}\cos(nx)$ does not even converge pointwise. However, $D:(\mathcal{C}^1([0,1]),|||\cdot|||)\rightarrow (\mathcal{C}([0,1]),||\cdot||_{\infty})$ is bounded. Indeed, $$||Df||_{\infty} = ||f'||_{\infty} \leq |||f|||$$ Then if $|||f_n|||\rightarrow 0$, then $||Df_n||_{\infty} \leq |||f_n|||\rightarrow 0$ and we have continuity at $0$.
-\end{eg}
+\end{example}
 
-\begin{eg}
+\begin{example}
     Maps on spaces of polynomials: Let $\mathcal{P} = \{a_0+a_1x+...+a_nx^n\vert n\in \N\cup\{0\},a_0,...,a_n \in \R\}$. Then $\mathcal{P}$ is an infinite dimensional space with basis $\{1,x,x^2,x^3,...\}$. $\mathcal{P}$ has many norms. Let's use the $1$-norm: for $p(x) = \sum_{k=0}^na_kx^k$, $$||p||_1 := \sum_{j=0}^n|a_j|$$ Define $A:\mathcal{P}\rightarrow \mathcal{P}$ by $Ap(x) := \int_0^xp(t)dt$, so $$Ap(x) = \sum_{k=0}^n\frac{a_k}{k+1}x^{k+1}$$ Notice that $$||Ap||_1 = \sum_{j=0}^n\left|\frac{a_j}{j+1}\right| \leq \sum_{j=0}^n|a_j| = ||p||_1$$ so if $||p_n||_1\rightarrow 0$, then $||Ap_n||_1\leq ||p_n||_1\rightarrow 0$. 
 
     On the other hand, the derivative map $D:\mathcal{P}\rightarrow \mathcal{P}$, $Dp = p'$, is not bounded! Let $p_n(x) = \frac{x^n}{n}$. Then $||p_n||_1 = \frac{1}{n}\rightarrow 0$. But $||Dp_n||_1 = ||x^{n-1}||_1 = 1\cancel{\rightarrow}0$. 
-\end{eg}
+\end{example}
 
-\begin{eg}
+\begin{example}
     Linear transformations on finite dimensional spaces are always continuous. Suppose $L:\R^n\rightarrow \R^m$ with any $p$-norm. Then $L$ is bounded. The coordinate functions $p_i:\R^n\rightarrow \R$, $p_i(x_1,...,x_n) = x_i$, for each $1 \leq i \leq m$ are all continuous as $|x_i| \leq ||[x_1\;...\;x_n]^T||_p$. 
 
     Next, we have that if $S$ and $T$ are bounded, so are $S+T$ and $\lambda S$ for all $\lambda \in \R$. Indeed, $$||(S+T)(x_n)||_p \leq ||S(x_n)||_p+||T(x_n)||_p\rightarrow 0$$ if $x_n\rightarrow 0$, and $$||\lambda S(x_n)||_p = |\lambda |||S(x_n)||_p\rightarrow 0$$ So linear combinations of the $f_i$ are continuous. That is function $f:\R^n\rightarrow \R$ of the form $$f(x_1,...,x_n) = \sum_{i=1}^na_if_i(x_1,...,x_n)$$ If $L:\R^n\rightarrow \R^m$ is linear, we can write $L\vec{x} = A\vec{x}$ for some $m\times n$ matrix $A$. Write $A = [a_{ij}]$ then $$A\vec{x} = \begin{bmatrix} a_{11}x_1+a_{12}x_2+...+a_{1n}x_n \\ \vdots \\ a_{m1}x_1+a_{m2}x_2 + ... + a_{mn}x_n\end{bmatrix}$$ If $||\vec{x}_k||_p\rightarrow 0$, then by continuity of linear combinations of coordinate functions, each entry in $A\vec{x}$ must converge to $0$. Consequently, $||A\vec{x}_k||_p\rightarrow 0$, so $A$ is bounded.
-\end{eg}
+\end{example}
 
 
-\begin{defn}[Homeomorphisms and Homeomorphic]
+\begin{definition}[Homeomorphisms and Homeomorphic]\index{Homeomorphism}
      Let $X$ and $Y$ be metric spaces and suppose that $\varphi:X\rightarrow Y$ is continuous. If $\varphi$ is invertible and $\varphi^{-1}$ is also continuous, we call $\varphi$ a \Emph{homeomorphism}. In this case, we say $X$ and $Y$ are \Emph{homeomorphic} and write $X\cong Y$.
-\end{defn}
+\end{definition}
 
-\begin{eg}
+\begin{example}
     Continuous invertible maps need not be homeomorphisms. Indeed, from above we saw that $T:(\mathcal{C}([0,1]),||\cdot||_{\infty})\rightarrow (\mathcal{C}([0,1]),||\cdot||_1)$, $Tf= f$, is continuous and invertible but has a discontinuous inverse.
-\end{eg}
+\end{example}
 
-\begin{prop}
+\begin{proposition}
     The relation ``$\cong$" is an equivalence relation on metric spaces.
-\end{prop}
+\end{proposition}
 Indeed $X\cong X$ using the identity, as it is a homeomorphism, symmetric since $X\cong Y$ implies there exists $\varphi:X\rightarrow Y$ a homeomorphism, which has $\varphi^{-1}:Y\rightarrow X$ also as a homeomorphism so $Y\cong X$. Finally, if $\varphi:X\rightarrow Y$ and $\psi:Y\rightarrow Z$ are homeomorphism, so is $\psi\circ\varphi:X\rightarrow Z$, so $X\cong Z$.
 
-\begin{eg}
+\begin{example}
     With respect to the usual metric on $\R$, the sets $(0,1)$ and $(0,\infty)$ are homeomorphic. consider $f(t) = \frac{1}{1-t}$ on $(0,1)$. Then $f:(0,1)\rightarrow (1,\infty)$ is a homeomorphism with inverse $f^{-1}(t) = 1 - \frac{1}{t}$. Then $(0,\infty)\cong (1,\infty)$ via the map $t\mapsto t+1$. 
 
     Further, we have $(-\pi/2,\pi/2)\cong \R$ via $f(t) = \tan(t)$. But, $(a,b)\cup(c,d)$ for $a < b < c < d$ is not $\cong$ to $\R$. No homeomorphism is possible as $(a,b) \cup (c,d)$ can be expressed as the disjoint union of open balls, while $\R$ cannot be expressed as such.
-\end{eg}
+\end{example}
 
 
-\begin{eg}
+\begin{example}
     The unit circle and the unit cross are not homeomorphic, as we will see later by results on connected sets.
-\end{eg}
+\end{example}
 
 We remark that $f:X\rightarrow Y$ is a homeomorphism if and only if $f$ is invertible and $f(x_n)\rightarrow f(x)$ in $Y$ whenever $x_n\rightarrow x$ in $X$ and $f^{-1}(y_n)\rightarrow f^{-1}(y)$ in $X$ whenever $y_n\rightarrow y$ in $Y$. But $f$ is bijective, so this is equivalent to $f(x_n)\rightarrow f(x)$ in $Y$ if and only if $x_n\rightarrow x$ in $X$.
 
-\begin{defn}[Equivalent Norms]
+\begin{definition}[Equivalent Norms]\Alsoindex{Norms}{Equivalent norms}
     Suppose $V$ is a normed linear space equipped with two norms $||\cdot ||_a$ and $||\cdot||_b$. We say that these norms are \Emph{equivalent} if there exist positive constants $c$ and $C$ so that $$c||x||_b \leq ||x||_a\leq C||x||_b$$ for all $x \in V$.
-\end{defn}
+\end{definition}
 
-\begin{prop}
-    The relation of equivaelnce between norms on a normed linear space is an equivalence relation.
-\end{prop}
+\begin{proposition}
+    The relation of equivalence between norms on a normed linear space is an equivalence relation.
+\end{proposition}
 \begin{proof}
     Indeed, $||\cdot||_a \sim ||\cdot||_a$ using $c = C = 1$, and if $||\cdot||_a\sim||\cdot ||_b$, so $c||\cdot||_b \leq ||\cdot||_a \leq C||\cdot||_b$, then $||\cdot||_b\sim||\cdot||_a$ with $\frac{1}{C}||\cdot||_a \leq ||\cdot||_b\leq \frac{1}{c}||\cdot ||_a$. Finally, if $||\cdot||_a\sim||\cdot||_b\sim||\cdot||_c$ with $c,C$ and $d,D$, it follows that $$dc||\cdot||_c \leq ||\cdot||_a\leq DC||\cdot||_c$$ so $||\cdot||_a\sim||\cdot||_c$.
 \end{proof}
 
-\begin{prop}
+\begin{proposition}
     Suppose $V$ is a normed linear space with two norms $||\cdot||_a$ and $||\cdot||_b$. The identity map $\id_V:(V,||\cdot||_a)\rightarrow (V,||\cdot||_b)$ is a homeomorphism if and only if $||\cdot||_a$ and $||\cdot||_b$ are equivalent.
-\end{prop}
+\end{proposition}
 \begin{proof}
     First, suppose there exist $c < C$ positive with $c||\cdot||_b\leq ||\cdot||_a\leq C||\cdot||_b$ and note that $\id_V$ is invertible. Then, if $v_n\rightarrow v$ in $V$ with respect to $||\cdot||_a$, $||v_n-v||_b\leq \frac{1}{c}||v_n-v||_a\rightarrow 0$,so $\id_V(v_n)\rightarrow \id_V(v)$ with respect to $||\cdot||_b$. On the other hand, $||v_n-v||_a\leq C||v_n-v||_b$, so if $v_n\rightarrow v$ with respect to $||\cdot||_b$, then $v_n\rightarrow v$ with respect to $||\cdot||_b$.
 
     Conversely, suppose $\id_V$ is a homeomorphism. Let $B_r^a(0) = \{v \in V\vert||v||_a < r\}$ and $B_s^b(0) = \{v \in V\vert||v||_b < s\}$. Then $B_1^a(0)$ is open in $(V,||\cdot||_a)$. $\id_V$ is a homeomorphism, so $\id_V^{-1}$ is continuous. So $$(\id_V^{-1})^{-1}(B_1^a(0)) = B_1^a(0)$$ is open in $(V,||\cdot||_b)$. By definition of open, there exists $r > 0$ such that $B_r^b(0) \subseteq B_1^a(0)$. Hence, if $||v||_b < r$ then $||v||_a < 1$. If $v\neq 0$, then $$\frac{vr}{2||v||_b} \in B_r^b(0)$$ so $$\left|\left|\frac{vr}{2||v||_b}\right|\right|_a < 1$$ It follows that $||v||_a < \frac{2}{r}||v||_b$. On the other hand, $\id_V$ is continuous so $$\id_v^{-1}(B_1^b(0) = B_1^b(0)$$ is open in $(V,||\cdot||_a)$. By definition of open there exists $t > 0$ such that $B_t^a(0) \subseteq B_1^b(0)$. Hence if $||v||_a < t$, then $||v||_b < 1$. If $v \neq 0$, then $$\frac{vt}{2||v||_a} \in B_t^1(0)$$ so $$\left|\left|\frac{vt}{2||v||_a}\right|\right|_b < 1$$ Thus, $\frac{t}{2}||v||_b < ||v||_a < \frac{2}{r}||v||_b$, as desired.
 \end{proof}
 
-\begin{prop}
+\begin{proposition}
     All of the $p$-norms on $\R^n$ are equivalent.
-\end{prop}
+\end{proposition}
 \begin{proof}
     We will show $||\cdot||_{\infty}$ and $||\cdot||_p$ are equivalent for any $1 \leq p < \infty$. Fix $\vec{x} = (x_1,...,x_n) \in \R^n$. Then $||\vec{x}||_{\infty} = \max_{1\leq i\leq n}|x_i| = |x_j|$ for some $1 \leq j \leq n$. Then $$||\vec{x}||_{\infty} = |x_j| = [|x_j|^p]^{1/p} \leq \left[\sum_{i=1}^n|x_i|^p\right]^{1/p} = ||\vec{x}||_p$$ and $$||\vec{x}||_p \leq \left[\sum_{i=1}^n|x_j|^p\right]^{1/p} = n^{1/p}|x_j| = n^{1/p}||\vec{x}||_{\infty}$$ So $||\vec{x}||_{\infty} \leq ||\vec{x}||_p\leq n^{1/p}||\vec{x}||_{\infty}$, and the norms are equivalent.
 \end{proof}
 
-\begin{defn}[Operator Norm].
+\begin{definition}[Operator Norm].
     Suppose $V$ and $W$ are normed linear spaces and $T:V\rightarrow W$ is a linear transformation. The \Emph{operator norm} for $T$ is $$||T|| = \inf\{C> 0|||Tv||_W \leq C||v||_V,\forall v \in V\}$$ We will adopt the convention that if the set on the right is empty, then $||T|| = \infty$. 
-\end{defn}
+\end{definition}
 
 Note that by definition $||Tv||_W \leq ||T||||v||_V$ for all $v \in V$.
 
-\begin{prop}
+\begin{proposition}
     Suppose $V$ and $W$ are normed linear spaces and $T:V\rightarrow W$ is a linear transformation. The following are equivalent: \begin{itemize}
         \item[(1)] $T$ is bounded (i.e. continuous on $V$) 
         \item[(2)] $T$ is continuous at $0$
         \item[(3)] $||T|| < \infty$
     \end{itemize}
-\end{prop}
+\end{proposition}
 \begin{proof}
     We have already shown the equivalence between $(1)$ and $(2)$. We will show $(2) \iff (3)$. 
 
@@ -1500,27 +1502,27 @@ Note that by definition $||Tv||_W \leq ||T||||v||_V$ for all $v \in V$.
 
 In light of the above result, we can now say that an operator is bounded if and only if its operator norm is finite.
 
-\begin{defn}
+\begin{definition}
     The set of all bounded operators from $V$ to $W$ is denoted $B(V,W)$. We use the notation $B(V)$ for $B(V,V)$.
-\end{defn}
+\end{definition}
 
-\begin{prop}
+\begin{proposition}
     Suppose $T \in B(V,W)$. Then $$||T|| = \sup_{||v|| = 1}||Tv||_W = \sup_{||v||\leq 1}||Tv||_W = \sup_{v\neq 0}\frac{||Tv||_W}{||v||_V}$$
-\end{prop}
+\end{proposition}
 \begin{proof}
     We shall show the second equals the third, and that $(1) \leq (2) \leq (3) \leq (1)$. For $(2) = (4)$, if $v \neq 0$ then $\frac{v}{||v||_V}$ is a unit vector and $$T(v/||v||_V) = \frac{1}{||v||_V}Tv$$ applying supremums to both sides we obtain the desired inequality. 
 
     Next, for $(1) \leq (2)$, if $v \neq 0$ then $$\left|\left|T\left(\frac{v}{||v||_V}\right)\right|\right|_W \leq (2)$$ by definition, so $||Tv||_W \leq ||v||_V(2)$m and so by definition of $||T||$, $||T|| \leq (2)$. $(2) \leq (3)$ is immediate as $(3)$ is a supremum over a larger set. Finally, for $(3) \leq (1)$ suppose $C \geq 0$ satisfying $||Tv||_W \leq C||v||_V$ for all $v \in V$. We must show $(3) \leq C$ and ($(3) \leq ||T||$ by definition). If $||v|| \leq 1$, then $||Tv||_W\leq C$, so $$(3) = \sup_{||v||\leq 1}||Tv||_W \leq C$$ and the result follows.
 \end{proof}
 
-\begin{prop}
+\begin{proposition}
     Let $V$ and $W$ be normed linear spaces. \begin{itemize}
         \item[(1)] $B(V,W)$ is a normed linear space using the operator norm
         \item[(2)] $B(V,W)$ is complete when $W$ is complete
         \item[(3)] if $Z$ is a normed vector space, $T \in B(V,W)$ and $S \in B(W,Z)$, then $S\circ T \in B(V,Z)$ and $$||S\circ T|| \leq ||S||\cdot||T||$$
             which is to say the operator norm is submultiplicative
     \end{itemize}
-\end{prop}
+\end{proposition}
 \begin{proof}
     (1): First, let $\lambda \in \R$. Note that $||(\lambda T)v||_W = |\lambda|||Tv||_W \leq |\lambda|||T||||v||_V$ for all $v \in V$, so $||\lambda T|| \leq |\lambda|||T||$. Further, if $\lambda = 0$ the result is immediate, so suppose $\lambda \neq 0$, and it follows that $$||Tv||_W = \frac{1}{|\lambda|}||(\lambda T)v||_W \leq \frac{||\lambda T||}{|\lambda|}||v||_V$$ for all $v \in V$, so $|| T||\cdot|\lambda| \leq ||\lambda T||$, and we have equality $||\lambda T|| = |\lambda|\cdot||T||$. If $T = 0$, then $||Tv|| = 0$ for all $v \in V$, so $||T|| 0$. Conversely, if $||T|| = 0$, then $||Tv||_W = 0$ for all $||v|| \leq 1$. Then for all $w \neq 0$, we have $$||T\frac{w}{||w||_V}||_W = 0$$ so $||Tw||_W = 0$, and as $||\cdot||_W$ is a norm, $Tw = 0$ for all $w \in V$. Thus, $T \equiv 0$. Finally, suppose $T,S \in B(V,W)$. Then if $||v||_V = 1$, $$||(T+S)v||_W = ||Tv+Sv||_W \leq ||Tv||_W+||Sv||_W \leq ||T|| + ||S|| < \infty$$ so using our previous equality chain result, $||T+S|| \leq ||T|| + ||S||$.
 
@@ -1529,15 +1531,15 @@ In light of the above result, we can now say that an operator is bounded if and 
     (3) If $T \in B(V,W), S \in B(W,Z)$, then $S\circ T:V\rightarrow Z$ is linear. If $||v||_V = 1$, then $$||STv||_Z \leq ||S||||Tv||_W \leq ||S||||T||||v||_V = ||S||||T||$$ Now taking the supremum over all $||v|| = 1$ we get $||ST|| \leq ||S||||T||$.
 \end{proof}
 
-\begin{rec}
-    Recall that we can represent linera transformatiosn on finite dimensional vector spaces by matrices. If $T:\ell_n^2\rightarrow \ell_m^2$ is linear, than its standard matrix representation is $$A = [Te_1\;Te_2\;...\;Te_n]$$ for $\{e_1,...,e_n\}$ the standard orthonormal basis for $\R^n$. In this way, $T(\vec{x}) = A\vec{x}$.
-\end{rec}
+\begin{remark}
+    Recall that we can represent linear transformations on finite dimensional vector spaces by matrices. If $T:\ell_n^2\rightarrow \ell_m^2$ is linear, than its standard matrix representation is $$A = [Te_1\;Te_2\;...\;Te_n]$$ for $\{e_1,...,e_n\}$ the standard orthonormal basis for $\R^n$. In this way, $T(\vec{x}) = A\vec{x}$.
+\end{remark}
 
-\begin{eg}
+\begin{example}
     We consider the \Emph{operator spectral norm} for a diagonal matrix. The \Emph{spectral norm} means the operator norm on $A \in M_{m\times n}$. Consider $T_A:\ell_n^2\rightarrow \ell_n^2$ with $A = \begin{bmatrix} a_1 & & & 0 \\ & a_2 & & \\ & & \ddots & \\ 0 & & & a_n\end{bmatrix}$, so $T\vec{x} = [a_1x_2\;...\;a_nx_n]^T$. Let $a = \max\{|a_1|,...,|a_n|\}$. Then $$||T\vec{x}||_2^2 = \sum_{i=1}^na_i^2x_i^2 \leq \sum_{i=1}^na^2x_i^2 = a^2||\vec{x}||_2^2$$ so $||T|| \leq a$. There is some $i$ with $a = |a_i|$, so $||Te_i||_2 =|a_i| = a||e_i||_2$, as $||e_i||_2 = 1$, so $||T|| \geq a$, since $||T|| = \sup_{||v|| = 1}||Tv||$. Thus, $||T|| = a$.
-\end{eg}
+\end{example}
 
-\begin{eg}
+\begin{example}
     For any $T:\ell_n^2\rightarrow \ell_m^2$, we have seen $T$ is bounded. Let $A = [T]$ be the standard matrix for $T$. The $n\times n$ matrix $A^TA$ is positive semidefinite. That is $A^TA$ is symmetric, and has all eigenvalues $\geq 0$. Indeed, observe that for all $v \in \ell_n^2$, $v^TA^TAv = (Av)\cdot(Av) = ||Av||_2^2\geq 0$. Then, if $\lambda \in \R$ is an eigenvalue with eigenvector $v \in \ell_n^2$, then $$0 \leq ||Av||_2^2 = v^TA^TAv = v^T(\lambda v) = \lambda||v||_2^2$$ As $v\neq 0$, $||v||_2^2 \neq 0$, so $\lambda \geq 0$, as claimed. 
 
     Now, there is an orthogonal matrix $U$, $U^T = U^{-1}$, such that $U^T(A^TA)U = D$ is diagonal. The diagonal entries of $D$, $\lambda_1,...,\lambda_n$, are called the singular values for $A$ with $\lambda_i \geq 0$. Define $\sqrt{D}$ as the diagonal matrix with $\sqrt{\lambda_i}$ on the diagonal, and note that $\sqrt{D}^2 = D$. We have $UU^T = U^TU = I_n$, so for any $\vec{x} \in \ell_n^2$, $$||\vec{x}||_2^2 = \vec{x}\cdot\vec{x} = U^TU\vec{x}\cdot\vec{x} = U\vec{x}\cdot U\vec{x} = ||U\vec{x}||_2^2$$ and $||U^T\vec{x}||_2 = ||\vec{x}||_2$. Let $\vec{x}$ be a unit vector. Then \begin{align*}
@@ -1549,51 +1551,51 @@ In light of the above result, we can now say that an operator is bounded if and 
         &\leq ||\sqrt{D}||^2||U^T\vec{x}||_2^2 = ||\sqrt{D}||^2
     \end{align*}
     So $||A|| \leq ||\sqrt{D}||$. Similarly, $||\sqrt{D}\vec{x}||_2^2 = ||AU\vec{x}||_2^2\leq ||A||^2$, so $||\sqrt{D}||\leq ||A||$. Together these inequalities imply $||A|| = ||\sqrt{D}|| = \max_{1\leq i \leq n}\sqrt{\lambda_i}$.
-\end{eg}
+\end{example}
 
-\begin{eg}
+\begin{example}
     Consider $A = \begin{bmatrix} 2 & 1 & 0 \\ 1 & 0 & 0\end{bmatrix}:\ell_3^2\rightarrow \ell_2^2$. Then $$A^TA = \begin{bmatrix} 5 & 2 & 0 \\ 2 & 1 & 0\\ 0 & 0 & 0 \end{bmatrix}$$ has characteristic polynomial $t[(t-5)(t-1)-4] = t(t^2-6t+1)$, so its eigenvalues are $\lambda = 0,3\pm 2\sqrt{2}$. Thus, $$||A|| = \sqrt{3+2\sqrt{2}}$$
-\end{eg}
+\end{example}
 
 Even if $A$ is $n\times n$ and diagonalizable, it may not be the case that $||A||$ is equal to the largest eigenvalue of $A$ (in modulus). It turns out that $||A||$ is always at least this number, though.
 
 By convention, we will also insist that if $L:\R^n\rightarrow \R^m$ is linear, we are using the $2$-norm for both spaces.
 
-\begin{defn}
+\begin{definition}\index{Isometry}
     Suppose $(X,d_X)$ and $(Y,d_Y)$ are metric spaces and $\varphi:X\rightarrow Y$. We say that $\varphi$ is an \Emph{isometry} if $d_Y(\varphi(x),\varphi(y)) = d(x,y)$ for all $x,y \in X$
-\end{defn}
+\end{definition}
 
 That is to say, isometries preserve distances.
 
-\begin{prop}
+\begin{proposition}
     Isometries are continuous.
-\end{prop}
+\end{proposition}
 \begin{proof}
     Fix $\varepsilon > 0$ and $\delta = \varepsilon$. Then if $d_X(x,y) < \delta,$ $d_Y(\varphi(x),\varphi(y)) = d_X(x,y) < \delta = \varepsilon$.
 \end{proof}
 
-\begin{eg}
+\begin{example}
     We saw above if $U:\ell_n^2\rightarrow \ell_n^2$ is orthogonal, then $||U\vec{x}||_2^2 = ||\vec{x}||_2^2$. So$ U$ is an isometry since $$||U\vec{x} - U\vec{y}||_2^2 = ||U(\vec{x}-\vec{y})||_2^2 = ||\vec{x}-\vec{y}||_2^2$$
-\end{eg}
+\end{example}
 
-\begin{defn}
+\begin{definition}\index{Affine map}
     An \Emph{affine function} $\varphi:\ell_n^2\rightarrow \ell_n^2$ is given by $$\varphi(\vec{x}) = U\vec{x}+\vec{b}$$ for some orthogonal matrix $U$ and some vector $\vec{b} \in \ell_n^2$.
-\end{defn}
+\end{definition}
 
 From the previous example, affine functions are common examples of isometries. In fact there are no other isometries.
 
-\begin{eg}
+\begin{example}
     Suppose $\varphi:\R\rightarrow \R$ is an isometry. First assume $\varphi(0) = 0$. Then $|\varphi(x)-\varphi(0) = |x-0| = |x|$, so $\varphi(x) = \pm x$. We want $\varphi(x) = x$ for all $x \in \R$, or $\varphi(x) = -x$ for all $x$. Suppose this was not the case. Then there exist $x \neq y \in \R\backslash\{0\}$ with $\varphi(x) = x$ and $\varphi(y) = -y$. But then $0 \neq |x-y| = |\varphi(x) - \varphi(y)| = |x+y|$, which implies $(x-y)^2 = (x+y)^2$, which occurs if and only if $-2xy = 2xy$, or either $x = 0$ or $y = 0$, which is a contradiction. Thus, $\varphi(x) = x$ or $\varphi(x) = -x$. If $p:\R\rightarrow \R$ is any isometry, then $\varphi:\R\rightarrow \R$ defined by $\varphi(x) = p(x) - p(0)$ is an isometry with the same property as above, so $\varphi(x) = x$ or $-x$. Thus, $p(x) = x+b$ or $p(x) = -x+b$ for some $b \in \R$.
-\end{eg}
+\end{example}
 
-\begin{eg}
+\begin{example}
     The space of smooth functions is complete: the space $(\mathcal{C}^1([0,1]), |||\cdot|||)$. Let $(f_n) \subseteq \mathcal{C}^1([0,1])$ be Cauchy with respect to $|||\cdot|||$. Then the $f_n$ are Cauchy with respect to $||\cdot||_{\infty}$, so as $(\mathcal{C}([0,1]),||\cdot||_{\infty})$ is complete, there exists $f \in \mathcal{C}([0,1])$ such that $f_n\rightarrow_uf$. Similarly, $f_n'$ are Cauchy with respect to $||\cdot||_{\infty}$, so there exists $g \in \mathcal{C}([0,1])$ such that $f_n'\rightarrow_ug$. Then, for $x \in [0,1]$, \begin{align*}
         \int_0^xg(t)dt &= \lim\limits_{n\rightarrow \infty}\int_0^xf'_n(t)dt \tag{by uniform convergence} \\
         &= \lim\limits_{n\rightarrow \infty}(f_n(x)-f_n(0)) \tag{by FTOC2} \\
         &= f(x) - f(0) \tag{by pointwise convergence}
     \end{align*}
     Then, by the FTOC1, $f(x)-f(0)$ is differentiable at $x \in [0,1]$ as $g(x)$ is continuous on $[0,1]$, and $(f(x)-f(0))' = f'(x) = g(x)$. Thus, $f' \in \mathcal{C}([0,1])$. Hence, $f \in \mathcal{C}^1([0,1])$, and $$|||f-f_n||| = ||f-f_n||_{\infty} + ||f'-f_n'||_{\infty} = ||f-f_n||_{\infty} + ||g-f_n'||_{\infty}\rightarrow 0$$ so $(\mathcal{C}^1([0,1]),|||\cdot|||)$ is complete.
-\end{eg}
+\end{example}
 
 
 
@@ -1602,30 +1604,30 @@ From the previous example, affine functions are common examples of isometries. I
 
 \subsection{Maps on Compact Spaces}
 
-\begin{prop}\label{prop:3.1.2}
+\begin{proposition}\label{prop:3.1.2}
     If $f:X\rightarrow Y$ is continuous and $K \subseteq X$ is compact in $X$, then $f(K)$ is compact in $Y$.
-\end{prop}
+\end{proposition}
 \begin{proof}
     Let $(y_j) \subseteq f(K)$. Then there exists $(x_j) \subseteq K$ such that $f(x_j) = y_j$ for all $j$. But, $K$ is compact so there exists a convergent subsequence $(x_{j_{\nu}})$ which converges to some $x \in K$. As $f$ is continuous, $f(x_{j_{\nu}})\rightarrow f(x)$. But then $y_{j_{\nu}} = f(x_{j_{\nu}})\rightarrow f(x) \in f(K)$, so $(y_j)$ has a convergent subsequence and $f(K)$ is compact.
 \end{proof}
 
-\begin{prop}\label{prop:3.1.3}
+\begin{proposition}\label{prop:3.1.3}
     If $X$ is a compact metric space and $f:X\rightarrow \R$ is continous, then $f$ assumes a max and min value in $X$.
-\end{prop}
+\end{proposition}
 This follows from the characterization of compact sets in $\R$, which are precisely the closed and bounded sets.
 
-\begin{defn}
+\begin{definition}
     For $f:X\rightarrow \R$, we define \begin{equation*}
         \sup_{X}f = \left\{\begin{array}{cc} \sup_{x\in X}f(x) & \text{if $f(X)$ is bounded from above} \\ \infty & \text{if not bounded above} \end{array}\right.
     \end{equation*}
     and \begin{equation*}
         \inf_{X}f = \left\{\begin{array}{cc} \inf_{x\in X}f(x) & \text{if $f(X)$ is bounded from below} \\ -\infty & \text{if not bounded below} \end{array}\right.
     \end{equation*}
-\end{defn}
+\end{definition}
 
 Using this convention, we define a notion of a limit which always exists in the extended reals, even if the actual limit does not exist.
 
-\begin{defn}
+\begin{definition}
     For any sequence $(x_n) \subseteq \R$, we define \begin{equation*}
         \lim\sup\limits_{n\rightarrow \infty}x_n := \lim\limits_{n\rightarrow \infty}\left(\sup_{k\geq n}x_k\right) 
     \end{equation*}
@@ -1633,7 +1635,7 @@ Using this convention, we define a notion of a limit which always exists in the 
         \lim\inf\limits_{n\rightarrow \infty}x_n := \lim\limits_{n\rightarrow \infty}\left(\inf_{k\geq n}x_k\right) 
     \end{equation*}
     Note $\sup_{k\geq n}x_k$ is a \Emph{decreasing sequence} and $\inf_{k\geq n}x_k$ is an \Emph{increasing sequence}.
-\end{defn}
+\end{definition}
 So $\lim\sup$ is the limit of a monotone decreasing sequence and $\lim\inf$ is the limit of a monotone increasing sequence. Further we have that $(x_n) \subseteq \R$ is convergent if and only if $\lim\sup x_n = \lim\inf x_n$.
 
 \subsection{Uniform Continuity}
@@ -1641,51 +1643,51 @@ So $\lim\sup$ is the limit of a monotone decreasing sequence and $\lim\inf$ is t
 
 We now define a more powerful notion of continuity of functions on metric spaces.
 
-\begin{defn}
+\begin{definition}\index{Uniform continuity}
     Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces. A function $f:X\rightarrow Y$ is said to be \Emph{uniformly continuous} on $X$ if for all $\varepsilon > 0$ there exists $\delta > 0$ such that $$d_X(x,y) < \delta \implies d_Y(f(x),f(y)) < \varepsilon$$ for all $x,y \in X$.
-\end{defn}
+\end{definition}
 
 This is the same definition as for uniformly continuous functions on the real line.
 
-\begin{eg}
+\begin{example}
     An example of a continuous function which is not uniformly continuous is the \Emph{topoligists sine curve}, $\sin(1/x)$ (Image here)
-\end{eg}
+\end{example}
 
-\begin{eg}
+\begin{example}
     $f(x) = x^2$ is continuous. For any $\varepsilon > 0$, observe $|x^2 - y^2| < \varepsilon \implies |x-y||x+y| < \varepsilon$. If $|x-y| < \delta$, $|x-y||x+y| \leq (2|x|+1)\delta$ if $\delta = \min\left\{\frac{\varepsilon}{2|x|+1},1\right\}$. But his depends on $x$. This does work for $x'$ such that $|x'| \leq |x|$, but for bigger $x'$ we would need a smaller $\delta$, so $f$ is not uniformly continuous.
-\end{eg}
+\end{example}
 
-\begin{prop}
+\begin{proposition}
     Suppose $\varphi:X\rightarrow Y$ is uniformly continuous. If $(x_n)$ is Cauchy in $X$, then $(\varphi(x_n))$ is Cauchy in $Y$.
-\end{prop}
+\end{proposition}
 \begin{proof}
     Fix $\varepsilon > 0$ such that $d_X(x,y) < \delta$ implies $d_Y(\varphi(x),\varphi(y)) < \varepsilon$. If $(x_n)$ is Cauchy there exists $N \in \N$ such that for $m,n \geq N$, $d_X(x_n,x_m) < \delta$. Then, for all $m,n \geq N$ we have $$d_Y(\varphi(x_n),\varphi(x_m)) < \varepsilon$$ so $(\varphi(x_n))$ is Cauchy in $Y$.
 \end{proof}
 
-\begin{eg}
+\begin{example}
     Consider $f(x) = 1/x$ and $g(x) = \sin(1/x)$, which are not uniformly continuous on $(0,\infty)$. For example, $x_n = 1/n$ is Cauchy in $(0,\infty)$ but $f(1/n) = n$ is not, and $g(1/n) = \sin(n)$ is also not.
-\end{eg}
+\end{example}
 
-\begin{eg}
+\begin{example}
     Consider $f:\R^2\rightarrow \R$, $f(x,y) = x^2+y^2$. Fix $\varepsilon = 1$ and $\delta > 0$. Let $x = 1/\delta,y = 1/\delta$. Then $$|f(x+\delta/2,y+\delta/2) - f(x,y)| = 2(1/\delta + \delta/2)^2 - 2/\delta^2| = 2|1 + \delta^2/4| > 2  > \varepsilon$$ Then $||(x+\delta/2,y+\delta/2) - (x,y)||_2 = ||(\delta/2,\delta/2)||_2 = \sqrt{2}\delta/2 < \delta$. Thus, $f$ cannot be uniformly continuous
-\end{eg}
+\end{example}
 
-\begin{eg}
+\begin{example}
     Consider $f:\R^2\backslash \{0\}\rightarrow \R$ defined by $f(x,y) = \frac{1}{x^2+y^2}$. Then $f(1/n,0) = n^2$ is not Cauchy in $\R$, but $(1/n,0)$ is Cauchy in $\R^2$.
-\end{eg}
+\end{example}
 
-\begin{prop}
+\begin{proposition}
     Bounded operators are uniformly continuous.
-\end{prop}
+\end{proposition}
 \begin{proof}
     Let $T \in B(V,W)$ and let $\varepsilon > 0$. Then $$||Tv - Tw|| \leq ||T||||v-w||$$ for $||T|| < \infty$. Let $\delta = \frac{\varepsilon}{||T||+1}$. Then if $||v-w|| < \delta$, $||Tv-Tw|| < \varepsilon$.
 \end{proof}
 
 Further, we also have that all isometries are uniformly continuous as they are in fact Lipschitz continuous.
 
-\begin{prop}\label{prop:3.1.4}
+\begin{proposition}\label{prop:3.1.4}
     If $X$ is compact and $f:X\rightarrow Y$ is continuous, then $f$ is uniformly continuous.
-\end{prop}
+\end{proposition}
 \begin{proof}
     Let $\varepsilon >0$. Let $f(X) = \bigcup_{x \in X}B_{\varepsilon/2}(f(x))$ cover the image. For each $x$ there exist $\delta_x > 0$ such that $f(B_{\delta_x}(x)) \subseteq B_{\varepsilon/2}(f(x))$. Then $X \subseteq \bigcup_{x\in X}B_{\delta_x/2}(x)$ is an open cover, so there exists $x_1,...,x_N \in X$ such that $X \subseteq \bigcup_{i=1}^NB_{\delta_{x_i}/2}(x_i)$ since $X$ is compact. Let $\delta = \min_{1\leq i \leq N}(\delta_{x_i}/2)$. Then let $x,y \in X$ such that $d_X(x,y) < \delta$. Since the $B_{\delta_{x_i}/2}(x_i)$ cover $X$, there exists $1 \leq i \leq N$ such that $x \in B_{\delta_{x_i}/2}(x_i)$. Then $$d_X(x_i,y) \leq d_X(x_i,x) + d_X(x,y) < \delta_{x_i}/2+\delta \leq \delta_{x_i}$$ so $x,y \in B_{\delta_{x_i}}(x_i)$. It follows that $f(x),f(y) \in B_{\varepsilon/2}(f(x_i))$ so $$d_Y(f(x),f(y)) \leq d_Y(f(x),f(x_i)) + d_Y(f(x_i),f(y) < \varepsilon/2+\varepsilon/2 = \varepsilon$$
     completing the proof.
@@ -1693,13 +1695,13 @@ Further, we also have that all isometries are uniformly continuous as they are i
 
 Now we come to the notion of an isomorphism in the category of metric spaces:
 
-\begin{defn}
+\begin{definition}
     A function $f:X\rightarrow Y$ is said to be a \Emph{homeomorphism} if it is continuous, bijective, and $f^{-1}$ is continuous.
-\end{defn}
+\end{definition}
 
-\begin{prop}\label{prop:3.1.5}
+\begin{proposition}\label{prop:3.1.5}
     If $X$ is a compact metric space, then $f:X\rightarrow Y$ being continuous and bijective implies $f^{-1}$ is continuous.
-\end{prop}
+\end{proposition}
 \begin{proof}
     Let $g= f^{-1}:Y\rightarrow X$. Note $g$ is continuous in $Y$ if and only if $g^{-1}(V) = f(V)$ is closed in $Y$ for all $V$ closed in $X$. Note $V$ is compact in $X$ if it is closed, so $f(V)$ is compact. Then as $Y$ is a metric space $V$ being compact implies it is closed. Thus $g$ is continuous, as desired.
 \end{proof}
@@ -1709,32 +1711,32 @@ Now we come to the notion of an isomorphism in the category of metric spaces:
 
 Next we consider convergence of sequences of functions: 
 
-\begin{defn}
+\begin{definition}\index{Functional Sequence}
     Let $f_j:X\rightarrow Y$, $j \in \N$, be a sequence of functions. If $f:X\rightarrow Y$, and $f_j(x)\rightarrow f(x)$ for all $x \in X$, we say that $f_j\rightarrow f$ \Emph{pointwise} on $X$.
-\end{defn}
+\end{definition}
 
-\begin{defn}
+\begin{definition}\index{Uniform convergence}
     A sequence $f_j:X\rightarrow Y$ converges \Emph{uniformly} to $f:X\rightarrow Y$ if and only if for all $\varepsilon > 0$, there exists $N \in \N$ such that if $j \geq N$, $$d_Y(f_j(x),f(x) < \varepsilon,\forall x \in X$$ or equivalently $$\sup_{x \in X}d_Y(f_j(x),f(x)) \leq \varepsilon$$
-\end{defn}
+\end{definition}
 
-\begin{prop}\label{prop:3.2.1}
+\begin{proposition}\label{prop:3.2.1}
     If $f_j:X\rightarrow Y$ are continuous and converge uniformly to $f:X\rightarrow Y$, then $f$ is continuous.
-\end{prop}
+\end{proposition}
 \begin{proof}
     Let $\varepsilon > 0$ and $x \in X$. Then there exists $N \in \N$ such that for $j \geq N$, $d_Y(f_j(y),f(y)) < \varepsilon/3$ for all $y \in X$. As $f_N$ is continuous, there exists $\delta > 0$ such that $f_N(B_{\delta}(x)) \subseteq B_{\varepsilon/3}(f_N(x))$. Then for $d_X(x,y) < \delta$, $$d_Y(f(x),f(y)) \leq d_Y(f(x),f_N(x)) + d_Y(f_N(x),f_N(y)) + d_Y(f_N(y),f_N(x) < \varepsilon$$ so $f$ is continuous.
 \end{proof}
 
-\begin{eg}
+\begin{example}
     If $f_j:[0,1]\rightarrow [0,1]$ is defined by $f_j(x) = x^j$, all of which are continuous, then $f_j(x)$ converge pointwise to $f(x) = \left\{\begin{array}{cc} 0 & x < 1 \\ 1 & x = 1\end{array}\right.$, which is discontinuous, and hence the convergence can't be uniform.
-\end{eg}
+\end{example}
 
-\begin{defn}
+\begin{definition}
     A sequence of functions $f_j:X\rightarrow Y$ is said to be \Emph{uniformly Cauchy} if for all $\varepsilon > 0$, there exists $N \in \N$ such that for $j,k\geq N$, $$\sup_{x\in X}d_Y(f_j(x),f_k(x)) \leq \varepsilon$$ or equivalently $\lim\limits_{j,k\rightarrow \infty}\sup_{x\in X}d_Y(f_j(x),f_k(x))  = 0$.
-\end{defn}
+\end{definition}
 
-\begin{prop}\label{prop:3.2.2}
+\begin{proposition}\label{prop:3.2.2}
     If $Y$ is a complete metric space and $f_j:X\rightarrow Y$ is uniformly Cauchy, then there exists $f:X\rightarrow Y$ such that $f_j$ converge uniformly to $f$.
-\end{prop}
+\end{proposition}
 \begin{proof}
     As $f_j$ is uniformly Cauchy, for each $x \in X$, $(f_j(x)) \subseteq Y$ is Cauchy. As $Y$ is complete there exists $y_x \in Y$ such that $f_j(x)\rightarrow y_x$. Then define $f:X\rightarrow Y$ by $f(x) = \lim\limits_{j\rightarrow \infty}f_j(x)$. Fix $\varepsilon > 0$. As $f_j$ is uniformly Cauchy there exists $N \in \N$ such that $j \geq N$ and $k \geq 0$ implies $d_Y(f_j(x),f_{j+k}(x)) < \varepsilon$. Taking the limit as $k$ goes to infinity we have $d_Y(f_j(x),f(x)) \leq \varepsilon$ for all $x \in X$. Thus, $f_j$ converges uniformly to $f$.
 \end{proof}
@@ -1742,20 +1744,20 @@ Next we consider convergence of sequences of functions:
 
 Now we consider basic properties of series: 
 
-\begin{defn}
+\begin{definition}
     We say a sequence $f_j:X\rightarrow \R^n$ is \Emph{pointwise summable} if and only if the sequence \begin{equation*}
         s_n(x) = \sum_{j=0}^{n}f_j(x)
     \end{equation*}
     is \Emph{pointwise convergent}.
-\end{defn}
+\end{definition}
 
-\begin{defn}
+\begin{definition}
     $f_j:X\rightarrow \R^n$ is \Emph{uniformly summable} if and only if $s_n(x) = \sum_{j=0}^nf_j(x)$ is \Emph{uniformly convergent}.
-\end{defn}
+\end{definition}
 
-\begin{namthm}[Weierstrass M-Test (General)]
+\begin{theorem}[Weierstrass M-Test (General)]\index{Weierstrass M-Test}
     Let $f_j:X\rightarrow \R^n$ be a sequence of functions. Assume there exist $M_k \in \R$ such that $\sup_{x\in X}||f_k(x)|| \leq M_k$ and $$\sum_{k=0}^{\infty}M_k < \infty$$ Then the series $\sum_{k=0}^nf_k(x)$ converges uniformly on $X$ to a limit $s(x)$.
-\end{namthm}
+\end{theorem}
 \begin{proof}
     Suppose the hypotheses of the theorem. As $\sum_{k=0}^nM_k$ is Cauchy, for $\varepsilon >0$ there exists $N \in \N$ such that for $j,k \geq N$, $$\left|\sum_{n=j+1}^kf_n(x)\right|\leq \sum_{n=j+1}^k|f_n(x)| \leq \sum_{n=j+1}^kM_n < \varepsilon$$ for all $x \in X$, so $\sum_{n=0}^kf_n(x)$ is uniformly Cauchy, and hence uniformly convergent since $\R^n$ is complete.
 \end{proof}
@@ -1766,36 +1768,36 @@ Now we consider basic properties of series:
 
 We now define a notion for what it means for a space to be connected, or not disconnected.
 
-\begin{defn}
+\begin{definition}\index{Connected}
     A topological space $(X,\tau)$ is \Emph{not connected} or \Emph{disconnected} if there exists $U,V \in \tau$ such that $U,V\neq \emptyset$, $U\cap V = \emptyset$, and $$X = U\sqcup V$$
     If no such $U$ and $V$ exist, then $X$ is said to be \Emph{connected}.
-\end{defn}
+\end{definition}
 
 Equivalently a space $X$ is connected if and only if the only clopen sets are $X$ and $\emptyset$. For metric spaces we say:
 
-\begin{defn}
+\begin{definition}
     A subset $S$ of a metric space $X$ is \Emph{disconnected} if there are open subsets $U$ and $V$ of $X$ such that \begin{itemize}
         \item The intersection $U\cap S$ and $V\cap S$ are non-empty
         \item $(U\cap S) \cap (V\cap S) = \emptyset$
         \item $S = (U\cap S)\cup(V\cap S)$
     \end{itemize}
     The pair $(U,V)$ is called a \Emph{separation of $S$}. If $S$ has no separations, then we say that $S$ is \Emph{connected}
-\end{defn}
+\end{definition}
 
 If $S = X$, this just means $X = U\cap V$ with $U\cap V = \emptyset$.
 
-\begin{eg}
+\begin{example}
     A disconnected set in $\ell_2^2$ is $B_1((-1,0)) \cup B_1((1,0))$.
-\end{eg}
+\end{example}
 
-\begin{eg}
+\begin{example}
     Connected subsets of a discrete space: $Y \subseteq X$ is connected if and only if $Y = \{y\}$. $\{y\}$ is connected. If $|Y| \geq 2$, let $y_0 \in Y$, $U = \{y_0\}$, and $V = Y\backslash \{y_0\}$, which is a separation.
-\end{eg}
+\end{example}
 
 
-\begin{prop}\label{prop:3.1.6}
+\begin{proposition}\label{prop:3.1.6}
     All intervals in $\R$ are connected.
-\end{prop}
+\end{proposition}
 \begin{proof}
     Suppose $I$ is an interval in $\R$. That is for all $a, b \in I$, with $a < b$, $[a,b] \subseteq I$. Suppose we have a separation $A, B \subseteq \R$ open such that $I = (I\cap A)\cup(I\cap B)$, with $I\cap A,I\cap B \neq \emptyset$, and $(I\cap A)\cap (I\cap B) = \emptyset$. Let $A' = I\cap A$ and $B' = I\cap B$. Let $a \in A' \subseteq I$ and $b \in B' \subseteq I$ so $a \neq b$. Without loss of generality suppose $a < b$. Then $[a,b] \subseteq I$ and covered by $A',B'$. Then let $s = \sup A'\cap [a,b]$. Then $s \leq b$. We proceed by cases:
     \begin{itemize}
@@ -1804,41 +1806,41 @@ If $S = X$, this just means $X = U\cap V$ with $U\cap V = \emptyset$.
     \end{itemize}
 \end{proof}
 
-\begin{defn}
+\begin{definition}\index{Subspace}
     If $(X,\tau)$ is a topological space and $A \subseteq X$, the subspace topology on $A$ is defined by \begin{equation*}
         \tau_A := \{U\cap A \subseteq A: U \in \tau\}
     \end{equation*}
     Note if $\iota:A\hookrightarrow X$ is the inclusion, $\tau_A$ is the coarsest topology/weakest topology making $\iota$ continuous $$U \subseteq A\text{ open} \iff \exists V \in \tau;\iota^{-1}(V) = V\cap A = U$$
-\end{defn}
+\end{definition}
 
-\begin{defn}
+\begin{definition}\index{Path connected}
     A topological space $(X,\tau)$ is \Emph{path connected} if and only if for all $p,q \in X$, there exists a continuous map $$\gamma:[0,1]\rightarrow X,\;\gamma(0) = p,\;\gamma(1) = q$$
-\end{defn}
+\end{definition}
 
-\begin{prop}\label{prop:3.1.7}
+\begin{proposition}\label{prop:3.1.7}
     Path connected implies connected.
-\end{prop}
+\end{proposition}
 \begin{proof}
     Suppose $X$ is path connected. Towards a contradiction suppose $X$ has a separation $A,B$. Let $a \in A$, $b \in B$, and $\gamma:[0,1]\rightarrow X$ with $\gamma(0) = a,\gamma(1) = b$. Then $\gamma^{-1}(A) \subseteq [0,1]$, $\gamma^{-1}(B) \subseteq [0,1]$ are open, disjoint, and cover $[0,1]$, contradicting the fact that $[0,1]$ is connected. Thus $X$ must be connected.
 \end{proof}
 
-\begin{eg}
+\begin{example}
     The metric space \begin{equation*}
         X = \{(0,y) \in\R^2:y\in[-1,1]\}\cup\{(x,\sin 1/x)\in \R^2:x \in (0,1]\}
     \end{equation*}
     with metric $d_X = d_{\R^2}$ is compact and connected, but not path connected.
-\end{eg}
+\end{example}
 
-\begin{namthm}[Intermediate Value Theorem]
+\begin{theorem}[Intermediate Value Theorem]\index{IVT}
     Suppose $(X,\tau)$ is a connected space and $f:X\rightarrow \R$ is continuous. Suppose $p,q \in X$ such that $f(p) = a < b = f(q)$. Then for all $c \in (a,b)$ there exists $z \in X$ such that $f(z) = c$.
-\end{namthm}
+\end{theorem}
 \begin{proof}
     Let $A = f^{-1}((-\infty,c))$ and $B = f^{-1}((c,\infty))$, so $A$ and $B$ are open, non-empty, and disjoint. Thus, as $X$ is connected, $X \neq A \cup B$ so there must exist $t \in f^{-1}(\{c\})$, so in particular $f(t) =c$.
 \end{proof}
 
-\begin{prop}
+\begin{proposition}
     Suppose $X$ and $Y$ are metric spaces and $f:X\rightarrow Y$ is continuous. If $S$ is connected in $X$, then $f(S)$ is connected in $Y$.
-\end{prop}
+\end{proposition}
 \begin{proof}
     If $U,V$ is a separation of $f(S)$, so $f(S) \subseteq U\cup V$, then $$S \subseteq f^{-1}(U\cup V) = f^{-1}(U)\cup f^{-1}(V)$$ Since $f$ is continuous, these are both open, and are in fact a separation of $S$, which is a contradiction.
 \end{proof}

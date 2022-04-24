@@ -1,2 +1,445 @@
 %%%%%%%%%% Inner Product Spaces %%%%%%%%%%
-\chapter{Inner Product Spaces}
+\chapter{Inner Product Spaces}\label{InnerProd}
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+In this chapter we equip vector spaces over $k = \R$ or $\C$ with a structure of length, distance, and angle in the form of a operation known as an \textbf{inner product}.
+
+\section{Inner Product Construction}\label{sec:InnerProd}
+
+First we define what properties characterize an inner product on a vector space over $k$.
+
+\begin{definition}\index{Inner product}
+    Let $V \in \Vect$. An \textbf{inner product} on $V$ is a function $\langle ,\rangle:V\times V\rightarrow k$ with the following properties. \begin{itemize}
+        \item \textbf{Positive definiteness}: for all $v \in V$, \begin{equation*}
+            \langle v,v\rangle \geq 0\,\text{ and }\,\langle v,v\rangle = 0\iff v = 0
+            \end{equation*}
+        \item \textbf{Conjugate symmetry}: for all $u,v \in V$, \begin{equation*}
+            \langle u,v\rangle = \overline{\langle v,u\rangle}
+        \end{equation*}
+        \item \textbf{Linearity in the first coordinate}: for all $u,v,w\in V$ and $r,s \in k$, \begin{equation*}
+            \langle ru+sv,w\rangle = r\langle u,w\rangle + s\langle v,w\rangle
+        \end{equation*}
+    \end{itemize}
+    The pair $(V,\langle,\rangle)$ is refered to as a \textbf{real} (or \textbf{complex}) \textbf{inner product space}.
+\end{definition}
+
+
+As a consequence of the definition of an inner product, it is conjugate linear in its second term. For convenience we define the notation for $X,Y \subseteq V$, $\langle X,Y\rangle = \{\langle x,y\rangle|x\in X,y\in Y\}$ and the special case $\langle v,X\rangle = \{\langle v,x\rangle |x\in X\}$. Note any subspace of an inner product space is again an inner product space under the restriction of the inner product. A complex inner product is often referred to as a \textbf{sesquilinear form}. There are a number of standard examples of inner products, a few of which are as follows.
+
+\begin{example}
+    Observe the following are inner product spaces. \begin{itemize}
+        \item The vector space $\R^n$ is an inner product space under the standard Euclidean inner product, or dot product, \begin{equation*}
+                \langle (r_1,...,r_n),(s_1,...,s_n)\rangle = \sum_{i=1}^nr_is_i
+        \end{equation*}
+            We refer to $(\R^n,\langle,\rangle)$ as the $n$-dimensional Euclidean space.
+        \item The vector space $\C^n$ is an inner product space under the standard inner product \begin{equation*}
+                \langle (r_1,...,r_n),(s_1,...,s_n)\rangle = \sum_{i=1}^nr_i\overline{s}_i
+        \end{equation*}
+            and it is refered to as the $n$-dimensional unitary space.
+        \item The space $C[a,b]$ of all continuous complex-valued functions on$[a,b]$ is a complex inner product space under the inner product \begin{equation*}
+                \langle f,g\rangle = \int_a^bf(x)\overline{g(x)}dx
+        \end{equation*}
+        \item The space $\ell^2$ is an inner product space of $k$-sequences $(s_n)_{n\in \N}$ with inner product \begin{equation*}
+                \langle(s_n)_{n\in\N},(t_n)_{n\in\N}\rangle = \sum_{n\in \N}s_n\overline{t}_n
+        \end{equation*}
+        \item On $M_{m,n}(\C)$ we have the inner product defined by $\langle A,B\rangle = \text{tr}(A\cdot B^*)$, where $B^*$ is the conjugate transpose of $B$. We refer to this as the \textbf{Frobenius inner product}.
+    \end{itemize}
+\end{example}
+
+We have the following important result:
+
+\begin{lemma}
+    If $V$ is an inner product space and $\langle u,x\rangle = \langle v,x\rangle$ for all $x \in V$, then $u=v$.
+\end{lemma}
+
+Now, the following result points out a key difference between real and complex inner product spaces.
+
+\begin{theorem}
+    Let $V \in \Vect$ be an inner product space and $\tau \in \mathcal{L}(V)$. Then if $\langle \tau v,w\rangle = 0$ for all $v,w \in V$, then $\tau = 0$. If in addition $k = \C$, then it is sufficient to have $\langle \tau v,v \rangle = 0$ for all $v \in V$.
+\end{theorem}
+\begin{proof}
+    The first claim follows immediately from the lemma. For the second claim let $v = rx+y$ for $x,y \in V$ and $r \in k$. Then \begin{align*}
+        0 &= \langle \tau(rx+y),rx+y)\rangle \\
+        &= |r|^2\rangle \tau x,x\rangle + \langle \tau y,y\rangle + r\langle \tau x,y\rangle + \overline{r}\langle \tau y,x\rangle \\
+        &= r\langle \tau x,y\rangle + \overline{r}\langle \tau y,x\rangle
+    \end{align*}
+    Setting $r = 1$ we obtain $\langle \tau x,y\rangle + \langle \tau y,x\rangle = 0$, and setting $r = i$ we can derive $\langle \tau x,y\rangle - \langle \tau y,x\rangle =0$. Together these imply $\langle \tau x,y\rangle =0$ for all $x,y \in V$.
+\end{proof}
+
+Now we can induce a \textbf{norm} on $(V,\langle ,\rangle)$ by defining $||v|| = \sqrt{\langle v,v\rangle}$. We say a vector $v \in V$ is a \textbf{unit vector} if it is of unit norm, $||v|| = 1$.
+
+\begin{definition}\index{Norm}
+    A \textbf{norm} on a vector space $V \in \Vect$ is a map $||\cdot||:V\rightarrow \R$ satisfying the following properties. \begin{itemize}
+        \item \textbf{Positive definiteness}: $||v|| \geq 0$ for all $v \in V$ and $||v|| = 0$ if and only if $v = 0$.
+        \item \textbf{Absolute homogeneity}: for all $r \in k$ and $v \in V$, $||rv|| = |r|\,||v||$.
+        \item \textbf{Triangle inequality}: for all $v,w \in V$, $||v+w|| \leq ||v||+||w||$.
+    \end{itemize}
+\end{definition}
+
+Another important property of norms induced by inner products is the following inequality.
+
+\begin{theorem}\index{Cauchy-Schwarz inequality}
+    For all $u,v \in V$ we have the \textbf{Cauchy-Schwarz inequality} \begin{equation*}
+        |\langle u,v\rangle| \leq ||u||\,||v||
+    \end{equation*}
+    with equality if and only if $v \in \spn(u)$ or $u \in \spn(v)$.
+\end{theorem}
+\begin{proof}
+    If either $u$ or $v$ are zero the result follows, so assume $u,v \neq 0$. Then for any scalar $r \in k$, \begin{equation*}
+        0 \leq ||u-rv||^2 = \langle u,u\rangle - \overline{r}\langle u,v\rangle - r[\langle v,u\rangle - \overline{r}\langle v,v\rangle] 
+    \end{equation*}
+    Choosing $r = \overline{\langle v,u\rangle}/\langle v,v\rangle$ makes the value in the square brackets zero, and so \begin{equation*}
+        0 \leq \langle u,u\rangle - \frac{\langle v,u\rangle\langle u,v\rangle}{\langle v,v\rangle} = ||u||^2 - \frac{|\langle u,v\rangle|^2}{||v||^2}
+    \end{equation*}
+    which is equivalent to the Cauchy-Schwarz inequality. Furthermore equality holds if and only if $||u-rv||^2 = 0$, which is to say $u - rv = 0$.
+\end{proof}
+
+We say that a pair $(V,||\cdot||)$ is a \textbf{normed linear space}, or NLS for short. We also have the following two properties useful identities for norms and norms induces by inner products.
+
+\begin{proposition}
+    Let $x,y \in V$ for $(V,\langle ,\rangle)$ an inner product space with induced norm $||\cdot ||$. Then we have the \textbf{Parallelogram law} \begin{equation*}
+        ||u+v||^2+||u-v||^2 = 2(||u||^2+||v||^2)
+    \end{equation*}
+    as well as the identity \begin{equation*}
+        ||u+v||^2-||u-v||^2 = 2(\langle u,v\rangle + \langle v,u\rangle)
+    \end{equation*}
+    If $k = \R$ we have the the \textbf{polarization identity}
+    \begin{equation*}
+        4\langle u,v\rangle = ||u+v||^2-||u-v||^2
+    \end{equation*}
+    and if $k = \C$ we have the complex equivalent \begin{equation*}
+        4\langle u,v\rangle = ||u+v||^2-||u-v||^2 + i||u+iv||^2 - i||u-iv||^2
+    \end{equation*}
+\end{proposition}
+
+
+These identities can be proved through straight-forward computations. 
+
+\section{Orthogonality}\label{sec:orthogonality}
+
+
+As stated previously we can use the inner product to define notions of angle, in particular a notion of orthogonality will be incredibly useful.
+
+\begin{definition}\index{Orthogonality}
+    Let $(V,\langle,\rangle)$ be an inner product space. We say $u,v \in V$ are \textbf{orthogonal} and write $u\perp v$ if $\langle u,v\rangle = 0$. In general for two subsets $X,Y\subseteq V$ we say they are orthogonal and write $X\perp Y$ if $\langle X,Y\rangle = 0$.
+
+    We also define the \textbf{orthogonal complement} of a subset $X\subseteq V$ to be the set \begin{equation*}
+        X^{\perp} = \{v \in V|v\perp X\}
+    \end{equation*}
+\end{definition}
+
+We have the following simple properties for orthogonal complements.
+
+\begin{theorem}
+    Let $(V,\langle,\rangle)$ be an inner product space. The orthogonal complement $X^{\perp}$ of any subset $X \subseteq V$ is a subspace of $V$. For any subspace $S$ of $V$, $S \cap S^{\perp} = \{0\}$.
+\end{theorem}
+
+\begin{definition}\index{Orthonormal set}\index{Orthogonal set}
+    A nonempty subset $\mathcal{O} \subseteq V$ of an inner product space is said to be an \textbf{orthogonal set} if $u\perp v$ for all $u,v \in \mathcal{O}$, $u\neq v$, and $0 \notin \mathcal{O}$. If in addition each vector of $\mathcal{O}$ is of unit norm, we say the set is \textbf{orthonormal}.
+\end{definition}
+
+We have the important property of orthogonal sets by Pythagoras.
+
+\begin{theorem}
+    Let $(V,\langle,\rangle)$ be an inner product space and let $\mathcal{O}$ be an orthogonal set. Then for any $v_1,...,v_n \in \mathcal{O}$, \begin{equation*}
+        ||v_1+\cdots +v_n||^2 = ||v_1||^2+\cdots +||v_n||^2
+    \end{equation*}
+\end{theorem}
+
+\begin{theorem}
+    Let $(V,\langle,\rangle)$ be an inner product space and $\mathcal{O}$ an orthogonal subset of $V$. Then $\mathcal{O}$ is linearly independent.
+\end{theorem}
+\begin{proof}
+    Suppose $\sum_{i=1}^na_iv_i = 0$ is a linear dependence on $\mathcal{O}$. Then \begin{equation*}
+        0 = \left\langle \sum_{i=1}^na_iv_i, v_j\right\rangle = \sum_{i=1}^na_i\langle v_i,v_j\rangle = a_j||v_j||^2
+    \end{equation*}
+    As the elements of $\mathcal{O}$ are non-zero, $a_j = 0$ for each $j$ so the relation is trivial and the set is linearly independent.
+\end{proof}
+
+Orthogonal bases are extremely convenient as they provide a simple way to represent vectors in the space. 
+
+\begin{theorem}
+    Let $(V,\langle,\rangle)$ be an inner product space and $\mathcal{O} = \{u_1,...,u_n\}$ an orthogonal set. If $v \in \spn\mathcal{O}$ then we can write \begin{equation*}
+        v = \sum_{i=1}^n\frac{\langle v,u_i\rangle}{||u_i||^2}u_i
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    As $v \in \spn\mathcal{O}$ there exist $a_1,...,a_n \in k$ such that $v = \sum_{i=1}^na_iu_i$. Then for each $j$ \begin{equation*}
+        \langle v,u_j\rangle = \sum_{i=1}a_i\langle u_i,u_j\rangle = a_j||u_j||^2
+    \end{equation*}
+    which implies $a_j = \frac{\langle v,u_j\rangle}{||u_j||^2}$.
+\end{proof}
+
+To build such sets we can use the Gram-Schmidt procedure. First a preliminary result.
+
+\begin{theorem}
+    Let $(V,\langle,\rangle)$ be an inner product space and let $\mathcal{O} = \{u_1,...,u_n\}$ be an orthogonal set. If $v \notin \langle u_1,...,u_n\rangle$, then there is a nonzero $u \in V$ for which $\{u_1,...,u_n,u\}$ is an orthgonal set and $\langle u_1,...,u_n,u\rangle = \langle u_1,...,u_n,v\rangle$. In particular, \begin{equation*}
+        u = v-\sum_{i=1}^n\frac{\langle v,u_i\rangle}{\langle u_i,u_i\rangle}u_i
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    Set $u$ as in the theorem. Then $u \neq 0$ as $v \notin\spn\mathcal{O}$, and \begin{equation*}
+        \langle u,u_i\rangle = \langle v,u_i\rangle - \frac{\langle v,u_i}{\langle u_i,u_i\rangle}\langle u_i,u_i\rangle = 0
+    \end{equation*}
+    as desired.
+\end{proof}
+
+We can apply this result to obtain the procedure.
+
+\begin{theorem}[The Gram-Schmidt Orthogonalization Procedure] \index{Gram-Schmidt Orthogonalization}
+    Let $\mathcal{B} = (v_1,v_2,...)$ be a sequence of linearly independent vectors in an inner product space $V$. Define a sequence $\mathcal{O} = (u_1,u_2,...)$ by repeated application of the previous result, so \begin{equation*}
+        u_k = v_k - \sum_{i=1}^{k-1}\frac{\langle v_k,u_i\rangle}{\langle u_i,u_i\rangle}u_i
+    \end{equation*}
+    Then $\mathcal{O}$ is an orthogonal sequence in $v$ with the property that $\langle u_1,...,u_k\rangle = \langle v_1,...,v_k\rangle$ for all $k > 0$.
+\end{theorem}
+\begin{proof}
+    The result holds immediately if $k = 1$. Assume it holds for $k-1$, with $u_1,...,u_{k-1}$ non-zero. As $v_k \notin \langle v_1,...,v_{k-1}\rangle$, $u_k \neq 0$ and \begin{equation*}
+        \langle u_1,...,u_k\rangle = \langle v_1,...,v_{k-1},u_k\rangle = \langle v_1,...,v_{k-1},v_k\rangle
+    \end{equation*}
+\end{proof}
+
+\begin{corollary}
+    Every finite dimensional inner product space has an orthonormal basis.
+\end{corollary}
+
+\subsection{Orthogonal Projections}
+
+\begin{definition}\index{Orthogonal projection}
+    Let $(V,\langle,\rangle)$ be an inner product space and let $W \leq V$. Let $\mathcal{B} = \{w_1,...,w_r\}$ be an orthogonal basis of $W$. If $v \in V$, its \textbf{orthogonal projection} on $W$ is the vector \begin{equation*}
+        \text{proj}_W(v) = \sum_{i=1}^n\frac{\langle v,w_i\rangle}{\langle w_i,w_i\rangle}w_i
+    \end{equation*}
+\end{definition}
+
+The $\frac{\langle v,w_i\rangle}{\langle w_i,w_i\rangle}$ are called the \textbf{Fourier coefficients} of the projection. Projections give us best approximations of vectors in a subspace.
+
+\begin{theorem}
+    Let $(V,\langle,\rangle)$ be an inner product space and $\mathcal{O} = \{u_1,...,u_k\}$ an orthgonal subset and let $S = \spn\mathcal{O}$. Let $\hat{v}$ denote the projection of $v \in V$ onto $S$. Then $\hat{v}$ is the unique vector in $S$ for which $(v-\hat{v})\perp S$. Also $\hat{v}$ is the \textbf{best approximation} to $v$ from within $S$, that is, $\hat{v}$ is the unique vector closest to $v$in the sense $||v-\hat{v}|| < ||v-s||$ for all $s \in S\backslash\{\hat{v}\}$. We also have \textbf{Bessel's inequality} for all $v \in V$, which states \begin{equation*}
+        ||\hat{v}||\leq ||v||
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    For part (1), since $\langle v-\hat{v},u_i\rangle = \langle v,u_i\rangle - \langle \hat{v},u_i\rangle = 0$, it follows $v-\hat{v} \in S^{\perp}$. Also if $v-s \in S^{\perp}$ for $s \in S$, then $s-\hat{v} \in S$ and \begin{equation*}
+        s-\hat{v} = (v-\hat{v})-(v-s) \in S^{\perp}
+    \end{equation*}
+    so $s = \hat{v}$ as $S\cap S^{\perp} = \{0\}$. For the second statement, if $s \in S$, then $v-\hat{v} \in S^{\perp}$ implies that $(v-\hat{v})\perp(\hat{v}-s)$, so \begin{equation*}
+        ||v-s||^2 = ||v-\hat{v}||^2+||\hat{v}-s||^2
+    \end{equation*}
+    Hence $||v-s||\geq ||\hat{v}-v||$, with equality if and only if $s = \hat{v}$.
+\end{proof}
+
+The following then follows.
+
+\begin{theorem}
+    If $S$ is a finite dimensional subspace of an inner product space $V$, then $V = S\oplus S^{\perp}$, so $\dim(V) = \dim(S)+\dim(S^{\perp})$.
+\end{theorem}
+The result follows from the fact that if $S$ is finite dimensional the projection of any vector in $V$ is well defined, so $v = \text{proj}_S(v) + (v-\text{proj}_S(v)) \in S\oplus S^{\perp}$.
+
+
+\subsection{Riesz Representation Theory}
+
+\begin{theorem}[The Riesz Representation Theorem]\index{Riesz Representation Theorem}
+    Let $(V,\langle,\rangle)$ be a finite-dimensional inner product space. \begin{itemize}
+        \item The map $\tau:V\rightarrow V^*$ defined by $\tau x = \langle\cdot,x\rangle$ is a conjugate isomorphism. In particular, for each $f \in V^*$ there exists a unique vector $R_f \in V$ for which $f = \langle \cdot,R_f\rangle$ called the Riesz vector.
+        \item If $\mathcal{O} = \{u_1,...,u_n\}$ is an orthonormal basis of $V$, then for $f \in V^*$, $R_f = \sum_{i=1}^n\overline{g(u_i)}u_i$.
+        \item The map $R:V^*\rightarrow V$ defined by $Rf = R_f$ is also a conjugate isomorphism and the inverse of $\tau$.
+    \end{itemize}
+\end{theorem}
+\begin{proof}
+    We prove the first two points together. As inner products are positive definite, $\tau$ is an injection. Next, if $f \in V^*$ we observe that for any $w \in V$, \begin{equation*}
+        \langle w,R_f\rangle = \left\langle w,\sum_{i=1}^n\overline{f(u_i)}u_i\right\rangle = \sum_{i=1}^n\langle w,u_i\rangle f(u_i) = f(w)
+    \end{equation*}
+    Thus $\langle \cdot,R_f\rangle = f$, so $\tau$ is surjective. Further, if $\omega \in (\ker f)^{\perp}\backslash\{0\}$ for $f \neq 0$, then $R_f = \frac{\overline{f(\omega)}}{||\omega||^2}\omega$. Hence $\tau$ is a conjugate isomorphism. $R$ being the inverse of a conjugate isomorphism is itself a conjugate isomorphism. Explicitly \begin{align*}
+        \langle v,R_{rf+sg}\rangle &= (rf+sg)(v) \\
+        &= rf(v)+sg(v) \\
+        &= \langle v,\overline{r}R_f\rangle + \langle v,\overline{s}R_g\rangle \\
+        &= \langle v,\overline{r}R_f+\overline{s}R_g\rangle
+    \end{align*}
+    for al $v \in V$.
+\end{proof}
+
+\section{Adjoint of a Linear Operator}\label{sec:adjoint}
+
+For finite dimensional inner product spaces we have the existence of a unique map $\tau^*:W\rightarrow V$ for each map $\tau:V\rightarrow W$ defined by the condition $\langle \tau v,w\rangle_W = \langle v,\tau^*w\rangle_V$ for all $v \in V$ and $w \in W$. This is called the \textbf{adjoint} of $\tau$.
+\begin{proof}
+    If $\tau^*$ exists it is unique. Indeed, if $\sigma$ is another map satisfying the defining property of the adjoint, $\langle v,\sigma w\rangle_V = \langle v,\tau^*w\rangle_V$ for all $v\in V$ and $w \in W$, so $\sigma = \tau^*$.
+
+    If $V$ and $W$ are finite dimensional we have the Riesz representation theorem, and can use it to define $\tau^*$. Specifically, for each $w \in W$ the linear functional $f_w \in V^*$ defined by $f_wv = \langle \tau v,w\rangle_W$ has the form $f_wv = \langle v,R_{f_w}\rangle_V$ where $R_{f_w} \in V$ is the Riesz vector. If we define $\tau^*$ by $\tau^*w = R_{f_w} = R(f_w)$, where $R$ is the Riesz map, then $$\langle v,\tau^*w\rangle_V = \langle v,R_{f_w}\rangle_V = f_wv = \langle \tau v,w\rangle$$
+    Finally, since $\tau^* = R\circ f$ is the composition of the Riesz map $R$ and the map $f:w\mapsto f_w$, and since both are conjugate linear, their composition is linear.
+\end{proof}
+
+We have the following basic properties of the adjoint operation.
+
+\begin{theorem}
+    Let $V$ and $W$ be finite-dimensinoal inner product spaces. For every $\sigma,\tau \in \mathcal{L}(V,W)$ and $r \in k$, \begin{itemize}
+        \item $(\sigma+\tau)^* = \sigma^*+\tau^*$
+        \item $(r\tau)^* = \overline{r}\tau^*$
+        \item $\tau^{**} = \tau$
+        \item If $V = W$, then $(\sigma\tau)^* = \tau^*\sigma^*$
+        \item If $\tau$ is invertible, then $(\tau^{-1})^* = (\tau^*)^{-1}$
+        \item If $V = W$ and $p(x) \in \R[x]$, then $p(\tau)^* = p(\tau^*)$
+    \end{itemize}
+    Moreover, if $\tau \in \mathcal{L}(V0$ and $S$ is a subspace of $V$, then \begin{itemize}
+        \item $S$ is $\tau$-invariant if and only if $S^{\perp}$ is $\tau^*$-invariant
+        \item $(S,S^{\perp})$ reduces $\tau$ if and only if $S$ is both $\tau$-invariant and $\tau^*$-invariant, in which case $(\tau\vert_S)^* = (\tau^*)\vert_S$.
+    \end{itemize}
+\end{theorem}
+\begin{proof}
+    We prove the fifth statement and leave the rest to the reader. If $\tau$ is invertible, $\tau^{-1}$ is a linear operator and for any $v,u \in V$ we have \begin{equation*}
+        \langle u,v\rangle = \langle \tau\tau^{-1}u,v\rangle = \langle u,(\tau^{-1})^*\tau^*v \rangle
+    \end{equation*}
+    so $(\tau^{-1})^*\tau^* = \text{id}_V$, and similarly $\tau^*(\tau^{-1})^* = \text{id}_W$.
+\end{proof}
+
+We also have the following relations between $\tau$ and $\tau^*$: 
+
+\begin{theorem}
+    Let $\tau \in \mathcal{L}(V,W)$, where $V$ and $W$ are finite-dimensional inner product spaces. \begin{itemize}
+        \item $\ker(\tau^*) = \ran(\tau)^{\perp}$ and $\ran(\tau^*) = \ker(\tau)^{\perp}$
+        \item $\ker(\tau^*\tau) = \ker(\tau)$ and $\ker(\tau\tau^*) = \ker(\tau^*)$
+        \item $\ran(\tau^*\tau) = \ran(\tau^*)$ and $\ran(\tau\tau^*) = \ran(\tau)$
+    \end{itemize}
+\end{theorem}
+
+If we look at the matrix representation of the adjoint over an orthonormal basis it takes on a special simple form.
+
+\begin{theorem}
+    Let $\tau \in \mathcal{L}(V,W)$ where $V$ and $W$ are finite-dimensional inner product spaces. If $\mathcal{B}$ and $\mathcal{C}$ are ordered orthonormal bases for $V$ and $W$, respectively, then \begin{equation*}
+        [\tau^*]_{\mathcal{C}}^{\mathcal{B}} = ([\tau]_{\mathcal{B}}^{\mathcal{C}})^*
+    \end{equation*}
+\end{theorem}
+This follows from the result that for such orthonormal bases, $([\tau]_{\mathcal{B}}^{\mathcal{C}})_{i,j} = \langle \tau b_j,c_i\rangle$, so \begin{equation*}
+    ([\tau^*]_{\mathcal{C}}^{\mathcal{B}})_{i,j} = \langle \tau^*c_j,b_i\rangle = \langle c_j,\tau b_i\rangle = \overline{\langle \tau b_i,c_j\rangle} = \overline{([\tau]_{\mathcal{B}}^{\mathcal{C}})_{j,i}}
+\end{equation*}
+
+
+\section{Spectral Theory}\label{sec:specTheory}
+
+
+We now use the properties in the relationship between $\tau$ and $\tau^*$ to determine a spectral theory for operators.
+
+\begin{lemma}
+    Let $V$ be a finite dimensional inner product space and $\tau \in \mathcal{L}(V)$. If $\tau$ has an eigenvector, then so does $\tau^*$.
+\end{lemma}
+\begin{proof}
+    Let $u$ be an eigenvector fo $\tau$ with eigenvalue $\lambda$. Then for any $v \in V$ we can write \begin{equation*}
+        0 = \langle (\tau-\lambda \text{id}_V)u,v\rangle = \langle u,(\tau^*-\overline{\lambda}\text{id}_V)v\rangle
+    \end{equation*}
+    Thus $u \in \ran(\tau^*-\overline{\lambda}\text{id}_V)^{\perp}$ with $u \neq 0$, so $\dim\ran(\tau^*-\overline{\lambda}\text{id}_V) < \dim V$ which implies there exists $w \in \ker(\tau^*-\overline{\lambda}\text{id}_V)$ with $w \neq 0$. Thus $w$ is an eigenvector of $\tau^*$ of eigenvalue $\overline{\lambda}$.
+\end{proof}
+
+An important result in the spectral theory of vector space is Schur's Lemma.
+
+\begin{lemma}[Schur's Lemma]\index{Schur's Lemma}
+    Let $V$ be a finite dimensional inner product space over $k$ and $\tau \in \mathcal{L}(V)$. Suppose the characteristic polynomial of $\tau$ splits over $k$. Then there exists an orthonormal basis $\mathcal{B} = \{v_1,...,v_n\}$ of $V$ such that the matrix $[\tau]_{\mathcal{B}}^{\mathcal{B}}$ is upper triangular.
+\end{lemma}
+\begin{proof}
+    Let $p(t)$ be the characteristic polynomial of $\tau$. We proceed by induction on $\dim V = n$. If $n = 1$ the result holds for any normalized basis of $V$. Suppose the result holds for any space of dimension $< n$. Then, as $p(t)$ splits over $k$ it has a root $\lambda \in k$. It follows that $\dim E_{\lambda} \geq 1$. Let $U = \ran(\tau-\lambda \id_V)$. Then $\dim U < n$ and $U$ is $\tau$ invariant. Let $\{v_1,...,v_m\}$ be an orthonormal basis of $U$ for which $\tau v_i \in \spn(v_1,...,v_i)$ by the inductive hypothesis. Then extend it to an orthonormal basis $\{v_1,...,v_n\}$ of $V$. It follows that \begin{equation*}
+        \tau v_j = (\tau-\lambda \id_V) v_j +\lambda v_j \in \spn(v_1,...,v_m,v_j) \subseteq \spn(v_1,...,v_j)
+    \end{equation*}
+    for all $m < j \leq n$, so this is an orthonormal basis with respect to which the matrix of $\tau$ is upper triangular.
+\end{proof}
+
+We now look for the conditions needed to find an orthonormal basis $\mathcal{B}$ of eigenvectors which diagonalize an operator $\tau \in \mathcal{L}(V)$. In this case $([\tau]_{\mathcal{B}}^{\mathcal{B}})^* = [\tau^*]_{\mathcal{B}}^{\mathcal{B}}$, so $\tau$ and $\tau^*$ are simultaneously diagonalized, with conjugate eigenvalues. If we represent these matrices by $D$ and $D^*$, we observe that $DD^* = D^*D$, so by the linear isomorphism given by matrix representations of operators we find that $\tau\tau^* = \tau^*\tau$ is a necessary condition for finding an orthonormal basis of eigenvectors. We shall shortly show that if $k = \C$ this condition is also sufficient.
+
+\begin{definition}\index{Normal}
+    Let $V$ be an inner product space. $\tau \in \mathcal{L}(V)$ is called \textbf{normal} if $\tau\tau^* = \tau^*\tau$.
+\end{definition}
+Here are some notable properties of normal operators.
+
+\begin{theorem}
+    Let $V$ be an inner product space and $\tau \in \mathcal{L}(V)$ be normal. Then \begin{itemize}
+        \item $||\tau^*x|| = ||\tau x||$ for all $x \in V$
+        \item $\tau-\alpha \id_V$ is normal for all $\alpha \in k$
+        \item If $u$ is an eigenvector of $\tau$, then it is an eigenvector of $\tau^*$ as well.
+        \item If $\lambda_1\neq \lambda_2$ are eigenvalues of $\tau$, then $\langle E_{\lambda_1},E_{\lambda_2}\rangle = \{0\}$.
+    \end{itemize}
+\end{theorem}
+\begin{proof}
+    We prove the third and fourth claims. If $u$ is an eigenvector of $\tau$ with eigenvalue $\lambda$, then $(\tau-\lambda \id_V)u =0$, so $||(\tau^*-\overline{\lambda}\id_V)u|| = ||(\tau-\lambda \id_V)u|| = 0$, so $u$ must be an eigenvector of $\tau^*$ with eigenvalue $\overline{\lambda}$.
+
+    For the fourth claim, we observe that \begin{equation*}
+        \lambda_1\langle u_1,u_2\rangle = \langle \tau u_1,u_2\rangle = \langle u_1,\tau^*u_2\rangle = \langle u_1,\overline{\lambda}_2u_2\rangle = \lambda_2\langle u_1,u_2\rangle
+    \end{equation*}
+    for all $u_1 \in E_{\lambda_1}$ and $u_2 \in E_{\lambda_2}$. Thus as $\lambda_1\neq \lambda_2$ we must have $\langle u_1,u_2\rangle = 0$.
+\end{proof}
+
+Now we can finally state and prove the spectral theory of operators on complex vector spaces.
+
+\begin{theorem}[(Complex) Spectral Theorem]\index{Spectral Theorem}
+    Let $V$ be an $n$-dimensional inner product space over $\C$ and let $\tau \in \mathcal{L}(V)$. Then the following statements are equivalent. \begin{itemize}
+        \item $\tau$ is normal
+        \item There exists an orthonormal basis of $V$ that consists of eigenvectors of $\tau$.
+    \end{itemize}
+\end{theorem}
+\begin{proof}
+    We have already showed that the second statement implies the first. Now, suppose $\tau$ is normal. By Schur's lemma we have an orthonormal basis $\mathcal{B}$ of $V$ for which $A = [\tau]_{\mathcal{B}}^{\mathcal{B}}$ is upper triangular. We proceed by induction on $n$ to show $A$ is in fact diagonal. If $n =1$ $A$ is trivially diagonal. Suppose the claim holds for any dimension $< n$. Now, we have that $||\tau v_1||^2 = |\langle \tau v_1,v_1\rangle|^2 = ||\tau^* v_1||^2 = \sum_{i=1}^n|\langle \tau^*v_1,v_i\rangle|^2 = \sum_{i=1}^n|\langle \tau v_i,v_1\rangle|^2$. Thus we have that $\langle \tau v_i, v_1\rangle = 0$ for $1 < i \leq n$. Thus $\tau v_i \in \spn(v_2,...,v_n)$ for $i > 1$, so $U = \spn(v_2,...,v_n)$ is a $\tau$-invariant subspace of $V$, and $\mathcal{B}_1 = \{v_2,...,v_n\}$ is an orthonormal basis for which the matrix of $\tau\vert_U:U\rightarrow U$ is upper triangular, so the matrix is diagonal. Hence for all $i\neq j > 1$, $\langle \tau v_i,v_j \rangle = 0$. Thus we have that $[\tau]_{\mathcal{B}}^{\mathcal{B}}$ is diagonal. Therefore $\mathcal{B}$ is a basis of eigenvectors of $\tau$.
+\end{proof}
+
+For the case of the real spectral theory we require a stronger condition than normality.
+
+\begin{definition}\index{Self-adjoint}
+    Let $V$ be an inner product space over $k$. Then $\tau \in \mathcal{L}(V)$ is called \textbf{self-adjoint} if $\tau^* = \tau$. We also say $A \in M_{n,n}(k)$ is \textbf{self-adjoint} if $A^* = A$. If $k = \C$ we also call $A$ \textbf{Hermitian}, and if $k = \R$ we say that $A$ is \textbf{symmetric}.
+\end{definition}
+
+\begin{theorem}
+    Let $V$ be an inner product space over $k$. If $\tau \in \mathcal{L}(V)$ is self-adjoint, then the eigenvalues of $T$ are real.
+\end{theorem}
+\begin{proof}
+    Let $\lambda$ be an eigenvalue of $T$ with eigenvector $v$. Observe that $\lambda\langle v,v\rangle = \langle \tau v,v\rangle = \langle v,\tau v\rangle = \overline{\lambda}\langle v,v\rangle$, so $\lambda = \overline{\lambda}$. Hence $\lambda \in \R$.
+\end{proof}
+
+We now can state and prove the real spectral theorem.
+
+\begin{theorem}[(Real) Spectral Theorem]\index{Spectral theorem}
+    Let $\tau \in \mathcal{L}(V)$ for an $n$-dimensional real inner product space $V$. Then the following statements are equivalent. \begin{itemize}
+        \item $\tau$ is self-adjoint
+        \item There exists an orthonormal basis of $V$ that consists of eigenvectors of $\tau$.
+    \end{itemize}
+\end{theorem}
+\begin{proof}
+    If $\tau$ is self-adjoint all of its eigenvalues are real so its characteristic polynomial splits over $\R$. Consequently, as $\tau^*\tau = \tau^2 = \tau\tau^*$, we have by the proof of the complex spectral theory that there exists an orthonormal basis of eigenvectors of $\tau$.
+
+    Conversely, if such an orthonormal basis exists, then $[\tau^*]_{\mathcal{B}}^{\mathcal{B}} = ([\tau]_{\mathcal{B}}^{\mathcal{B}})^*$. But as all the eigenvalues are real this corresponds simply with a transposition, so as the matrix is diagonal we have that $[\tau^*]_{\mathcal{B}}^{\mathcal{B}} = [\tau]_{\mathcal{B}}^{\mathcal{B}}$. By the linear matrix representation isomorphism for choice of bases, we have $\tau = \tau^*$ so $\tau$ is self-adjoint.
+\end{proof}
+
+Now we describe the change of bases matrices which appear in these spectral theories.
+
+\begin{definition}\index{Unitary operators}
+    Let $V$ be an inner product space over $k$. $\tau \in \mathcal{L}(V)$ is called \textbf{unitary} if $\tau^*\tau = \tau\tau^* = \id_V$.
+\end{definition}
+
+Unitary operators are characterized by the following properties.
+
+\begin{theorem}
+    Let $\tau \in \mathcal{L}(V)$ where $V$ is a finite dimensional inner product space. The following statements are equivalent. \begin{itemize}
+        \item $\tau^*\tau = \tau\tau^* = \id_V$
+        \item $\langle \tau x,\tau y\rangle = \langle x,y\rangle$ for all $x,y \in V$
+        \item If $\mathcal{B} = \{v_1,...,v_n\}$ is an orthonormal basis of $V$, then $\{\tau v_1,...,\tau v_n\}$ is an orthonormal basis of $V$.
+        \item $||\tau x|| = ||x||$ for all $x \in V$
+    \end{itemize}
+\end{theorem}
+\begin{proof}
+    The first three statements are easily seen to be equivalent, and the fourth is easily seen to be implied by the other three. For four implies one, we have that $\tau$ is injective and hence a linear isomorphism seen $V$ is finite dimensional. Then $\langle x,(\tau^*\tau-\id_V)x\rangle = 0$ for all $x \in V$. Notive that $(\tau^*\tau-\id_V)^* = \tau^*\tau-\id_V$ so the operator is self-adjoint. Therefore we have an orthonormal basis of eigenvectors of $\tau^*\tau-\id_V$, so $0 = \langle u_i,(\tau^*\tau-\id_V)u_i\rangle = \overline{\lambda}_i\langle u_i,u_i\rangle = \overline{\lambda}_i$. Thus all eigenvalues of $\tau^*\tau-\id_V$ are $0$, so with respect to its eigenbasis it is the zero matrix. By injectivity of the matrix representation we find $\tau^*\tau = \id_V$. Similarly, $\tau\tau^* = \id_V$.
+\end{proof}
+
+Unitary operators on complex inner product spaces are also characterized as follows.
+
+\begin{theorem}
+    Let $\tau \in \mathcal{L}(V)$, where $V$ is an $n$-dimensional complex inner product space. The following statements are equivalent. \begin{itemize}
+        \item $\tau$ is unitary
+        \item $V$ has an orthonormal basis of eigenvectors $\mathcal{B} = \{v_1,...,v_n\}$ such that $\tau v_i = \lambda_iv_i$ and $|\lambda_i| = 1$ for $i = 1,2,...,n$.
+    \end{itemize}
+\end{theorem}
+
+This follows by the complex spectral theorem and the last result. We also have a characterization in the case of real inner product spaces.
+
+\begin{theorem}
+    Let $\tau \in \mathcal{L}(V)$, where $V$ is an $n$-dimensional real inner product space. The following statements are equivalent.
+    \begin{itemize}
+        \item $\tau$ is both self-adjoint and orthogonal
+        \item $V$ has an orthonormal basis of eigenvectors $\mathcal{B} = \{v_1,...,v_n\}$ such that $\tau v_i = \lambda_iv_i$ and $|\lambda_i| = 1$, for $i = 1,2,...,n$
+    \end{itemize}
+\end{theorem}
+
+This theorem follows from the real spectral theorem and our previous characterization.

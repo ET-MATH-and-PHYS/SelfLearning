@@ -1,0 +1,92 @@
+\begin{theindex}
+
+  \item Algebraic multiplicity, 39
+  \item Annihilator (dual), 14
+
+  \indexspace
+
+  \item Basis, 7
+
+  \indexspace
+
+  \item Cauchy-Schwarz inequality, 25
+  \item Cayley-Hamilton Theorem, 41
+  \item Complement, 6
+
+  \indexspace
+
+  \item Eigenvalue, 38
+  \item Eigenvector, 38
+  \item External direct sum, 5
+    \subitem \gobbleone , \Also{Internal direct sum}{5}
+
+  \indexspace
+
+  \item Field, 3
+
+  \indexspace
+
+  \item Generalized eigenvector, 41
+  \item Gram-Schmidt Orthogonalization, 27
+
+  \indexspace
+
+  \item Inner product, 23
+  \item Internal direct sum, 5
+  \item Invariant subspace, 40
+
+  \indexspace
+
+  \item Linear Map, 11
+  \item Linearly independence, 7
+
+  \indexspace
+
+  \item Multilinear map, 16
+
+  \indexspace
+
+  \item Norm, 25
+  \item Normal, 32
+
+  \indexspace
+
+  \item Operator adjoint, 15
+  \item Ordered basis, 9
+  \item Orthogonal projection, 28
+  \item Orthogonal set, 26
+  \item Orthogonality, 26
+  \item Orthonormal set, 26
+
+  \indexspace
+
+  \item Quadratic form, 19
+
+  \indexspace
+
+  \item Riesz Representation Theorem, 29
+
+  \indexspace
+
+  \item Schur's Lemma, 31
+  \item Self-adjoint, 33
+  \item Singular Value Decomposition, 37
+  \item Span, 6
+  \item Spectral Theorem, 32
+  \item Spectral theorem, 33
+  \item Subspace, 4
+  \item Sum, 4
+
+  \indexspace
+
+  \item Tensor product, 16
+
+  \indexspace
+
+  \item Unitary operators, 33
+
+  \indexspace
+
+  \item Vector Space, 3
+
+\end{theindex}
