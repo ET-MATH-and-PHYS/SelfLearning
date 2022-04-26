@@ -1,0 +1,108 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+\chapter{Countability and Separation Axioms}
+\label{CountSep} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+\section{The Countability Axioms}
+
+\begin{definition}
+    A space $(X,\tau)$ is said to have a \Emph{countable base at a point $x$} of $X$ if there is a countable collection $\mathcal{B}$ of neighborhoods of $x$ such that each neighborhood of $x$ contains at least one of the elements of $\mathcal{B}$. That is, for all $V \in N(x)$, there exists $B \in \mathcal{B}$ such that $x \in B \subseteq V$.
+
+
+    A space that has a countable basis at each of its points is said to satisfy the \Emph{first countability axiom}, or to be \Emph{first-countable}.
+\end{definition}
+
+\begin{theorem}
+    Let $(X,\tau)$ be a topological space. \begin{enumerate}
+        \item Let $A$ be a subset of $X$. If there is a sequence of points of $A$ converging to $x$, then $x \in \overline{A}$; the converse holds if $X$ is first-countable.
+        \item Let $f:X\rightarrow Y$. If $f$ is continuous, then for every convergent sequence $x_n\rightarrow x$ in $X$, the sequenc $f(x_n)$ converges to $f(x)$. The converse holds if $X$ is first-countable.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    (To be finished)
+\end{proof}
+
+
+\begin{definition}
+    If a space $(X,\tau)$ has a countable basis for its topology, then $X$ is said to satisfy the \Emph{second countability axiom}, or to be \Emph{second-countable}.
+\end{definition}
+
+\begin{example}
+    The real line $\R$ has a countable basis\textendash the collection of all open intervals $(a,b)$ with rational end points. Likewise, $\R^n$ has a countable basis\textendash the collection of all products of intervals having rational endpoints. Even $\R^{\omega}$ has a countable basis\textendash the collection of all products $\prod_{n\in\Z_+}U_n$, where $U_n$ is an open interval with rational end points for finitely many $n$, and $U_n = \R$ for all other values of $n$.
+\end{example}
+
+
+\begin{theorem}
+    A subspace of a first-countable space is first-countable, and a countable product of first-countable spaces is first-countable. A subspace of a second-countable space is second-countable, and a countable product of second-countable spaces is second-countable.
+\end{theorem}
+\begin{proof}
+    Consider the second countability axiom. If $\mathcal{B}$ is a countable basis for $X$, then $\{B\cap A:B\in\mathcal{B}\}$ is a countable basis for the subspace $A$ of $X$. IF $\mathcal{B}_i$ is a countable basis for the space $X_i$, then the collection of all products $\prod U_i$, where $U_i \in \mathcal{B}_i$ for finitely many values of $i$ and $U_i = X_i$ for all other values of $i$, is a countable basis for $\prod X_i$.
+\end{proof}
+
+
+\begin{definition}
+    A subset $A$ of a space $X$ is said to be \Emph{dense} in $X$ if $\overline{A} = X$.
+\end{definition}
+
+\begin{theorem}
+    Suppose that $X$ has a countable basis. Then: \begin{enumerate}
+        \item Every open covering of $X$ contains a countable subcollection covering $X$.
+        \item There exists a countable subset of $X$ that is dense in $X$.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    (To be completed - p.191)
+\end{proof}
+
+\section{The Separation Axioms}
+
+\begin{definition}
+    Suppose that one-point sets are closed in the space $(X,\tau)$. Then $X$ is said to be \Emph{regular} if for each pair consisting of a point $x$ and a closed set $B$, disjoint from $x$, there exist disjoint open sets containing $x$ and $B$, respectively. The space $(X,\tau)$ is said to be \Emph{normal} if for each pair $A,B$ of disjoint closed sets of $X$, there exist disjoint open sets containing $A$ and $B$, respectively.
+\end{definition}
+
+
+\begin{definition}[Kolmogorov Separability]
+    Let $(X,\tau)$ be a topological space. Suppose for all distinct points $x,y \in X$ there exists $U \in \tau$ such that either $x \in U$ but $y \notin U$, or $x \notin U$ and $y \in U$. Then the the space is said to satisfy the $T_0$ separability axiom.
+\end{definition}
+
+
+\begin{definition}[First Separability]
+    Let $(X,\tau)$ be a topological space. Suppose for all distinct points $x,y \in X$ there exist $U,V \in \tau$ such that both $x \in U$ and $y \notin U$, and $x \notin V$ and $y \in V$. Then the space is said to satisfy the $T_1$ separability axiom.
+\end{definition}
+
+
+\begin{definition}[Hausdorff Separability]
+    Let $(X,\tau)$ be a topological space. Suppose for all distinct points $x,y \in X$ there exist $U,V \in \tau$ such that $x \in U$, $y \in V$, and $U\cap V = \emptyset$. Then the space is said to be \Emph{Hausdorff}, or satisfy the $T_2$ separability axiom.
+\end{definition}
+
+\begin{lemma}
+    Let $X$ be a topological space. Let one-point sets in $X$ be closed. \begin{enumerate}
+        \item $X$ is regular if and only if given a point $x \in X$ and a neighborhood $U$ of $x$, there is a neighborhood $V$ of $x$ such that $\overline{V} \subseteq U$.
+        \item $X$ is normal if and only if given a closed set $A$ and an open set $U$ containing $A$, there is an open set $V$ containing $A$ such that $\overline{V}\subseteq U$.
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    (To be finished - p.196)
+\end{proof}
+
+\begin{theorem}
+    \leavevmode
+    \begin{enumerate}
+        \item A subspace of a Hausdorff space is Hausdorff; a product of Hausdorff spaces is Hausdorff.
+        \item A subspace of a regular space is regular; a product of regular spaces is regular.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    (To be finished - p.197)
+\end{proof}
+
+
+

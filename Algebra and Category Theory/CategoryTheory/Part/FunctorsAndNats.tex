@@ -1,0 +1,294 @@
+\chapter{Functors and Natural Transformations}
+\label{FunctNats} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+\section{Functoriality}
+
+Following the principles of Category Theory, we note that Categories are themselves mathematical objects, so what is a morphism between categories?
+
+\begin{definition}
+    A \Emph{functor} $F:\catname{C}\rightarrow\catname{D}$, between categories $\catname{C}$ and $\catname{D}$, consists of the following data:\begin{enumerate}
+        \item An object $Fc \in \catname{D}$, for each object $c \in \catname{C}$.
+        \item A morphism $Ff:Fc\rightarrow Fc' \in \catname{D}$, for each morphism $f:c\rightarrow c' \in \catname{C}$, so that the domain and the codomain of $Ff$ are, respectively, equal to $F$ applied to the domain or codomain of $f$.
+    \end{enumerate}
+    The assignments are required to satisfy the following two \Emph{functoriality axioms}: \begin{enumerate}
+        \item For any composable pair $f,g$ in $\catname{C}$, $Fg,Ff$ are composable and $Fg\circ Ff = F(g\circ f)$.
+        \item For each object $c$ in $\catname{C}$, $F(1_c) = 1_{Fc}$.
+    \end{enumerate}
+\end{definition}
+
+Concisely a functor consists of a mapping on objects and a mapping on morphisms that preserves all of the structure of a category, namely domains and codomains, composition, and identitites.
+
+\begin{definition}
+    An \Emph{endofunctor} is a functor whose domain is equal to its codomain.
+\end{definition}
+
+\begin{example}
+    \leavevmode
+    \begin{enumerate}
+        \item[(i)] There is an endofunctor $P:\Set\rightarrow \Set$ that sends a set $A$ to its power set $PA = \{A' \subseteq A\}$ and a function $f:A\rightarrow B$ to the direct image function $f_*:PA\rightarrow PB$ that sends $A' \subseteq A$ to $f(A') \subseteq B$.
+        \item[(ii)] Many categories have a \Emph{forgetful functor}, a general term that is used for any functor that forgets structure, whose codomain is the category of sets. For example, $U:\Grp\rightarrow \Set$ sends a group to its udnerlying set and a group homomorphism to its underlying function. 
+        \item[(iii)] There are intermediate forgetful functors $\catname{Mod}_R\rightarrow \catname{Ab}$ and $\catname{Ring}\rightarrow \catname{Ab}$ that forget some but not all of the algebraic structure. The inclusion functors $\catname{Ab}\hookrightarrow \catname{Group}$ and $\catname{Field}\hookrightarrow \catname{Ring}$ may also be regarded as ``forgetful."
+        \item[(iv)] Similarly, there are forgetful functors $\catname{Group}\rightarrow \catname{Set}_*$ and $\catname{Ring}\rightarrow \catname{Set}_*$ that take the basepoint to be the identity and zero elements, respectively. These assignments are functorial because group and ring homomorphisms necessarily preserve these elements.
+        \item[(v)] The \Emph{fundamental group} defines a functor $\pi_1:\catname{Top}_*\rightarrow \catname{Group}$; a continuous function $f:(X,x)\rightarrow (Y,y)$ of based spaces induces a group homomorphism $f_*:\pi_1(X,x)\rightarrow \pi_1(Y,y)$ and this assignment is functorial, satisfying the two functoriality axioms. 
+        \item[(vi)] There is a functor $F:\catname{Set}\rightarrow \catname{Group}$ that sends a set $X$ to the \Emph{free group} on $X$. This is the group whose elements are finite ``words" whose letters are elements of $x \in X$ or their formal inverses $x^{-1}$, modulo an equivalence relation that equates the words $xx^{-1}$ and $x^{-1}x$ with the empty word. Multiplication is by concatenation, with the empty word serving as the identity.
+        \item[(vii)] The chain rule expresses the functoriality of the derivative. Let $\catname{Euclid}_*$ denote the category whose objects are pointed finite-dimensional Euclidean spaces $(\R^n,a)$, or, better, open subsets thereof, and whose morphisms are pointed differentiable functions. The \Emph{total derivate} of $f:\R^n\rightarrow \R^m$, evaluated at the designated basepoint $a \in \R^n$, gives rise to a matrix called the \Emph{Jacobian matrix} defining the directional derivatives of $f$ at the point $a$. If $f$ is given by component functions $f_1,...,f_m:\R^n\rightarrow \R$, the $(i,j)$-entry of this matrix is $\frac{\partial}{\partial x_j}f_i(a)$. This defines the action on morphisms of a functor $D:\catname{Euclid}_*\rightarrow \catname{Mat}_{\R}$; on objects, $D$ assigns a pointed Euclidean space its dimension. Given $g:\R^m\rightarrow \R^k$ carrying the designated basepoint $f(a) \in \R^m$ to $gf(a) \in \R^k$, functoriality of $D$ asserts that the product of the Jacobian of $f$ at $a$ with the Jacobian of $g$ at $f(a)$ equals the jacobian of $gf$ at $a$.
+    \end{enumerate}
+\end{example}
+
+To illustrate the useful of functoriality, we will apply the functoriality of the fundamental group construction $\pi_1:\catname{Top}_*\rightarrow \catname{Group}$ to prove the following theorem: 
+
+\begin{theorem}[(Brouwer Fixed Point Theorem)]
+    Any continuous endomorphisms of a $2$-dimensional disk $D^2$ has a fixed point.
+\end{theorem}
+\begin{proof}
+    Assuming $f:D^2\rightarrow D^2$ is such that $f(x) \neq x$ for all $x \in D^2$, there is a continuous function $r:D^2\rightarrow S^1$ that carries a point $x \in D^2$ to the intersection of the ray from $f(x)$ to $x$ with the boundary circle $S^1$. Note that $r$ fixe3s the points on the boundary circle $S^1\subseteq D^2$. Thus, $r$ defines a retraction of the inclusion $\iota:S^1\hookrightarrow D^2$, which is to say, the composite $S^1\xrightarrow{\iota} D^2\xrightarrow{r}S^1$ is the identity. 
+
+    Pick any basepoint on the boundary circl $S^1$ and apply the functor $\pi_1$ to obtain a composable pair of group homomorphisms: \begin{equation*}
+        \pi_1(S^1)\xrightarrow{\pi_1(\iota)}\pi_1(D^2)\xrightarrow{\pi_1(r)}\pi_1(S^1)
+    \end{equation*}
+    By the functoriality axioms, we must have $$\pi_1(r)\circ\pi_1(\iota) = \pi_1(r\circ\iota) = \pi_1(1_{S^1}) = 1_{\pi_1(S^1)}$$
+    However, a computation involving covering spaces reveals that $\pi_1(S^1) = \Z$, while $\pi_1(D^2) = 0$, the trivial group. The composite endomorphism $\pi_1(r)\circ \pi_1(\iota)$ of $\Z$ must be zero, since it factors through the trivial group. Thus, it cannot equal the identity homomorphism, which carries the generator $1 \in \Z$ to itself ($0 \neq 1$). This contradiction proves that the retraction $r$ cannot exist, and so $f$ must have a fixed point.
+\end{proof}
+
+
+The functors defined thus far are called \Emph{covariant} so as to distinguish them from another variety of functor now introduced: 
+
+\begin{definition}
+    A \Emph{contravariant functor} $F$ from $\catname{C}$ to $\catname{D}$ is a functor $F:\catname{C}^{op}\rightarrow \catname{D}$. Explicitly, this consists of the following data: \begin{enumerate}
+        \item An object $Fc \in \catname{D}$, for each object $c \in \catname{C}$.
+        \item A morphism $Ff:Fc'\rightarrow Fc\in \catname{D}$, for each morphism $f:c\rightarrow c' \in \catname{C}$, so that the domain and codomain of $Ff$ are, respectively, equal to $F$ applied to the codomain or domain of $f$.
+    \end{enumerate}
+    The assignments are required to satisfy the following two \Emph{functoriality axioms}: \begin{enumerate}
+        \item For any composable pair $f,g$ in $\catname{C}$, $Fg,Ff$ are composable in $\catname{D}$ and $Ff\circ Fg = F(g\circ f)$.
+        \item For each object $c$ in $\catname{C}$, $F(1_c) = 1_{Fc}$.
+    \end{enumerate}
+    Pictorially we draw:
+    \begin{equation*}
+        F:\catname{C}^{op}\rightarrow \catname{D}
+    \end{equation*}
+    \begin{center}
+        \begin{tikzpicture}[baseline= (a).base]
+        \node[scale=1] (a) at (0,0){
+            \begin{tikzcd}
+                c && Fc \\
+                \\
+                {c'} && {Fc'}
+                \arrow[shorten <=14pt, shorten >=14pt, maps to, from=3-1, to=3-3]
+                \arrow[""{name=0, anchor=center, inner sep=0}, "f"', from=1-1, to=3-1]
+                \arrow[""{name=1, anchor=center, inner sep=0}, "Ff"', from=3-3, to=1-3]
+                \arrow[shorten <=14pt, shorten >=14pt, maps to, from=1-1, to=1-3]
+                \arrow[shorten <=19pt, shorten >=19pt, maps to, from=0, to=1]
+            \end{tikzcd}
+        };
+        \end{tikzpicture}
+    \end{center}
+\end{definition}
+
+
+\begin{example}
+    \leavevmode
+    \begin{enumerate}
+        \item[(i)] There is a functor $(-)^*:\catname{Vect}^{op}_{\mathbb{F}}\rightarrow \catname{Vect}_{\mathbb{F}}$ that carries a vector space to its \Emph{dual vector space} $V^* = \catname{Hom}(V,\mathbb{F})$. A vector in $V^*$ is a \Emph{linear functional} on $V$, i.e., a linear map $V\rightarrow \mathbb{F}$. This functor is contravariant, with a linear map $\phi:V\rightarrow W$ sent to the linear map $\phi^*:W^*\rightarrow V^*$ that pre-composes a linear functional $W\xrightarrow{\omega}\mathbb{F}$ with $\phi$ to obtain a linear functional $V\xrightarrow{\phi}W\xrightarrow{\omega}\mathbb{F}$
+        \item[(ii)] The functor $O:\catname{Top}^{op}\rightarrow \catname{Poset}$ that carries a space $X$ to its poset $O(X)$ of open subsets is contravariant on the category of spaces: a continuous map $f:X\rightarrow Y$ gives rise to a function $f^{-1}:O(Y)\rightarrow O(X)$ that carries an open subset $U \subseteq Y$ to its preimage $f^{-1}(U)$, which is open in $X$. A similar functor $\mathcal{C}:\catname{Top}^{op}\rightarrow \catname{Poset}$ carries a space to its poset of closed subsets.
+        \item[(iii)] For a generic small category $\catname{C}$, a functor $\catname{C}^{op}\rightarrow \catname{Set}$ is called a (set-valued) \Emph{presheaf} on $\catname{C}$. A typical example is the functor $O(X)^{op}\rightarrow \catname{Set}$ whose domain is the poset $O(X)$ of open subset of a topological space $X$ and whose value at $U \subseteq X$ is the set of continuous real-valued functions on $U$. The action on morphisms is by restriction. THis presheaf is a \emph{sheaf}, if it satisfeis an axiom to be introduced later.
+        \item[(vi)] Presheaves on the category $\Delta$, of finite non-empty ordinals and order preserving maps, are called \Emph{simplicial sets}. $\Delta$ is also called the \Emph{simplex category}. The ordinal $n+1 = \{0,1,...,n\}$ may be thought of as a direct version of the topological $n$-simplex and, with this interpretation, is typically denoted by ``$[n]$" by algebraic topologists.
+    \end{enumerate}
+\end{example}
+
+\begin{lemma}
+    Functors preserve isomorphisms.
+\end{lemma}
+\begin{proof}
+    Consider a functor $F:\catname{C}\rightarrow \catname{D}$ between categories $\catname{C}$ and $\catname{D}$. Suppose $f:c\rightarrow c'$ is an isomorphism in $\catname{C}$ with inverse isomorphisms $f^{-1}:c'\rightarrow c$. Then consider the image morphisms $Ff:Fc\rightarrow Fc'$ and $Ff^{-1}:Fc'\rightarrow Fc$. It follows by functoriality of $F$ that \begin{equation*}
+        Ff\circ Ff^{-1} = F(f\circ f^{-1}) = F(1_{c'}) = 1_{Fc'}
+    \end{equation*}
+    and \begin{equation*}
+        Ff^{-1}\circ Ff = F(f^{-1}\circ f) = F(1_c) = 1_{Fc}
+    \end{equation*}
+    Thus $Ff$ is indeed an isomorphism in $\catname{D}$ with inverse $Ff^{-1}$.
+\end{proof}
+
+
+\begin{example}
+    Let $G$ be a group, regarded as a one-object category $\catname{B}G$. A functor $X:\catname{B}G\rightarrow \catname{C}$ specifies an object $X \in \catname{C}$ (the unique object in its image) together with an endomorphism $g_*:X\rightarrow X$ for each $g \in G$. This assignment must satisfy two conditions: \begin{enumerate}
+        \item[(i)] $h_*g_* = (hg)_*$ for all $g,h \in G$.
+        \item[(ii)] $e_* = 1_X$, where $e \in G$ is the identity element.
+    \end{enumerate}
+    In summary, the functor $\catname{B}G\rightarrow \catname{C}$ defines an \Emph{action} of the group $G$ on the object $X \in \catname{C}$. When $\catname{C} = \catname{Set}$, the object $X$ endowed with such an action is called a \Emph{$G$-set}. When $\catname{C} = \catname{Vect}_{\mathbb{F}}$, the object $X$ is called a \Emph{$G$-representation}. When $\catname{C} = \catname{Top}$, the object $X$ is called a \Emph{$G$-space}. 
+
+    The action specified by a functor $\catname{B}G\rightarrow \catname{C}$ is sometimes called a \Emph{left action}. A \Emph{right action} is a contravariant functor $\catname{B}G^{op}\rightarrow \catname{C}$. As before, each $g \in G$ determines an endomorphism $g^*:X\rightarrow X$ in $\catname{C}$ and the identity element must act trivially. But now, for a pair of elements $g,h \in G$, these actions must satisfy the composition rule $(hg)^* = g^*h^*$. 
+
+
+    Because the elements $g \in G$ are isomorphisms when regarded as morphisms in the $1$-object category $\catname{B}G$ that represents the group, their images under any such functor must also be isomorphisms in the target category. In particular, in the case of a $G$-representation $V:\catname{B}G\rightarrow \catname{Vect}_{\mathbb{F}}$, the linear map $g_*:V\rightarrow V$ must be an \emph{automorphism} of the vector space $V$. 
+\end{example}
+
+\begin{corollary}
+    When a group $G$ acts functorially on an object $X$ in a category $\catname{C}$, its elements $g$ must act by automorphisms $g_*:X\rightarrow X$ and, moreover, $(g_*)^{-1} = (g^{-1})_*$.
+\end{corollary}
+
+A functor may or may not preserve monomorphisms or epimorphisms, but an argument similar to that employed previously shows that a functor necessarily preserves split monomorphisms (sections) and split epimorphisms (retracts).
+
+
+\begin{definition}
+    If $\catname{C}$ is locally small, then for any object $c \in \catname{C}$ we may define a pair of covariant and contravariant \Emph{functors represented by $c$}: 
+    \begin{equation*}
+        \catname{C}\xrightarrow{\catname{C}(c,-)}\catname{Set}\hspace{5pt}\catname{C}^{op}\xrightarrow{\catname{C}(-,c)}\catname{C}
+    \end{equation*}
+    \begin{center}
+        \begin{tikzpicture}[baseline= (a).base]
+        \node[scale=1] (a) at (0,0){
+            \begin{tikzcd}
+                x && \catname{C}(c,x) \\
+                \\
+                {y} && {\catname{C}(c,y)}
+                \arrow[shorten <=14pt, shorten >=14pt, maps to, from=3-1, to=3-3]
+                \arrow[""{name=0, anchor=center, inner sep=0}, "f"', from=1-1, to=3-1]
+                \arrow[""{name=1, anchor=center, inner sep=0}, "f_*"', from=1-3, to=3-3]
+                \arrow[shorten <=14pt, shorten >=14pt, maps to, from=1-1, to=1-3]
+                \arrow[shorten <=19pt, shorten >=19pt, maps to, from=0, to=1]
+            \end{tikzcd}
+            \begin{tikzcd}
+                x && \catname{C}(x,c) \\
+                \\
+                {y} && {\catname{C}(y,c)}
+                \arrow[shorten <=14pt, shorten >=14pt, maps to, from=3-1, to=3-3]
+                \arrow[""{name=0, anchor=center, inner sep=0}, "f"', from=1-1, to=3-1]
+                \arrow[""{name=1, anchor=center, inner sep=0}, "f^*"', from=3-3, to=1-3]
+                \arrow[shorten <=14pt, shorten >=14pt, maps to, from=1-1, to=1-3]
+                \arrow[shorten <=19pt, shorten >=19pt, maps to, from=0, to=1]
+            \end{tikzcd}
+
+        };
+        \end{tikzpicture}
+    \end{center}
+    The functor $\catname{C}(c,-)$ carries a morphism $f:x\rightarrow y$ to the post-composition function $f_*:\catname{C}(c,x)\rightarrow \catname{C}(x,y)$ while, dually, the functor $\catname{C}(-,c)$ carries $f$ to the pre-composition function $f^*:\catname{C}(y,c)\rightarrow \catname{C}(x,c)$. 
+\end{definition}
+
+
+A \Emph{bifunctor} is the name for a functor of two variables. Its domain is given by the product of a pair of categories: 
+
+\begin{definition}
+    For any categories $\catname{C}$ and $\catname{D}$, there is a category $\catname{C}\times \catname{D}$, their \Emph{product}, whose \begin{enumerate}
+        \item objects are ordered pairs $(c,d)$, where $c$ is an object of $\catname{C}$ and $d$ is an object of $\catname{D}$,
+        \item morphisms are ordered pairs $(f,g):(c,d)\rightarrow (c',d')$, where $f:c\rightarrow c' \in \catname{C}$ and $g:d\rightarrow d' \in \catname{D}$, and 
+        \item in which composition and identities are defined componentwise.
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}
+    If $\catname{C}$ is locally small, then there is a \Emph{two-sided represented functor} \begin{equation*}
+        \catname{C}(-,-):\catname{C}^{op}\times\catname{C}\rightarrow \catname{Set}
+    \end{equation*}
+    defined in the evident manner. A pair of objects $(x,y)$ is mapped to the hom-set $\catname{C}(x,y)$. A pair of morphisms $f:w\rightarrow x$ and $h:y\rightarrow z$ is sent to the function \begin{equation*}
+        \begin{array}{rcl} \catname{C}(x,y) & \xrightarrow{(f^*,h_*)} & \catname{C}(w,z) \\ g & \mapsto & hgf \end{array}
+    \end{equation*}
+    that takes an arrow $g:x\rightarrow y$ and then pre-composes with $f$ and post-composes with $h$ to obtain $hgf:w\rightarrow z$.
+\end{definition}
+
+
+We denote the category of small categories by $\catname{Cat}$, and the category of locally small categories by $\catname{CAT}$. Now, the notion of an \Emph{isomorphism of categories} arises naturally as a pair of inferse functors $F:\catname{C}\rightarrow \catname{D}$ and $G:\catname{D}\rightarrow \catname{C}$ so that the composites $GF$ and $FG$, respectively, equal the identity functors on $\catname{C}$ and $\catname{D}$.
+
+\begin{example}
+    For instance: \begin{enumerate}
+        \item[(i)] The functor $(-)^{op}:\catname{CAT}\rightarrow \catname{CAT}$ defines a non-trivial automorphism of the category of categories. Note that a functor $F:\catname{C}\rightarrow \catname{D}$ also defines a functor $F:\catname{C}^{op}\rightarrow \catname{D}^{op}$.
+        \item[(ii)] For any group $G$, the categories $\catname{B}G$ and $\catname{B}G^{op}$ are isomorphic via the functor $(-)^{-1}$ that sends each morphism $g \in G$ to its inverse. Any right action can be converted into a left action by precomposing with this isomorphism, which has the effect of ``inserting inverses in the formula" defining the endomorphism associated to a particular group element.
+        \item[(iii)] Any ring $R$ has an opposite ring $R^{op}$ with the same underlying abelian group but with the product of elements $r$ and $s$ in $R^{op}$ defined to be the product $s\cdot r$ of the elements $s$ and $r$ in $R$. A left $R$-module is the same thing as a right $R^{op}$-module, which is to say there is a covariant isomorphism of categories $\catname{Mod}_R\cong {_{R^{op}}\catname{Mod}}$ between the category of left $R$-modules and the category of right $R^{op}$-modules.
+    \end{enumerate}
+\end{example}
+
+Although we have seen some examples of it, a category is \emph{not} typically isomorphic to its opposite category.
+
+Now, although we have defined the definition of isomorphisms of categories, it is often far too restrictive. Instead we note that the collections $\catname{Hom}(\catname{C},\catname{C})$ and $\catname{Hom}(\catname{D},\catname{D})$ are more than just collections, but have higher-dimensional structure. Indeed, $\catname{Hom}(\catname{C},\catname{D})$ defines a category of functors, as studied next.
+
+
+\section{Naturality}
+
+\begin{definition}
+    Given categories $\catname{C}$ and $\catname{D}$ and functors $\begin{tikzcd} {F,G:\textbf{C}} & {\textbf{D}} \arrow[shift right=1, from=1-1, to=1-2] \arrow[shift left=1, from=1-1, to=1-2] \end{tikzcd}$, a \Emph{natural transformation} $\alpha:F\Rightarrow G$ consists of: \begin{itemize}
+        \item an arrow $\alpha_c:Fc\rightarrow Gc$ in $\catname{D}$ for each object $c \in \catname{C}$, the collection of which define the \Emph{components} of the natural transformation,
+    \end{itemize}
+    so that, for any morphism $f:c\rightarrow c'$ in $\catname{C}$, the following square of morphisms in $\catname{D}$ 
+    \begin{center}
+        \begin{tikzpicture}[baseline= (a).base]
+        \node[scale=1] (a) at (0,0){
+            \begin{tikzcd}
+	Fc && {Fc'} \\
+	& \circlearrowright \\
+	Gc && {Gc'}
+	\arrow["Ff", from=1-1, to=1-3]
+	\arrow["{\alpha_c}"', from=1-1, to=3-1]
+	\arrow["Gf"', from=3-1, to=3-3]
+	\arrow["{\alpha_{c'}}", from=1-3, to=3-3]
+\end{tikzcd}
+        };
+        \end{tikzpicture}
+    \end{center}
+    \Emph{commutes}, i.e., $\alpha_{c'}\circ Ff = Gf \circ \alpha_c$.
+
+
+    A \Emph{natural isomorphism} is a natural transformation $\alpha:F\Rightarrow G$ in which every component $\alpha_c$ is an isomorphism. In this case, the natural isomorphism may be depicted as $\alpha:F\cong G$.
+\end{definition}
+
+
+\begin{example}
+    \leavevmode
+    \begin{enumerate}
+        \item[(i)] For vector spaces of any dimension, the map $\ev:V\rightarrow V^{**}$ that sends $v \in V$ to the linear function $\ev_v:V^*\rightarrow \mathbb{F}$ defines the components of a natural transformation from the identity endofunctor on $\catname{Vect}_{\mathbb{F}}$ to the double dual functor. To check that the naturality square 
+        \begin{center}
+            \begin{tikzpicture}[baseline= (a).base]
+            \node[scale=1] (a) at (0,0){
+                \begin{tikzcd}
+                    V && W \\
+                    & \circlearrowright \\
+                    {V^{**}} && {W^{**}}
+                    \arrow["\phi", from=1-1, to=1-3]
+                    \arrow["{\text{ev}}"', from=1-1, to=3-1]
+                    \arrow["{\phi^{**}}"', from=3-1, to=3-3]
+                    \arrow["{\text{ev}}", from=1-3, to=3-3]
+                \end{tikzcd}
+            };
+            \end{tikzpicture}
+        \end{center}
+            commutes for any linear map $\phi:V\rightarrow W$, it suffices to consider the image of a generic vector $v \in V$. By definition, $\ev_{\phi v}:W^*\rightarrow \mathbb{F}$ carries a functional $f:W\rightarrow \mathbb{F}$ to $f(\phi v)$. Recalling the definition of the action of the dual functor on morphisms, we see that $\phi^{**}(\ev_v):W^*\rightarrow \mathbb{F}$ carries a functional $f:W\rightarrow \mathbb{F}$ to $f\phi(v)$, which amounts to the same thing.
+        \item[(ii)] By contrast, the identity functor and the single dual functor on finite-dimensional vector spaces are not naturally isomorphic. One technical obstruction is that the identity functor is covariant while the dual functor is contravariant (though this can be accomadated with \emph{extranatural transformations}). More significant is the essential failure of naturality. The isomorphisms $V\cong V^*$ that can be defined whenever $V$ is finite dimensional require a choice of basis, which is preserved by essentially no linear maps, indeed by no non-identity linear endomorphism.
+        \item[(iii)] For a group $G$, the functor $X:\catname{B}G\rightarrow \catname{C}$ corresponds to an object $X \in \catname{C}$ equipped with a left action of $G$. A natural transformation between a pair $\begin{tikzcd} {X,Y:\mathbf{B}G} & {\mathbf{C}} \arrow[shift right=1, from=1-1, to=1-2] \arrow[shift left=1, from=1-1, to=1-2] \end{tikzcd}$, say $\alpha:X\Rightarrow Y$ consists of a single morphism $\alpha:X\rightarrow Y$ in $\catname{C}$ that is \Emph{$G$-equivariant}, meaning that for each $g \in G$, the diagram
+            \begin{center}
+            \begin{tikzpicture}[baseline= (a).base]
+            \node[scale=1] (a) at (0,0){
+                \begin{tikzcd}
+                    X && X \\
+                    & \circlearrowright \\
+                    {Y} && {Y}
+                    \arrow["g_*", from=1-1, to=1-3]
+                    \arrow["{\alpha}"', from=1-1, to=3-1]
+                    \arrow["{g_*}"', from=3-1, to=3-3]
+                    \arrow["{\alpha}", from=1-3, to=3-3]
+                \end{tikzcd}
+            };
+            \end{tikzpicture}
+        \end{center}
+            commutes.
+        \item[(iv)] The construction of the opposite group defines a covariant endofunctor $(-)^{op}:\catname{Group}\rightarrow \catname{Group}$ of the category of groupsl a homomorphism $\phi:G\rightarrow H$ induces a homomorphism $\phi^{op}:G^{op}\rightarrow H^{op}$ defined by $\phi^{op}(g) = \phi(g)$. This functor is naturally isomorphic to the identity. Define $\eta_G:G\rightarrow G^{op}$ to be the homomorphism that sends $g \in G$ to its inverse $g^{-1} \in G^{op}$; this mapping does not define an automorphism of $G$, because it fails to commute with the group multiplication, but it does define a homomorphism $G\rightarrow G^{op}$. Now given any homomorphism $\phi:G\rightarrow H$, the diagram
+            \begin{center}
+            \begin{tikzpicture}[baseline= (a).base]
+            \node[scale=1] (a) at (0,0){
+                \begin{tikzcd}
+                    G && H \\
+                    & \circlearrowright \\
+                    {G^{op}} && {H^{op}}
+                    \arrow["\phi", from=1-1, to=1-3]
+                    \arrow["{\eta_G}"', from=1-1, to=3-1]
+                    \arrow["{\phi^{op}}"', from=3-1, to=3-3]
+                    \arrow["{\eta_H}", from=1-3, to=3-3]
+                \end{tikzcd}
+            };
+            \end{tikzpicture}
+        \end{center}
+            commutes because $\phi^{op}(g^{-1}) = \phi(g^{-1}) = \phi(g)^{-1}$.
+        \item[(v)] Define an endofunctor of $\catname{Vect}_{\mathbb{F}}$ by $V\mapsto V\otimes V$. There is a natural transformation from the identity functor to this endofunctor whose components are the zero maps, but this is the only such natural transformation: there is no basis-independent way to define a linear map $V\rightarrow V\otimes V$. 
+    \end{enumerate}
+\end{example}
+
+

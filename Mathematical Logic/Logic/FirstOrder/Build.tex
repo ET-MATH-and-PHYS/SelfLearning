@@ -1,0 +1,76 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+\chapter{Building Blocks of FOL}
+\label{Block} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+\section{ Names}
+
+\begin{definition}
+    In English, a \Emph{singular term} is a word or phrase that refers to a \emph{specific} person, place, or thing.
+\end{definition}
+
+\begin{definition}
+    In FOL, our \Emph{names} are lower-case letters `$a$' through to `$r$', possibly with the addition of subscripts. Each name must pick out \Emph{exactly} on thing (like a function).
+\end{definition}
+
+\section{ Predicates}
+
+\begin{definition}
+    In FOL, \Emph{predicates} are captical letters $A$ through $Z$, with or without subscripts. They can be thought of as representing things which combine with singular terms to make sentences.
+\end{definition}
+
+
+\section{ Quantifiers}
+
+\begin{definition}
+    In FOL, the symbol `$\forall$' is called the \Emph{universal quantifier}.
+\end{definition}
+
+\begin{remark}
+    A quantifier must always be followed by a \Emph{variable}. In FOL, variables are italic lowercase letters `$s$' through `$z$', with or without subscripts.
+\end{remark}
+
+
+\begin{definition}
+    In FOL, the symbol `$\exists$' is called the \Emph{existential quantifier}.
+\end{definition}
+
+\begin{remark}
+    In general, $\forall x\enot \metav{A}$ is logically equivalent to $\enot \exists x\metav{A}$, and $\enot\forall x \metav{A}$ is logically equivalent to $\exists x \enot \metav{A}$.
+\end{remark}
+
+
+\section{ Domains}
+
+\begin{definition}
+    In FOL, the \Emph{domain} is the collection of things that we are talking about. The quantifiers in an argument \emph{range over} its domain. A domain must have \emph{at least} one member. Every name must pick out \emph{exactly} one member of the domain, but a member of the domain may be picked out by one name, many names, or none at all.
+\end{definition}
+
+\begin{definition}
+    A predicate that applies to nothing in the domain is called an \Emph{empty predicate}.
+\end{definition}
+
+\begin{remark}
+    When $\metav{F}$ is an empty predicate, any sentence $\forall x(\metav{F}\eif...)$ is vacuously true.
+\end{remark}
+
+\begin{definition}
+    A $k$-place predicate is a predicate $P(x_1,...,x_k)$ which can take in $k$ sentence letters.
+\end{definition}
+
+\section{ Identity}
+
+\begin{definition}
+    The symbol `$=$' is a two-place predicate of meaning: \begin{equation*}
+        x=y: \text{\gap{x} is identical to \gap{y}}
+    \end{equation*}
+\end{definition}
+

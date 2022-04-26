@@ -1,0 +1,605 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+\chapter{Analytic Functions}
+\label{Analytic} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+%%%%%%%%%%%%%%%%%%%% Section 1.2.1
+\section{Basic Analysis and Topology}
+
+
+\begin{definition}
+    A \Emph{sequence} of complex numbers is a function $f:\N\rightarrow \C$, where $f(i) = a_i$ for each $i \in \N$. We often write this sequence as $\{a_n\}_{n=1}^{\infty}$.
+\end{definition}
+
+\begin{definition}
+    We say a sequence $\{a_n\}_{n=1}^{\infty}$ converges to a limit $L \in \C$, $a_n\rightarrow L$, as $n$ approaches infinity, $n\rightarrow \infty$, if for each $\varepsilon > 0$, there exists $N \in \N$ such that for $n \geq N$, $|a_n - L| < \varepsilon$. We also write \begin{equation*}
+        \lim\limits_{n\rightarrow \infty}a_n = L
+    \end{equation*}
+\end{definition}
+
+That is, if we pick a particular limiting value for the limit value, we can find a point past which the tail of the sequence is between limiting value and our limit.
+
+\begin{definition}
+    A sequence $\{a_n\}_{n=1}^{\infty} \subseteq \C$ is said to be \Emph{bounded} if there exists $M \in \R$ such that for all $n \in \N$, $|a_n| < M$ (where $|\cdot|$ is the modulus).
+\end{definition}
+
+That is, all points in the sequence exist in an $M$ radius disk of the origin in the complex plane. 
+
+\begin{example}
+    Consider a sequence $a_n = (e^{ir})^n$, where $r \notin \Q$. Then $|a_n| = 1$, for all $n$. Then $\lim\limits_{n\rightarrow \infty}|a_n| = 1$, but the sequence itself does not cnverge in $\C$.
+\end{example}
+
+
+\begin{theorem}
+    Suppose $s_n\rightarrow s$ and $t_n\rightarrow t$ for sequences in $\C$. Then \begin{itemize}
+        \item $s_n+t_n\rightarrow s+l$
+        \item $cs_n \rightarrow cs$, for all $c \in \C$
+        \item $s_nt_n \rightarrow st$
+        \item $s_n/t_n\rightarrow s/t$, provided $t \neq 0$.
+    \end{itemize}
+\end{theorem}
+
+We remark that the squeeze theorem only applies for real-sequences, as it relies on the ordering of the reals. Moreover, the theorem that ``A bounded monotone sequence of real numbers converges" also does not hold, again due to ordering.
+
+\begin{definition}
+    Let $(a_n)$ be a sequence. Let $n_1 < n_2 < n_3 < ...$ be an increasing sequence of natural numbers. Then $\{a_{n_k}\}_{k=1}^{\infty}$ is a \Emph{subsequence} of the sequence $(a_n)$.
+\end{definition}
+
+\begin{example}
+    Consider the sequence $(-1)^n$. Then we have that \begin{equation*}
+        \lim\sup\limits_{n\rightarrow\infty}(-1)^n = 1,\;\;\text{ and }\;\;\lim\inf\limits_{n\rightarrow\infty}(-1)^n = -1
+    \end{equation*}
+\end{example}
+
+
+\begin{theorem}
+    Suppose $z_n = x_n+iy_n$ for real sequences $x_n$ and $y_n$. Let $z = x+iy \in \C$. Then $z_n\rightarrow z$ if and only if $x_n\rightarrow x$ and $y_n\rightarrow y$.
+\end{theorem}
+\begin{proof}
+    $\implies$. Assume that $z_n\rightarrow z$. Hence, for each $\varepsilon > 0$, there exists $N \in \N$ such that if $n \geq N$ then $|z_n - z| < \varepsilon$. Consider $|x_n - x|$. Then observe that $|x_n-x| = \sqrt{(x_n-x)^2}\leq \sqrt{(x_n-x)^2+(y_n-y)^2} = |z_n - z$. Then for any $n \geq N$ we have that $|x_n - x| \leq |z_n - z| < \varepsilon$, and similarly, $|y_n - y| \leq |z_n - z| < \varepsilon$. Hence, $x_n\rightarrow x$ and $y_n\rightarrow y$, as desired.
+
+    $\impliedby$. Now, suppose that $x_n\rightarrow x$ and $y_n\rightarrow y$. Fix $\varepsilon > 0$. Then there exist $N_1,N_2 \in \N$ such that $n_1 \geq N_1$ and $n_2 \geq N_2$ imply $|x_{n_1} - x| < \varepsilon/2$ and $|y_{n_2}-y| < \varepsilon$. Let $N = \max(N_1,N_2)$. Then for all $n \geq N$, \begin{equation*}
+        |z_n - z| \leq |x_n - x| + |i(y_n - y)| = |x_n - x| + |y_n - y| < \varepsilon/2+\varepsilon/2 = \varepsilon
+    \end{equation*}
+    Hence, we conclude that $z_n\rightarrow z$, as desired.
+\end{proof}
+
+\begin{definition}
+    A sequence $\{z_n\}_{n=1}^{\infty}$ is said to be \Emph{Cauchy} if for every $\varepsilon > 0$, there exists $N \in \N$ such that for all $n,m \geq N$, \begin{equation*}
+        |z_n - z_m| < \varepsilon
+    \end{equation*}
+\end{definition}
+
+Thus, the tail of a Cauchy sequence gets arbitrarily close as we go arbitrarily far.
+
+$\C$ is a complete metric space, so the Cauchy sequences are precisely the convergent sequences.
+
+
+\begin{definition}
+    An open disk of radius $\varepsilon > 0$ centered at $z_0 \in \C$ is defined to be \begin{equation*}
+        D_{\varepsilon}(z_0) := \{z \in \C: |z-z_0| < \varepsilon\}
+    \end{equation*}
+\end{definition}
+
+\begin{definition}
+    Let $S \subseteq \C$ and $z_0 \in S$. Then $z_0$ is an \Emph{interior point} if there exists $\varepsilon > 0$ such that $D_{\varepsilon}(z_0) \subseteq S$. 
+
+    We say that $S$ is an \Emph{open set} in $\C$ if each point in $S$ is an interior point.
+\end{definition}
+
+\begin{definition}
+    We say that $S \subseteq \C$ is a \Emph{closed set} if and only if $\C\backslash S$ is open.
+\end{definition}
+
+\begin{example}
+    Consider the half-plane $S = \{z \in \C: \mathscr{I}m(z) \geq 1\}$. This is not a closed set as all points on the boundary ($\mathscr{I}m(z) = 1$) are not interior.
+\end{example}
+
+\begin{definition}
+    Let $S \subseteq \C$ and $z_0 \in \C$. Then $z_0$ is said to be a \Emph{limit/accumulation point} of $S$ if for every $\varepsilon > 0$, $D_{\varepsilon}^*(z_0)\cap S \neq \emptyset$. 
+\end{definition}
+That is, neighborhoods of limit points always intersect the set in a point different from the limit point.
+
+\begin{definition}
+    Let $f:S\rightarrow \C$ be a complex function, $S \subseteq \C$. Suppose $z_0 \in \C$ is a limit point of $S$. Then we say that $f(z) \rightarrow L$, for $L \in \C$, if and only if for every $\varepsilon > 0$, there exists $\delta > 0$ such that if $0 < |z-z_0| < \delta$, then $|f(z) - L| < \varepsilon$. 
+
+
+    Equivalently, the functional limit converges to $L$ if and only if for every $\varepsilon > 0$, there exists $\delta > 0$ such that \begin{equation*}
+        f(D_{\delta}^*(z_0)\cap S) \subseteq D_{\varepsilon}(L)
+    \end{equation*}
+\end{definition}
+
+
+\begin{theorem}
+    Let $f:S\rightarrow \C$ and $g:U\rightarrow \C$ be complex functions such that $\lim\limits_{z\rightarrow z_0}f(z) = L$ and $\lim\limits_{z\rightarrow z_0}g(z) = M$ for some $L,M \in \C$. Let $c \in \C$. Then\begin{itemize}
+        \item $\lim\limits_{z\rightarrow z_0}(f(z)+g(z)) = L+M$
+        \item $\lim\limits_{z\rightarrow z_0}cf(z) = cL$
+        \item $\lim\limits_{z\rightarrow z_0}f(z)g(z) = LM$
+        \item $\lim\limits_{z\rightarrow z_0}f(z)/g(z) = L/M$, provided $M \neq 0$.
+    \end{itemize}
+\end{theorem}
+
+\begin{definition}
+    We say that $f:S\rightarrow \C$ is continuous at $z_0 \in S$ if and only if $\lim\limits_{z\rightarrow z_0}f(z) = f(z_0)$.
+\end{definition}
+
+\begin{theorem}
+    Let $f:S\rightarrow \C$. Then $\lim\limits_{z\rightarrow z_0}f(z) = L$ if and only if for all sequences $z_n$ such that $z_n\rightarrow z_0$, $\lim\limits_{n\rightarrow\infty}f(z_n) = L$.
+\end{theorem}
+
+
+\begin{definition}
+    A subset $S \subseteq \C$ is connected if and only if there exists no $A,B\subseteq \C$ non-empty such that $S = A\cup B$ and $\overline{A}\cap B = \emptyset$ and $A\cap \overline{B} = \emptyset$.
+\end{definition}
+
+Noting that connected and path-connected subsets are equivalent in $\C$, we formulate (path) connectedness in another way as follows:
+
+\begin{definition}
+    A \Emph{polygonal chain} $P$ is a curve composed of a finite number of connected line segments. That is, there exist $z_0,z_1,...,z_n \in \C$ such that \begin{equation*}
+        P = [z_0,z_1] \cup [z_1,z_2] \cup ... \cup [z_{n-1},z_n]
+    \end{equation*}
+\end{definition}
+
+\begin{definition}
+    A subset $U \subseteq \C$ is (path) \Emph{connected} if and only if for each $p,q \in U$, there exists a polygonal chain $\gamma$ which begins at $p$ and terminates at $q$, and $\gamma \subseteq U$.
+\end{definition}
+    
+
+
+\begin{definition}
+    A subset $D \subseteq \C$ is called a \Emph{domain} if $D$ is both open and connected.
+\end{definition}
+
+
+\begin{definition}
+    A \Emph{region} is a domain paired with some or all of its topological boundary.
+\end{definition}
+
+\begin{definition}
+    Let $U \subseteq \C$. Then $U^o$ denotes the \Emph{interior} of $U$, and is the set of all interior points in $U$.
+\end{definition}
+
+\begin{definition}
+    A set $U \subseteq \C$ is \Emph{compact} if and only if (Heine-Borel) $U$ is closed and bounded.
+\end{definition}
+
+
+\begin{definition}
+    A set $U \subseteq \C$ is said to be \Emph{star-shaped} at a point $z_0 \in \C$ if $z_0 \in U$, and for any $z \in U$ we have $[z_0,z] \subseteq U$.
+\end{definition}
+
+Star-shaped implies simply connected: every closed curve in the region can be continuously deformed to a point.
+
+\begin{example}
+    The slit complex plane $\C^- = \C\backslash(-\infty,0]$ is star shaped, with any point along $(0,\infty)$ serving as a star center. In particular, consider the star center $1$. Then, let $z \in \C^-$ and consider $[1,z] = \{1+t(z-1):0\leq t\leq 1\}$. Then, for each $a+ib \in [1,z]$ we have $a+ib = 1+t(x+iy-1) = 1+(x-1)t+iyt$ for some $t \in [0,1]$. For $z \in (0,\infty)$ we have that $y = 0$, and $x-1 > -1$, so $(x-1)t > -1t > -1$, so $a+ib = a > 0$. On the other hand, if $z \in \C^-$ with $y \neq 0$, then $a+ib \notin (-\infty,0]$ for all $t > 0$, and by construction $a+ib = 1$ for $t = 0$, which is again not in $(-\infty,0]$. Thus, $[1,z] \cap (-\infty,0] = \emptyset$ for all $z \in \C^-$, as claimed.
+\end{example}
+
+
+\begin{theorem}\label{thm:constant}
+    If $h:D\subseteq \R^2\rightarrow\R^2$ is continuously differentiable on $D$ and $\nabla h= \vec{0}$ on $D$, then $h$ is constant on $D$.
+\end{theorem}
+\begin{proof}
+    Let $\gamma:[t_0,t_1]\rightarrow D$ be a polygonal chain in $D$, with $\gamma(t_0) = p$ and $\gamma(t_1) = q$. Then \begin{equation*}
+        \frac{d}{dt}(h(\gamma(t)) = \nabla h(\gamma(t)) \cdot \frac{d\gamma}{dt} = 0
+    \end{equation*}
+    since the gradient is zero in $D$. Then by properties of single variable differentiable functions, $h(\gamma(t))$ is constant so $h(p) = h(\gamma(t_0)) = h(\gamma(t_1)) = h(q)$. But this is true for all $p,q \in D$, so $h$ is constant.
+\end{proof}
+
+
+
+%%%%%%%%%%%%%%%%%%%% Section 1.2.2
+\section{Analytic Functions}
+
+\begin{definition}
+    Let $f:S\rightarrow \C$. If the limit \begin{equation*}
+        \lim\limits_{z\rightarrow z_0}\left(\frac{f(z) - f(z_0)}{z-z_0}\right)
+    \end{equation*}
+    exists, we say $f$ is \Emph{complex differentiable} at $z_0$, and we denote \begin{equation*}
+        f'(z_0) = \lim\limits_{z\rightarrow z_0}\left(\frac{f(z) - f(z_0)}{z-z_0}\right)
+    \end{equation*}
+    Futhermore, the mapping $z\mapsto f'(z)$ is the complex derivative of $f$.
+\end{definition}
+
+\begin{example}
+    Consider $f(z) = 2z^2 - 1$. Then \begin{equation*}
+        \lim\limits_{z\rightarrow z_0}\left(\frac{f(z) - f(z_0)}{z-z_0}\right) = \lim\limits_{z\rightarrow z_0}\left(\frac{2z^2 - 1 - (2z_0^2 - 1)}{z-z_0}\right) = 2\lim\limits_{z\rightarrow z_0}\left(\frac{(z-z_0)(z+z_0)}{z-z_0}\right) = 2\cdot 2z_0 = 4z_0
+    \end{equation*}
+\end{example}
+
+\begin{theorem}[Caratheodory Theorem]\label{namthm:car}
+    Let $f:D\subseteq \C\rightarrow \C$ be a function $a \in D$, a limit point. Then $f$ is \Emph{complex differentiable} at $a$ if and only if there exists a function $\phi:D\rightarrow \C$ such that \begin{enumerate}
+        \item $\phi$ is continuous at $a$
+        \item $f(z)-f(a) = \phi(z)(z-a)$ for all $z \in D$.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    $\implies.$ Suppose $f:D\subseteq \C\rightarrow \C$ is complex differentiable at $a$. Construct $\phi(z) = \frac{f(z) - f(a)}{z-a}$ for $z \neq 0$ anf $\phi(a) = f'(z)$. Then, observe that \begin{equation*}
+        \lim\limits_{z\rightarrow a}\phi(z) = \lim\limits_{z\rightarrow a}\left(\frac{f(z)-f(a)}{z-a}\right) = f'(a)
+    \end{equation*}
+    so $\phi$ is continuous at $a$. Next, for $z \neq a$ we have by definition that $f(z) - f(a) = \phi(z)(z-a)$. At $z = 0$ we just have $0 = 0$, so this also holds. 
+    
+    $\impliedby.$ By 2. we have that $\phi(z) = \frac{f(z) - f(a)}{z-a}$ for $z \neq a$, so by continuity $\phi(a) = f'(a)$, so $f'$ is complex differentiable at $a$.
+\end{proof}
+
+\begin{theorem}
+    If $f:S\rightarrow \C$ is complex differentiable at $a \in \C$, then that implies that $f$ is continuous at $z = a$. 
+\end{theorem}
+\begin{proof}
+    By Theorem \ref{namthm:car}, there exists $\phi:S\rightarrow \C$, where $a \in S$, and $f(z) = f(a)+\phi(z)(z-a)$. Then, \begin{equation*}
+        \lim\limits_{z\rightarrow a}f(z) = \lim\limits_{z\rightarrow a}(f(a)+\phi(z)(z-a)) = f(a) + \phi(a)(a-a) = f(a)
+    \end{equation*}
+    which implies that $f$ is continuous at $a$, as desired.
+\end{proof}
+
+Assume that $f,g$ are complex differentiable at $z = a$. Then there exist $\phi_f,\phi_g$ such that $f(z) = f(a) + (z-a)\phi_f(z)$ and $g(z) = g(a)+(z-a)\phi_g(z)$ for some domain of $a$. Then, observe that \begin{equation*}
+    f(z)g(z) = f(a)g(a) + (z-a)[\phi_f(z)g(a)+\phi_g(z)f(a) + (z-a)\phi_f(z)\phi_g(z)]
+\end{equation*}
+We claim $\phi_{fg}(z) = \phi_f(z)g(a)+\phi_g(z)f(a) + (z-a)\phi_f(z)\phi_g(z)$. By continuity of the component functions $\phi_{fg}(z)$ is continuous at $a$. Hence, $f(z)g(z)$ is differentiable and \begin{equation*}
+    (fg)'(a) = f'(a)g(a)+f(a)g'(a)
+\end{equation*}
+
+
+\begin{theorem}
+    Suppose that $g$ is complex differentiable at $a$, and that $f$ is complex differentiable at $g(a)$.
+\end{theorem}
+\begin{proof}
+    Suppose $g'(a)$ and $f'(g(a))$ exist. Also, let $g(z) = g(a)+(z-a)\phi_g(z)$, and $f(w) = f(g(a)) + (w-g(a))\psi_f(w)$. Simply compose, set $w = g(z)$. Then \begin{align*}
+        f(g(z)) &= f(g(a)) + (g(z) - g(a))\psi_f(g(z)) \\
+        &= f(g(a)) + (z-a)\phi_g(z)\psi_f(g(z))
+    \end{align*}
+    Then by continuity of $\phi_g$ and $\psi_f$ we have that $(f\circ g)'(a) = f'(g(a))g'(a)$, completing the proof. Moreover, $\phi_g(z) \psi_f(g(z)) = \phi_{f\circ g}(z)$.
+\end{proof}
+
+\begin{theorem}
+    Suppose that $f$ and $g$ are complex differentiable at $a$, and $c \in \C$. Then \begin{itemize}
+        \item $(f+g)'(a) = f'(a)+g'(a)$
+        \item $(cf)'(a) = cf'(a)$
+        \item $(fg)'(a) = f'(a)g(a) + f(a)g'(a)$
+        \item $(f/g)'(a) = (f'(a)g(a) - f(a)g'(a))/(g(a))^2$ provided $g(a) \neq 0$.
+    \end{itemize}
+\end{theorem}
+
+
+%%%%%%%%%%%%%%%%%%%% Section 1.2.3
+\section{The Cauchy Riemann Equations}
+
+\begin{theorem}
+    If $f(z) = u(z) + iv(z)$ is a complex valued function of a complex variable, $u$ and $v$ real valued functions of a complex variable, and \begin{enumerate}
+        \item $u$ and $v$ are continuously differentiable on an open set containing $z_0$
+        \item $u_x(z_0) = v_y(z_0)$ and $u_y(z_0) = -v_x(z_0)$
+    \end{enumerate}
+    Then $f'(z_0) = u_x(z_0)+iv_x(z_0)$ is complex differentiable.
+\end{theorem}
+
+\begin{definition}
+    $g:\R^2\rightarrow \R$ is continuously differentiable on $U \subseteq \R^2$ if $g_x$ and $g_y$ exist and are continuous on $U$.
+\end{definition}
+
+\begin{example}
+    Suppose $f(z) = z^2$. Then $f(x+iy) = x^2-y^2 + i2xy$, and let $u(z) = x^2-y^2$ and $v(z) = 2xy$. Then $u_x(z) = 2x, u_y(z) = -2y, v_x = 2y, v_y = 2x$, so the partials are continuously differentiable. Moreover, $u_x = v_y$ and $u_y = -v_x$, so the Cauchy Riemann equations hold and $f'(z) = 2x+i2y = 2z$.
+\end{example}
+
+\begin{example}
+    Suppose $f(z) = e^z$. Then $f(x+iy) = e^{x+iy} = e^xe^{iy} = e^x\cos y + ie^x\sin y$. Let $u(z) = e^x\cos y$ and $v(z) = e^x\sin y$. Then $u_x(z) = e^x\cos y, u_y(z) = -e^x\sin y, v_x(z) = e^x\sin y, v_y(z) = e^x\cos y$. Thus, the partial derivatives are continuous on $\C$, and $u_x = v_y$ and $u_y = -v_y$, so $f'(z) = u_x(z)+iv_x(z) = u(z)+iv(z) = f(z)$.
+\end{example}
+
+\begin{example}
+    Consider $f(z) = \overline{z} = x-iy$. Then $u = x$ and $v = -y$. Now, observe $u_x = 1 \neq -1 = v_y$, so $f(z)$ is nowhere complex differentiable.
+\end{example}
+
+
+\begin{example}
+    Consider $f(z) = \cos(z) = \cos(x+iy) = \cos(x)\cos(iy)-\sin(x)\sin(iy) = \cos(x)\cosh(y) - i\sin(x)\sinh(y)$. Then $u = \cos(x)\cosh(y)$ and $v = -\sin(x)\sinh(y)$. Now, $u_x = -\sin(x)\cosh(y), u_y = \cos(x)\sinh(y), v_x = -\cos(x)\sinh(y), v_y = -\sin(x)\cosh(y)$. Thus, the partials are continuous and $u_x = v_y$ and $u_y = -v_x$, so the Cauchy-Riemann equations hold and $f'(z) = -\sin(x)\cosh(y)-i\cos(x)\sinh(y) = -\sin(x)\cos(iy)-\cos(x)\sin(iy) = -\sin(x+iy)$.
+\end{example}
+
+\begin{definition}
+    A function $f:D\rightarrow \C$ is \Emph{holomorphic} on the domain $D$ if and only if $f$ is complex differentiable at each point in $D$.
+\end{definition}
+
+
+\begin{definition}
+    A function $f:D\rightarrow \C$ is \Emph{holomorphic} at a point $z_0 \in D$ if there exists some open disk $D_r(z_0)$ such that $f\vert_{D_r(z_0)}$ is holomorphic.
+\end{definition}
+
+\subsection{Real Differentiability}
+
+If we identify $\C=\R^2$, then $f:\C\rightarrow \C$ naturally is associated with $f:\R^2\rightarrow \R^2$.
+
+\begin{definition}
+    If $F:U\subseteq \R^2\rightarrow\R^2$ has a linear transformation $L:\R^2\rightarrow \R^2$ such that \begin{equation*}
+        \lim\limits_{h\rightarrow \vec{0}}\left(\frac{F(p+h)-F(p)-L(h)}{||h||}\right) = 0
+    \end{equation*}
+    then $F$ is \Emph{real-differentiable} at $p \in \R^2$, and we denote $dF_p = L$. Moreover, the standard matrix for the differential, where $F= F(u,v)$, is \begin{equation*}
+        [dF_p] = J_F(p) = \begin{bmatrix} \frac{\partial u}{\partial x} & \frac{\partial u}{\partial y} \\ \frac{\partial v}{\partial x} & \frac{\partial v}{\partial y}\end{bmatrix} = \left[\begin{array}{c|c} \frac{\partial F}{\partial x} & \frac{\partial F}{\partial y}\end{array}\right]
+    \end{equation*}
+\end{definition}
+
+\begin{example}
+    Let $F(x,y) = (x,-y)$, then  $J_F(p) = \begin{bmatrix} 1 & 0 \\ & -1\end{bmatrix}$
+\end{example}
+
+\begin{definition}
+    $F(u,v):\R^2\rightarrow \R^2$ is continuously differentiable at $z_0 = (x_0,y_0)$ if $u_x,u_y,v_x,v_y$ are all continuous near $z_0$.
+\end{definition}
+
+\begin{definition}
+    If $F$ is continuously differentiable at $z_0 \in \R^2$, then $F$ is differentiable at $z_0$. 
+\end{definition}
+\begin{proof}
+    Assume $F= (u,v)$ is continuously differentiable with $dF = (du,dv)$ and we can focus on $u$. We wish to show that \begin{equation*}
+        \lim\limits_{h\rightarrow \vec{0}}\left(\frac{u(p+h)-u(p)-L(h)}{||h||}\right) = 0
+    \end{equation*}
+    Let $L(h) = \nabla u(p)\cdot h = h_1u_x(p)+h_2u_y(p)$. Observe that \begin{align*}
+        u(p+h)-u(p) &= u(p+h_1e_1+h_2e_2)-u(p) \\
+        *= u(p+h_1e_1+h_2e_2) - u(p+h_1e_1)+u(p+h_1e_1)-u(p) \\
+        &= u(p_1+h_1,p_2+h_2) - u(p_1+h_1,p_2) + u(p_1+h_1,p_2) - u(p_1,p_2) \\
+        &= h_2u_y(p_1+h_1,c_2) + h_1u_x(c_1,p_2)
+    \end{align*}
+    where the last equality is by the Mean Value Theorem. Then it follows that \begin{equation*}
+        \lim\limits_{h\rightarrow \vec{0}}\left(\frac{u(p+h)-u(p)-L(h)}{||h||}\right) = \lim\limits_{h\rightarrow \vec{0}}\left(\frac{h_2u_y(p_1+h_1,c_2) + h_1u_x(c_1,p_2)-h_1u_x(p) - h_2u_y(p)}{||h||}\right) 
+    \end{equation*}
+    where as $h\rightarrow \vec{0}$, $c_1$ and $c_2$ go to $p_1$ and $p_2$, respective, so by continuity of the partial derivatives this limit goes to zero. The same holds for $v$, so $F$ is differentiable.
+\end{proof}
+
+
+In our convention we write $F(u,v) = u+iv$, so we have $e_1 = 1$ and $e_2 = i$. Now, note that $F(x,y) = (x,-y) = x-iy = \overline{z}$, so $F$ would be nowhere complex differentiable.
+
+
+        
+
+\subsection{Cauchy Riemann Equations Sketch}
+
+Suppose $f$ is complex differentiable at $z_0$, so by Theorem \ref{namthm:car} we have $f(z_0+h) - f(z_0) = \phi(z_0+h)h$. Then, I claim for $f:\R^2\rightarrow \R^2$, $df_{z_0}(h) = f'(z_0)h$, shifting between $\C$ and $\R^2$. For $h \neq 0$ we have \begin{align*}
+    \frac{f(z_0+h)-f(z_0) -f'(z_0)h}{|h|} &= \frac{\phi(z_0+h)h-f'(z_0)h}{|h|} \\
+    &= \frac{h}{|h|}(\phi(z_0+h)-f'(z_0)) \\
+    &\leq \frac{|h|}{|h|}(\phi(z_0+h)-f'(z_0)) = 0
+\end{align*}
+so $f$ is real differentiable at $z_0$ with $df_{z_0}(h) = f'(z_0)h$. Let $f'(z_0) = a+ib$. Then $$f'(z_0)h = ah_1-bh_2 + i(ah_2+bh_1) = \begin{bmatrix} a & -b \\ b & a \end{bmatrix}\begin{bmatrix} h_1 & h_2 \end{bmatrix}$$ So in particular $$df_{z_0} = \begin{bmatrix} u_x & u_y \\ v_x & v_y \end{bmatrix} = \begin{bmatrix} a & -b \\ b & a \end{bmatrix}$$ so we attain the Cauchy Riemann equations $u_x = v_y$ and $u_y = -v_x$. Reversing this argument we attain that if a function is continuously real-differentiable and satisfies the Cauchy Riemann equations, then the function is complex differentiable.
+
+
+
+\begin{theorem}
+    If $f = (u,v) = u+iv$ is real differentiable on a domain $D$ and $u_x = v_y, u_y = -v_x$ at $z_0 \in D$, then $f'(z_0) = u_x(z_0) + iv_x(z_0)$.
+\end{theorem}
+\begin{proof}
+    Let $u_x(z_0) = a$ and $v_x(z_0) = b$. Then $$df_{z_0} = \begin{bmatrix} u_x(z_0) & u_y(z_0) \\ v_x(z_0) & v_y(z_0) \end{bmatrix} = \begin{bmatrix} a & -b \\ b & a \end{bmatrix}$$
+    We have \begin{align*}
+        df_{z_0}h &= \begin{bmatrix} a & -b \\ b & a \end{bmatrix}\begin{bmatrix} h_1 \\ h_2\end{bmatrix} \\
+            &= \begin{bmatrix} ah_1-bh_2 \\ bh_1+ah_2 \end{bmatrix} \\
+                &= (ah_1-bh_2) +i(bh_1+ah_2) = (a+ib)(h_1+ih_2) = (a+ib)h
+    \end{align*}
+    We claim that $f'(z_0) = a+ib$. Observe \begin{equation*}
+        \lim\limits_{h\rightarrow 0} \left(\frac{f(z_0+h) - f(z_0) - (a+ib)h}{h}\right) = 0
+    \end{equation*}
+    Moreover, since $\lim\limits_{h\rightarrow 0}\frac{(a+ib)h}{h} = a+ib$, so by algebraic properties of limits we have that \begin{equation*}
+        \lim\limits_{h\rightarrow 0} \left(\frac{f(z_0+h) - f(z_0)}{h}\right) = a+ib = u_x(z_0)+iv_x(z_0)
+    \end{equation*}
+\end{proof}
+
+Then, we can write \begin{equation*}
+    \boxed{\frac{df}{dz} = f'(z) = \frac{\partial f}{\partial x} = -i\frac{\partial f}{\partial y}}
+\end{equation*}
+for a holomorphic function on some domain.
+
+
+
+%%%%%%%%%%%%%%%%%%%% Section 1.2.4
+\section{Analytic Functions (cont.)}
+
+\begin{definition}
+    If $f:\C\rightarrow \C$ and $f$ is holomorphic on $\C$, then $f$ is \Emph{entire}. We say $f \in \mathcal{O}(\C)$. If $f$ is holomorphic on $D$, we write $f \in \mathcal{O}(D)$.
+\end{definition}
+
+
+\begin{theorem}
+    If $f \in \mathcal{O}(D)$ and $f = \mathscr{R}e(f)$, then $f$ is constant.
+\end{theorem}
+\begin{proof}
+    First, this implies $f(z) = u(z)$. Then $\nabla u = \langle u_x,u_y\rangle$ and $\nabla v = \langle v_x, v_y\rangle$. But $v = 0$, so $\nabla v = \vec{0}$, and $u_x = v_y, u_y = -v_x$ by the Cauchy Riemann equations so $\nabla u = \vec{0}$. Thus, we have that $u$ and $v$ are constant, so $f$ is constant by Theorem \ref{thm:constant}.
+\end{proof}
+
+If $f = (u,v)$ is continuously differentiable at $(a,b)$, then for $(h_1,h_2)$ near $(a,b)$ we have that \begin{equation*}
+    f(a+h_1,b+h_2) \approx f(a,b) + J_f(a,b)\begin{bmatrix} h_1 \\ h_2 \end{bmatrix}
+\end{equation*}
+Assume the cauchy riemman equations hold. Then \begin{equation*}
+    J_f(a,b) = \begin{bmatrix} a & -b \\ b & a \end{bmatrix} = \sqrt{a^2+b^2}\begin{bmatrix} a/\sqrt{a^2+b^2} & -b/\sqrt{a^2+b^2} \\ b/\sqrt{a^2+b^2} & a/\sqrt{a^2+b^2} \end{bmatrix}
+\end{equation*}
+where the matrix on the right, $R$, is orthogonal ($RR^T = I$), and the term in front is a dilation. Hence, at an infinitesimal level changes in holomorphic functions correspond to rotations and dilations. Also, observe that $\det(J_f(z_0)) = a^2+b^2 = |f'(z_0)|^2$.
+
+\begin{theorem}
+    $f'(z_0) \neq 0$ if and only if $\det(J_f(z_0)) \neq 0$, for $f$ complex differentiable at $z_0$. 
+\end{theorem}
+
+\begin{theorem}[Complex Inverse Function Theorem]\label{thm:invfunc}
+    Of $f(z)$ is analytic on a domain $D$, $z_0 \in D$, and $f'(z_0) \neq 0$. Then there exists $\varepsilon > 0$ such that $D_{\varepsilon}(z_0) \subseteq D$ such that $f\vert_{D_{\varepsilon}(z_0)}$ is injective, the image $V = f(D_{\varepsilon}(z_0))$ is open and the inverse function $f^{-1}:V\rightarrow U$ is analytic and satisfies \begin{equation*}
+        (f^{-1})'(f(z)) = 1/f'(z)\;\;\;\text{ for } z \in D_{\varepsilon}(z_0)
+    \end{equation*}
+\end{theorem}
+
+\begin{example}
+    Let $\text{Log}(z) = w$, so $e^w = z$. Then $e^w\frac{dw}{dz} = 1$, so $\frac{d}{dz}(\text{Log}(z)) = 1/z$ in $\C^-$. In general, this can be extended to arbitrary branches and slit complex plains such that the function is single valued and continuous.
+\end{example}
+
+\begin{example}
+    Consider the power function on a particular branch: \begin{align*}
+        \frac{d}{dz}(z^c) &= \frac{d}{dz}(e^{c\text{Log}(z)}) = e^{c\text{Log}(z)}\frac{d}{dz}({c\text{Log}(z)}) \\
+        &= e^{c\text{Log}(z)}\frac{c}{z} = ce^{c\text{Log}(z)}e^{-\text{Log}(z)} \\
+        &= ce^{(c-1)\text{Log}(z)} = cz^{c-1}
+    \end{align*}
+    on the domain of $\C$ for which the particular branch of the log is holomorphic.
+\end{example}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%% Section 1.2.5
+\section{Harmonic Functions}
+
+\begin{definition}
+    If $u:V\subseteq \R^2\rightarrow \R$ and $\nabla\cdot \nabla u = 0$, then $u$ is said to be \Emph{harmonic} on $V$. \begin{itemize}
+        \item For $n = 2$: $u_{xx} + u_{yy} = 0$.
+    \end{itemize}
+\end{definition}
+
+If $f'(z) = u_x + iv_x = v_y - iu_y$ over some domain $D$, it's then true that $z \mapsto f'(z)$ is continuous. In contrast, for $f(x,y) = (x|x|,0)$, $J_f = \begin{bmatrix} 2|x|  & 0 \\ 0 & 0 \end{bmatrix}$, but $\frac{\partial^2 f}{\partial x^2}$ does not exist at $(0,0)$, and hence is not continuous there.
+
+\begin{theorem}
+    If $f= u+iv$ is \Emph{holomorphic} on a domain $D$, then $u$ and $v$ are \Emph{harmonic}.
+\end{theorem}
+\begin{proof}
+    Asumme $f'(z)$ exists for $z \in D$, then $z \mapsto f'(z)$ is continuous. Then (as we will prove later) $u_{xx},v_{xx},u_{xy},v_{xy}$ exist and are continuous. By the Cauchy Riemann equations we have that $\partial_xu = \partial_yv$ and $\partial_yu = -\partial_xv$. Differentiating with respect to $x$ and with respect to $y$ gives $\partial_x^2u = \partial_x\partial_yv$ and $\partial_y^2u = -\partial_y\partial_xv$. Then since the second partials are continuous we have by Clairout's Theorem that \begin{equation*}
+        \partial_x^2u+\partial_y^2u = \partial_x\partial_yv - \partial_y\partial_xv = 0
+    \end{equation*}
+    Hence $u$ is harmonic. A similar argument shows $v$ is harmonic as well. Alternatively, to argue that $v$ is harmonic, we note that if $f=u+iv$ is holomorphic, then $-if = -iu+v$ is also holomorphic, so as $v$ is the real part of this function so by the previous argument $v$ is harmonic.
+\end{proof}
+
+
+\begin{definition}
+    If $u$ is harmonic and $f = u+iv$ is holomorphic, then $v$ is a \Emph{harmonic conjugate}.
+\end{definition}
+
+
+
+\begin{exercise}
+    Given a function $u(x,y) = $ something, is $u$ harmonic and if so, find its \Emph{harmonic conjugate}.
+\end{exercise}
+
+
+\begin{example}
+    Consider $u(x,y) = e^{2x}\cos(2y)$. Then $u_{xx} = 4u$, and $u_{yy} = -4u$, so $u_{xx}+u_{yy} = 0$ and $u$ is harmonic on its domain, $\C$. We want to solve $u_x = v_y$ and $u_y = -v_x$. Observe that $v_y = 2e^{2x}\cos(2y)$, so $v = e^{2x}\sin(2y)+C(x)$ for some function of $x$, $C(x)$. Similarly, $v_x = 2e^{2x}\sin(2y)$, so $v = e^{2x}\sin(2y) + C(y)$ for some function of $y$. Thus, $v = e^{2x}\sin(2y)$ is \emph{a} complex conjugate of $u = e^{2x}\cos(2y)$. (In general $v = e^{2x}\sin(2y) + C$ is a family of complex conjugates of $u$). Then, observe $u+iv = e^{2x}e^{i2y} = e^{2z}$.
+\end{example}
+
+If we look at $u(x,y) = k_1$ (level curve 1) and $v(x,y) = k_2$ (level curve 2). Assume $f = u+iv$ has $f \in \mathcal{O}(D)$. Let's consider $\nabla u \cdot \nabla v = u_xv_x+u_yv_y = -u_xu_y+u_yu_x = 0$, so the gradients of the level curves are orthogonal where they meet. 
+
+
+%%%%%%%%%%%%%%%%%%%% Section 1.2.6
+\section{Conformal Functions}
+
+
+
+
+\begin{definition}
+    A smooth complex-valued function $g(z)$ is \Emph{conformal at $z_0$} if whenever $\gamma_0, \gamma_1$ are curves terminating at $z_0$ with nonzero tangents, then the curves $g \circ \gamma_0$ and $g \circ \gamma_1$ haave nonzero tangents at $g(z_0)$ and the angle between $g\circ \gamma_0$ and $g\circ \gamma_1$ at $g(z_0)$ is the same as the angle between $\gamma_0$ and $\gamma_1$ at $z_0$. 
+\end{definition}
+
+\begin{theorem}
+    If $f(z)$ is holomorphic at $z_0$ and $f'(z_0) \neq 0$ then $f(z)$ is conformal at $z = z_0$.
+\end{theorem}
+
+
+Consequently, if $f(z)$ is holomorphic in a domain $D$, then $f$ takes orthogonal hashes to orthogonal hashes in $D$.
+
+\begin{proposition}
+    If $f:D\subseteq \C\rightarrow \C$ and $f'(z_0)$ exists for $z_0 \in D$. Let $\gamma = \langle x,y\rangle:I\subseteq \R\rightarrow D$ is a smooth curve with $\gamma(t_0) = z_0$. Then \begin{equation*}
+        \frac{d}{dt}\left[f(\gamma(t))\right] = f'(\gamma(t))\frac{d\gamma}{dt}
+    \end{equation*}
+    where we have complex multiplication on the right.
+\end{proposition}
+\begin{proof}
+    First, observe \begin{align*}
+        \frac{d}{dt}f(\gamma(t)) &= \frac{d}{dt}\left[u(\gamma(t)) + iv(\gamma(t))\right] \\
+        &= \frac{d}{dt}u(\gamma(t)) + i\frac{d}{dt}v(\gamma(t)) \tag{by linearity} \\
+        &= \nabla u(\gamma(t))\cdot \frac{d}{dt}\gamma(t)+i\nabla v(\gamma(t))\cdot \frac{d}{dt}\gamma(t) \\
+        &= u_xx'(t)+u_yy'(t)+i(v_xx'(t)+v_yy'(t)) \tag{for $\gamma(t) = \langle x(t),y(t)\rangle$}  \\
+        &= u_xx'(t)+u_yy'(t)+i(-u_yx'(t)+u_xy'(t)) \\
+        &= u_x(x'(t)+iy'(t))-iu_y(x'(t) + iy'(t)) \\
+        &= u_x\gamma'(t)+iv_x\gamma'(t) \\
+        &= f'(\gamma(t))\frac{d\gamma(t)}{dt}
+    \end{align*}
+\end{proof}
+Note that this is not guaranteed for non-holomorphic functions real differentiable functions. 
+
+By the inverse function theorem we also observe that the inverse map exists, is holomorphic, and hence also conformal. This shows an alternative result that when level curves intersect, they intersect at right angles.
+
+
+
+
+%%%%%%%%%%%%%%%%%%%% Section 1.2.7
+\section{Fractional Linear Transformations (FLT's)}
+
+\begin{definition}
+    A function $f:\C\rightarrow \C$ is an elementary transformation if it is of one of the following forms: \begin{itemize}
+        \item $f_1(z) = z+z_0$, for some fixed $z_0 \in \C$: translation
+        \item $f_2(z) = cz$ for some fixed $c \in \C$: dilation ($c\neq 0$)
+        \item $f_3(z) = 1/z$, for $z \neq 0$: inversion
+    \end{itemize}
+\end{definition}
+
+For a circle, $c(t) = z_0+Re^{it}$ we have $f_1(c(t)) = z_0+z_0'+Re^{it}$ (shifts the center) and $f_2(c(t)) = cz_0+cRe^{it}$ (dilates and shifts the circle). Moreover, the composition of $f_1$ and $f_2$ is something called an \Emph{affine transformation} (i.e. $f_1\circ f_2(z) = cz+d$ for $c,d \in \C$).
+
+\begin{definition}
+    A \Emph{fractional linear transformation} is a function of the form \begin{equation*}
+        f(z) = \frac{az+b}{cz+d}
+    \end{equation*}
+    where $a,b,c,d$ are complex constants satisfying $ad-bc \neq 0$. These are also called \Emph{M$\ddot{o}$bius Transformations}. Since \begin{equation*}
+        f'(z) = \frac{ad-bc}{(cz+d)^2}
+    \end{equation*}
+    the condition $ad-bc \neq 0$ simply guarantees that $f$ is not constant.
+\end{definition}
+
+
+\subsection{Extended Complex Plane}
+
+The extended complex plane corresponds to the one-point compactification of the plane. It can be viewed through the Riemann sphere and the stereographic projection, where we draw a line out of the north pole, and where the line intersects the plane and the sphere are identified. Then, the north pole is identified with $\infty$, giving $\C^* = \C\cup\{\infty\}$.
+
+\begin{theorem}
+    Given any three distinct points $z_0,z_1,z_2$ in the extended complex plane, and given any three distinct values $w_0,w_1,w_2$ in the extended complex plane, there is a unique fractional linear transformation $w = w(z)$ such that $w(z_0) = w_0,w(z_1) = w_1,$ and $w(z_2) = w_2$.
+\end{theorem}
+
+\begin{definition}
+    The cross ratio for the fractional linear transformation specified in the above theorem is \begin{equation*}
+        \frac{(w_1 - w)(w_3 - w_2)}{(w_1 - w_2)(w_3 - w)} = \frac{(z_1-z)(z_3-z_2)}{(z_1-z_2)(z_3-z)}
+    \end{equation*}
+\end{definition}
+
+
+\begin{definition}
+    Let $D$ be a domain, we say $f \in \mathcal{O}(D)$ is \Emph{biholomorphic} mapping of $D$ onto $D'$ if $f(D)  = D'$ and $f^{-1}:D'\rightarrow D$ is holomorphic.
+\end{definition}
+
+\begin{definition}
+    An $\varepsilon > 0$ neighborhood of infinity is defined to be \begin{equation*}
+        D_{\varepsilon}(\infty) = \{z \in \C:\frac{1}{|z|} < \varepsilon\}
+    \end{equation*}
+\end{definition}
+A neighborhood of infinity is an exterior annulus.
+
+\begin{definition}
+    For $f:D\rightarrow \C$, we say that $\lim\limits_{z\rightarrow \infty}f(z) = L$ if and only if for evey $\varepsilon > 0$, there exists $\delta > 0$ such that if $\frac{1}{\delta} < |z|$ implies $|f(z) - L| < \varepsilon$.
+\end{definition}
+
+We claim that this is equivalent to writing $\lim\limits_{z\rightarrow 0}f\left(\frac{1}{z}\right) = L$. 
+
+\begin{definition}
+    For $f:D\rightarrow \C$, we write $\lim\limits_{z\rightarrow z_0}f(z) = \infty$ if and only if for every $\varepsilon > 0$, there exists $\delta > 0$ such that if $0 < |z-z_0| < \delta$, then $|f(z)| > \frac{1}{\varepsilon}$.
+\end{definition}
+
+\begin{example}
+    \leavevmode
+    \begin{itemize}
+        \item $\lim\limits_{z\rightarrow \infty}(1/z) = 0$
+        \item $\lim\limits_{z\rightarrow \infty}(z) = \infty$
+        \item $\lim\limits_{z\rightarrow 0}(1/z) = \infty$
+    \end{itemize}
+\end{example}
+
+\begin{example}
+    Observe that \begin{equation*}
+        \lim\limits_{z\rightarrow \infty}\frac{z^2+z}{3z^2+2} = \frac{1}{3}
+    \end{equation*}
+\end{example}
+
+\begin{example}
+    $w = \sin(z) = f(z)$. First, write $w=\sin(z) = \frac{1}{2i}(e^{iz}-e^{-iz})$ as $2iw = e^{iz}-e^{-iz}$. Then, we can write $e^{2iz}-1 = 2iwe^{iz}$, so letting $\eta = e^{iz}$, $\eta^2 - 2iw\eta -1 = 0$. Completing the square we have that $1 -w^2= (\eta-iw)^2$, so $\eta-iw = \pm \sqrt{1-w^2}$, and $e^{iz}=\eta = iw\pm\sqrt{1-w^2}$. Then, we have that \begin{equation*}
+        iz \in \log(iw\pm\sqrt{1-w^2})
+    \end{equation*}
+    If we take the branch $z = -i\text{Log}(iw\pm \sqrt{1-w^2})$
+\end{example}

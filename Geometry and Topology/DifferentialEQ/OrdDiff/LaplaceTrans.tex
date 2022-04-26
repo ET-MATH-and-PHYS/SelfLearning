@@ -1,0 +1,268 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+\chapter{Laplace Transform}
+\label{laplace} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+\section{Base Definitions}
+
+\begin{definition}[Operator]
+        An \Emph{operator} is a function that maps functions from a certain class into another function.
+\end{definition}
+\begin{example}
+        For example, two common operators (which are in fact linear operators) are Differentiation:$f\rightarrow f'$, and Integration:$f\rightarrow \int\limits_{0}^xf(t)dt$.
+\end{example}
+
+
+%{1cm}
+
+
+\begin{definition}[Piece-wise Continuous]
+        A function $f$ is \Emph{piecewise continuous} on an open interval if the interval can be broken into a finite number of subintervals on which the function is continuous on each open subinterval and has a finite limit at the endpoints of each subinterval.
+\end{definition}
+
+
+%{1cm}
+
+\begin{definition}[Laplace Transform]
+        Let $f$ be a piecewise continuous function such that $|f(t)| \leq Me^{bt}$ for some $b,M > 0$. Then, \begin{equation}
+                F(s) = \mathcal{L}[f(t)](s) = \int\limits_{0}^{\infty}e^{-st}f(t)dt
+        \end{equation} 
+        is defined (usually $s > 0$), and is called the \Emph{Laplace Transform} of $f$.
+\end{definition}
+
+
+%{1cm}
+
+
+\begin{definition}[Unit Step Function]
+        We define the \Emph{unit step function} as \begin{equation}
+                u_a(t) = \left\{\begin{array}{cc} 0, & 0\leq t < a \\ 1, & t \geq a \end{array}\right. (a \geq 0)
+        \end{equation}
+        We also notate the unit step function as $step_a(t)$ or $h(t-a)$ (to denote the \Emph{Heaviside function})
+\end{definition}
+
+%{1cm}
+
+\section{Properties}
+
+Recall that $\mathcal{L}[f(t)](s) = F(s)$.
+
+\begin{props}[Linearity]
+        The Laplace Transform is a linear operator. That is for any functions $f(t)$ and $g(t)$ for which the laplace transform exists, and any constants $a,b \in \R$, we have that \begin{equation}
+                \mathcal{L}[af(t)+bg(t)](s)=a\mathcal{L}[f(t)](s)+b\mathcal{L}[g(t)](s)
+        \end{equation}
+\end{props}
+
+
+%{1cm}
+
+
+\begin{props}[Defined]
+        If $f$ is a piecewise continuous function and $|f(t)| \leq Me^{bt}$ for some $b,M > 0$, then $\mathcal{L}[f(t)](s)$ is defined for $s > b$.
+\end{props}
+
+
+%{1cm}
+
+
+\begin{props}[First Differentiation Formula]
+        Given a function $f$ that is n-th differentiable, and has a defined laplace transform, we have that \begin{equation}
+                \mathcal{L}[f'(t)](s) = s\mathcal{L}[f(t)](s) - f(0) 
+        \end{equation}
+        \begin{equation}
+                \mathcal{L}[f''(t)](s) = s^2\mathcal{L}[f(t)](s) - sf(0) - f'(0)
+        \end{equation}
+        and in general,  \begin{equation}
+                \mathcal{L}[f^{(n)}(t)](s) = s^n\mathcal{L}[f(t)](s) - s^{n-1}f(0) - s^{n-2}f'(0) - ... - f^{(n-1)}(0) 
+        \end{equation}
+\end{props}
+
+
+%{1cm}
+
+
+\begin{props}[Second Differentiation Formula]
+        Given a function $f$ that has a defined laplace transform, we have that \begin{equation}
+                \mathcal{L}[tf(t)](s) = -\frac{d}{ds}\left(\mathcal{L}[f(t)](s)\right)
+        \end{equation}
+        and in general, \begin{equation}
+                \mathcal{L}[t^nf(t)](s) = (-1)^n\frac{d^n}{ds^n}\left(\mathcal{L}[f(t)](s)\right)
+        \end{equation}
+        Equivalently we have that \begin{equation}
+                \mathcal{L}^{-1}\left[\frac{d^nF(s)}{ds^n}\right] = (-1)^nt^nf(t)
+        \end{equation}
+\end{props}
+
+
+%{1cm}
+
+
+\begin{props}[First Shift Formula]
+        Observe that given a function $f$ that has a defined laplace transform, we see that \begin{equation}
+                \mathcal{L}[e^{at}f(t)](s) = \int\limits_0^{\infty}e^{-st}e^{at}f(t)dt = \int\limits_0^{\infty}e^{-(s-a)}f(t)dt = \mathcal{L}[f(t)](s-a)
+        \end{equation}
+        or simply \begin{equation}
+                \mathcal{L}[e^{at}f(t)](s) = \mathcal{L}[f(t)](s-a)
+        \end{equation}
+        Equivalently, we have that \begin{equation}
+                \mathcal{L}^{-1}[F(s)](t) = e^{at}\mathcal{L}^{-1}[F(s+a)](t)
+        \end{equation}
+\end{props}
+
+
+%{1cm}
+
+
+\begin{props}[Integration Formulas]
+        Given a function $f$ that has a defined laplace transform, we have that \begin{equation}
+                \mathcal{L}\left[\int\limits_0^tf(r)dr\right](s) = \frac{1}{s}\mathcal{L}[f(t)](s)
+        \end{equation}
+        or equivalently we have that \begin{equation}
+                \mathcal{L}^{-1}\left[\frac{1}{s}F(s)\right] = \int\limits_0^tf(r)dr
+        \end{equation}
+        Additionally, we have that \begin{equation}
+                \mathcal{L}\left[\frac{f(t)}{t}\right](s) = \int\limits_s^{\infty}\mathcal{L}[f(t)](r)dr
+        \end{equation}
+\end{props}
+
+
+%{1cm}
+
+
+\begin{props}[Step Function]
+        We have that the laplace transform of the unit step function $u_a(t)$ is \begin{equation}
+                \mathcal{L}[u_a(t)](s) = \frac{e^{-as}}{s}, s > 0
+        \end{equation}
+\end{props}
+
+
+%{1cm}
+
+\begin{props}[Second Shift Formula]
+        Given a function $f$ that has a defined laplace transform, we have that \begin{align*}
+                \mathcal{L}[u_a(t)f(t)](s) &= \int\limits_{0}^{\infty}e^{-st}u_a(t)f(t)dt \\
+                &= \int\limits_{a}^{\infty}e^{-st}f(t)dt\tag{take $v = t - a$, $dv=dt$} \\
+                &= \int\limits_{0}^{\infty}e^{-s(v+a)}f(v+a)dv\tag{shift $v \rightarrow t$} \\
+                &= e^{-as}\int\limits_{0}^{\infty}e^{-st}f(t+a)dt \\
+                &= e^{-as}\mathcal{L}[f(t+a)](s)
+        \end{align*}
+        or succinctly, \begin{equation}
+                \mathcal{L}[u_a(t)f(t)](s) = e^{-as}\mathcal{L}[f(t+a)](s)
+        \end{equation}
+        Equivalently, we have that \begin{equation}
+                \mathcal{L}^{-1}[e^{-as}F(s)](t) = u_a(t)\mathcal{L}^{-1}[F(s)](t-a) = u_a(t)f(t-a)
+        \end{equation}
+\end{props}
+
+
+
+%{1cm}
+
+
+
+\section{Tables of Laplace Transforms and Inverse Laplace Transforms}
+
+
+\bgroup
+\def\arraystretch{1.5}
+\begin{table}[H]
+        \centering
+        \caption{Functions and their respective Laplace Transforms}
+        \begin{tabular}{c|c}
+                Function, $f(t)$ & Laplace Transform, $\mathcal{L}[f(t)](s)$ \\ \hline
+                $1$ & $\frac{1}{s}$, $s > 0$ \\
+                $e^{at}$ & $\frac{1}{s-a}$, $s > a$ \\
+                $\cos(bt)$ or $\sin(bt)$ & $\frac{s}{s^2+b^2}$ or $\frac{b}{s^2+b^2}$ \\
+                $t^n$ & $\frac{n!}{s^{n+1}}$ \\
+                $e^{at}\cos(bt)$ or $e^{at}\sin(bt)$ & $\frac{s-a}{(s-a)^2+b^2}$ or $\frac{b}{(s-a)^2+b^2}$ \\
+                $u_a(t)$ & $\frac{e^{-as}}{s}$ \\
+        \end{tabular}
+\end{table}
+\egroup
+
+
+%{1cm}
+
+\bgroup
+\def\arraystretch{1.5}
+\begin{table}[H]
+        \centering
+        \caption{Functions and their respective Inverse Laplace Transforms}
+        \begin{tabular}{c|c|c}
+                $F(s) =\mathcal{L}[f(t)](s)$ & Formula to Use & $f(t) = \mathcal{L}^{-1}[F(s)](t)$ \\ \hline
+                $\frac{A_1}{s-a}$ & $\mathcal{L}[e^{at}](s)=\frac{1}{s-a}$ &  $A_1e^{at}$ \\
+                $\frac{A_2}{(s-a)^2}$ & $\mathcal{L}[te^{at}](s)=\frac{1}{(s-a)^2}$ &  $A_2te^{at}$ \\
+                $\frac{A_k}{(s-a)^k}$ & $\mathcal{L}[t^{k-1}e^{at}](s)=\frac{(k-1)!}{(s-a)^k}$ &  $A_k\frac{t^{k-1}e^{at}}{(k-1)!}$ \\
+                $\frac{s-a}{(s-a)^2+b^2}$ & $\mathcal{L}[e^{at}\cos(bt)](s) = \frac{s-a}{(s-a)^2+b^2}$ & $e^{at}\cos(bt)$ \\
+                $\frac{b}{(s-a)^2+b^2}$ & $\mathcal{L}[e^{at}\sin(bt)](s) = \frac{b}{(s-a)^2+b^2}$ & $e^{at}\sin(bt)$ \\
+                $e^{-as}F(s)$ & $\mathcal{L}[u_a(t)f(t-a)](s) = e^{-as}F(s)$ & $u_a(t)f(t-a)$ \\
+                $\frac{1}{s^n}$ & $\mathcal{L}[t^n] = \frac{n!}{s^{n+1}}$ & $\frac{t^{n-1}}{(n-1)!}$ \\
+        \end{tabular}
+\end{table}
+\egroup
+
+
+%{1cm}
+
+\section{Solving ODEs with the Laplace Transform}
+
+\begin{definition}[Scheme for Linear ODEs]
+        Given a linear ODE, we perform the following steps:
+        \begin{enumerate}
+                \item Take the laplace transform of both sides of the differential equation using the first differentiation property, and let $Y(s) = \mathcal{L}[y(t)](s)$.
+                \item Solve for $Y(s)$ from the new equation.
+                \item Compute the inverse laplace transform for $Y(s)$ to obtain \begin{equation}
+                                y(t) = \mathcal{L}^{-1}[Y(s)](t)
+                \end{equation}
+        \end{enumerate}
+\end{definition}
+
+%{1cm}
+
+
+\begin{definition}[Scheme for Systems of DEs]
+        Consider a system \begin{equation}
+                \Emph{X}' = \Emph{A}\Emph{X}+\Emph{B}
+        \end{equation}
+        where $\Emph{A}$ is a matrix of constants. As before we take the laplace transform of both sides to obtain \begin{equation}
+                s\mathcal{L}[\Emph{X}](s)-\Emph{X}(0) = \Emph{A}\mathcal{L}[\Emph{X}](s) + \mathcal{L}[\Emph{B}](s)
+        \end{equation}
+        We solve for $\mathcal{L}[\Emph{X}](s)$ and then take the inverse laplace transform to find $\Emph{X}$.
+\end{definition}
+
+
+%{1cm}
+
+
+\section{Convolution}
+
+\begin{definition}[Convolution]
+        Let $f$ and $g$ be piecewise continuous functions. The integral \begin{equation}
+                (f*g)(t) = \int\limits_0^tf(\tau)g(t-\tau)d\tau
+        \end{equation}
+        is called the \Emph{convolution of $f$ and $g$}. Moreover, the convolution is commutative, so \begin{equation}
+                (f*g)(t) = (g*f)(t)
+        \end{equation}
+\end{definition}
+
+
+%{1cm}
+
+
+\begin{props}[Laplace Transform of the Convolution]
+        The laplace transform of the convolution is given by \begin{equation}
+                \mathcal{L}[f*g](s) = \mathcal{L}[f](s)\mathcal{L}[g](s)
+        \end{equation}
+\end{props}
+
+
+
+

@@ -1,0 +1,126 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+\chapter{Green's Identities}
+\label{Green} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+
+%%%%%%%%%%%%%%%%%%%% 2.3.1
+\section{Green's First Identity}
+
+Recall the following notation for a multivariate function $f:D\subset \R^n\rightarrow \R$ and a vector field $F:D\subset\R^n\rightarrow \R^n$: \begin{align*}
+    \text{grad }f &= \nabla f = \sum_{i=1}^n\frac{\partial f}{\partial x_i}\vec{e}_i \\
+    \text{div }F &= \nabla \cdot F = \sum_{i=1}^n\frac{\partial F_i}{\partial x_i}
+\end{align*}
+Also, for $u:D\subseteq \R^n\rightarrow \R$, \begin{align*}
+    \Delta u &= \nabla\cdot \nabla u = \sum_{i=1}^n\frac{\partial^2 u}{\partial x_i^2} \\
+    |\nabla u|^2 &= \sum_{i=1}^nu_{x_i}^2
+\end{align*}
+We shal write \begin{equation*}
+    \int_D...d\mathbf{x}
+\end{equation*}
+for the integral over the region $D$, and \begin{equation*}
+    \oint_{\partial D}...dS
+\end{equation*}
+for $\partial D$ the boundary of the region $D$. Now, recall the divergence theorem \begin{equation}
+    \boxed{\int_D\nabla \cdot Fd\mathbf{x} = \oint_{\partial D}F\cdot \mathbf{n}dS}
+\end{equation}
+where $\mathbf{n}$ is the unit outer normal on $\partial D$.
+
+Now we move on to Green's first identity. We start from the product rule \begin{equation*}
+    (vu_{x_i})_{x_i} = v_{x_i}u_{x_i}+vu_{x_ix_i}
+\end{equation*}
+Summing over all $i$ gives the identity \begin{equation*}
+    \nabla \cdot (v\nabla u) = \nabla v\cdot \nabla u + v\Delta u
+\end{equation*}
+We integrate and use the divergence theorem on the left side we obtain the identity:
+\begin{definition}
+    Let $u,v:D\subseteq \R^n\rightarrow \R$ be smooth scalar fields, and $D$ a region in $\R^n$ with smooth boundary, such that $u,v$ extend smoothly to the boundary:
+    \begin{equation}
+        \boxed{\oint_{\partial D}v\nabla u\cdot \mathbf{n}dS = \int_D\nabla v\cdot \nabla ud\mathbf{x}+\int_Dv\Delta ud\mathbf{x}}
+    \end{equation}
+    This is \Emph{Green's First Identity}.
+\end{definition}
+
+Now, let us consider the Neumann problem in any domain $D$: \begin{equation*}
+    \left\{\begin{array}{lc} \Delta u = f(\mathbf{x})& \mathbf{x} \in D \\ \nabla u \cdot \mathbf{n} = h(\mathbf{x}) & \mathbf{x} \in \partial D\end{array}\right.
+\end{equation*}
+By Green's Identity applied to $v \equiv 1$, we have \begin{equation*}
+    \oint_DhdS = \int_Dfd\mathbf{x}
+\end{equation*}
+It follows that the data $f$ and $h$ are not arbitrary but are required to satisfy this condition, as otherwise there is no solution. In this sense, the Neumann problem for the laplacian is not completely well-posed. On the other hand, we can show that if this integral identity is satisfied, then the Neumann problem for the laplacian PDE has a solution, although it still lacks uniqueness (since we can add a constant to $u$ without affecting the conditions).
+
+\subsection{Mean Value Property}
+
+In three dimensions, the mean value property states that the average value of any harmonic function over any sphere equals its value at the center. To prove this statement let $D$ be an $n$-ball, $\{|\mathbf{x}| < a\}$, say. Then $\partial D$ is the $n-1$-sphere $\{|\mathbf{x}| = a\}$. Let $\Delta u = 0$, in any region that contains $D$ and $\partial D$. For an $n-1$ sphere, $\mathbf{n}$ points directly from the origin, so that \begin{equation*}
+    \mathbf{n}\cdot \nabla u = \frac{\mathbf{x}}{||\mathbf{x}||}\cdot \nabla u = \sum_{i=1}^n\frac{x_i}{||\mathbf{x}||}u_{x_i} 
+\end{equation*}
+Therefore, Green's Identity becomes \begin{equation*}
+    \oint_{\partial D}\mathbf{n}\cdot\nabla udS = \oint_{\partial D}\frac{\mathbf{x}}{||\mathbf{x}||}\cdot \nabla udS = \int_{D}\Delta ud\mathbf{x} = 0
+\end{equation*}
+Let us return to the three dimensional case, and write this integral in terms of spherical coordinates, $(r,\theta,\phi)$. Explicitly, we have the form \begin{equation*}
+    \int_0^{2\pi}\int_0^{\pi}\frac{\partial u}{\partial r}(a,\theta,\phi)a^2\sin\theta d\theta d\phi = 0
+\end{equation*}
+since $r = a$ on $\partial D$. Dividing by $4\pi a^2$ (the area of $\partial D$) we obtain \begin{equation*}
+    \frac{1}{4\pi}\int_0^{2\pi}\int_0^{\pi}u_r(r,\theta,\phi)\sin\theta d\theta d\phi = \frac{\partial}{\partial r}\left[\frac{1}{4\pi}\int_0^{2\pi}\int_0^{\pi}u(r,\theta,\phi)\sin\theta d\theta d\phi\right] = 0
+\end{equation*}
+Thus, \begin{equation*}
+    \frac{1}{4\pi}\int_0^{2\pi}\int_0^{\pi}u(r,\theta,\phi)\sin\theta d\theta d\phi
+\end{equation*}
+is independent of $r$. This expression is precisely the average value of $u$ on the sphere $\{|\mathbf{x}=r\}$. In particular, if we let $r\rightarrow 0$, we get \begin{equation*}
+    \frac{1}{4\pi}\int_0^{2\pi}\int_0^{\pi}u(\mathbf{0})\sin\theta d\theta d\phi = u(\mathbf{0})
+\end{equation*}
+
+That is, \begin{equation}
+    \boxed{\frac{1}{A(S)}\oint_SudS = u(\mathbf{0})}
+\end{equation}
+The same idea applies in $n$ dimensions.
+
+
+\subsection{Maximum Principle}
+From the mean value property, we deduce the maximum principle:
+
+If $D$ is any solid region a nonconstants harmonic function in $D$ cannot take its maximum value inside $D$, but only on $\partial D$. It can also be shown that the outward normal derivative $\mathbf{n}\cdot \nabla u$ is strictly positive at a maximum point: $\mathbf{n}\cdot \nabla u > 0$ there. 
+
+\subsection{Uniqueness of Dirichlet's Problem}
+
+We give a proof by the energy method. If we have two harmonic functions $u_1$ and $u_2$ with the same boundary data, then their difference $u = u_1 - u_2$ is harmonic and has zero boundary data. Going back to Green's First Identity we substitute $v = u$. Since $u$ is harmonic we have $\Delta u = 0$ and \begin{equation*}
+    \oint_{\partial D}u\nabla u \cdot \mathbf{n}dS = \int_D|\nabla u|^2d\mathbf{x}
+\end{equation*}
+Since $u = 0$ on the boundary, the left integral vanishes so $$\int_D|\nabla u|^2d\mathbf{x} = 0$$ It follows since $|\nabla u|^2 \geq 0$ that $|\nabla u|^2 \equiv 0$ in $D$. Now a function with vanishing gradient must be constant, provided that $D$ is connected. So $u(\mathbf{x}) \equiv C$ throughout $D$. But $u$ vanishes somewhere on the boundary of $D$, so $C$ must be $0$. Thus $u(\mathbf{x}) \equiv 0$ in $D$. This proves the uniqueness of the Dirichlet problem.
+
+\subsection{Dirichlet's Principle}
+
+Dirichlet's Principle can be interpreted as the fact that among all the functions $w(\mathbf{x})$ in $D$ that satisfy the Dirichlet boundary condition $w = h(\mathbf{x})$ on $\partial D$, the lowest energy occurs for the harmonic function satisfying the boundary conditions, where we define energy as \begin{equation*}
+    E[w] = \frac{1}{2}\int_D|\nabla w|^2d\mathbf{x}
+\end{equation*}
+This is the pure potential energy, there being no kinetic energy because there is no motion. Precisely this principle says the following: let $u(\mathbf{x})$ be the unique harmonic function in $D$ that satisfies the Dirichlet boundary conditions $u(\mathbf{x}) = h(\mathbf{x})$ in $\partial D$. Let $w(\mathbf{x})$ be any function in $D$ that also satisfies the boundary conditions. Then\begin{equation*}
+    E[w] \geq E[u]
+\end{equation*}
+
+To prove this let $v = u-w$ and expand the square in the integral \begin{align*}
+    E[w] &= \frac{1}{2}\int_D|\nabla(u-v)|^2d\mathbf{x} \\
+    &= E[u] - \int_D\nabla u \cdot \nabla vd\mathbf{x} + E[v]
+\end{align*}
+Applying Green's first identity to the pair of functions $u$ and $v$, we have that two of the three terms are zero since $v = 0$ on $\partial D$ and $\nabla u = 0$ in $D$. THerefore, the middle term the above expansion is also zero, so \begin{equation*}
+    E[w] = E[u] + E[v]
+\end{equation*}
+where $E[v] \geq 0$, so we deduce $E[w] \geq E[u]$.
+
+
+
+%%%%%%%%%%%%%%%%%%%% 2.3.2
+\section{Green's Second Identity}
+
+
+
+
+
+

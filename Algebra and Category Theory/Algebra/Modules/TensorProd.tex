@@ -1,8 +1,10 @@
 %%%%%%%%% Tensor Prods %%%%%%%%%%
-\chapter{\textsection\textsection Tensor Products}
+\chapter{ Tensor Products}
+\label{TensorProd}
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
 
-
-\section{\textsection Module Tensor Products}
+\section{ Module Tensor Products}
 
 In this section we consider modules over unital rings (not necessarily commutative).
 
@@ -12,13 +14,13 @@ Let $R$ be a subring of a ring $S$. We assume $1_R = 1_S$.
 
 If $N$ is a left $S$-module then $N$ is also a left $R$-module since elements of $R$, being elements of $S$, act on $N$ by assumption. Note that by the axioms of a left $S$-module $(s_1s_2)n = s_1(s_2n)$ for all $s_1,s_2 \in S$ and all $n \in N$, so in particular $(sr)n = s(rn)$ for all $s \in S, r \in R$ and $n \in N$.
 
-\begin{defn}
+\begin{definition}
     Let $R$ and $S$ be rings and $f:R\rightarrow S$ a ring homomorphism with $f(1_R) = 1_S$. Then if $N$ is an $S$-module, it can be considered as an $R$-module with the action $r\cdot n = f(r)n$ for all $r \in R$ and $n\in N$. In this case $S$ is called an \Emph{extension} of the ring $R$, and the resulting $R$-module is said to be obtained from $N$ by \Emph{restriction of scalars} from $S$ to $R$.
-\end{defn}
+\end{definition}
 
 We wish to now construct for a general $R$-module $N$ an $S$-module that is the ``best possible" target in which to try to embed $N$.
 
-\begin{cons}
+\begin{construction}
     Let $N$ be an $R$-module. To endow an $S$-module structure on $N$ we first need a map from $S\times N$ to $N$. We consider the $\Z$-module structure on the \emph{set} $S\times N$, considering it as the collection of all finite commuting sums of elements of the form $(s_i,n_i) \in S\times N$. This is an abelian group where there are no relations between any distinct pairs $(s,n)$ and $(s',n')$, which we view as ``formal products" $s\cdot n$. 
 
     Note as and $S$-module we must have the following relations satisfied: \begin{align*}
@@ -66,9 +68,9 @@ We wish to now construct for a general $R$-module $N$ an $S$-module that is the 
 
 
     Next, there is a natural map $\iota:N\rightarrow S\otimes_R N$ defined by $n\mapsto 1_S\otimes_Rn$. Since $1_S\otimes_Rrn = r\otimes_Rn = r(1_S\otimes n)$, $\iota$ is indeed an $R$-module homomorphism from $N$ to $S\otimes_RN$. Since $S\otimes_R N$ is a quotient module, this map need not be injective.
-\end{cons}
+\end{construction}
 
-\begin{thm}
+\begin{theorem}
     Let $R$ be a subring of $S$, let $N$ be a left $R$-module and let $\iota:N\rightarrow S\otimes_RN$ be the $R$-module homomorphism defined by $\iota(n) = 1_S\otimes_Rn$. Suppose that $L$ is any left $S$-module (hence also an $R$-module) and that $\varphi:N\rightarrow L$ is an $R$-module homomorphism. Then there is a unique $S$-module homomorphism $\Phi:S\otimes_R N\rightarrow L$ such that $\varphi$ factors through $\Phi$, i.e., $\varphi = \Phi \circ \iota$ and the diagram:
     \begin{center}
         \begin{tikzpicture}[baseline= (a).base]
@@ -84,7 +86,7 @@ We wish to now construct for a general $R$-module $N$ an $S$-module that is the 
         \end{tikzpicture}
     \end{center}
     commutes. Conversely, if $\Phi:S\otimes_RN\rightarrow L$ is an $S$-module homomorphism then $\varphi = \Phi\circ \iota$ is an $R$-module homomorphism from $N$ to $L$.
-\end{thm}
+\end{theorem}
 \begin{proof}
     Suppose $\varphi:N\rightarrow L$ is an $R$-module homomorphism to the $S$-module $L$. By the universal property of free modules there is a $\Z$-module homomorphism from the free $\Z$-module $F$ on the set $S\times N$ to $L$ that sends each generator $(s,n)$ to $s\varphi(n)$. Since $\varphi$ is an $R$-module homomorphism, the generators of the subgroup $H$ in our construction all map to zero in $L$. Hence this $\Z$-module homomorphism factors through $H$, so there exists a well-defined $\Z$-module homomorphism $\Phi$ from $F/H = S\otimes_RN$ to $L$ satisfying $\Phi(s\otimes_Rn) = s\varphi(n)$. Moreover, on simple tensors we have \begin{equation*}
         s'\Phi(s\otimes_Rn) = s'(s\varphi(n)) = (s's)\varphi(n) = \Phi((s's)\otimes_Rn) = \Phi(s'(s\otimes_Rn))
@@ -92,9 +94,9 @@ We wish to now construct for a general $R$-module $N$ an $S$-module that is the 
     Since $\Phi$ is additive it follows that $\Phi$ is an $S$-module homomorphism, which proves the existence statement. THe module $S\otimes_RN$ is generated as an $S$-module by elements of the form $1_S\otimes_Rn$, so any $S$-module homomorphism is uniquely determined by its values on these elements. Since $\Phi(1_S\otimes_Rn) = \varphi(n)$, it follows that the $S$-module homomorphism $\Phi$ is uniquely determined by $\varphi$. The converse is immediate.
 \end{proof}
 
-\begin{cor}
+\begin{corollary}
     Let $\iota:N\rightarrow S\otimes_RN$ be the $R$-module homomorphism from the previous theorem. Then $N/\ker \iota$ is the unique largest quotient of $N$ that can be embedded in any $S$-module. In particular, $N$ can be embedded as an $R$-submodule of some left $S$-module if and only if $\iota$ is injective.
-\end{cor}
+\end{corollary}
 \begin{proof}
     By the first isomorphism theorem the quotient $N/\ker \iota$ is mapped injectively into the $S$-module $S\otimes_RN$. Suppose now that $\varphi$ is an $R$-module homomorphism injecting the quotient $N/\ker\varphi$ of $N$ into an $S$-module $L$. Then, by the previous theorem $\ker\iota$ is mapped to $0$ by $\varphi$, that is $\ker\iota \subseteq \ker\varphi$. Hence $N/\ker\varphi$ is a quotient of $N/\ker\iota$ (namely, the quotient by the submodule $\ker\varphi/\ker\iota$). It follows that $N/\ker\iota$ is the unique largest quotient of $N$ that can be embedded in any $S$-module. The last statement follows immediately.
 \end{proof}
@@ -108,7 +110,7 @@ Secondly, observe that the $S$-module structure on $S\otimes_RN$ defined previou
 \end{equation*}
 We shall first proceed with the general abelian group construction of $M\otimes_RN$ before returning to the module construction:
 
-\begin{cons}
+\begin{construction}
     Let $N$ be a left $R$-module and $M$ a right $R$-module. The quotient of the free $\Z$-module on the set $M\times N$ by the subgroup generated by all elements of the form \begin{equation*}
         \begin{array}{c}
             (m_1+m_2,n) - (m_1,n) - (m_2,n) \\
@@ -124,26 +126,26 @@ We shall first proceed with the general abelian group construction of $M\otimes_
         \end{array}
     \end{equation*}
     Every tensor can be written (non-uniquely in general) as a finite sum of simple tensors.
-\end{cons}
+\end{construction}
 
-\begin{rmk}
+\begin{remark}
     We emphasize that each $m\otimes_Rn$ represents a \emph{coset} in some quotient group, and so we may have $m\otimes_Rn = m'\otimes_Rn'$ for $m\neq m'$ or $n \neq n'$. Due to this care must be taken when defining maps out of $M\otimes_RN$, since any such map must be shown to be independent of the particular choice coset of representative $m\otimes_Rn$.
 
     Another point to note is that even if $M$ is a submodule of a larger module $M'$, we may have for some $m \in M$ and $n \in N$ $m \otimes_Rn = 0$ in $M'\otimes_RN$ but $m\otimes_Rn$ is nonzero in $M\otimes_RN$. In particular, we see that $M\otimes_RN$ need not be a subgroup of $M'\otimes_RN$ even when $M$ is a submodule of $M'$.
-\end{rmk}
+\end{remark}
 
-\begin{defn}
+\begin{definition}
     Let $M$ be a right $R$-module, let $N$ be a left $R$-module and let $L$ be an abelian group (written additively). A map $\varphi:M\times N\rightarrow L$ is called \Emph{$R$-balanced} or \Emph{middle linear with respect to $R$} if \begin{align*}
         \varphi(m_1+m_2,n) &= \varphi(m_1,n) + \varphi(m_2,n) \\
         \varphi(m,n_1,n_2) &= \varphi(m,n_1)+\varphi(m,n_2) \\
         \varphi(m,rn) &= \varphi(mr,n)
     \end{align*}
     for all $m,m_1,m_2 \in M, n,n_1,n_2 \in N$ and $r \in R$.
-\end{defn}
+\end{definition}
 
 It follows that $\iota:M\times N\rightarrow M\otimes_RN$ is $R$-balanced. 
 
-\begin{thm}[Universal Property of Tensors and Balanced Maps]
+\begin{theorem}[Universal Property of Tensors and Balanced Maps]
     Suppose $R$ is a ring with $1$, $M$ is a right $R$-module, and $N$ is a left $R$-module. Let $M\otimes_RN$ be the tensor product of $M$ and $N$ over $R$ and let $\iota:M\times N\rightarrow M\otimes_RN$ be the $R$-balanced map defined above.
     \begin{enumerate}
         \item If $\Phi:M\otimes_RN\rightarrow L$ is any group homomorphism from $M\otimes_RN$ to an abelian group $L$ then the composite map $\varphi = \Phi\circ \iota$ is an $R$-balanced map from $M\times N$ to $L$.
@@ -166,7 +168,7 @@ It follows that $\iota:M\times N\rightarrow M\otimes_RN$ is $R$-balanced.
     establishes a bijection \begin{equation*}
         \left\{\begin{array}{c} R\text{-balanced maps} \\ \varphi:M\times N\rightarrow L\end{array}\right\}\leftrightarrow \left\{\begin{array}{c} \text{group homomorphisms} \\ \Phi:M\otimes_R N\rightarrow L\end{array}\right\}
     \end{equation*}
-\end{thm}
+\end{theorem}
 \begin{proof}
     $1.$ follows immediately from the fact that $\iota$ is $R$-balanced. For $2.$, the map $\varphi$ defines a unique $\Z$-module homomorphism $~\varphi$ from the free group on $M\times N$ to $L$ such that $~\varphi(m,n) = \varphi(m,n) \in L$. Since $\varphi$ is $R$-balanced, $~\varphi$ maps each of the elements in the generating relatiosn for $M\otimes_RN$ to $0$. It follows that the kernel of $~\varphi$ contains the subgroup generated by these elements, hence $~\varphi$ induces a homomorphism $\Phi$ on the quotient group $M\otimes_RN$ to $L$. By definition we then have \begin{equation*}
         \Phi(m\otimes_Rn) = ~\varphi(m,n) = \varphi(m,n)
@@ -174,44 +176,44 @@ It follows that $\iota:M\times N\rightarrow M\otimes_RN$ is $R$-balanced.
     so $\varphi = \Phi\circ\iota$. The homomorphism $\Phi$ is uniquely determined by this equation since the elements $m\otimes_Rn$ generate $M\otimes_RN$ as an abelian group.
 \end{proof}
 
-\begin{cor}
+\begin{corollary}
     Suppose $D$ is an abelian group and $\iota':M\times N\rightarrow D$ is an $R$-balanced map such that \begin{enumerate}
         \item the image of $\iota'$ generate3s $D$ as an abelian group, and 
         \item every $R$-balanced map defined on $M\times N$ factors through $\iota'$ as in the previous theorem.
     \end{enumerate}
     Then there is an isomorphism $f:M\otimes_RN\cong D$ of abelian groups with $\iota' = f\circ \iota$.
-\end{cor}
+\end{corollary}
 \begin{proof}
     Since $\iota':M\times N\rightarrow D$ is a balanced map, the universal property of the previous theorem implies there is a unique homomorphism $f:M\otimes_RN\rightarrow D$ with $\iota' = f\circ \iota$. In particular $\iota'(m,n) = f(m\otimes_Rn)$ for every $m \in M, n \in N$. By the first assumption, these elements generate $D$ as an abelian group, so $f$ is a surjective map. Now; the balanced map $\iota:M\times N\rightarrow M\otimes_R N$ together with the second assumption on $\iota'$ implies there is a unique homomorphism $g:D\rightarrow M\otimes_RN$ with $\iota = g \circ \iota'$. Then $m\otimes_Rn = (g\circ f)(m\otimes_Rn)$. Since the simple tensors $m\otimes_Rn$ generate $M\otimes_RN$, it follows that $g\circ f$ is the identity map on $M\otimes_RN$ and so $f$ is injective, hence an isomorphism.
 \end{proof}
 
 We now return to giving $M\otimes_RN$ a module structure. To obtain an $S$-module structure on $M\otimes_RN$ we impose a structure similar to that of $S$ on $M$: 
 
-\begin{defn}
+\begin{definition}
     Let $R$ and $S$ be any rings with $1$. An abelian group $M$ is called an \Emph{$(S,R)$-bimodule} if $M$ is a left $S$-module, a right $R$-module, and $s(mr) = (sm)r$ for all $s \in S, r \in R$ and $m \in M$.
-\end{defn}
+\end{definition}
 
-\begin{eg}
+\begin{example}
     \leavevmode
     \begin{enumerate}
         \item If $f:R\rightarrow S$ is any ring homomorphism with $f(1_R) = 1_S$ then $S$ can be considered as a right $R$ module with the action $s \cdot r = sf(r)$, and with respect to this action $S$ becomes an $(S,R)$-bimodule.
         \item Let $I$ be a two-sided ideal in the ring $R$. Then the quotient ring $R/I$ is an $(R/I,R)$-bimodule. This is a special case of the previous example with the canonical projection homomorphism $R\rightarrow R/I$.
         \item If $R$ is a commutative ring, then any left (or right) $R$-module $M$ can be given the structure of a right (or left) $R$-module by defining $mr = rm$ for all $m \in M$ and $r \in R$. THis makes $M$ into an $(R,R)$-bimodule.
     \end{enumerate}
-\end{eg}
+\end{example}
 
-\begin{defn}
+\begin{definition}
     Suppose $M$ is a left (or right) $R$-module over the commutative ring $R$. Then the $(R,R)$-bimodule structure on $M$ defined by letting the left and right $R$-actions coincide will be called the \Emph{standard $R$-module structure on $M$}.
-\end{defn}
+\end{definition}
 
-\begin{cons}
+\begin{construction}
     We now continue our construction of the module structure on $M\otimes_RN$. Suppose that $N$ is a left $R$-module and $M$ is an $(S,R)$-bimodule. Then the $(S,R)$-bimodule structure on $M$ implies that \begin{equation*}
         s\left(\sum\limits_{finite}m_i\otimes_Rn_i\right) = \sum\limits_{finite}(sm_i)\otimes_Rn_i
     \end{equation*}
     gives a well defined action of $S$ under which $M\otimes_RN$ is a left $S$-module. Note from our universal property checking that this map is well-defined is equivalent to checking that a certain map is $R$-balanced. Indeed, for any fixed $s \in S$ the map $(m,n)\mapsto sm\otimes_R n$ is an $R$-balanced map from $M \times N$ to $M\otimes_RN$. By the universal property there is a well defined group homomorphism $\lambda_s:M\otimes_RN\rightarrow M\otimes_RN$ such that $\lambda_s(m\otimes_Rn) = sm\otimes_Rn$. Since the right side of our action is then $\lambda_s\left(\sum m_i\otimes_Rn_i\right)$, the fact that $\lambda_s$ is well defined shows that this expression is indeed independent of the representation of the tensor $\sum m_i\otimes_R n_i$ as a sum of simple tensors. Because $\lambda_s$ is additive the action holds. 
 
     By a parallel argument, if $M$ is a right $R$-module and $N$ is an $(R,S)$-bimodule, then the tensor product $M\otimes_RN$ has the structure of a right $S$-module.
-\end{cons}
+\end{construction}
 
 
 In the case of $M$ and $N$ left modules over a commutative ring $R$, and $S = R$, the standard $R$-module structure on $M$ gives $M$ the structure of an $(R,R)$-bimodule, so in this case the tensor product $M\otimes_RN$ always has the structure of a left $R$-module.
@@ -220,15 +222,15 @@ The corresponding map $M\times N\rightarrow M\otimes_RN$ maps $M\times N$ into a
     r\iota(m,n) = \iota(rm,n) = \iota(m,rn)
 \end{equation*}
 
-\begin{defn}
+\begin{definition}
     Let $R$ be a commutative ring with $1$ and let $M,N,$ and $L$ be left $R$-modules. The map $\varphi:M\times N\rightarrow L$ is called \Emph{$R$-bilinear} if it is $R$-linear in each factor: \begin{align*}
         \varphi(r_1m_1+r_2m_2,n) &= r_1\varphi(m_1,n)+r_2\varphi(m_2,n) \\
         \varphi(m,r_1n_1+r_2n_2) &= r_1\varphi(m,n_1)+r_2\varphi(m,n_2)
     \end{align*}
     for all $m,m_1,m_2 \in M,n,n_1,n_2 \in N,$ and $r_1,r_2 \in R$.
-\end{defn}
+\end{definition}
 
-\begin{cor}
+\begin{corollary}
     Suppose $R$ is a commutative ring. Let $M$ and $N$ be two left $R$-modules and let $M\otimes_RN$ be the tensor product of $M$ and $N$ over $R$, where $M$ is given the standard $R$-module structure. Then $M\otimes_RN$ is a left $R$-module with \begin{equation*}
         r(m\otimes_Rn) = (rm)\otimes_Rn = (mr)\otimes_Rn = m\otimes_R(rn)
     \end{equation*}
@@ -249,7 +251,7 @@ The corresponding map $M\times N\rightarrow M\otimes_RN$ maps $M\times N$ into a
         };
         \end{tikzpicture}
     \end{center}
-\end{cor}
+\end{corollary}
 \begin{proof}
     We have seen that $M\otimes_RN$ is an $R$-module and that $\iota$ is $R$-bilinear. It remains to check that the correspondence corresponds bilinear maps with $R$-module homomorphisms. If $\varphi:M\times N\rightarrow$ is bilinear then it is an $R$-balanced map, so the corresponding $\Phi:M\otimes_RN\rightarrow L$ is a group homomorphism. Moreover, on simple tensors $\Phi((rm)\otimes_Rn) = \varphi(rm,n) = r\varphi(m,n) = r\Phi(m\otimes_Rn)$ since $\varphi$ is $R$-linear in the first variable. Since $\Phi$ is additive this extends to sums of simple tensors to show $\Phi$ is an $R$-module homomorphism.
 
@@ -260,14 +262,14 @@ The corresponding map $M\times N\rightarrow M\otimes_RN$ maps $M\times N$ into a
 \end{proof}
 
 
-\begin{thm}[The Tensor Product of Homomorphisms]
+\begin{theorem}[The Tensor Product of Homomorphisms]
     Let $M,M'$ be right $R$-modules, let $N,N'$ be left $R$-modules, and suppose $\varphi:M\rightarrow M'$ and $\psi:N\rightarrow N'$ are $R$-module homomorphisms.
     \begin{enumerate}
         \item There is a unique group homomorphism, denoted $\varphi\otimes_R\psi:M\otimes_RN\rightarrow M'\otimes_RN'$ such that $(\varphi\otimes_R\psi)(m\otimes_Rn) = \varphi(m)\otimes_R\psi(n)$ for all $m \in M$ and $n \in N$.
         \item If $M,M'$ are also $(S,R)$-bimodules for some ring $S$ and $\varphi$ is also an $S$-module homomorphism, then $\varphi\otimes_R\psi$ is a homomorphism of left $S$-modules. 
         \item If $\lambda:M'\rightarrow M''$ and $\mu:N'\rightarrow N''$ are $R$-module homomorphisms then $(\lambda\otimes_R\mu)\circ(\varphi\otimes_R\psi) = (\lambda\circ \varphi)\otimes_R(\mu\circ\psi)$.
     \end{enumerate}
-\end{thm}
+\end{theorem}
 \begin{proof}
     Observe that the map $(m,n)\mapsto \varphi(m)\otimes_R\psi(n)$ is $R$-balanced since $\varphi$ and $\psi$ are $R$-module homomorphisms, so $1.$ follows from the universal property.
 
@@ -280,12 +282,12 @@ The corresponding map $M\times N\rightarrow M\otimes_RN$ maps $M\times N$ into a
 \end{proof}
 
 
-\begin{thm}[Associativity of the Tensor Product]
+\begin{theorem}[Associativity of the Tensor Product]
     Suppose $M$ is a right $R$-module, $N$ is an $(R,T)$-bimodule, and $L$ is a left $T$-module. Then there is a unique isomorphism \begin{equation*}
         (M\otimes_RN)\otimes_TL \cong M\otimes_R(N\otimes_TL)
     \end{equation*}
     of abelian groups such that $(m\otimes_Rn)\otimes_Tl\mapsto m\otimes_R(n\otimes_Tl)$. If $M$ is an $(S,R)$-bimodule, then this is an isomorphism of $S$-modules.
-\end{thm}
+\end{theorem}
 \begin{proof}
     Note first that the $(R,T)$-bimodule structure on $N$ makes $M\otimes_RN$ into a right $T$-module and $N\otimes_TL$ into a left $R$-module, so both sides of the isomorphism are well defined. For each fixed $l \in L$, the mapping $(m,n)\mapsto m\otimes_R(n\otimes_Tl)$ is $R$-balanced, so by the universal property there is a homomorphism $M\otimes_RN\rightarrow M\otimes_R(N\otimes_RL)$ with $m\otimes_Rn\mapsto m\otimes_R(n\otimes_Tl)$. Then the map $(m\otimes_Rn,l)\mapsto m\otimes_R(n\otimes_Tl)$ from $(M\otimes_RN)\times L$ to $M\otimes_R(N\otimes_TL)$ is well defined. Moreover, it is $T$-balanced, so by another application of the universal property it induces a homomorphism $(M\otimes_RN)\otimes_TL\rightarrow M\otimes_R(N\otimes_TL)$ such that $(m\otimes_Rn)\otimes_Tl \mapsto m\otimes_R(n\otimes_Tl)$. Dually, we can construct a homomorphism in the opposite direction that is inverse to this one. This proves the group isomorphism. 
 
@@ -295,21 +297,21 @@ The corresponding map $M\times N\rightarrow M\otimes_RN$ maps $M\times N$ into a
     so that $M\otimes_RN$ is an $(S,T)$-bimodule. Hence $(M\otimes_RN)\otimes_TL$ is a left $S$-module. Since $N\otimes_TL$ is a left $R$-module, also $M\otimes_R(N\otimes_TL)$ is a left $S$-module. THe group isomorphism just established is notably a homomorphism of left $S$-modules.
 \end{proof}
 
-\begin{cor}
+\begin{corollary}
     Suppose $R$ is commutative and $M,N,$ and $L$ are left $R$ modules. Then \begin{equation*}
         (M\otimes_RN)\otimes_RL\cong M\otimes_R(N\otimes_RL)
     \end{equation*}
     as $R$-modules for the standard $R$-module structures on $M,N,$ and $L$.
-\end{cor}
+\end{corollary}
 
 
-\begin{defn}
+\begin{definition}
     Let $R$ be a commutative ring with $1$ and let $M_1,M_2,...,M_n$ and $L$ be $R$-modules with the standard $R$-module structures. A map $\varphi:M_1\times...\times M_n\rightarrow L$ is called \Emph{$n$-multilinear over $R$} if it is an $R$-module homomorphism in each component when the other component entries are kept constant. When $n = 2$ or $3$ we say $\varphi$ is \Emph{bilinear} or \Emph{trilinear}, respectively.
-\end{defn}
+\end{definition}
 
 By the previous corollary, an $n$-fold tensor product may be unambiguously defined by iterating the tensor product of pairs of modules since any bracketing of $M_1\otimes_R..\otimes_R M_n$ into tensor products of pairs gives an isomorphic $R$-module. The universal property of the tensor product of a pair of modules then implies that multilinear maps factor uniquely through the $R$-module $M_1\otimes_R ... \otimes_R M_n$.
 
-\begin{cor}
+\begin{corollary}
     Let $R$ be a commutative ring and let $M_1,...,M_n,L$ be $R$-modules. Let $M_1\otimes_R...\otimes_R M_n$ denote any bracketing of the tensor product of these modules, and let\begin{equation*}
         \iota:M_1\times ... \times M_n\rightarrow M_1\otimes_R...\otimes_R M_n
     \end{equation*}
@@ -335,17 +337,17 @@ By the previous corollary, an $n$-fold tensor product may be unambiguously defin
         };
         \end{tikzpicture}
     \end{center}
-\end{cor}
+\end{corollary}
 
 Recall that even if $M \subseteq M'$ is a submodule, $M\otimes_R N$ is not necessarily contained in $M'\otimes_R N$. We now aim to show a sufficient condition for when this containment holds.
 
-\begin{thm}[Tensor Products of Direct Sums]
+\begin{theorem}[Tensor Products of Direct Sums]
     Let $M,M'$ be right $R$-modules and let $N,N'$ be left $R$-modules. THen there are unique group isomorphisms: \begin{align*}
         (M\oplus M')\otimes_R N&\cong (M\otimes_R N)\oplus (M'\otimes_RN)\\
         M\otimes_R(N\oplus N') &\cong (M\otimes_R N)\oplus (M\otimes_RN')
     \end{align*}
     such that $(m,m')\otimes_Rn \mapsto (m\otimes_R n, m'\otimes_R n)$ and $m\otimes_R(n,n')\mapsto (m\otimes_R n,m\otimes_Rn')$ respectively. If $M,M'$ are also $(S,R)$-bimodules, then these are isomorphisms of left $S$-modules. In particular, if $R$ is commutative, these are isomorphisms of $R$-modules.
-\end{thm}
+\end{theorem}
 \begin{proof}
     The map $(M\oplus M')\times N\rightarrow (M\otimes_R N)\oplus (M'\otimes_RN)$ defined by $((m,m'),n)\mapsto (m\otimes_Rn,m'\otimes_Rn)$ is well defined since $m$ and $m'$ in $M\oplus M'$ are uniquely defined in the direct sum. The map is $R$-balanced, so induces a homomorphism $f$ from $(M\oplus M')\otimes_R N$ to $(M\otimes_RN)\oplus(M'\otimes_RN)$ with \begin{equation*}
         f((m,m')\otimes_Rn) = (m\otimes_Rn,m'\otimes_Rn)
@@ -361,36 +363,36 @@ This extends by induction to any finite direct sum of $R$-modules. The correspon
 \end{equation*}
 where $I$ is any index set.
 
-\begin{cor}[Extension of Scalars for Free Modules]
+\begin{corollary}[Extension of Scalars for Free Modules]
     The module obtained from the free $R$-module $N \cong R^n$ by extension of scalars from $R$ to $S$ is the free $S$-module $S^n$: \begin{equation*}
         S\otimes_R R^n \cong S^n
     \end{equation*}
     as left $S$-modules.
-\end{cor}
+\end{corollary}
 
-\begin{cor}
+\begin{corollary}
     Let $R$ be a commutative ring and let $M \cong R^s$ and $N \cong R^t$ be free $R$-modules with bases $m_1,...,m_s$ and $n_1,...,n_t$, respectively. Then $M\otimes_RN$ is a free $R$-module of rank $st$, with basis $m_i\otimes_Rn_j$, $1\leq i \leq s$ and $1 \leq j \leq t$, so \begin{equation*}
         R^s\otimes_RR^t\cong R^{st}
     \end{equation*}
-\end{cor}
+\end{corollary}
 
 More generally, the tensor product of two free modules of arbitrary rank over a commutative ring is free.
 
 
-\begin{prop}
+\begin{proposition}
     Suppose $R$ is a commutative ring and $M,N$ are left $R$-modules, considered with the standard $R$-module structures. Then there is a unique $R$-module isomorphism \begin{equation*}
         M\otimes_RN\cong N\otimes_RM
     \end{equation*}
     mapping $m\otimes_Rn$ to $n\otimes_Rm$.
-\end{prop}
+\end{proposition}
 \begin{proof}
     (To be completed)
 \end{proof}
 
 
-\begin{prop}
+\begin{proposition}
     Let $R$ be a commutative ring and let $A$ and $B$ be $R$-algebras. Then the multiplication $(a\otimes_Rb)(a'\otimes_Rb') = aa'\otimes_Rbb'$ is well defined and makes $A\otimes_RB$ into an $R$-algebra.
-\end{prop}
+\end{proposition}
 \begin{proof}
     Note first that the definition of an $R$-algebra shows that \begin{equation*}
         r(a\otimes_Rb) = ra\otimes_Rb = ar\otimes_Rb = a\otimes_Rrb = a\otimes_Rbr = (a\otimes_Rb)r

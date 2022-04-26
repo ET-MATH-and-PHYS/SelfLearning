@@ -1,0 +1,178 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+\chapter{Soundness}
+\label{sound} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+The aim of this chapter is to prove that the TFL proof system is sound
+
+\section{ Definitions and Proof}
+
+\begin{definition}
+    Let $\Gamma$ be a list of sentences. A formal proof system is \Emph{sound} (relative to a given semantics) if and only if, whenever there is a formal proof of $\metav{C}$ from assumptions among $\Gamma$, then $\Gamma$ genuinely entails $\metav{C}$ (given that semantics). 
+\end{definition}
+
+
+\begin{theorem}[Soundness Theorem]
+    For any sentences $\Gamma$ and $\metav{C}$: if $\Gamma \proves \metav{C}$, then $\Gamma \entails \metav{C}$.
+\end{theorem}
+
+\begin{definition}
+    Say that a line of a proof is \Emph{shiny} if and only if the assumptions on which that line depends tautologically entail the sentence on that line. (this terminology is not necessarily standard)
+\end{definition}
+
+
+\begin{lemma}[Shininess Lemma]
+    Every line of every TFL-proof is shiny.
+\end{lemma}
+
+
+
+\begin{proof}[Proof of Soundness Theorem]
+    Suppose $\Gamma \proves \metav{C}$. Then there is a TFL-proof, which $\metav{C}$ appearing on its last line, whose only undischarged assumptions are among $\Gamma$. The Shininess Lemma tells us that every line on every TFL-proof is shiny. So this last line is shiny, i.e. $\Gamma \entails \metav{C}$.
+\end{proof}
+
+\begin{definition}
+    We say a rule of inference is \Emph{rule-sound} if and only if for all TFL-proofs, if we obtain a line on a TFL-proof by applying that rule, and every earlier line in the TFL-proof is shiny, then our new line is also shiny.
+\end{definition}
+
+
+\begin{proof}[Shininess Lemma]
+    Fix any line, say line $n$, on any TFL-proof. The sentence written on line $n$ must be obtained using a formal inference rule which is rule-sound. This is to say that, if every earlier line is shiny, then line $n$ itself is shiny. Hence, by strong induction on the length of TFL-proofs every line of every TFL-proof is shiny.
+\end{proof}
+
+\begin{remark}
+    We shall use `$\delta_i$' to abbreviate the assumptions on which line $i$ depends in a TFL-proof.
+\end{remark}
+
+\begin{proof}[Proof of Rule-Soundness]
+    \begin{claim}[1]
+        Introducing an assumption is rule-sound.
+    \end{claim}
+    If $\metav{A}$ is introduced as an assumption on line $n$, then $\metav{A}$ is among $\Delta_n$, and so $\delta_n \entails \metav{A}$.
+
+    \begin{claim}[2]
+        $\eand I$ is rule-sound.
+    \end{claim}
+    Consider any application of $\eand I$ in any TFL-proof. To show that $\eand I$ is rule-sound, we assume that every line before line $n$ is shiny; and we aim to show that line $N$ is shiny, i.e. that $\Delta_n \entails \metav{A}\eand \metav{B}$.
+
+    So, let $v$ be any valuation that makes all of $\Delta_n$ true. We first show that $v$ makes $\metav{A}$ true. Note that all $\Delta_i$ are among $\Delta_n$ for $i< n$. By hypothesis, line $i$ is shiny. So any valuation that makes all of $\Delta_i$ true makes $\metav{A}$ true. Since $v$ makes all of $\Delta_i$ true, it makes $\metav{A}$ true too. Similarly, we see that $v$ makes $\metav{B}$ true. Consequently, $v$ makes $\metav{A} \eand\metav{B}$ true. So any valuation that makes all of the sentences among $\Delta_n$ true also makes $\metav{A}\eand\metav{B}$ true. That is: line $n$ is shiny.
+
+
+    \begin{claim}[3]
+        $\eand E$ is rule-sound.
+    \end{claim}
+    Assume that every line before line $n$ on some TFL-proof is shiny, and that $\eand E$ is used on line $n$. Let $v$ be any valuation that makes all of $\Delta_n$ true. Note that all of $\Delta_i$ are among $\Delta_n$ for $i < n$. By hypothesis, line $i$ is shiny. So any valuation that makes all of $\Delta_i$ true makes $\metav{A}\eand\metav{B}$ true. So $v$ makes $\metav{A}\eand \metav{B}$ true, and hence makes $\metav{A}$ and $\metav{B}$ true. So $\Delta_n\entails \metav{A}$ (or $\metav{B}$)
+
+    \begin{claim}[4]
+        $\eor I$ is rule-sound.
+    \end{claim}
+    Assume that every line before line $n$ on some TFL-proof is shiny, and that $\eor I$ is used on line $n$. Let $v$ be any valuation that makes all of $\Delta_n$ true. Since $\Delta_i$ are among $\Delta_n$ for $i < n$, line $i$ is shiny by hypothesis. So any valuation that makes all $\Delta_i$ true makes either $\metav{A}$ or $\metav{B}$ true. So $v$ makes either $\metav{A}$ or $\metav{B}$ true. So $\Delta_n\entails \metav{A}\eor\metav{B}$.
+    
+
+    \begin{claim}[5]
+        $\eor E$ is rule-sound.
+    \end{claim}
+    Assume that every line before line $n$ on some TFL-proof is shiny, and that $\eor E$ is used on line $n$.
+	\begin{fitchproof}
+	   \have[m]{aob}{\metav{A}\eor\metav{B}}
+	   \open
+           \hypo[i]{a}{\metav{A}} %\by{want \metav{C}]
+		   \have[j]{c1}{\metav{C}}
+	   \close
+	   \open
+           \hypo[k]{b}{\metav{B}} %\by{want \metav{C}]
+		   \have[l]{c2}{\metav{C}}
+	   \close
+	   \have[n]{ab}{\metav{C}}\oe{aob, a-c1,b-c2}
+   \end{fitchproof}
+    Let $v$ be any valuation that makes all of $\Delta_n$ true. Note that all $\Delta_m$ are among $\Delta_n$ for $m < n$. By hypothesis, line $m$ is shiny. So any valuation that makes $\Delta_n$ true makes $\metav{A}\eor\metav{B}$ true. So in particular, $v$ makes $\metav{A}\eor \metav{B}$ true, and hence either $v$ makes $\metav{A}$ true, or $v$ makes $\metav{B}$ true. \begin{enumerate}
+        \item $v$ makes $\metav{A}$ true. All of the $\Delta_i$ are among $\Delta_n$, with the possible exception of $\metav{A}$. Since $v$ makes all of $\Delta_n$ true, and also makes $\metav{A}$ true, $v$ makes all of $\Delta_i$ true. Now, by assumption, line $j < n$ is shiny (in the subproof); so $\Delta_j\entails \metav{C}$. But the sentences $\Delta_i$ are just the sentences $\Delta_j$, so $\Delta_i \entails \metav{C}$. So, any valuation that makes all of $\Delta_i$ true makes $\metav{C}$ true. But $v$ is just such a valuation. So $v$ makes $\metav{C}$ true.
+        \item $v$ makes $\metav{B}$ true. Reasoning in exactly the same way, considering lines $k$ and $l$ (in the subproof), $v$ makes $\metav{C}$ true.
+    \end{enumerate}
+    Either way, $v$ makes $\metav{C}$ true. So $\Delta_n\entails \metav{C}$.
+
+
+    \begin{claim}[6]
+        $\enot E$ is rule-sound.
+    \end{claim}
+    Assume that every line before line $n$ on some TFL-proof is shiny, and that $\enot E$ is used on line $n$.
+    \begin{fitchproof}
+        \have[i]{a1}{\metav{A}}
+        \have[j]{a2}{\enot\metav{A}}
+        \have[n]{a3}{\ered} \ne{a1,a2}
+    \end{fitchproof}
+    Note that all of $\Delta_i$ and $\Delta_j$ are among $\Delta_n$. By hypothesis, lines $i$ and $j$ are shiny. So any valuation which makes all of $\Delta_n$ true would have to make both $\metav{A}$ and $\enot\metav{A}$ true. But no valuation can do that. So no valutaion makes all of $\Delta_n$ true. So $\Delta_n \entails \ered$, vacuously.
+
+
+    \begin{claim}[7]
+        $X$ is rule-sound.
+    \end{claim}
+    Assume that every line before line $n$ on some TFL-proof is shiny, and that $X$ is used on line $n$.
+    \begin{fitchproof}
+        \have[i]{a1}{\ered}
+        \have[n]{a2}{\metav{A}} \by{X}{a1}
+    \end{fitchproof}
+    Note that $\Delta_i$ is among $\Delta_n$. By hypothesis, line $i$ is shiny. So any valuation which makes all of $\Delta_n$ true would have to make $\ered$ true. But no valuation can do that. So no valutaion makes all of $\Delta_n$ true. So $\Delta_n \entails \metav{A}$, vacuously.
+
+
+    \begin{claim}[8]
+        $\enot I$ is rule-sound.
+    \end{claim}
+    Assume that every line before line $n$ on some TFL-proof is shiny, and that $\enot I$ is used on line $n$.
+    \begin{fitchproof}
+        \open
+            \hypo[i]{a1}{\metav{A}}
+            \have[j]{a2}{\ered}
+        \close
+        \have[n]{a3}{\enot\metav{A}} \ni{a1-a2}
+    \end{fitchproof}
+    Let $v$ be any valutation that makes all of $\Delta_n$ true. Note that all of $\Delta_i$ are among $\Delta_n$, with the possible exception of $\metav{A}$ itself. By hypothesis, line $j$ is shiny. But no valutation can make `$\ered$' true, so no valutation can make all of $\Delta_j$ true. Since the sentences $\Delta_i$ are just the sentences $\Delta_j$, no valuation can make all of $\Delta_i$ true. Since $v$ makes all of $\Delta_n$ true, it must therefore make $\metav{A}$ false, and so make $\enot \metav{A}$ true. So $\Delta_n\entails \enot\metav{A}$.
+
+    \begin{claim}[9]
+        $IP$ is rule-sound.
+    \end{claim}
+    (To be completed)
+
+    \begin{claim}[10]
+        $\eif I$ is rule-sound.
+    \end{claim}
+    (To be completed)
+
+
+    \begin{claim}[11]
+        $\eif E$ is rule-sound.
+    \end{claim}
+    (To be completed)
+
+
+    \begin{claim}[12]
+        $\eiff I$ is rule-sound.
+    \end{claim}
+    (To be completed)
+
+
+    \begin{claim}[13]
+        $\iff E$ is rule-sound.
+    \end{claim}
+    (To be completed)
+
+
+    \begin{claim}[14]
+        All of the derived rules of our proof system are rule-sound.
+    \end{claim}
+    Suppose that we used a derived rule to obtain some sentence, $\metav{A}$, on line $n$ of some TFL-proof, and that every earlier line is shiny. Every use of a derived rule can be replaced with multiple uses of basic rules. That is to say, we could have used basic rule to write $\metav{A}$ on some line $n+k$, without introducing any further assumptions. So, applying our individual results that all basic rules are rule-sound sever times ($k+1$ times, in fact), we can see that line $n+k$ is shiny. Hence, the derived rule is rule-sound.
+\end{proof}
+
+
+
+
+
+

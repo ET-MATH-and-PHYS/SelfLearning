@@ -1,15 +1,17 @@
 %%%%%%%%%% Nilpotent and Solvable %%%%%%%%%%
-\chapter{\textsection\textsection Nilpotent and Solvable Groups}
+\chapter{ Nilpotent and Solvable Groups}
+\label{NilpotentSolv}
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+\section{ $p$-Groups}
 
-\section{\textsection $p$-Groups}
-
-\begin{defn}
+\begin{definition}
     A \Emph{maximal subgroup} of a group $G$ is a proper subgroup $M$ of $G$ such that there are no subgroups $H$ of $G$ with $M < H < G$.
-\end{defn}
+\end{definition}
 
 Simply by order considerations we observe that any proper subgroup of a finite group is contained in a maximal subgroup. In contrast, infinite groups may or may not have maximal subgroups. 
 
-\begin{thm}
+\begin{theorem}
     Let $p$ be a prime and let $P$ be a group of order $p^a$ for $a \geq 1$. Then \begin{enumerate}
         \item The center of $P$ is nontrivial: $Z(P) \neq \{1\}$,
         \item If $H$ is a nontrivial normal subgroup of $P$ then $H$ intersects the center non-trivially: $H \cap Z(P) \neq \{1\}$. In particular, every normal subgroup of order $p$ is contained in the center.
@@ -17,7 +19,7 @@ Simply by order considerations we observe that any proper subgroup of a finite g
         \item If $H < P$ then $H < N_P(H)$ (i.e.e, every proper subgroup of $P$ is a proper subgroup of its normalizer in $P$).
         \item Every maximal subgroup of $P$ is of index $p$ and is normal in $P$.
     \end{enumerate}
-\end{thm}
+\end{theorem}
 \begin{proof}
     First note that $1.$ is a result previously proven using the class equation.
 
@@ -40,9 +42,9 @@ Simply by order considerations we observe that any proper subgroup of a finite g
 \end{proof}
 
 
-\section{\textsection Nilpotent Groups}
+\section{ Nilpotent Groups}
 
-\begin{defn}
+\begin{definition}
     For any (finite or infinite) group $G$ define the following subgroups inductively: \begin{equation*}
         Z_0(G) = \{1\}, \hspace{15pt} Z_1(G) = Z(G)
     \end{equation*}
@@ -53,17 +55,17 @@ Simply by order considerations we observe that any proper subgroup of a finite g
         Z_0(G) \leq Z_1(G) \leq Z_2(G) \leq ...
     \end{equation*}
     is called the \Emph{upper central series} of $G$.
-\end{defn}
+\end{definition}
 
 
-\begin{defn}
+\begin{definition}
     A group $G$ is called \Emph{nilpotent} if $Z_c(G) = G$ for some $c \in \Z$. The smallest such $c$ is called the \Emph{nipotence class} of $G$.
-\end{defn}
+\end{definition}
 
 
 Each $Z_i(G)$ in this series is in fact characteristic in $G$.
 
-\begin{rmk}
+\begin{remark}
     \leavevmode
     \begin{enumerate}
         \item If $G$ is abelian then $G$ is nilpotent of class $1$ (provided $|G| > 1$), since in this case $G = Z(G) = Z_1(G)$. We can think of the heirarchy of structure as follows: \begin{equation*}
@@ -78,32 +80,32 @@ Each $Z_i(G)$ in this series is in fact characteristic in $G$.
         \end{equation*}
             Groups for which this hold are called \Emph{hypernilpotent}. Results that we shall derive which do not involve the notion of order, Sylow subgroups, etc. also hold for infinite groups.
     \end{enumerate}
-\end{rmk}
+\end{remark}
 
 
-\begin{prop}
+\begin{proposition}
     Let $p$ be a prime and let $P$ be a group of order $p^a$. Then $P$ is nilpotent of nilpotence class at most $a-1$.
-\end{prop}
+\end{proposition}
 \begin{proof}
     For each $i \geq 0$, $P/Z_i(P)$ is a $p$-group so if $|P/Z_i(P)| > 1$, then $|Z(P/Z_i(P))| > 1$, which implies that $|Z_{i+1}(P)| > |Z_i(P)|$, and in particular if $P \neq Z_i(P)$, then $|Z_{i+1}(P)| \geq p|Z_i(P)|$. This implies inductively that $|Z_{i+1}(P)| \geq p^{i+1}$, so $|Z_a(P)| \geq p^a$. Hence, $P = Z_a(P)$ and $P$ is nilpotent with nilpotence class $\leq a$. The only way for $P$ to be of nilpotence class equal to $a$ is if $|Z_i(P)| = p^i$ for all $1 \leq i \leq a$. In this case, however, $Z_{a-2}(P)$ would have index $p^2$ in $P$, so $P/Z_{a_2}(P)$ would be abelian. But then $P/Z_{a-2}(P)$ would be its own center and $Z_{a-1}(P) = P$, a contradiction. Thus, the nilpotence class of $P$ is at most $a-1$.
 \end{proof}
 
 
-\begin{eg}
+\begin{example}
     $D_{2^{n-1}}$, the dihedral group of order $2^n$, is nilpotent of nilpotence class $n-1$. This can be proved inductively by showing $|Z(D_{2^{n-1}})| = 2$ and $D_{2^{n-1}}/Z(D_{2^{n-1}}) \cong D_{2^{n-2}}$ for $n \geq 3$. If $n$ is not a power of $2$, $D_n$ is not nilpotent.
-\end{eg}
+\end{example}
 
 
 (To Be Continued)
 
 
-\section{\textsection Composition Series and Solvable Groups}
+\section{ Composition Series and Solvable Groups}
 
 The following proposition and proof shows how one can use the information on a normal subgroup $N$ and on the quotient $G/N$ to determine information about $G$:
 
-\begin{prop}
+\begin{proposition}
     If $G$ is a finite abelian group and $p$ is a prime dividing $|G|$, then $G$ contains an element of order $p$.
-\end{prop}
+\end{proposition}
 \begin{proof}
     The proof proceeds by induction on $|G|$, namely, we assume the result is valid for every group whose order is strictly smaller than the order of $G$ and then prove the rsult valid for $G$. Since $|G| > 1$, there is an element $x \in G$ with $x \neq 1$. If $|G| = p$ then $x$ has order $p$ by \ref{thmname:lagrange} and we are done. We may therefore assume $|G| > p$.
 
@@ -114,49 +116,49 @@ The following proposition and proof shows how one can use the information on a n
 
 Note that simple groups, groups without any normal subgroups, are fundamental obstructions to this variety of proof. As simple groups cannot be ``factored" into pieces like $N$ and $G/N$, the role they play is analogous to that of primes in the arithmetic of $\Z$. 
 
-\begin{defn}
+\begin{definition}
     In a group $G$, a sequence of subgroups \begin{equation*}
         1 = N_0 \leq N_1 \leq N_2 \leq ... \leq N_{k-1} \leq N_k = G
     \end{equation*}
     is called a \Emph{composition series} if $N_i \trianglelefteq N_{i+1}$ and $N_{i+1}/N_i$ is a simple group, $0 \leq i \leq k-1$. If the above sequence is a composition series, the quotient groups $N_{i+1}/N_i$ are called \Emph{composition factors} of $G$.
-\end{defn}
+\end{definition}
 
 As an example, two composition series of $D_4$ are \begin{equation*}
     1\trianglelefteq \langle s \rangle \trianglelefteq \langle s,r^2\rangle \trianglelefteq D_4\;\;and\;\;1 \trianglelefteq \langle r^2\rangle \trianglelefteq \langle r \rangle \trianglelefteq D_4
 \end{equation*}
 
 
-\begin{namthm}[Jordan-H\"{o}lder]\label{thmname:JHseries}
+\begin{theorem}[Jordan-H\"{o}lder]\label{thmname:JHseries}
     Let $G$ be a finite group with $G \neq \{1\}$. Then \begin{enumerate}
         \item $G$ has a composition series
         \item The composition factors in a composition series are unique, namely, if $1 = N_0 \leq N_1 \leq ... \leq N_r = G$ and $1 = M_0 \leq M_1 \leq ... \leq M_s = G$ are two composition series for $G$, then $r = s$ and there is some permutation $\pi$ of $\{1,2,...,r\}$ such that \begin{equation*}
                 M_{\pi(i)}/M_{\pi(i)-1}\cong N_i/N_{i=1}, 1 \leq i \leq r
         \end{equation*}
     \end{enumerate}
-\end{namthm}
+\end{theorem}
 \begin{proof}
     (To be completed)
 \end{proof}
 
 
-\begin{defn}
+\begin{definition}
     A group $G$ is \Emph{solvable} if there is a chain of subgroups \begin{equation*}
         1 = G_0 \trianglelefteq G_1 \trianglelefteq G_2 \trianglelefteq ... \trianglelefteq G_s = G
     \end{equation*}
     such that $G_{i+1}/G_i$ is abelian for $i \in \{0,1,...,s-1\}$.
-\end{defn}
+\end{definition}
 
 A property of finite solvable groups is the following due to Philip Hall: 
 
-\begin{thm}
+\begin{theorem}
     The finite group $G$ is solvable if and only if for every divisor $n$ of $|G|$ such that $gcd\left(n,\frac{|G|}{n}\right) = 1$, $G$ has a subgroup of order $n$.
-\end{thm}
+\end{theorem}
 
 Another illustration of how using information on a normal subgroup $N$ and a quotient group $G/N$ is seen in the following result:
 
-\begin{prop}
+\begin{proposition}
     If $N$ and $G/N$ are solvable, then $G$ is solvable.
-\end{prop}
+\end{proposition}
 \begin{proof}
     Let $1 = N_0 \trianglelefteq N_1 \trianglelefteq ... \trianglelefteq N_n = N$ be a chain of subgroups of $N$ such that $N_{i+1}/N_i$ is abelian, $0 \leq i < n$, and $1_{G/N} = G_0/N\trianglelefteq G_1/N\trianglelefteq ... \trianglelefteq G_m/N = G/N$ be achain of subgroups of $G/N$ such that $(G_{i+1}/N)/(G_i/N)$ is abelian, $0 \leq i < m$. Such $G_i$ exist by the Lattice Isomorphism Theorem, with $N \leq G_i$ for each $i$. By the Third Isomorphism Theorem \begin{equation*}
         (G_{i+1}/N)/(G_i/N) \cong G_{i+1}/G_i
@@ -180,9 +182,9 @@ The holder program has two goals: \begin{enumerate}
 
 The classification of finite simple groups was completed in $1980$, resulting in a proof of the following result:
 
-\begin{thm}
+\begin{theorem}
     There is a list consisting of $18$ (infinite) families of simple groups and $26$ simple groups not belonging to these families (the \Emph{sporadic} simple groups) such that every finite simple group is isomorphic to one of the groups in this list.
-\end{thm}
+\end{theorem}
 
 One such family is $\{\Z/p\Z\vert p\text{ a prime}\}$. The ``extension problem" is one of a much higher difficulty, even for groups of relatively small order.
 

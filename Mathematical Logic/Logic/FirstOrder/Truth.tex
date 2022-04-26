@@ -1,0 +1,167 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+\chapter{Truth Models}
+\label{TMod} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+\section{ Truth}
+
+\subsection{ Atomic Sentences}
+
+\begin{definition}
+    When $\metav{R}$ is an $n$-place predicate and $\metav{a}_1,\metav{a}_2,...,\metav{a}_n$ are names, the sentence $\metav{R}(\metav{a}_1,\metav{a}_2,...,\metav{a}_n)$ is true in an interpretation if and only if $\metav{R}$ is true of the objects named by $\metav{a}_1,\metav{a}_2,...,\metav{a}_n$ (in that order) in that interpretation.
+\end{definition}
+
+
+\begin{definition}
+    For any names $\metav{a}$ and $\metav{b}$, $\metav{a} = \metav{b}$ is true in an interpretation if and only if $\metav{a}$ and $\metav{b}$ name the very same object in that interpretation.
+\end{definition}
+
+\subsection{ Sentential Connectives}
+
+\begin{definition}
+    Given any sentences $\metav{A}$ and $\metav{B}$ of FOL, \begin{enumerate}
+        \item $\metav{A}\eand \metav{B}$ is true in an interpretation if and only if both $\metav{A}$ is true and $\metav{B}$ is true in that interpretation
+        \item $\metav{A}\eor \metav{B}$ is true in an interpretation if and only if either $\metav{A}$ is true or $\metav{B}$ is true in that interpretation
+        \item $\enot \metav{A}$ is true in an interpretation if and only if $\metav{A}$ is false in that interpretation
+        \item $\metav{A}\eif \metav{B}$ is true in an interpretation if and only if either $\metav{A}$ is false or $\metav{B}$ is true in that interpretation
+        \item $\metav{A}\eiff \metav{B}$ is true in an interpretation if and only if $\metav{A}$ has the same truth value as $\metav{B}$ in that interpretation
+    \end{enumerate}
+\end{definition}
+
+
+\subsection{ Quantifiers as the Main Logical Operator}
+
+\begin{definition}
+    Suppose that $\metav{A}$ is a formula containing at least one occurence of the variable $x$, and that $x$ is \Emph{free} in $\metav{A}$. We will write this thus:\begin{equation*}
+        \metav{A}(...x...x...)
+    \end{equation*}
+    Suppose also that $\metav{c}$ is a name. Then we will write:\begin{equation*}
+        \metav{A}(...\metav{c}...\metav{c}...)
+    \end{equation*}
+    for the formula we obtain by replacing \emph{every} occurrence of $x$ in $\metav{A}$ with $\metav{c}$. The resulting formula is called a \Emph{substitution instance} of $\forall x\metav{A}$ and $\exists x\metav{A}$. Also, $\metav{c}$ is called the \Emph{instantiating name}.
+\end{definition}
+
+
+\begin{definition}
+    Take any object in the domain, say, d, and a name $\metav{c}$ which is not already assigned by the interpretation. If our interpretation is $\mathbf{I}$, then we can consider the interpretation $\mathbf{I}[d/\metav{c}]$ which is just like $\mathbf{I}$ except it \emph{also} assigns the name $\metav{c}$ to the object $d$. Then we can say that $d$ \Emph{satisfies} the formula $\metav{A}(...x...x...)$ in the interpreation $\mathbf{I}$ if, and only if, $\metav{A}(...\metav{c}...\metav{c}...)$ is true in $\mathbf{I}[d/\metav{c}]$. (We also say that $\metav{A}(...x...x...)$ is \Emph{true of $d$})
+\end{definition}
+
+
+\begin{definition}
+    The interpretation $\mathbf{I}[d/\metav{c}]$ is just like the interpretation $\mathbf{I}$ except it also assigns the name $\metav{c}$ to the object $d$.
+
+
+    An object $d$ \Emph{satisfies} $\metav{A}(...x...x...)$ in interpretation $\mathbf{I}$ if and only if $\metav{A}(...\metav{c}...\metav{c}...)$ is true in $\mathbf{I}[d/\metav{c}$.
+\end{definition}
+
+\begin{definition}
+    $\forall x\metav{A}(...x...x...)$ is true in an interpretation if and only if every object in the domain \Emph{satisfies} $\metav{A}(...x...x...)$.
+
+
+    $\exists x \metav{A}(...x...x...)$ is true in an interpretation if and only if at least one object in the domain satisfies $\metav{A}(...x...x...)$.
+\end{definition}
+
+\section{ Semantic Concepts}
+
+\begin{definition}
+    In FOL the symbolization \begin{equation*}
+        \metav{A}_1,\metav{A}_2,...,\metav{A}_n\entails \metav{C}
+    \end{equation*}
+    means that there is no interpretation in which all of $\metav{A}_1,\metav{A}_2,...,\metav{A}_n$ are true and in which $\metav{C}$ is false.
+\end{definition}
+
+
+\begin{definition}
+    Derivatively to the last definition, \begin{equation*}
+        \entails \metav{A}
+    \end{equation*}
+    means that $\metav{A}$ is true in every interpretation. 
+\end{definition}
+
+\begin{definition}
+    An FOL sentence $\metav{A}$ is a \Emph{validity} if and only if $\metav{A}$ is true in every interpretation; i.e., $\entails \metav{A}$.
+\end{definition}
+
+\begin{definition}
+    An FOL sentence $\metav{A}$ is a \Emph{contradiction} if and only if $\metav{A}$ is false in every interpretation; i.e., $\entails \enot\metav{A}$.
+\end{definition}
+
+\begin{definition}
+    $\metav{A}_1,\metav{A}_2,...,\metav{A}_n\therefore \metav{C}$ is \Emph{valid in FOL} if and only if there is no interpretation in which all of the premises are true and the conclusion is false; e.e., $\metav{A}_1,\metav{A}_2,...,\metav{A}_n\entails\metav{C}$. It is \Emph{invalid in FOL} otherwise.
+\end{definition}
+
+
+\begin{definition}
+    Two FOL sentences $\metav{A}$ and $\metav{B}$ are \Emph{equivalent} if and only if they are true in exactly the same interpretations as each other; i.e., both $\metav{A}\entails \metav{B}$ and $\metav{B}\entails \metav{A}$.
+\end{definition}
+
+\begin{definition}
+    The FOL sentences $\metav{A}_1,\metav{A}_2,...,\metav{A}_n$ are \Emph{jointly satisfiable} if and only if some interpretation makes all of them true. They are \Emph{jointly unsatisfiable} if and only if there is no such interpretation.
+\end{definition}
+
+\section{ Working with Interpretations}
+
+\begin{remark}
+    To show that $\metav{A}$ is not a validity, it suffices to find an interpretation where $\metav{A}$ is false.
+
+    TO show that $\metav{A}$ is not a contradiction, it suffices to find an interpretation where $\metav{A}$ is true.
+\end{remark}
+
+
+\begin{remark}
+    To show that $\metav{A}$ and $\metav{B}$ are not logically equivalent, it suffices to find an interpretation where oen is true and the other is false.
+\end{remark}
+
+
+\begin{remark}
+    If some interpretation makes all of $\metav{A}_1,\metav{A}_2,...,\metav{A}_n$ true and $\metav{C}$ false, then: \begin{enumerate}
+        \item $\metav{A}_1,\metav{A}_2,...,\metav{A}_n\therefore\metav{C}$ is invalid; and
+        \item $\metav{A}_1,\metav{A}_2,...,\metav{A}_n\nentails \metav{C}$; and
+        \item $\metav{A}_1,\metav{A}_2,...,\metav{A}_n,\enot\metav{C}$ are jointly consistent (satisfiable).
+    \end{enumerate}
+\end{remark}
+
+
+\begin{definition}
+    An interpretation which refutes a claim (to logical truth, say, or to entailment) is called a \Emph{counter-interpretation}, or a \Emph{counter-model}.
+\end{definition}
+
+\begin{remark}
+    If you want to infer from the absence of an entailment in FOL to the invalidity of some English argument, then you need to argue that nothing important is lost in the way you have symbolized the English argument.
+\end{remark}
+
+
+
+\begin{remark}
+    We must reason about all interpretations if we wish to show: \begin{enumerate}
+        \item that a sentence is a contradiction; for this requires that it is false in \emph{every} interpretation.
+        \item that two sentences are logically equivalent; for this requires that they have the same truth value in \emph{every} interpretation. 
+        \item that some sentences are jointly unsatisfiable; for this requires that there is no interpretation in which all of those sentences are true together; i.e. that, in \emph{every} interpretaation, at least one of those sentences is false.
+        \item that an argument is valid; for this requires that the conclusion is true in \emph{every} interpretation where the premises are true.
+        \item that some sentences entail another sentence.
+    \end{enumerate}
+\end{remark}
+
+
+\begin{table}[H]
+    \centering
+    \caption{Interpretation requirements for demonstrating FOL semantic properties}
+    \begin{tabular}{c|cc}
+        & \textbf{Yes} & \textbf{No} \\ \hline
+        Validity? & all interpretations & one counter-interpretation \\
+        Contradiction? & all interpretations & one counter-interpretation \\
+        Equivalent? & all interpretations & one counter-interpretation \\
+        Satisfiable? & one interpretation & all interpretations \\
+        Valid? & all interpretations & one counter-interpretation \\
+        Entailment? & all interpretations & one counter-interpretation \\
+    \end{tabular}
+\end{table}
+

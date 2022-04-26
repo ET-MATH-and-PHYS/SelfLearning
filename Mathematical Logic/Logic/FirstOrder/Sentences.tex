@@ -1,0 +1,93 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+\chapter{Sentences of FOL}
+\label{Sent} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+\section{ Expressions}
+
+\begin{definition}
+    There are six types of symbols in FOL: \begin{enumerate}
+        \item \textbf{Predicates}: $A,B,C,...,Z,$ or with subscripts, as needed: $A_1,B_1,Z_1,A_2,A_{25},...$
+        \item \textbf{Names}: $a,b,c,...,r,$ pr wotj subscripts, as needed $a_1,b_{224},h_7,m_{32},...$
+        \item \textbf{Variables} $s,t,u,v,w,x,y,z$, or with subscripts, as needed $x_1,y_1,z_1,x_2,...$
+        \item \textbf{Connectives} $\enot, \eand, \eor, \eif, \eiff$
+        \item \textbf{Brackets} $(,)$
+        \item \textbf{Quantifiers} $\forall,\exists$
+    \end{enumerate}
+    We define an \Emph{expression of FOL} as any string of symbols of FOL.
+\end{definition}
+
+
+\section{ Terms and Formulas}
+
+\begin{definition}
+    A \Emph{term} is any name or any variable.
+\end{definition}
+
+
+\begin{definition}
+    We define the \Emph{atomic formulas} of FOL as follows: \begin{enumerate}
+        \item Any sentence letter is an atomic formula.
+        \item If $\metav{R}$ is an $n$-place predicate and $\metav{t}_1,\metav{t}_2,...,\metav{t}_n$ are terms, then $\metav{R}(\metav{t}_1,\metav{t}_2,...,\metav{t}_n)$ is an atomic formula.
+        \item If $\metav{t}_1$ and $\metav{t}_2$ are terms, then $\metav{t}_1 = \metav{t}_2$ is an atomic formula.
+        \item Nothing else is an atomic formula.
+    \end{enumerate}
+\end{definition}
+
+
+\begin{definition}
+    We define formulas in FOL recursively as follows: \begin{enumerate}
+        \item Every atomic formula is a formula
+        \item If $\metav{A}$ is a formula, then $\enot \metav{A}$ is a formula.
+        \item If $\metav{A}$ and $\metav{B}$ are formulas, then $(\metav{A}\eand\metav{B})$ is a formula.
+        \item If $\metav{A}$ and $\metav{B}$ are formulas, then $(\metav{A} \eor \metav{B})$ is a formula.
+        \item If $\metav{A}$ and $\metav{B}$ are formulas, then $(\metav{A} \eif \metav{B})$ is a formula.
+        \item If $\metav{A}$ and $\metav{B}$ are formulas, then $(\metav{A} \eiff \metav{B})$ is a formula.
+        \item If $\metav{A}$ is a formula and $x$ is a variable, then $\forall x\metav{A}$ is a formula.
+        \item If $\metav{A}$ is a formula and $x$ is a variable, then $\exists x \metav{A}$ is a formula.
+        \item Nothing else is a formula.
+    \end{enumerate}
+\end{definition}
+
+
+\begin{definition}
+    The \Emph{main logical operator} in a formula is the operator that was introduced most recently, when that formula was constructed using the recursion rules.
+
+    The \Emph{scope} of a logical operator in a formula is the subformula for which that operator is the main logical operator.
+\end{definition}
+
+
+\section{ Sentences and Free Variables}
+
+
+\begin{definition}
+    An occurrence of a variable $x$ is \Emph{bound} if and only if it falls within the scope of either $\forall x$ or $\exists x$. An occurrence of a variable which is not bound is \Emph{free}.
+\end{definition}
+
+
+\begin{definition}
+    A \Emph{sentence} of FOL is any formula of FOL that contains no free variables.
+\end{definition}
+
+\section{ Definite Descriptions}
+
+\begin{definition}
+    \Emph{Definite descriptions} are meant to pick out a \emph{unique} object.
+\end{definition}
+
+
+\begin{definition}
+    Russel's Analysis treats definite descriptions in FOL as follows \begin{align*}
+            \text{the $F$ is $G$ } \textbf{iff }& \text{there is at least one $F$, and }\\
+            &\text{there is at most one $F$, and} \\
+            &\text{every $F$ is $G$}
+    \end{align*}
+\end{definition}

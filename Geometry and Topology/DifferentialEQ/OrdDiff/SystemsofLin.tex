@@ -1,0 +1,167 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+\chapter{Systems of Linear ODEs}
+\label{Syst} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+\section{Definitions and Notation}
+
+\begin{definition}[System of n Unknown Functions]
+        Suppose we have n unknown functions, $x_1(t),x_2(t),...,x_n(t)$, satisfying \begin{equation}
+                \begin{matrix}
+                        x'_1(t)=&a_{11}(t)x_1(t)+&a_{12}(t)x_2(t)+&\hdots+&a_{1n}(t)x_n(t)+&b_1(t) \\
+                        x'_2(t)=&a_{21}(t)x_1(t)+&a_{22}(t)x_2(t)+&\hdots+&a_{2n}(t)x_n(t)+&b_2(t) \\
+                        \hdots&\hdots&\hdots&\hdots&\hdots&\hdots \\
+                        x'_n(t)=&a_{n1}(t)x_1(t)+&a_{n2}(t)x_2(t)+&\hdots+&a_{nn}(t)x_n(t)+&b_n(t) 
+                \end{matrix}
+        \end{equation}
+        where here $a_{ij}$ and $b_{i}$ are given functions.
+\end{definition}
+
+%{1cm}
+
+\begin{definition}[Solution]
+        A solution of such a system is a \Emph{vector function} \begin{equation}
+                \Emph{X}(t) = \begin{bmatrix}x_1(t) \\ x_2(t) \\ \vdots \\ x_n(t) \end{bmatrix}
+        \end{equation}
+\end{definition}
+
+
+%{1cm}
+
+
+\begin{remark}[Notation]
+        We introduce the column vector \begin{equation}
+                \Emph{B}(t) = \begin{bmatrix}b_1(t) \\ b_2(t) \\ \vdots \\ b_n(t) \end{bmatrix}
+        \end{equation}
+        and the matrix of coefficients \begin{equation}
+                \Emph{A}(t) = \begin{bmatrix}a_{11}(t) & a_{12}(t) & \hdots & a_{1n}(t) \\ a_{21}(t) & a_{22}(t) & \hdots & a_{2n}(t)\\ \vdots & \vdots & \vdots & \vdots \\ a_{n1}(t) & a_{n2}(t) & \hdots & a_{nn}(t) \end{bmatrix}
+        \end{equation}
+        which lets us right our system in matrix form \begin{equation}
+                \Emph{X}'(t) = \Emph{A}(t)\Emph{X}(t)+\Emph{B}(t)
+        \end{equation}
+\end{remark}
+
+
+%{1cm}
+
+
+\begin{remark}[n-th Order Linear ODEs]
+        Given an n-th order linear ODE of the form $$y^{(n)}+a_{n-1}y^{(n-1)}+...+a_1y'+a_0y=b(t)$$ we can represent it as an n-dimensional system given by \begin{equation}
+                \begin{bmatrix}x_1'(t) \\ x_2'(t) \\ \vdots \\ x_n'(t) \end{bmatrix} = \begin{bmatrix} 0 & 1 & 0 & \hdots & 0 \\ 0 & 0 & 1 & \hdots & 0 \\ \vdots & \vdots & \vdots & \vdots \\ -a_0 & -a_1 & -a_2 & \hdots & -a_{n-1} \end{bmatrix}\begin{bmatrix}x_1(t) \\ x_2(t) \\ \vdots \\ x_n(t) \end{bmatrix}+\begin{bmatrix}0 \\ 0 \\ \vdots \\ b(t) \end{bmatrix}
+        \end{equation}
+\end{remark}
+
+
+%{1cm}
+
+\section{General Theory}
+
+
+We consider a system of n equations of the form \begin{equation}
+        \Emph{X}'(t) = \Emph{A}(t)\Emph{X}(t)+\Emph{B}(t) 
+\end{equation}
+and the associated homogeneous system \begin{equation}
+        \Emph{X}'(t) = \Emph{A}(t)\Emph{X}(t) 
+\end{equation}
+
+%{1cm}
+
+
+\begin{theorem}[Existence And Uniqueness]
+        If $I$ is an open interval containing $t_0$ and all the component functions $a_{ij}(t)$, $b_i(t)$ are continuous on $I$, then the IVP $\Emph{X}(t_0) = \Emph{X}_0$ has a unique solution on $I$.
+\end{theorem}
+
+
+%{1cm}
+
+
+\begin{theorem}[Superposition Principle]
+        If $\Emph{X}_1(t), \Emph{X}_2(t),...,\Emph{X}_k(t)$ are solutions of the homogeneous system, then for any constants $C_1,C_2,...,C_k$, the linear combination \begin{equation}
+                C_1\Emph{X}_1(t)+ C_2\Emph{X}_2(t)+...+C_k\Emph{X}_k(t)
+        \end{equation}
+        is also a solution of the homogeneous system.
+\end{theorem}
+
+\begin{note}[In General]
+        We need n constants to satisfy \emph{any} initial conditions.
+\end{note}
+
+%{1cm}
+
+\begin{theorem}[General Solution]
+        If $\Emph{X}_1,\Emph{X}_2,...,\Emph{X}_n$ are linearly independent solutions of our homogeneous system, then the general solution is \begin{equation}
+                \Emph{X}(t) = C_1\Emph{X}_1(t)+C_2\Emph{X}_2(t)+...+C_n\Emph{X}_n(t)
+        \end{equation}
+        In particular, the solutions $\Emph{X}_1,\Emph{X}_2,...,\Emph{X}_n$ are linearly independent if the \Emph{fundamental matrix} with $\Emph{X}_1,\Emph{X}_2,...,\Emph{X}_n$ as columns, \begin{equation}
+                \boldsymbol{\Phi}(t) = \left[\Emph{X}_1\;\Emph{X}_2\;...\;\Emph{X}_n\right]
+        \end{equation}
+        has a non-zero determinant at a point, t, in the interval where we consider the system.
+\end{theorem}
+
+
+%{1cm}
+
+\begin{theorem}[Abel's Theorem]
+        For any solutions $\Emph{X}_1,\Emph{X}_2,...,\Emph{X}_n$ of our homogeneous system, and $\boldsymbol{\Phi}(t) = \left[\Emph{X}_1\;\Emph{X}_2\;...\;\Emph{X}_n\right]$, we have that \begin{equation}
+                \det\boldsymbol{\Phi}(t) = \boldsymbol{\Phi}(t_0)e^{\int_{t_0}^t\text{tr}\Emph{A}(t)dt}
+        \end{equation}
+\end{theorem}
+
+
+%{1cm}
+
+
+
+\begin{theorem}[Inhomogeneous General Solution]
+        If $\Emph{X}_{part}$ is a particular solution of our inhomogeneous system and $\{\Emph{X}_1,...,\Emph{X}_n\}$ is a fundamental set of our homogeneous system, then the general solution for our inhomogeneous system is \begin{equation}
+                \Emph{X}(t) = C_1\Emph{X}_1(t) + \hdots +  C_n\Emph{X}_n(t) + \Emph{X}_{part}
+        \end{equation}
+\end{theorem}
+
+%{1cm}
+
+\section{Methods of Solution}
+
+
+\begin{definition}[Constant Matrix]
+        If $\Emph{A}(t)$ is a constant matrix, then each $\Emph{X}_1,\Emph{X}_2,...,\Emph{X}_n$ has the form \begin{equation}
+                t^me^{\alpha t}\cos(\beta t)\Emph{v}\;\text{or}\;t^me^{\alpha t}\sin(\beta t)\Emph{v}
+        \end{equation}
+        where $\Emph{v}$ is a column vector. If $\boldsymbol{\Phi}(t)$ is a \Emph{fundamental matrix}, then our solution will be of the form \begin{equation}
+                \Emph{X}(t) = \boldsymbol{\Phi}(t)\Emph{C}
+        \end{equation}
+        where \begin{equation}
+                \Emph{C} = \begin{bmatrix} C_1 \\ C_2 \\ \vdots \\ C_n \end{bmatrix}
+        \end{equation}
+\end{definition}
+
+
+%{1cm}
+
+
+\begin{definition}[Method of Undetermined Coefficients]
+        If we are given an inhomogeneous system of the form \begin{equation}
+                \Emph{X}'(t) = \Emph{A}\Emph{X}(t) + P_n(t)e^{\alpha t}\cos(\beta t)\Emph{v}\;\text{or}\;\Emph{X}'(t) = \Emph{A}\Emph{X}(t) + P_n(t)e^{\alpha t}\sin(\beta t)\Emph{v}
+        \end{equation}
+        we can solve it using the \Emph{Method of Undetermined Coefficients}, which gives a solution of the form \begin{equation}
+                t^me^{\alpha t}[Q_n(t)\cos(\beta t)\Emph{v}_1 + R_n(t)\sin(\beta t)\Emph{v}_2]
+        \end{equation}
+\end{definition}
+
+%{1cm}
+
+
+\begin{definition}[Variation of Parameters]
+        First, let the solution of $\Emph{X}'(t) = \Emph{A}\Emph{X}(t)$ be $\Emph{X}(t) = \boldsymbol{\Phi}(t)\Emph{C}$. We then look for a solution of $\Emph{X}'(t) = \Emph{A}\Emph{X}(t) + \Emph{B}(t)$ in the form $\Emph{X}(t) = \boldsymbol{\Phi}(t)\Emph{C}(t)$. We then have that $$\Emph{X}'(t) = \boldsymbol{\Phi}'(t)\Emph{C}(t) + \boldsymbol{\Phi}(t)\Emph{C}'(t)\;\text{and}\;\Emph{X}'(t) = \Emph{A}\boldsymbol{\Phi}(t)\Emph{C}(t)+\Emph{B}(t)$$ but $\boldsymbol{\Phi}'(t) = \Emph{A}\boldsymbol{\Phi}(t)$, so $\boldsymbol{\Phi}'(t)\Emph{C}(t) = \Emph{A}\boldsymbol{\Phi}(t)$, which gives us \begin{equation}
+                \boldsymbol{\Phi}(t)\Emph{C}'(t) = \Emph{B}(t)
+        \end{equation}
+\end{definition}
+

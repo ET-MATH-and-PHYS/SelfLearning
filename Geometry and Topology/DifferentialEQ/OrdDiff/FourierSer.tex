@@ -1,0 +1,117 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+\chapter{Fourier Series}
+\label{FourierODE} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+
+\section{Orthogonality}
+
+\begin{definition}[Orthogonal]
+        We say that two integrable functions $f$ and $g$ are \Emph{orthogonal} on an interval $[a,b]$ if \begin{equation}
+                \int\limits_a^bf(x)g(x)dx = 0
+        \end{equation}
+        More generally we say that the functions $\phi_1,\phi_2,...,\phi_n,...$ (finitely or infinitely many) are orthogonal on $[a,b]$ if \begin{equation}
+                \int\limits_a^b\phi_i(x)\phi_j(x)dx = 0\;\text{whenever}\;i\neq j
+        \end{equation}
+\end{definition}
+
+
+%{1cm}
+
+
+\begin{theorem}[Orthogonal Series Coefficients]
+        Suppose the functions $\phi_1,\phi_2,\phi_3,...$, are orthogonal on $[a,b]$ and \begin{equation}
+                \int\limits_a^b\phi_n^2(x)dx \neq 0,\;\;n=1,2,3,...
+        \end{equation}
+        Let $c_1,c_2,c_3,...$ be constants such that the partial sums $f_N(x) = \sum_{m=1}^Nc_m\phi_m(x)$ satisfy the inequalities \begin{equation}
+                |f_N(x)| \leq M.\;\;a \leq x \leq b,\;\;N=1,2,3,...
+        \end{equation}
+        for some constant $M < \infty$. Suppose also that the series \begin{equation}
+                f(x) = \sum\limits_{m=1}^{\infty}c_m\phi_m(x)
+        \end{equation}
+        converges and is integrable on $[a,b]$. Then \begin{equation}
+                c_n = \frac{\int\limits_a^bf(x)\phi_n(x)dx}{\int\limits_a^b\phi_n^2(x)dx},\;\;n=1,2,3,...
+        \end{equation}
+\end{theorem}
+
+
+%{1cm}
+
+
+\section{Fourier Expansions}
+
+\begin{definition}[Fourier Expansion]
+        Suppose $\phi_1,\phi_2,...,\phi_n,...$ are orthogonal on $[a,b]$ and $\int_a^b\phi_n2(x)\neq 0$, $n=1,2,3,...$. Let $f$ be integrable on $[a,b]$, and define \begin{equation}
+                c_n = \frac{\int\limits_a^bf(x)\phi_n(x)dx}{\int\limits_a^b\phi_n^2(x)dx},\;\;n=1,2,3,...
+        \end{equation}
+        Then the infinite series $\sum_{n=1}^{\infty}c_n\phi_n(x)$ is called the \Emph{Fourier Expansion} of $f$ in terms of the orthogonal set $\{\phi_n\}_{n=1}^{\infty}$, and $c_1,c_2,...,c_n,...$ are called the \Emph{Fourier Coefficients} of $f$ with respect to $\{\phi_n\}_{n=1}^{\infty}$. We indicate the relationship between $f$ and its Fourier Expansion by \begin{equation}
+                f(x) \sim \sum\limits_{n=1}^{\infty}c_n\phi_n(x),\;\;a\leq x\leq b
+        \end{equation}
+\end{definition}
+
+
+%{1cm}
+
+
+\begin{definition}[Fourier Series]
+        If $f$ is integrable on $[-L,L]$, its Fourier expansion in terms of the orthogonal functions \begin{equation}
+                1, \cos\frac{\pi x}{L}, \sin\frac{\pi x}{L},\cos\frac{2\pi x}{L},\sin\frac{2\pi x}{L},...,\cos\frac{n\pi x}{L},\sin\frac{n\pi x}{L},...
+        \end{equation}
+        is called the \Emph{Fourier Series} of $f$ on $[-L,L]$. In particular, it is of the form \begin{equation}
+                a_0 + \sum\limits_{n=1}^{\infty}\left(a_n\cos\frac{n\pi x}{L}+b_n\sin\frac{n\pi x}{L}\right)
+        \end{equation}
+        Moreover, since \begin{equation*}
+                \int\limits_{-L}^L1^2dx = 2L
+        \end{equation*}
+        \begin{equation*}
+                \int\limits_{-L}^L\cos^2\frac{n\pi x}{L}dx = L
+        \end{equation*}
+        and \begin{equation*}
+                \int\limits_{-L}^L\sin^2\frac{n\pi x}{L}dx = L
+        \end{equation*}
+        we get that \begin{equation}
+                a_0 = \frac{1}{2L}\int\limits_{-L}^Lf(x)dx
+        \end{equation}
+        \begin{equation}
+                a_n = \frac{1}{L}\int\limits_{-L}^Lf(x)\cos\frac{n\pi x}{L}dx,\;\;\text{and}\;\;b_n = \frac{1}{L}\int\limits_{-L}^Lf(x)\sin\frac{n\pi x}{L}dx, n \geq 1
+        \end{equation}
+\end{definition}
+
+
+%{1cm}
+
+
+\begin{definition}[Piecewise Smooth]
+        A function $f$ is said to be piecewise smooth on $[a,b]$ if:\begin{enumerate}
+                \item $f$ has at most finitely many points of discontinuity in $(a,b)$;
+                \item $f'$ exists and is continuous except possibly at finitely many points in $(a,b)$;
+                \item $f(x_0+)=\lim\limits_{x\rightarrow x_0^+}f(x)$ and $f'(x_0+)=\lim\limits_{x\rightarrow x_0^+}f'(x)$ exist if $a \leq x_0 < b$;
+                \item $f(x_0-)=\lim\limits_{x\rightarrow x_0^-}f(x)$ and $f(x_0-)=\lim\limits_{x\rightarrow x_0^-}f(x)$ exist if $a < x_0 \leq b$
+        \end{enumerate}
+\end{definition}
+
+
+%{1cm}
+
+\begin{theorem}[Convergence of Fourier Series]
+        If $f$ is piecewise smooth on $[-L,L]$, then the Fourier series \begin{equation}
+                F(x) = a_0 + \sum\limits_{n=1}^{\infty}\left(a_n\cos\frac{n\pi x}{L}+b_n\sin\frac{n\pi x}{L}\right)
+        \end{equation}
+        of $f$ on $[-L,L]$ converges for all $x$ in $[-L,L]$; moreover, \begin{equation}
+                F(x) = \left\{\begin{array}{cc} \frac{f(x+)+f(x-)}{2} & \text{if}\;-L < x < L \\ \frac{f(-L+)+f(L-)}{2} & \text{if}\;x=\pm L \end{array}\right.
+        \end{equation}
+\end{theorem}
+
+%{3cm}
+
+
+
+

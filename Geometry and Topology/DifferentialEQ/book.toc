@@ -1,0 +1,83 @@
+\contentsline {part}{Part\ I\hspace {\betweenumberspace }Ordinary Differential Equations}{1}{part.1}%
+\contentsline {chapter}{\numberline {1}Basic Concepts}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Definitions}{3}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Surfaces and Integral Curves}{4}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Solving Integral Curve PDEs}{8}{subsection.1.2.1}%
+\contentsline {chapter}{\numberline {2}First Order ODEs}{11}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Linear First Order ODEs}{11}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Separable Equations}{12}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Bernoulli Equations}{12}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Exact Equations}{12}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Existence And Uniqueness}{13}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Applications}{14}{section.2.6}%
+\contentsline {chapter}{\numberline {3}Second Order Linear ODEs}{15}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Constant Coefficients}{15}{section.3.1}%
+\contentsline {section}{\numberline {3.2}General Theory}{15}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Method of Undetermined Coefficients}{16}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Variation of Parameters}{17}{section.3.4}%
+\contentsline {chapter}{\numberline {4}Higher Order Linear ODEs}{19}{chapter.4}%
+\contentsline {section}{\numberline {4.1}General Theory}{19}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Constant Coefficients}{20}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Variation of Parameters}{21}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Cauchy-Euler Equations}{22}{section.4.4}%
+\contentsline {chapter}{\numberline {5}Systems of Linear ODEs}{23}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Definitions and Notation}{23}{section.5.1}%
+\contentsline {section}{\numberline {5.2}General Theory}{24}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Methods of Solution}{25}{section.5.3}%
+\contentsline {chapter}{\numberline {6}Series Solutions to ODEs}{27}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Definitions and Convergence}{27}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Power Series}{29}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Taylor Series}{29}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Definitions for Convergence of Solutions}{30}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Frobenius Method}{31}{section.6.5}%
+\contentsline {chapter}{\numberline {7}Laplace Transform}{33}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Base Definitions}{33}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Properties}{34}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Tables of Laplace Transforms and Inverse Laplace Transforms}{36}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Solving ODEs with the Laplace Transform}{36}{section.7.4}%
+\contentsline {section}{\numberline {7.5}Convolution}{37}{section.7.5}%
+\contentsline {chapter}{\numberline {8}Fourier Series}{39}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Orthogonality}{39}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Fourier Expansions}{40}{section.8.2}%
+\contentsline {part}{Part\ II\hspace {\betweenumberspace }Partial Differential Equations}{43}{part.2}%
+\contentsline {chapter}{\numberline {9}First Order PDEs}{45}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Basic Definitions and Examples of First-Order PDEs}{45}{section.9.1}%
+\contentsline {chapter}{\numberline {10}Boundary Problems}{49}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Separation of Variables, The Dirichlet Condition}{49}{section.10.1}%
+\contentsline {section}{\numberline {10.2}The Neumann Condition}{51}{section.10.2}%
+\contentsline {section}{\numberline {10.3}The Robin Condition}{53}{section.10.3}%
+\contentsline {subsection}{\numberline {10.3.1}Positive Eigenvalues (Robin)}{53}{subsection.10.3.1}%
+\contentsline {chapter}{\numberline {11}Fourier Series for PDEs}{55}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Fourier Coefficients}{55}{section.11.1}%
+\contentsline {subsection}{\numberline {11.1.1}Full Fourier Series}{56}{subsection.11.1.1}%
+\contentsline {section}{\numberline {11.2}Even, Odd, Periodic, and Complex Functions}{57}{section.11.2}%
+\contentsline {subsection}{\numberline {11.2.1}Fourier Series and Boundary Conditions}{59}{subsection.11.2.1}%
+\contentsline {subsection}{\numberline {11.2.2}The Complex Form of the Full Fourier Series}{59}{subsection.11.2.2}%
+\contentsline {section}{\numberline {11.3}Orthogonality and General Fourier Series}{60}{section.11.3}%
+\contentsline {subsection}{\numberline {11.3.1}Symmetric Boundary Conditions}{61}{subsection.11.3.1}%
+\contentsline {subsection}{\numberline {11.3.2}Complex Eigenvalues}{62}{subsection.11.3.2}%
+\contentsline {subsection}{\numberline {11.3.3}Negative Eigenvalues}{63}{subsection.11.3.3}%
+\contentsline {section}{\numberline {11.4}Completeness}{63}{section.11.4}%
+\contentsline {subsection}{\numberline {11.4.1}The $L^2$ Theory}{66}{subsection.11.4.1}%
+\contentsline {section}{\numberline {11.5}Completeness Proofs and Gibbs Phenomenon}{68}{section.11.5}%
+\contentsline {subsection}{\numberline {11.5.1}Proof for Discontinuous Functions}{70}{subsection.11.5.1}%
+\contentsline {subsection}{\numberline {11.5.2}Proof of Uniform Convergence}{71}{subsection.11.5.2}%
+\contentsline {subsection}{\numberline {11.5.3}The Gibbs Phenomenon}{72}{subsection.11.5.3}%
+\contentsline {section}{\numberline {11.6}Inhomogeneous Boundary Conditions}{72}{section.11.6}%
+\contentsline {subsection}{\numberline {11.6.1}Expansion Method}{72}{subsection.11.6.1}%
+\contentsline {subsection}{\numberline {11.6.2}Method of Shifting the Data}{74}{subsection.11.6.2}%
+\contentsline {chapter}{\numberline {12}Green's Identities}{77}{chapter.12}%
+\contentsline {section}{\numberline {12.1}Green's First Identity}{77}{section.12.1}%
+\contentsline {subsection}{\numberline {12.1.1}Mean Value Property}{78}{subsection.12.1.1}%
+\contentsline {subsection}{\numberline {12.1.2}Maximum Principle}{79}{subsection.12.1.2}%
+\contentsline {subsection}{\numberline {12.1.3}Uniqueness of Dirichlet's Problem}{79}{subsection.12.1.3}%
+\contentsline {subsection}{\numberline {12.1.4}Dirichlet's Principle}{80}{subsection.12.1.4}%
+\contentsline {section}{\numberline {12.2}Green's Second Identity}{81}{section.12.2}%
+\contentsline {chapter}{\numberline {13}Distributions and Transformations}{83}{chapter.13}%
+\contentsline {section}{\numberline {13.1}Fourier Transforms}{83}{section.13.1}%
+\contentsline {subsection}{\numberline {13.1.1}Convolution}{84}{subsection.13.1.1}%
+\contentsline {chapter}{Chapter Heading}{87}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Section Heading}{87}{section.A.1}%
+\contentsline {subsection}{\numberline {A.1.1}Subsection Heading}{87}{subsection.A.1.1}%
+\contentsline {subsubsection}{\numberline {A.1.1.1}Subsubsection Heading}{88}{subsubsection.A.1.1.1}%
+\contentsfinish 

@@ -1,0 +1,89 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+\chapter{Distributions and Transformations}
+\label{Distr} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+%%%%%%%%%%%%%%%%%%%% 2.4.1
+\section{Fourier Transforms}
+
+
+Consider a function $f(x)$ defined on $(-l,l)$. Its Fourier series, in complex notation, is \begin{equation*}
+    f(x) = \sum_{n=-\infty}^{\infty}c_ne^{in\pi x/l}
+\end{equation*}
+where the coefficients are \begin{equation*}
+    c_n = \frac{\int_{-l}^lf(y)e^{-in\pi y/l}dy}{\int_{-l}^le^{in\pi y/l}e^{-in\pi y/l}dy} = \frac{1}{2l}\int_{-l}^lf(y)e^{-in\pi y/l}
+\end{equation*}
+The \Emph{Fourier integral} comes from taking the limit as $l\rightarrow \infty$. But, this is a complicated limit as the interval grows as the terms of integration change. Let us write $k = n\pi/l$, and substitute intoo the series, giving \begin{equation*}
+    f(x) = \frac{1}{2\pi}\sum_{n=-\infty}^{\infty}\left[\int_{-l}^lf(y)e^{-iky}dy\right]e^{ikx}\frac{\pi}{l}
+\end{equation*}
+As $l\rightarrow \infty$, the interval expands to the whole line and the points $k$ get closer together. In the limit we expect $k$ to become a continuous variable, and the sum to become an integral. Let $\delta k = \pi/l$ be the distance between successive $k$'s, which becomes $dk$ in the limit. Therefore, we expect the result \begin{equation*}
+    f(x) = \frac{1}{2\pi}\int_{-\infty}^{\infty}\left[\int_{-\infty}^{\infty}f(y)e^{-iky}dy\right]e^{ikx}dk
+\end{equation*}
+We can restate this as \begin{equation}
+    \boxed{f(x) = \int_{-\infty}^{\infty}F(k)e^{ikx}\frac{dk}{2\pi}}
+\end{equation}
+where \begin{equation}
+    \boxed{F(k) = \int_{-\infty}^{\infty}f(x)e^{-ikx}dx}
+\end{equation}
+$F(k)$ is called the \Emph{Fourier transform} of $f(x)$. Notice that the relationship is almost reversible: $f(x)$ is almost the Fourier transform of $F(k)$, the only difference being the minus sign in the exponential and the $2\pi$ factor. The variables $x$ and $k$ play dual roles, and we call $k$ the \Emph{frequency variable}. We have the following useful transforms:
+
+\begin{table}[H]
+    \centering
+    \caption{Fourier Transforms of Important Functions}
+    \begin{tabular}{ccc}
+        \hline
+        & $f(x)$ & $F(k) = \int_{-\infty}^{\infty}f(x)e^{-ikx}dx$ \\ \hline
+        Delta Function & $\delta(x)$ & $1$ \\
+        Square Pulse & $H(a-|x|)$ & $\frac{2}{k}\sin ak$ \\
+        Exponential & $e^{-a|x|}$ & $\frac{2a}{a^2+k^2}, a > 0$ \\
+        Heaviside function & $H(x)$ & $\pi\delta(k) + \frac{1}{ik}$ \\
+        Sign & $H(x) - H(-x)$ & $\frac{2}{ik}$ \\
+        Constant & $1$ & $2\pi \delta(k)$ \\
+        Gaussian & $e^{-x^2/2}$ & $\sqrt{2\pi}e^{-k^2/2}$ \\ \hline
+    \end{tabular}
+\end{table}
+
+Now let $F(k)$ be the transform of $f(x)$ and let $G(k)$ be the transform of $g(x)$. Then we have the following properties: 
+
+\begin{table}[H]
+    \centering 
+    \caption{Fourier Transform Properties}
+    \begin{tabular}{cc}
+        \hline
+        Function & Transform \\ \hline
+        $\frac{df}{dx}$ & $ikF(k)$ \\
+        $xf(x)$ & $i\frac{dF}{dk}$ \\
+        $f(x-a)$ & $e^{-iak}F(k)$ \\
+        $e^{iax}f(x)$ & $F(k-a)$ \\
+        $af(x)+bg(x)$ & $aF(k)+bG(k)$ \\
+        $f(ak)$ & $\frac{1}{|a|}F(k/a) (a \neq 0)$ \\ \hline
+    \end{tabular}
+\end{table}
+
+From Parseval's Equality we obtain Plancherel's theorem which states that \begin{equation*}
+    \int_{-\infty}^{\infty}|f(x)|^2dx = \int_{-\infty}^{\infty}|F(k)|^2\frac{dk}{2\pi}
+\end{equation*}
+and \begin{equation*}
+    \int_{-\infty}^{\infty}f(x)\overline{g(x)}dx = \int_{-\infty}^{\infty}F(k)\overline{G(k)}\frac{dk}{2\pi}
+\end{equation*}
+
+
+\subsection{Convolution}
+
+\begin{definition}
+    If $f(x)$ and $g(x)$ are two functions of a real variable, their convolution $f*g$ is defined to be \begin{equation*}
+        (f*g)(x) = \int_{-\infty}^{\infty}f(x-y)g(y)dy
+    \end{equation*}
+\end{definition}
+If the Fourier transform of $f(x)$ is $F(k)$ and that of $g(x)$ is $G(k)$, the Fourier transform of the convolution $(f*g)(x)$ is the product $F(k)G(k)$.
+
+
+

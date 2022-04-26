@@ -1,0 +1,188 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+\chapter{Boundary Problems}
+\label{BoundProbs} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+%%%%%%%%%%%%%%%%%%%% 2.2.1
+\section{Separation of Variables, The Dirichlet Condition}
+
+We first consider the homogeneous Dirichlet conditions for the wave equation: \begin{align}
+    u_{tt} &= c^2u_{xx}\;\;\text{ for} 0 < x < l \label{al:bound_wave} \\
+    u(0,t) &= 0 = u(l,t) \label{al:bound_wavedir}
+\end{align}
+with some initial conditions \begin{equation} \label{eq:bound_wave_initial}
+    u(x,0) = \phi(x)\;\;\;u_t(x,0) = \psi(x)
+\end{equation}
+
+A \Emph{separated solution} is a solution of \ref{al:bound_wave} and \ref{al:bound_wavedir} of the form \begin{equation*}
+    u(x,t) = X(x)T(t)
+\end{equation*}
+First we attempt to find as many separated solutions as possible. Plugging this form into the wave equation we get \begin{equation*}
+    X(x)T''(t) = c^2X''(x)T(t)
+\end{equation*}
+or, dividing by $-c^2XT$, \begin{equation*}
+    -\frac{T''}{c^2T} = -\frac{X''}{X} = \lambda
+\end{equation*}
+This defines a quantity $\lambda$, which must be constant. We will show later that $\lambda > 0$. Now, let $\lambda = \beta^2$, for $\beta > 0$. Then the equations above are a pair of \Emph{separated} ordinary differential equations of $X(x)$ and $T(t)$: \begin{equation*}
+    X''+\beta^2X = 0,\;\;\text{ and }\;\;T'' + c^2\beta^2T = 0
+\end{equation*}
+These ODEs have solutions of the corm \begin{align}
+    X(x) &= C\cos\beta x + D\sin \beta x \\
+    T(t) &= A\cos \beta ct+B\sin\beta ct
+\end{align}
+where $A,B,C,$ and $D$ are arbitrary constants.
+
+Now we impose the boundary conditions $u(0,t) = 0 = u(l,t)$, which require that $X(0) = 0 = X(l)$. Thus, $0 = X(0) = C$ and $0 = X(l) = D\sin\beta l$. Since we are not interested in the trivial solution $C=D=0$, we require $D \neq 0$. Then, we must have that $\beta l = n\pi$ for some $n \in \Z$. That is \begin{equation*}
+    \lambda_n = \left(\frac{n\pi}{l}\right)^2,\;\;X_n(x) = \sin\frac{n\pi x}{l}, \;\;(n=1,2,3,...)
+\end{equation*}
+represent distinct solutions. Each sine function may be multiplied by an arbitrary constant. Thus, there are an infinite number of separated solutions of the wave equation, one for each $n$, such that \begin{equation*}
+    u_n(x,t) = \left(A_n\cos\frac{n\pi ct}{l}+B_n\sin\frac{n\pi ct}{l}\right)\sin\frac{n\pi x}{l}
+\end{equation*}
+$(n=1,2,3,...)$, where $A_n$ and $B_n$ are arbitrary constants. The sum of solutions is again a solution, so any finite sum \begin{equation}
+    \boxed{u(x,t) = \sum_{n}\left(A_n\cos\frac{n\pi ct}{l}+B_n\sin\frac{n\pi ct}{l}\right)\sin\frac{n\pi x}{l}}
+\end{equation}
+is also a solution of the wave equation. In this case, our initial conditions are given by \begin{equation}
+    \phi(x) = \sum_nA_n\sin\frac{n\pi x}{l}
+\end{equation}
+and \begin{equation}
+    \psi(x) = \sum_{n}\frac{n\pi c}{l}B_n\sin\frac{n\pi x}{l}
+\end{equation}
+This requires very special data, so we now attempt to take infinite sums and see what data is possible. We will prove the exact results later, but for now we will proceed with infinite series. If these initial datums are satisfied by the series, then the infinite series ought to be the solution of the whole problem.
+
+The coefficients in the sines and cosines, $n\pi c/l$, are called the \Emph{frequencies}, or sometimes just $nc/2l$.
+
+
+Next, let us consider the analogous diffusion problem \begin{align}
+    DE:&\;u_t = ku_{xx} \;\;\;(0 < x < l, 0 < t < \infty) \\
+    BC:&\;u(0,t) = u(l,t) = 0 \\
+    IC:&\;u(x,0) = \phi(x)
+\end{align}
+To solve it we once again separate the variables $u = T(t)X(x)$. This time we get $T'X = kTX''$, which can be expressed as \begin{equation*}
+    \frac{T'}{kT} = \frac{X''}{X} = -\lambda = constant
+\end{equation*}
+THerefore, $T(t)$ satisfies the equation $T' = -\lambda kT$, whose solution is $T(t) = Ae^{-\lambda kt}$. Furthermore, \begin{equation*}
+    -X'' = \lambda X,\;\;in\;0 < x < l\;\;\text{with}\;\;X(0) = X(l) = 0
+\end{equation*}
+This is precisely the same problem for $X(x)$, and so has the same solutions. Because of the form of $T(t)$, \begin{equation}
+    \boxed{u(x,t) = \sum_{n=1}^{\infty}A_ne^{-(n\pi/l)^2kt}\sin\frac{n\pi x}{l}}
+\end{equation}
+is the solution of the diffusion equations, provided that \begin{equation}
+    \phi(x) = \sum_{n=1}^{\infty}A_n\sin\frac{n\pi x}{l}
+\end{equation}
+Thus, our solution is expressible for each $t$ as a Fourier sine series in $x$ provided that the initial data are.
+
+Note that as $t\rightarrow \infty$, each term in the series goes to zero, so the substance gradually empties out into the two vessels at either end and less remains in the tube.
+
+\begin{definition}
+    The number $\lambda_n = (n\pi/l)^2$ are called \Emph{eigenvalues} and the functions $X_n(x) = \sin(n\pi x/l)$ are called \Emph{eigenfunctions} of our PDE.
+\end{definition}
+In physics we often call the eigenfunctions \Emph{normal modes}, because they are the natural shapes of solutions that persist over time. The terminology comes from the fact that the satisfy the ODE \begin{equation*}
+    -\frac{d^2}{dx^2}X = \lambda X,\;\;X(0) = X(l) = 0
+\end{equation*}
+with operator $A = -d^2/dx^2$, which acts on the functions that satisfy the Dirichlet boundary conditions. An eigenfunction must be non-trivial, i.e., $X\cancel{\equiv} 0$.
+
+
+First, let us show why are eigenvalues, $\lambda$ had to be positive. If they were zero then $X'' = 0$, so that $X(x) = C+Dx$. But given the Dirichlet conditions $X(0) = X(l) = 0$ we would have had that $C = D = 0$, so that $X(x) \equiv 0$, which is not an eigenfunction. Next, if $\lambda < 0$ let's write $\lambda = -\gamma^2$. Then $X''=\gamma^2X$, so that $X(x) = C\cosh\gamma x + D\sinh\gamma x$. Then $0 = X(0) = C$ and $0 = X(l) = D\sinh\gamma l$. Hence $D = 0$ since $\sinh\gamma l \neq 0$, so again we get a trivial solution which is not an eigenfunction.
+
+Finally, suppose $\lambda$ has non-zero imaginary component. Let $\gamma$ be one of the roots of $-\lambda$; the other one being $-\gamma$. Then \begin{equation*}
+    X(x) = Ce^{\gamma x} + De^{-\gamma x}
+\end{equation*}
+where we are using the complex exponential. The boundary conditions yield $0 = X(0) = C+D$ and $0 = Ce^{\gamma L} + De^{-\gamma l}$. Therefore, $e^{2\gamma l} = 1$, so $\mathscr{R}(\gamma) = 0$ and $2l\mathscr{I}m(\gamma) = 2\pi n$ for some integer $n$. Hence $\gamma = n\pi i /l$ and $\lambda = -\gamma^2 = n^2\pi^2/l^2$, which is real and positive. Thus, the eigenvalues $\lambda$ of $-X'' = \lambda X, X(0) = 0 = X(l)$ are positive numbers, and in fact $(n\pi/l)^2$.
+
+
+
+%%%%%%%%%%%%%%%%%%%% 2.2.2
+\section{The Neumann Condition}
+
+We repeat our method of separation of variables for the Neumann condition, which in the one-dimensional case is $u_x(0,t) = u_x(l,t)=0$. Then the eigenfunctions are the solutions $X(x)$ of \begin{equation}
+    -X''=\lambda X,\;\;X'(0) = X'(l) = 0
+\end{equation}
+other than the trivial solution. 
+
+Let's first search for the positive eigenvalues $\lambda = \beta^2 > 0$. As before $X(x) = C\cos\beta x + D\sin \beta x$, so that \begin{equation*}
+    X'(x) = -C\beta\sin\beta x+ D\beta \cos\beta x
+\end{equation*}
+The boundary conditions mean that $0 = X'(0) = D\beta$, so that $D=0$, and $0 = X'(l) = -C\beta \sin\beta l$. We don't want $C = 0$, so we must have that $\sin \beta l = 0$. Hence, $\beta = n\pi/l$, $n \in \N$. Therefore, we have the \begin{align}
+    &Eigenvalues:\;\;\left(\frac{\pi}{l}\right)^2,\left(\frac{2\pi}{l}\right)^2 \\
+    &Eigenfunctions: \;X_n(x) = \cos\frac{n\pi x}{l},\;\;(n=1,2,...)
+\end{align}
+Now, if $0$ was an eigenvalue we would have $X'' = 0$, so that $X(x) = C+Dx$, and $X'(x) \equiv D$. The Neumann boundary conditions are both satisfied by $D = 0$. $C$ can be any number. Therefore, $\lambda = 0$ is an eigenvalue, and any non-zero constant function is its eigenfunction.
+
+If $\lambda < 0$ or if $\lambda$ has a non-zero imaginary component, it can be shown directly, as in the Dirichlet case, that there is no eigenfunction. Therefore, the list of eigenvalues is \begin{equation}
+    \boxed{\lambda_n = \left(\frac{n\pi}{l}\right)^2\;\;for\;n = 0,1,2,3,...}
+\end{equation}
+So, for instance, the diffusion equation with the Neumann boundary condition has the solution \begin{equation}
+    u(x,t) = \frac{1}{2}A_0 + \sum_{n=1}^{\infty}A_ne^{-(n\pi/l)^2kt}\cos\frac{n\pi x}{l}
+\end{equation}
+This solution requires the initial data to have the Fourier cosine expansion \begin{equation}
+    \phi(x) = \frac{1}{2}A_0+\sum_{n=1}^{\infty}A_n\cos\frac{n\pi x}{l}
+\end{equation}
+All the coefficients $A_0,A_1,A_2,...,$ are just constants. The half is added in the first term for convenience later.
+
+What is the behaviour of $u(x,t)$ as $t\rightarrow \infty$? Since all but the first term in the solution contains an exponentially decaying factor, the solution decays quite fast to the first term $\frac{1}{2}A_0$, which is just a constant. Since these boundary conditions correspond to insulation at both ends, this agrees with the intuition with the solution spreading out. 
+
+Now we consider the wave equation with Neumann boundary conditions. The eigenvalue $\lambda = 0$ leads to $X(x) = $ constant and to the differential equation $T''(t) = \lambda c^2T(t) = 0$, which has the solution $T(t) = A+Bt$. Thus, the wave equation with Neumann boundary conditions has the solutions \begin{equation}
+    \boxed{u(x,t) = \frac{1}{2}A_0+\frac{1}{2}B_0t+\sum_{n=1}^{\infty}\left(A_n\cos\frac{n\pi ct}{l}+B_n\sin\frac{n\pi ct}{l}\right)\cos\frac{n\pi x}{l}}
+\end{equation}
+Then the initial data must satisfy \begin{equation}
+    \phi(x) = \frac{1}{2}A_0+\sum_{n=1}^{\infty}A_n\cos\frac{n\pi x}{l}
+\end{equation}
+and \begin{equation}
+    \psi(x) = \frac{1}{2}B_0+\sum_{n=1}^{\infty}\frac{n\pi c}{l}B_n\cos\frac{n\pi x}{l}
+\end{equation}
+
+\begin{definition}
+    A ``mixed" boundary condition would be Dirichlet at one end and Neumann at the other.
+\end{definition}
+For instance, in the case the boundary conditions are $u(0,t) = u_x(l,t) = 0$, the eigenvalue problem is \begin{equation}
+    -X''=\lambda X,\;\;\;\;X(0) = X'(l) = 0
+\end{equation}
+The eigenvalues then turn out to be $(n+1/2)^2\pi^2/l^2$ and the eigenfunctions $\sin[(n+1/2)\pi x/l]$ for $n = 0,1,2,...$.
+
+
+%%%%%%%%%%%%%%%%%%%% 2.2.3
+\section{The Robin Condition}
+
+
+Using Robin conditions means we are solving $-X'' = \lambda X$ with the boundary conditions \begin{align}
+    X' -a_0X &= 0\;\;\;at\;x=0 \\
+    X'+a_lX &= 0 \;\;\;at\;x=l
+\end{align}
+where $a_0$ and $a_l$ are given constants.
+
+\subsection{Positive Eigenvalues (Robin)}
+
+We want to solve the ODE $-X'' = \lambda X$ with the Robin boundary conditions. First, let's look for positive eigenvalues $\lambda = \beta^2 > 0$ As usual, the solution of the ODE is $$X(x) = C\cos\beta x+D\sin\beta x$$ so that $$X'(x)\pm aX(x) = (\beta D\pm AC)\cos\beta x+(-\beta C\pm aD)\sin\beta x$$
+
+At the left end $x = 0$ we require that \begin{equation*}
+    0 = X'(0) - a_0X(0) = \beta D-a_0C
+\end{equation*}
+so we can solve for $D$ in terms of $C$. At the right end $x = l$ we require that \begin{equation*}
+    0 = (\beta D+a_lC)\cos\beta l + (-\beta C+a_lD)\sin\beta l
+\end{equation*}
+We can then write the matrix equation \begin{equation*}
+    \begin{bmatrix} -a_0 & \beta \\ a_l\cos\beta l - \beta\sin\beta l & \beta\cos\beta l + a_l\sin\beta l \end{bmatrix}\begin{bmatrix}C \\ D \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}
+\end{equation*}
+Therefore, substituting $D = a_0C/\beta$ we obtain \begin{equation*}
+    0 = (a_0C+a_lC)\cos\beta l+\left(-\beta C+\frac{a_la_0C}{\beta}\right)\sin\beta l
+\end{equation*}
+We assume $C \neq 0$, since otherwise the solution would be trivial. We divide by $C\cos\beta l$ and multiply by $\beta$ to get \begin{equation*}
+    (\beta^2-a_la_0)\tan\beta l = (a_0+a_l)\beta
+\end{equation*}
+Any root $\beta > 0$ of this equation would give us an eigenvalue $\lambda = \beta^2$. Moreover, the eigenfunction $X(x)$ is simply \begin{equation*}
+    X(x) = C\left(\cos\beta x+\frac{a_0}{\beta}\sin\beta x\right)
+\end{equation*}
+for any $C \neq 0$. Note that if $\cos\beta l = 0$, then we would have $\beta = \sqrt{a_0a_1}$.
+
+There is no simple formula for $\beta$, so finding approapriate $\beta$ would require numerical analysis methods in most cases.
+
+
+

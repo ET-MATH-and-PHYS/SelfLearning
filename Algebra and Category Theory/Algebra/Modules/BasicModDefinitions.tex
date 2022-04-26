@@ -1,12 +1,14 @@
 %%%%%%%%%% Mod Defs %%%%%%%%%%
-\chapter{\textsection\textsection General Definitions and Examples: Modules}
+\chapter{ General Definitions and Examples: Modules}
+\label{ModDefs}
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
 
-
-\section{\textsection Basic Definitions and Examples: Modules}
+\section{ Basic Definitions and Examples: Modules}
 
 Fix a (unital) ring $R$ for this section.
 
-\begin{defn}
+\begin{definition}
     An (left) $R$-module is an abelian group $M$ with an additional structure of a map \begin{equation}
         act_M:R\times M \rightarrow,\;\;\;(r,m)\mapsto r\cdot m
     \end{equation}
@@ -18,9 +20,9 @@ Fix a (unital) ring $R$ for this section.
     \end{enumerate}
     Note that the last condition is equivalent to saying that for any fixed $r \in R$, the map $$\map{M\rightarrow M}{m\mapsto r\cdot m}$$
     is a group endomorphism.
-\end{defn}
+\end{definition}
 
-\begin{defn}[(General)]
+\begin{definition}[(General)]
     Let $R$ be a ring (not necessarily commutative nor unital). A \Emph{left $R$-module} or a \Emph{left module over $R$} is a set $M$ together with \begin{enumerate}
         \item A binary operation $+$ on $M$ under which $M$ is an abelian group, and
         \item An action of $R$ on $M$ (that is, a map $R\times M \rightarrow M$) denoted by $r.m$, for all $r \in R$ and for all $m \in M$ which satisfies \begin{enumerate}
@@ -32,24 +34,24 @@ Fix a (unital) ring $R$ for this section.
                 \item $1.m = m$ for all $m \in M$
         \end{enumerate}
     \end{enumerate}
-\end{defn}
+\end{definition}
 
 Note that when $R$ is a field $k$, our definition induces the definition of a $k$-vector space.
 
-\begin{defn}
+\begin{definition}
     Let $R$ be a ring and let $M$ be an $R$-module. An \Emph{$R$-submodule} of $M$ is a subgroup $N$ of $M$ which is closed under the action of ring elements, i.e., $r.n \in N$ for all $n \in N$ and all $r \in R$.
-\end{defn}
+\end{definition}
 
 We note that if $R$ is a field, then $R$-submodules correspond to subspaces. Moreover, a submodule of a module $M$ is precisely a subset of $M$ which is itself an $R$-module under the restricted action by ring elements.
 
 Every $R$-module $M$ has the submodules $M$ and $\{0\}$, the second being the \Emph{trivial submodule}.
 
-\begin{lem}
+\begin{lemma}
     For any $r \in R$ we have $r \cdot 0_M = 0_M$. For any $m \in M$ we have $0_R\cdot m = 0_M$ and $(-1)\cdot m = -m$.
-\end{lem}
+\end{lemma}
 
 
-\begin{eg}
+\begin{example}
     \leavevmode
     \begin{enumerate}
         \item The $0$ module is an $R$-module.
@@ -61,19 +63,19 @@ Every $R$-module $M$ has the submodules $M$ and $\{0\}$, the second being the \E
             The module $R^n$ is called the \Emph{free module of rank $n$ over $R$}. A clear submodule of $R^n$ is the $i$th component, in which arbitrary ring elements can exist in the $i$th component while zeros are in the $j$th component for all $j \neq i$.
         \item If we replace the ring in the previous example with a field $F$, we obtain the \Emph{affine $n$-space over $F$}, $F^n$.
     \end{enumerate}
-\end{eg}
+\end{example}
 
 We note that if $M$ is an $R$-module and $S$ is a subring of $R$ with $1_S = 1_R$ (if identity exists), then $M$ is automatically an $S$-module. 
 
-\begin{defn}
+\begin{definition}
     If $M$ is an $R$-module, and $I$ is a two-sided ideal such that $a.m = 0$ for all $a \in I$ and all $m \in M$, then we say $M$ is \Emph{annihilated} by $I$. In this case we can make $M$ into an $(R/I)$-module by defining an action of the quotient ring $R/I$ on $M$ as follows: for each $m\in M$ and each coset $r+I \in R/I$, let \begin{equation*}
         (r+I).m := r.m
     \end{equation*}
     Since $a.m = 0$ for all $a \in I$ and $m \in M$, this is well-defined. In particular, if $I$ is a maximal ideal and $R$ is a commutative ring, then $M$ is a vector space over the field $R/I$.
-\end{defn}
+\end{definition}
 
 
-\begin{eg}[(Z-Modules)]
+\begin{example}[(Z-Modules)]
     Let $R=\Z$, let $A$ be an abelian group and write the operation of $A$ as $+$. We can make $A$ into a $\Z$-module as follows: for any $n \in \Z$ and $a \in A$ define \begin{equation*}
         n.a := \left\{\begin{array}{lc} \underbrace{a+a+...+a}_{n-times} & \text{if } n > 0 \\ 0 & \text{if } n = 0 \\ \underbrace{(-a)+(-a)+...+(-a)}_{-n-times} & \text{if } n < 0
         \end{array}\right.
@@ -87,10 +89,10 @@ We note that if $M$ is an $R$-module and $S$ is a subring of $R$ with $1_S = 1_R
     Furthermore, from the definition it is clear that \begin{equation*}
         \Z-\text{submodules are the same as subgroups}
     \end{equation*}
-\end{eg}
+\end{example}
 
 
-\begin{eg}[(F{[x]}-modules)]
+\begin{example}[(F{[x]}-modules)]
     Let $F$ be a field, let $x$ be an indeterminate and let $R$ be the polynomial ring $F[x]$. Let $V$ be a vector space over $F$ and let $T$ be a linear transformation from $V$ to $V$. We already know that $V$ is an $F$-module; the linear map $G$ will enable us to make $V$ into an $F[x]$-module.
 
     First, for the nonnegative integer $n$, define \begin{align*}
@@ -122,15 +124,15 @@ We note that if $M$ is an $R$-module and $S$ is a subring of $R$ with $1_S = 1_R
     Next, the $F[x]$-submodules $U$ of $V$ are precisely the $T$-stable (or invariant) subspaces of $V$ as seen with $V$ as a vector space over $F$. We obtain a similar bijection as before: \begin{equation*}
         \left\{W\text{ an }F[x]\text{-submodule}\right\} \leftrightarrow \left\{\begin{array}{c} W\text{ a vector subspace of } V \\ \text{and} \\ W\text{ is $T$-stable}\end{array}\right\}
     \end{equation*}
-\end{eg}
+\end{example}
 
 
-\begin{prop}[(The Submodule Criterion)]
+\begin{proposition}[(The Submodule Criterion)]
     Let $R$ be a ring and let $M$ be an $R$-module. A subset $N$ of $M$ is a submodule of $M$ if and only if \begin{enumerate}
         \item $N \neq \emptyset$, and 
         \item $x+r.y \in N$ for all $r \in R$ and for all $x,y \in N$
     \end{enumerate}
-\end{prop}
+\end{proposition}
 \begin{proof}
     If $N$ is a submodule, then $0 \in N$ so $N \neq \emptyset$. Also $N$ is closed under addition and is stable under the action of elements of $R$, so $x+r.y \in N$ for all $r \in R$ and $x,y \in N$.
 
@@ -138,33 +140,33 @@ We note that if $M$ is an $R$-module and $S$ is a subring of $R$ with $1_S = 1_R
 \end{proof}
 
 
-\begin{defn}
+\begin{definition}
     Let $R$ be a commutative ring with identity. An \Emph{$R$-algebra} is a ring $A$ with identity together with a ring homomorphism $f:R\rightarrow A$ mapping $1_R$ to $1_A$ such that the subring $f(R)$ of $A$ is contained in the center of $A$.
-\end{defn}
+\end{definition}
 
 Observe that if $A$ is an $R$-algebra, then $A$ has a natural left and right (unital) $R$-module structure defined by $r\cdot a = a\cdot r = f(r)a$ where $f(r)a$ is just the multiplication in the ring $A$. Other $R$-module structures are possible on $A$, but this is the standard one.
 
 
-\begin{defn}
+\begin{definition}
     If $A$ and $B$ are two $R$-algebras, an \Emph{$R$-algebra homomorphism (or isomorphism)} is a ring homomorphism (isomorphism, respectively) $\phi:A\rightarrow B$ mapping $1_A$ to $1_B$ such that $\phi(r.a) = r.\phi(a)$ for all $r \in R$ and $a \in A$.
-\end{defn}
+\end{definition}
 
 
-\begin{eg}
+\begin{example}
     Let $R$ be a commutative ring with $1$. \begin{enumerate}
         \item Any ring with identity is a $\Z$-algebra.
         \item For any ring $A$ with identity, if $R$ is a subring of the center of $A$ containing the identity of $A$ then $A$ is an $R$-algebra. 
         \item If $A$ is an $R$-algebra then the $R$-module structure of $A$ depends only on the subring $f(R)$ contained in the center of $A$ as in the previous example. If we identify $R$ by its image $f(R)$ we see that ``up to a ring homomorphism" every algebra $A$ arises from a subring of the center of $A$ that contains $1_A$.
     \end{enumerate}
-\end{eg}
+\end{example}
 
 If $A$ is an $R$-algebra, then $A$ is a ring with identity that is a (unital) left $R$-module satisfying $r\cdot (ab) = (r\cdot a)b = a(r\cdot b)$ for all $r \in R$ and $a,b \in A$.
 
 
 
-\section{\textsection Module Homomorphisms}
+\section{ Module Homomorphisms}
 
-\begin{defn}
+\begin{definition}
     Let $M_1$ and $M_2$ be $R$-modules. An $R$-module homomorphism from $M_1$ to $M_2$ is a map of sets $\phi:M_1\rightarrow M_2$ such that \begin{enumerate}
         \item $\phi$ is a group homomorphism
         \item For every $r \in R$ and $m_1 \in M_1$, we have $\phi(r\cdot m_1) = r\cdot \phi(m_1)$.
@@ -181,9 +183,9 @@ If $A$ is an $R$-algebra, then $A$ is a ring with identity that is a (unital) le
             \end{tikzpicture}
         \end{center}
     We denote the set of $R$-module homomorphisms $M_1\rightarrow M_2$ by $\Hom_{\Rmod}(M_1,M_2)$.
-\end{defn}
+\end{definition}
 
-\begin{defn}[D\&F]
+\begin{definition}[D\&F]
     Let $R$ be a ring and let $M$ and $N$ be $R$-modules.
     \begin{enumerate}
         \item A map $\varphi:M\rightarrow N$ is an \Emph{$R$-module homomorphism} if it respects the $R$-module structures of $M$ and $N$, i.e., \begin{enumerate}
@@ -194,19 +196,19 @@ If $A$ is an $R$-algebra, then $A$ is a ring with identity that is a (unital) le
         \item If $\varphi:M\rightarrow N$ is an $R$-module homomorphism, let $\ker\varphi = \{m \in M\vert \varpi(m) = 0_N\}$ and let $\varphi(M) = \{n \in N\vert \exists m \in M; n = \varphi(m)\}$.
         \item Let $M$ and $N$ be $R$-modules, and define $\Hom_R(M,N)$ to be the set of all $R$-module homomorphisms from $M$ into $N$.
     \end{enumerate}
-\end{defn}
+\end{definition}
 
 
-\begin{rmk}
+\begin{remark}
     Give $R$-modules $M_1,M_2,M_3$, and $R$-module homomorphisms $\phi:M_1\rightarrow M_2$, $\psi:M_2\rightarrow M_3$, the composed map \begin{equation}
         \psi \circ \phi:M_1\rightarrow M_3
     \end{equation}
     is an $R$-module homomorphism. We can regard the operation of composition as a map of sets \begin{equation}
         \Hom_{\Rmod}(M_2,M_3)\times\Hom_{\Rmod}(M_1,M_2) \rightarrow \Hom_{\Rmod}(M_1,M_3)
     \end{equation}
-\end{rmk}
+\end{remark}
 
-\begin{eg}
+\begin{example}
     \leavevmode
     \begin{enumerate}
         \item If $R$ is a ring and $M = R$ is a module over itself, then $R$-module homomorphisms need not be ring homomorphisms and ring homomorphisms need not be $R$ module homomorphisms. For example, take $R = \Z$ and the $\Z$-module homomorphism $x\mapsto 2x$ (doesn't send $1$ to $1$). When $R = F[x]$, the ring homomorphism $\varphi:f(x)\mapsto f(x^2)$ is not an $F[x]$-module homomorphism.
@@ -217,10 +219,10 @@ If $A$ is an $R$-algebra, then $A$ is a ring with identity that is a (unital) le
         \item If $R$ is a field, the $R$-module homomorphisms are called \Emph{linear transformations}.
         \item For a ring $R = \Z$ the action of ring elements on any $\Z$-module amounts to adding and subtracting within the abelian group structure of the module, so $\Z$-module homomorphisms are the same as abelian group homomorphisms.
     \end{enumerate}
-\end{eg}
+\end{example}
 
 
-\begin{prop}
+\begin{proposition}
     Let $M, N,$ and $L$ be $R$-modules. 
     \begin{enumerate}
         \item A map $\varphi:M\rightarrow N$ is an $R$-module homomorphism if and only if $\varphi(rx+y) = r\varphi(x)+\varphi(y)$ for all $x,y \in M$ and all $r \in R$.
@@ -234,7 +236,7 @@ If $A$ is an $R$-algebra, then $A$ is a ring with identity that is a (unital) le
         \item If $\varphi \in \Hom_R(L,M)$ and $\psi\in \Hom_R(M,N)$ then $\psi\circ \varphi \in \Hom_R(L,N)$.
         \item With addition as above and multiplication defined as function composition, $\Hom_R(M,M)$ is a ring with $1$. When $R$ is commutative $\Hom_R(M,M)$ is an $R$-algebra.
     \end{enumerate}
-\end{prop}
+\end{proposition}
 \begin{proof}
     $(1)$: Let $\varphi:M\rightarrow N$ be a map. If $\varphi$ is an $R$-module homomorphism then for all $x,y \in M$ and all $r \in R$, $$\varphi(rx+y) = \varphi(rx)+\varphi(y) = r\varphi(x)+\varphi(y)$$ Conversely, suppose this holds for all $r \in R$ and $x,y \in M$. First, take $r = 1$, so $$\varphi(x+y) = \varphi(1\cdot x + y) = 1\cdot \varphi(x)+\varphi(y) = \varphi(x)+\varphi(y)$$ Additionally, if we take $y = 0_M$, then \begin{equation*}
         \varphi(rx) = \varphi(rx+0_M) = r\varphi(x)+\varphi(0_M) = r\varphi(x)+0_N = r\varphi(x)
@@ -283,18 +285,18 @@ If $A$ is an $R$-algebra, then $A$ is a ring with identity that is a (unital) le
 \end{proof}
 
 
-\begin{defn}
+\begin{definition}
     The ring $\Hom_R(M,M)$ is called the \Emph{endomorphism ring} of $M$ and will often be denoted by $\catname{End}_R(M)$, or just $\catname{End}(M)$ when the ring $R$ is clear from context. Elements of $\catname{End}(M)$ are called \Emph{endomorphisms}.
-\end{defn}
+\end{definition}
 
 We now wish to show that we can assign an $R$-module structure to quotients of $R$-modules with submodules:
 
-\begin{prop}
+\begin{proposition}
     Let $R$ be a ring, let $M$ be an $R$-module and let $N$ be a submodule of $M$. The (additive, abelian) quotient group $M/N$ can be made into an $R$-module by defining an action of elements of $R$ by: \begin{equation*}
         r\cdot(x+N) = (r\cdot x)+N,\forall r \in R, x+N \in M/N
     \end{equation*}
     The natural projection map $\pi:M\rightarrow M/N$ defined by $\pi(x) = x+N$ is an $R$-module homomorphism with kernel $N$.
-\end{prop}
+\end{proposition}
 \begin{proof}
     Let $R$ be a ring, $M$ and $R$-module, and $N$ a submodule of $M$. Since $M$ is an abelain group $N$ is a normal subgroup of $M$ so the quotient group $M/N$ is well defined. Now, define an action of elements of $R$ on $M$ as above. Let $r,r' \in R$ and $x+N,y+N \in M/N$. Then it follows that \begin{equation*}
         r\cdot(r'\cdot(x+N)) = r\cdot((r'\cdot x)+N) = r\cdot(r'\cdot x)+N = (rr')\cdot x + N = (rr')\cdot(x+N)
@@ -321,19 +323,19 @@ We now wish to show that we can assign an $R$-module structure to quotients of $
 \end{proof}
 
 
-\begin{defn}
+\begin{definition}
     Let $A,B$ be submodules of the $R$-module $M$. The sum of $A$ and $B$ is the set \begin{equation*}
         A+B := \{a+b\vert a\in A, b \in B\}
     \end{equation*}
-\end{defn}
+\end{definition}
 
 This is indeed a submodule, and in fact the small submodule containing both $A$ and $B$.
 
-\subsection{\textsection Isomorphism Theorems for Modules}
+\subsection{ Isomorphism Theorems for Modules}
 
-\begin{namthm}[The First Isomorphism Theorem for Modules]\label{thmname:fisomod}
+\begin{theorem}[The First Isomorphism Theorem for Modules]\label{thmname:fisomod}
     Let $M$ and $N$ be $R$-modules and let $\varphi:M\rightarrow N$ be an $R$-module homomorphism. Then $\ker\varphi$ is a submodule of $M$ and $M/\ker\varphi\cong \varphi(M)$.
-\end{namthm}
+\end{theorem}
 \begin{proof}
     First, observe that $0_M \in \ker \varphi$ as $\varphi(0_M) = 0_N$ since $\varphi$ is an abelian group homomorphism over $M$. Now, let $m,n \in \ker\varphi$. Then \begin{equation*}
         \varphi(m+(-n)) = \varphi(m)+\varphi(-n) = 0_N+(-\varphi(n)) = -0_N = 0_N
@@ -348,9 +350,9 @@ This is indeed a submodule, and in fact the small submodule containing both $A$ 
 \end{proof}
 
 
-\begin{namthm}[The Second Isomorphism Theorem for Modules]\label{thmname:sisomod}
+\begin{theorem}[The Second Isomorphism Theorem for Modules]\label{thmname:sisomod}
     Let $A$ and $B$ be submodules of the $R$-module $M$. Then $(A+B)/B\cong A/(A\cap B)$. 
-\end{namthm}
+\end{theorem}
 \begin{proof}
     Suppose $A$ and $B$ are submodules of the $R$-module $M$. Then I claim $A+B$ and $A\cap B$ are submodules of $M$. Indeed, $A+B$ and $A\cap B$ are nonempty, as they contain $0_M$, and for all $a+b,a'+b' \in A+B$, $k,k' \in A\cap B$, and $r \in R$, \begin{equation*}
         r(a+b)+(a'+b') = (ra+rb)+(a'+b') = (ra+a')+(rb+b') \in A+B
@@ -362,9 +364,9 @@ This is indeed a submodule, and in fact the small submodule containing both $A$ 
 \end{proof}
 
 
-\begin{namthm}[The Third Isomorphism Theorem for Modules]\label{thmname:thisomod}
+\begin{theorem}[The Third Isomorphism Theorem for Modules]\label{thmname:thisomod}
     Let $M$ be an $R$-module, and let $A$ and $B$ be submodules of $M$ with $A \subseteq B$. Then $(M/A)/(B/A) \cong M/B$. 
-\end{namthm}
+\end{theorem}
 \begin{proof}
     Define a map $f:M/A\rightarrow M/B$ by $f(x+A) = x+B$. Then, if $x+A = y+A$ we have that $x=y+a$ for some $a \in A$, so as $A \subseteq B$ $$f(x+A) = x+B = (y+a) + B = y+B$$
     since $a \in B$. Hence $f$ is well defined. Moreover, for all $x+A,y+A \in M/A$ and $r \in R$, \begin{equation*}
@@ -377,31 +379,31 @@ This is indeed a submodule, and in fact the small submodule containing both $A$ 
 \end{proof}
 
 
-\begin{namthm}[The Fourth of Lattice Isomorphism Theorem]\label{thmname:lattisomod}
+\begin{theorem}[The Fourth of Lattice Isomorphism Theorem]\label{thmname:lattisomod}
     Let $N$ be a submodule of the $R$-module $M$. There is a bijection between the submodules of $M$ which contain $N$ and the submodules of $M/N$. The correspondence is given by $A\leftrightarrow A/N$, for all $A\supseteq N$. This correspondence commutes with the processes of taking sums and intersections.
-\end{namthm}
+\end{theorem}
 \begin{proof}
     (To be finished)
 \end{proof}
 
 
 
-\subsection{\textsection Evaluation Bijections}
+\subsection{ Evaluation Bijections}
 
-\begin{defn}
+\begin{definition}
     Let $M$ be an arbitrary $R$-module. Consider the set $\Hom_{\Rmod}(R,M)$, where $R$ is considered as an $R$-module. We define the map of sets \begin{equation}
         \map{\ev:\Hom_{\Rmod}(R,M) \rightarrow M}{\phi\mapsto \phi(1) \in M}
     \end{equation}
     $\ev$ as defined is a bijection of sets. That is, to give a map of modules $R\rightarrow M$ is the same as to give an element of $M$.
-\end{defn}
+\end{definition}
 
-\begin{defn}
+\begin{definition}
     Generalizing the previous definition we obtain the bijection \begin{equation}
         \map{\ev:\Hom_{\Rmod}(R^{1\times n},M) \rightarrow M^{1\times n}}{\phi\mapsto (\phi(1,0,...,0),\phi(0,1,...,0),...,\phi(0,0,...,1)) \in M^{1\times n}}
     \end{equation}
-\end{defn}
+\end{definition}
 
-\begin{rmk}
+\begin{remark}
     In particular, taking $M = R^{1\times m}$, we obtain a bijection \begin{equation}
         \Hom_{\Rmod}(R^{1\times n},R^{1\times m}) \overset{\ev}{\cong} (R^{1\times m})^{1\times n} \cong Mat_{m\times n}(R)
     \end{equation}
@@ -419,17 +421,17 @@ This is indeed a submodule, and in fact the small submodule containing both $A$ 
             };
             \end{tikzpicture}
         \end{center}
-\end{rmk}
+\end{remark}
 
 
-\section{\textsection Submodules}
+\section{ Submodules}
 
 
-\section{\textsection Free Modules and Generators}
+\section{ Free Modules and Generators}
 
 In section we assume $R$ is a ring with $1$. 
 
-\begin{defn}
+\begin{definition}
     Let $M$ be an $R$-module and let $N_1,...,N_n$ be submodules of $M$.
     \begin{enumerate}
         \item The \Emph{sum} of $N_1,...,N_n$ is the set of all finite sums of elements from the sets $N_i$: $\{\sum_{i=1}^na_i\vert a_i \in N_i,\forall i\}$. Denote this sum by $N_1+\hdots + N_n$.
@@ -442,21 +444,21 @@ In section we assume $R$ is a ring with $1$.
                 N = Ra = \{ra\vert r \in R\}
         \end{equation*}
     \end{enumerate}
-\end{defn}
+\end{definition}
 
 Note that these definitions do not require that the ring $R$ contain a $1$, however this condition ensures that $A$ is contained in $RA$.
 
-\begin{rmk}
+\begin{remark}
     Let $N$ be a submodule of an $R$-module $M$ which is finitely generated. Then there is a smallest nonnegative integer $d$ such that $N$ is generated by $d$ elements. We then call any generating set consisting of $d$ elements a \Emph{minimal set of generators for $N$}.
-\end{rmk}
+\end{remark}
 
-\begin{defn}
+\begin{definition}
     Let $M_1,...,M_k$ be a collection of $R$-modules. The collection of $k$-tuples $(m_1,m_2,...,m_k)$ where $m_i \in M_i$ with addition and action of $R$ defined componentwise is called the \Emph{direct product} of $M_1,...,M_k$, denoted $M_1\times ...\times M_k$.
-\end{defn}
+\end{definition}
 
 The direct product of $M_1,...,M_k$ is also referred to as the (\emph{external}) \Emph{direct sum} of $M_1,...,M_k$ and denoted $M_1\oplus ... \oplus M_k$. 
 
-\begin{prop}
+\begin{proposition}
     Let $N_1,...,N_k$ be submodules of the $R$-module $M$. Then the following are equivalent: \begin{enumerate}
         \item The map $\pi:N_1\times N_2\times ... \times N_k\rightarrow N_1+N_2+...+N_k$ defined by \begin{equation*}
                 \pi(a_1,a_2,...,a_k) = a_1+a_2+...+a_k
@@ -465,7 +467,7 @@ The direct product of $M_1,...,M_k$ is also referred to as the (\emph{external})
         \item $N_j\cap(N_1+...+N_{j-1}+N_{j+1}+...+N_k) = \{0\}$ for all $j \in \{1,2,...,k\}$.
         \item Every $x \in N_1+...+N_k$ can be written uniquely in the form $a_1+a_2+...+a_k$ with $a_i \in N_i$.
     \end{enumerate}
-\end{prop}
+\end{proposition}
 \begin{proof}
     $(1)\implies (2)$. Let $a_j \in N_j\cap(N_1+...+N_{j-1}+N_{j+1}+...+N_k)$. Then \begin{equation*}
         a_j = a_1+...+a_{j-1}+a_{j+1}+...+a_k
@@ -482,11 +484,11 @@ If an $R$-module $M = N_1+...+N_k$ is the sum of submodules $N_1,...,N_k$ of $M$
 \end{equation*}
 
 
-\begin{defn}
+\begin{definition}
     An $R$-module $F$ is said to be \Emph{free} on the subset $A$ of $F$ if for every nonzero element $x$ of $F$, there exists unique nonzero elements $r_1,...,r_n$ of $R$ and unique $a_1,...,a_n$ of $A$ such that $x = \sum_{i=1}^nr_ia_i$, for some $n \in \Z^+$. In this situation, we say $A$ is a \Emph{basis} or \Emph{set of free generators} for $F$. If $R$ is a commutative ring the cardinality of $A$ is called the \Emph{rank} of $F$.
-\end{defn}
+\end{definition}
 
-\begin{thm}
+\begin{theorem}
     For any set $A$ there is a free $R$-module $F(A)$ on the set $A$ and $F(A)$ satisfies the following \Emph{universal property}: if $M$ is any $R$-module and $\phi:A\rightarrow M$ is any map of sets, then there is a unique $R$-module homomorphism $\Phi:F(A) \rightarrow M$ such that $\Phi(a) = \phi(a)$ for all $a \in A$, that is, the followign diagram commutes:
     \begin{center}
 		\begin{tikzpicture}[baseline= (a).base]
@@ -503,7 +505,7 @@ If an $R$-module $M = N_1+...+N_k$ is the sum of submodules $N_1,...,N_k$ of $M$
 		\end{tikzpicture}
 	\end{center} 
     when $A$ is the finite set $\{a_1,a_2,...,a_n\}$, $F(A) \cong Ra_1\oplus Ra_2\oplus...\oplus Ra_n\cong R^n$.
-\end{thm}
+\end{theorem}
 \begin{proof}
     Let $F(A) = \{0\}$ if $A = \emptyset$. If $A$ is nonempty, let $F(A)$ be the collection of set functiosn $f:A\rightarrow R$ such that $f(a) = 0$ for all but finitely many $a \in A$ (i.e. finite support). Make $F(A)$ into an $R$-module by pointwise addition of functions and pointwise multiplication of a ring element times a function, i.e., \begin{align*}
         (f+g)(a) &:= f(a)+g(a) \\
@@ -515,13 +517,13 @@ If an $R$-module $M = N_1+...+N_k$ is the sum of submodules $N_1,...,N_k$ of $M$
     By the uniqueness of the expression for the elements of $F(A)$ as linear combinations of the $a_i$, we see that $\Phi$ is a well defined $R$-module homomorphism. By definition, the restriction $\Phi\vert_A = \phi$. Finally, since $F(A)$ is generated by $A$, once we know the values of an $R$-module homomorphism on $A$ its values on every element of $F(A)$ are uniquely determined, so $\Phi$ is the unique extension of $\phi$ to all of $F(A)$.
 \end{proof}
 
-\begin{cor}
+\begin{corollary}
     \leavevmode
     \begin{enumerate}
         \item If $F_1$ and $F_2$ are free modules on the same set $A$, there is a unique isomorphism between $F_1$ and $F_2$ which is the identity map on $A$.
         \item If $F$ is any free $R$-module with basis $A$, then $F\cong F(A)$. In particular, $F$ enjoys the same universal property with respect to $A$ as $F(A)$.
     \end{enumerate}
-\end{cor}
+\end{corollary}
 \begin{proof}
     Let $F$ be a free $R$-module with basis $A$. Then I shall show $F$ enjoys the same universal property with respect to $A$ as $F(A)$. Let $M$ be an $R$ module and suppose $\varphi:A\rightarrow M$ is a map of sets. Define $\Phi:F\rightarrow M$ by $\sum_{i=1}^nr_ia_i \mapsto \sum_{i=1}^nr_i\varphi(a_i)$ for all $\sum_{i=1}^nr_ia_i \in F$. Then by construction $\Phi$ is an $R$-linear map satisfing $\Phi\circ \iota = \varphi$. If $f:F\rightarrow M$ is another map satisfying this property, then $f(a) = \varphi(a)$ for all $a \in A$, so by linearity $$f\left(\sum_{i=1}^nr_ia_i\right) = \sum_{i=1}^nr_if(a_i) = \sum_{i=1}^nr_i\varphi(a_i) = \Phi\left(\sum_{i=1}^nr_ia_i\right)$$
     so $f = \Phi$. Hence the map is unique and $F$ satisfies the universal property. 

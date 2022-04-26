@@ -1,0 +1,132 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+\chapter{Truth Tables}
+\label{TruthTab} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+\section{ Characteristic Truth Tables}
+
+
+\begin{table}[H]
+    \centering
+    \caption{\Emph{Negation}}
+    \begin{tabular}{c|c}
+        $\metav{A}$ & $\lnot \metav{A}$ \\ \hline
+        \textbf{T} & \textbf{F} \\
+        \textbf{F} & \textbf{T}
+    \end{tabular}
+\end{table}
+
+
+\begin{table}[H]
+    \centering
+    \caption{\Emph{Conjunction}}
+    \begin{tabular}{cc|c}
+        $\metav{A}$ & $\metav{B}$ & $\metav{A} \wedge \metav{B}$\\ \hline
+        \textbf{T} & \textbf{T} & \textbf{T} \\
+        \textbf{T} & \textbf{F} & \textbf{F} \\
+        \textbf{F} & \textbf{T} & \textbf{F} \\
+        \textbf{F} & \textbf{F} & \textbf{F}
+    \end{tabular}
+\end{table}
+
+
+\begin{table}[H]
+    \centering
+    \caption{\Emph{Disjunction}}
+    \begin{tabular}{cc|c}
+        $\metav{A}$ & $\metav{B}$ & $\metav{A}\lor \metav{B}$ \\ \hline
+        \textbf{T} & \textbf{T} & \textbf{T} \\
+        \textbf{T} & \textbf{F} & \textbf{T} \\
+        \textbf{F} & \textbf{T} & \textbf{T} \\
+        \textbf{F} & \textbf{F} & \textbf{F}
+    \end{tabular}
+\end{table}
+
+
+\begin{table}[H]
+    \centering
+    \caption{\Emph{Conditional}}
+    \begin{tabular}{cc|c}
+        $\metav{A}$ & $\metav{B}$ & $\metav{A} \rightarrow \metav{B}$ \\ \hline
+        \textbf{T} & \textbf{T} & \textbf{T} \\
+        \textbf{T} & \textbf{F} & \textbf{F} \\
+        \textbf{F} & \textbf{T} & \textbf{T} \\
+        \textbf{F} & \textbf{F} & \textbf{T}
+    \end{tabular}
+\end{table}
+
+
+\begin{table}[H]
+    \centering
+    \caption{\Emph{Biconditional}}
+    \begin{tabular}{cc|c}
+        $\metav{A}$ & $\metav{B}$ & $\metav{A} \leftrightarrow \metav{B}$\\ \hline
+        \textbf{T} & \textbf{T} & \textbf{T} \\
+        \textbf{T} & \textbf{F} & \textbf{F} \\
+        \textbf{F} & \textbf{T} & \textbf{F} \\
+        \textbf{F} & \textbf{F} & \textbf{T}
+    \end{tabular}
+\end{table}
+
+\section{ Using Truth Tables}
+
+\begin{definition}
+    A \Emph{valuation} is any assignment of truth values to particular sentences of TFL.
+\end{definition}
+
+\begin{remark}
+    Each row of a truth table represents a possible valuation.
+\end{remark}
+
+\begin{definition}
+    A \Emph{complete truth table} has a line for every possible valuation of the relevant sentence letters.
+\end{definition}
+
+
+\begin{proposition}
+    If a complete truth table has $n$ different sentence letters, then it must have $2^n$ rows.
+\end{proposition}
+
+
+\begin{remark}
+    Truth tables can be used to test the validity of an argument. Simply check if there is any line in the truth table where all the premises are true and the conclusion is false - if this occurs then the argument is invalid, and if it doesn't the argument is valid.
+\end{remark}
+
+\begin{remark}
+    If every line of a truth table is true for a sentence, then it is a tautology. Similarly, if every line is false then the sentence is a contradiction.
+\end{remark}
+
+\begin{remark}
+    Two sentences are equivalent if their truth values on every line of a truth table are equivalent.
+\end{remark}
+
+
+\begin{remark}
+    A set of sentences is jointly satisfiable if there is a line in their truth table for which all sentences are true. If no such line exists, the sentences are jointly insatisfiable.
+\end{remark}
+
+In summary we have the following table:
+
+\begin{table}[H]
+    \centering
+    \caption{Truth table requirements for demonstrating logical properties}
+    \begin{tabular}{c|cc}
+        & \textbf{Yes} & \textbf{No} \\ \hline
+        Tautology? & complete table & one-line table \\
+        Contradiction? & complete table & one-line table \\
+        Equivalent? & complete table & one-line table \\
+        Satisfiable? & one-line table & complete table \\
+        Valid? & complete table & one-line table \\
+        Entailment? & complete table & one-line table
+    \end{tabular}
+\end{table}
+
+

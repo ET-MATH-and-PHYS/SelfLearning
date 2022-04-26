@@ -1,0 +1,171 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+\chapter{Natural Deduction in FOL}
+\label{NatDeductFOL} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+\section{ Basic Rules of FOL}
+
+\begin{definition}
+    The universal elimination rule ($\forall E$) is given by:
+    \begin{fitchproof}
+        \have[m]{a1}{\forall x \metav{A}(...x...x...)} 
+        \have[\ ]{a2}{\metav{A}(...\metav{c}...\metav{c}...)} \Ae{a1}
+    \end{fitchproof}
+\end{definition}
+
+The point of this rule of inference is that you can obtain any \emph{substitution instance} of a universally quantified formula: replace \emph{every} instance of the quantified variable with any name you like.
+
+Recall, that as with any rule of inference, it can only be applied if the universal quantifier is the main logical operator.
+
+\begin{definition}
+    Where $\metav{A}$ is a sentence containing the name $\metav{c}$, we can emphasize this by writing `$\metav{A}(...\metav{c}...\metav{c})$'. We write `$\metav{A}(...x...\metav{c}...)$' to indicate any formula obtained by replacing \emph{some or all} of the instances of the name $\metav{c}$ with the variable $x$.
+\end{definition}
+
+\begin{definition}
+    Using the previously defined notation, we write the existential introduction rule as: 
+    \begin{fitchproof}
+        \have[m]{a1}{\metav{A}(...\metav{c}...\metav{c}...)} 
+        \have[\ ]{a2}{\exists x\metav{A}(...x...\metav{c}...)} \Ei{a1}
+    \end{fitchproof}
+    where $x$ must \emph{not} occur in $\metav{A}(...\metav{c}...\metav{c}...)$.
+\end{definition}
+
+\begin{remark}
+    It is clear from these rules of inference that if we want them to always apply and be valid, we must accept that as a matter of logic alone, there exists something rather than nothing. However, this is completely reasonable as we have already stipulated that domains be non-empty.
+
+    In order to consider notions involving empty domains, we would need a more complicated proof system than FOL gives us.
+\end{remark}
+
+\begin{definition}
+    Note that if we know a statement holds of an \emph{arbitrary} name, we can conclude it holds of everything. This motivates the rule of inference for universal introduction: 
+    \begin{fitchproof}
+        \have[m]{a1}{\metav{A}(...\metav{c}...\metav{c}...)}
+        \have[\ ]{a2}{\forall x\metav{A}(...x...x...)} \Ai{a1}
+    \end{fitchproof}
+    where $\metav{c}$ must not occur in any undischarged assumption, and $x$ must not occur in $\metav{A}(...\metav{c}...\metav{c}...)$. Note also that we are replacing \emph{all} instances of $\metav{c}$ in $\metav{A}(...\metav{c}...\metav{c}...)$ with $x$ in this rule.
+\end{definition}
+
+The name in the above rule of inference may occur in \emph{discharged} assumptions, even though it is not allowed to occur in any \emph{undischarged} assumptions.
+
+
+
+\begin{definition}
+    Noting that if we know something satisfies $F$, and every $F$ is $G$, we can conclude something satisfies $G$. This reasoning inspires our rule of inference for existential elimination: 
+    \begin{fitchproof}
+        \have[m]{a1}{\exists x\metav{A}(...x...x...)}
+        \open
+            \hypo[i]{a2}{\metav{A}(...\metav{c}...\metav{c}...)}
+            \have[j]{a3}{\metav{B}}
+        \close
+        \have[\ ]{a4}{\metav{B}} \Ee{a1,a2-a3}
+    \end{fitchproof}
+    where $\metav{c}$ must not occur in any assumption undischarged before line $i$, $\metav{c}$ must not occur in $\exists x\metav{A}(...x...x...)$, and $\metav{c}$ must not occur in $\metav{B}$.
+\end{definition}
+
+If we want to squeeze information out of an existential quantifier, it is advisable choose a new name for our substitution instance (in general), to operate in the utmost generality.
+
+
+\begin{definition}
+    The identity introduction rule is given by: \begin{fitchproof}
+        \have[m]{a1}{\metav{c}=\metav{c}} \by{=I}{}
+    \end{fitchproof}
+    Notice that this rule does not require referring to any prior lines.
+\end{definition}
+
+\begin{definition}
+    The identity elimination rule is given by:\begin{fitchproof}
+        \have[m]{a1}{\metav{a}=\metav{b}}
+        \have[n]{a2}{\metav{A}(...\metav{a}...\metav{a}...)}
+        \have[\ ]{a3}{\metav{A}(...\metav{b}...\metav{a}...)} \by{=E}{a1, a2}
+    \end{fitchproof}
+    Note the notation implies we can replace one or more `$\metav{a}$''s in the sentencewith `$\metav{b}$''s. Symmetrically we have:\begin{fitchproof}
+        \have[m]{a1}{\metav{a}=\metav{b}}
+        \have[n]{a2}{\metav{A}(...\metav{b}...\metav{b}...)}
+        \have[\ ]{a3}{\metav{A}(...\metav{a}...\metav{b}...)} \by{=E}{a1, a2}
+    \end{fitchproof}
+    which is sometimes called \Emph{Leibniz's Law}.
+\end{definition}
+
+
+\section{ Derived Rules in FOL}
+
+\begin{definition}
+    We can pass negations through quantified sentences as follows:
+    \begin{fitchproof}
+        \have[m]{a1}{\forall x\enot \metav{A}}
+        \have[\ ]{a2}{\enot \exists x \metav{A}} \by{CQ}{a1}
+    \end{fitchproof}
+    and \begin{fitchproof}
+        \have[m]{a1}{\enot\exists x \metav{A}}
+        \have[\ ]{a2}{\forall x\enot \metav{A}} \by{CQ}{a1}
+    \end{fitchproof}
+    as well as \begin{fitchproof}
+        \have[m]{a1}{\exists x\enot \metav{A}}
+        \have[\ ]{a2}{\enot \forall x \metav{A}} \by{CQ}{a1}
+    \end{fitchproof}
+    and \begin{fitchproof}
+        \have[m]{a1}{\enot\forall x \metav{A}}
+        \have[\ ]{a2}{\exists x\enot \metav{A}} \by{CQ}{a1}
+    \end{fitchproof}
+\end{definition}
+
+
+
+\section{ Proof Theory Semantics in FOL}
+
+\begin{definition}
+    Given sentences $\metav{A}_1,\metav{A}_2,...,\metav{A}_n,\metav{C}$ of FOL, we write \begin{equation*}
+        \metav{A}_1,\metav{A}_2,...,\metav{A}_n\proves\metav{C}
+    \end{equation*}
+    to mean that there \emph{exists} some proof which ends with $\metav{C}$ and whose only undischarged assumptions are among $\metav{A}_1,\metav{A}_2,...,\metav{A}_n$. This is a \Emph{proof-theoretic notion}.
+\end{definition}
+
+\begin{definition}
+    Conversely to the last definition, the notation \begin{equation*}
+        \metav{A}_1,\metav{A}_2,...,\metav{A}_n\entails \metav{C}
+    \end{equation*}
+    means that no valuation (or interpretation) makes all of $\metav{A}_1,\metav{A}_2,...,\metav{A}_n$ true and $\metav{C}$ false. This is a \Emph{semantic notion} - it concerns the assignments of truth and falsity to sentences.
+\end{definition}
+
+\Emph{THESE ARE DIFFERENT NOTIONS}.
+
+\begin{theorem}
+    In FOL we have the following result: \begin{equation*}
+        \metav{A}_1,\metav{A}_2,...,\metav{A}_n\proves\metav{B}\;\textbf{iff}\;\metav{A}_1,\metav{A}_2,...,\metav{A}_n\entails\metav{B}
+    \end{equation*}
+    This shows that, whilst provability and entailment are \emph{very different} notions, they are \emph{extensionally} equivalent. As such: \begin{enumerate}
+        \item An argument is \emph{valid} iff the conclusion can be proved from the premises (i.e. it is a theorem)
+        \item Two sentences are \emph{logically equivalent} iff they are \emph{provably equivalent}
+        \item Sentences are \emph{satisfiable} iff they are \emph{not provably inconsistent}
+    \end{enumerate}
+\end{theorem}
+
+
+\begin{table}[H]
+\tabulinesep=1ex
+\begin{tabu}{X[.5,c,m] ||X[1,l,m] |X[1,l,m]}
+\textbf{Question} 		&	\textbf{Yes} 	&	\textbf{No} \\ \hline \hline
+
+    Is $\metav{A}$ a \Emph{validity}?  &	give a proof which shows $\proves \metav{A}$ & give an interpretation in which $\metav{A}$ is false	 \\ \hline
+ 
+Is $\metav{A}$ a \Emph{contradiction}?  &	give a proof which shows $\proves\enot \metav{A}$ & give an interpretation in which $\metav{A}$ is true	 \\ \hline
+
+    Are $\metav{A}$ and $\metav{B}$ \Emph{equivalent}? &	give two proofs; one for $\metav{A}\proves \metav{B}$ and one for $\metav{B}\proves\metav{A}$ & give an interpretation in which $\metav{A}$ and $\metav{B}$ have different truth values	 \\ \hline
+
+
+    Are $\metav{A}_1,\metav{A}_2,...,\metav{A}_n$ \Emph{jointly satisfiable}? &	give an interpretation in which all of $\metav{A}_1,\metav{A}_2,...,\metav{A}_n$ are true & prove a contradiction from the assumptions $\metav{A}_1,\metav{A}_2,...,\metav{A}_n$ (that is give a proof for $\metav{A}_1,\metav{A}_2,...,\metav{A}_n\proves \ered$)	 \\ \hline
+    Is $\metav{A}_1,\metav{A}_2,...,\metav{A}_n\therefore\metav{C}$ \Emph{valid}? &	give a proof with assumptions $\metav{A}_1,\metav{A}_2,...,\metav{A}_n$ and concluding with $\metav{C}$ & give an interpretation in which all of $\metav{A}_1,\metav{A}_2,...,\metav{A}_n$ are true and $\metav{C}$ is false \\ \hline
+\end{tabu}
+\caption{Methods of showing logical concepts}
+\label{table:proofs_or_interpretations}
+\end{table}
+
+

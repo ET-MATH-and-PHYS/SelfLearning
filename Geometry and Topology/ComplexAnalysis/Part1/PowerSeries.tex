@@ -1,0 +1,587 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+\chapter{Power Series}
+\label{PowSer} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+
+%%%%%%%%%%%%%%%%%%%% Section 1.5.1
+\section{Infinite Series}
+
+
+\begin{definition}
+    A sequence in $\C$ is a function $f:\N\rightarrow \C$, which can be thought of as an ordered list of complex numbers.
+\end{definition}
+
+\begin{definition}
+    Given a sequence $\{z_n\}_{n=1}^{\infty}\subseteq \C$, we define the series of complex numbers associated to this sequence to be \begin{equation*}
+        \sum_{n=1}^{\infty}z_n = z_1+z_2+z_3+...
+    \end{equation*}
+    We say that this series converges, or that the underlying sequence is summable, if the sequence of partial sums $s_n = \sum_{i=1}^nz_i$ converges to some value in $\C$, and we write \begin{equation*}
+        \lim\limits_{n\rightarrow \infty}\sum_{i=1}^nz_i = \sum_{n=1}^{\infty}z_n
+    \end{equation*}
+\end{definition}
+
+\begin{proposition}
+    Extending the Algebraic Laws for Complex sequences we have that if $c \in \C$, $\sum a_n = A$ and $\sum b_n = B$ for sequences $(a_i),(b_i)$ in $\C$, then \begin{itemize}
+        \item $\sum_{n=1}^{\infty}(a_n+b_n) = \sum_{n=1}^{\infty}a_n+\sum_{n=1}^{\infty}b_n$
+        \item $\sum_{n=1}^{\infty}(ca_n) = a\sum_{n=1}^{\infty}$
+    \end{itemize}
+\end{proposition}
+
+
+\begin{theorem}
+    Let $(x_k),(y_k) \subseteq \R$ be real sequences, then the sequence $(x_k+iy_k)$ is summable if and only if $(x_k)$ and $(y_k)$ are summable. Moreover, in the convergent case \begin{equation*}
+        \sum_{n=1}^{\infty}(x_n+iy_n) = \sum_{n=1}^{\infty}x_n+i\sum_{n=1}^{\infty}y_n
+    \end{equation*}
+\end{theorem}
+
+
+\begin{theorem}[Comparison Test]
+    If $(a_n),(b_n) \subseteq \R$ are real sequences, and $0 \leq a_n \leq b_n$ for all $n$, then if $\sum_{n=1}^{\infty}b_n$ converges $\sum_{n=1}^{\infty}a_n$ converges and $\sum_{n=1}^{\infty}a_n \leq \sum_{n=1}^{\infty}b_n$.
+\end{theorem}
+
+
+\begin{theorem}
+    If $\sum_{n=1}^{\infty}a_n$ converges, then $a_n$ goes to $0$ as $n$ goes to infinity.
+\end{theorem}
+
+
+\begin{proposition}
+    If $z \in \C$ and $|z| < 1$, then $\sum_{n=0}^{\infty}z^n = \frac{1}{1-z}$. If $z \in \C$ and $|z| \geq 1$ then $\sum_{n=0}^{\infty}z^n$ diverges.
+\end{proposition}
+\begin{proof}
+    Let $S_n$ be the $n$th partial sum, so $S_n = 1+z+...+z^{n-1}$. Then $zS_n = z+z^2+...+z^n$, so $S_n-zS_n = 1-z^n$. If $z \neq 1$, then we have $S_n = \frac{1-z^n}{1-z}$. Then \begin{equation*}
+        \lim\limits_{n\rightarrow \infty}S_n = \lim\limits_{n\rightarrow \infty}\frac{1-z^n}{1-z} = \frac{1}{1-z}\lim\limits_{n\rightarrow \infty}(1-z^n)
+    \end{equation*}
+    This limit converges only if $z^n$ converges as $n$ goes to infinity. Note $|z^n-c| \geq |z|^n-|c|$, and for $|z| > 1$ the right hand side is unbounded and goes to infinity as $n$ goes to infinity, so $z^n$ does not converge to any value $c \in \C$ for $|z| > 1$. If $|z| < 1$, $|z|^n\rightarrow 0$, so the series converges and \begin{equation*}
+        \sum_{n=0}^{\infty}z^n = \frac{1}{1-z}
+    \end{equation*}
+\end{proof}
+
+\begin{definition}
+    A complex series $\sum_{n=0}^{\infty}a_n$ is said to \Emph{converge absolutely} if $\sum_{n=0}^{\infty}|a_n|$ converges.
+\end{definition}
+
+\begin{theorem}
+    If $\sum_{n=0}^{\infty}a_n$ converges absolutely, then $\sum_{n=0}^{\infty}a_n$ converges and \begin{equation*}
+        \left|\sum_{n=0}^{\infty}a_n\right| \leq \sum_{n=0}^{\infty}|a_n|
+    \end{equation*}
+\end{theorem}
+
+
+\begin{example}
+    Consider $|z| < 1$. Then \begin{equation*}
+        \left|\frac{1}{1-z}\right| = \left|\sum_{n=0}^{\infty}z^n\right| \leq \sum_{n=0}^{\infty}|z|^n = \frac{1}{1-|z|}
+    \end{equation*}
+\end{example}
+
+Consequently, geometric series are absolutely convergent, given $|z| < 1$, and the bound on its convergence is \begin{equation*}
+    \left|\sum_{n=0}^{\infty}z^n\right| \leq \frac{1}{1-|z|}
+\end{equation*}
+
+
+
+%%%%%%%%%%%%%%%%%%%% Section 1.5.2
+\section{Sequences and Series of Functions}
+
+\begin{definition}
+    Let $\{f_n\}$ be a sequence of complex valued functions on $E \subseteq \C$. Then the sequence is said to \Emph{pointwise converge} to $f:E\rightarrow \C$ if for all $x \in E$, for all $\varepsilon > 0$, there exists $N \in \N$ such that whenever $n \geq N$, then $|f_n(x) - f(x)| < \varepsilon$.
+\end{definition}
+
+\begin{example}
+    Consider the sequence of functions $f_n(x) = x^n, 0 < x \leq 1$. It converges pointwise to the function \begin{equation*}
+        f(x) = \left\{\begin{array}{lc} 0 & \text{if } 0 < x < 1 \\ 1 & \text{if } x = 1\end{array}\right.
+    \end{equation*}
+\end{example}
+
+In limit notation this example shows that in general for a pointwise convergence of a sequence of functions, $$\lim\limits_{x\rightarrow x_0}\lim\limits_{n\rightarrow \infty}f_n(x) \neq \lim\limits_{n\rightarrow \infty}\lim\limits_{x\rightarrow x_0}f_n(x)$$
+
+\begin{example}
+    Consider the sequence of tent functions \begin{equation*}
+        f_n(x) = \left\{\begin{array}{lc} n^2x & \text{if } 0 \leq x \leq 1/n \\ 2n-n^2x & \text{if } 1/n \leq x \leq 2/n \\ 0 & \text{if } 2/n \leq x \leq 1 \end{array}\right.
+    \end{equation*}
+    The height of the $n$th tent is $n$, and the width is $2/n$, so that the area under the integral is always $1$. Hence, $\int_0^1g_n(x)dx = 1$ for all $n$. But, the sequence converges pointwise to $0$ on the unit interval, and $\int_0^10dx = 0$.
+\end{example}
+
+Again in limit notation this example shows that in general for a pointwise convergence of a sequence of function, $$\lim\limits_{n\rightarrow \infty}\int_a^bf_m(x)dx \neq \int_a^b\lim\limits_{n\rightarrow \infty}f_n(x)dx$$
+
+\begin{definition}
+    Let $\{f_n\}$ be a sequence of complex valued functions on $E \subseteq \C$. We say that $\{f_n\}$ \Emph{converges uniformly} on $E$ to $f$ on $E$ if for all $\varepsilon > 0$, there exists $N \in \N$ such that if $n \geq N$, then $|f_n(x) - f(x)| < \varepsilon$ for all $x \in E$.
+\end{definition}
+
+\begin{definition}
+    Let $f:E\rightarrow \C$ be a complex valued function on $E$. Then we define the \Emph{uniform norm} of $f$ to be the supremum \begin{equation*}
+        ||f||_{\infty} = \sup\{|f(x)|:x \in E\} = \sup\limits_{x \in E}|f(x)|
+    \end{equation*}
+\end{definition}
+
+Using this concept, we can define uniform convergence in an equivalent manner. A sequence of functions $\{f_n\}$ converges uniformly to $f$ on $E \subseteq \C$ if and only if for all $\varepsilon > 0$, there exists $N \in \N$ such that if $n \geq N$, $||f_n - f||_{\infty} < \varepsilon$. In other words, the sequence converges uniformly if and only if $$\lim\limits_{n\rightarrow \infty}||f_n-f||_{\infty} = 0$$
+
+\begin{theorem}
+    Let $\{f_n\}$ be a sequence of complex-valued functions defined on a subset $E$ of the complex plane. If each $f_n$ is continuous on $E$, and if $\{f_n\}$ converges uniformly to $f$ on $E$, then $f$ is continuous on $E$.
+\end{theorem}
+\begin{proof}
+    Suppose that $\{f_n\}$ is a sequence of continuous. complex-valued functions defined on a subset $E$ of the complex plane which converge uniformly to $f$ on $E$. Let $x \in E$, and fix $\varepsilon > 0$. First, observe that \begin{equation*}
+        |f(x)-f(y)| \leq |f(x)-f_n(x)|+|f_n(x)-f_n(y)|+|f_n(y)-f(y)|
+    \end{equation*}
+    for all $y \in E$. First, there exists $N \in \N$ such that if $n \geq N$, $||f_n - f||_{\infty} < \varepsilon/3$. Moreover, since $f_N$ is continuous, there exists $\delta > 0$ such that if $|z - x| < \delta$, $|f_N(z) - f_N(x)| < \varepsilon/3$. It follows that for $z \in E$ such that $|z - x| < \delta$, \begin{align*}
+        |f(x) - f(z)| &\leq |f(x) - f_N(x)| + |f_N(x)-f_N(z)| + |f_N(z) - f(z)| \\
+        &< \varepsilon/3 + \varepsilon/3 + \varepsilon/3 = \varepsilon
+    \end{align*}
+    Hence, $f$ is continuous on $E$, as claimed.
+\end{proof}
+
+
+\begin{theorem}
+    Let $\gamma$ be a piecewise smooth curve in the complex plane. If $\{f_n\}$ is a sequence of continuous complex-valued functions on $\gamma$, and if $\{f_n\}$ converges uniformly to $f$ on $\gamma$, then $\int_{\gamma}f_n(z)dz$ converges to $\int_{\gamma}f(z)dz$.
+\end{theorem}   
+\begin{proof}
+    By our previous result $f$ is continuous on $\gamma$, and hence the integral exists. Let $L = \int_{\gamma}|dz|$ be the length of the curve. Then, if $\varepsilon > 0$ is fixed, there exists $N \in \N$ such that if $n \geq N$, $||f_n - f||_{\infty} <\varepsilon/L$. Then it follows by the ML theorem that \begin{equation*}
+        \left|\int_{\gamma}f_n(z)dz -\int_{\gamma}f(z)dz\right| = \left|\int_{\gamma}(f_n(z)-f(z))dz\right| \leq ||f_n-f||_{\infty}L < \varepsilon L/L = \varepsilon
+    \end{equation*}
+    Hence, the integrals of the terms converges to the integral of the limit.
+\end{proof}
+
+
+
+\begin{example}
+    Consider $f_n(x) = x^n$. Observe that $||f_n - f||_{\infty} = ||f_n||_{\infty} = 1$, so we see that the uniform norm of the difference function does not converge to $0$ as $n$ goes to infinity, and hence the sequence does not converge uniformly to $f$ on $[0,1]$.
+\end{example}
+
+\begin{example}
+    Suppose $f_n$ is the tent sequence. Then $||f_n - f||_{\infty} = ||f_n||_{\infty} = n$, which does not converge to $0$ as $n$ goes to infinity, and in fact blows up to infinity itself. Thus, the sequence does not converge uniformly on $[0,1]$.
+\end{example}
+
+
+
+\begin{theorem}[Weierstrass M-Test]
+    Suppose $M_k \geq 0$ and the sequence $\{M_k\}$ is summable. If $\{f_k\}$ is a sequence of complex valued functions on a set $E \subseteq \C$ such that $||f_k||_{\infty} \leq M_k$, then $\{f_k\}$ converges uniformly on $E$.
+\end{theorem}
+\begin{proof}
+    For each fixed $x \in E$ we have that the series $\{f_k(x)\}$ is Cauchy as it is bounded termwise by a convergent series. Then, by the completeness of $\C$, there exists $f(x) \in \C$ such that $\sum_{k=0}^{\infty}f_k(x) = f(x)$. Thus, as this holds for all $x \in E$, the series converges pointwise to $f$. Since the series of $M_k$ converges, for $\varepsilon > 0$ fixed there exists $N \in \N$ such that the tail past $N$ is less than $\varepsilon$. Then for all $m > n \geq N \in \N$, we have that \begin{equation*}
+        \left|\left|\sum_{i=n+1}^mf_i\right|\right|_{\infty} \leq \sum_{i=n+1}^mM_k < \varepsilon
+    \end{equation*}
+    so $\sum_{n=0}^{\infty}f_n$ is uniformly cauchy, so converges uniformly to $f$.
+\end{proof}
+
+
+\begin{theorem}
+    If $\{f_n\}$ is a sequence of analytic functions on a domain $D$ that converges uniformly to $f$ on $D$, then $f(z)$ is analytic on $D$.
+\end{theorem}
+\begin{proof}
+    From our previous result we know that $f$ is continuous on $D$. Let $R \subseteq D$ be a closed rectangle with edges oriented with respect to the axes. By Cauchy's Theorem we have that $\int_{\partial R}f_n(z)dz = 0$ for all $n \in \N\cup \{0\}$. Then, by our second result for uniform sequences, \begin{equation*}
+        \int_{\partial R}f(z)dz = \lim\limits_{n\rightarrow \infty}\int_{\partial R}f_n(z)dz = \lim\limits_{n\rightarrow \infty}0 = 0
+    \end{equation*}
+    Thus, by Morera's Theorem $f(z)$ is analytic on $D$, as required.
+\end{proof}
+
+
+\begin{theorem}
+    Let $z_0 \in \C$ and suppose that $\{f_n\}$ is analytic for $|z-z_0| \leq R$, and that the sequence converges uniformly to $f(z)$ for $|z-z_0| \leq R$. Then for each $r < R$ and each $m\geq 1$, the sequence of $m$th derivatives $\left\{f^{(m)}_n(z)\right\}$, which exists by a corollary to the Cauchy Integral Formula, converges uniformly to $f^{(m)}(z)$ for $|z-z_0| \leq r$.
+\end{theorem}
+\begin{proof}
+    Since the $f_n$ converge uniformly we can pick $\varepsilon_n$ such that $|f_n(z) - f(z)| < \varepsilon_n$ for $|z - z_0| < R$, where $\varepsilon_n\rightarrow 0$ is a decreasing sequence. Fix $s$ such that $r < s < R$. Applying the Cauchy Integral Formula to the $m$th derviative of $f_n(z)-f(z)$ on $|z-z_0|\leq s$: \begin{equation*}
+        f_n^{(m)}(z) - f^{(m)}(z) = \frac{m!}{2\pi i}\oint_{|z-z_0|=s}\frac{f_n(w)- f(w)}{(w-z)^{m+1}}dw
+    \end{equation*}
+    for $|z-z_0| \leq r$. Consider if $|w-z_0| = s$ and $|z-z_0| \leq r$, then \begin{equation*}
+        |w-z| = |w-z_0+z_0-z| \geq |w-z_0|-|z-z_0| = s-|z-z_0| \geq s-r 
+    \end{equation*}
+    and so \begin{equation*}
+        \left|\frac{f_n(w)-f(w)}{(w-z)^{m+1}}\right|\leq \frac{\varepsilon_n}{(s-r)^{m+1}}
+    \end{equation*}
+    From the ML-estimate it follows that \begin{equation*}
+        \left|f_n^{(m)}(z) - f^{(m)}(z) \right|= \left|\frac{m!}{2\pi i}\oint_{|z-z_0|=s}\frac{f_n(w)- f(w)}{(w-z)^{m+1}}dw\right| \leq \frac{m!}{2\pi}\frac{\varepsilon_n}{(s-r)^{m+1}}2\pi s = \rho_n
+    \end{equation*}
+    so $\rho_n \frac{m!\varepsilon_ns}{(s-r)^{m+1}}$. But except for $\varepsilon_n$ everythin is a constant, so $\rho_n\rightarrow 0$ as $n\rightarrow \infty$, and we obtain uniform convergence of the $m$th derivatives.
+\end{proof}
+
+\begin{definition}
+    A sequence $\{f_n\}$ of holomorphic functions on a domain $D$ \Emph{converges normally} to an analytic function $f$ on $D$ if it converges uniformly to $f$ on each closed disk contained in $D$.
+\end{definition}
+
+
+\begin{theorem}
+    Suppose that $\{f_n\}$ is a sequence of holomorphic functions on a domain $D$ that converges normally on $D$ to the holomorphic function $f$. Then for each $m \geq 1$, the sequence of $m$th derivatives, $\{f_n^{(m)}\}$ converges normally to $f^{(m)}$ on $D$.
+\end{theorem}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%% Section 1.5.3
+\section{Power Series}
+
+\begin{definition}
+    A \Emph{power series} centered at $z_0 \in \C$ is a series of the form $\sum_{n=0}^{\infty}a_n(z-z_0)^n$. Setting $w = z-z_0$ we can always reduce to the case where $z_0 = 0$.
+\end{definition}
+
+
+\begin{theorem}[Abel's Convergence Lemma]
+    Suppose for the power series $\sum_{n=0}^{\infty}a_nz^n$ there are positive real numbers $s$ and $M$ such that $|a_n|s^n \leq M$ for all $n$. Then this power series is normally convergent in $\{z \in \C\vert |z|<s\}$. 
+\end{theorem}
+\begin{proof}
+    Consider $r \in \R$ with $0 < r < s$. Then observe that for all $z \in \{z\in\C\vert |z| \leq r\}$, \begin{equation*}
+        |a_nz^n| \leq |a_n|r^n = |a_n|s^n\left(\frac{r}{s}\right)^n \leq M\left(\frac{r}{s}\right)^n
+    \end{equation*}
+    But, $r/s < 1$, so $\sum_{n=0}^{\infty}M\left(\frac{r}{s}\right)^n$ is a geomotric series with ratio of magnitude less than $1$, and hence converges. Thus, setting $M_n = M\frac{r^n}{s^n}$, we have by the Weierstrass M-test that $\sum_{n=0}^{\infty}a_nz^n$ is normally convergent on $\{z \in \C\vert|z| <s\}$, in the sense that the series converges absolutely uniformly on every closed disk contained in $\{z \in \C\vert|z| < s\}$.
+\end{proof}
+
+\begin{corollary}
+    If the series $\sum_{n=0}^{\infty}a_nz^n$ converges at $z_0 \neq 0$, then it converges normally in the open disk $|z| < |z_0|$.
+\end{corollary}
+\begin{proof}
+    As the sum $\sum_{n=0}^{\infty}a_nz_0^n$ converges, $a_nz_0^n$ goes to zero as $n$ goes to infinity, and similarly $|a_n||z_0|^n$ goes to zero as $n$ goes to infinity. But, $|a_n||z_0|^n$ is a sequence of positive terms which converges, so there exists $M \in \R$ such that $|a_n||z_0|^n \leq M$ for all $n \in \N$. But then by Abel's Convergence Lemma, the power series is normally convergent in $\{z \in \C\vert |z| < |z_0|\}$.
+\end{proof}
+
+\begin{definition}
+    A power series $\sum_{n=0}^{\infty}a_n(z-z_0)^n$ has \Emph{radius of covergence} $R$ is the series converges for $|z-z_0| < R$ but diverges for $|z-z_0| > R$. In the case the series converges everywhere we say $R = \infty$ and in the case the series only converges at $z = z_0$ we say $R = 0$.
+\end{definition}
+
+\begin{theorem}
+    Let $\sum_{n=0}^{\infty}a_n(z-z_0)^n$ be a power series. Then there is $R$, $0 \leq R \leq \infty$ such that $\sum_{n=0}^{\infty}a_n(z-z_0)^n$ converges normally on $\{z \in \C\vert |z-z_0| < R\}$, and $\sum_{n=0}^{\infty}a_n(z-z_0)^n$ does not converge if $|z-z_0| > R$.
+\end{theorem}
+\begin{proof}
+    Let us define \begin{equation*}
+        R = \sup\{t \in [0,\infty):|a_n|t^n\text{ is a bounded sequence}\}
+    \end{equation*}
+    If $R = 0$, then the series only converges if $z = z_0$, since boundedness is necessary for convergence. Suppose $R > 0$, and let $0 < r < R$. By construction of $R$ the sequence $|a_n|r^n$ is bounded, and by Abel's convergence lemma $\sum_{n=0}^{\infty}a_n(z-z_0)^n$ converges normally in $\{z \in \C:|z-z_0| < r\}$. However, $\{z\in \C:|z-z_0| < R\}$ is found by the union of open $r$ disks, and thus we find normal convergence on the open $R$ disk centered at $z_0$. 
+\end{proof}
+
+
+\begin{example}
+    The series $\sum_{n=0}^{\infty}z^n$ is the geometric series. We have shown it converges if and only if $|z| < 1$, which shows $R = 1$.
+\end{example}
+
+\begin{example}
+    The series $\sum_{n=1}^{\infty}\frac{z^n}{n^4}$ has Weierstrass M, $M_k = 1/k^4$ for $|z| < 1$. Recall, by the previous test, with $p = 4 > 1$, the series $\sum_{n=1}^{\infty}\frac{1}{n^4}$ converges. Thus, the given series in $z$ is normally convergent on $|z| <1$.
+\end{example}
+
+\begin{example}
+    The series $\sum_{n=0}^{\infty}\frac{(-1)^n}{4^n}(z-i)^{2n}$, which is geometric. Then this converges when $\left|\frac{-1(z-i)^2}{4}\right| < 1$, which is to say $|z-i| < 2$. So we have radius of convergence $R = 2$ with center $z_0 = i$.
+\end{example}
+
+\begin{example}
+    The series $\sum_{n=0}^{\infty}n^nz^n$ has $R = 0$ since it diverges for all $z \neq 0$ by the divergence test.
+\end{example}
+    
+
+\begin{example}
+    The series $\sum_{n=1}^{\infty}n^{-n}z^n$ has $R = \infty$. This can be shown by a theorem to follow.
+\end{example}
+
+\begin{theorem}
+    Let $\sum_{n=0}^{\infty}a_n(z-z_0)^n$ be a power series with radius of convergence $R > 0$. Then the function \begin{equation*}
+        f(z) = \sum_{n=0}^{\infty}a_n(z-z_0)^n
+    \end{equation*}
+    for $|z-z_0| < R$ is holomorphic. The derivatives of $f(z)$ are obtained by term-by-term differentiation \begin{equation*}
+        f^{(m)}(z) = \sum_{n=m}^{\infty}\frac{n!}{(n-m)!}a_n(z-z_0)^{n-m}
+    \end{equation*}
+    The coefficients of are then given by \begin{equation*}
+        a_n = \frac{f^{(m)}(z_0)}{m!}
+    \end{equation*}
+    $m \geq 0$.
+\end{theorem}
+\begin{proof}
+    By the previous results the series of normally convergent on $\{z \in \C:|z-z_0| < R\}$. Then, note that each term in the series is holomorphic, so as the series converges normally, and hence uniformly, on the disk, $f(z)$ is holomorphic on the disk as well. Furthermore, $f^{(m)}$ is holomorphic on the disk, and the series $f_n^{(m)} = a_n\frac{n!}{(n-m)!}(z-z_0)^{n-m}$ for $n \geq m$ converges uniformly to $f^{(m)}$, extending our result for sequences from before to the sequence of partial sums using the linearity of the derivative. 
+\end{proof}
+
+\begin{example}
+    Consider the series \begin{equation*}
+        \sum_{n=0}^{\infty}z^{3k+4} = z^4\sum_{n=0}^{\infty}z^{3k} = z^4\frac{1}{1-z^3} = \frac{z^4}{1-z^3}
+    \end{equation*}
+    if $|z| < 1$. Then, the series represents $f(z) = \frac{z^4}{1-z^3}$ on the open disk $|z| < 1$ (and the series is normally convergent on this disk).
+\end{example}
+
+
+\begin{example}
+    Consider the series \begin{align*}
+        \sum_{n=0}^{\infty}(z^{2n} + (z-1)^{2n}) &= \sum_{n=0}^{\infty}z^{2n} + \sum_{n=0}^{\infty}(z-1)^{2n} \\
+        &= \frac{1}{1-z^2} + \frac{1}{1-(1-z)^2}
+    \end{align*}
+    provided that $|z| < 1$ and $|z-1| < 1$.
+\end{example}
+
+\begin{example}
+    Consider $f(z) = \text{Log}(1-z) = \ln|1-z| + i\text{Arg}(1-z)$ on the slit plane $\C\backslash[1,\infty)$. Then $f'(z) = \frac{1}{1-z}$. We have $\frac{1}{1-z} = \sum_{n=0}^{\infty}z^n$ for $|z| < 1$. Integrating we have \begin{equation*}
+        f(z) = C+\sum_{n=0}^{\infty}\frac{z^{n+1}}{n+1}
+    \end{equation*}
+    Taking $z = 0$, we see that $C = \text{Log}(1-0) = 0$, so \begin{equation*}
+        \text{Log}(1-z) = \sum_{n=0}^{\infty}\frac{z^{n+1}}{n+1}
+    \end{equation*}
+    for $|z| < 1$.
+\end{example}
+
+
+\begin{theorem}[Ratio Test]
+    If $|a_n/a_{n+1}|$ has a limit as $n\rightarrow \infty$, either finite or $+\infty$, then the limit is the radius of convergence $R$ of $\sum_{n=0}^{\infty}a_nz^n$ \begin{equation*}
+        R = \lim\limits_{n\rightarrow \infty}\left|\frac{a_n}{a_{n+1}}\right|
+    \end{equation*}
+\end{theorem}
+
+\begin{theorem}[Root Test]
+    If $\sqrt[n]{|a_n|}$ has a limit as $n\rightarrow \infty$, either finite or $+\infty$, then the radius of convergence of $\sum_{n=0}^{\infty}a_nz^n$ is given by: \begin{equation*}
+        R = \frac{1}{\lim\limits_{n\rightarrow \infty}\sqrt[n]{|a_n|}}
+    \end{equation*}
+\end{theorem}
+
+
+\begin{theorem}
+    Suppose that $f(z)$ is holomorphic for $|z - z_0| < \rho$. Then $f(z)$ is represented by the power series \begin{equation*}
+        f(z) = \sum_{n=0}^{\infty}a_n(z-z_0)^n,\;\;\;\;\;\;\; |z-z_0| < \rho
+    \end{equation*}
+    where \begin{equation*}
+        a_n = \frac{f^{(n)}(z_0)}{n!},\;\;\;\;n \geq 0
+    \end{equation*}
+    and where the power series has radius of convergence $R \geq \rho$. For any fixed $r$, $0 < r < \rho$, we have \begin{equation*}
+        a_n = \frac{1}{2\pi i}\oint_{|w-z_0| = r}\frac{f(w)}{(w-z_0)^{n+1}}dw,\;\;\;\;\;n\geq 0
+    \end{equation*}
+    Further, if $|f(z)| \leq M$ for $|z-z_0| = r$, then \begin{equation*}
+        |a_n| \leq \frac{M}{r^n},\;\;\;\;\; n \geq 0
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    Suppose $f(z)$ is holomorphic on $D = \{z \in \C:|z-z_0| < \rho\}$. Consider $|z-z_0| < r < \rho$ and $|w-z_0| = r$, then $|z-z_0| < |w-z_0|$, so $\frac{|z-z_0|}{|w-z_0|} < 1$. Now observe \begin{align*}
+        \frac{f(w)}{w-z} &= \frac{f(w)}{w-z_0-(z-z_0)} = \frac{f(w)}{w-z_0}\frac{1}{\left(1-\frac{z-z_0}{w-z_0}\right)} \\
+        &= \frac{f(w)}{w-z_0}\sum_{n=0}^{\infty}\left(\frac{z-z_0}{w-z_0}\right)^n = \sum_{n=0}^{\infty}\frac{f(w)}{(w-z_0)^{n+1}}(z-z_0)^n
+    \end{align*}
+    where the series converges normally for $|z-z_0| < |w-z_0| = r$. Then for $|z-z_0| < r < \rho$ we have by Cauchy's Integral Formula: \begin{align*}
+        f(z) &= \frac{1}{2\pi i}\oint_{|w-z_0| = r}\frac{f(w)}{(w-z)}dw \\
+        &= \frac{1}{2\pi i}\oint_{|w-z_0|=r}\sum_{n=0}^{\infty}\frac{f(w)}{(w-z_0)^{n+1}}(z-z_0)^ndw \\
+        &= \frac{1}{2\pi i}\sum_{n=0}^{\infty}\left(\oint_{|w-z_0|=r}\frac{f(w)}{(w-z_0)^(n+1)}dw\right)(z-z_0)^n \\
+        &= \sum_{n=0}^{\infty}\frac{f^{(n)}(z_0)}{n!}(z-z_0)^n
+    \end{align*}
+    Thus, $f(z)$ is analytic with $a_n = \frac{f^{(n)}(z_0)}{n!}$ as desired. 
+\end{proof}
+
+
+\begin{corollary}
+    Suppose that $f(z)$ and $g(z)$ are holomorphic for $|z-z_0| < r$. If $f^{(k)}(z_0) = g^{(k)}(z_0)$ for $k \geq 0$, then $f(z) = g(z)$ for $|z-z_0| < r$.
+\end{corollary}
+
+\begin{corollary}
+    Suppose that $f(z)$ is analytic at $z_0$ (i.e. there is some open neighborhood of $z_0$ for which $f(z)$ is holomorphic), with power series expansion $f(z) = \sum_{n=0}^{\infty}a_n(z-z_0)^n$ centered at $z_0$. Then the radius of convergence of the power series is the largest number $R$ such that $f(z)$ extends to be analytic on the disk $\{z \in \C:|z-z_0| < R\}$.
+\end{corollary}
+
+\begin{example}
+    Recall that we originally defined the exponential as $f(z) = e^x(\cos(y)+i\sin(y))$, which is \Emph{entire} ($f \in \mathcal{O}(\C)$), and that $f'(z) = f(z)$ for all $z \in \C$.. Now, define $g(z) = \sum_{n=0}^{\infty}\frac{z^n}{n!} = 1+ z + \frac{1}{2}z^2+\frac{1}{3!}z^3+...$ Observe that $a_n = \frac{1}{n!}$, and \begin{equation*}
+        R = \lim\limits_{n\rightarrow \infty} \left|\frac{a_n}{a_{n+1}}\right| = \lim\limits_{n\rightarrow \infty} \frac{(n+1)!}{n!} = \infty
+    \end{equation*}
+    so $g(z)$ is entire. Also note that $g'(z) = \sum_{n=1}^{\infty}\frac{z^{n-1}}{(n-1)!} = \sum_{m=0}^{\infty}\frac{z^m}{m!} = g(z)$. Then, $f^{(k)}(0) = 1$ and $g^{(k)}(0) = 1$, so by our corollary we conclude that $f(z) = g(z)$.
+\end{example}
+
+\begin{example}
+    We have $\cosh(z) = \frac{1}{2}(e^z+e^{-z})$ versus $\cosh(z) = \sum_{n=0}^{\infty}\frac{1}{(2n)!}z^{2n}$ and $\sinh(z) = \frac{1}{2}(e^z - e^{-z})$ versus $\sinh(z) = \sum_{n=0}^{\infty}\frac{1}{(2n+1)!}z^{2n+1}$.  It follows that $$e^z = \cosh(z)+\sinh(z) = \sum_{n=0}^{\infty}\frac{z^n}{n!} = \sum_{n=0}^{\infty}\frac{z^{2n}}{(2n)!} + \sum_{n=0}^{\infty}\frac{z^{2n+1}}{(2n+1)!}$$
+    Next, observe $\cos(z) = \sum_{n=0}^{\infty}\frac{(-1)^n}{(2n)!}z^{2n}$ and $\sin(z) =\sum_{n=0}^{\infty}\frac{(-1)^n}{(2n+1)!}z^{2n+1}$. Then \begin{align*}
+        e^{iz} &= \sum_{n=0}^{\infty}\frac{(iz)^{2n}}{(2n)!} + \sum_{n=0}^{\infty}\frac{(iz)^{2n+1}}{(2n+1)!} \\
+        &= \sum_{n=0}^{\infty}\frac{(-1)^nz^{2n}}{(2n)!} + \sum_{n=0}^{\infty}\frac{i(-1)^nz^{2n+1}}{(2n+1)!} \\
+        &= \sum_{n=0}^{\infty}\frac{(-1)^nz^{2n}}{(2n)!} + i\sum_{n=0}^{\infty}\frac{(-1)^nz^{2n+1}}{(2n+1)!} \\
+        &= \cos(z)+i\sin(z)
+    \end{align*}
+\end{example}
+
+
+
+\begin{definition}
+    We say that a function $f(z)$ is \Emph{analytic at $z= \infty$} if the function $g(w) = f(1/w)$ is analytic at $w = 0$.
+\end{definition}
+
+Thus, we make a change of variable $w = 1/z$, and we study the behaviour of $f(z)$ at $z = \infty$ by studying the behaviour of $g(w)$ at $w = 0$.
+
+\begin{theorem}
+    If $f$ is analytic at $\infty$, then there exists $\rho > 0$ such that for $|z| > \rho$, $g(w)$ has a power expansion and  \begin{equation*}
+        f(z) = \sum_{n=0}^{\infty}\frac{a_n}{z^n}
+    \end{equation*}
+    for $|z| > \rho$.
+\end{theorem}
+
+
+\begin{example}
+    Consider $f(z) = z^4 + 3z^2-7$, and its reciprocal function $g(w) = 1/w^4 + 3/w^2 - 7$, which is not analytic at $w = 0$. Thus, $f$ is not analytic at $z = \infty$.
+\end{example}
+
+\begin{example}
+    Consider $f(z) = z^2e^{1/z}$, and its reciprocal $g(w) = e^w/w^2$, which is not analytic at $w = 0$, and hence $f$ is not analytic at $z = \infty$.
+\end{example}
+
+\begin{example}
+    Consider $f(z) = z/(z-1)$, and its reciprocal $g(w) = 1/(1-w)$, which is analytic for $|w| < 1$, and in particular for $w = 0$, so $f$ is analytic at $\infty$. 
+\end{example}
+
+
+\subsection{Manipulation of Power Series}
+
+\begin{example}
+    Suppose we wanted to compute $$\left(\sum_{n=0}^{\infty}z^n\right)\left(\sum_{n=0}^{\infty}(-1)^nz^n\right) = \sum_{n=0}^{\infty}\left(\sum_{i=0}^n(-1)^i\right)z^n = \sum_{n=0}^{\infty}z^{2n}$$
+    This computation is true by the absolute convergence of the series on their common radii of convergence. Next, observe \begin{align*}
+        \left(\sum_{n=0}^{\infty}\frac{z^n}{n!}\right)\left(\sum_{n=0}^{\infty}(-1)^n2^n\frac{z^n}{n!}\right) &= \sum_{n=0}^{\infty}\left(\sum_{i=0}^n\frac{(-1)^i2^i}{i!(n-i)!}\right)z^n \\
+        &= \sum_{n=0}^{\infty}\frac{(-1)^nz^n}{n!}
+    \end{align*}
+\end{example}
+
+\begin{theorem}
+    If $f(z)$ and $g(z)$ are analytic at $z_0$ with $\sum_{n=0}^{\infty}a_n(z-z_0)^n = f(z)$ and $g(z) = \sum_{n=0}^{\infty}b_n(z-z_0)^n$ then \begin{itemize}
+        \item $h(z) = f(z) + g(z)$ is analytic at $z_0$ with $h(z) = \sum_{n=0}^{\infty}(a_n+b_n)(z-z_0)^n$
+        \item $h(z) = cf(z)$ for $c \in \C$ is analytic at $z_0$ with $h(z) = \sum_{n=0}^{\infty}ca_n(z-z_0)^n$
+        \item $h(z) = f(z)g(z)$ is analytic at $z_0$ with $$h(z) = \sum_{n=0}^{\infty}\left(\sum_{i=0}^na_ib_{n-i}\right)(z-z_0)^n$$
+        \item $h(z) = 1/g(z)$, and without loss of generality suppose $g(0) = 1$ so $b_0 = 1$, then \begin{align*}
+                h(z) &= \frac{1}{1+\sum_{n=1}^{\infty}b_n(z-z_0)^n} = \sum_{k=0}^{\infty}\left(-\sum_{n=1}^{\infty}b_n(z-z_0)^n\right)^k \\
+        \end{align*}
+        \end{itemize}
+\end{theorem}
+\begin{proof}
+    First, observe $h(z) = f(z)g(z)$, so $h'(z_0) = f'(z_0)g(z_0) + f(z_0)g'(z_0)$ so $h$ is analytic at $z_0$. Then, the $k$th derivative of the given power series evaluated at $z_0$ is $k!\sum_{i=0}^ka_ib_{k-i}$. The $k$th derivative of $h$ can be seen by the following: \begin{align*}
+        h^{(k)}(z_0) &= \sum_{i=0}^k\left(\begin{array}{c} k \\ i \end{array}\right)f^{(i)}(z_0)g^{(k-i)}(z_0) \\
+            &= \sum_{i=0}^k\left(\begin{array}{c} k \\ i \end{array}\right)i!a_i(k-i)!b_{k-i} \\
+            &= \sum_{i=0}^k k!a_ib_{k-1} \\
+            &= k!\sum_{i=0}^k a_ib_{k-1} \\
+    \end{align*}
+    Hence, the series and the $h$ are equal for all derivatives $k \geq 0$ at $z_0$. Hence, by a previous corollary we conclude that $h$ is in fact equal to the series on its radius of convergence.
+\end{proof}
+
+\begin{example}
+    What is the power series of $\tan(z)$ centered at $z_0$? Well \begin{equation*}
+        \tan(z) = \frac{\sin(z)}{\cos(z)} = \sin(z)\sum_{n=0}^{\infty}(-1)^n\cos^n(z)
+    \end{equation*}
+\end{example}
+
+
+
+%%%%%%%%%%%%%%%%%%%% Section 1.5.4
+\section{Zeros of an Analytic Function}
+
+
+\begin{definition}
+    Let $f(z)$ be analytic at $z_0$ and suppose that $f(z_0) = 0$ but $f(z)$ is not identically zero. We say that $f(z)$ has a \Emph{zero of order $N$} at $z_0$ if \begin{equation*}
+        f(z_0) = 0, f'(z_0) = 0,...,f^{(N-1)}(z_0) = 0, f^{(N)}(z_0) \neq 0
+    \end{equation*}
+    The order $N = 1$ is called a \Emph{simple zero} while the order $N =2$ is called a \Emph{double zero}.
+\end{definition}
+
+Observe that this occurs if and only if the power series expansion of $f(z)$ is given by \begin{equation*}
+    f(z) = \sum_{n=N}^{\infty}a_n(z-z_0)^n = \sum_{m=0}^{\infty}a_{m+N}(z-z_0)^{m+N} = (z-z_0)^N\sum_{m=0}^{\infty}\frac{f^{(m+N)}(z_0)}{(m+N)!}(z-z_0)^m
+\end{equation*}
+where $a_N \neq 0$, and we can factor out $(z-z_0)^N$ to write $f(z) = h(z)(z-z_0)^N$ for $h$ analytic at $z_0$ and $h(z_0) = a_N = \frac{f^{(N)}(z_0)}{N!} \neq 0$.
+
+\begin{theorem}[Factor Theorem for Power Series]
+    If $f(z)$ is analytic with $z_0$ a zero of order $N$, then there exists $h(z)$ analytic at $z_0$ with $h(z_0) \neq 0$ and \begin{equation*}
+        f(z) = (z-z_0)^Nh(z)
+    \end{equation*}
+\end{theorem}
+
+
+\begin{definition}
+    Let $U \subseteq \C$ then $z_0 \in U$ is an \Emph{isolated point} if there exists $\rho > 0$ such that $\{z \in U\vert |z-z_0| < \rho\} = \{z_0\}$ (that is $z_0 \in U$ but is not a limit point of $U$).
+\end{definition}
+
+
+
+\begin{example}
+    Take $f(z) = \sin(z^2) = \sum\limits_{n=0}^{\infty}\frac{(-1)^n}{(2n+1)!}z^{4n+2}$. But then $0$ has multiplicity $2$, and we can write \begin{equation*}
+        f(z) = z^2 \sum_{n=0}^{\infty}\frac{(-1)^n}{(2n+1)!}z^{4n}
+    \end{equation*}
+    Moreover, $\sin(z)$ has simple zeros at $n\pi$ for $n \in \Z$, so $z^2 = n\pi$ are the zeros of $f(z) = \sin(z^2)$, or equivalently find that $z = \pm\sqrt{n\pi}$ are the zeros. But, for $n \neq 0$ these are all simple zeros as well.
+\end{example}
+
+\begin{definition}
+    Let $f$ be analytic on $|z| > R > 0$ for som $R \in \C$. If $f$ is not identically zero for $|z| > R$ then we say $f$ has a zero of order $N$ at $\infty$ if $g(w) = f(1/w)$ has a zero of order $N$ at $w = 0$.
+\end{definition}
+
+
+\begin{example}
+    Consider $f(z) = \sin(1/z) = \sum_{n=0}^{\infty}\frac{(-1)^n}{(2n+1)!z^{2n+1}}$. Then $g(w) = \sin(w)$, which has a simple zero at $w = 0$, so $f(z)$ has a simple zero at $z = \infty$.
+\end{example}
+
+
+\begin{example}
+    Consider $f(z) = \frac{1}{1-z^3}$. For $z$ very large, $f(z) \sim \frac{1}{-z^3}$, so we expect a zero of order $3$ at infinity. Observe, $g(w) = \frac{-w^3}{1-w^3} = -w^3\sum_{n=0}^{\infty}w^{3n}$ for $|w| < 1$, or equivalently, $1 < |z|$. Thus, $g(w)$ has a zero of order $3$ at $0$, so by definition $f(z)$ has a zero of order $3$ at $\infty$, as claimed.
+\end{example}
+
+\begin{theorem}
+    If $f(z)$ is an analytic function with a zero of order $N$ at $\infty$, then \begin{equation*}
+        f(z) = \sum_{n=N}^{\infty}\frac{a_N}{(z-z_0)^n} = \frac{1}{(z-z_0)^N}\sum_{m=0}^{\infty}\frac{a_{N+m}}{(z-z_0)^m}
+    \end{equation*}
+\end{theorem}
+
+\begin{example}
+    Let $f(z) = \frac{1}{(z-z_0)^k}$, then has a zero of order $k$ at $\infty$.
+\end{example}
+
+
+\begin{theorem}
+    If $D$ is a domain, and $f(z)$ is an analytic function on $D$ that is not identically zero, then the set of zeros of $f(z)$ is isolated (or discrete - all points in the set are isolated from one another).
+\end{theorem}
+\begin{proof}
+    Let $U$ be the set of all $z \in D$ such that $f^{(m)}(z) = 0$ for all $m \geq 0$. If $z_0 \in U$, then the power series expansion $f(z) = \sum_{n=0}^{\infty}a_n(z-z_0)^n$ has $a_n = f^{(m)}(z_0)/m! = 0$ for all $m \geq 0$. Hence $f(z) = 0$ for $z$ belonging to a disk centered at $z_0$. The points of the disk all belong to $U$. The points of this disk all belong to $U$. This shows that $U$ is an open set.
+
+    On the other hand, if $z_0 \in D\backslash U$, then $f^{(n)}(z_0) \neq 0$ for some $n \geq 0$. Therefore, $f^{(m)}(z) \neq 0$ for some disk centered at $z_0$, by continuity of all derivatives of analytic functions, and this disk is contained in $D\backslash U$, so $D\backslash U$ is open. Since $D$ is connected, either $U = D$ or $U$ is empty. If $U = D$ then $f(z) = 0$ for all $z \in D$, contradicting the assumption that $f$ is not identically zero. Hence $U$ is empty, so we conclude that every zero of $f$ has finite order.
+
+    If $z_0$ is a zero of $f(z)$, say order $N$, we can factor $f(z) = (z-z_0)^Nh(z)$, where $h(z)$ is analytic at $z_0$ and $h(z_0) \neq 0$. Then by continuity of $h$ there exists $\rho > 0$ such that $h(z) \neq 0$ for $|z-z_0| < \rho$, and consequently $f(z) \neq 0$ for $0 < |z-z_0| < \rho$. Thus, $f(z)$ has distance at least $\rho$ from any other zero of $f(z)$, and the zeros of $f(z)$ are isolated.
+\end{proof}
+
+
+
+\begin{theorem}[Uniqueness Principle]
+    If $f(z)$ and $g(z)$ are analytic on a domain $D$, and if $f(z) = g(z)$ for $z$ belonging to a set that has a nonisolated point, then $f(z) = g(z)$ for all $z \in D$.
+\end{theorem}
+
+
+\begin{theorem}
+    Let $D$ be a domain, and let $E \subseteq D$ that has a nonisolated point. Let $F(z,w)$ be a function defined for $z,w \in D$ such that $F(z,w)$ is analytic in $z$ for each fixed $w \in D$ and analytic in $w$ for each fixed $z \in D$. If $F(z,w) = 0$ whenever $z$ and $w$ both belong to $E$, then $F(z,w) = 0$ for all $z,w \in D$.
+\end{theorem}
+
+
+
+%%%%%%%%%%%%%%%%%%%% Section 1.5.5
+\section{Analytic Continuation}
+
+\begin{example}
+    For $g(z) = \sum_{n=0}^{\infty}z^{2^n}$, we have radius of convergence $R = 1$, but the series diverges on the whole unit circle.
+\end{example}
+
+\begin{example}
+    For $\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{n}z^n$ has radius of convergence $R = 1$. The only point on the unit circle for which it doesn't converge is $z = -1$.
+\end{example}
+
+
+
+Given $f(z) = \sum_{n=0}^{\infty}a_n(z-z_0)^n$ with radius of convergence $R$. We say that the power series $f(z)$ represents the germ of $f(z)$ at $z_0$. Let $\gamma(t)$, $a \leq t \leq b$, be a path starting at $z_0 = \gamma(a)$. We say that $f(z)$ is \Emph{analytically continuable along $\gamma$} if for each $t$ there is a convergent power series \begin{equation*}
+    f_t(z) = \sum_{n=0}^{\infty}a_n(t)(z-\gamma(t))^n,\;\;\;\;\;|z-\gamma(t)| < r(t)
+\end{equation*}
+such that $f_a(z)$ is the power series representing $f(z)$ at $z_0$ and such that when $s$ is near $t$, $f_s(z) = f_t(z)$ for $z$ in the intersection of the disks of convergence. We refer to $f_b(z)$ as the analytic continuation of $f(z)$ along $\gamma$.Note that $a_n(t)$ is given $a_n(s) = f_t^{(n)}(\gamma(s))/n!$ for $s$ near $t$.
+
+\begin{example}
+    Consider $f(z) = \sum_{n=0}^{\infty}\frac{z^n}{2^n} = \frac{1}{1-z/2}$. Then we can write \begin{equation*}
+        \frac{1}{1-z/2} = \frac{2}{3-(z+1)} = \frac{2}{3}\sum_{n=0}^{\infty}\frac{(z+1)^n}{3^n}
+    \end{equation*}
+    is the analytic continuation at $-1$, which has radius of convergence $R = 3$, with $|z+1| < 3$.
+\end{example}
+
+
+\begin{theorem}
+    Suppose $f(z)$ can be continued analytically along the path $\gamma(t)$, $a \leq t \leq b$. Then the analytic continuation is unique. Further, for each $n \geq 0$ the coefficient $a_n(t)$ of the series $f_t(z) = \sum_{n=0}^{\infty}a_n(t)(z-\gamma(t))^n$ depends continuously on $t$ and the radius of convergence of the series depends continuously on $t$.
+\end{theorem}
+
+\begin{example}
+    Suppose $f(z)$ is analytic on a domain $D$. Then $f(z)$ has an analytic continuation along any path in $D$. Simply define $f_t(z)$ to be the power series expansion of $f(z)$ about $\gamma(t)$.
+\end{example}
+
+Now suppose $f(z)$ is analytic at $z_0$ and suppose that $\gamma(t)$, $a \leq t \leq b$, is a path from $z_0$ to $z_1$ along which $f(z)$ has an analytic continuation $f_t(z)$. The radius of convergence $R(t)$ of the power series $f_t(z)$ varies continuously with $t$. Hence, there is $\delta > 0$ such that $R(t) \geq \delta$ for all $t$, $a \leq t \leq b$.
+
+\begin{lemma}
+    Let $f,\gamma,$ and $\delta$ be as above. If $\sigma(t)$, $a \leq t \leq b$, is another path from $z_0$ to $z_1$ such that $|\sigma(t) - \gamma(t)| < \delta$ for all $a \leq t \leq b$, then there is an analytic continuation $g_t(z)$ of $f_t(z)$ along $\sigma$, and the terminal series $g_b(z)$ centered at $z_1$ coincides with $f_b(z)$.
+\end{lemma}
+
+
+\begin{theorem}[Monodromy Theorem]
+    Let $f(z)$ be analytic at $z_0$. Let $\gamma_0(t)$ and $\gamma_1(t)$, $a \leq t \leq b$, be two paths from $z_0$ to $z_1$ along which $f(z)$ can be continued analytically. Suppose $\gamma_0(t)$ can be deformed continuously to $\gamma_1(t)$ by paths $\gamma_s(t)$, $0\leq s \leq t$, from $z_0$ to $z_1$ such that $f(z)$ can be continued analytically along each path $\gamma_s$. Then the analytic continuations of $f(z)$ along $\gamma_0$ and $\gamma_1$ coincide at $z_1$.
+\end{theorem}
+
+

@@ -1,0 +1,161 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+\chapter{Second Order Linear ODEs}
+\label{SecOrd} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+\section{Constant Coefficients}
+
+\begin{definition}[Characteristic Equation]
+        Given the following linear second order homogeneous DE with constant coefficients \begin{equation}
+                y'' + by' + cy = 0 
+        \end{equation}
+        we have the \Emph{characteristic equation} \begin{equation}
+                \lambda^2 + b\lambda + c = 0
+        \end{equation}
+        This equation results from looking for a solution in the form $y = e^{\lambda x}$.
+\end{definition}
+
+
+
+%{1cm}
+
+\bgroup
+\def\arraystretch{1.5}
+\begin{table}[H]
+        \centering
+        \caption{Solutions for the linear homogeneous DE with constant coefficients, $y'' + by' + c = 0$.}
+        \begin{tabular}{c|c}
+                Roots of the & General \\ 
+                Characteristic Equation & Solution \\ \hline
+                $\lambda_1 \neq \lambda_2$ (real) & $C_1e^{\lambda_1 x}+C_2e^{\lambda_2 x}$ \\
+                $\lambda_1 = \lambda_2 = \lambda$ (real) & $(C_1+C_2x)e^{\lambda x}$ \\
+                $\lambda_{1,2} = \alpha \pm \beta i$ (complex) & $e^{\alpha x}[C_1cos(\beta x) + C_2sin(\beta x)]$ \\
+        \end{tabular}
+\end{table}
+\egroup
+
+
+
+%{1cm}
+
+
+\section{General Theory}
+
+Consider the linear second order ODE \begin{equation}
+        y''(x)+b(x)y'(x)+c(x)y=f(x)
+\end{equation}
+
+
+\begin{theorem}[Existence and Uniqueness]
+         If $b(x)$, $c(x)$, and $f(x)$ are continuous in the above ODE, in an open interval $I$, containing $x_0$, then the solution of this ODE with an initial condition $y(x_0) = y_0$ exists and is unique on the open interval $I$ for any $y_0$.
+\end{theorem}
+
+%{1cm}
+
+
+\begin{theorem}[Superposition Principle]
+        If $y_1$ and $y_2$ are solutions of the complementary homogeneous ODE to our above ODE, then for any $C_1$ and $C_2$, the \Emph{linear combination} $y = C_1y_1+C_2y_2$ is also a solution.
+\end{theorem}
+
+
+%{1cm}
+
+
+\begin{definition}[Wronskian]
+        The value \begin{equation}
+                W[y_1\;y_2](x) = \begin{vmatrix}y_1(x) & y_2(x) \\
+                y'_1(x) & y'_2(x) \end{vmatrix} = y_1(x)y'_2(x) - y_2(x)y'_1(x) 
+        \end{equation}
+        is called the \Emph{Wronskian} of the functions $y_1$ and $y_2$. Two functions $y_1$ and $y_2$ are \Emph{linearly independent on I} if the identity $C_1y_1(x) + C_2y_2(x) = 0$ on $I$ (for any $x \in I$) is satisfied for only $C_1 = C_2 = 0$. If $W[y_1\;y_2](x)\neq 0$ for all $x \in I$, then $y_1$ and $y_2$ are linearly independent.
+\end{definition}
+
+%{1cm}
+
+
+\begin{theorem}[Abel's Formula]
+        If $y_1$ and $y_2$ are solutions of our complementary homogeneous equation, then their Wronskian is \begin{equation}
+                W(x) = W(x_0)e^{-\int\limits_{x_0}^xb(t)dt}
+        \end{equation}
+        where $x_0$ is the value for our initial condition.
+\end{theorem}
+
+
+
+
+%{1cm}
+
+\begin{theorem}[The General Solution (Homogeneous)]
+        If $y_1$ and $y_2$ are two solutions of our homogeneous complementary equation such that $W[y_1\;y_2](x)\neq 0$ at some $x$, then the general solution of the homogeneous DE is a linear combination $y(x) = C_1y_1(x) + C_2y_2(x)$.
+\end{theorem}
+
+
+%{1cm}
+
+
+\begin{theorem}[The General Solution (Inhomogeneous)]
+        A general solution of our ODE is a sum of the general solution of the complementary homogeneous equation and a particular solution \begin{equation}
+                y_{gen} = y_{part} + y_{hom}
+        \end{equation}
+\end{theorem}
+
+%{1cm}
+
+
+\section{Method of Undetermined Coefficients}
+
+
+\bgroup
+\def\arraystretch{1.5}
+\begin{table}[H]
+        \centering
+        \caption{Particular solutions of the second order linear ODE $y''(x)+b(x)y'(x)+c(x)y=f(x)$.}
+        \begin{tabular}{c|c|c}
+                Right Hand & $\lambda$ is a root of & Particular \\
+                Side & multiplicity m & Solution \\ \hline
+                $P_n(x)$ & $\lambda = 0$ & $x^mQ_n(x)$ \\
+                $e^{kx}P_n(x)$ & $\lambda = k$ & $x^me^{kx}Q_n(x)$ \\
+                $e^{kx}\cos(\beta x)P_n(x)$ or $e^{kx}\sin(\beta x)P_n(x)$ & $\lambda = k \pm \beta i$ & $x^me^{kx}[Q_n(x)\cos(\beta x) + R_n(x)\sin(\beta x)]$ \\
+        \end{tabular}
+\end{table}
+\egroup
+
+
+%{1cm}
+
+\begin{example}[Resonance]
+        We say that an ODE of the form \begin{equation}
+                y'' + \omega^2y = 0
+        \end{equation}
+        is a \Emph{harmonic oscillator}. Suppose we have an inhomogeneous equation $$y''+9y=-18\cos(3t)$$ with a solution $$-3t\sin(t)$$ Observe that the external driving force is bound, but our solution is unbounded: this is an example of the phenomenon of \Emph{resonance}.
+\end{example}
+
+%{1cm}
+
+
+\section{Variation of Parameters}
+
+
+\begin{definition}[Variation of Parameters]
+        The method of \Emph{Variation of Parameters} aims to find a particular solution to ODEs of the form \begin{equation}
+                y''(x) + p(x)y'(x) + q(x)y(x) = f(x)
+        \end{equation} 
+        of the form \begin{equation}
+                y_{part} = C_1(x)y_1(x) + C_2(x)y_2(x)
+        \end{equation}
+        where $C_1(x)$ and $C_2(x)$ are unknown function to be determined, and $y_1(x)$ and $y_2(x)$ are solutions of the complementary homogeneous DE. In our solution we assume $C_1'y_1 + C_2'y_2 = 0$. Our end result is a system of the form \begin{equation}
+                \begin{matrix} C_1'y_1 + C_2'y_2 =0 \\ C_1'y_1' + C_2'y_2' = f(x) \end{matrix}
+        \end{equation}
+        Solving the system or using Cramer's rule gives solutions for the unknown functions of \begin{equation}
+                C_1 = -\int\frac{y_2f}{W[y_1\;y_2]}dx,\;C_2 = \int\frac{y_1f}{W[y_1\;y_2]}dx
+        \end{equation}
+\end{definition}
+
+

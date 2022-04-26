@@ -1,0 +1,252 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+\chapter{First Order ODEs}
+\label{FirstOrderODE} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+
+\section{Linear First Order ODEs}
+
+\begin{definition}[Direction Field]
+        For a first order DE that can be written in the form \begin{equation}
+                y' = f(x,y)
+        \end{equation}
+        At each point in the $(x,y)$ plane we place an arrow with slope equivalent to the value of $f(x,y)$.
+\end{definition}
+
+
+%{1cm}
+
+
+\begin{definition}[Linear First Order ODE]
+        A \Emph{linear first order ODE} is a DE of the form \begin{equation}
+                y'(x) + p(x)y(x) = q(x) \label{eq:1st}
+        \end{equation}
+\end{definition}
+
+
+%{1cm}
+
+
+\begin{definition}[Homogeneous First Order ODE]
+        A \Emph{homogeneous linear first order ODE} is a DE of the form \begin{equation}
+                y'(x) + p(x)y(x) = 0
+        \end{equation}
+\end{definition}
+
+
+
+%{1cm}
+
+
+\begin{definition}[First Order Integrating Factor Solution]
+        For a linear first order homogeneous differential equation \ref{eq:1st}, we have an \Emph{integrating factor} of the form \begin{equation}
+                \mu(x) = e^{\int p(x)dx},\;\frac{d\mu}{dx} = e^{\int p(x)dx}p(x)
+        \end{equation}
+        We multiply \ref{eq:1st} by this integrating factor and use the product law of differentiation to obtain the solution
+        \begin{equation}
+                y = e^{-\int p(x) dx}\left[\int q(x)e^{\int p(x)dx}dx + C \right]
+        \end{equation}
+        Note that the constant of integration for the integrating factor will cancel, so we use the simplest integration constant of 0.
+\end{definition}
+
+
+
+%{1cm}
+
+
+\begin{definition}[Autonomous]
+        A first order ODE is called \Emph{autonomous} if it does not include the independent variable explicitly \begin{equation}
+                y' = f(y)
+        \end{equation}
+\end{definition}
+
+
+%{1cm}
+
+
+\begin{example}[Logistic Equation]
+        The \Emph{logistic equation} is a first order autonomous DE of the form \begin{equation}
+                \frac{dN}{dt} = rN\left(1 - \frac{N}{\kappa}\right)
+        \end{equation}
+        where $\kappa = $ the carrying capacity, and $r = $ the growth rate.
+\end{example}
+
+
+
+
+%{1cm}
+
+\section{Separable Equations}
+
+\begin{definition}[Separable Equations]
+        We call a first order DE that can be written in the form \begin{equation}
+                \frac{dy}{dx}=f(x)g(y)
+        \end{equation}
+        \Emph{separable}. To solve we separate functions of $x$ and $y$ and integrate \begin{equation}
+                \int\frac{1}{g(y)}dy = \int f(x)dx
+        \end{equation}
+\end{definition}
+
+
+%{1cm}
+
+
+\begin{definition}[Singular Solutions]
+        When dividing by $g(y)$ in solving the separable DE above, we lose the \Emph{singular solution} $g(y) \equiv 0$.
+\end{definition}
+
+
+%{1cm}
+
+\section{Bernoulli Equations}
+
+\begin{definition}[Bernoulli Equations]
+        Consider a first order DE of the following form: \begin{equation}
+                y'(x) + p(x)y(x) = q(x)y^n
+        \end{equation}
+        If $n = 0$ the DE is linear, if $n = 1$ the DE is linear homogeneous and separable, and if $n \neq 0, 1$ then we have a \Emph{Bernoulli equation}. To solve a Bernoulli equation we divide by $y^{n}$ and substitute $z = y^{1-n}$, so $z' =(1-n)y^{-n}y
+        $.
+\end{definition}
+
+
+%{1cm}
+
+\section{Exact Equations}
+
+
+\begin{definition}[Exact Equation]
+        If for the equation \begin{equation}
+                M(x,y)dx + N(x,y)dy = 0
+        \end{equation}
+        we can find a function $F(x,y)$ (called a \Emph{potential function}) so that \begin{equation}
+                \frac{\partial F}{\partial x} = M(x,y)\;\text{and}\;\frac{\partial F}{\partial y} = N(x,y)
+        \end{equation}
+        then we say that the DE is \Emph{exact}, and its general solution is \begin{equation}
+                F(x,y) = C
+        \end{equation}
+\end{definition}
+
+
+%{1cm}
+
+
+\begin{definition}[Conditions]
+        The equation \begin{equation}
+                M(x,y)dx + N(x,y)dy = 0
+        \end{equation}
+        is exact if and only if \begin{equation}
+                \frac{\partial M}{\partial y} = \frac{\partial N}{\partial x},\;\text{or},\;M_y = N_x 
+        \end{equation}
+\end{definition}
+
+
+%{1cm}
+
+
+\begin{theorem}[Integrating Factors]
+        Let \begin{equation}
+                M(x,y)dx + N(x,y)dy = 0
+        \end{equation}
+        be not exact. Then integrating factors $\mu(x)$, $\mu(y)$, or $\mu(x,y)$ of the form \begin{equation}
+                \frac{\mu(x)'}{\mu(x)} = \frac{M_y(x,y) - N_x(x,y)}{N(x,y)}
+        \end{equation}
+        \begin{equation}
+                \frac{\mu(y)'}{\mu(y)} = \frac{N_x(x,y) - M_y(x,y)}{M(x,y)}
+        \end{equation}
+        and \begin{equation}
+                \mu(x,y) = x^ny^m
+        \end{equation}
+        may make the equation exact.
+\end{theorem}
+
+
+%{1cm}
+
+
+\section{Existence And Uniqueness}
+
+
+\begin{theorem}[Existence]
+        Consider the IVP \begin{equation}
+                y' = f(x,y),\;y(x_0) =y_0
+        \end{equation}
+        If there exists an open rectangle \begin{equation}
+                R = \{(x,y):a < x < b, c< y < d\}
+        \end{equation}
+        that contains the point $(x_0,y_0)$, such that $f(x,y)$ is continuous in R, then there is an interval $(a_0,b_0)$ such that a solution of our IVP exists in $(a_0,b_0)$ containing $x_0$.
+\end{theorem}
+
+%{1cm}
+
+
+
+\begin{theorem}[Uniqueness]
+        If in addition to the conditions of existence we have that $\frac{\partial f}{\partial y}$ is continuous on $R$, the solution is also unique.
+\end{theorem}
+
+
+%{1cm}
+
+
+\begin{remark}[Linear Equivalent]
+        A solution of the IVP for a linear ODE \begin{equation}
+                y' + p(x)y = q(x),\;y(x_0)=y_0
+        \end{equation}
+        has a unique solution on $(a,b)$ containing $x_0$ where $p(x)$ and $q(x)$ are continuous.
+\end{remark}
+
+%{1cm}
+
+
+
+\section{Applications}
+
+
+\begin{definition}[Exponential Growth]
+        Exponential growth is characterized by a DE of the form \begin{equation}
+                \frac{dN}{dt} = rN
+        \end{equation}
+        with exponential growth for $r > 0$ and exponential decay for $r < 0$. If $N(0) = N_0$, then $N(t) = N_0e^{rt}$.
+\end{definition}
+
+
+%{1cm}
+
+\begin{definition}[Newton's Law of Cooling]
+        Let $T(t) = $ the temperature of an object at time t, and $T_{medium} = $ the temperature of the medium. Then \Emph{Newton's Law of Cooling} states that \begin{equation}
+                \frac{dT}{dt} = k(T_{medium}-T(t))
+        \end{equation}
+        This equation is separable and linear, and gives us a general solution of the form: \begin{equation}
+                T(t) = T_{medium} + (T_0 - T_{medium})e^{-kt}
+        \end{equation}
+        where $T(0) = T_0$
+\end{definition}
+
+
+%{1cm}
+
+
+\begin{definition}[Mixing Problems]
+        Let $V(t) = $ the volume of liquid at time t, $Q(t) = $ the amount of substance desolved in the solution, $c_{in} = $ the inflow of concentration, $c_{out} = $ the outflow concentration, $r_{in} = $ the inflow rate, and $r_{out} = $ is the outflow rate. If well mixed, $c_{out} = \frac{Q(t)}{V(t)}$. Let $V(0) = V_0$, so we have the equation \begin{equation}
+                V(t) = V_0 + (r_{in} - r_{out})t
+        \end{equation}
+        and we obtain the differential equation \begin{equation}
+                \frac{dQ}{dt} = c_{in}r_{in} -c_{out}r_{out} = c_{in}r_{in} - \frac{Q(t)r_{in}}{V_0+(r_{in}-r_{out})t} 
+        \end{equation}
+\end{definition}
+
+%{1cm}
+
+
+
+
+
+

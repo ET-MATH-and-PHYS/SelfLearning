@@ -1,0 +1,314 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+\chapter{Basic Concepts}
+\label{Basic} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+
+\section{Definitions}
+
+\begin{definition}[Differential Equation]
+        A \Emph{differential equation} (DE) is an equation connecting an unknown function with some of its derivatives. In general, a DE is of the form \begin{equation}
+                F(x,y(x),y'(x),...y^{(n)}(x)) = 0
+        \end{equation}
+\end{definition}
+
+%{1cm}
+
+\begin{definition}[Order]
+        The \Emph{order} of a DE is the order of the highest derivative it contains/
+\end{definition}
+
+%{1cm}
+
+
+\begin{definition}[Dependent and Independent Variables]
+        The unknown function in a DE is called the \Emph{dependent variable}, with the variablesw on which it depends being called the \Emph{independent variables}.
+\end{definition}
+
+
+%{1cm}
+
+\begin{definition}[Solution]
+        A \Emph{solution} of a DE is a function that satisfies the equation on some open interval $(a,b)$. The graph of a solution to a DE is called a \Emph{solution curve}.
+\end{definition}
+
+
+%{1cm}
+
+
+
+\begin{definition}[Graphs]
+        A curve $C$ is said to be an \Emph{integral curve} of a DE if every function $y = y(x)$ whose graph is a segment of $C$ is a solution of the DE.
+\end{definition}
+
+
+%{1cm}
+
+
+\begin{definition}[IVP]
+        An \Emph{initial value problem} (IVP) of an nth order DE requires y and its first $n-1$ derivatives to have specified values at some point $x_0$.
+\end{definition}
+
+
+%{1cm}
+
+
+
+\begin{definition}[Validity]
+        The largest open interval $(a,b)$ that contains $x_0$, on which $y$ is defined and satisfies the DE is the \Emph{interval of validity} of $y$.
+\end{definition}
+
+
+
+%{1cm}
+
+
+\begin{definition}[Linear]
+        A DE is \Emph{linear} if it is linear with respect to the unknown function and its derivatives.
+\end{definition}
+
+
+%{1cm}
+
+
+\begin{definition}[Homogeneous]
+        A DE is \Emph{homogeneous} if it can be written in the form \begin{equation}
+                F(y,y',...,y^{(n)}) = 0
+        \end{equation}
+        Otherwise, the DE is \Emph{inhomogeneous}.
+\end{definition}
+
+
+%{1cm}
+
+
+\begin{definition}[Parameter]
+        An arbitrary constant in a DE is called a \Emph{parameter} and a solution of a DE with a single parameter edefines a \Emph{one-parameter family of functions}.
+\end{definition}
+
+
+\section{Surfaces and Integral Curves}
+
+    \begin{definition}[Surface]
+        A surface is a locus (a set of points whose location satisfies one or more specified conditions) of a point moving in space with two degrees of freedom. Generally, we use implicit and explicit representations for describing such a locus by mathematical formulas.
+    \end{definition}
+
+
+    \begin{example}
+        A sphere of radius $1$ and center at the origin has the implicit representation $x^2+y^2+z^2-1=0$, and solving for $z$ gives the two explicit solutions $z = \sqrt{1-x^2-y^2}$ and $z = -\sqrt{1-x^2-y^2}$ which represent the upper and lower hemispheres, respectively.
+    \end{example}
+
+    
+    Let $\Omega \subseteq \R^4$ and let $F(x,y,z) \in C^1(\Omega)$, where $C^1(\Omega) := \{F(x,y,z) \in C(\Omega):F_x,F_y,F_z \in C(\Omega)\}$. We know the gradient of $F$, denoted by $\nabla F$, is a vector valued function defined by \begin{equation*}
+        \nabla F = \left\langle \frac{\partial F}{\partial x}, \frac{\partial F}{\partial y},\frac{\partial F}{\partial y}\right\rangle
+    \end{equation*}
+    One can visualize $\nabla F$ as a field of vectors, with one vector, $\nabla F(x,y,z)$, emanating from each point $(x,y,z) \in \Omega$. Assume that $\nabla F(x,y,z) \neq \mathbf{0}$ for all $x \in \Omega$.
+
+    \begin{definition}
+        The set \begin{equation*}
+            S_c = \{(x,y,z) \in \Omega\vert F(x,y,z) = c\}
+        \end{equation*}
+        for some appropriate value of the constant $c$, is a surface in $\Omega$. This surface is called a \Emph{level surface} of $F$.
+    \end{definition}
+
+    Note that if $\Omega \subseteq \R^2$ we call the set a \Emph{level curve} in $\Omega$.
+
+    Let $(x_0,y_0,z_0) \in \Omega$, and set $c = F(x_0,y_0,z_0)$. The equation $F(x,y,z) = c$ represents a surface in $\Omega$ passing through the point $(x_0,y_0,z_0)$. For different values of $c$, $F(x,y,z) = c$ represents different surfaces in $\Omega$. Each point of $\Omega$ lies on exactly one level surface of $F$. Any two points $(x_0,y_0,z_0),(x_1,y_1,z_1) \in \Omega$ lie on the same level surface if and only if $F(x_0,y_0,z_0) = F(x_1,y_1,z_1)$. The equation $F(x,y,z) = c$ represents a one parameter family of surfaces in $\Omega$, where $c$ is the parameter.
+
+    \begin{example}
+        Take $\Omega = \R^3\backslash (0,0,0)$ and let $F(x,y,z) = x^2+y^2+z^2$. Then $\nabla F(x,y,z) = (2x,2y,2z)$, and the level surfaces of $F$ are spheres centered at the origin.
+    \end{example}
+
+
+    Consider a level surface $F(x,y,z) = c$ with a point $(x_0,y_0,z_0) \in \Omega$ which lies on the surface. Is it possible to describe the level surface by an equation of the form $z = f(x,y)$, so that the surface is the graph of $f$? This is equivalent to asking whether it is possible to solve $F(x,y,z) = c$ for $z$ in terms of $x$ and $y$. The Implicit Function Theorem gives a sufficient condition for this result.
+
+    Now, note that the points satisfying the equations $F(x,y,z) = c_1$ and $G(x,y,z) = c_2$ must lie on the intersection of the two level surfaces. If $\nabla F$ and $\nabla G$ are not coliniear at any point of the domain $\Omega$, where both $F$ and $G$ are defined, i.e. $\nabla F\times \nabla G \neq 0$, then the intersection of the two surfaces given by the system is always a curve. Since \begin{equation*}
+        \nabla F\times \nabla G = \left\langle \frac{\partial(F,G)}{\partial(y,z)}, \frac{\partial(F,G)}{\partial(z,x)},\frac{\partial(F,G)}{\partial(x,y)}\right\rangle
+    \end{equation*}
+    at least one of the Jacobian's must be nonzero at every point of $\Omega$.
+
+    \begin{definition}[System of Surfaces]
+        A one-parameter system of surfaces is represented by an equation of the form $f(x,y,z,c) = 0$. Consider the system of shifted surfaces described by the equation $f(x,y,z,c+\delta c) = 0$. Note that these two surfaces will intersect in a curve whose equations are given by these two equations. This curve may be considered to be the intersection of the equations \begin{equation*}
+            f(x,y,z,c) = 0,\;\;\;\;\lim\limits_{\delta c\rightarrow 0}\frac{f(x,y,z,c+\delta c)-f(x,y,z,c)}{\delta c}
+        \end{equation*}
+        The limiting curve described by the set of equations \begin{equation*}
+            f(x,y,z,c) = 0,\;\;\;\;\frac{\partial}{\partial c}f(x,y,z,c) = 0
+        \end{equation*}
+        is called the \Emph{characteristic curve} of $f(x,y,z,c) = 0$.
+    \end{definition}
+
+    Geometrically this is the curve on the surface $f(x,y,z,c) = 0$ approached by the intersections of $f(x,y,z,c) = 0$ and $f(x,y,z,c+\delta c) = 0$ as $\delta c \rightarrow 0$. Note that as $c$ varies, the characteristic curve traces out a surface whose equation is of the form $g(x,y,z) = 0$.
+
+    \begin{definition}
+        The surface determined by eliminating the parameter $c$ between the equations  \begin{equation*}
+            f(x,y,z,c) = 0,\;\;\;\;\frac{\partial}{\partial c}f(x,y,z,c) = 0
+        \end{equation*}
+        is called the \Emph{envelope of the one-parameter system $f(x,y,z,c) = 0$}.
+    \end{definition}
+
+    \begin{example}
+        Consider the equation $$x^2+y^2+(z-c)^2 = 1$$ This equation represents the family of spheres of unit radius with centers along the $z$-axis. Setting $f(x,y,z,c) = x^2+y^2+(z-c)^2-1$, $\frac{\partial f}{\partial c} = 2c-2z$. The set of equation $x^2+y^2+(z-c)^2=1, z =c$ describes the characteristic curve of the surface. Eliminating the parameter $c$, the envolope of this family is the cylinder $x^2+y^2=1$.
+    \end{example}
+
+    Now consider the two parameter system of surfaces defined by the equation $f(x,y,z,c,d) = 0$, where $c$ and $d$ are parameters. In a similar way, the characteristic curve of the surface passes through the point defined by the equations \begin{equation*}
+        f(x,y,z,c,d) = 0,\;\;\frac{\partial }{\partial c}f(x,y,z,c,d) = 0,\;\;\frac{\partial }{\partial d}f(x,y,z,c,d) = 0
+    \end{equation*}
+    This point is called the \Emph{characteristic point} of the two-parameter system $f(x,y,z,c,d) = 0$. As the parameters $c$ and $d$ vary, this point generates a surface which is called the \Emph{envelope} of the surfaces.
+
+    \begin{definition}
+        The surface obtained by eliminating $c$ and $d$ from the equations \begin{equation*}
+        f(x,y,z,c,d) = 0,\;\;\frac{\partial }{\partial c}f(x,y,z,c,d) = 0,\;\;\frac{\partial }{\partial d}f(x,y,z,c,d) = 0
+    \end{equation*}
+        is called the \Emph{envolope of the two-parameter system $f(x,y,z,c,d) = 0$}
+    \end{definition}
+
+    \begin{example}
+        Consider the system $(x-c)^2+(y-d)^2+z^2$, for parameters $c$ and $d$. Observe that $(x-c)^2+(y-d)^2+z^2=1$, $x-c = 0$, and $y-d = 0$, gives the characteristic points of the two parameter system $(c,d,\pm 1)$. Eliminating $c$ and $d$, the envolope is the pair of parallel planes $z = \pm 1$.
+    \end{example}
+
+    
+    Let $V(x,y,z) = (P(x,y,z),Q(x,y,z),R(x,y,z))$ be a vector field defined in some domain $\Omega \subseteq \R^3$ satisfying the conditions \begin{itemize}
+        \item $V\neq 0$ in $\omega$, i.e., the component functions $P,Q,R$ of $V$ do not vanish simultaneously at any point in $\Omega$.
+        \item $P,Q,R \in C^1(\Omega)$.
+    \end{itemize}
+
+    \begin{definition}
+        A curve $C$ in $\Omega$ is an integral curve of the vector field $V$ if $V$ is tangent to $C$ at each of its points.
+    \end{definition}
+
+    \begin{example}
+        The integral curves of the constant vector fields $V = (1,0,0)$ are lines parallel to the x-axis.
+    \end{example}
+
+    \begin{example}
+        The integral curves of $V = (y,-x,0)$ are circles parallel to the $xy$-plane and centered on the $z$-axis.
+    \end{example}
+
+    For a force field $V$ in physics, the integral curves of $V$ are called lines of force. If $V$ is the velocity of the fluid flow, the integral curves of $V$ are called lines of flow; these are the paths of motion of the fluid particles.
+
+    With $V = (P,Q,R)$ we associate the system of ODEs \begin{equation*}
+        \frac{dx}{dt} = P,\;\;\frac{dy}{dt} = Q,\;\;\frac{dz}{dt} = R
+    \end{equation*}
+    A solution $(x(t),y(t),z(t))$ of the system defined for $t$ in some interval $I$ may be regarded as a curve in $\Omega$. We call this curve a solution curve of the system. Everysolution curve of the system is consequently an integral curve of the vector field. Conversely, if $C$ is an integral curve of $V$, then there is a parametrization $(x(t),y(t),z(t)),t \in I$ of $C$ such that $(x(t),y(t),z(t))$ is a solution curve of the system of equations. Thus, every integral curve of $V$, if parametrized appropriately, is a solution curve of the associated system of equations. 
+
+    It is customary to write the system in the form \begin{equation*}
+        \frac{dx}{P} = \frac{dy}{Q} = \frac{dz}{R}
+    \end{equation*}
+
+    \begin{example}
+        The systems associated with the vector fields $V = (x,y,z)$ and $V = (y,-x,0)$, respectively, are $$\frac{dx}{x} = \frac{dy}{y} = \frac{dz}{z}$$ and $$\frac{dx}{y} = \frac{dy}{-x} = \frac{dz}{0}$$ Note that the zero in the denominator of the second system is simply a notation, not an actual division by zero, representing $dx/dy = dy/dz = dz/dt = 0$.
+    \end{example}
+
+    \begin{definition}
+        Two functions $\phi,\psi \in C^1(\Omega)$ are \Emph{functionally independent} in $\Omega \subseteq \R^3$ if \begin{equation*}
+            \nabla \phi(x,y,z)\times \nabla\psi(x,y,z) \neq 0,\;\;\forall (x,y,z) \in \Omega
+        \end{equation*}
+        Geometrically, this implies that the gradients are not parallel at any point of $\Omega$.
+    \end{definition}
+
+    \begin{definition}
+        A function $\phi \in C^1(\Omega)$ is called a \Emph{first integral} of the vector field $V= (P,Q,R)$ (or its associated differential system) in $\Omega$, if at each point of $\Omega$, $V$ is orthogonal to $\nabla \phi$, i.e., $V\cdot \nabla \phi = 0$ in $\Omega$.
+    \end{definition}
+
+    \begin{theorem}
+        Let $\phi_1$ and $\phi_2$ be any two functionally independent first integrals of $V$ in $\Omega$. Then the equations \begin{equation*}
+            \phi_1(x,y,z) = c_1,\;\;\;\phi_2(x,y,z) = c_2
+        \end{equation*}
+        describe the collection of all integral curves of $V$ in $\Omega$.
+    \end{theorem}
+
+
+    If $\phi(x,y,z)$ is a first integral of $V$ and $f(\phi)$ is a $C^1$ function of single variable $\phi$ then $w(x,y,z) = f(\phi(x,y,z))$ is also a first integral of $V$. This follows from the fact that \begin{align*}
+        V \cdot \nabla w = V \cdot (f'\cdot \nabla \phi) = f'\cdot(V\cdot \nabla \phi) = 0
+    \end{align*}
+    Similarly, if $f(u,v)$ is a $C^1$ function of two variables $\phi_1,\phi_2$, and if $\phi_1$ and $\phi_2$ are any two first integrals of $V$, then $w(x,y,z) = f(\phi_1(x,y,z),\phi_2(x,y,z))$ is also a first integral of $V$.
+
+    \begin{example}
+        Let $V = (1,0,0)$ be a vector field and let $\Omega = \R^3$. A first integral of $V$ is a solution of the equation $\phi_x = 0$. Any function of $y$ and $z$ only is a solution of this equation, for example $\phi_1 = y,\phi_2 = z$ are two solutions which are functionally independent. The integral curves of $V$ are described by the equations $y = c_1, z = c_2$, and are straight lines parallel to the $x$-axis.
+    \end{example}
+
+    \begin{example}
+        Let $V = (y,-x,0)$ be a vector field and let $\Omega = \R^3\backslash z$-axis. A first integral of $V$ is a solution of the equation \begin{equation*}
+            y\phi_x - x\phi_y = 0
+        \end{equation*}
+        Is is easy to verify that $\phi_1 = x^2+y^2$ and $\phi_2 = z$ are two functionally independent first integrals of $V$. Therefore, the integral curves of $V$ in $\Omega$ are given by $x^2+y^2=c_1$ and $z=c_2$. The above equations describe circles parallel to the $xy$-plane centered on the $z$-axis.
+    \end{example}
+
+
+    \subsection{Solving Integral Curve PDEs}
+
+    The integral curves of the set of DEs $\frac{dx}{P} = \frac{dy}{Q} = \frac{dz}{R}$ form a two-parameter family of curves in three-dimensional space. If we can derive two relations of the form $u_1(x,y,z) = c_1$ and $u_2(x,y,z) = c_2$ then varying $c_1$ and $c_2$ gives a two-parameter family of curves satisfying the DE. We shall discuss methods for solving these DEs.
+
+    \textbf{Method I:} Along any tangential direction through a point $(x,y,z)$ to $u_1(x,y,z) = c_1$, we have \begin{equation*}
+        du_1 = \nabla u_1 \cdot d\vec{r} = 0
+    \end{equation*}
+    If $u_1(x,y,z) = c$ is a suitable one-parameter system of surfaces, then the tangential direction to the integral curve through the point $(x,y,z)$ is also a tangential direction to this surface. Hence, $(P,Q,R)\cdot \nabla u_1 = 0$. To find $u_1$ we choose $P_1,Q_1,R_1$ such that $(P,Q,R) \cdot (P_1,Q_1,R_1) = 0$. Thus, there exists a function $u_1$ such that \begin{equation*}
+        P_1 = \partial_xu_1,\;\;Q_1 = \partial_yu_1,\;\;R_1 = \partial_zu_1
+    \end{equation*}
+    and this leads to the exact differential $du_1 = P_1dx+Q_1dy+R_1dz$.
+
+
+    \begin{example}
+        Suppose we want to find the integral curves of the equations \begin{equation*}
+            \frac{dx}{y(x+y)} = \frac{dy}{x(x+y)} = \frac{dz}{z(x+y)}
+        \end{equation*}
+        so $P = y(x+y),Q = x(x+y),R = z(x+y)$. We want $P_1,Q_1,R_1$ such that $(P_1y+Q_1x+R_1z)(x+y) = 0$. Then we can take $P_1 = 1/z, Q_1 = 1/z, R_1 = -(x+y)/z^2$. The function $u_1$ is then determined as follows: $u_1 = x/z+f(y,z),u_1 = y/z+f(x,z), u_1 = (x+y)/z+f(x,y)$, so $u_1 = (x+y)/z$, and our one-parameter family of surfaces is $(x+y)/z = C$. Similarly, choosing $P_1 = x,Q_1 = -y, R_1 = 0$ we have $u_2 = x^2/2-y^2/2 = c_2$ as our second family of surfaces. Thus, the integral curves of the differential equations are the members of the two-parameter family of curves\begin{equation*}
+            x+y = c_1z, \;\;x^2-y^2 = c_2
+        \end{equation*}
+    \end{example}
+
+    \textbf{Method II:} Suppose that we are able to find three functions $P_1,Q_1,R_1$ such that the ratio \begin{equation*}
+        \frac{P_1dx+Q_1dy+R_1dz}{PP_1+QQ_1+RR_1} = dW_1
+    \end{equation*}
+    is an exact differential. Similarly, suppose we can find other three functions such that \begin{equation*}
+        \frac{P_2dx+Q_2dy+R_2dz}{PP_2+QQ_2+RR_2} = dW_2
+    \end{equation*}
+    is also an exact differential. Since the ratios \begin{equation*}
+        \frac{P_1dx+Q_1dy+R_1dz}{PP_1+QQ_1+RR_1} = \frac{dx}{P}=\frac{dy}{Q} =\frac{dz}{R} = \frac{P_1dx+Q_1dy+R_1dz}{PP_1+QQ_1+RR_1}
+    \end{equation*}
+    it follows that $dW_1 = dW_2$, which yields the relation \begin{equation*}
+        W_1(x,y,z) = W_2(x,y,z) +c_1
+    \end{equation*}
+    where $c_1$ is an arbitrary constant.
+
+    \begin{example}
+        We want to find the integral curves of the equation \begin{equation*}
+            \frac{dx}{y-x} = \frac{dy}{x+y}=\frac{zdz}{x^2+y^2}
+        \end{equation*}
+        Here $P = y-x, Q = x+y, R = (x^2+y^2)/z$. Opserve that $P+Q = 2y$. Choosing $P_1 = 1,Q_1 = 1, R_1 = 0$ we obtain \begin{equation*}
+            \frac{dx+dy}{2y} = \frac{dy}{x+y}
+        \end{equation*}
+        so $(x+y)(dx+dy) = 2ydy$, and $\frac{1}{2}d[(x+y)^2] = 2ydy$. It has solution of the form \begin{equation*}
+            u_1(x,y,z) = \frac{(x+y)^2}{2} - y^2 = c_1
+        \end{equation*}
+        Similarly, with $P_2 = x,Q_2 = -y,R_2 = z$, we find that \begin{equation*}
+            xdx-ydy+zdz = 0
+        \end{equation*}
+        which has solution $u_2 = x^2-y^2+z^2 = c_2$. The equations \begin{equation*}
+            \frac{(x+y)^2}{2}-y^2=c_1,\;\;x^2-y^2+z^2 = c_2
+        \end{equation*}
+        constitute the integral curves of our DEs.
+    \end{example}
+
+
+    \textbf{Method III:} When one of the variables is absent from our DEs, we can derive the integral curves simply. For the sake of definiteness, let $P$ and $Q$ be functions of $x$ and $y$ only. Then the equation $\frac{dx}{P} = \frac{dy}{Q}$ may be written as $\frac{dy}{dx} = \frac{Q}{P}$. Let this equation have a solution of the form $\phi(x,y,c_1) = 0$. Solving for $x$ and substituting the value of $x$ in the equation $\frac{dy}{Q} = \frac{dz}{R}$ leads to an equation of the form $g(y,z,c_1) = \frac{dy}{dz}$. Let the solution of this form be expressed by $\psi(y,z,c_1,c_2) = 0$.
+
+    \begin{example}
+        Find the integral curves of the equations \begin{equation*}
+            \frac{dx}{x} = \frac{dy}{y+x^2} = \frac{dz}{y+z}
+        \end{equation*}
+        The first two equations may be expressed as $\frac{dy}{dx}-\frac{y}{x} = x$, so $\frac{d}{dx}\left(\frac{y}{x}\right) = 1$, which has solution $y = C_1x+x^2$. Using the first and third equations of our original DE, $\frac{dz}{dx} = \frac{y}{x}+\frac{z}{x} =c_1+x+\frac{z}{x}$, so $\frac{d}{dx}\left(\frac{z}{x}\right) = \frac{c_1}{x}+1$, which has solution \begin{equation*}
+            z = c_1x\log(x) + c_2 x + x^2
+        \end{equation*}
+        Hence, the integral curves of the DEs are given by the equations \begin{equation*}
+            y = c_1x+x^2,\;\;z=c_1x\log(x)+c_2x+x^2
+        \end{equation*}
+    \end{example}

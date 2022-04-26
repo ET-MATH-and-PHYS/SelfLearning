@@ -1,0 +1,72 @@
+\contentsline {part}{Part\ I\hspace {\betweenumberspace }Part I}{1}{part.1}%
+\contentsline {chapter}{\numberline {1}Complex Plane and Basic Functions}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Complex Numbers}{3}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Geometry of the Complex Numbers}{4}{subsection.1.1.1}%
+\contentsline {section}{\numberline {1.2}Local Inverses and Branch-cut}{7}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Square-Root Function}{8}{subsection.1.2.1}%
+\contentsline {section}{\numberline {1.3}Complex Exponential}{8}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Failure to Inject}{8}{subsection.1.3.1}%
+\contentsline {section}{\numberline {1.4}Sine, Cosine, Cosh, Sinh}{9}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Complex Cosine is Not Bounded}{10}{subsection.1.4.1}%
+\contentsline {section}{\numberline {1.5}Power Functions}{11}{section.1.5}%
+\contentsline {chapter}{\numberline {2}Analytic Functions}{13}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Basic Analysis and Topology}{13}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Analytic Functions}{17}{section.2.2}%
+\contentsline {section}{\numberline {2.3}The Cauchy Riemann Equations}{18}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Real Differentiability}{19}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Cauchy Riemann Equations Sketch}{20}{subsection.2.3.2}%
+\contentsline {section}{\numberline {2.4}Analytic Functions (cont.)}{21}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Harmonic Functions}{22}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Conformal Functions}{23}{section.2.6}%
+\contentsline {section}{\numberline {2.7}Fractional Linear Transformations (FLT's)}{24}{section.2.7}%
+\contentsline {subsection}{\numberline {2.7.1}Extended Complex Plane}{25}{subsection.2.7.1}%
+\contentsline {chapter}{\numberline {3}Line Integrals}{27}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Line Integrals}{27}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Harmonic Conjugates}{30}{section.3.2}%
+\contentsline {section}{\numberline {3.3}The Mean Value Property}{31}{section.3.3}%
+\contentsline {section}{\numberline {3.4}The Maximum Principle}{32}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Applications to Physics}{33}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}The Laplace Equation}{34}{subsection.3.5.1}%
+\contentsline {chapter}{\numberline {4}Complex Integration}{37}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Complex Line Integrals}{37}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Fundamental Theorem of Calculus for Analytic Functions}{40}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Cauchy's Theorem and Integral Formula}{40}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Liouville's Theorem}{43}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Morera's Theorem}{44}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Goursat's Theorem}{45}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Pompeiu's Formulas}{46}{section.4.7}%
+\contentsline {chapter}{\numberline {5}Power Series}{49}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Infinite Series}{49}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Sequences and Series of Functions}{50}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Power Series}{54}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Manipulation of Power Series}{59}{subsection.5.3.1}%
+\contentsline {section}{\numberline {5.4}Zeros of an Analytic Function}{60}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Analytic Continuation}{62}{section.5.5}%
+\contentsline {chapter}{\numberline {6}Laurent Series}{65}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Laurent Decomposition}{65}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Isolated Singularities of an Analytic Function}{68}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Partial Fractions Decomposition}{73}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Periodic Functions}{76}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Fourier Series}{77}{section.6.5}%
+\contentsline {chapter}{\numberline {7}Residue Calculus}{81}{chapter.7}%
+\contentsline {section}{\numberline {7.1}The Residue Theorem}{81}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Integrals Featuring Rational Functions}{84}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Integrals of Trigonometric Functions}{85}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Integrands with Branch Points}{87}{section.7.4}%
+\contentsline {section}{\numberline {7.5}Fractional Residues}{89}{section.7.5}%
+\contentsline {section}{\numberline {7.6}Principal Values}{90}{section.7.6}%
+\contentsline {section}{\numberline {7.7}Jordan's Lemma}{91}{section.7.7}%
+\contentsline {part}{Part\ II\hspace {\betweenumberspace }Part II}{93}{part.2}%
+\contentsline {chapter}{\numberline {8}Logarithmic Integral}{95}{chapter.8}%
+\contentsline {section}{\numberline {8.1}The Argument Principle}{95}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Rouch\'{e}'s Theorem}{97}{section.8.2}%
+\contentsline {chapter}{\numberline {9}Chapter Heading}{99}{chapter.9}%
+\contentsline {part}{Part\ III\hspace {\betweenumberspace }Part III}{101}{part.3}%
+\contentsline {chapter}{\numberline {10}Approximation Theorems}{103}{chapter.10}%
+\contentsline {section}{\numberline {10.1}The Mittag-Leffler Theorem}{103}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Infinite Products}{104}{section.10.2}%
+\contentsline {section}{\numberline {10.3}The Weierstrass Product Theorem}{106}{section.10.3}%
+\contentsline {chapter}{\numberline {11}Special Functions}{107}{chapter.11}%
+\contentsline {section}{\numberline {11.1}The Gamma Function}{107}{section.11.1}%
+\contentsline {section}{\numberline {11.2}Laplace Transforms}{108}{section.11.2}%
+\contentsfinish 

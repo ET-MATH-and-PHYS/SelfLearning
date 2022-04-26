@@ -1,0 +1,130 @@
+%%%%%%%%%%%%%%%%%%%% book.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Book template for lecture notes
+%
+%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% RECOMMENDED %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[graybox,envcountchap,sectrefs]{style/svmono}
+
+
+\input{book_packages}
+\usepackage{fitch}
+\usepackage{forallpackages}
+\usepackage{tabu}
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
+
+\usepackage{imakeidx}
+\makeindex[options=-s style/svind.ist]
+\newcommand\gobbleone[1]{}
+\newcommand{\seeonly}[2]{\ (\emph{\seename} #1)}
+\newcommand{\also}[2]{\unskip(\emph{\alsoname} #1)}
+\newcommand{\Also}[2]{\unskip\emph{See also} #1}
+\let\oldindex\index
+\renewcommand{\index}[1]{\def\exptoindex{#1}\expandafter\oldindex\expandafter{\exptoindex}}
+
+\newcommand{\seeonlyindex}[2]{\index{#1@#1\protect\gobbleone|seeonly{#2}}}
+\newcommand{\alsoindex}[2]{\index{#1!zzzz@\protect\gobbleone|also{#2}}}
+\newcommand{\Alsoindex}[2]{\index{#1!zzzz@\protect\gobbleone|Also{#2}}}
+
+% see the list of further useful packages
+% in the Reference Guide
+
+\makeindex             % used for the subject index
+                       % please use the style svind.ist with
+                       % your makeindex program
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\graphicspath{{./}{images/}}
+
+\begin{document}
+
+\author{Elijah Thompson}
+\title{Mathematical Logic: A Complete Guide}
+\subtitle{-- In Pursuit of Abstract Nonsense --}
+\maketitle
+
+\frontmatter%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\include{frontmatter/dedication}
+%\include{frontmatter/foreword}
+\include{frontmatter/preface}
+%\include{frontmatter/acknowledgement}
+
+\tableofcontents
+
+%\include{frontmatter/notation}
+
+
+\mainmatter%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{Basic/part}
+\include{Basic/Arguments}
+\include{Basic/Lang}
+\include{Basic/Deduct}
+
+
+\include{TruthFunc/part}
+\include{TruthFunc/Symb}
+\include{TruthFunc/TruthTable}
+\include{TruthFunc/Semantic}
+\include{TruthFunc/NatDeduct}
+\include{TruthFunc/SoundComp}
+
+
+\include{FirstOrder/part}
+\include{FirstOrder/Build}
+\include{FirstOrder/Sentences}
+\include{FirstOrder/Extension}
+\include{FirstOrder/Truth}
+\include{FirstOrder/FOLDeduct}
+\include{FirstOrder/SoundComp}
+\include{FirstOrder/Model}
+
+\include{ModalLog/part}
+\include{ModalLog/GenConc}
+\include{ModalLog/Models}
+\include{ModalLog/Frames}
+\include{ModalLog/Comp}
+\include{ModalLog/Algebra}
+\include{ModalLog/FOModal}
+
+
+\include{Computability/part}
+\include{Computability/Turing}
+\include{Computability/Uncomp}
+\include{Computability/Recurse}
+\include{Computability/Undecide}
+\include{Computability/FOL}
+\include{Computability/SOL}
+\include{Computability/Define}
+
+
+\include{Metatheory/part}
+\include{Metatheory/Normal}
+\include{Metatheory/FuncComp}
+\include{Metatheory/Sound}
+
+
+
+
+
+
+
+
+
+\backmatter%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\include{backmatter/appendix}
+%\include{backmatter/glossary}
+%\include{backmatter/solutions}
+\printindex
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
+
+
+
+
+

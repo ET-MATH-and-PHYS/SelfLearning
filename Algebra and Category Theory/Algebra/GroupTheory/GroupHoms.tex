@@ -1,9 +1,11 @@
 %%%%%%%%%% Grp Homs %%%%%%%%%%
-\chapter{\textsection\textsection Group Homomorphisms}
+\chapter{ Group Homomorphisms}
+\label{GrpHoms}
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+\section{ Basic Definitions and Examples: Group Homomorphisms}
 
-\section{\textsection Basic Definitions and Examples: Group Homomorphisms}
-
-\begin{defn}[A]
+\begin{definition}[A]
     A \Emph{group homomorphism} from a group $A$ to a group $B$ is a map of sets $\phi:A\rightarrow B$ that satisfies the condition: \begin{equation}
         \forall a_1,a_2\in A,\;\;\;\phi(a_1\cdot a_2) = \phi(a_1)\cdot \phi(a_2)
     \end{equation}
@@ -18,17 +20,17 @@
             \end{tikzpicture}
         \end{center}
         We denote the set of all group homomorphisms from $A$ to $B$ by $\Hom_{\Grp}(A,B)$.
-\end{defn}
+\end{definition}
 
 
-\begin{defn}[B]
+\begin{definition}[B]
     Let $(G,\star)$ and $(M,\circ)$ be groups. A map $G\xrightarrow{f} M$ is a \Emph{homomorphism of groups} if \begin{equation}
         f(x\star y) = f(x)\circ f(y),\forall x,y \in G
     \end{equation} 
-\end{defn}
+\end{definition}
 
 
-\begin{eg}
+\begin{example}
     \leavevmode
     \begin{enumerate}
         \item $H \leq G$, then $H \xhookrightarrow{\iota} G$ the inclusion map is a \Emph{monomorphism} (an injective homomorphism)
@@ -39,7 +41,7 @@
         \item $(G,\star)$ a group, then for $g \in G$, $$\map{\Z\xrightarrow{\phi_g}G}{x\mapsto g^n}$$ is a group homomorphism. It needs not be injective or surjective.
         \item $\map{|\cdot|:\C^{\times}\rightarrow \R^{\times}}{z\mapsto |Z|}$ is an epimorphism.
     \end{enumerate}
-\end{eg}
+\end{example}
 
 
 \begin{props}
@@ -53,7 +55,7 @@
     (Left to the reader)
 \end{proof}
 
-\begin{rmk}
+\begin{remark}
     \leavevmode
     \begin{enumerate}
         \item If $H_1 \leq G\xrightarrow{f} K$ where $f$ is a homomorphism, then the canonical map \begin{equation}
@@ -65,9 +67,9 @@
         \end{equation}
         is a homomorphism of groups.
     \end{enumerate}
-\end{rmk}
+\end{remark}
 
-\begin{eg}
+\begin{example}
     For $\det:\GL_n(\R)\rightarrow \R^{\times}$, we have $\SL_n(\R) \leq \GL_n(\R)$, so $\SL_n(\R)\xrightarrow{\det}\R^{\times}$ is a homomorphism, and \begin{equation}
         \ran\left(\det\rvert_{\SL_n(\R)}\right) = \{1\} \leq \R^{\times}
     \end{equation}
@@ -75,45 +77,45 @@
         \det:\SL_2(\R)\rightarrow \{1\}
     \end{equation}
     is a homomorphism.
-\end{eg}
+\end{example}
 
 
-\begin{prop}
+\begin{proposition}
     Let $G\xrightarrow{f} K$ be a group homomorphism. Then \begin{enumerate}
         \item Let $H_1 \leq G$, then the image $f(H_1) \leq K$ is a subgroup of $K$
         \item Let $H_2 \leq K$, then $f^{-1}(H_2) \leq G$ is a subgroup of $G$, called the inverse image of $H_2$, or the pre-image of $H_2$ by $f$.
     \end{enumerate}
-\end{prop}
+\end{proposition}
 \begin{proof}
     (Left to the reader)
 \end{proof}
 
 
-\begin{rmk}
+\begin{remark}
         Note that the image of a cyclic subgroup $\langle g \rangle \leq G$ under a group homomorphism $f: G \rightarrow K$ is the cyclic subgroup \begin{equation}
                 \langle f(g) \rangle \leq K
         \end{equation}
-\end{rmk}
+\end{remark}
 \begin{proof}
         (Left to the reader)
 \end{proof}
 
-\begin{cor}
+\begin{corollary}
         Let $G \xrightarrow{f} K$ be a group homomorphism. \begin{enumerate}
                 \item The \Emph{image} $f(G) = \ran(f)$ is a subgroup of $K$
                 \item The \Emph{kernel} $\ker(f) := f^{-1}(\{e_K\})$ is a subgroup of $G$
         \end{enumerate}
-\end{cor}
+\end{corollary}
 
-\begin{prop}
+\begin{proposition}
         Let $G\xrightarrow{f} K$ be a group homomorphism. Then $f$ is injective (i.e. a \Emph{monomorphism}) if and only if $\ker(f) = \{e_G\}$.
-\end{prop}
+\end{proposition}
 \begin{proof}
         (Left to the reader)
 \end{proof}
 
 
-\begin{eg}
+\begin{example}
         \leavevmode
         \begin{enumerate}
                 \item $f$ a homomorphism is an isomorphism if and only if $\ker(f) = \{e_G\}$ and $\ran(f) = K$ (for $G\xrightarrow{f} K$)
@@ -125,14 +127,14 @@
                 \item The modulus map $\C^{\times} \xrightarrow{|\cdot|}\R^{\times}$ is a group homomorphism with $\ker(|\cdot|) = \{z = \C^{\times}:|z| = 1\} = S^1$ the circle group, and $\ran(|\cdot|) = \R_{>0}$.
                 \item The map $\map{\R\xrightarrow{\alpha}\C^{\times}}{\theta\mapsto \exp(2\pi i \theta)}$ is a group homomorphism with $\ker(\alpha) = \Z$ and $\ran(\alpha) = S^1$.
         \end{enumerate}
-\end{eg}
+\end{example}
 
 
 
 
-\subsection{\textsection Group Isomorphisms}
+\subsection{ Group Isomorphisms}
 
-\begin{eg}[motivating examples]
+\begin{example}[motivating examples]
     \leavevmode
     \begin{enumerate}
         \item $g_1 := s_{\{1,2,3\}}$ and $g_2 := s_{\{a,b,c\}}$ are essentially the ``same" group, but their elements are not the same. indeed ``everything we do" in $g_1$ using the group operation we can do in $g_2$ by renaming $1$ as $a$, $2$ as $b$, and $3$ and $c$: order ($|g_1| = |g_2|$), subgroups, orders of elements, ``equations," etc.
@@ -152,21 +154,21 @@
         \end{equation*}
         $[0]$ plays the role of $+1$ and $[1]$ plays the role of $-1$.
     \end{enumerate} 
-\end{eg}
+\end{example}
 
 
 
-\begin{prop}
+\begin{proposition}
     $\Z/n\Z$ is isomorphic to the group of $n$th roots of unity: \begin{equation}
         \{z\in\C:z^n = 1\}
     \end{equation}
-\end{prop}
+\end{proposition}
 
-\begin{defn}
+\begin{definition}
     Let $(G,\star)$ and $(M,\circ)$ be groups. A bijective map $G\xrightarrow{f} M$ which is a group homomorphism is called an \Emph{isomorphism} of the groups $G$ and $M$. The groups $(G,\star)$ and $(M,\circ)$ are said to be \Emph{isomorphic}, denoted $(G,\star) \cong (M,\circ)$.
-\end{defn}
+\end{definition}
 
-\begin{eg}
+\begin{example}
     \leavevmode
     \begin{enumerate}
         \item $\map{\Z\xrightarrow{f}2\Z}{n\mapsto 2n}$ is a group isomorphism.
@@ -190,73 +192,73 @@
         is a group isomorphism with inverse $\alpha_{h^{-1}}$.
         \item $\map{\Z\xrightarrow{\beta}\Z}{n\mapsto -n}$ is a group isomorphism.
     \end{enumerate}
-\end{eg}
+\end{example}
 
-\begin{defn}
+\begin{definition}
     An \Emph{isomorphism} $(G,\star)\rightarrow(G,\star)$ is called an \Emph{automorphism} of $(G,\star)$.
-\end{defn}
+\end{definition}
 
-\begin{prop}
+\begin{proposition}
     The set of automorphisms of a group $G$ is a subgroup of the symmetric group $S_G$.\begin{enumerate}
         \item The identity map $\map{\id:G\rightarrow G}{g\mapsto g}$ is an isomorphism (hence an automorphism) which acts as an identity for the group
         \item If $G\xrightarrow{\phi}H$ is an isomorphism, then the inverse $H\xrightarrow{\phi^{-1}}G$ is an isomorphism
         \item If $G\xrightarrow{\phi}H$ and $H\xrightarrow{\psi}K$ are isomorphisms, then the composition $\psi \circ \phi$ is also an isomorphism
     \end{enumerate}
-\end{prop}
+\end{proposition}
 \begin{proof}
     (Left to the reader)
 \end{proof}
 
-\begin{cor}
+\begin{corollary}
     The set $\aut(G)$ of automorphisms of $G$ is a group for the composition of maps.
-\end{cor}
+\end{corollary}
 
-\begin{eg}[Non-example]
+\begin{example}[Non-example]
     $\Q\cancel{\cong} \Q^{\times}$ because $-1 \in \Q^{\times}$ has order $2$, but $\Q$ does not have any element of order $2$. Indeed, if $x \in \Q$ such that $x+x=2x = 0$, then $x = 0$ so $o(x) = 1$. But, if $\Q^{\times}\xrightarrow{\phi}\Q$ is an isomorphism, then $o(\phi(-1)) = 2$, which is not possible.
-\end{eg}
+\end{example}
 
-\begin{thm}[Dihedral Group Isomorphisms]
+\begin{theorem}[Dihedral Group Isomorphisms]
     Let $x,y \in G$ such that $G = \langle x,y \rangle (:= \langle \{x,y\}\rangle)$ with the relations $x^n = y^2 = e$, $yx = x^{-1}y$, and $n \geq 1$. Then $|G| \leq 2n$. If $|G| = 2n$, then the relation characterizes the group up to isomorphism.
-\end{thm}
+\end{theorem}
 \begin{proof}
     If $n = 1$, $G \cong \Z/2\Z \cong D_1$. If $n = 2$, $G \cong \Z/2\Z \times \Z/2\Z \cong D_2$, mapping $x \mapsto ([1],[0])$ and $y \mapsto ([0],[1])$. Now, for all $n \geq 1$, let $Y_n := \{e,x,x^2,...,x^{n-1},y,xy,...,x^{n-1}y\}$. We know that $G = Y_n$ as sets from our study of the relations on the dihedral group. But $|Y_n| = 2n$ as a set, so $|G| \leq 2n$ as a group. If $|G| = 2n$, then all elements described in $Y_n$ are distinct in $G$, and the Caley table of the group is fixed by the relations. Thus, the group $G$ is uniquely determined up to isomorphism by the relations and $|G| = 2n$. If $n \geq 3$ we have seen that $\langle x = \phi_{2\pi/n},y = \psi_0\rangle = D_n$, $x,y$ satisfy the relations and $|D_n| = 2n$, so $G \rightarrow D_n$ is an isomorphism (taking $x$ in $G$ to $x$ in $D_n$ and $y$ in $G$ to $y$ in $D_n$).
 \end{proof}
 
-\begin{cor}
+\begin{corollary}
     $S_3 \cong D_3$ for $x = (1\;2\;3)$, $y = (1\;2)$.
     \begin{proof}
         (Left to the reader)
     \end{proof}
-\end{cor}
+\end{corollary}
 
 
 
-\section{\textsection Automorphisms}
+\section{ Automorphisms}
 
-\begin{defn}
+\begin{definition}
     Let $G$ be a group. An isomorphism from $G$ onto itself is called an \Emph{automorphism} of $G$. The group of all automorphisms on $G$ is denoted by $\aut(G)$.
-\end{defn}
+\end{definition}
 
 
-\begin{prop}
+\begin{proposition}
     Let $H$ be a normal subgroup of the group $G$. Then $G$ acts by conjugation on $H$ as automorphisms of $H$. More specifically, the action of $G$ on $H$ by conjugation is defined for each $g \in G$ by \begin{equation*}
         h\mapsto ghg^{-1}\;\;\;\text{ for each }\;h\in H
     \end{equation*}
     For each $g \in G$, conjugation by $g$ is an automorphism of $H$. The permutation representation afforded by this action is a homomorphisms of $G$ into $\aut(H)$ with kernel $C_G(H) = \{g \in G:\forall h\in H, ghg^{-1} =h\}$ (The centralizer of $H$ with respect to $G$). In particular, $G/C_G(H)$ is isomorphic to a subgroup of $\aut(H)$.
-\end{prop}
+\end{proposition}
 
-\begin{rmk}
+\begin{remark}
     This proposition implies that a group acts by conjugation on a normal subgroup as \emph{structure preserving permutations}, i.e. automorphisms.
-\end{rmk}
+\end{remark}
 
-\begin{cor}
+\begin{corollary}
     If $K$ is any subgroup of the group $G$ and $g \in G$, then $K \cong gKg^{-1}$. Conjugate elements and conjugate subgroups have the same order (as the induced map is an automorphism).
-\end{cor}
+\end{corollary}
 
 
-\begin{cor}
+\begin{corollary}
     For any subgroup $H$ of a group $G$, the quotient group $N_G(H)/C_G(H)$ is isomorphic to a subgroup of $\aut(H)$. In particular, $G/Z(G)$ is isomorphic to a subgroup of $\aut(G)$.
-\end{cor}
+\end{corollary}
 \begin{proof}
     Since $H$ is a normal subgroup of $N_G(H)$, our previous proposition implies that $N_G(H)$ acts by conjugation on $H$. Moreover, $C_G(H) \subseteq N_G(H)$, so the kernel of the permutation representation of $N_G(H)$ in $\aut(H)$ afforded by this action is $C_G(H)$. Hence by the first isomorphism theorem $N_G(H)/C_G(H)$ is isomorphic to a subgroup of $\aut(H)$.
 
@@ -264,36 +266,36 @@
 \end{proof}
 
 
-\begin{defn}
+\begin{definition}
     Let $G$ be a group and let $g \in G$. Conjugation by $g$ is called an \Emph{inner automorphism} of $G$ and the subgroup of $\aut(G)$ consisting of all inner automorphisms is denoted by $\inn(G)$.
-\end{defn}
+\end{definition}
 
 
-\begin{defn}
+\begin{definition}
     A subgroup $H$ of a group $G$ is called \Emph{characteristic in $G$} if and only if every automorphism of $G$ maps $H$ onto itself, i.e., $\sigma(H) = H$ for all $\sigma \in \aut(G)$.
-\end{defn}
+\end{definition}
 
 
-\begin{prop}
+\begin{proposition}
     Let $H$ be a subgroup of a group $G$: \begin{enumerate}
         \item If $H$ is characteristic in $G$ then $H \vartriangleleft G$,
         \item If $H$ is the unique subgroup of $G$ of a given order, then $H$ is characteristic in $G$,
         \item If $K$ is a characteristic subgroup of $H$ and $H \vartriangleleft G$, then $K\vartriangleleft G$.
     \end{enumerate}
-\end{prop}
+\end{proposition}
 \begin{proof}
     (To be completed)
 \end{proof}
 
 
-\begin{cor}
+\begin{corollary}
     If $C$ is a cyclic group of order $n$, then every subgroup of $C$ is characteristic in $C$.
-\end{cor}
+\end{corollary}
 
 
-\begin{prop}
+\begin{proposition}
     The automorphism group of the cyclic group of order $n$ is isomorphic to $(\Z/n\Z)^{\times}$, an abelian group of order $\varphi(n)$ (where $\varphi$ is the Euler-totient function).
-\end{prop}
+\end{proposition}
 \begin{proof}
     Let $x$ be a generator of the cyclic group $\Z/n\Z$. If $\psi \in \aut(\Z/n\Z)$, then $\psi(x) = x^a$ for some $a \in \Z$, and the integer $a$ uniquely determines $\psi$. Denote this automorphism by $\psi_a$. As usual, since $|x| = n$, the integer $a$ is only defined modulo $n$. Since $\psi_a$ is an automorphism, $x$ and $x^a$ must have the same order, hence $\gcd(a,n) = 1$. Furthermore, for $a$ relatively prime to $n$, the map $x\mapsto x^a$ is an automorphism of $\Z/n\Z$. Hence we have a surjective map \begin{equation*}
         \map{\Psi:\aut(\Z/n\Z)\rightarrow (\Z/n\Z)^{\times}}{\psi_a\mapsto a\; (\mod n)}
@@ -308,7 +310,7 @@
 \end{proof}
 
 
-\begin{eg}
+\begin{example}
     \leavevmode
     \begin{enumerate}
         \item If $p$ is an odd prime and $n \in \Z^+$, then the automorphism group of the cyclic group of order $p$ is cyclic of order $p-1$. More generally, the automorphism group of the cyclic group of order $p^n$ is cyclic of order $p^{n-1}(p-1)$.
@@ -316,5 +318,5 @@
                 \aut(V) \cong \GL(V) \cong \GL_n(\F_p)
         \end{equation*}
     \end{enumerate}
-\end{eg}
+\end{example}
 

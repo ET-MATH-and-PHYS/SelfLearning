@@ -1,0 +1,101 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+\chapter{Functional Completeness}
+\label{FuncComp} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+\section{ Definitions and Main Theorem}
+
+\begin{definition}
+    We say that some set of connectives are \Emph{jointly functionally complete} if and only if, for any possible truth table, there is a sentence containing only those connectives with that truth table.
+\end{definition}
+
+\begin{theorem}[Functional Completeness Theorem]
+    The connectives of TFL are jointly functionally complete. Indeed, the following pairs of connective are jointly functionally complete: \begin{enumerate}
+        \item `$\enot$' and `$\eor$'
+        \item `$\enot$' and `$\eand$'
+        \item `$\enot$' and `$\eif$'
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    \emph{Subsidiary Result 1: functional completeness of `$\enot$' and `$\eor$'}. Observe that the scheme that we generate, using the truth table method of proving the DNF Theorem, will only contain the connectives `$\enot$', `$\eand$', and `$\eor$'. So it suffices to show that there is an equivalent scheme which contains only `$\enot$' and `$\eor$'. To show this we simply consider that \begin{equation*}
+        (\metav{A}\eand\metav{B}) \;\;\text{ and }\;\;\enot(\enot\metav{A}\eor\enot\metav{B})
+    \end{equation*}
+    are logically equivalent.
+
+    \emph{Subsidiary Result 2: functional completeness of `$\enot$' and `$\eand$'}. Exactly as in Subsidiary Result 1, making use of the fact that \begin{equation*}
+        (\metav{A}\eor\metav{B}) \;\;\text{ and }\;\;\enot(\enot\metav{A}\eand\enot\metav{B})
+    \end{equation*}
+    are logically equivalent.
+
+    \emph{Subsidiary Result 3: functional completeness of `$\enot$' and `$\eif$'}. Exactly as in Subsidiary Result 1, making use of the equivalences: \begin{align*}
+        (\metav{A}\eor\metav{B})\;\;&\text{ and }\;\;(\enot\metav{A}\eif \metav{B}) \\
+        (\metav{A}\eand\metav{B})\;\;&\text{ and }\;\;\enot(\metav{A}\eif\enot\metav{B})
+    \end{align*}
+\end{proof}
+
+\section{ Individually Functionally Complete Connectives}
+
+\begin{definition}
+    A connective is \Emph{individually functionally complete} if any truth table can be constructed using only it and valuations of atomic sentences.
+\end{definition}
+
+\begin{definition}
+    The connective `$\uparrow$' is truth functionally complete, with characteristic truth table: 
+        \begin{table}[H]
+            \centering
+            \caption{\Emph{`$\uparrow$'}}
+            \begin{tabular}{cc|c}
+                $\metav{A}$ & $\metav{B}$ & $\metav{A} \uparrow \metav{B}$\\ \hline
+                \textbf{T} & \textbf{T} & \textbf{F} \\
+                \textbf{T} & \textbf{F} & \textbf{T} \\
+                \textbf{F} & \textbf{T} & \textbf{T} \\
+                \textbf{F} & \textbf{F} & \textbf{T}
+            \end{tabular}
+        \end{table}
+        This is often called `the Sheffer stroke'. It is also commonly called `nand' as its characteristic truth table is the negation of the truth table for `$\eand$'.
+\end{definition}
+\begin{proof}
+    It is sufficicent to show that `$\enot$' and `$\eor$' can be represented by `$\uparrow$', which indeed they can as seen in the the following equivalences: 
+    \begin{align*}
+        \enot\metav{A}\;\;&\text{ and }\;\;(\metav{A}\uparrow \metav{A}) \\
+        (\metav{A}\eor\metav{B})\;\;&\text{ and }\;\;((\metav{A}\uparrow\metav{A})\uparrow(\metav{B}\uparrow\metav{B}))
+    \end{align*}
+\end{proof}
+
+
+\begin{definition}
+    The connective `$\downarrow$' is truth functionally complete, with characteristic truth table: 
+        \begin{table}[H]
+            \centering
+            \caption{\Emph{`$\downarrow$'}}
+            \begin{tabular}{cc|c}
+                $\metav{A}$ & $\metav{B}$ & $\metav{A} \downarrow \metav{B}$\\ \hline
+                \textbf{T} & \textbf{T} & \textbf{F} \\
+                \textbf{T} & \textbf{F} & \textbf{F} \\
+                \textbf{F} & \textbf{T} & \textbf{F} \\
+                \textbf{F} & \textbf{F} & \textbf{T}
+            \end{tabular}
+        \end{table}
+        This is often called `Peirce arrow'. It is also commonly called `nor' as its characteristic truth table is the negation of the truth table for `$\eor$'.
+\end{definition}
+\begin{proof}
+    It is sufficicent to show that `$\enot$' and `$\eand$' can be represented by `$\downarrow$', which indeed they can as seen in the the following equivalences: 
+    \begin{align*}
+        \enot\metav{A}\;\;&\text{ and }\;\;(\metav{A}\downarrow \metav{A}) \\
+        (\metav{A}\eand\metav{B})\;\;&\text{ and }\;\;((\metav{A}\downarrow\metav{A})\downarrow(\metav{B}\downarrow\metav{B}))
+    \end{align*}
+\end{proof}
+
+
+\begin{theorem}
+    `$\eor$', `$\eand$', `$\eif$', and `$\eiff$' are not functionally complete by themselves. The \Emph{only} two-place connectives which are individually functionally complete are `$\uparrow$' and `$\downarrow$'.
+\end{theorem}
+

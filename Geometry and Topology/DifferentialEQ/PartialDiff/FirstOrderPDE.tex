@@ -1,0 +1,137 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+\chapter{First Order PDEs}
+\label{FirstPDE} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+
+%%%%%%%%%%%%%%%%%%%% 2.1.1
+\section{Basic Definitions and Examples of First-Order PDEs}
+
+\begin{definition}
+    A first order PDE in two independent variables $x,y$ and the dependent variable $z$ can be written in the form \begin{equation}
+        f\left(x,y,z,\frac{\partial z}{\partial x},\frac{\partial z}{\partial y}\right) = 0 
+    \end{equation}
+\end{definition}
+
+\begin{example}
+    Find all functions $z(x,y)$ such that the tangent plane to the graph $z = z(x,y)$ at any arbitrary point $(x_0,y_0,z(x_0,y_0))$ passes through the origin characterized by the PDE $xz_x+yz_y - z=0$. The equation of the tangent plane to the graph at $(x_0,y_0,z(x_0,y_0))$ is \begin{equation*}
+        z_x(x_0,y_0)(x-x_0) + z_y(x_0,y_0)(y-y_0)-(z-z(x_0,y_0)) = 0
+    \end{equation*}
+    This plane passes through the origin if and only if we have $-z_x(x_0,y_0)x_0 - z_y(x_0,y_0)y_0+z(x_0,y_0) = 0$. For this to hold for all $(x_0,y_0)$ in the domain (i.e. for all tangent planes to intersect the origin) of $z$, $z$ must satisfy $xz_x + yz_y - z = 0$, which is a first order PDE.
+\end{example}
+
+\begin{example}
+    The set of all spheres with centers on the $z$-axis is characterized by the first-order PDE $yz_x-xz_y = 0$. The equation $$x^2+y^2+(z-c)^2=r^2$$ where $r$ and $c$ are arbitrary constants, represents the set of all spheres whose centers lie on the $z$-axis. Differentiating with respect to $x$ gives $$2x+2(z-c)z_x = 0\implies x+(z-c)z_x = 0$$ Differentiating with respect to $y$ gives equivalently $$y+(z-c)z_y = 0$$ Eliminating the arbitrary constant $c$ from these equations gives the first-order PDE $$yz_x-xz_y = 0$$
+\end{example}
+
+\begin{example}
+    Consider all surfaces described by an equation of the form $z = f(x^2+y^2)$ where $f$ is an arbitrary function described by the first order PDE. Writing $u = x^2+y^2$ and differentiating this with respect to $x$ and $y$ gives $z_x = 2xf'(u)$ and $z_y = 2yf'(u)$. Eliminating $f'(u)$ from the two equations above we obtain again the first-order PDE $yz_x - xz_y = 0$.
+\end{example}
+
+From the previous examples we have seen that a first-order PDE can be formed either by eliminating arbitrary constants or an arbitrary function involved in some equation. We now generalize the aguments in these last two examples:
+
+\begin{remark}[Method I]{(Eliminating Arbitrary Constants):}
+    Consider two parameters family of surfaces described by the equation $F(x,y,z,a,b) = 0$, where $a,b$ are arbitrary constants. Differentiating with respect to $x$ and $y$, we obtain \begin{align*}
+        F_x + z_xF_z &= 0 \\ 
+        F_y + z_yF_z &= 0
+    \end{align*}
+    Eliminate the constants from these three equations to obtain a first-order PDE of the form $f(x,y,z,z_x,z_y) = 0$. This shows that a family of surfaces described by the relation $F(x,y,z,a,b) = 0$ gives rise to a first-order PDE.
+\end{remark}
+
+\begin{remark}[Method II]{(Eliminating Arbitrary Functions):}
+    Let $u(x,y,z) = c_1$ and $v(x,y,z) = c_2$ be two known functions of $x, y$ and $z$ satisfying a relation of the form $F(u,v) = 0$, where $F$ is an arbitrary function of $u$ and $v$. Differentiating with respect to $x$ and $y$ leads to the equations \begin{align*}
+        (u_x+u_zz_x)F_u+(v_x+v_zz_x)F_v &= 0 \\
+        (u_y+u_zz_y)F_u+(v_y+v_zz_y)F_v &= 0 
+    \end{align*}
+    Eliminating $F_u$ and $F_v$ from the above equations we obtain \begin{equation*}
+        z_x\frac{\partial(u,v)}{\partial(y,z)}+z_y\frac{\partial(u,v)}{\partial(z,x)} = \frac{\partial(u,v)}{\partial(x,y)}
+    \end{equation*}
+    which is a first order PDE of the form $f(x,y,z,z_x,z_y) = 0$.
+\end{remark}
+
+We now classify the basic first-order PDEs $f(x,y,z,z_x,z_y) = 0$ depending on the form of $f$.
+
+\begin{definition}
+    If $f(x,y,z,z_x,z_y) = 0$ is of the form \begin{equation*}
+        a(x,y)z_x + b(x,y)z_y + c(x,y)z = d(x,y)
+    \end{equation*}
+    then it is called a \Emph{linear} first-order PDE (in two variables). Note that the function $f$ is linear in $z_x,z_y,$ and $z$ with all coefficients depending on the independent variables $x$ and $y$, only.
+\end{definition}
+
+
+\begin{definition}
+    If $f(x,y,z,z_x,z_y) = 0$ is of the form \begin{equation*}
+        a(x,y)z_x + b(x,y)z_y = c(x,y,z)
+    \end{equation*}
+    then it is called a \Emph{semilinear} first-order PDE (in two variables) because it is linear in the leading (highest-order) terms $z_x$ and $z_y$. However, it need not be linear in $z$. Note also that the coefficients of $z_x$ and $z_y$ are functions of the independent variables only.
+\end{definition}
+
+
+\begin{definition}
+    If $f(x,y,z,z_x,z_y) = 0$ is of the form \begin{equation*}
+        a(x,y,z)z_x + b(x,y,z)z_y = c(x,y,z)
+    \end{equation*}
+    then it is called a \Emph{quasi-linear} first-order PDE (in two variables). Here, the function $f$ is linear in the derivatives $z_x$ and $z_y$ with the coefficient functions $a,b$ and $c$ depending on the independent variables $x,y$ and the dependent variable $z$.
+\end{definition}
+
+
+\begin{example}
+    \leavevmode
+    \begin{itemize}
+        \item $xz_x+yz_y= z$ (linear)
+        \item $xz_x + yz_y = z^2$ (semilinear)
+        \item $z_x+(x+y)z_y = xy$ (linear)
+        \item $zz_x+z_y = 0$ (quasilinear)
+        \item $xz_x^2+yz_y^2=2$ (nonlinear)
+    \end{itemize}
+\end{example}
+
+An IVP for a first-order PDE asks for a solution of $f(x,y,z,z_x,z_y) = 0$ which has given values on a curve in $\R^2$. The conditions to be satisfied in the case of IVP for first-order PDEs are formulated in the calssic problem of Cauchy which may be stated as follows:
+
+\begin{construction}[Cauchy's Problem]
+    Let $C$ be a given curve in $\R^2$ described parametrically by the equations $$x=x_0(s),\;\;\;y=y_0(s);\;\;s \in I$$ where $x_0(s),y_0(s) \in C^1(I)$. Let $z_0(s)$ be a given function in $C^1(I)$. The IVP or Cauchy's problem for a first-order PDE $f(x,y,z,z_x,z_y) = 0$ is to find a function $u = u(x,y)$ with the following properties:\begin{itemize}
+        \item $u(x,y)$ and its partial derivatives with respect to $x$ and $y$ are continuous in a region $\Omega \subset \R^2$ containing the curve $C$.
+        \item $u = u(x,y)$ is a solution of $f(x,y,z,z_x,z_y) = 0$ in $\Omega$, which is to say $f(x,y,u,u_x,u_y) = 0$ in $\Omega$.
+        \item On the curve $C$, $u(x_0(s),y_0(s)) = z_0(s), s \in I$.
+    \end{itemize}
+    The curve $C$ is called the initial curve of the problem and the function $z_0(s)$ is called the initial data. The equation $u(x_0(s),y_0(s)) = z_0(s)$ is called the \Emph{initial condition} of the problem.
+\end{construction}
+
+Geometrically we may interpret the problem as follows: to find a solution surface $u = u(x,y)$ of $f(x,y,z,z_x,z_y) = 0$ which passes through the curve $C$ whose parametric equations are $x=x_0(s),y=y_0(s),z=z_0(s)$. Further, at every point of which the direction $(u_x,u_y,-1)$ of the normal to the surface is such that $f(x,y,u,u_x,u_y) = 0$.
+
+\begin{theorem}[Kowalewski]
+    If $g(y)$ and all of its derivatives are continuous for $|y-y_0| < \delta$, if $x_0$ is agiven number, $z_0 = g(y_0)$, $q_0 = g'(y_0)$, and $f(x,y,z,q = z_y)$ and all of its partial derivatives are continuous in a region $S$ defined by \begin{equation*}
+        |x-x_0| < \delta, \;\;|y-y_0| < \delta,\;\;|q-q_0| < \delta
+    \end{equation*}
+    then there exists a unique function $\phi(x,y)$ such thta \begin{itemize}
+        \item $\phi$ and all its partial derivatives are continuous in a region $\Omega:|x-x_0| < \delta_1,|y-y_0|<\delta_2$,
+        \item $\phi$ is asolution of the equation $\phi_x = f(x,y,\phi,\phi_y)$ in $\Omega$,
+        \item For all values of $y$ in $|y-y_0| < \delta_1$, $\phi(x_0,y) = g(y)$,
+    \end{itemize}
+\end{theorem}
+
+
+\begin{definition}
+    Any relation of the form \begin{equation*}
+        F(x,y,z,a,b) = 0
+    \end{equation*}
+    which contains two arbitrary constants $a$ and $b$ and is a solution of a first-order PDE is called a \Emph{complete solution} or a \Emph{complete integral} of that first-order PDE.
+\end{definition}
+
+\begin{definition}
+    Any relation of the form $$F(u,v) = 0$$ involving an arbitrary function $F$ connecting two known functions $u(x,y,z)$ and $v(x,y,z)$ and providing a solution of a first-order PDE is called a \Emph{general solution} or a \Emph{general integral} of that first-order PDE.
+\end{definition}
+
+\begin{definition}
+    The envolope of the two-parameter system $F(x,y,z,a,v) = 0$ is also a solution of the equation $f(x,y,z,z_x,z_y) = 0$. It is called the \Emph{singular integral} or \Emph{singular solution} of the equation.
+\end{definition}
+
+

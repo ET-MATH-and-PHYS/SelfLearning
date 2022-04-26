@@ -1,0 +1,533 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+\chapter{Laurent Series}
+\label{LaurSer} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+
+
+
+%%%%%%%%%%%%%%%%%%%% Section 1.6.1
+\section{Laurent Decomposition}
+
+\begin{definition}
+    If $f \in \mathcal{O}(z_0)$ then there exists some $r > 0$ such that $f$ is holomorphic on $|z-z_0| < r$. In other words, $\mathcal{O}(z_0)$ is the set of holomorphic functions at $z_0$.
+\end{definition}
+
+
+\begin{theorem}[Laurent Decomposition]
+    Suppose $0 \leq \rho < \sigma \leq \infty$, and suppose $f(z)$ is analytic for $\rho < |z-z_0| < \sigma$ (i.e. it is analytic on some anulus). Then $f(z)$ can be decomposed as a sum \begin{equation*}
+        f(z) = f_0(z) + f_1(z)
+    \end{equation*}
+    where $f_0(z)$ is analytic for $|z-z_0| < \sigma$, and $f_1(z)$ is analytic for $|z-z_0| > \rho$ and at $\infty$. If we normalize the decomposition so that $f_1(\infty) = 0$, then the decomposition is unique.
+\end{theorem}
+\begin{proof}
+    Suppose $0 \leq \rho < \sigma \leq \infty$ and suppose $f(z)$ is analytic for $\rho < |z-z_0| < \sigma$. Furthermore suppose $f(z) = f_0(z)+f_1(z)$ where $f_0$ is analytic for $|z-z_0| < \sigma$ and $f_1$ is analytic for $|z-z_0| > \rho$ and at $\infty$. Suppose $g_0,g_1$ form another Laurent decomposition with $f(z) = g_0(z) + g_1(z)$. Notice \begin{equation*}
+        g_0(z) - f_0(z) = g_1(z) - f_1(z)
+    \end{equation*}
+    fpr $\rho < |z-z_0| < \sigma$. In view of the above overlap condition, we are free to define \begin{equation*}
+        h(z) = \left\{\begin{array}{lc} g_0(z) - f_0(z) & for\;|z-z_0| < \sigma \\ g_1(z) - f_1(z) & for\;|z-z_0| > \rho \end{array}\right.
+    \end{equation*}
+    Notice $h$ is entire and $h(z)\rightarrow 0$ as $z\rightarrow \infty$. Then $h$ is a bounded and entire function and we apply Liouville's Theorem to conclude that $h(z) = c$ for all $z \in \C$. In particlar, $h(z) = 0$ on the annulus $\rho < |z-z_0| < \sigma$, and we conclude that if a Laurent decomposition exists (and is normalized) then it must be unique.
+
+    Existence of the Laurent Decomposition is due to Cuachy's Integral formula on an annulus. Choose $r$ and $s$ such that $\rho < r < s < \sigma$. The Cauchy Integral Formula for an annulus yields \begin{equation*}
+        f(z) = \frac{1}{2\pi i}\oint_{|w-z_0|=s}\frac{f(w)}{w-z}dw - \frac{1}{2\pi i}\oint_{|w-z_0| = r}\frac{f(w)}{w-z}dw 
+    \end{equation*}
+    which is valid for $r < |z-z_0| < s$. The function \begin{equation*}
+        f_0(z) = \frac{1}{2\pi i}\oint_{|w-z_0|=s}\frac{f(w)}{w-z}dw,\;\;\;|z-z_0| < s
+    \end{equation*}
+    is analytic for $|z-z_0| < s$, and the function \begin{equation*}
+        f_1(z) = - \frac{1}{2\pi i}\oint_{|w-z_0| = r}\frac{f(w)}{w-z}dw ,\;\;\;|z-z_0| > r
+    \end{equation*}
+    is analytic for $|z-z_0| > r$ and tends to zero as $z$ goes to $\infty$. Thus we obtain the decomposition $f(z) = f_0(z) + f_1(z)$ for $r < |z-z_0| <s$, and uniqueness shows that the component functions are defined for $\rho < |z-z_0| < \sigma$.
+\end{proof}
+
+\begin{example}
+    Consider $f(z) = \frac{z^3+z+1}{z} = z^2+1+\frac{1}{z}$ for $z \neq 0$. In this example $\rho = 0$, and $\sigma = \infty$ and $f_0(z) = z^2+1$ whereas $f_1(z) = 1/z$.
+\end{example}
+
+
+\begin{example}
+    Let $f(z)$ be an entire function, for example $e^z, \sin z,\cos z, \sinh z,\cosh z,$ etc. Then $f(z) = f_0(z)$ and $f_1(z) = 0$. The function $f_0$ is analytic on any disk, but, we do not assume it is analytic at $\infty$. On the other hand, notice that $f_1 = 0$ is analytic at $\infty$ as claimed.
+\end{example}
+
+\begin{example}
+    Suppose $f(z)$ is analytic at $z_0 = \infty$ then there exists some exterior domain $|z-z_0| > \rho$ for which $f(z)$ is analytic. In this case, $f(z) = f_1(z)$ and $f_0(z) = 0$ for all $z \in \C\cup\{\infty\}$.
+\end{example}
+
+
+
+\begin{example}
+    Consider $f(z) = \frac{2z-i}{z(z-i)}$. This function is analutic on $\C-\{0,i\}$. A simple calculation reveals \begin{equation*}
+        f(z) = \frac{1}{z} + \frac{1}{z-i}
+    \end{equation*}
+    with respect to the annulus $0 < |z| < 1$ we have $f_0(z) = \frac{1}{z-i}$ and $f_1(z) = \frac{1}{z}$. On the other hand, for the annulus $0 < |z-i| < 1$ we have $f_1(z) = \frac{1}{z-i}$ and $f_0(z) = \frac{1}{z}$.
+\end{example}
+
+
+\begin{example}
+    Consider $f(z) = \frac{1}{\sin(z)}$ this has a Laurent decomposition on the annuli which fit between successive zeros of $\sin z$. That is, on $n\pi < |z| < (n+1)\pi$. For example, when $n = 0$ we have $\sin z = \sum_{n=0}^{\infty}\frac{(-1)^nz^{2n+1}}{(2n+1)!}$ hence, using our geometric series reciprocal technique, \begin{equation*}
+        f(z) = \frac{1}{\sin z} = \frac{1}{z}\frac{1}{1-\sum_{n=1}^{\infty}(-1)^{n-1}z^{2n}/(2n+1)!} = \frac{1}{z}\left(1+\sum_{k=1}^{\infty}\left(\sum_{n=1}^{\infty}(-1)^{n-1}z^{2n}/(2n+1)!\right)^k\right)
+    \end{equation*}
+    so $f_1(z) = \frac{1}{z}$ whereas $f_0(z) = \sum_{k=1}^{\infty}\frac{1}{z}\left(\sum_{n=1}^{\infty}(-1)^{n-1}z^{2n}/(2n+1)!\right)^k$ for the punctured disk of radius $\pi$ centered about $z = 0$.
+\end{example}
+
+Suppose now that $f(z) = f_0(z)+f_1(z)$ is the Laurent Decomposition for a function analytic on $\rho < |z-z_0| < \sigma$. We can express $f_0(z)$ as a power series in $z-z_0$, \begin{equation*}
+    f_0(z) = \sum_{n=0}^{\infty}a_n(z-z_0)^n,\;\;\;\;|z-z_0| < \sigma,
+\end{equation*}
+where the series converges absolutely, and for any $s < \sigma$ it converges uniformly for $|z-z_0| \leq s$. Further, we can also express $f_1(z)$ as a series of negative powers of $z-z_0$, with zero constant term, since $f_1(z)$ tends to $0$ at $\infty$, \begin{equation*}
+    f_1(z) = \sum_{n=-\infty}^{-1}a_n(z-z_0)^n,\;\;\;\;|z-z_0| > \rho
+\end{equation*}
+The series converges absolutely, and for any $r > \rho$ it converges uniformly on $|z-z_0| \geq r$. If we add the two series together we obtain a two-tailed expansion on the annulus, \begin{equation*}
+    f(z) = \sum_{n=-\infty}^{\infty}a_n(z-z_0)^n,\;\;\;\;\rho < |z-z_0| < \sigma
+\end{equation*}
+that converges absolutely, and converges uniformly on $r \leq |z-z_0| \leq s$. The series is called the \Emph{Laurent Series Expansion} of $f(z)$ with respect to the annulus $\rho < |z-z_0| < \sigma$. 
+
+To obtain a formula for the coefficients in the expansion, we divide $f(z)$ by $(z-z_0)^{n+1}$ and integrate along the circle $|z-z_0| = r$. Since the series converges uniformly on the circle, we can interchange the summation and integration. The result is \begin{align*}
+    \oint_{|z-z_0|=r}\frac{f(z)}{(z-z_0)^{n+1}}dz &= \oint_{|z-z_0|=r}\frac{1}{(z-z_0)^{n+1}}\sum_{k=-\infty}^{\infty}a_k(z-z_0)^kdz \\
+    &= \sum_{k=-\infty}^{\infty}a_k\oint_{|z-z_0|=r}(z-z_0)^{k-n-1}dz
+\end{align*}
+The integral of $(z-z_0)^m$ is $2\pi i$ if $m = -1$, otherwise $0$, so all the terms in the series dissapear except one, and the series reduces to $2\pi ia_n$. Thus \begin{equation*}
+    a_n = \frac{1}{2\pi i}\oint_{|z-z_0|=r}\frac{f(z)}{(z-z_0)^{n+1}}dz,\;\;\;\;-\infty < n < \infty
+\end{equation*}
+Note that this formula coincides for $a_n$ in the case that $f(z)$ is analytic on $|z-z_0| < \sigma$.
+
+\begin{example}
+    Let $f(z) = \frac{\sin z}{1-z}$. Observe \begin{align*}
+        \frac{\sin z}{1-z} &= \frac{\sin(z-1+1)}{1-z} = \frac{\cos(1)\sin(z-1)+\sin(1)\cos(z-1)}{z-1} \\
+        &= \cos(1)\sum_{n=0}^{\infty}\frac{(-1)^n(z-1)^{2n}}{(2n+1)!}+\sin(1)\sum_{n=0}^{\infty}\frac{(-1)^n(z-1)^{2n-1}}{(2n)!} \\
+        &= \frac{\sin(1)}{(z-1)} + \cos(1)\sum_{n=0}^{\infty}\frac{(-1)^n(z-1)^{2n}}{(2n+1)!}+\sin(1)\sum_{n=1}^{\infty}\frac{(-1)^n(z-1)^{2n-1}}{(2n)!}
+    \end{align*}
+    so $a_{-1} = \sin 1$ and we find \begin{equation*}
+        \oint_{|z-1|=2}\frac{\sin z}{1-z}dz = 2\pi i\sin1
+    \end{equation*}
+\end{example}
+
+\begin{theorem}[Laurent Series Expansion]
+    Suppose $0 \leq \rho < \sigma \leq \infty$, and suppose $f(z)$ is analytic for $\rho < |z-z_0| < \sigma$. Then $f(z)$ can be decomposed as a Laurent series \begin{equation*}
+        f(z) = \sum_{n=-\infty}^{\infty}a_n(z-z_0)^n
+    \end{equation*}
+    that converges absolutely at each point of the annulus, and that converges uniformly on each subannulus $r \leq |z-z_0| \leq s$, where $\rho < r < s < \sigma$. The coefficients $a_n$ are uniquely determined by $f(z)$, and they are given by \begin{equation*}
+        a_n = \frac{1}{2\pi i}\oint_{|z-z_0|=r}\frac{f(z)}{(z-z_0)^{n+1}}dz,\;\;\;\;-\infty < n < \infty
+    \end{equation*}
+    for any fixed $r$ such that $\rho < r < \sigma$.
+\end{theorem}
+
+
+%%%%%%%%%%%%%%%%%%%% Section 1.6.2
+\section{Isolated Singularities of an Analytic Function}
+
+
+\begin{definition}
+    A function $f$ has an \Emph{isolated singularity at $z_0$} if there exists $r > 0$ such that $f$ is analytic on the punctured disk $0 < |z-z_0| < r$.
+\end{definition}
+
+
+Isolated singularities fall into three classes, where each class has a particular type of Laurent series about the singular point.
+
+\begin{definition}
+    Suppose $f$ has an isolated singularity at $z_0$: \begin{enumerate}
+        \item If $f(z) = \sum_{n=0}^{\infty}a_n(z-z_0)^n$ then $z_0$ is a \Emph{removable singularity}
+        \item Let $N \in \N$. If $f(z) = \sum_{n=-N}^{\infty}a_n(z-z_0)^n$ with $a_{-N} \neq 0$ then $z_0$ is a \Emph{pole of order $N$}.
+        \item If $f(z) = \sum_{n=-\infty}^{\infty}a_n(z-z_0)^n$ where $a_n \neq 0$ for infinitely many $n < 0$, then $z_0$ is an \Emph{essential singularity}.
+    \end{enumerate}
+\end{definition}
+
+
+\begin{theorem}[Riemann's Theorem on Removable Singularities]
+    Let $z_0$ be an isolated singularity of $f(z)$. If $f(z)$ is bounded near $z_0$, then $f(z)$ has a removable singularity at $z_0$.
+\end{theorem}
+\begin{proof}
+    Expand $f(z)$ in a Laurent series about the punctured disk at $z_0$: \begin{equation*}
+        f(z) = \sum_{n=-\infty}^{\infty}a_n(z-z_0)^n
+    \end{equation*}
+    for $0 < |z-z_0| < \sigma$. If $|f(z)| < M$ for $0 < |z-z_0| < r$ then for $r$ sufficiently small we may apply the ML-theorem to the formula for the $n$th coefficient of the Laurent series \begin{equation*}
+        |a_n| = \left|\frac{1}{2\pi i}\oint_{|z-z_0|=r}\frac{f(z)}{(z-z_0)^{n+1}}dz\right| \leq \frac{M(2\pi r)}{2\pi r^{n+1}} = \frac{M}{r^n}
+    \end{equation*}
+    As $r$ goes to $0$ we find $|a_n|\rightarrow 0$ for $n < 0$. Thus, $a_n = 0$ for all $n  = -1,-2,...$ Thus, the Laurent series for $f(z)$ reduces to a power series for $f(z)$ on the deleted disk $0 < |z-z_0| < \sigma$ and it follows we may extend $f(z)$ to the disk $|z-z_0| < \sigma$ by defining $f(z_0) = a_0$.
+\end{proof}
+
+
+\begin{example}
+    Let $f(z) = \frac{\sin z}{z}$ on the punctured plane $\C^{\times}$. Notice \begin{equation*}
+        f(z) = \frac{\sin z}{z} = \sum_{k=0}^{\infty}\frac{(-1)^nz^{2n}}{(2n+1)!}
+    \end{equation*}
+    So, we can extend $f$ to $\overline{f}$ over $\C$ by defining $\overline{f}(0) = 1$.
+\end{example}
+
+\begin{definition}
+    Suppose $f$ has a pole of order $N$ at $z_0$. If \begin{equation*}
+        f(z) = \sum_{n=-N}^{-1}a_n(z-z_0)^n + \sum_{k=0}^{\infty}a_k(z-z_0)^k
+    \end{equation*}
+    then $P(z) = \sum_{k=-N}^{-1}a_k(z-z_0)^k$ is called the \Emph{principal part} of $f(z)$ at the pole $z_0$. When $N = 1$ then $z_0$ is called a \Emph{simple pole}, when $N = 2$ then $z_0$ is called a \Emph{double pole}.
+\end{definition}
+
+
+\begin{theorem}
+    Let $z_0$ be an isolated singularity of $f$. Then $z_0$ is a pole of $f$ of order $N$ if and only if $f(z) = \frac{g(z)}{(z-z_0)^N}$ where $g$ is analytic at $z_0$ with $g(z_0) \neq 0$.
+\end{theorem}
+\begin{proof}
+    Suppose $f$ has a pole of order $N$ at $z_0$, then by definition it has a Laurent series which begins at $n=-N$. We calculate, for $|z-z_0| < r$, \begin{equation*}
+        f(z) = \sum_{n=-N}^{\infty}a_n(z-z_0)^n = \sum_{k=0}^{\infty}a_{k-N}(z-z_0)^{k-N} = \frac{1}{(z-z_0)^N}\sum_{k=0}^{\infty}a_{k-N}(z-z_0)^k
+    \end{equation*}
+    where $a_{-N}$ is nonzero by definition of a pole of order $N$. Then, define $g(z) = \sum_{k=0}^{\infty}a_{k-N}(z-z_0)^k$, then $g$ is analytic at $z_0$ with $g(z_0) = a_{-N} \neq 0$. 
+
+    Conversely, suppose there exists $g$ analytic at $z_0$ with $g(z_0) \neq 0$ and $f(z) = g(z)/(z-z_0)^N$. Then $g$ has power series about $z_0$, $g(z) = \sum_{n=0}^{\infty}b_n(z-z_0)^n$, for $b_0 \neq 0$ by assumption. It follows that \begin{equation*}
+        f(z) = \frac{1}{(z-z_0)^N}\sum_{n=0}^{\infty}b_n(z-z_0)^n = \sum_{k=-N}^{\infty}b_{k+N}(z-z_0)^k
+    \end{equation*}
+    so by definition $f$ has a pole of order $N$ at $z_0$.
+\end{proof}
+
+\begin{example}
+    Consider $f(z) = \frac{e^z}{(z-1)^5}$. Notice $e^z$ is entire, hence by the previous theorem $f$ has a pole of order $5$ at $z_0 = 1$.
+\end{example}
+
+\begin{example}
+    Consider $f(z) = \frac{\sin[(z+2)^3]}{(z+2)^5}$, notice \begin{equation*}
+        f(z) = \frac{1}{(z+2)^5}\sum_{n=0}^{\infty}\frac{(-1)^n(z+2)^{6n+3}}{(2n+1)!} = \frac{1}{(z+2)^2}\sum_{n=0}^{\infty}\frac{(-1)^n(z+2)^{6n}}{(2n+1)!}
+    \end{equation*}
+    so by theorem, $f$ has a pole of order $N  =2$ at $z_0 = -2$.
+\end{example}
+
+\begin{theorem}
+    Let $z_0$ be an isolated singularity of $f$. Then $z_0$ is a pole of $f$ of order $N$ if and only if $1/f(z)$ is analytic at $z_0$ and has a zero of order $N$.
+\end{theorem}
+\begin{proof}
+    We know that $f$ has a pole of order $N$ if and only if $f(z) = g(z)/(z-z_0)^N$ with $g(z_0) \neq 0$ and $g(z) \in \mathcal{O}(z_0)$. Suppose $f$ has a pole of order $N$ then observe \begin{equation*}
+        \frac{1}{f(z)} = (z-z_0)^N\cdot\frac{1}{g(z)}
+    \end{equation*}
+    hence $1/f(z)$ has a zero of order $N$ by a previous result. Conversely, if $1/f(z)$ has a zero of order $N$ then by that result we have $1/f(z) = (z-z_0)^Nh(z)$ where $h \in \mathcal{O}(z_0)$ and $h(z_0) \neq 0$. Define $g(z) = 1/h(z)$, and note $g \in \mathcal{O}(z_0)$ and $g(z_0) = 1/h(z_0) \neq 0$, so \begin{equation*}
+        f(z) = \frac{1}{(z-z_0)^Nh(z)} = \frac{g(z)}{(z-z_0)^N}
+    \end{equation*}
+    so we conclude that $f$ has a pole of order $N$ at $z_0$.
+\end{proof}
+
+\begin{example}
+    Consider $f(z) = 1/\sin z$, then it has a simple pole at $z_0 = n\pi$ for $n \in \N\cup \{0\}$ since $\sin z$ has a simple zero at $z = n$: \begin{equation*}
+        \sin(z) = \sin(z-n\pi+n\pi) = \cos(n\pi)\sin(z-n\pi)+0=(-1)^n\sum_{k=0}^{\infty}\frac{(-1)^k(z-n\pi)^{2n+1}}{(2n+1)!}
+    \end{equation*}
+\end{example}
+
+\begin{example}
+    Consider the Laurent expansion for $f(z) = 1/\sin z$ that converges on the circle $|z| = 4$. As above, the only zeros of $\sin z$ are the integral powers of $\pi$, and each is a simple zero, so they are simple poles of $f(z)$. The largest annular set containing the circle and for which $f(z)$ extends analytically is then $\pi < |z| < 2\pi$. This annulus is then the largest open set on which the Laurent series converges. From the expansion $\sin z = z+\mathcal{O}(z^3)$ near $z = 0$, we see that \begin{equation*}
+        \frac{1}{\sin z} = \frac{1}{z} + \text{analytic}
+    \end{equation*}
+    near $z = 0$, and $1/\sin z - 1/z$ is analytic at $z = 0$. Similarly, from the expansion $\sin z = -(z-\pi)+\mathcal{O}((z-\pi)^3)$ at $z = \pi$, we see that \begin{equation*}
+        \frac{1}{\sin z} = \frac{-1}{z-\pi} + \text{analytic}
+    \end{equation*}
+    near $z = \pi$, and $1/\sin z + 1/(z-\pi)$ is analytic at $z = \pi$. By the same token $1/\sin z + 1/(z+\pi)$ is analytic at $z = -\pi$. We conclude that if \begin{equation*}
+        f_1(z) = \frac{1}{z+\pi}+\frac{1}{z-\pi}-\frac{1}{z}
+    \end{equation*}
+    then $f_0(z) = 1/\sin z-f_1(z)$ is analytic for $|z| < 2\pi$. Thus, $1/\sin z = f_0(z) + f_1(z)$ is the Laurent decomposition of $1/\sin z$. We first expand the Laurent series for $f_1(z)$ \begin{equation*}
+        f_1(z) = \frac{2z}{z^2-\pi^2}-\frac{1}{z} = -\frac{1}{z} + \frac{2}{z}\sum_{n=0}^{\infty}\frac{\pi^{2n}}{z^{2n}} = \frac{1}{z} + \sum_{n=1}^{\infty}\frac{2\pi^{2n}}{z^{2n+1}}
+    \end{equation*}
+    Note that all powers of $z$ are odd, since $1/\sin z$ is an odd function.
+\end{example}
+
+\begin{example}
+    Consider $f(z) = \frac{1}{z^3(z-2-3i)^6}$ then $f$ has a pole of order $N = 3$ at $z_0 = 0$ and a pole of order $N = 6$ at $z_1 = 2 + 3i$.
+\end{example}
+
+\begin{definition}
+    We say a function $f$ is \Emph{meromorphic on a domain $D$} if $f$ is analytic on $D$ except possibly at isolated singularities of which each is a pole.
+\end{definition}
+
+\begin{example}
+    An entire function is meromorphic on $\C$. However, an entire function may not be analytic at $\infty$. For example, $\sin z$ is not analytic at $\infty$ and it has an essential singularity at $\infty$ so $f(z)$ is not meromorphic on $\C\cup \{\infty\}$.
+\end{example}
+
+
+\begin{example}
+    A rational function is formed by the quotient of two polynomials $p(z),q(z) \in \C[z]$, where $q(z)$ is not identically zero; $f(z) = p(z)/q(z)$. We will see that $f(z)$ is meromorphic on the extended complex plane $\C\cup\{\infty\}$.
+\end{example}
+
+\begin{theorem}
+    Let $z_0$ be an isolated singularity of $f$. Then $z_0$ is a pole of $f$ of order $N \geq 1$ if and only if $|f(z)| \rightarrow \infty$ as $z\rightarrow z_0$.
+\end{theorem}
+\begin{proof}
+    If $z_0$ is a pole of order $N$ then $f(z) = g(z)/(z-z_0)^N$ for $g(z_0)\neq 0$ for $0 < |z-z_0| < r$ for some $r > 0$ where $g$ is anlytic at $z_0$. Since $g$ is anlytic at $z_0$ it is continuous and hence bounded on the disk; $|g(z)| \leq M$ for $|z-z_0| < r$. Thus \begin{equation*}
+        |f(z)| = |g(z)(z-z_0)^{-N}| \leq M(z-z_0)^{-N}\rightarrow \infty
+    \end{equation*}
+    as $z\rightarrow z_0$. Hence $|f(z)| \rightarrow \infty$ as $z\rightarrow z_0$.
+
+    Conversely, suppose $|f(z)|\rightarrow \infty$ as $z\rightarrow z_0$. Hence, there exists $r > 0$ such that $f(z) \neq 0$ for $0 < |z-z_0| < r$. It follows that $h(z) = 1/f(z)$ is analytic for $0 < |z-z_0| < r$. Note that $|f(z)|\rightarrow \infty$ as $z\rightarrow z_0$ implies $h(z) \rightarrow 0$ as $z\rightarrow z_0$. Thus $h(z)$ is bounded near $z_0$, and we find by Riemann's removable singularity Theorem that there exists $a_n, n = 0,1,2,...$ for which \begin{equation*}
+        h(z) = \sum_{n=0}^{\infty}a_n(z-z_0)^n
+    \end{equation*}
+    Since $h(z)\rightarrow 0$ as $z\rightarrow z_0$, the extension of $h(z)$ is zero at $z_0$. If the zero has order $N$ then $h(z) = (z-z_0)^Nb(z)$ where $b \in \mathcal{O}(z_0)$ and $b(z_0) \neq 0$. Therefore, we obtain $f(z) = g(z)/(z-z_0)^N$ where $g(z) = 1/b(z)$ where $g \in \mathcal{O}(z_0)$ and $g(z_0) \neq 0$. We conclude that $z_0$ is a pole of order $N$ by our previous results.
+\end{proof}
+
+\begin{example}
+    Let $f(z) = e^{1/z} = \sum_{n=0}^{\infty}\frac{1}{n!z^n}$. Clearly $z_0 = 0$ is an essential singularity of $f$. It has different behaviour than a removable singularity or a pole. First notice for $z = x > 0$ we have $f(z) = e^{1/x}\rightarrow \infty$ as $x\rightarrow 0^+$ thus $f$ is not bounded at $z_0 = 0$. On the other hand, if we study $z = iy$ for $y > 0$, then $|f(z)| = |e^{1/iy}| = 1$ hence $|f(z)|$ does not tend to $\infty$ along the imaginary axis. That is, we require that the modulus geos to infinity from all directions in order to apply our previous theorem.
+\end{example}
+
+\begin{theorem}[Casorati-Weierstrauss Theorem]
+    Let $z_0$ be an essential isolated singularity of $f(z)$. Then for every complex number $w_0$, there is a sequence $z_n \rightarrow z_0$ such that $f(z_n)\rightarrow w_0$ as $n\rightarrow \infty$.
+\end{theorem}
+\begin{proof}
+    By contrapositive argument. Suppose there exists a complex number $w_0$ for which there does not exist a sequence $z_n\rightarrow z_0$ such that $f(z_n)\rightarrow w_0$ as $n\rightarrow \infty$. It follows there exists $\varepsilon > 0$ for which $|f(z) - w_0| > \varepsilon$ for all $z$ in a small punctured disk about $z_0$. Hence $h(z) = 1/(f(z)-w_0)$ is bounded near $z_0$. By Riemann's theorem for removable singularities, $h(z)$ has a removable singularity at $z_0$. Hence $h(z) = (z-z_0)^Ng(z)$ for some $N \geq 0$ and some analytic function $g(z)$ satisfying $g(z_0) \neq 0$. Thus $f(z) - w_0 = 1/h(z) = (z-z_0)^{-N}(1/g(z))$, where $1/g(z)$ is analytic at $z_0$. If $N = 0$, $f(z)$ extends to an analytic function at $z_0$, while if $N > 0$, $f(z)$ has a pole of order $N$ at $z_0$. This establishes the theorem.
+\end{proof}
+
+Thus, the limit of the modulus at an essential isolated singularity is undefined, unlike the limit of the modulus of a pole singularity which is just infinity.
+
+\begin{definition}
+    We say that $f(z)$ has an isolated singular point at $\infty$ if there exists $r > 0$ such that $f$ is analytic on $|z| > r$. Equivalently, we say $f$ has an isolated singualr point at $\infty$ if $g(w) = f(1/w)$ has an isolated singularity at $w = 0$. Furthermore, we say that the isolated singular point at $\infty$ is a removable singularity, a pole of order $N$, or an essential singularity, if the corresponding singularity at $w=0$ is likewise a removable singularity, a pole of order $N$, or an essential singular point of $g$. In particular, if $\infty$ is a pole of order $N$ then the Laurent series expansion \begin{equation*}
+        f(z) = \sum_{k=N}^0b_kz^k + \sum_{n=-\infty}^{-1}b_nz^n
+    \end{equation*}
+    has \Emph{principal part} \begin{equation*}
+        P_{\infty}(z) = \sum_{k=N}^0b_kz^k = b_Nz^N+...+b_1z+b_0
+    \end{equation*}
+    hence $f(z) - P_{\infty}(z)$ is analytic at $\infty$.
+\end{definition}
+
+\begin{example}
+    The function $e^z = \sum_{n=0}^{\infty}z^n/n!$ has an essential singularity at $\infty$. This implies that while $e^z$ is meromorphic on $\C$, it is not meromorphic on $\C\cup \{\infty\}$ as it has a singularity which is not a pole or removable.
+\end{example}
+
+\begin{example}
+    Let $p(z),q(z) \in \C[z]$ with $\deg(p(z)) = m$ and $\deg(q(z)) = n$ such that $m > n$. Then by the division algorithm for polynomial rings over fields gives that there exist $d(z),r(z) \in \C[z]$ for which $\deg(d(z)) = m-n$ and $\deg(r(z)) < m$, such that \begin{equation*}
+        f(z) = \frac{p(z)}{q(z)} = d(z) + \frac{r(z)}{q(z)}
+    \end{equation*}
+    The function $r(z)/q(z)$ is analytic at $\infty$ and $d(z)$ serves as the principal part. We identify $f$ has a pole of order $m-n$ at $\infty$. It follows that any rational function is \Emph{meromorphic} on the extended complex plane.
+\end{example}
+
+\begin{example}
+    Following the last example suppose $m = n$ then $d(z) = 0$ and the singularity at $\infty$ is seen to be removable. If $p(z) = \sum_{k=0}^ma_kz^k$ and $q(z) = \sum_{k=0}^nb_kz^k$ then we can extend $f$ analytically to $\infty$ by defining $f(\infty) = a_m/b_n$.
+\end{example}
+
+
+\begin{example}
+    Consider $f(z) = (e^{1/z}-1)/z$ for $|z| > 0$. Observe \begin{equation*}
+        f(z) = (e^{1/z}-1)/z = \sum_{n=1}^{\infty}\frac{1}{n!z^{n+1}}
+    \end{equation*}
+    hence the singularity at $\infty$ is removable since $g(w) = f(1/w)$ has a removable singularity at $0$, and we can analytically extend $f$ to the extended complex plane by defining $f(\infty) = 0$.
+\end{example}
+
+
+
+%%%%%%%%%%%%%%%%%%%% Section 1.6.3
+\section{Partial Fractions Decomposition}
+
+\begin{definition}
+    We say that $f(z)$ is \Emph{meromorphic} on a domain $D$ in the extended complex plane $\C^*$ if $f(z)$ is holomorphic on $D$ except possibly at isolated singularities, each of which is a pole.
+\end{definition}
+
+\begin{example}
+    Consider $f(z) = \frac{p(z)}{q(z)} = h(z)+\frac{r(z)}{q(z)}$, by long division. Write $h(z) = a_0+a_1z+...+a_nz^n$, and $q(z) = (z-z_1)^{n_1}(z-z_2)^{n_2}...(z-z_k)^{n_k}$. Note $h(z)$ is entire on $\C$, but not analytic at $\infty$. In particular, $h(z)$ has a pole of order $N$, for $N$ the order of the zero of $1/g(w) = 1/h(1/w)$. On the other hand, $r(z)/q(z)$ is holomorphic on $\C\backslash\{z_1,z_2,...,z_k\}$, and is analytic at infinity since $\deg(r) < \deg(q)$.
+\end{example}
+
+\begin{theorem}
+    A meromorphic function on $\C^*$ is a rational function.
+\end{theorem}
+\begin{proof}
+    If $f(z)$ is meromorphic on $\C^*$, then $F(z) = f(1/z)$ has either a removable singularity or a pole at $z = 0$, and in either case there exists $r > 0$ such that $F(z)$ is holomorphic on $0 < |z| < r$. Then it follows that $f(z)$ is holomorphic on $1/r < |z| < \infty$, which is to say it has no poles or removable singularities. Thus, $f$ only has poles in the closed and bounded set $0\leq z \leq 1/r$, which is compact by the Heine-Borel theorem applied to $\C$. Thus, since the set of poles must have no limit points, and by compactness of $0\leq z \leq 1/r$ every infinite set has a limit point in $0 \leq z \leq 1/r$, it follows that the number of poles must be finite. If $f(z)$ is analytic at $\infty$, we define $P_{\infty}(z)$ to be the constant function $f(\infty)$. Otherwise, $f(z)$ has a pole at $\infty$ and we define $P_{\infty}(z)$ to be the principal part of $f(z)$ at $\infty$. In either case $P_{\infty}(z)$ is a polynomial, and $f(z) - P_{\infty}(z)\rightarrow 0$ as $z\rightarrow \infty$. Let $z_1,...,z_m$ be the poles of $f(z)$ in the finite complex plane $\C$, and let $P_k(z)$ be the principal part of $f(z)$ at $z_k$. It has the form \begin{equation*}
+        P_k(z) = \sum_{n=1}^{N_k}\frac{\alpha_n}{(z-z_k)^n}
+    \end{equation*}
+    and in particular, $P_k(z)$ is analytic at $\infty$ and vanished there. Consider the function \begin{equation*}
+        g(z) = f(z) - P_{\infty}(z) - \sum_{k=1}^mP_k(z)
+    \end{equation*}
+    Since $f(z)-P_k(z)$ is analytic at $z_k$, and each $P_j(z)$ is analytic at $z_k$ for $j \neq k$, $g(z)$ is analytic at each $z_k$. Hence $g(z)$ is an entire function, and further, $g(z)\rightarrow 0$ as $z\rightarrow \infty$. By Liouville's Theorem, $g(z)$ is identically zero. Thus, \begin{equation*}
+        f(z) = P_{\infty}(z) + \sum_{j=1}^mP_j(z)
+    \end{equation*}
+    which shows in particular that $f(z)$ is a rational function.
+\end{proof}
+
+This decomposition is called the \Emph{partial fractions decomposition} of the rational function $f(z)$. 
+
+
+\begin{theorem}
+    Every rational function has a partial fractions decomposition, expressing it as the sum of a polynomial in $z$ and its principal parts at each of its poles in the finite complex plane.
+\end{theorem}
+
+\begin{remark}
+    In general, suppose $f(z) = p(z)/q(z)$ rational. If $\deg(p) \geq \deg(q)$, we may write $p(z)/q(z) = d(z)+r(z)/q(z)$ for $\deg(r) < \deg(q)$. Then factor $q(z) = (z-z_1)^{n_1}...(z-z_k)^{n_k}$. By the previous theorem we have the decomposition \begin{equation*}
+        f(z) = d(z) + \sum_{i=1}^k\sum_{j=1}^{n_i}\frac{\alpha_{i,j}}{(z-z_i)^j}
+    \end{equation*}
+    for $\alpha_{i,j} \in \C$ constants determined by the principal parts for each root of $q(z)$.
+\end{remark}
+
+\begin{example}
+    Suppose $f(z) = \frac{1+z}{z^4-3z^3+3z^2-z}$. Observe \begin{equation*}
+        (z^4-3z^3+3z^2) = z(z-1)^3
+    \end{equation*}
+    So we have that \begin{equation*}
+        f(z) = \frac{A}{z}+\frac{B}{(z-1)}+\frac{C}{(z-1)^2}+\frac{D}{(z-1)^3}
+    \end{equation*}
+    We then have that \begin{equation*}
+        1+z = A(z-1)^3+Bz(z-1)^2+Cz(z-1)+Dz
+    \end{equation*}
+    Differentiating we obtain \begin{equation*}
+        1 = A3(z^2-2z+1)+B(3z^2-4z+1)+C(2z-1)+D
+    \end{equation*}
+    and again we obtain \begin{equation*}
+        0 = 6A(z-1)+B(6z-4)+2C
+    \end{equation*}
+    and finally \begin{equation*}
+        0 = 6A+6B
+    \end{equation*}
+    so $A = -B$. In the original equation if we set $z = 1$ we obtain $D = 2$ and if we set $z = 0$ we obtain $A = -1$, so $B = 1$. Then setting $z = 1$ in the second last equation gives $2C = -2B$, so $C = -1$. Thus, \begin{equation*}
+        f(z) = \frac{-1}{z}+\frac{1}{z-1}+\frac{-1}{(z-1)^2}+\frac{2}{(z-1)^3}
+    \end{equation*}
+\end{example}
+
+\begin{example}
+    Consider from the previous example \begin{equation*}
+        f(z) = \frac{-1}{z}+\frac{1}{z-1}+\frac{-1}{(z-1)^2}+\frac{2}{(z-1)^3}
+    \end{equation*}
+    If we want the explicit Laurent series about $z=1$, we simply need to expand $-1/z$ as a power series: \begin{equation*}
+        \frac{-1}{z} = \frac{-1}{1+(z-1)} = \sum_{n=0}^{\infty}(-1)^{n+1}(z-1)^n
+    \end{equation*}
+    thus for $0 < |z-1| < 1$, \begin{equation*}
+        f(z) = \underbrace{\frac{2}{(z-1)^3}+\frac{-1}{(z-1)^2}+\frac{1}{(z-1)}}_{principal\;part} + \sum_{n=0}^{\infty}(-1)^{n+1}(z-1)^n
+    \end{equation*}
+    This is the Laurent series of $f$ about $z_0$. Evidently, $f$ has a pole of order $3$ at $z = 1$. The other singular point is $z = 0$. To find the Laurent series about $z = 0$ we expand $\frac{1}{z-1}+\frac{-1}{(z-1)^2}+\frac{2}{(z-1)^3}$ as a power series about $z = 0$. First, observe \begin{equation*}
+        \frac{1}{z-1} = \frac{-1}{1-z} = -\sum_{n=0}^{\infty}z^n
+    \end{equation*}
+    Let $g(z) = -\frac{1}{(z-1)^2}$, and observe that $\int g(z)dz = C + \frac{1}{z-1} = C - \sum_{n=0}^{\infty}z^n$. Then it follows that \begin{equation*}
+        g(z) = -\sum_{n=1}^{\infty}nz^{n-1} = -\sum_{j=0}^{\infty}(j+1)z^j
+    \end{equation*}
+    Let $h(z) = 2/(z-1)^3$, so $\int(\int h(z)dz)dz = C+Dz+\frac{1}{z-1} = C+Dz - \sum_{n=0}^{\infty}z^n$, and it follows that \begin{equation*}
+        h(z) = -\sum_{n=2}^{\infty}n(n-1)z^{n-2} = -\sum_{j=0}^{\infty}(j+2)(j+1)z^j
+    \end{equation*}
+    Finally, we combine these terms together to obtain \begin{equation*}
+        f(z) = \underbrace{\frac{-1}{z}}_{principal\;part} -\sum_{n=0}^{\infty}(n+2)^2z^n
+    \end{equation*}
+    Thus $f$ has a pole of order $1$ at $z = 0$.
+\end{example}
+
+
+
+%%%%%%%%%%%%%%%%%%%% Section 1.6.4
+\section{Periodic Functions}
+
+\begin{definition}
+    A complex number $\omega$ is a \Emph{period} of a function $f(z)$ if $f(z+\omega) = f(z)$ wherever defined. The function $f(z)$ is \Emph{periodic} if it has a period $\omega \neq 0$.
+\end{definition}
+
+We wish to show that any periodic analytic function in a half-plane or strip can be represented as a sum of exponential functions. If $\omega \neq 0$ is a period of $f(z)$, the function $g(z) = f(\omega z)$ satisfies $g(z+1) = f(\omega z+\omega) = f(\omega z) = g(z)$, so $g(z)$ has period $1$. 
+
+\begin{theorem}
+    If $f(z)$ is analytic on the horizontal strip $\{\alpha < \mathscr{I}m(z) < \beta\}$, and $f(z)$ is periodic with period $1$, then $f(z)$ can be expanded in an absolutely convergent series of exponentials \begin{equation*}
+        f(z) = \sum_{k=-\infty}^{\infty}a_ke^{2\pi ikz},\;\;\;\alpha < \mathscr{I}m(z) < \beta
+    \end{equation*}
+    The series converes uniformly on any smaller strip $\{\alpha_0 \leq \mathscr{I}m(z) \leq \beta_0\}$ for $\alpha < \alpha_0 < \beta_0 < \beta$.
+\end{theorem}
+To see this we make an exponential change of variable \begin{equation*}
+    w = e^{2\pi iz},\;\;\;z = -\frac{i}{2\pi}\log|w| + \frac{\arg w}{2\pi}
+\end{equation*}
+and we set $g(w) = f(z)$ with $z$ as above. Since $f(z)$ is periodic with period $1$, the value $g(w)$ does not depend on the choice of the argument of $w$. Thus, $g(w)$ is well-defined, and $g(w)$ is analytic for $e^{-2\pi \beta} < |w| < e^{-2\pi \alpha}$. We expand $g(w)$ as a Laurent series $\sum_{k=-\infty}^{\infty}a_kw^k$ in this annulus, and then revert our change of variables to get the exponential series for $f(z)$.
+
+\begin{theorem}
+    Suppose $f(z)$ is analytic on the half-plane $\{\mathscr{I}m(z) > \alpha\}$, and $f(z)$ is periodic with period $1$. If $f(z)$ is bounded as $\mathscr{I}m(z)\rightarrow \infty$, then $f(z)$ can be expanded in an absolutely convergent series of exponentials \begin{equation*}
+        f(z) = \sum_{k=0}^{\infty}a_ke^{2\pi ikz},\;\;\;\mathscr{I}m(z) > \alpha
+    \end{equation*}
+    The series converges uniformly on any smaller half-plane $\{\mathscr{I}m(z) \geq \alpha_0\}$, where $\alpha_0 > \alpha$.
+\end{theorem}
+In this case the change of variables $w = e^{2\pi iz}$ converts $f(z)$ into an analytic function $g(w)$ on the punctured disk $0 < |w| < e^{-2\pi \alpha}$. The hypothesis on $f(z)$ implies that $g(w)$ is bounded as $w\rightarrow 0$. By Riemann's theorem on removable singularities, $g(w)$ extends analytically at $0$. Hence $g(w)$ has a power series expansion \begin{equation*}
+    g(w) = \sum_{k=0}^{\infty}a_kw^k,\;\;\;\;|w| < e^{-2\pi \alpha}
+\end{equation*}
+and this yields the exponential series for $f(z)$. 
+
+We observe that the periods of an analytic function form an additive subgroup of the complex numbers. Moreover, this subgroup is discrete. Any bounded subset of the complex plane contains only finitely many periods of a fixed analytic function.
+
+\begin{theorem}
+    Suppose that $f(z)$ is a nonconstant meromorphic function on the complex plane that is periodic. Either there is a period $w_1$ for $f(z)$ such that the periods of $f(z)$ are the integral multiplies of $w_1$, or there are two periods $w_1$ and $w_2$ of $f(z)$ that do not lie on the same line through the origin such that the periods of $f(z)$ are the integral combinations $mw_1+nw_2$, $m,n \in \Z$.
+\end{theorem}
+
+In the case that the periods of $f(z)$ all lie on the same line through the origin, we say that $f(z)$ is \Emph{simply periodic}. Otherwise, we say that $f(z)$ is \Emph{doubly periodic}.
+
+\begin{theorem}
+    An entire function that is doubly periodic is constant.
+\end{theorem}
+Indeed, if the entire function $f(z)$ is doubly periodic, and if $|f(z)| \leq M$ on the parallelogram $P$ constructed from its generating periods, then by periodicity $|f(z)| \leq M$ on each translate $mw_1+nw_2 + P$ of $P$. Since these translates fill out the complex plane, $f(z)$ is a bounded entire function. By Liouville's theorem $f(z)$ is constant.
+
+
+
+
+%%%%%%%%%%%%%%%%%%%% Section 1.6.5
+\section{Fourier Series}
+
+\begin{definition}
+    A \Emph{complex Fourier series} is a two-tailed series of the form \begin{equation}
+        \sum_{k=-\infty}^{\infty}c_ke^{ik\theta}
+    \end{equation}
+\end{definition}
+
+If the Laurent series \begin{equation*}
+    f(z) = \sum_{k=-\infty}^{\infty}a_kz^k
+\end{equation*}
+converges uniformly on the circle $|z| = r$, then \begin{equation*}
+    f(re^{i\theta}) = \sum_{k=-\infty}^{\infty}a_kr^ke^{ik\theta}
+\end{equation*}
+is the Fourier series expansion of $f(re^{i\theta})$, regarded as a function of $\theta$, and the Fourier coefficients of the expansion are the coefficients $c_k = a_kr^k$.
+
+\begin{remark}
+    Suppose the Fourier series $\sum_{k=-\infty}^{\infty}c_ke^{ik\theta}$ converges uniformly to a function $f(e^{i\theta})$. We can then capture the coefficients of the series by multiplying by the exponential function $e^{-il\theta}$, and integrating with respect to the probability measure $d\theta/2\pi$. We use the orthogonality relations for exponential functions: \begin{equation*}
+        \int_{-\pi}^{\pi}e^{ik\theta}e^{-il\theta}\frac{d\theta}{2\pi} = \left\{\begin{array}{lc} 1, & k = l \\ 0, & k \neq l \end{array}\right.
+    \end{equation*}
+    then yield \begin{equation*}
+        \int_{-\pi}^{\pi}f(re^{i\theta})e^{-il\theta}\frac{d\theta}{2\pi} = \sum_{k=-\infty}^{\infty}c_k\int_{-\pi}^{\pi}e^{ik\theta}e^{-il\theta}\frac{d\theta}{2\pi} = c_l
+    \end{equation*}
+    Then, the \Emph{Fourier coefficients} of any piecewise continuous function (or any integrable function) $f(e^{i\theta})$ is given by \begin{equation*}
+        c_l = \int_{-\pi}^{\pi}f(e^{i\theta})e^{-il\theta}\frac{d\theta}{2\pi},\;\;\;l\in\Z
+    \end{equation*}
+    and we associate $f(e^{i\theta})$ to the Fourier series \begin{equation*}
+        f(e^{i\theta}) \sim \sum_{k=-\infty}^{\infty}c_ke^{ik\theta}
+    \end{equation*}
+    But, does the Fourier series converge, and if so, to what?
+\end{remark}
+
+\begin{theorem}
+    If $f(e^{i\theta})$ is piecewise continuous (or more generally, square-integrable), with Fourier series $f(e^{i\theta}) \sim \sum_{k=-\infty}^{\infty}c_ke^{ik\theta}$, then for $m,n \geq 0$, we have \begin{equation*}
+        \sum_{k=-m}^n|c_k|^2 + \int_{-\pi}^{\pi}\left|f(e^{i\theta})-\sum_{k=-m}^nc_ke^{ik\theta}\right|^2\frac{d\theta}{2\pi} = \int_{-\pi}^{\pi}|f(e^{i\theta})|^2\frac{d\theta}{2\pi}
+    \end{equation*}
+\end{theorem}
+
+The identity shows that partial sums of the series $\sum |c_k|^2$ are bounded, so the series converges and we obtain the following estimate:
+
+\begin{theorem}[Bessel's Inequality]
+    If $f(e^{i\theta})$ is piecewise continuous (or more generally, square-integrable), with Fourier series $f(e^{i\theta})\sim \sum c_ke^{ik\theta}$, then \begin{equation*}
+        \sum_{k=-\infty}^{\infty}|c_k|^2 \leq \int_{-\pi}^{\pi}|f(e^{i\theta})|^2\frac{d\theta}{2\pi}
+    \end{equation*}
+\end{theorem}
+It follows that $c_k\rightarrow 0$ as $k\rightarrow \pm \infty$.
+
+\begin{theorem}
+    Suppose $f(e^{i\theta})$ is piecewise continuous (or square-integrable) with Fourier series $f(e^{i\theta}) \sim \sum c_ke^{ik\theta}$. If $f(e^{i\theta})$ is differentiable at $\theta_0$, then the Fourier series of $f(e^{i\theta})$ converges to $f(e^{i\theta_0})$ at $\theta = \theta_0$: \begin{equation*}
+        f(e^{i\theta_0}) = \sum_{k=-\infty}^{\infty}c_ke^{ik\theta_0} = \lim\limits_{m,n\rightarrow \infty}\sum_{k=-m}^nc_ke^{ik\theta_0}
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    We consider first the special case in which $\theta_0 = 0$ and $e^{i\theta_0} = 1$. Define $g(e^{i\theta}) = [f(e^{i\theta}) - f(1)]/(e^{i\theta}-1)$. The differentiability of $f(e^{i\theta})$ at $\theta = 0$ implies that $g(e^{i\theta})$ has a limit as $\theta\rightarrow 0$. Consequently, $g(e^{i\theta})$ is also piecewise continuous. Denote the Fourier coefficients of $g(e^{i\theta})$ by $b_k$, so $g(e^{i\theta}) \sim \sum b_ke^{ik\theta}$. Bessel's inequality for $g(e^{i\theta})$ shows that $b_k\rightarrow 0$ as $k\rightarrow \pm \infty$. Now we comput the $c_k$'s in terms of the $b_k$'s. Since $f(e^{i\theta}) = g(e^{i\theta})(e^{i\theta}-1)+f(1)$, we have \begin{equation*}
+        c_k = \int_{-pi}^{\pi}g(e^{i\theta})(e^{i\theta}-1)e^{-ik\theta}\frac{d\theta}{2\pi}+f(1)\int_{-\pi}^{\pi}e^{-ik\theta}\frac{d\theta}{2\pi}
+    \end{equation*}
+    Expressing these integrals as Fourier coefficients of $g(e^{i\theta})$, we obtain $c_k = b_{k-1}-b_k$ if $k \neq 0$, and $c_0 = b_{-1}-b_0+f(1)$. Hence the series $\sum c_k$ telescopes, and we obtain \begin{equation*}
+        \sum_{k=-m}^nc_k = f(1) + \sum_{k=-m}^n(b_{k-1}-b_k) = f(1) + b_{-m-1}-b_n
+    \end{equation*}
+    which tends to $f(1)$ as $m,n\rightarrow \infty$. This proves the theorem when $\theta_0 = 0$. The case when $\theta_0$ is arbitrary is reduced to the above special case by a change of variable. Consider the function $h(e^{i\theta}) = f(e^{i(\theta+\theta_0)}) \sim \sum a_ke^{ik\theta}$, which is piecewise continuous and which is differentiable at $\theta = 0$. The Fourier coefficient $a_k$ of $h(e^{i\theta})$ is \begin{equation*}
+        a_k = \int_{-\pi}^{\pi}f(e^{i(\theta+\theta_0)})e^{-ik\theta}\frac{d\theta}{2\pi} = \int_{-\pi}^{\pi}f(e^{ik\varphi})e^{-ik\varphi}e^{ik\theta_0}\frac{d\varphi}{2\pi} = c_ke^{ik\theta_0}
+    \end{equation*}
+    Thus the Fourier series of $f(e^{i\theta})$ evaluated at $\theta = \theta_0$ is $\sum c_ke^{ik\theta_0} = \sum a_k$, which is the same as the Fourier series of $h(e^{i\theta})$ at $\theta = 0$. Then, we have shown that the latter converges to $h(1) = f(e^{i\theta_0})$, and this completes the proof.
+\end{proof}
+
+\begin{theorem}
+    Suppose $f(e^{i\theta})$ is a continuously differentiable function of $\theta$, with Fourier series $f(e^{i\theta}) \sim \sum c_ke^{ik\theta}$. Then the Fourier series of the derivative of $f(e^{i\theta})$ is obtained by differentiating term by term \begin{equation*}
+        \frac{d}{d\theta}f(e^{i\theta}) \sim \sum_{k=-\infty}^{\infty}ikc_ke^{ik\theta}
+    \end{equation*}
+\end{theorem}
+
+
+\begin{corollary}
+    If $f(e^{i\theta})$ is an n-times continuously differentiable function of $\theta$ with Fourier series $f(e^{i\theta}) \sim \sum c_ke^{ik\theta}$, then $\sum_{k=-\infty}^{\infty}k^{2n}|c_k|^2 < \infty$. Further, $k^nc_k\rightarrow 0$ as $k\rightarrow \pm\infty$.
+\end{corollary}
+
+\begin{theorem}
+    Suppose $f(e^{i\theta})$ is a twice continuously differentiable function of $\theta$. Then the Fourier series of $f(e^{i\theta})$ converges to $f(e^{i\theta})$ uniformly in $\theta$.
+\end{theorem}
+

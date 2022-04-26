@@ -1,0 +1,1061 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+\chapter{Examples and Constructions of Topological Spaces}
+\label{GenTop} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+\section{Basic Definitions and Examples: Topological Spaces}
+
+
+\begin{example}[Motivating Example]
+    Let $x = (x_1,...,x_n)$ and $y=(y_1,...,y_n)$ be points in $\R^n$. For $\varepsilon > 0$, we define an \Emph{$\varepsilon$-ball} around a point $x \in \R^n$ by \begin{equation*}
+        B_{\varepsilon}(x) := \{y \in \R^n:d(x,y) < \varepsilon\}
+    \end{equation*}
+    where $d(x,y):=\sqrt{\sum_{i=1}^n(x_i-y_i)^2}$ is the usual Euclidean metric on $\R^n$. Next, we say that a subset $U$ of $\R^n$ is \Emph{open} if for every $x \in U$ there exists $\varepsilon > 0$ such that $B_{\varepsilon}(x) \subseteq U$. 
+
+    Some facts about $\R^n$ is that $\emptyset$ and $\R^n$ are open, the union of an arbitrary collection of open sets is open, and the intersection of a finite collection of open sets is open. 
+\end{example}
+
+\begin{definition}
+    Let $X$ be a set. A collection $\mathcal{T} \subseteq \mathcal{P}(X)$ of subsets of $X$ is called a \Emph{topology on $X$} provided that the following three properties are satisfied: \begin{enumerate}
+        \item $\emptyset \in \mathcal{T}$ and $X \in \mathcal{T}$.
+        \item $\mathcal{T}$ is \Emph{closed under finite intersections}. That is, given any finite collection $U_1,...,U_n$ of sets in $\mathcal{T}$, their common intersection $U_1\cap ...\cap U_n$ is also an element of $\mathcal{T}$.
+        \item $\mathcal{T}$ is \Emph{closed under arbitrary unions}. That is, if $\{U_{\alpha}\vert\alpha\in I\}$ is an indexed family of sets in $\mathcal{T}$ for index set $I$, then their union $\bigcup_{\alpha \in I}U_{\alpha}$ is also an element of $\mathcal{T}$.
+    \end{enumerate}
+    Given a set $X$ and a topology $\mathcal{T}$ on $X$, the pair $(X,\mathcal{T})$ is called a \Emph{topological space}. 
+
+
+    The elements $U \in \mathcal{T}$ of a topology on $X$ are called \Emph{open subsets of $X$}, or simply \Emph{open sets}.
+\end{definition}
+
+\begin{example}
+    Let $X = \R^n$ and let \begin{equation*}
+        \mathcal{T}_{usual} := \{U\subseteq \R^n:\forall x \in U,\exists\varepsilon > 0; B_{\varepsilon}(x) \subseteq U\},
+    \end{equation*}
+    As noted in the motivating example, $\mathcal{T}_{usual}$ forms a topology on $\R^n$. We call this the \Emph{usual or standard topology on $\R^n$}, and refer to $(\R^n,\mathcal{T}_{usual})$ as $\R^n$ with the usual topology. 
+
+    In the case of $n = 1$, our definition above takes the following form: \begin{equation*}
+        \mathcal{T}_{usual} := \{U \subseteq \R:\forall x\in U,\exists \delta >0; (x-\delta,x+\delta)\subseteq U\}
+    \end{equation*}
+    The nonempty open subsets of $\R_{usual}$ are precisely the open intervals and rays\--those intervals of the form $(a,b), (a,\infty),(-\infty,b), (-\infty,\infty) = \R$, for $a < b$\--with arbitrary unions of them.
+\end{example}
+
+\begin{exercise}
+    Fix real numbers $a<b$. Explicitly show that the interval $(a,b)$ is open in $\R_{usual}$. Show that the interval $[a,b)$ is not open in $\R_{usual}$.
+\end{exercise}
+\begin{remark}[Solution]
+    Let $x \in (a,b)$. Then let $\delta = \min(|x-a|/2,|x-b|/2)$. It follows that for all $y \in (x-\delta, x+\delta)$, $|y-x| < \delta$, so in particular $y < \frac{b+x}{2} < b$ and $y > \frac{3x-a}{2} > a$, so $y \in (a,b)$. Hence, $(x-\delta,x+\delta) \subseteq (a,b)$. Thus, we have that $(a,b) \in \mathcal{T}_{usual}$. Next, consider $[a,b)$. Observe that for all $\varepsilon > 0$, there exists $a-\varepsilon < x < a$ by the density of $\R$. But, then $x \notin [a,b)$ as $x < a$, so in particular $(a-\varepsilon,a+\varepsilon) \nsubseteq [a,b)$ for all $\varepsilon > 0$, so $[a,b) \notin \mathcal{T}_{usual}$.
+\end{remark}
+
+\begin{example}[Trivial Topologies]
+    Let $X$ be any set. \begin{enumerate}
+        \item Define $\mathcal{T}_{discrete} := \mathcal{P}(X)$. That is, $\mathcal{T}_{discrete}$ is the collection of all subsets of $X$. Then $\mathcal{T}_{discrete}$ is called the \Emph{discrete topology on $X$}.
+        \item Let $X \neq \emptyset$. Define $\mathcal{T}_{indiscrete} :=\{\emptyset,X\}$. Then $\mathcal{T}_{indiscrete}$ is called the \Emph{indiscrete topology on $X$}, or sometimes the \Emph{trivial topology on $X$}.
+    \end{enumerate}
+\end{example}
+
+
+\begin{exercise}
+    Fix an arbitrary nonempty set $X$, and let $\mathcal{T}_{discrete}$ and $\mathcal{T}_{indiscrete}$ be the trivial topologies defined previously. Show that these are indeed topologies on $X$.
+\end{exercise}
+\begin{remark}[Solution]
+    Let $X$ be a nonempty set. Then by definition $\emptyset, X \in \mathcal{T}_{indiscrete}$, and since $\emptyset,X \subseteq X$, we have that $\emptyset, X \in \mathcal{P}(X) = \mathcal{T}_{discrete}$, so axiom $1$ holds for both sets. Next, let $\mathcal{C} \subseteq \mathcal{T}_{indiscrete}$ be an arbitrary subcollection. Then $\mathcal{C} = \{\emptyset\}$, $\mathcal{C} = \{X\}$, or $\mathcal{C} = \{\emptyset, X\}$. In any case $\bigcup\mathcal{C} = \emptyset$ or $X$, so $\bigcup\mathcal{C} \in \mathcal{T}_{indiscrete}$. Moroever, $\emptyset\cap X = \emptyset = \emptyset \cap \emptyset$ and $X\cap X = X$ are all in $\mathcal{T}_{indiscrete}$ so the set is closed under finite intersections. Thus $\mathcal{T}_{indiscrete}$ satisfies the axioms of a topology on $X$. Next, let $\mathcal{C} \subseteq \mathcal{T}_{discrete}$ be a subcollection. It follows that $\bigcup\mathcal{C} \subseteq X$, so $\bigcup\mathcal{C} \in \mathcal{P}(X) = \mathcal{T}_{discrete}$, so it is closed under arbitrary unions. Similarly, $\bigcap\mathcal{C} \in \mathcal{P}(X) = \mathcal{T}_{discrete}$, so $\mathcal{T}_{discrete}$ is closed under arbitrary intersections, and in particular it is closed under finite intersections.
+\end{remark}
+
+\begin{example}
+    Let $X = \{\triangle, \square, \lozenge,\heartsuit\}$. Define $$\mathcal{T}:=\{\emptyset, X, \{\triangle, \square, \lozenge\}, \{\lozenge,\heartsuit\},\{\lozenge\}\}$$
+    Then $(X,\mathcal{T})$ is a topological space.
+\end{example}
+
+\begin{example}
+    Working with $\R$ as the underlying set, define \begin{equation*}
+        \mathcal{T}_{ray} :=\{(a,\infty):a\in \R\}\cup\{\emptyset,\R\}
+    \end{equation*}
+    Then $\mathcal{T}_{ray}$ is a topology on $\R$ we will call the ``ray topology."
+\end{example}
+
+\begin{example}
+    Let $X$ be any nonempty set. Define \begin{equation*}
+        \mathcal{T}_{co-finite} := \{U \subseteq X:X\backslash U\text{ is finite}\}\cup\{\emptyset\}
+    \end{equation*}
+    Then $\mathcal{T}_{co-finite}$ is called the \Emph{co-finite topology} on $X$.
+\end{example}
+
+\begin{example}
+    Let $X$ be any nonempty set. Define \begin{equation*}
+        \mathcal{T}_{co-uncountable} := \{U\subseteq X:X\backslash U\text{ is countable}\}\cup\{\emptyset\}
+    \end{equation*}
+    Then $\mathcal{T}_{co-countable}$ is called the \Emph{co-countable topology} on $X$.
+\end{example}
+
+\begin{example}
+    Let $X$ be a onempty set, and fix an element $p \in X$. Define \begin{equation*}
+        \mathcal{T}_p :=\{U\subseteq X:p \in U\}\cup\{\emptyset\}
+    \end{equation*}
+    Then $\mathcal{T}_p$ is called the \Emph{particular point topology at $p$} on $X$.
+\end{example}
+
+\begin{exercise}
+    Under what assumptions on the set $X$ does $\mathcal{T}_{co-finite} = \mathcal{T}_{co-countable}$? We must place the assumption that $X$ is itself finite.
+\end{exercise}
+
+
+\subsection{Comparing Topologies}
+
+
+\begin{definition}
+    Let $X$ be a set, and suppose $\mathcal{T}_1$ and $\mathcal{T}_2$ are topologies on $X$. We say that $\mathcal{T}_1$ \Emph{refines} $\mathcal{T}_2$, or that $\mathcal{T}_1$ is \Emph{finer than} $\mathcal{T}_2$, if $\mathcal{T}_1 \supseteq \mathcal{T}_2$. In other words, a topology with more open sets is finer than a topology with fewer open sets.
+
+    This is equivalent to stating that $\mathcal{T}_2$ is \Emph{refined by} $\mathcal{T}_1$, or that $\mathcal{T}_2$ is \Emph{coarser than} $\mathcal{T}_1$.
+\end{definition}
+
+
+\begin{example}
+    For the $\R$, we have: \begin{equation*}
+        \mathcal{T}_{discrete} \text{ refines }\mathcal{T}_{usual}, \text{ which refines }\mathcal{T}_{ray}, \text{ which refines }\mathcal{T}_{indiscrete}
+    \end{equation*}
+\end{example}
+
+
+\begin{exercise}
+    Fix a nonempty set $X$. Show that $\mathcal{T}_{co-finite}$ is coarser than $\mathcal{T}_{co-countable}$. Let $U \in \mathcal{T}_{co-finite}$. Then we have that $X\backslash U$ is finite, so in particular it is countable. Hence $U \in \mathcal{T}_{co-countable}$ so $\mathcal{T}_{co-finite} \subseteq \mathcal{T}_{co-countable}$.
+\end{exercise}
+
+\begin{remark}
+    Given two topologies $\mathcal{T}_1$ and $\mathcal{T}_2$ of a set $X$, it may be that neither refines the other. In this case, we sometimes say that $\mathcal{T}_1$ and $\mathcal{T}_2$ are \Emph{incomparable} topologies.
+\end{remark}
+
+\begin{example}
+    $\mathcal{T}_{usual}$ and $\mathcal{T}_7$ are incomparable topologies on $\R$. To see this, note that $(1,2)$ is open in $\mathcal{T}_{usual}$, but it does not contain $7$ so it is not open in $\mathcal{T}_7$. This shows that $\mathcal{T}_{usual}\nsubseteq \mathcal{T}_7$, so $\mathcal{T}_7$ does not refine $\mathcal{T}_{usual}$. 
+
+    On the other hand, the set $\{\pi,7\}$ is open in $\mathcal{T}_7$ since it contains $7$, but it is not open in $\mathcal{T}_{usual}$. This shows that $\mathcal{T}_7 \nsubseteq \mathcal{T}_{usual}$, so $\mathcal{T}_{usual}$ does not refine $\mathcal{T}_7$.
+\end{example}
+
+
+
+\section{Bases of a Topology}
+
+Often we cannot specify a Topology explicitly in terms of its open sets. Instead, we wish to find a smaller collection of sets we can specify explicitly which can then be used to populate a topology given certain axioms. 
+
+\begin{exercise}
+    Let $X$ be a nonempty set, and let $\mathcal{B} = \{\{x\}:x \in X\}$. Show that if $\mathcal{T}$ is a topology on $X$ and $\mathcal{B}\subseteq \mathcal{T}$, then $\mathcal{T}$ is the discrete topology on $X$. Let $\mathcal{T}$ be a topology on $\R$ containing all of the usual open intervals. Is $\mathcal{T}$ the usual topology? Not necessarily, as it can be the discrete topology. Now, let $U \in \mathcal{P}(X)$. Then, let $\mathcal{C} = \{\{x\}:x\in U\} \subseteq \mathcal{T}$. Then since $\mathcal{T}$ is a topology we have that $U = \bigcup\mathcal{C}\in \mathcal{T}$. Hence $\mathcal{T} = \mathcal{P}(X)$ is the discrete topology on $X$.
+\end{exercise}
+
+\begin{remark}
+    If $\mathcal{A}$ is a collection of sets, then \begin{equation*}
+        \bigcup\mathcal{A} := \bigcup\limits_{X\in\mathcal{A}}X
+    \end{equation*}
+\end{remark}
+
+
+\begin{definition}
+    Let $X$ be a set. A collection of sets $\mathcal{B} \subseteq \mathcal{P}(X)$ is called a \Emph{basis on $X$} if the following two properties hold:\begin{enumerate}
+        \item \Emph{$\mathcal{B}$ covers $X$}. That means: $\forall x \in X, \exists B \in \mathcal{B}: x\in B$. Or, more consicely $X = \bigcup\mathcal{B}$.
+        \item $\forall B_1,B_2 \in \mathcal{B}$, $\forall x \in B_1\cap B_2$, $\exists B \in \mathcal{B}$ such that $x \in B \subseteq B_1\cap B_2$.
+    \end{enumerate}
+\end{definition}
+
+
+\begin{definition}
+    Let $X$ be a set and $\mathcal{B}$ a basis on $X$. We define \begin{equation*}
+        \mathcal{T}_{\mathcal{B}} :=\{\bigcup \mathcal{C}:\mathcal{C}\subseteq \mathcal{B}\}\cup\{\emptyset\}
+    \end{equation*}
+    Then $\mathcal{T}_{\mathcal{B}}$ is called the \Emph{topology generated by $\mathcal{B}$}. Note $\emptyset \subseteq \mathcal{B}$ and $\bigcup\emptyset = \emptyset$, so technically speaking we do not need to add it explicitly.
+\end{definition}
+
+
+\begin{example}
+    \leavevmode
+    \begin{enumerate}
+        \item Let $X$ be a set, and let $\mathcal{B} = \{\{x\}:x \in X\}$. Then $\mathcal{B}$ is a basis on $X$, and $\mathcal{T}_{\mathcal{B}}$ is the discrete topology.
+        \item The collection $\mathcal{A} = \{(a,\infty)\subseteq \R:a \in \R\}$ of open rays is a basis on $\R$, for somewhat trivial reasons. $\mathcal{A}$ coverse $\R$ since for example $x \in (x-1,\infty)$ for any $x$. Moreover, given any two elements of $\mathcal{A}$, their intersection is again an element of $\mathcal{A}$ (i.e. $\mathcal{A}$ is closed under pairwise intersections), and therefore it follows inductively that the intersection of finitely many elements of $\mathcal{A}$ is again an element of $\mathcal{A}$. This makes the second property in the definition of a basis immediately satisfied. 
+        \item The collection $\mathcal{B} = \{(a,b) \subseteq \R:a <b\}$ of open intervals is a basis on $\R$.
+        \item The collection $\mathcal{B}_2 = \{B_{\varepsilon}(x) \subseteq \R^2:x \in \R^2,\varepsilon > 0\}$ is a basis on $\R^2$.
+        \item The collection $\mathcal{B} = \{[a,b)\subseteq \R:a < b\}$ of ``half-open" intervals is a basis on $\R$. So is $\mathcal{B}' = \{(a,b]\subseteq \R:a<b\}$.
+        \item Let $(X_1,\mathcal{T}_1)$ and $(X_2,\mathcal{T}_2)$ be topological spaces, and define: \begin{equation*}
+                \mathcal{B} = \mathcal{T}_1\times \mathcal{T}_2 = \{U\times V\subseteq X_1\times X_2: U\in \mathcal{T}_1,V\in\mathcal{T}_2\}
+        \end{equation*}
+            Then $\mathcal{B}$ is a basis on $X_1\times X_2$.
+            \begin{proof}
+                First, since $X_1\times X_2 \in \mathcal{T}_1\times \mathcal{T}_2$ as they are topologies, we have that $\mathcal{T}_1\times \mathcal{T}_2$ covers $X_1\times X_2$. Next, for any $U_1\times V_1, U_2\times V_2 \in \mathcal{T}_1\times \mathcal{T}_2$, we have that $(U_1\times V_1)\cap(U_2\times V_2) = (U_1\cap U_2)\times (V_1\cap V_2)$, where $U_1\cap U_2 \in \mathcal{T}_1$ and $V_1\cap V_2 \in \mathcal{T}_2$, so $(U_1\cap U_1)\times (V_1\cap V_2) \in \mathcal{T}_1\times \mathcal{T}_2$. Hence, $\mathcal{B} = \mathcal{T}_1\times \mathcal{T}_2$ is indeed a basis on $\mathcal{B}$.
+            \end{proof}
+        \item The collection \begin{equation*}
+                \mathcal{B} = \{(a,b)\times (c,d) \in \R^2: a < b, c < d\}
+        \end{equation*}
+            is a basis on $\R^2$.
+            \begin{proof}
+                Note that for all $(x,y) \in \R^2$, $(x,y) \in (x-\delta,x+\delta)\times (y-\delta,y+\delta) \in \mathcal{B}$ for $\delta > 0$ so $\mathcal{B}$ covers $\R^2$. Moreover, for $(a_1,b_1)\times (c_1,d_1),(a_2,b_2)\times(c_2,d_2) \in \mathcal{B}$, and suppose $((a_1,b_1)\times(c_1,d_1))\cap((a_2,b_2)\times(c_2,d_2)) \neq \emptyset$. Let $x \in (a_1,b_1) \cap(a_2,b_2)$ and $y \in (c_1,d_1)\cap(c_2,d_2)$. Then choose $\delta_1 = \frac{1}{2}\min\{|x-a_1|,|x-b_1|,|x-a_2|,|x-b_2|\}$ and $\delta_2 = \frac{1}{2}\min\{|y-c_1|,|y-d_1|,|y-c_2|,|y-d_2|\}$. It follows that $(x-\delta_1,x+\delta_1) \subseteq (a_1,b_1)\cap(a_2,b_2)$ and $(y-\delta_2,y+\delta_2)\subseteq (c_1,d_1)\cap(c_2,d_2)$. Hence, we have that $$(x,y) \in (x-\delta_1,x+\delta_1)\times(y-\delta_2,y+\delta_2) \subseteq ((a_1,b_1)\times(c_1,d_1))\cap((a_2,b_2)\times(c_2,d_2)) \subseteq \mathcal{B}$$ so the second axiom is satisied by $\mathcal{B}$. Hence, $\mathcal{B}$ is a basis on $\R^2$. 
+
+                Let $\mathcal{C} = \mathcal{T}_{usual}\times\mathcal{T}_{usual}$. Then note that for all $a < b$, $(a,b) \in \mathcal{T}_{usual}$ so $\mathcal{B} \subseteq \mathcal{C}$ by definition. However, note that $((1,2)\cup(3,4)) \times (1,2) \in \mathcal{C}$ while it is not in $\mathcal{B}$ so $\mathcal{C} \nsubseteq \mathcal{B}$, and consequently $\mathcal{B} \neq \mathcal{C}$.
+            \end{proof}
+            \item A topology $\mathcal{T}$ on a set $X$ is itself a basis on $X$: First, $X \in \mathcal{T}$ anso $\mathcal{T}$ covers $X$. Second, the intersection of two sets in $\mathcal{T}$ is again in $\mathcal{T}$ since $\mathcal{T}$ is closed under finite intersections, and so the second property in the definition of a basis is trivially satisfied. 
+    \end{enumerate}
+\end{example}
+
+\begin{proof}[Proof that $\mathcal{T}_{\mathcal{B}}$ is a Topology]
+    (1) $\emptyset \in \mathcal{T}_{\mathcal{B}}$ by definition, and $X \in \mathcal{T}_{\mathcal{B}}$ since $\mathcal{B}$ covers $X$, so $X = \bigcup\mathcal{B} \in \mathcal{T}_{\mathcal{B}}$.
+
+    
+    (2) $\mathcal{T}_{\mathcal{B}}$ is closed under arbitrary unions. Let $\{V_{\alpha}:\alpha \in I\}$ be an indexed family of elements in $\mathcal{T}_{\mathcal{B}}$. By definition of $\mathcal{T}_{\mathcal{B}}$, for each $\alpha \in I$ there exists a collection $\mathcal{C}_{\alpha} \subseteq \mathcal{B}$ such that $V_{\alpha} = \bigcup\mathcal{C}_{\alpha}$. Immediately we can see that \begin{equation*}
+        \bigcup\limits_{\alpha\in I}\left(\bigcup\mathcal{C}_{\alpha}\right) = \bigcup\left(\bigcup\limits_{\alpha \in I}\mathcal{C}_{\alpha}\right) \in \mathcal{T}_{\mathcal{B}},
+    \end{equation*}
+    where the last set is an element of $\mathcal{T}_{\mathcal{B}}$ since $\bigcup_{\alpha \in I}\mathcal{C}_{\alpha} \subseteq \mathcal{B}$. 
+
+
+    (3) $\mathcal{T}_{\mathcal{B}}$ is closed under finite intersections. Fix two elements $U = \bigcup\mathcal{A}$ and $V = \bigcup\mathcal{C}$ in $\mathcal{T}_{\mathcal{B}}$. We want to show that $U\cap V \in \mathcal{T}_{\mathcal{B}}$. First note that $x \in U\cap V$ if and only if there exists $A \in \mathcal{A}$ and $C \in \mathcal{C}$ such that $x \in A\cap C$. Hence \begin{equation*}
+        U\cap V = \left(\bigcap\mathcal{A}\right)\cup\left(\bigcap\mathcal{C}\right) = \bigcup\{A\cap C:A\in\mathcal{A},C\in\mathcal{C}\}
+    \end{equation*}
+    Since $\mathcal{T}_{\mathcal{B}}$ is closed under arbitrary unions by (2), it is sufficient to show that \begin{equation*}
+        \{A\cap C:A \in \mathcal{A},C\in\mathcal{C}\}\subseteq \mathcal{T}_{\mathcal{B}}
+    \end{equation*}
+    So fix $A\cap C$ for some $A \in \mathcal{A}$ and $C \in \mathcal{C}$. If $A\cap C$ is nonempty, then for a given $x \in A\cap C$ there exists $B_x \in \mathcal{B}$ such taht $x \in B_x \subseteq A\cap C$ since $\mathcal{B}$ is a basis. As this applies for all $x \in A\cap C$, we have that \begin{equation*}
+        A\cap C\subseteq \left[\bigcup\limits_{x\in A\cap C}B_x\right]\subseteq A\cap C
+    \end{equation*}
+    so we have that \begin{equation*}
+        A\cap C = \left[\bigcup\limits_{x\in A\cap C}B_x\right] \in \mathcal{T}_{\mathcal{B}}
+    \end{equation*}
+    On the other hand, if $A\cap C$ is empty then it is in $\mathcal{T}_{\mathcal{B}}$ by (1).
+\end{proof}
+
+
+\begin{definition}
+    Let $X$ be a set and $\mathcal{B}$ a basis on $X$. Define \begin{equation*}
+        \mathcal{T}_{\mathcal{B}}' := \{U\subseteq X:\forall x \in U,\exists B_x \in \mathcal{B};x \in B_x \subseteq U\}
+    \end{equation*}
+\end{definition}
+\begin{proof}[$\mathcal{T}_{\mathcal{B}}'$ Defines a Topology on $X$]
+    (To be finished)
+\end{proof}
+
+
+\begin{exercise}
+    Prove that the two definitions for the topology generated by a basis $\mathcal{B}$ are equivalent. 
+\end{exercise}
+\begin{proof}
+    (To be finished)
+\end{proof}
+
+
+\begin{remark}
+    Observe that $\mathcal{B} \subseteq \mathcal{T}_{\mathcal{B}}$ and $\mathcal{B} \subseteq \mathcal{T}_{\mathcal{B}}'$. Indeed, fixing some $U \in \mathcal{B}$, $U = \bigcup\{U\} \in \mathcal{T}_{\mathcal{B}}$, so $\mathcal{B} \subseteq \mathcal{T}_{\mathcal{B}}$. On the other hand for all $x \in U$, $x \in U \subseteq U$, so $U \in \mathcal{T}_{\mathcal{B}}'$. Hence $\mathcal{B}\subseteq \mathcal{T}_{\mathcal{B}}'$.
+
+    Hence, all basis elements are open sets, so we often call them the \Emph{basic open sets} of the topology.
+\end{remark}
+
+\begin{example}
+    \leavevmode
+    \begin{enumerate}
+        \item The basis consisting of all singletons in a set $X$ generates the discrete topology on $X$.
+        \item The basis consisting of all the open intervals in $\R$ generates the usual or Euclidean topology on $\R$.
+        \item The basis consisting of all open balls in $\R^2$ generates the usual topology on $\R^2$.
+        \item Given a topology $\mathcal{T}$ on a set $X$, $\mathcal{T}$ is itself a basis for itself.
+    \end{enumerate}
+\end{example}
+
+\begin{definition}
+    Let $\mathcal{B} := \{[a,b)\subseteq\R:a <b\}$. Then $\mathcal{B}$ is a basis on $\R$. The topology $\mathcal{S} := \mathcal{T}_{\mathcal{B}}$ it generates is called the \Emph{lower limit topology on $\R$}, and the corresponding topological space $(\R,\mathcal{S})$ is called the \Emph{Sorgenfrey line}. 
+\end{definition}
+
+\begin{lemma}
+    Let $\mathcal{B}_1$ and $\mathcal{B}_2$ be two bases on a set $X$, then $\mathcal{T}_{\mathcal{B}_1} \subseteq \mathcal{T}_{\mathcal{B}_2}$ if and only if for every $x \in X$ and $B_1 \in \mathcal{B}_1$ containing $x$, there is a $B_2 \in \mathcal{B}_2$ such taht $x \in B_2 \subseteq B_1$.
+\end{lemma}
+\begin{proof}
+    We will proceed using the notation specified in the lemma.
+
+    Assuming that $\mathcal{T}_{\mathcal{B}_1}\subseteq \mathcal{T}_{\mathcal{B}_2}$, fix an element $x \in X$ and a basic open set $B_1 \in \mathcal{B}_1$ such that $x \in B_1$. Then $B_1 \in \mathcal{T}_{\mathcal{B}_1}$, so in particular $B_1 \in \mathcal{T}_{\mathcal{B}_2}$, so by definition there exists $B_2 \in \mathcal{B}_2$ such that $x \in B_2 \subseteq B_1$.
+
+
+    Conversely, assuming that for all $x \in X$ and $B_1 \in \mathcal{B}_1$ containing $x$, there is a $B_2 \in \mathcal{B}_2$ such that $x \in B_2 \subseteq B_1$, let $U \in \mathcal{T}_{\mathcal{B}_1}$ be an arbitrary open set. Then, note that by assumption $\mathcal{B}_1 \subseteq \mathcal{T}_{\mathcal{B}_2}$, and as $U \in \mathcal{T}_{\mathcal{B}_1}$ there exists a subcollection $\mathcal{C} \subseteq \mathcal{B}_1$ of basic open sets such that $U = \bigcup\{\mathcal{C}\}$. However, $\mathcal{C} \subseteq \mathcal{B}_1\subseteq\mathcal{T}_{\mathcal{B}_2}$, so as $\mathcal{T}_{\mathcal{B}_2}$ is closed under arbitrary unions we have that $U =\bigcup\{\mathcal{C}\} \in \mathcal{T}_{\mathcal{B}_2}$. Consequently we find that $\mathcal{T}_{\mathcal{B}_2}$ is finer than $\mathcal{T}_{\mathcal{B}_1}$.
+\end{proof}
+
+\begin{corollary}{}{basisCond}
+    Let $(X,\mathcal{T})$ be a topological space and $\mathcal{B}$ a basis on $X$. Then $\mathcal{B}$ generates $\mathcal{T}$ if and only if \begin{enumerate}
+        \item $\mathcal{B}\subseteq \mathcal{T}$; and 
+        \item for every $U \in \mathcal{T}$ and every $x \in U$, there is a $B \in \mathcal{B}$ such that $x \in B\subseteq U$
+    \end{enumerate}
+\end{corollary}
+\begin{proof}
+
+    Assuming that $\mathcal{B}$ generates $\mathcal{T}$ we have that all basic open sets $B \in \mathcal{B}$ are open sets in $\mathcal{T}$. Indeed, for all $x \in B$, $x \in B \subseteq B$, so by definition of the topology generated by $\mathcal{B}$ we have that $B \in \mathcal{T}$ is open. Consequently $\mathcal{B} \subseteq \mathcal{T}$ is a subcollection of open sets. Then, by definition of the topology generated by the basis $\mathcal{B}$, for all $U \in \mathcal{T}$ and every $x \in U$, there exists $B \in \mathcal{B}$ such taht $x \in B\subseteq U$, so the second condition is immediately satisfied.
+
+
+    On the other hand, assuming that the two conditions are satisfied, we have that $\{\bigcup\{\mathcal{C}\}:\mathcal{C}\subseteq \mathcal{B}\} \subseteq \mathcal{T}$ since $\mathcal{B}\subseteq \mathcal{T}$ and $\mathcal{T}$ is closed under arbitrary unions. Moreover, for every $U \in \mathcal{T}$ and each $x \in U$ there exists $B_x \in \mathcal{B}$ such that $x \in B_x \subseteq U$. Hence, we find that $U = \bigcup_{x \in U}B_x$, so $U \in \{\bigcup\{\mathcal{C}\}:\mathcal{C}\subseteq\mathcal{B}$. It follows immediately that $\mathcal{T} \subseteq \{\bigcup\{\mathcal{C}\}:\mathcal{C}\subseteq\mathcal{B}$, so as both inclusions hold $\mathcal{T}$ is the topology generated by $\mathcal{B}$.
+\end{proof}
+
+\begin{exercise}
+    I claim that the sets $\mathcal{B}_1 = \{(a,\infty): a\in \R\}\cup\{(-\infty,a):a\in\R\}\cup\{\emptyset\}$ and $\mathcal{B}_2 = \{(p,q):p,q\in\Q, p < q\}$ are bases for the usual topology on $\R$.
+\end{exercise}
+\begin{proof}
+    (To be completed)
+\end{proof}
+
+
+\begin{exercise}
+    I claim that the sets $\mathcal{B}_1 =  \{\emptyset\}\cup\{S_{\varepsilon}(\vec{x}) \subseteq \R^n:\vec{x} \in \R^n, \varepsilon >0\}$ and $\mathcal{B}_2 = \{\pi_i^{-1}(U) \subseteq \R^n:U \in \mathcal{T}_{usual}\}$ where $S_{\varepsilon}(\vec{x}) := (x_1-\varepsilon,x_1+\varepsilon)\times ... \times(x_n-\varepsilon,x_n+\varepsilon$, $\pi_i:\R^n\rightarrow \R$ by $\pi_i(\vec{x}) = x_i$, and $\mathcal{T}_{usual}$ is the usual topology on $\R$.
+\end{exercise}
+\begin{proof}
+    (To be completed)
+\end{proof}
+
+
+\begin{exercise}
+    The lower limit topology on $\R$ refines the usual topology on $\R$, strictly.
+\end{exercise}
+\begin{proof}
+    (To be completed)
+\end{proof}
+
+
+
+
+\section{Closed Sets and Closures}
+
+
+\begin{definition}
+    A sequence $\{x_n\}_{n=1}^{\infty}$ is said to \Emph{converge} to a point $x \in \R^n$ if for every $\epsilon > 0$ there is a number $N \in \N$ such that $x_n \in B_{\epsilon}(x)$ for all $n \geq N$.
+\end{definition}
+
+\begin{remark}
+    It is common to refer to the portion of a sequence $\{x_n\}_{n=1}^{\infty}$ after some index $N$ (that is, the sequence $\{x_n\}_{n=N+1}^{\infty}$) as a \Emph{tail} of the sequence. In this language, one would phrase the above definition as ``for every $\epsilon > 0$ there is a tail of the sequence inside $B_{\epsilon}(x)$."
+\end{remark}
+
+\begin{remark}
+    By definition of the usual topology on $\R^n$, this definition is equivalent to stating that for any open neighborhood $U$ of $x$, there is a tail of the sequence in $U$.
+\end{remark}
+
+
+\subsection{Closures}
+
+\begin{definition}
+    Let $(X,\mathcal{T})$ be a topological space, and let $A \subseteq X$. We define the \Emph{closure of $A$ in $(X,\mathcal{T})$}, which we denote $\overline{A}$, by: \begin{equation*}
+        x \in \overline{A}\text{ if and only if for every open set $U$ containing $x$, } U\cap A\neq \emptyset
+    \end{equation*}
+    Or, in symbols: \begin{equation*}
+        \overline{A} = \{x \in X:\forall U\in\mathcal{T};U \in N(x), U\cap A\neq \emptyset\}
+    \end{equation*}
+\end{definition}
+
+
+\begin{proposition}
+    Let $(X,\mathcal{T})$ be a topological space and let $A,B\subseteq X$. Then:\begin{enumerate}
+        \item $A\subseteq \overline{A}$
+        \item $\overline{\overline{A}} = \overline{A}$ (That is, taking closures is an \Emph{idempotent} operation)
+        \item $\overline{A\cup B} = \overline{A}\cup\overline{B}$
+        \item $X\backslash A$ is open if, and only if, $\overline{A} = A$
+        \item Trivially, $\overline{\emptyset} = \emptyset$ and $\overline{X} = X$
+    \end{enumerate}
+\end{proposition}
+\begin{proof}
+    \leavevmode
+    \begin{enumerate}
+        \item Let $a \in A$. Then for all open sets $U \in N(a)$, $a \in U$ so $a \in U\cap A$ and hence $U\cap A \neq \emptyset$. Thus as $U$ was an arbitrary neighborhood of $a$, $a \in \overline{A}$ and hence $A \subseteq \overline{A}$.
+        \item By the first point we have the inclusion $\overline{A} \subseteq \overline{\overline{A}}$. Now, let $x \in \overline{\overline{A}}$. Then by definition for all open sets $U \in N(x)$, $U \cap \overline{A} \neq \emptyset$, so there is at least one point $y \in U \cap \overline{A}$. Since $y \in \overline{A}$ we again have by definition that for all open sets $V \in N(y)$, $V \cap A \neq \emptyset$. But $y \in U$ an open set implies $U \in N(y)$, so we must have that $U \cap A \neq \emptyset$. Therefore by definition $x \in \overline{A}$, so $\overline{\overline{A}} \subseteq \overline{A}$. Consequently, we conclude that $\overline{A} = \overline{\overline{A}}$.
+        \item First let $x \in \overline{A\cup B}$. Then for all open sets $U \in N(x)$, we have that $U \cap(A\cup B) \neq \emptyset$. Then I claim that either $U\cap A \neq \emptyset$ for all $U \in N(x)$ or $U\cap B \neq \emptyset$ for $U \in N(x)$. If it is true for both $A$ and $B$ then $x \in \overline{A}$ and $x \in \overline{B}$, so $x \in \overline{A}\cup\overline{B}$ so we are done. Hence, suppose without loss of generality that there exists $U \in N(x)$ such that $U\cap B = \emptyset$. Then since $U\cap(A\cup B) \neq \emptyset$ we must have that $U \cap A\neq \emptyset$. Now, towards a contradiction suppose there exists $V \in N(x)$ such that $V\cap A = \emptyset$. But then $V\cap U \in N(x)$ is an open set since open sets are closed under finite intersections, and $(V\cap U)\cap A = \emptyset$ and $(V\cap U)\cap B = \emptyset$, which implies $(V\cap U)\cap (A\cup B) = \emptyset$, a contradiction. Therefore, we must have that for all open sets $V \in N(x)$, $V\cap A \neq \emptyset$, so $x \in \overline{A}$. Consequently, we find that $x \in \overline{A}\cup\overline{B}$, so $\overline{A\cup B} \subseteq \overline{A}\cup\overline{B}$.
+
+            On the other hand, let $y \in \overline{A} \cup \overline{B}$, and without loss of generality suppose $y \in \overline{A}$. Then for all open sets $U \in N(y)$ we have $U \cap A \neq \emptyset$, so in particular $U \cap (A\cup B) \neq \emptyset$. Therefore by definition $y \in \overline{A\cup B}$ so $\overline{A\cup B}\supseteq \overline{A}\cup\overline{B}$, and we conclude the equality $$\overline{A\cup B} = \overline{A}\cup\overline{B}$$
+
+        \item Firstly, suppose that $X\backslash A$ is open, and let $a \in \overline{A}$. Towards a contradiction suppose $a \in X\backslash A$. But since $X\backslash A$ is open and $a \in \overline{A}$, we would then need that $(X\backslash A) \cap A \neq \emptyset$, which is a contradiction as $(X\backslash A)\cap A = \emptyset$. Therefore, $a \notin X\backslash A$, so $a \in A$. Hence $\overline{A} \subseteq A$, and by our first remark we obtain equality with $A = \overline{A}$.
+
+            Conversely, suppose that $\overline{A} = A$, and let $x \in X\backslash A$. Then since $x \notin A = \overline{A}$, there must exist $U_x \in N(x)$ such that $U_x \cap A = \emptyset$. Consequently, $U_x$ is containd in $X\backslash A$. But this applies for all $x$ of $X\backslash A$, so \begin{equation*}
+                \bigcup_{x \in X\backslash A}U_x = X\backslash A
+            \end{equation*}
+            so we must have that $X\backslash A$ is open as it is the union of open sets, and open sets are closed under arbitrary unions.
+    \end{enumerate}
+\end{proof}
+
+
+\begin{example}
+    \leavevmode
+    \begin{enumerate}
+        \item Working in $\R_{usual}$, the closure of an open interval $(a,b)$ is the corresponding ``closed" interval $[a,b]$.
+
+            To see this, by the first point of the previous proposition $(a,b) \subseteq \overline{(a,b)}$. We must show that $a,b \in \overline{(a,b)}$. Let $U$ be an open set containing $a$. Then there is an $\epsilon > 0$ such that $B_{\epsilon}(a) = (a-\epsilon,a+\epsilon) \subseteq U$. Let $\delta = \min\{\epsilon,b-a\}$. Then $a+\delta/2 \in U\cap (a,b)$, as required. The proof of $b$ is analogous. This established that $[a,b] \subseteq \overline{(a,b)}$.
+
+            Finally, if $x \in \R\backslash[a,b]$, the set $(-\infty,a)\cup(b,\infty)$ is an open set containing $x$ disjoint from $(a,b)$, witnessing that $x \notin \overline{(a,b)}$.
+        \item Again in $\R_{usual}$, show the following straightforward facts for any $a<b<c$:\begin{enumerate}
+                \item $\overline{\{a\}} = \{a\}$
+                \item $\overline{[a,b)} = [a,b]$
+                \item $\overline{(a,b)\cup(b,c)} = [a,c]$
+                \item $\overline{[a,b]} = [a,b]$
+                \item Let $A = \{1/n:n \in \N\}$. Then $\overline{A} = A\cup\{0\}$.
+                \item More generally, if $\{x_n\}_{n=1}^{\infty}$ is a sequence that converges to a point $x \in \R$, then $\overline{\{x_n:n \in \N\}} = \{x_n:n\in\N\}\cup\{x\}$.
+        \end{enumerate}
+            \begin{proof}
+                \leavevmode
+                \begin{enumerate}
+                    \item Note that $\R\backslash \{a\} = (-\infty,a)\cup(a,\infty)$ which is open, so by our previous proposition $\overline{\{a\}} = \{a\}$.
+                    \item Note that by a similar argument to the case of $(a,b)$, $[a,b] \subseteq \overline{[a,b)}$. Similarly, for all $x \notin [a,b]$, $x \in (-\infty,a)\cup(b,\infty)$, which is disjoint from $[a,b)$, so $x \notin \overline{[a,b)}$. Hence $\overline{[a,b)} = [a,b]$.
+                    \item By our previous proposition we have that $$\overline{(a,b)\cup(b,c)} = \overline{(a,b)}\cup\overline{(b,c)} = [a,b]\cup[b,c] = [a,c]$$
+                    \item Note $\R\backslash[a,b] = (-\infty,a)\cup(b,\infty)$, which is open, so by our previous proposition $\overline{[a,b]} = [a,b]$.
+                    \item First, note that for all $B_{\varepsilon}(0)$, there exists $N \in \N$ such that $\frac{1}{N} < \varepsilon$, so $\frac{1}{N} \in B_{\varepsilon}(0)$, and hence $B_{\varepsilon}(0) \cap A \neq \emptyset.$ Therefore we have that $\overline{A} \supseteq A \cup \{0\}$. Now, suppose $x \in \overline{A}\backslash (A\cup\{0\})$. If $x < 0$ then $x \in (-\infty, 0)$, which is disjoint from $A$, and hence a contradiction. If $x > 1$ then again $x \in (1,\infty)$ which is disjoint from $A$. On the other hand $0 < x < 1$. Then, let $B = \{n \in \N: 1/n < x\}$. By the Archimedean property of $\R$ $B$ is non-empty, so by the well-ordering of $\N$ there exists a least element $m \in B$, such that $1/m < x$. Then $1/m < x < 1/(m-1)$. But then $x \in (1/m,1/(m-1))$ which is an open set disjoint from $A$, and hence a contradiction. Thus, $\overline{A}\backslash (A\cup\{0\}) = \emptyset$, so $\overline{A} = A\cup\{0\}$.
+                    \item Let $\{x_n\}_{n=1}^{\infty}$ be a sequence that converges to a point $x \in \R$. Then for all $B_{\epsilon}(x)$ there exists $N \in \N$ such that for all $n \geq N$, $x_n \in B_{\epsilon}(x)$, so in particular $B_{\epsilon}(x) \cap \{x_n:n\in\N\} \neq \emptyset$. Thus $\{x_n:n\in\N\}\cup\{x\} \subseteq \overline{\{x_n:x\in\N\}}$. Now, towards a contradiction let $a \in \overline{\{x_n:x\in\N\}}\backslash (\{x_n:n\in\N\}\cup\{x\})$. Then for all $\varepsilon > 0$, $B_{\varepsilon}(a)\cap\{x_n:n\in\N\} \neq \emptyset$. We shall employ the Principle of Recursive Definition to define a subsequence $\{a_n\}$ of $\{x_n\}$. Define a function $h:\Z_+\rightarrow \N$ by $h(1) = \min\{n \geq 1: x_n \in B_1(a)\}$, and \begin{equation*}
+                            h(i) = \min\{n>h(i-1):x_n \in B_{1/i}(a)\}
+                    \end{equation*}
+                        Then by the the principle of recursive definition we have a sequence $\{h(n)\}_{n=1}^{\infty}$ of indices, such that the subsequence $\{x_{h(n)}\}_{n=1}^{\infty}$ satisfies $x_{h(n)} \in B_{1/n}(a)$ for each $n$. It follows that $\lim\limits_{n\rightarrow \infty}x_{h(n)} = a$, but $\{x_{h(n)}\}$ is a convergent subsequence of a convergent series, so it must converge to $x$ as well. But, by assumption $x \neq a$, which is a contradiction since metric spaces are Hausdorff. Thus, we conclude that $\overline{\{x_n:n\in\N\}} = \{x_n:n\in\N\}\cup\{x\}$ as desired.
+                \end{enumerate}
+            \end{proof}
+        \item Generalizing our first example, let $x\in\R^n$ and $\epsilon > 0$. Then the closure of an $\epsilon$-ball $B_{\epsilon}(x)$ in $\R^n_{usual}$ is $\overline{B_{\epsilon}}(x) = \{y\in \R^n:d(x,y)\leq \epsilon\}$.
+        \item It may seem as though any singleton is its own closure, but this need not be true in all topological spaces. For example, let $X = \{0,1\}$ and let $\mathcal{T} = \{\emptyset, X, \{1\}\}$. Then $(X,\mathcal{T})$ is a topological space, and $\overline{\{1\}} = X$. 
+        \item For another exmaple of the same idea, let $(\R,\mathcal{T}_{ray})$ be the reals with the ray topology defined previously. Then $\overline{\{7\}} = (-\infty,7]$. 
+        \item In $(X,\mathcal{T}_{discrete})$, for any $A \subseteq X$, $\overline{A} = A$. In other words, every set is its own closure.
+        \item In $(X,\mathcal{T}_{indiscrete})$, for any nonempty $A \subseteq X$, $\overline{A} = X$.
+        \item In the Sorgenfrey line:\begin{enumerate}
+                \item Show that singletons are their own closures. (Since singletons are their own closures in $\R_{usual}$, the complement of singletons is open which implies the complement of singletons is open in the Sorgenfrey line as it is finer than $\R_{usual}$. Hence, singletons must be equal to their own closures)
+                \item For any $a<b \in \R$, show that $\overline{[a,b]} = [a,b]$ and $\overline{[a,b)} = [a,b)$. The complement of both $[a,b]$ and $[a,b)$ is open in the Sorgenfrey line, so they are equal to their closures. Note that this implies that all open sets are clopen in the Sorgenfrey line.
+                \item On the other hand, $\overline{(a,b)} = [a,b)$. Indeed, first of all if $x \geq b$, then $[x,x+1)$ is an open set containing $x$ and disjoing from $(a,b)$, so $x \notin \overline{(a,b)}$. Second of all if $x < a$, then $[x-1, x+\frac{a-x}{2})$ is an open set containing $x$ and disjoint from $(a,b)$, so $x \notin \overline{(a,b)}$. Finally, $a \in \overline{(a,b)}$ since if $U$ is an open set containing $a$, then there is no $\epsilon > 0$ such that $[a,a+\epsilon) \subseteq U$, and $[a,a+\epsilon)\cap(a,b) \neq \emptyset$.
+                \item Show that if $A = \{1/n:n \in \N\}$, then $\overline{A} = A\cup\{0\}$. Since the Sorgenfrey line is finer than the usual topology on $\R$, the exact same argument as before can be applied.
+                \item On the other hand, if $B = \{-1/n:n \in \N\}$, note that $\overline{B} = B$. Indeed, $[0,\infty)$ is an open set disjoint from $B$, so $0 \notin \overline{B}$ in this case, and by a similar argument as before no other $x \in \R\backslash B$ is in $\overline{B}$ so $\overline{B} = B$.
+        \end{enumerate}
+    \end{enumerate}
+\end{example}
+
+
+
+\subsection{Closed Sets}
+
+\begin{definition}
+    A subset $A$ of a topological space $X$ is said to be \Emph{closed} if $X\backslash A$ is open.
+\end{definition}
+
+
+\begin{proposition}
+    Let $(X,\mathcal{T})$ be a topological space.\begin{enumerate}
+        \item $X$ and $\emptyset$ are both closed.
+        \item The union of finitely many closed sets is closed.
+        \item An arbitrary intersection of closed sets is closed.
+    \end{enumerate}
+\end{proposition}
+\begin{proof}
+    \leavevmode
+    \begin{enumerate}
+        \item It is immediate that $X\backslash X = \emptyset$ and $X\backslash \emptyset = X$, which are open, and hence $X$ and $\emptyset$ are both clopen.
+        \item Let $C_1,C_2,...,C_n$ be a finite set of closed sets in $X$. Then each $X\backslash C_i$ is open in $X$. Next, I claim $X\backslash \cup_iC_i = \cap_iX\backslash C_i$. First, let $x \in X\backslash \cup_iC_i$. Then for all $i$, $x \notin C_i$, so in particular $x \in X\backslash C_i$ for each $i$. Hence $x \in \cap_iX\backslash C_i$, so $X\backslash \cup_iC_i \subseteq \cap_iX\backslash C_i$. Then, let $y \in \cap_iX\backslash C_i$. It follows by definition that $y \in X\backslash C_i$ for each $i$, so $y \notin C_i$ for each $i$. Consequently, $y \notin \cup_iC_i$, so by definition $y \in X\backslash \cup_iC_i$, so our second inclusion is satisfied and the equality $X\backslash \cup_iC_i = \cap_iX\backslash C_i$ holds. Now, note that $\cap_iX\backslash C_i$ is a finite intersection of open sets, and is hence open since $\mathcal{T}$ is closed under finite intersections. Thus by definition $\cup_iC_i$ is closed, as desired.
+        \item Let $\{C_{\alpha}\}_{\alpha \in \Lambda}$ be an arbitrary collection of closed sets in $X$ with index set $\Lambda$. Then it follows that each $X\backslash C_{\alpha}$ is open, so since $\mathcal{T}$ is closed under arbitrary unions, \begin{equation*}
+                X\backslash\bigcap_{\alpha \in \Lambda}C_{\alpha} = \bigcup_{\alpha\in\Lambda}X\backslash C_{\alpha}
+        \end{equation*}
+            is open in $X$. Thus, by definition $\bigcap_{\alpha\in\Lambda}C_{\alpha}$ is closed in $X$, as desired.
+    \end{enumerate}
+\end{proof}
+
+
+\begin{proposition}
+    Let $(X,\mathcal{T})$ be a topological space, and let $A \subseteq X$. Then $A$ is closed if and only if $A = \overline{A}$.
+\end{proposition}
+\begin{proof}
+    (Proved in a previous proposition)
+\end{proof}
+
+\begin{proposition}
+    Let $(X,\mathcal{T})$ be a topological space, and let $A\subseteq X$. Then $\overline{A}$ is the intersection of all closed subsetes of $X$ that contain $A$.
+\end{proposition}
+\begin{proof}
+    Note that the intersection of an arbitrary number of closed sets is closed, so this is equivalent to stating that $\overline{A}$ is the smallest closed set containing $A$. Let $\mathcal{C}$ be the collection of all closed sets containing $A$. Then note $\overline{A}$ is closed by our previous proposition since $\overline{\overline{A}} = \overline{A}$, so $\overline{A} \in \mathcal{C}$. Hence, $\bigcap\{\mathcal{C}\}\subseteq \overline{A}$. Now, let $x \in X\backslash\bigcap\{\mathcal{C}\}$. Then $x$ is contained in an open set which is disjoint from $A$, since $A \subseteq \bigcap\{\mathcal{C}\}$. Thus, $x \notin \overline{A}$, so $x \in X\backslash \overline{A}$. Conseqeuntly, we find that \begin{equation*}
+        X\backslash\bigcap\{\mathcal{C}\} \subseteq X\backslash \overline{A} \implies \overline{A} \subseteq \bigcap\{\mathcal{C}\}
+    \end{equation*}
+    so the second containment holds. Thus, we conclude that we have equality and \begin{equation*}
+        \overline{A} = \bigcap\{\mathcal{C}\}
+    \end{equation*}
+\end{proof}
+
+
+\begin{example}
+    \leavevmode
+    \begin{enumerate}
+        \item In $(X,\mathcal{T}_{indiscrete})$, the only closed sets are $\emptyset$ and $X$.
+        \item In $(X,\mathcal{T}_{discrete})$, every subset of $X$ is closed.
+        \item In $\R_{usual}$, let $a<b$. Then $\{a\}, [a,b],[a,\infty),$ and $(-\infty,b]$ are closed. $(a,b), [a,b),$ and $A = \{1/n:n \in \N\}$ are not closed.
+        \item In $(X,\mathcal{T}_{co-countable})$, a subsete $A$ of $X$ is closed if and only if $A$ is countable or $A = X$. This topology can just as easily be specified by saying that $X$ is closed and all countable subsets of $X$ are closed.
+        \item Let $X$ be a set and let $p \in X$. Consider $\mathcal{T}_p$, the particular point topology on $X$. A proper subset $A$ of $X$ is closed in this topology if and only if $p \notin A$.
+        \item In the Sorgenfrey Line, let $a < b$. Then $[a,b]$ and $[a,b)$ are closed. Sets of the form $[a,b)$ are basic open sets in the Sorgenfrey line, yet they are also closed. Subsets of a topological space that are both open and closed are called \Emph{clopen} sets. $(a,b),(a,b]$, and $A = \{1/n:n\in\N\}$ are not closed in this space. $B = \{-1/n:n \in\N\}$ is closed, however.
+    \end{enumerate}
+\end{example}
+
+
+\subsection{Density}
+
+
+\begin{remark}
+    $\overline{A}$ can be thought of as the collection of points that $A$ is close to.
+\end{remark}
+
+
+\begin{definition}
+    Let $(X,\mathcal{T})$ be a topological space. A subset $D\subseteq X$ is said to be \Emph{dense in $X$} if $\overline{D} = X$.
+\end{definition}
+
+
+\begin{proposition}
+    Let $(X,\mathcal{T})$ be a topological space, and let $\overline{D} \subseteq X$. Then the following are equivalent: \begin{enumerate}
+        \item $D$ is dense.
+        \item For every nonempty open set $U \subseteq X$, $D\cap U \neq \emptyset$
+    \end{enumerate}
+\end{proposition}
+\begin{proof}
+    We shall start by assuming that $D$ is dense in $X$. Then let $U \in \mathcal{T}$ be a nonempty open set of $X$. Then there exists some $x \in U \subseteq X$. But as $D$ is dense in $X$, $x \in \overline{D}$, so by definition $U \cap D \neq \emptyset$.
+
+
+    Conversely, suppose that every nonempty open set $U\subseteq X$ intersects $D$. Then let $x \in X$, and let $U_x$ be an open set containing $x$. Clearly $U_x \neq \emptyset$, so by hypothesis we have that $D\cap U \neq \emptyset$. Then as $U_x$ was an arbitrary open set containing $x$, we find $x \in \overline{D}$, so $X\subseteq \overline{D}$. But, note that $\overline{D} \subseteq X$, so equality holds and $\overline{D} = X$. Therefore, $D$ is dense in $X$ as claimed.
+\end{proof}
+
+
+\begin{example}
+    \leavevmode
+    \begin{enumerate}
+        \item In any topological space $(X,\mathcal{T})$, $X$ is dense in itself. (Immediate from $\overline{X} = X$ previously)
+        \item If $(X,\mathcal{T})$ is a topological space, $D\subseteq X$ is dense, and $D \subseteq A$, then $A$ is dense. Indeed, if $D \subseteq A$, $X = \overline{D} \subseteq \overline{A} \subseteq X$, so $\overline{A} = X$.
+        \item Working in $\R_{usual}$: \begin{enumerate}
+                \item The set $\Q$ of rationals is dense. Indeed, for all $x \in \R$ and all $\varepsilon > 0$, there exists $q \in \Q$ such that $q \in (x-\varepsilon,x+\varepsilon)$. Thus $\R$ has a countable dense subset. Topological spaces with this property are called \Emph{separable}.
+                \item The set $\R\backslash \Q$ or irrationals is dense.
+                \item The set $\N$ is not dense. Indeed, for $x < 0$, $x \notin \overline{\N}$.
+                \item No finite set is dense. Indeed, if $x < \min(A)$ for $A$ a finite set, then $x \notin \overline{A}$.
+        \end{enumerate}
+        \item $\Q$ is also dense in the Sorgenfrey line. The irrationals are also dense here.
+        \item In $(\R,\mathcal{R}_{ray})$, $\N$ is dense. More generally, any subset of $\R$ that is not bounded above is dense: Indeed, suppose $A$ is such a subset and let $x \in \R$. Let $U$ be an open set containing $x$, so $U = (a,\infty)$ for some $a < x$. But $A$ is not bounded above so there exists $y \in A$ such that $a < y$, so $y \in (a,\infty)$. Hence $U\cap A \neq \emptyset$, so by definition $x \in \overline{A}$. Consequently we find that $\overline{A} = X$, so $A$ is dense.
+        \item In $(X,\mathcal{T}_{discrete})$, the only subset of $X$ that is dense is $X$ itself. Indeed, if $A$ is a proper subset of $X$, then there exists $x \in X\backslash A$. But $\{x\}$ is open in $X$ and disjoing from $A$, so $x \notin \overline{A}$.
+        \item In $(X,\mathcal{T}_{indiscrete})$, every nonempty subset of $X$ is dense.
+        \item Let $p \in X$ and consider the particular point space $(X,\mathcal{T}_p)$. Then $\{p\}$ is dense, but no other singleton is dense. Indeed, a subset of $X$ is dense if and only if it contains $p$ in the particular point topology: \begin{proof}
+                Let $A \subseteq X$. Firstly, let us assume that $A$ is dense in $X$. Towards a contradiction suppose $p \notin A$. But then $\{p\}$ is an open set of $X$ disjoint from $A$, so $p \notin \overline{A}$, which is a contradiction since we assume $\overline{A} = X$. Thus, we must have that $p \in A$.
+
+
+                Conversely, suppose $p \in A$. Then let $x$ be a point of $X$ and $U$ an open set containing $x$. Then by definition of open sets in the particular point topology, $p \in U$, so $p \in U \cap A \neq \emptyset$. Thus by definition $x \in \overline{A}$, so we conclude that $\overline{A} = X$.
+        \end{proof}
+        \item If $X$ is infinite, then any infinite subset of $X$ is dense in $(X,\mathcal{T}_{co-finite})$. If $X$ is uncountable, then any uncountable subset of $X$ is dense in $(X,\mathcal{T}_{co-countable})$.
+            \begin{proof}
+                First, suppose $X$ is infinite and equipped with the co-finite topology. Let $A$ be an infinite subset of $X$, and let $x$ be a point of $X$. Let $U$ be an open set of $x$, so $X\backslash U$ is finite. Then consequently $U$ is infinite since $X$ is. Towards a contradiction suppose $U\cap A = \emptyset$. But then $A \subseteq X\backslash U$, which is finite, contradicting the fact that $A$ is assumed to be infinite. Thus, we must have that $U\cap A \neq \emptyset$, so $x \in \overline{A}$. Therefore $\overline{A} = X$ so $A$ is dense in $X$.
+                
+
+                Secondly, suppose $X$ is uncountable and equipped with the co-countable topology. Let $A$ be an uncountable subset of $X$, and let $x$ be a point of $X$. Let $U$ be an open set of $x$, so $X\backslash U$ is countable. Then towards a contradiction suppose $U\cap A = \emptyset$. But then $A \subseteq X\backslash U$, and the natural injection would induce an injection from $A$ into $\N$, implying that $A$ is countable. However, this contradicts the assumption that $A$ is uncountable, so we must have that $A\cap U \neq \emptyset$, so $x \in \overline{A}$. Thus $\overline{A} = X$, so $A$ is dense in $X$.
+            \end{proof}
+    \end{enumerate}
+\end{example}
+
+
+
+
+\section{The Order Topology}
+
+
+\begin{definition}
+    Suppose $(X,<)$ is a linearly ordered set. Given $a$ and $b$ of $X$ such that $a < b$, we define the subsets of $X$ known as \Emph{intervals} determined by $a$ and $b$, by: \begin{align*}
+        (a,b) &:= \{x\in X\vert a < x < b\} \\
+        (a,b] &:= \{x \in X\vert a < x \leq b\} \\
+        [a,b) &:= \{x \in X\vert a\leq x < b\} \\
+        [a,b] &:= \{x \in X\vert a \leq x \leq b\} 
+    \end{align*}
+    The set of the first type is called an \Emph{open interval} in $X$, a set of the last type is a \Emph{closed interval} in $X$, and sets of the second and third types are called \Emph{half-open intervals}.
+\end{definition}
+
+\begin{definition}
+    Let $X$ be a set with a simple order relation $<$; assume $X$ has more than one element. Let $\mathcal{B}$ be the collection of all sets of the following types: \begin{enumerate}
+        \item All open intervals $(a,b)$ in $X$.
+        \item All intervals of the form $[a_0,b)$, where $a_0$ is the smallest element (if any) of $X$.
+        \item All intervals of the form $(a,b_0]$, where $b_0$ is the largest element (if any) of $X$.
+    \end{enumerate}
+    The collection $\mathcal{B}$ is a basis for a topology on $X$, which is called the \Emph{order topology}.
+\end{definition}
+
+\begin{example}
+    The usual topology on $\R$ is just the order topology derived from the usual order on $\R$.
+\end{example}
+
+\begin{definition}
+    If $X$ is an ordered set, and $a$ is an element of $X$, there are four subsets of $X$ that are called the \Emph{rays} determined by $a$. They are the following: \begin{align*}
+        (a,+\infty) &:= \{x\in X\vert x > a\} \\
+        (-\infty,a) &:= \{x \in X\vert x < a\} \\
+        [a,+\infty) &:= \{x \in X\vert x\geq a\} \\
+        (-\infty,a] &:= \{x \in X\vert x \leq a\} 
+    \end{align*}
+    The first two types of rays are called \Emph{open rays}, and the last two types are called \Emph{closed rays}
+\end{definition}
+
+\begin{remark}
+    The set of open rays in an ordered set $(X,<)$ form a subbasis for the order topology on $X$.
+\end{remark}
+
+
+\section{The Product Topology}
+
+\subsection{Special Case of Two Topological Spaces}
+
+\begin{definition}
+    Let $X$ and $Y$ be topological spaces. The \Emph{product topology} on $X\times Y$ is the topology having as a basis the collection $\mathcal{B}$ of all sets of the form $U\times V$, where $U$ is an open subset of $X$ and $V$ is an open subset of $Y$.
+\end{definition}
+
+
+\begin{theorem}
+    If $\mathcal{B}$ is a basis for a topology of $X$ and $\mathcal{C}$ is a basis for a topology of $Y$, then the collection\begin{equation*}
+        \mathcal{D} = \{B\times C\vert B \in \mathcal{B}\text{ and } C \in \mathcal{C}\}
+    \end{equation*}
+    is a basis for the topology of $X\times Y$.
+\end{theorem}
+\begin{proof}
+    We apply the Corollary \ref{cor:basisCond}. Given an open set $W$ of $X\times Y$, and a point $x\times y$ of $W$, we have by definition of the product topology a basis element $U\times V$ such that $x\times y \in U\times V \subseteq W$. Because $\mathcal{B}$ and $\mathcal{C}$ are bases for $X$ and $Y$, respectively, we can choose $B \in \mathcal{B}$ and $C \in \mathcal{C}$ such that $x \in B \subseteq U$ and $y \in C \subseteq V$. Then $x \times y \in B\times C\subseteq W$. Thus the collection $\mathcal{D}$ meets the criterion of Corollary \ref{cor:basisCond}, so $\mathcal{D}$ is a basis for $X\times Y$.
+\end{proof}
+
+
+\begin{example}
+    For the usual topology on $\R$, the product of this topology with itself gives the usual topology on $\R\times \R = \R^2$. It has as a basis the collection of all products of open sets of $\R$, but the theorem proves that the much smaller collection of all products $(a,b)\times(c,d)$ of open intervals in $\R$ will also serve as a basis for the topology of $\R^2$ (the set of all open rectangles in the plane).
+\end{example}
+
+
+\begin{definition}
+    Let $\pi_1:X\times Y\rightarrow X$ be defined by the equation: \begin{equation*}
+        \pi_1(x,y) = x;
+    \end{equation*}
+    let $\pi_2:X\times Y\rightarrow Y$ be defined by the equation: \begin{equation*}
+        \pi_2(x,y) = y
+    \end{equation*}
+    The maps $\pi_1$ and $\pi_2$ are called the \Emph{projections} of $X\times Y$ onto its first and second factors, respectively.
+\end{definition}
+
+
+\begin{theorem}
+    The collection \begin{equation*}
+        \mathcal{S} = \{\pi_1^{-1}(U)\vert U\text{ open in }X\}\cup\{\pi_2^{-1}(V)\vert V\text{ open in }Y\}
+    \end{equation*}
+    is a subbasis for the product topology on $X\times Y$.
+\end{theorem}
+\begin{proof}
+    Let $\mathcal{T}$ denote the product topology on $X\times Y$, and let $\mathcal{T}'$ be the topology generated by the subbasis $\mathcal{S}$. Now for all $U \times V \in \mathcal{S}$, we have either $U \in \mathcal{T}_x$ and $V = Y$, or $U = X$ and $V \in \mathcal{T}_y$. Thus, $U\times V \in \mathcal{T}$, so $\mathcal{S} \subseteq \mathcal{T}$. Since topologies are closed under finite intersections and arbitrary unions we have that $\mathcal{T}' \subseteq \mathcal{T}$. Now, let $U \times V \in \mathcal{T}$. Then observe that \begin{equation*}
+        U\times V = \pi_1^{-1}(U)\cap\pi_2^{-1}(V) \in \mathcal{T}'
+    \end{equation*}
+    so $\mathcal{T} \subseteq \mathcal{T}'$.
+\end{proof}
+
+
+\subsection{Arbitrary Product Spaces}
+
+\begin{definition}
+    Let $J$ be an index set. Given a set $X$, we define a \Emph{$J$-tuple} of elements of $X$ to be a function $\mathbf{x}:J\rightarrow X$. If $\alpha$ is an element of $J$, we often denote the value of $\mathbf{x}$ at $\alpha$ by $x_{\alpha}$, and we call it the $\alpha$th \Emph{coordinate} of $\mathbf{x}$. We often denote the function $\mathbf{x}$ itself by the symbol \begin{equation*}
+        (x_{\alpha})_{\alpha \in J},
+    \end{equation*}
+    which is as close as we can come to a ``tuple notation" for an arbitrary index set $J$. We denote the set of all $J$-tuples of elements of $X$ by $X^J$.
+\end{definition}
+
+
+\begin{definition}
+    Let $\{A_{\alpha}\}_{\alpha \in J}$ be an indexed family of sets; let $X = \bigcup_{\alpha \in J}A_{\alpha}$. The \Emph{cartesian product} of this indexed family, denoted by \begin{equation*}
+        \prod\limits_{\alpha\in J}A_{\alpha}
+    \end{equation*}
+    is defined to be the set of all $J$-tuples $(x_{\alpha})_{\alpha\in J}$ of elements of $X$ such that $x_{\alpha} \in A_{\alpha}$ for each $\alpha \in J$. That is, it is the set of all functions \begin{equation*}
+        \mathbf{x}:J\rightarrow\bigcup\limits_{\alpha \in J}A_{\alpha}
+    \end{equation*}
+    such that $\mathbf{x}(\alpha) \in A_{\alpha}$ for each $\alpha \in J$.
+\end{definition}
+
+
+\begin{definition}
+    Let $\{X_{\alpha}\}_{\alpha \in J}$ be an indexed family of topological spaces. Let us take as a basis for a topology on the product space \begin{equation*}
+        \prod\limits_{\alpha \in J}X_{\alpha}
+    \end{equation*}
+    the collection of all sets of the form \begin{equation*}
+        \prod\limits_{\alpha \in J}U_{\alpha},
+    \end{equation*}
+    where $U_{\alpha}$ is open in $X_{\alpha}$, for each $\alpha \in J$. The topology generated by this basis is called the \Emph{box topology}.
+\end{definition}
+
+
+\begin{definition}
+    Let \begin{equation*}
+        \pi_{\beta}:\prod\limits_{\alpha \in J}X_{\alpha}\rightarrow X_{\beta}
+    \end{equation*}
+    be the function assigning to each element of the product space its $\beta$th coordinate, \begin{equation*}
+        \pi_{\beta}((x_{\alpha})_{\alpha} \in J) = x_{\beta};
+    \end{equation*}
+    it is called the \Emph{projection mapping} associated with the index $\beta$.
+\end{definition}
+
+
+\begin{definition}
+    Let $\mathcal{S}_{\beta}$ denote the collection \begin{equation*}
+        \mathcal{S}_{\beta} := \{\pi_{\beta}^{-1}(U_{\beta}) \vert U_{\beta}\text{ open in } X_{\beta}\}
+    \end{equation*}
+    and let $\mathcal{S}$ denote the union of these collections,\begin{equation*}
+        \mathcal{S} := \bigcup\limits_{\beta \in J}\mathcal{S}_{\beta}
+    \end{equation*}
+    The topology generated by the subbasis $\mathcal{S}$ is called the \Emph{product topology}. In this topology $\prod_{\alpha \in J}X_{\alpha}$ is called a \Emph{product space}.
+\end{definition}
+
+Observe that a typical element of the basis $\mathcal{B}$ generated by $\mathcal{S}$ can be described as follows: Let $\beta_1,...,\beta_n$ be a finite set of distinct indices from the index set $J$, and let $U_{\beta_i}$ be an open set in $X_{\beta_i}$ for $i \in \{1,2,...,n\}$. Then \begin{equation*}
+    B = \pi_{\beta_1}^{-1}(U_{\beta_1})\cap...\cap\pi_{\beta_n}^{-1}(U_{\beta_n})
+\end{equation*}
+is the typical element of $\mathcal{B}$. Equivalently, we can write $B$ as the product \begin{equation*}
+    B = \prod\limits_{\alpha \in J}U_{\alpha},
+\end{equation*}
+where $U_{\alpha} = X_{\alpha}$ for $\alpha \notin \{\beta_1,...,\beta_n\}$.
+
+
+\begin{theorem}[Comparison of the box and product topologies]
+    The box topology on $\prod X_{\alpha}$ has as basis all sets of the form $\prod U_{\alpha}$, where $U_{\alpha}$ is open in $X_{\alpha}$ for each $\alpha$. The product topology on $\prod X_{\alpha}$ has as basis all sets of the form $\prod U_{\alpha}$, where $U_{\alpha}$ is open in $X_{\alpha}$ for each $\alpha$ and $U_{\alpha}$ equals $X_{\alpha}$ except for finitely many values of $\alpha$.
+\end{theorem}
+
+From this theorem it is evident that the product and box topologies are equivalent for finite products, while in general the box topology is finer than the product topology for arbitrary products.
+
+
+\begin{theorem}
+    Suppose the topology on each $X_{\alpha}$ is given by a basis $\mathcal{B}_{\alpha}$. The collection of all sets of the form \begin{equation*}
+        \prod\limits_{\alpha \in J}B_{\alpha},
+    \end{equation*}
+    where $B_{\alpha} \in \mathcal{B}_{\alpha}$ for each $\alpha$, will serve as a basis for the box topology on $\prod_{\alpha \in J}X_{\alpha}$.
+
+    The collection of all the sets of the same form, where $B_{\alpha} \in \mathcal{B}_{\alpha}$ for finitely many indices $\alpha$ and $B_{\alpha} = X_{\alpha}$ for all the remaining indices, will serve as a basis for the product topology $\prod_{\alpha \in J}X_{\alpha}$.
+\end{theorem}
+\begin{proof}
+    First, let the collection be as described for the product topology. Then evidently it is a subcollection of open sets in the product topology. Now let $\prod_{\alpha \in J}U_{\alpha}$ be an arbitrary open set in the box topology. Then $U_{\alpha}$ is open in $X_{\alpha}$ for each $\alpha$, so by definition there exists $B_{\alpha} \in \mathcal{B}_{\alpha}$ such that $B_{\alpha} \subseteq U_{\alpha}$. Then it follows that \begin{equation*}
+        \prod\limits_{\alpha \in J}B_{\alpha} \subseteq \prod\limits_{\alpha \in J}U_{\alpha}
+    \end{equation*}
+    so by Corollary \ref{cor:basisCond} the collection of all such basis elements is indeed a basis for the box topology.
+
+    Now, consider the collection of basic open sets in the product topology. Let $$\prod\limits_{\alpha \in J}U_{\alpha}$$ be an open set in the product topology, so $U_{\alpha} = X_{\alpha}$ for all $\alpha \notin \{\alpha_1,...,\alpha_n\}$ for some $n \in \N$. Then, for each $i \in \{1,...,n\}$, $U_{\alpha_i}$ is open in $X_{\alpha_i}$, so there exists a basic open set $B_{\alpha_i} \in \mathcal{B}_{\alpha_i}$ such that $U_{\alpha_i}$. Then, for $\alpha \notin \{\alpha_1,...,\alpha_n\}$ choose $B_{\alpha} = X_{\alpha} = U_{\alpha}$. It then follows that \begin{equation*}
+        \prod\limits_{\alpha \in J}B_{\alpha} \subseteq \prod\limits_{\alpha \in J}U_{\alpha}
+    \end{equation*}
+    so by Corollary \ref{cor:basisCond} the collection of all such basis elements is indeed a basis for the product topology.
+\end{proof}
+
+
+
+\begin{theorem}
+    Let $A_{\alpha}$ be a subspace of $X_{\alpha}$, for each $\alpha \in J$. Then $\prod A_{\alpha}$ is a subspace of $\prod X_{\alpha}$ if both products are given the box topology, or if both products are given the product topology.
+\end{theorem}
+\begin{proof}
+    To prove both claims I shall first show that given collections of subsets $U_{\alpha}$ and $V_{\alpha}$, \begin{equation*}
+        \left(\prod U_{\alpha}\right)\bigcap\left(\prod V_{\alpha}\right) = \prod U_{\alpha}\cap V_{\alpha}
+    \end{equation*}
+    Indeed, if $(x_{\alpha})$ is in the left hand side, then $x_{\alpha} \in U_{\alpha}$ and $x_{\alpha} \in V_{\alpha}$ for each $\alpha$. Hence $x_{\alpha} \in U_{\alpha}\cap V_{\alpha}$ for each $\alpha$ so $(x_{\alpha})$ is contained in the right hand side. Conversely, if $(x_{\alpha})$ is in the right hand side $x_{\alpha} \in U_{\alpha}$ and $x_{\alpha} \in V_{\alpha}$ for each $\alpha$. Hence $(x_{\alpha}) \in \prod U_{\alpha}$ and $(x_{\alpha}) \in \prod V_{\alpha}$. Thus $(x_{\alpha})$ belongs in the left hand side so equality holds.
+
+    Firstly, let $\prod (A_{\alpha}\cap U_{\alpha})$ be a basic open set in the box topology on $\prod A_{\alpha}$. Then by our previous argument $\prod (A_{\alpha}\cap U_{\alpha}) = \left(\prod A_{\alpha}\right)\cap\left(\prod U_{\alpha}\right)$, which is open in the subspace topology inhereted by $\prod A_{\alpha}$ from the box topology on $\prod X_{\alpha}$. It is clear that the reversal of the previous argument yields that the box topology is also finer than the product topology, so they are equal.
+
+    The argument for the product topology is identical with ``box" replaced with ``product."
+\end{proof}
+
+
+
+\begin{theorem}
+    If each space $X_{\alpha}$ is a Hausdorff space, then $\prod X_{\alpha}$ is a Hausdorff space in both the box and product topologies.
+\end{theorem}
+\begin{proof}
+    First, consider the box topology on $\prod X_{\alpha}$. Let $(x_{\alpha})$ and $(y_{\alpha})$ be distinct elements. Then there exists $\beta$ such that $x_{\beta} \neq y_{\beta}$. Then since $X_{\beta}$ is Hausdorff there exists $U_{\beta}$ and $V_{\beta}$ such that $x_{\beta} \in U_{\beta}$ and $y_{\beta} \in V_{\beta}$, where $U_{\beta}\cap V_{\beta} = \emptyset$. Then, let $\prod U_{\alpha}$ and $\prod V_{\alpha}$ be open sets in the box topology such that $U_{\beta}$ and $V_{\beta}$ are as chosen above, and $U_{\alpha} = X_{\alpha} = V_{\alpha}$ for $\alpha \neq \beta$. Then $(x_{\alpha}) \in \prod U_{\alpha}$, $(y_{\alpha}) \in \prod V_{\alpha}$, and \begin{equation*}
+        \left(\prod U_{\alpha}\right)\cap \left(\prod V_{\alpha}\right) = \prod (U_{\alpha}\cap V_{\alpha}) = \emptyset
+    \end{equation*}
+    where the last equality holds since there exists no $a_{\beta} \in U_{\beta}\cap V_{\beta} = \emptyset$, so no function exists, or that is only the empty function exists. Thus, we conclude that $\prod X_{\alpha}$ is Hausdorff with the box topology. Moreover, since our proof only relied on open sets which are also open in the product topology, we also have that $\prod X_{\alpha}$ is Hausdorff with the product topology.
+\end{proof}
+
+
+\begin{theorem}
+    Let $\{X_{\alpha}\}$ be an indexed family of spaces; let $A_{\alpha} \subseteq X_{\alpha}$ for each $\alpha$. If $\prod X_{\alpha}$ is given either the product or the box topology, then \begin{equation*}
+        \prod \overline{A}_{\alpha} = \overline{\prod A_{\alpha}}
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    First, let $(x_{\alpha}) \in \prod \overline{A}_{\alpha}$. Then let $\prod U_{\alpha}$ be an open set containing $(x_{\alpha})$. It follows that for each $U_{\alpha}$, there exists $y_{\alpha} \in A_{\alpha} \cap U_{\alpha}$. Then, we have that $$(y_{\alpha}) \in \prod (A_{\alpha} \cap U_{\alpha}) = \left(\prod A_{\alpha}\right)\cap \left(\prod U_{\alpha}\right)$$
+    so the intersection is non-empty, and as the open set was arbitrary we conclude that $(x_{\alpha}) \in \overline{\prod A_{\alpha}}$. 
+
+    To prove the reverse containment let $(a_{\alpha}) \in \overline{\prod A_{\alpha}}$. Then let $a_{\beta}$ be the $\beta$th coordinate of $(a_{\alpha})$. Let $V_{\beta}$ be an arbitrary open set of $X_{\beta}$ containing $x_{\beta}$. Since $\pi^{-1}_{\beta}(V_{\beta})$ is open in $\prod X_{\alpha}$ in either topology, it contains a point $(y_{\alpha})$ of $\prod A_{\alpha}$. Then $y_{\beta}$ belongs to $V_{\beta}\cap A_{\beta}$. It follows that $x_{\beta} \in \overline{A}_{\beta}$, but as $\beta$ was an arbitrary index $(x_{\alpha}) \in \prod \overline{A}_{\alpha}$. Thus both containments hold in both topologies so we have equality, as desired.
+\end{proof}
+
+
+\begin{theorem}
+    Let $f:A\rightarrow \prod_{\alpha \in J}X_{\alpha}$ be given by the equation \begin{equation*}
+        f(a) = (f_{\alpha}(a))_{\alpha \in J}
+    \end{equation*}
+    where $f_{\alpha}:A\rightarrow X_{\alpha}$ for each $\alpha$. Let $\prod X_{\alpha}$ have the product topology. Then the function $f$ is continuous if and only if each function $f_{\alpha}$ is continuous.
+\end{theorem}
+\begin{proof}
+    First, suppose $f$ is continuous. Then, let $\pi_{\beta}$ be the projection of the product onto its $\beta$th factor. The function $\pi_{\beta}$ is continuous by construction of the product topology. Now, the function $f_{\beta}$ is equal to the composite $\pi_{\beta} \circ f$; being the composite of two continuous functions it is itself continuous.
+
+    Conversely, suppose that each coordinate function $f_{\alpha}$ is continuous. To prove that $f$ is continuous, it suffices to prove that the inverse image under $f$ of each subbasis element is open in $A$. A typical subbasis element for the product topology on $\prod X_{\alpha}$ is a set of the form $\pi^{-1}_{\beta}(U_{\beta})$, where $\beta$ is some index and $U_{\beta}$ is open in $X_{\beta}$. Now \begin{equation*}
+        f^{-1}(\pi_{\beta}^{-1}(U_{\beta}) = (\pi_{\beta}\circ f)^{-1}(U_{\beta}) = f_{\beta}^{-1}(U_{\beta})
+    \end{equation*}
+    Since $f_{\beta}$ is continuous, this set is open in $A$, as desired.
+\end{proof}
+
+
+
+
+\section{The Subspace Topology}
+
+\begin{definition}
+    Let $X$ be a topological space with topology $\mathcal{T}$. If $Y$ is a subset of $X$, the collection \begin{equation*}
+        \mathcal{T}_Y :=\{Y\cap U\vert U \in \mathcal{T}\}
+    \end{equation*}
+    is a topology on $Y$, called the \Emph{subspace topology}. With this topology, $Y$ is called a \Emph{subspace} of $X$; its open sets consist of all intersections of open sets of $X$ with $Y$.
+\end{definition}
+
+
+\begin{lemma}
+    If $\mathcal{B}$ is a basis for the topology of $X$ then the collection \begin{equation*}
+        \mathcal{B}_Y := \{B\cap Y\vert B \in \mathcal{B}\}
+    \end{equation*}
+    is a basis for the subspace topology on $Y$.
+\end{lemma}
+\begin{proof}
+    Given $U$ open in $X$ and given $y \in U\cap Y$, we can choose an element $B \in \mathcal{B}$ such that $y \in B\subseteq U$. Then $y \in B\cap Y \subseteq U\cap Y$. It follows from Corollary \ref{cor:basisCond} and that $\mathcal{B}_Y$ is a basis for the subspace topology on $Y$. 
+\end{proof}
+
+
+\begin{definition}
+    If $Y$ is a subspace of $X$, we say that a set $U$ is \Emph{open in $Y$} (or relative to $Y$) if it belongs to the subspace topology on $Y$. We say that $U$ is \Emph{open in $X$} if it belongs to the original topology on $X$.
+\end{definition}
+
+
+\begin{lemma}
+    Let $Y$ be a subspace of $X$. If $U$ is open in $Y$ and $Y$ is open in $X$, then $U$ is open in $X$.
+\end{lemma}
+\begin{proof}
+    Indeed, $U = V\cap Y$ for $V \in \mathcal{T}_X$, so as $Y \in \mathcal{T}_X$ we conclude that $U = V\cap Y \in \mathcal{T}_X$.
+\end{proof}
+
+\begin{theorem}
+    If $A$ is a subspace of $X$ and $B$ is a subspace of $Y$, then the product topology on $A\times B$ is the same as the topology $A\times B$ inherits as a subspace of $X\times Y$.
+\end{theorem}
+\begin{proof}
+    Let $U\times V$ be a general basis element of $X\times Y$, where $U$ is open in $X$ and $V$ is open in $Y$. Therefore, $(U\times V)\cap(A\times B)$ is a general basis element for the subspace topology on $A\times B$. Now \begin{equation*}
+        (U\times V)\cap (A\times B) = (U\cap A)\times (V\cap B)
+    \end{equation*}
+    Since $U\cap A$ and $V\cap B$ are general open sets for the subspace topologies on $A$ and $B$, respectively, $(U\cap A)\times (V\cap B)$ is the general basis element for the product topology on $A\times B$.
+
+    The conclusion we draw is that the bases for the subspace topology on $A\times B$ and for the product topology on $A\times B$ are the same. Hence, the topologies are the same.
+\end{proof}
+
+Although the relation between the product and subspace topologies is as we would desire, the same is not true of the order topology. If $X$ is an ordered set in the order topology and $Y$ is a subset of $X$, the resulting topology on $Y$ derived from restricting the order relation on $X$ to $Y$ need not be the same as the topology that $Y$ inherits as a subspace of $X$.
+
+However, there are special cases in which such issues do not arise:
+
+\begin{definition}
+    Given an ordered set $X$, let us say that a subset $Y$ of $X$ is \Emph{convex} in $X$ if for each pair of points $a < b$ of $Y$, the entire interval $(a,b)$ of points of $X$ lies in $Y$.
+\end{definition}
+
+\begin{theorem}
+    Let $X$ be an ordered set in the order topology; let $Y$ be a subset of $X$ that is convex in $X$. Then the order topology on $Y$ is the same as the topology $Y$ inherits as a subspace of $X$.
+\end{theorem}
+\begin{proof}
+    Consider the ray $(a,+\infty)$ in $X$. What is its intersection with $Y$? If $a \in Y$, then $(a,+\infty)\cap Y = \{x\vert x \in Y\wedge x>a\}$; this is an open ray of the ordered set $Y$. If $a \notin Y$, then $a$ is either a lower bound on $Y$, or an upper bound on $Y$, since $Y$ is convex. In the former case $(a,+\infty)\cap Y = Y$, and in the letter case the intersection is empty.
+
+    A similar argument shows that the intersection of the ray $(-\infty,a)$ with $Y$ is either an open ray of $Y$, $Y$ itself, or empty. Since the sets $(a,+\infty)\cap Y$ and $(-\infty,a)\cap Y$ form a subbasis for the subspace topology on $Y$, and since each is open in the order topology, the order topology contains the subspace topology.
+
+    To prove the reverse, note that any open ray of $Y$ equals the intersection of an open ray of $X$ with $Y$, so it is open in the subspace topology on $Y$. Since the open rays of $Y$ form a subbasis for the order topology on $Y$, this topology is contained in the subspace topology.
+\end{proof}
+
+
+
+
+\section{Continuous Functions}
+
+\begin{definition}
+    Let $(X,\mathcal{T}_X)$ and $(Y,\mathcal{T}_Y)$ be topological spaces. A set-theoretic function $f:X\rightarrow Y$ is said to be \Emph{continuous} if for each open subset $V$ of $Y$, the set $f^{-1}(V)$ is an open subset of $X$.
+\end{definition}
+
+
+\begin{remark}
+    If the topology of the range space $Y$ is given by a basis $\mathcal{B}$, then to prove continuity of $f$ it suffices to show that the inverse image of every basis element is open: The arbitrary open set $V$ of $Y$ can be written as a union of basis elements \begin{equation*}
+        V = \bigcup_{\alpha \in J}B_{\alpha}
+    \end{equation*}
+    for some indexed family $\{B_{\alpha} \in\mathcal{B}: \alpha \in J\}$ of basic open sets. Then \begin{equation*}
+        f^{-1}(V) = f^{-1}\left(\bigcup_{\alpha \in J}B_{\alpha}\right) = \bigcup_{\alpha \in J}f^{-1}(B_{\alpha})
+    \end{equation*}
+    so that $f^{-1}(V)$ is upen if each set $f^{-1}(B_{\alpha})$ is open. 
+
+    Similarly, if the topology on $Y$ is given by a subbasis $\mathcal{S}$, to prove continuity of $f$ it will suffice to show that the inverse image of each subbasis elemnt is open: The arbitrary basis element $B$ for $Y$ can be written as a finite intersection $S_1\cap...\cap S_n$ of subbasis elements; it follows from the equation \begin{equation*}
+        f^{-1}(B) = f^{-1}(S_1)\cap...\cap f^{-1}(S_n)
+    \end{equation*}
+    that the inverse image of every basis element is open.
+\end{remark}
+
+
+\begin{example}
+    For a real valued function of a real variable $f:\R\rightarrow \R$, we can express the $\varepsilon-\delta$ definition of continuity in terms of our more general formulation. Given $x_0 \in \R$ and $\varepsilon > 0$, $B(f(x_0))_{\varepsilon} = (f(x_0) - \varepsilon, f(x_0) + \varepsilon)$ is an open set of the range space $\R$. Therefore, if $f$ is continuous at $x_0$ then $f^{-1}(B(f(x_0))_{\varepsilon})$ is an open set in the domain space $\R$. Because $f^{-1}(B(f(x_0))_{\varepsilon})$ contains $x_0$, if it is open it must contain some basis element $(a,b)$ containing $x_0$. We then choose $\delta = \min(|x_0 - a|, |x_0 - b|)$. Then if $|x-x_0| < \delta$, the point $x$ must be in $(a,b)$ so that $f(x) \in B(f(x_0))_{\varepsilon}$, and $|f(x)-f(x_0)| < \varepsilon$, as desired.
+
+
+    Conversely, suppose that $f:\R\rightarrow \R$ is continuous in terms of our $\varepsilon-\delta$ definition. Then let $(a,b)$ be a basic open set of the range space $\R$. Let $x_0 \in f^{-1}((a,b))$. Then choose $\varepsilon = \min(|f(x_0) - a|, |f(x_0) - b|)$. Then $(f(x_0) - \varepsilon, f(x_0) +\varepsilon) \subseteq (a,b)$. Now, since $f$ is $\varepsilon-\delta$ continuous at $x_0$, there must exist $\delta > 0$ such that if $|x - x_0| < \delta$, then $|f(x) - f(x_0)| < \varepsilon$. In particular, this implies that $f(x) \in (f(x_0)-\varepsilon,f(x_0)+\varepsilon)$, so $$f((x-\delta,x+\delta)) \subseteq (f(x_0)-\varepsilon,f(x_0)+\varepsilon) \subseteq (a,b)$$ Then by definition we conclude that $(x-\delta,x+\delta) \subseteq f^{-1}((a,b))$, so every point in $f^{-1}((a,b))$ is contained in a basic open set, so consequently $f^{-1}((a,b))$ is open in the domain space $\R$ as desired.
+\end{example}
+
+
+
+\begin{theorem}
+    Let $(X,\mathcal{T}_X)$ and $(Y,\mathcal{T}_Y)$ be topological spaces; let $f:X\rightarrow Y$. THen the following are equivalent: \begin{enumerate}
+        \item $f$ is continuous.
+        \item For every subset $A$ of $X$, one has $f(\overline{A}) \subseteq \overline{f(A)}$
+        \item For every closed set $B$ of $Y$, the set $f^{-1}(B)$ is closed in $X$.
+        \item For each $x \in X$ and each neighborhood $V \in N(f(x))$, there is a neighborhood $U \in N(x)$ such that $f(U) \subseteq V$.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    (To be completed)
+\end{proof}
+
+
+\begin{definition}
+    Let $(X,\mathcal{T}_X)$ and $(Y,\mathcal{T}_Y)$ be topological spaces; let $f:X\rightarrow Y$ be a bijection. If both the function $f$ and the inverse function $f^{-1}:Y\rightarrow X$ are continuous, then $f$ is called a \Emph{homeomorphism}.
+\end{definition}
+
+\begin{remark}
+    Another way to define a homeomorphism is to say that it is a bijective correspondence $f:X\rightarrow Y$ such that $f(U)$ is open if and only if $U$ is open. Hence, homeomorphisms preserve \Emph{topological properties} - properties expressed in terms of the topology (open sets) on a set only.
+\end{remark}
+
+\begin{definition}
+    Suppose $f:X\rightarrow Y$ is an injective continuous map, where $X$ and $Y$ are topological spaces. Let $Z$ be the image set $f(X)$, considered as a subspace of $Y$; then the function $f':X\rightarrow Z$ obtained by restricting the range of $f$ is bijective. If $f'$ happens to be a homeomorphism of $X$ with $Z$, we say that the map $f:X\rightarrow Y$ is a \Emph{topological imbedding}, or simply an \Emph{imbedding}, of $X$ in $Y$.
+\end{definition}
+
+
+
+\begin{theorem}[Constructing Continuous Functions]
+    Let $X,Y,$ and $Z$ be topological spaces. \begin{enumerate}
+        \item (Constant function) If $f:X\rightarrow Y$ maps all of $X$ into a single point $y_0$ of $Y$, then $f$ is continuous.
+        \item (Inclusion) If $A$ is a subspace of $X$, the inclusion function $j:A\rightarrow X$ is continuous.
+        \item (Composites) If $f:X\rightarrow Y$ and $g:Y\rightarrow Z$ are continuous, then the map $g\circ f:X\rightarrow Z$ is continuous.
+        \item (Restricting the domain) If $f:X\rightarrow Y$ is continuous, and $A$ is a subspace of $X$, then the restricted function $f\rvert_A:A\rightarrow Y$ is continuous. 
+        \item (Restricting or expanding the range) Let $f:X\rightarrow Y$ be continuous. If $Z$ is a subspace of $Y$ containing the image set $f(X)$, then the function $g:X\rightarrow Z$ obtained by restricting the range of $f$ is continuous. IF $Z$ is a space having $Y$ as a subspace, then the function $h:X\rightarrow Z$ obtained by expanding the range of $f$ is continuous. 
+        \item (Local formulation of continuity) The map $f:X\rightarrow Y$ is continuous if $X$ can be written as the union of open sets $U_{\alpha}$ such that $f\rvert_{U_{\alpha}}$ is continuous for each $\alpha$.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    (To be finished)
+\end{proof}
+
+
+\begin{theorem}[The Pasting Lemma]
+    Let $X = A\cup B$, where $A$ and $B$ are closed in $X$. Let $f:A\rightarrow Y$ and $g:B\rightarrow Y$ be continuous. If $f(x) = g(x)$ for every $x \in A\cap B$, then $f$ and $g$ combine to give a continuous function $h:X\rightarrow Y$, defined by settign $h(x) = f(x)$ if $x \in A$, and $h(x) = g(x)$ if $x \in B$.
+\end{theorem}
+\begin{proof}
+    (To be finished)
+\end{proof}
+
+\begin{theorem}[Maps into Products]
+    Let $f:A\rightarrow X\times Y$ be given by the equation \begin{equation*}
+        f(a) = (f_1(a), f_2(a))
+    \end{equation*}
+    Then $f$ is continuous if and only if the functions \begin{equation*}
+        f_1:A\rightarrow X\;\;\text{ and }\;\;f_2:A\rightarrow Y
+    \end{equation*}
+    are continuous. The maps $f_1$ and $f_2$ are called the \Emph{coordinate functions} of $f$.
+\end{theorem}
+\begin{proof}
+    (To be finished)
+\end{proof}
+
+
+
+\section{The Quotient Topology}
+
+\begin{definition}
+    Let $(X,\tau_X)$ and $(Y,\tau_Y)$ be topological spaces; let $p:X\rightarrow Y$ be a surjective map. The map $p$ is said to be a \Emph{quotient map} provided a subset $U$ of $Y$ is open in $Y$ if and only if $p^{-1}(U)$ is open in $X$.
+\end{definition}
+
+Note that this conditions is stronger than continuity. We could give an equivalent condition by requiring that a subset $A$ of $Y$ be closed in $Y$ if and only if $p^{-1}(A)$ is closed in $X$.
+
+\begin{definition}
+    We say a subset $C$ of $(X,\tau_X)$ is \Emph{saturated} with respect to the surjective map $p:X\rightarrow Y$ if $C$ contains every set $p^{-1}(\{y\})$ that it intersects. Thus, $C$ is saturated if it equals the union of fibres of $p$, or equivalently the complete inverse image of a subset of $Y$. 
+\end{definition}
+
+With this definition we observe that to say $p$ is a quotient map is equivalent to saying that $p$ is continuous and $p$ maps \emph{saturated} open sets of $X$ to open sets of $Y$ (or saturated closed sets of $X$ to closed sets of $Y$).
+
+\begin{definition}
+    A map $f:X\rightarrow Y$ is said to be an \Emph{open map} if for each open set $U$ of $X$, the set $f(U)$ is open in $Y$. It is said to be a \Emph{closed map} if for each closed set $A$ of $X$, the set $f(A)$ is closed in $Y$.
+\end{definition}
+
+It follows that if $p:X\rightarrow Y$ is a surjective continuous map that is either open or closed, then $p$ is a quotient map. Nonetheless, not all quotient maps are open or closed.
+
+\begin{definition}
+    If $(X,\tau_X)$ is a space and $A$ is a set, and if $p:X\rightarrow A$ is a surjective map, then there exists exactly one topology $\mathcal{T}$ on $A$ relative to which $p$ is a quotient map; it is called the \Emph{quotient topology} induced by $p$.
+\end{definition}
+
+
+The topology $\mathcal{T}$ is defined to consist of those subsets $U$ of $A$ such that $p^{-1}(U)$ is open in $X$. The sets $\emptyset$ and $A$ are open because $p^{-1}(\emptyset) = \emptyset$ and $p^{-1}(A) = X$. The other two conditions for a topology follows from the equations: \begin{align*}
+    p^{-1}\left(\bigcup_{\alpha \in J}U_{\alpha}\right) &= \bigcup_{\alpha \in J}p^{-1}(U_{\alpha}) \\
+    p^{-1}\left(\bigcap_{i = 1}^nU_i\right) &= \bigcap_{i=1}^np^{-1}(U_i)
+\end{align*}
+
+
+\begin{definition}
+    Let $(X,\tau_X)$ be a topological space, and let $X^*$ be a partition of $X$ into disjoint subsets whose union is $X$. Let $p:X\rightarrow X^*$ be the surjective map that carries each point of $X$ to the element of $X^*$ containing it. In the quotient topology induced by $p$, the space $X^*$ is called a \Emph{quotient space} of $X$.
+\end{definition}
+
+We can describe the topology on $X^*$ in another way. A typical open set of $X^*$ is a collection of equivalence classes whose union is an open set of $X$.
+
+\begin{theorem}
+    Let $p:X\rightarrow Y$ be a quotient map; let $A$ be a subspace of $X$ that is saturated with respect to $p$; let $q:A\rightarrow p(A)$ be the map obtained by restricting $p$. \begin{enumerate}
+        \item If $A$ is either open or closed in $X$, then $q$ is a quotient map.
+        \item If $p$ is either an open map or a closed map, then $q$ is a quotient map.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    We shall first verify that for $V \subseteq p(A)$, $q^{-1}(V) = p^{-1}(V)$ and for $U \subseteq X$, $p(U\cap A) = p(U)\cap p(A)$.
+
+    First, since $V \subseteq p(A)$ and $A$ is saturated, $p^{-1}(V) \subseteq A$. It follows that both $p^{-1}(V)$ and $q^{-1}(V)$ equal all points of $A$ that are mapped by $p$ into $V$. For the second equation we note that we always have the inclusion $p(U\cap A) \subseteq p(U)\cap p(A)$. To prove the reverse inclusion, suppose $y = p(u) = p(a)$, for $u \in U$ and $a \in A$. Since $A$ is saturated, $A$ contains the set $p^{-1}(p(A))$, so that in particular $A$ contains $u$. Then $y = p(u)$, where $u \in U\cap A$.
+
+    Now, suppose $A$ is open or $p$ is open. Given the subset $V$ of $p(A)$, we assume that $q^{-1}(V)$ is open in $A$ and show that $V$ is open in $p(A)$.
+
+    Suppose first that $A$ is open. Since $q^{-1}(V)$ is open in $A$ and $A$ is open in $X$, the set $q^{-1}(V)$ is open in $X$. Since $q^{-1}(V) = p^{-1}(V)$, the latter set is open in $X$, so that $V$ is open in $Y$ because $p$ is a quotient map. In particular, $V$ is open in $p(A)$.
+
+    Now, suppose $p$ is open. Since $q^{-1}(V) = p^{-1}(V)$ and $q^{-1}(V)$ is open in $A$, we have that $p^{-1}(V) = U\cap A$ for some open set $U$ in $X$. Now $p(p^{-1}(V)) = V$ because $p$ is surjective; then \begin{equation*}
+        V = p(p^{-1}(V)) = p(U\cap A) = p(U)\cap p(A)
+    \end{equation*}
+    where the set $p(U)$ is open in $Y$ because $p$ is an open map; hence $V$ is open in $p(A)$.
+
+    The proof when $A$ or $p$ is closed is optained by replacing the word ``open" by the word ``closed" throughout the last step.
+\end{proof}
+
+\begin{remark}
+    The composite of quotient maps is again a quotient map: \begin{equation*}
+        p^{-1}(q^{-1}(U)) = (q\circ p)^{-1}(U)
+    \end{equation*}
+\end{remark}
+
+In general, the product of quotient maps need not be a quotient map.
+
+\begin{remark}
+    The Hausdorff condition also does not easily translate. Even if $X$ is a Hausdorff space, there is no reason that the quotient space $X^*$ need be Hausdorff.
+\end{remark}
+
+
+\begin{theorem}
+    Let $p:X\rightarrow Y$ be a quotient map. Let $Z$ be a space and let $g:X\rightarrow Z$ be a map that is constant on each set $p^{-1}(\{y\})$, for $y \in Y$. Then $g$ induces a map $f:Y\rightarrow Z$ such that $f\circ p = g$. The induced map $f$ is continuous if and only if $g$ is continuous; $f$ is a quotient map if and only if $g$ is a quotient map.
+    \begin{center}
+        \begin{tikzpicture}[baseline= (a).base]
+            \node[scale=1] (a) at (0,0){
+                \begin{tikzcd}
+                    X \arrow[d, "p"] \arrow[dr, "g"] & \\
+                    Y \arrow[r, dotted, "f"] & Z 
+                \end{tikzcd}
+            };
+        \end{tikzpicture}
+    \end{center}
+\end{theorem}
+\begin{proof}
+    For each $y \in Y$, the set $g(p^{-1}(\{y\}))$ is a singleton set in $Z$. If we let $f(y)$ denote this point, then we have defined a map $f:Y\rightarrow Z$ such that for each $x \in X$, $f(p(x)) = g(x)$. If $f$ is continuous, then $g = f\circ p$ is continuous, being the composition of continuous maps. Conversely, suppose $g$ is continuous. Given an open set $V$ of $Z$, $g^{-1}(V)$ is open in $X$. But $g^{-1}(V) = p^{-1}(f^{-1}(V))$; because $p$ is a quotient map, it follows that $f^{-1}(V)$ is open in $Y$. Hence $f$ is continuous.
+
+    If $f$ is a quotient map, then so is $g$ being the composite of two quotient maps. Conversely, suppose that $g$ is a quotient map. Since $g$ is surjective, so is $f$. Let $V$ be a subset of $Z$; we show that $V$ is open in $Z$ if $f^{-1}(V)$ is open in $Y$. Now, the set $p^{-1}(f^{-1}(V))$ is open in $X$ because $p$ is continuous. SInce this set equals $g^{-1}(V)$, the latter is open in $X$. Then because $g$ is a quotient map, $V$ is open in $Z$.
+\end{proof}
+
+\begin{corollary}
+    Let $g:X\rightarrow Z$ be a surjective continuous map. Let $X^*$ be the following colelction of subsets of $X$: \begin{equation*}
+        X^* = \{g^{-1}(\{z\})\vert z \in Z\}
+    \end{equation*}
+    Give $X^*$ the quotient topology. \begin{enumerate}
+        \item The map $g$ induces a bijective continuous map $f:X^*\rightarrow Z$, which is a homeomorphism if and only if $g$ is a quotient map.
+            \begin{center}
+                \begin{tikzpicture}[baseline= (a).base]
+                    \node[scale=1] (a) at (0,0){
+                        \begin{tikzcd}
+                            X \arrow[d, "p"] \arrow[dr, "g"] & \\
+                            X^* \arrow[r, dotted, "f"] & Z 
+                        \end{tikzcd}
+                    };
+                \end{tikzpicture}
+            \end{center}
+            \item If $Z$ is Hausdorff, so is $X^*$.
+    \end{enumerate}
+\end{corollary}
+\begin{proof}
+    By the preceding theorem, $g$ induces a continuous map $f:X^*\rightarrow Z$; it is clear that $f$ is bijective. Suppose that $f$ is a homeomorphism. Then both $f$ and the projection map $p:X\rightarrow X^*$ are quotient maps, so their composite $g$ is a quotient map. Conversely, suppose that $g$ is a quotient map. Then it follows that $f$ is a quotient map by the preceding theorem. Being bijective, $f$ is thus a homeomorphism.
+
+    Suppose $Z$ is Hausdorff. Given distinct points of $X^*$, their images under $f$ are distinct and thus posses disjoint neighborhoods $U$ and $V$. Then $f^{-1}(U)$ and $f^{-1}(V)$ are disjoint neighborhoods of the two given points of $X^*$.
+\end{proof}
+

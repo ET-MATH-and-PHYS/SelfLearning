@@ -1,0 +1,27 @@
+%%%%%%%%%% UFDs %%%%%%%%%%
+\chapter{\textsection\textsection Unique Factorization Domains}
+
+\section{\textsection Basic Definitions and Examples: UFDs}
+
+
+\section{\textsection Unique Factorization in F[x]}
+
+\begin{namthm}[Unique Factorization Theorem (for F[x])]
+    Take $F$ a field and $f \in F[x]$ of degree greater than or equal to $1$. Then \begin{enumerate}
+        \item $f = aP_1P_2...P_m$ where $a \in F$ is the leading coefficient of $f$ and $P_i$ is monic irreducible in $F[x]$ for all $i$.
+        \item The factorization in 1. is unique up to the order of the factors.
+    \end{enumerate}
+\end{namthm}
+\begin{proof}{First Attempt}
+    Let $F$ be a field and let $f \in F[x]$ of degree $n \geq 1$. It is sufficient to consider $f$ monic since we can replace $f$ with $a^{-1}f$, where $a$ is the leading coefficient of $f$. Then, we proceed by induction on the degree of $f$. If $\deg(f) = 1$ then $f$ is already a monic irreducible polynomial in $F[x]$, so we're done. Inductively suppose there exists $k \geq 1$ such that for all $j \leq k$, if $\deg(f) = j$ then $f = q_1q_1...q_m$ for monic irreducible polynomials $q_i \in F[x]$. Then, suppose $\deg(f) = k+1$. If $f$ is irreducible then we're done. On the other hand, if $f$ is not irreducible there exist $g,h \in F[x]$ such that $f = gh$ and $\deg(g),\deg(h) \geq 1$. Consequently, $\deg(f) = \deg(g)+\deg(h) > \deg(g),\deg(h)$, so $\deg(g),\deg(h) \leq k$. Thus, by the induction hypothesis $g = g_1g_2...g_m$ and $h = h_1h_2...h_l$ for monic irreducible polynomials $g_i,h_j \in F[x]$, $1\leq i \leq m$, $1 \leq j \leq l$. Hence, $f = g_1g_2...g_mh_1h_2...h_l$ is the product of monic irreducible polynomials in $F[x]$ as desired. Therefore, by mathematical induction we have that for all $f \in F[x]$, $\deg(f) \geq 1$, $f$ can be factored as the product of monic irreducible polynomials and its leading coefficient. Now, suppose the factorization is not necessarily unique. Let $f$ be a polynomial of lowest degree with two such factorizations $f = aP_1P_2...P_m$ and $f = bQ_1Q_2...Q_n$. Since the $P_i$ and $Q_j$ are monic we must have that $a = b \neq 0$, so multiplying by $a^{-1}$ on both sides we obtain $P_1P_2...P_m = Q_1Q_2...Q_n$. Note that $(P_i)$ is a prime ideal for each $P_i$, so in particular each $P_i$ is a prime element. Hence, $P_1$ divides $Q_1Q_2...Q_n$ which implies that $P_1$ divides $Q_j$ for some $1 \leq j \leq n$. Reorder the $Q_i$ if need be so that $P_1$ divides $Q_1$. Then, there exists $f \in F[x]$ such that $P_1f = Q_1$. But, $Q_1$ is irreducible so as $\deg(P_1) \geq 1$, we must have that $f \in F[x]^{\times}$, so $f = c \in F$ for some $c$. But, $P_1$ and $Q_1$ are monic, so $c = 1$. Thus $P_1 = Q_1$. Since $F[x]$ is an integral domain we can cancel elements, so $P_2...P_m = Q_2...Q_n$. But, this is a polynomial of strictly lower degree than $f$ with a distinct factorization, contradicting the minimality of $f$. Therefore, the factorization of $f$ must be unique up to reordering.
+\end{proof}
+
+
+\begin{eg}
+        Consider $f = 5(x^3-1) \in F[x]$ with $5 \neq 0 \in F$. We always have $f = 5(x-1)(x^2+x+1)$ (for any field) \begin{enumerate}
+                \item If $F = \R$, this is the factorization from the UFT because $x^2+x+1$ is monic irreducible in $\R[x]$, as it has no roots over $\R$.
+                \item if $F = \Z/2\Z$, $f = 5(x-1)(x^2+x+1) = (x+1)(x^2+x+1)$ is the UFT factorization as $x^2+x+1$ has no roots over $\Z/2\Z$
+                \item If $F = \Z/3\Z$, $f = 5(x-1)(x^2+x+1) = 2(x-1)(x-1)^2 = 2(x+2)^3$ is the UFT factorization
+                \item If $F = \C$ then we have $f = 5(x-1)(x^2+x+1) = 5(x-1)(x-u)(x-\overline{u})$ for $u = \frac{-1+\sqrt{3}i}{2}$.
+        \end{enumerate}
+\end{eg}

@@ -1,0 +1,339 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+\chapter{Natural Deduction}
+\label{NatDeduct} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+
+\section{ Initial Definitons and Reasoning}
+
+\begin{definition}
+    A \Emph{formal proof} is a sequence of sentences, some of which are marked as being initial assumptions (or premises). The last line of the formal proof is the conclusion.
+\end{definition}
+
+\begin{example}
+    Our first example will be to prove the statement \begin{equation*}
+        \lnot(A\lor B)\therefore \lnot A \wedge \lnot B
+    \end{equation*}
+    Let us begin with how we start such proofs\begin{fitchproof}
+        \hypo{a1}{\enot (A\eor B)}
+	\end{fitchproof}
+    The horizontal line indicates a separation between the assumptions and main body of the proof. Before we complete this proof we need to determine some laws of inference we can use.
+\end{example}
+
+\section{ Rules of Inferences for TFL Natural Deduction}
+
+\begin{definition}[Reiteration Rule]
+    If you have already shown something in the course of a proof, the \Emph{reiteration rule} allows you to repeat it on a new line. For example: 
+    \begin{fitchproof}
+        \have[n]{a1}{\metav{A}}
+        \have[$\vdots$]{}{\vdots}
+        \have[k]{a2}{\metav{A}} \by{R}{a1}
+    \end{fitchproof}
+    This indicates that we have written $\metav{A}$ on line $n$. We write `R' to indicate we are using the reiteration rule. Note that both `$\metav{A}$' and `$n$',`$k$' are symbols of our metalanguage
+\end{definition}
+
+
+\begin{definition}[Conjunction Introduction]
+    Our conjunction introduction rule states that for any sentences $\metav{A}$ and $\metav{B}$ of TFL: \begin{fitchproof}
+        \have[m]{a1}{\metav{A}}
+        \have[n]{a2}{\metav{B}}
+        \have[\ ]{a3}{\metav{A} \eand \metav{B}} \ai{a1, a2}
+    \end{fitchproof}
+    When introducing a conjuction we reference the line number of the first conjunct first, and the second conjunct second.
+\end{definition}
+
+\begin{definition}[Conjunction Elimination]
+    Our conjunction elimination rule states that for any sentences $\metav{A}$ and $\metav{B}$ of TFL: \begin{fitchproof}
+        \have[m]{a1}{\metav{A}\eand \metav{B}}
+        \have[\ ]{a2}{\metav{A}} \ae{a1}
+    \end{fitchproof}
+    or \begin{fitchproof}
+        \have[m]{a1}{\metav{A}\eand \metav{B}}
+        \have[\ ]{a2}{\metav{B}} \ae{a1}
+    \end{fitchproof}
+\end{definition}
+
+
+\begin{remark}
+    There is no reason that we have to apply conjunction introduction to two separate lines. Indeed: \begin{fitchproof}
+        \hypo{a1}{A}
+        \have{a2}{A\eand A} \ai{a1, a1}
+    \end{fitchproof}
+\end{remark}
+
+\begin{definition}[Modus Ponens]
+    \Emph{Modus Ponens} is a conditional elimination rule which states that \begin{fitchproof}
+        \have[m]{a1}{\metav{A}\eif \metav{B}}
+        \have[n]{a2}{\metav{A}}
+        \have[\ ]{a3}{\metav{B}} \ce{a1,a2}
+    \end{fitchproof}
+    In citing we always cite the conditional's line number first.
+\end{definition}
+
+\begin{definition}{Conditional Introduction}
+    First, we make an additional assumption $\metav{A}$ (in a subproof); from the additional assumption we prove $\metav{B}$. From this, we know that if $\metav{A}$ is true, then $\metav{B}$ is true. This is wrapped up in the following rule: \begin{fitchproof}
+        \open
+                \hypo[i]{A}{\metav{A}}
+                \have[j]{B}{\metav{B}}
+                \close
+        \have[\ ]{AB}{\metav{A}\eif\metav{B}}\ci{A-B}
+    \end{fitchproof}
+\end{definition}
+
+
+\begin{remark}
+    Once we have closed a subproof, we cannot use any of the assumptions or results shown in it. In particular, to cite an individual line when applying rule: \begin{enumerate}
+        \item the line must come before the line where the rule is applied, but
+        \item not occur within a subproof that has been closed before the line where the rule is applied.
+    \end{enumerate}
+    When we close a subproof we say we have discharged the assumptions of the subproof.
+\end{remark}
+
+
+\begin{remark}
+    To cite a subproof when applyiing a rule: \begin{enumerate}
+        \item the cited subproof must come entirely before the application of the rule where it is cited,
+        \item the cited subproof must not lie within some other closed subproof which is closed at the line it is cited, and 
+        \item the last line of the cited subproof must not occur inside a nested subproof.
+    \end{enumerate}
+\end{remark}
+
+\begin{definition}[Biconditional Introduction]
+    The biconditional introduction rule is similar to two conditional introductions: \begin{fitchproof}
+        \open
+                \hypo[i]{a1}{\metav{A}}
+                \have[j]{a2}{\metav{B}}
+        \close
+        \open 
+                \hypo[k]{a3}{\metav{B}}
+                \have[l]{a4}{\metav{A}}
+        \close
+        \have[\ ]{a5}{\metav{A} \eiff\metav{B}} \bi{a1-a2,a3-a4}
+    \end{fitchproof}
+\end{definition}
+
+\begin{definition}[Biconditional Elimination]
+    The biconditional elimination rule works like the conditional elimination rule, but in two ways: \begin{fitchproof}
+        \have[m]{a1}{\metav{A}\eiff\metav{B}}
+        \have[n]{a2}{\metav{B}}
+        \have[\ ]{a3}{\metav{A}} \be{a1,a2}
+    \end{fitchproof}
+    and \begin{fitchproof}
+        \have[m]{a1}{\metav{A}\eiff\metav{B}}
+        \have[n]{a2}{\metav{A}}
+        \have[\ ]{a3}{\metav{B}} \be{a1,a2}
+    \end{fitchproof}
+    Note that we always cite the line of the biconditional first when eliminating it.
+\end{definition}
+
+
+\begin{definition}[Disjunction Introduction]
+    As disjunctions are inherently weaker than initial statements of truth, we have the following disjunction rules: \begin{fitchproof}
+        \have[m]{a1}{\metav{A}}
+        \have[\ ]{a2}{\metav{A} \eor \metav{B}}\oi{a1}
+    \end{fitchproof}
+    and \begin{fitchproof}
+        \have[m]{a1}{\metav{A}}
+        \have[\ ]{a2}{\metav{B} \eor \metav{A}}\oi{a1}
+    \end{fitchproof}
+\end{definition}
+
+
+\begin{definition}[Disjunction Elimination]
+    The disjunction elimintation rule requires subproofs, and is as follows: \begin{fitchproof}
+        \have[m]{a1}{\metav{A} \eor \metav{B}}
+        \open
+                \hypo[i]{a2}{\metav{A}}
+                \have[j]{a3}{\metav{C}}
+        \close
+        \open
+                \hypo[k]{a4}{\metav{B}}
+                \have[l]{a5}{\metav{C}}
+        \close
+        \have[\ ]{a6}{\metav{C}} \oe{a1, a2-a3, a4-a5}
+    \end{fitchproof}
+\end{definition}
+
+
+\begin{definition}[Negation Elimination]
+    With negation elimination we introduce The False, $\ered$: \begin{fitchproof}
+        \have[m]{a1}{\enot\metav{A}}
+        \have[n]{a2}{\metav{A}}
+        \have[\ ]{a3}{\ered} \ne{a1,a2}
+    \end{fitchproof}
+    The order of the negation and statement do not matter, but we always cite the line number of the negation first.
+\end{definition}
+
+
+\begin{definition}[Negation Introduction]
+    In introducing a negation we start a subproof with an assumption, and show that it leads to a contradiction (The False): \begin{fitchproof}
+        \open
+                \hypo[i]{a1}{\metav{A}}
+                \have[j]{a2}{\ered}
+        \close
+        \have[\ ]{a3}{\enot \metav{A}} \ni{a1-a2}
+    \end{fitchproof}
+\end{definition}
+
+
+\begin{definition}[Indirect Proof]
+    This rule stems from the argument that if the assumption that $\metav{A}$ is false leads to a contradiction, then $\metav{A}$ cannot be false, so it must be true: \begin{fitchproof}
+        \open
+                \hypo[i]{a1}{\enot \metav{A}}
+                \have[j]{a2}{\ered}
+        \close
+        \have[\ ]{a3}{\metav{A}} \ip{a1-a2}
+    \end{fitchproof}
+\end{definition}
+
+
+\begin{definition}[Explosion Rule]
+    The explosion rule allows you to derive anything from a contradiction (The False): \begin{fitchproof}
+        \have[m]{a1}{\ered}
+        \have[\ ]{a2}{\metav{A}} \re{a1}
+    \end{fitchproof}
+    where $\metav{A}$ is any sentence whatsoever. This rule is also known as \Emph{ex contradictione quod libet}, ``from contradiction, anything." We can rephrase this as a contradiction entails everything: \begin{equation*}
+        \ered \entails \metav{A}
+    \end{equation*}
+\end{definition}
+
+
+
+\subsection{ Additional and Derived Rules}
+
+\begin{definition}
+    The following is a natural argument form called a \Emph{disjunctive syllogism}: \begin{fitchproof}
+        \have[m]{a1}{\metav{A}\eor\metav{B}}
+        \have[n]{a2}{\enot\metav{A}}
+        \have[\ ]{a3}{\metav{B}} \by{DS}{a1,a2}
+    \end{fitchproof}
+    and \begin{fitchproof}
+        \have[m]{a1}{\metav{A}\eor\metav{B}}
+        \have[n]{a2}{\enot\metav{B}}
+        \have[\ ]{a3}{\metav{A}} \by{DS}{a1,a2}
+    \end{fitchproof}
+    When citing we always place the disjunction first.
+\end{definition}
+\begin{proof}
+    Let $\metav{A}$ and $\metav{B}$ be formulas of TFL, and I shall show that $\metav{A}\eor\metav{B},\enot\metav{A}\entails \metav{B}$:
+    \begin{fitchproof}
+        \have{a1}{\metav{A}\eor\metav{B}}
+        \hypo{a2}{\enot\metav{A}}
+        \open
+            \hypo{a3}{\metav{B}}
+            \have{a4}{\metav{B}} \by{R}{a3}
+        \close
+        \open 
+            \hypo{a5}{\metav{A}}
+            \have{a6}{\ered} \ne{a2,a5}
+            \have{a7}{\metav{B}} \re{a6}
+        \close
+        \have{a8}{\metav{B}} \oe{a1,a3-a4,a5-a7}
+    \end{fitchproof}
+\end{proof}
+
+\begin{definition}
+    The following is a natural argument form called \Emph{modus tollens}: \begin{fitchproof}
+        \have[m]{a1}{\metav{A}\eif \metav{B}}
+        \have[n]{a2}{\enot \metav{B}}
+        \have[\ ]{a3}{\enot \metav{A}} \by{MT}{a1,a2}
+    \end{fitchproof}
+    When citing we always place the conditional first.
+\end{definition}
+\begin{proof}
+    Let $\metav{A}$ and $\metav{B}$ be formulas of TFL, and I shall show that $\metav{A}\eif\metav{B},\enot\metav{B}\entails \enot\metav{A}$:
+    \begin{fitchproof}
+        \have{a1}{\metav{A}\eif\metav{B}}
+        \hypo{a2}{\enot\metav{B}}
+        \open
+            \hypo{a3}{\metav{A}}
+            \have{a4}{\metav{B}} \ce{a1,a3}
+            \have{a5}{\ered} \ne{a2,a4}
+        \close
+        \have{a8}{\enot\metav{A}} \ni{a3-a5}
+    \end{fitchproof}
+\end{proof}
+
+
+\begin{definition}
+    The \Emph{double-negation elimination} rule states that: \begin{fitchproof}
+        \have[m]{a1}{\enot\enot\metav{A}}
+        \have[\ ]{a2}{\metav{A}} \by{DNE}{a1}
+    \end{fitchproof}
+\end{definition}
+\begin{proof}
+    Let $\metav{A}$ be a formula of TFL, and I shall show that $\enot\enot\metav{A}\entails \metav{A}$:
+    \begin{fitchproof}
+        \hypo{a1}{\enot\enot\metav{A}}
+        \open
+            \hypo{a2}{\enot\metav{A}}
+            \have{a3}{\ered} \ne{a1,a2}
+        \close
+        \have{a4}{\metav{A}} \by{IP}{a2-a3}
+    \end{fitchproof}
+\end{proof}
+
+
+\begin{definition}
+    The \Emph{law of excluded middle} states that: \begin{fitchproof}
+        \open
+            \hypo[i]{a1}{\metav{A}}
+            \have[j]{a2}{\metav{B}}
+        \close
+        \open 
+            \hypo[m]{a3}{\enot\metav{A}}
+            \have[n]{a4}{\metav{B}}
+        \close
+        \have[\ ]{a5}{\metav{B}} \by{LEM}{a1-a2,a3-a4}
+    \end{fitchproof}
+\end{definition}
+\begin{proof}
+    Let $\metav{A}$ and $\metav{B}$ be formulas of TFL, and I shall show that $\metav{A}\eif\metav{B},\enot\metav{A}\eif\metav{B}\entails \metav{B}$:
+    \begin{fitchproof}
+        \have{a1}{\metav{A}\eif\metav{B}}
+        \hypo{a2}{\enot\metav{A}\eif\metav{B}}
+        \open
+            \hypo{a3}{\enot\metav{B}}
+            \have{a4}{\enot\metav{A}} \by{MT}{a1,a3}
+            \have{a5}{\enot\enot\metav{A}} \by{MT}{a2,a3}
+            \have{a6}{\ered} \ne{a5,a4}
+        \close
+        \have{a7}{\metav{B}} \by{IP}{a3-a6}
+    \end{fitchproof}
+\end{proof}
+
+
+\begin{definition}
+    \Emph{De Morgan's Laws} state that: \begin{fitchproof}
+        \have[m]{a1}{\enot(\metav{A}\eor\metav{B})}
+        \have[\ ]{a2}{\enot\metav{A}\eand\enot\metav{B}} \by{DeM}{a1}
+    \end{fitchproof}
+    \begin{fitchproof}
+        \have[m]{a1}{\enot(\metav{A}\eand\metav{B})}
+        \have[\ ]{a2}{\enot\metav{A}\eor\enot\metav{B}} \by{DeM}{a1}
+    \end{fitchproof}
+     \begin{fitchproof}
+        \have[m]{a1}{\enot\metav{A}\eor\enot\metav{B}}
+         \have[\ ]{a2}{\enot(\metav{A}\eand\metav{B})} \by{DeM}{a1}
+    \end{fitchproof}
+    and
+    \begin{fitchproof}
+        \have[m]{a1}{\enot\metav{A}\eand\enot\metav{B}}
+        \have[\ ]{a2}{\enot(\metav{A}\eor\metav{B})} \by{DeM}{a1}
+    \end{fitchproof}
+\end{definition}
+
+
+\begin{remark}
+    All of the `proofs' in this section are not proofs of TFL, but rather proof schemes as they use the metavariables $\metav{A}$ and $\metav{B}$. Nonetheless, they show how any of this rules can be derived from our basic rules for specific formulas of TFL.
+\end{remark}
+
+

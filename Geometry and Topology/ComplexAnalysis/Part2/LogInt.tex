@@ -1,0 +1,124 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+\chapter{Logarithmic Integral}
+\label{LogInt} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+%%%%%%%%%%%%%%%%%%%% Section 2.1.1
+\section{The Argument Principle}
+
+
+\begin{definition}
+    Suppose $f(z)$ is analytic on a domain $D$. For a curve $\gamma$ in $D$ such that $f(z) \neq 0$ on $\gamma$, we refer to \begin{equation*}
+        \frac{1}{2\pi i}\int_{\gamma}\frac{f'(z)}{f(z)}dz = \frac{1}{2\pi i}\int_{\gamma}d\log f(z)
+    \end{equation*}
+    as the \Emph{logarithmic integral} of $f(z)$ along $\gamma$.
+\end{definition}
+
+Consequently the logarithmic integral measures the change of $\log f9z)$ along the curve $\gamma$.
+
+\begin{example}
+    Consider $f(z) = (z-z_0)^n$ for $n \in \Z$. Consider the curve $\gamma$: $\gamma(t) = z_0+Re^{it}$ for $0 \leq t \leq 2\pi k$, for $k \in \Z$. $k$ denotes the \Emph{winding number} (the number of revolutions/times we wrap around the circle) of $\gamma$. Then we have the logarithmic integral \begin{align*}
+        \frac{1}{2\pi i}\int_{\gamma}\frac{n(z-z_0)^{n-1}}{(z-z_0)^n}dz &= \frac{1}{2\pi i}\int_{\gamma}\frac{ndz}{z-z_0} \\
+        &= \frac{1}{2\pi i}n(2\pi i k) = nk
+    \end{align*}
+    since we are looping around $k$ times (rather than once in Cauchy's residue theorem). Note $f(z)$ has $z=z_0$ as a zero of order $n$, so setting $k = 1$ gives the number of zeros contained in the curve.
+\end{example}
+
+\begin{theorem}
+    Let $D$ be a bounded domain with piecewise smooth boundary $\partial D$, and let $f(z)$ be a meromorphic function on $D$ that extends to be analytic on $\partial D$, such that $f(z) \neq 0$ on $\partial D$. Then \begin{equation*}
+        \frac{1}{2\pi i}\int_{\partial D}\frac{f'(z)}{f(z)}dz = N_0 - N_{\infty}
+    \end{equation*}
+    where $N_0$ is the number of zeros of $f(z)$ in $D$ and $N_{\infty}$ is the number of poles of $f(z)$ in $D$, counting multiplicities.
+\end{theorem}
+\begin{proof}
+    Suppose $z_0$ is a zero of order $N$, so $f(z) = (z-z_0)^Nh(z)$ with $h(z_0) \neq 0$. Then $f'(z) = N(z-z_0)^{N-1}h(z)+(z-z_0)^Nh'(z)$, so \begin{equation*}
+        \frac{f'(z)}{f(z)} = \frac{N}{z-z_0} + \frac{h'(z)}{h(z)}
+    \end{equation*}
+    so $f'(z)/f(z)$ has a simple pole at $z_0$, with residue $N$. If we sum the residues over the zeros and poles we find that the sum of the residues of $f'(z)/f(z)$ in $D$ is $N_0-N_{\infty}$, so the result follows from the residue theorem. Explicitly we have \begin{equation*}
+        \frac{1}{2\pi i}\left(\underbrace{\int_{\partial D}\frac{N}{z-z_0}dz}_{simple\;pole} + \underbrace{\int_{\partial D}\frac{h'(z)}{h(z)}dz}_{analytic\implies Cauchy}\right) = \frac{1}{2\pi i}2\pi i(N+0) = N
+    \end{equation*}
+    Now, suppose $z_0$ is a pole of order $N$, so $f(z) = \frac{g(z)}{(z-z_0)^N}$ with $g(z_0) \neq 0$ and $g$ analytic at $z_0$. Then \begin{equation*}
+        \frac{f'(z)}{f(z)} = \frac{g'(z)}{g(z)}-N\frac{1}{(z-z_0)}
+    \end{equation*}
+    so by Cauchy's residue theorem the integral is $-N$. The result follows by the full Cauchy residue theorem \begin{equation*}
+        \frac{1}{2\pi i}\int_{\partial D}\frac{f'(z)}{f(z)}dz = \frac{1}{2\pi i}2\pi i\sum_{j=1}^kRes[f'(z)/f(z),z_k] = N_0 - N_{\infty}
+    \end{equation*}
+\end{proof}
+
+\begin{remark}[Intuation for Argument Principle]
+    Recall that the logarithm (as a general multivalued function) is \begin{equation*}
+        \log(f(z)) = \ln|f(z)| + i\arg(f(z))
+    \end{equation*}
+    Then we have that \begin{equation*}
+        d\log(f(z)) = d\ln|f(z)| + id\arg(f(z))
+    \end{equation*}
+    If $f(z) \neq 0$ on the domain, $\ln|f(z)|$ is defined and in particular $d\ln|f(z)|$ is an exact differential (and hence is trivial around curves). Thus, the logarithmic integral is really calculating $id\arg(f(z))$ around closed loops. In particular, we have \begin{equation*}
+        \frac{1}{2\pi i}\int_{\gamma}d\log(f(z)) = \frac{1}{2\pi i}\int_{\gamma}d\ln|f(z)| + \frac{1}{2\pi}\int_{\gamma}d\arg(f(z))
+    \end{equation*}
+    If we parametrize the curve $\gamma$ by $\gamma(t) = x(t)+iy(t)$, $a \leq t \leq b$, then \begin{equation*}
+        \int_{\gamma}d\ln|f(z)| = \ln|f(\gamma(b))| - \ln|f(\gamma(a))|
+    \end{equation*}
+    The differential $d\arg(f(z))$ is closed, but not exact. Its integral is computed by choosing a continuous single-valued determination of $\arg f(\gamma(t))$ for $a \leq t \leq b$. Then from this determination \begin{equation*}
+        \int_{\gamma}d\arg(f(z)) = \arg(f(\gamma(b))) - \arg(f(\gamma(a)))
+    \end{equation*}
+    This is referred to as the \Emph{increase in the argument of $f(z)$ along $\gamma$}. Since any two continuous determinations of $\arg f(\gamma(t))$ differ by a constant, the increase in the argument given by the integral is independent of the continuous determination.
+\end{remark}
+
+For a bounded domain $D$ whose boundary $\partial D$ consists of a finite number of piecewise smooth closed curves with the usual orientation, we define the \Emph{increase in the argument of $f(z)$ around the boundary of $D$} to be the sum of its increases around the closed curves in $\partial D$.
+
+\begin{theorem}
+    Let $D$ be a bounded domain with piecewise smooth boundary $\partial D$, and let $f(z)$ be a meromorphic function on $D$ that extends to be analytic on $\partial D$, such that $f(z) \neq 0$ on $\partial D$. Then the increase in the argument of $f9z)$ around the boundary of $D$ is $2\pi$ times the number of zeros minus the number of poles of $f(z)$ in $D$,\begin{equation*}
+        \int_{\partial D}d\arg(f(z)) = 2\pi(N_0-N_{\infty})
+    \end{equation*}
+\end{theorem}
+
+\begin{example}
+    Consider $f(z) = z^4 + 1$, and study $\gamma:$ $\gamma(t) = 2e^{it}$, $0 \leq t \leq 2\pi$. We want to calculate the number of zeros of the function in a circle of radius $2$ (as it has no singularities). Observe $f(\gamma(t)) = 16e^{4it}+1$, so $f(\gamma(t)) = (16\cos(4t)+1)+i\sin(4t)$. Let $x = 16\cos(4t)+1$ and $y = 16\sin(4t)$, a circle of radius $16$, centered at $1+0i$. Then the argument traverses a difference $8\pi$ on $\gamma$, so the number of roots is $4$ (as expected).
+\end{example}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%% Section 2.1.2
+\section{Rouch\'{e}'s Theorem}
+
+There is a general principle to the effect that the number of zeros of an analytic function on a domain does not change if we make a small change in the function. 
+
+\begin{theorem}[Rouch\'{e}'s Theorem]
+    Let $D$ be a bounded domain with piecewise smooth boundary $\partial D$. Let $f(z)$ and $h(z)$ be analytic on $D\cup \partial D$. If $|h(z)| < |f(z)|$ for $z \in \partial D$, then $f(z)$ and $f(z)+h(z)$ ahve the sume number of zeros in $D$, counting multiplicities.
+\end{theorem}
+\begin{proof}
+    By assumption $|h(z)| < |f(z)|$ we have that $f(z) \neq 0$ on $\partial D$, and that $f(z)+h(z) \neq 0$ on $\partial D$. From $f(z)+h(z) = f(z)[1+h(z)/f(z)]$, we obtain \begin{equation*}
+        \arg(f(z)+h(z)) = \arg(f(z))+\arg\left(1+\frac{h(z)}{f(z)}\right)
+    \end{equation*}
+    Since $|h(z)/f(z)| < 1$, the values of $1+h(z)/f(z)$ lie in the right half-plane, and the increase of $\arg(1+h(z)/f(z))$ around a closed boundary curve is $0$, since we can restrict to a single-valued branch of the argument function. From the above expression we see that $\arg(f(z)+h(z))$ and $\arg f(z)$ have the same increase around $\partial D$. By the argument principle, the functions have the same number of zeros in $D$.
+\end{proof}
+
+We can think of $h(z)$ as small perturbations to the image of the curve under $f(z)$, so that the image curve will never reach the origin. That is to say, the image curve is a path or string away from the origin, and $h(z)$ are perturbations or waves in the string which are smaller in magnitude than the strings closest distance to the origin, and hence never reach the origin.
+
+
+\begin{example}
+    Find the number of zeros for $p(z) = z^{11}+12z^7-3z^2+z+2$ within the unit circle. Let $f(z) = 12z^7$ and $h(z) = z^{11}-3z^2+z+2$ observe for $|z| = 1$ we have $|h(z)| \leq 1+3+1+2 = 7$ and $|f(z)| = 12$. Hence, $|h(z)| < |f(z)|$, for all $z$ with $|z| = 1$. Observe that $f(z) = 12z^7$ has a zero $z = 0$ of multiplicity $7$ in the unit circle, so by Rouch\'{e}'s Theorem $p(z) = f(z)+h(z)$ has $7$ roots within the unit circle.
+\end{example}
+
+\begin{example}
+    Prove that the equation $z+3+2e^z = 0$ has precisely one solution in the left-half plane. The idea here is to view $f(z) = z+3$ as being perturbed by $h(z) = 2e^z$. Clearly $f(-3) = 0$ is the only zero, and we can find a curve $\gamma$ which bounds $\mathscr{R}e(z) < 0$ and for which $|h(\gamma(t))| \leq |f(\gamma(t))|$ for all $t$ in the domain of $\gamma$, then by Rouch\'{e}'s Theorem we obtain our desired conclusion. Therefore, consider $\gamma = C_R\cup [-iR,iR]$ where $C_R$ has $z = Re^{it}$ for $\pi/2 \leq t \leq 3\pi/2$. Consider $z \in [-iR,iR]$, so $z = iy$ for $-R \leq y \leq R$ observe \begin{equation*}
+        |f(z)| = |iy+3| = \sqrt{9+y^2}\;\;\&\;\;|h(z)| = |2e^{iy}| = 2
+    \end{equation*}
+    so $|h(z)| < |f(z)|$ for all $z \in [-iR,iR]$. Next suppose $z =x+iy \in C_R$, so $-R\leq x \leq 0$ and $-R\leq y \leq R$, with $|z| = R$. In particular, assuming $R > 5$, $R-3\leq |f(z)| = |z+3| \leq \sqrt{9+R^2}$, and $$|h(z)| = |2e^xe^{iy}| = 2e^x < 2 < R-3 < |f(z)|$$ since $-R \leq x \leq 0$. Consequently $|h(z)| < |f(z)|$ on $\gamma$ for $R > 5$, so by Rouch\'{e}'s Theorem $f(z)+h(z) = z+3+2e^z$ has only one zero in $\gamma$ for $R > 5$. Taking $R\rightarrow \infty$, the equation $z+3+2e^z$ has just one solution in the left-half plane.
+\end{example}
+
+\begin{example}[Proof of FTA]
+    Consider $p(z) = a_nz^n+...+a_1z+a_0$, where $a_n \neq 0$. Let $f(z) = a_nz^n$ and hence $h(z) = a_{n-1}z^{n-1}+...+a_1z+a_0$, then $p(z) = f(z)+h(z)$. Moreover, if we choose $R > 0$ sufficiently large then $|h(z)| \leq |a_{n-1}|R^{n-1} + ... + |a_1|R+|a_0| < |a_n|R^n = |f(z)|$ for $|z| = R$ hence by Rouch\'{e}'s Theorem there are $n$-zeros of $p(z)$ in the circle of radius $R$ as $z = 0$ is a zero of multiplicity $n$ for $f(z) = a_nz^n$. Thus, every $p(z) \in \C[z]$ has $n$ zeros, counting multiplicity, on the complex plane.
+\end{example}
+
+

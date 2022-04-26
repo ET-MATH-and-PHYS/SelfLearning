@@ -1,0 +1,117 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+\chapter{Semantics}
+\label{Sem} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+
+\section{ Truth-functional}
+
+
+\begin{definition}
+    A connective is \Emph{truth-functional} iff the truth value of the sentence with that connective as a main logical operator is uniquely determined by the truth value(s) of the constituent sentence(s).
+\end{definition}
+
+\begin{remark}
+    Truth functional connectives simply map us between truth values. When we \Emph{symbolize} an English sentence in TFL we ignore everything besides the contribution that the truth values of a component make to the truth value of the whole. It is important to note that TFL is unequipped to deal with meaning.
+\end{remark}
+
+
+\begin{definition}
+    When we treat a TFL sentence as \Emph{symbolizing} an English sentence, we are stipulating that the TFL sentence is to take the same truth value as the English sentence.
+\end{definition}
+
+\subsection{ Indicative versus Subjunctive Connectives}
+
+\begin{definition}
+    TFL strictly uses \Emph{indicative conditionals}, as these are truth-functional.
+\end{definition}
+
+
+\begin{definition}
+    A \Emph{subjunctive conditional} is a sentence of the form `If it were the case that $P$, then it would be the case that $Q$'.
+\end{definition}
+
+\section{ Tautologies and Contradictions}
+
+\begin{definition}
+    The TFL sentence $\metav{A}$ is a \Emph{tautology} (in TFL) iff it is true on every valuation.
+\end{definition}
+
+\begin{remark}
+    Tautology is a surrogate for necessary truth in TFL. There are necessary truths that cannot be adequately symbolized in TFL. Nonetheless, if we can adequately symbolize an English sentence in TFL and the resulting sentence is a tautology, then the English sentence expresses a necessary truth.
+\end{remark}
+
+
+\begin{definition}
+    A TFL sentence $\metav{A}$ is a \Emph{contradiction} (in TFL) iff it is false on every valuation.
+\end{definition}
+
+\section{ Equivalence}
+
+
+\begin{definition}
+    $\metav{A}$ and $\metav{B}$ are \Emph{equivalent} (in TFL) iff, for every valuation, their truth values agree, i.e., if there is no valuation in which they have opposite truth values.
+\end{definition}
+
+\section{ Satisfiability}
+
+\begin{definition}
+    $\metav{A}_1,\metav{A}_2,...,\metav{A}_n$ are \Emph{jointly satisfiable} (in TFL) iff there is some valuation which makes them all true.
+\end{definition}
+
+
+\begin{definition}
+    $\metav{A}_1,\metav{A}_2,...,\metav{A}_n$ are \Emph{jointly unsatisfiable} (in TFL) iff there is no valuation which makes them all true. 
+\end{definition}
+
+\section{ Entailment and Validity}
+
+
+\begin{definition}
+    The sentences $\metav{A}_1,\metav{A}_2,...,\metav{A}_n$ \Emph{entail} (in TFL) the sentence $\metav{C}$ iff no valuation of the relevant sentence letters makes all of $\metav{A}_1,\metav{A}_2,...,\metav{A}_n$ true and $\metav{C}$ false.
+\end{definition}
+
+\begin{theorem}
+    If $\metav{A}_1,\metav{A}_2,...,\metav{A}_n$ entail $\metav{C}$, in TFL, then $\metav{A}_1,\metav{A}_2,...,\metav{A}_n\therefore \metav{C}$ is valid.
+\end{theorem}
+
+\subsection{ Double Turnstile}
+
+\begin{definition}
+    We abbreviate the sentence `$\metav{A}_1,\metav{A}_2,...,\metav{A}_n$ entail $\metav{C}$' by:\begin{equation}
+        \metav{A}_1,\metav{A}_2,...,\metav{A}_n\vDash\metav{C}
+    \end{equation}
+    The symbol `$\vDash$' is called the \Emph{double turnstile}, and it is a symbol of our metalanguage.
+\end{definition}
+
+\begin{definition}
+    When we write \begin{equation}
+        \vDash\metav{C}
+    \end{equation}
+    we are saying there is no valuation which makes $\metav{C}$ false, so in particular every valuation makes it true. Thus $\metav{C}$ is a tautology. Equally, to say that $\metav{A}$ is a contradiction we may write \begin{equation}
+        \metav{A}\vDash
+    \end{equation}
+    For this says that no valuation makes $\metav{A}$ true.
+\end{definition}
+
+
+\begin{definition}
+    To say that $\metav{A}_1,\metav{A}_2,...,\metav{A}_n$ do not entail $\metav{C}$ we write \begin{equation}
+        \metav{A}_1,\metav{A}_2,...,\metav{A}_n \nvDash \metav{C}
+    \end{equation}
+\end{definition}
+
+
+\begin{remark}
+    Note that `$\rightarrow$' is a sentential connective of TFL while `$\vDash$' is a symbol of our metalanguage, augmented English. Now, observe that $\metav{A} \rightarrow \metav{C}$ is a tautology if and only if $\metav{A} \vDash \metav{C}$.
+\end{remark}
+
+

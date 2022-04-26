@@ -1,0 +1,118 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+\chapter{Symbolization and Ambiguity}
+\label{Symb} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+\section{ Atomic Sentences}
+
+\begin{definition}
+    TFL \Emph{symbolizes} basic sentences, or sentence components, as sentence letters such as $A,P_1,P_2,P_{432}$ etc. These sentence letters are \Emph{atomic sentences} of TFL, and when symbolizing a sentence in terms of sentence letters we provide a symbolization key, for instance:\begin{enumerate}
+        \item[$\rightarrow$] $A$: I am a cat.
+    \end{enumerate}
+\end{definition}
+
+\section{ Connectives}
+
+\begin{table}[H]
+    \centering
+    \caption{Logical Connectives of TFL}
+    \begin{tabular}{ccc}
+        \textbf{Symbol} & \textbf{Name} & \textbf{Rough meaning} \\
+        $\lnot$ & Negation & `It is not the case that...' \\
+        $\wedge$ & Conjunction & `Both... and...'\\
+        $\lor$ & Disjunction & `Either... or...' \\
+        $\rightarrow$ & Conditional & `If ... then ...' \\
+        $\leftrightarrow$ & Biconditional & `... if and only if ...'
+    \end{tabular}
+\end{table}
+
+
+\begin{definition}
+    Consider formulas $\metav{A}$ and $\metav{B}$. In $\lnot \metav{A}$ $\metav{A}$ is said to be the \Emph{negatum}. For $(\metav{A} \wedge \metav{B})$, $\metav{A}$ and $\metav{B}$ are called the \Emph{conjuncts}. For $(\metav{A} \lor \metav{B})$, $\metav{A}$ and $\metav{B}$ are called the \Emph{disjuncts}. For $(\metav{A} \rightarrow \metav{B})$, $\metav{A}$ is called the \Emph{antecedent} and $\metav{B}$ is called the \Emph{consequent}.
+\end{definition}
+
+
+\section{ TFL Sentences}
+
+\begin{definition}
+    The symbols of TFL are the atomic sentences ($A,B,...,Z,P_{453},...$), the connectives $\lnot,\wedge,\lor,\rightarrow,\leftrightarrow$, and brackets $(,)$.
+\end{definition}
+
+\begin{definition}
+    An \Emph{expression of TFL} is any string of symbols of TFL.
+\end{definition}
+
+
+\begin{definition}
+    The following are the only sentences of TFL:
+    \begin{enumerate}
+        \item Every sentence letter is a sentence.
+        \item If $\metav{A}$ is a sentence, then $\lnot \metav{A}$ is also a sentence.
+        \item If $\metav{A}$ and $\metav{B}$ are sentences, then $(\metav{A}\wedge \metav{B})$ is a sentence.
+        \item If $\metav{A}$ and $\metav{B}$ are sentences, then $(\metav{A}\lor \metav{B})$ is a sentence.
+        \item If $\metav{A}$ and $\metav{B}$ are sentences, then $(\metav{A}\rightarrow \metav{B})$ is a sentence.
+        \item If $\metav{A}$ and $\metav{B}$ are sentences, then $(\metav{A}\leftrightarrow \metav{B})$ is a sentence.
+        \item Nothing else is a sentence.
+    \end{enumerate}
+    The last sentential connective used in constructing a TFL sentence is called the \Emph{main logical operator}.
+\end{definition}
+
+
+\begin{definition}
+    The \Emph{scope} of a connective (in a sentence) is the subsentence for which that connective is the main logical operator.
+\end{definition}
+
+
+
+
+\section{ Ambiguity}
+
+\begin{definition}
+    \Emph{Lexical ambiguity} is when a sentence contains words which have more than one meaning.
+\end{definition}
+
+\begin{definition}
+    \Emph{Structural ambiguity} occurs when a sentence can be interpreted in different ways, and depending on the interpretation, a different meaning is selected.
+\end{definition}
+
+
+\section{ Object and Meta languages}
+
+\begin{remark}
+    When we want to talk about things in the world we just \emph{use} words. When we talk about words we typically have to \emph{mention} the words. Usually, \emph{mentioning} is done using single quotation marks `' (or double quotes if encasing single quotes).
+\end{remark}
+
+
+\begin{definition}
+    When we talk about a language the language we are talking about is called the \Emph{object language}. The language that we use to talk about the object language is called the \Emph{metalanguange}.
+\end{definition}
+
+\begin{remark}
+    In TFL sentence letters are sentences of the object language. When refering to a sentence letter in the metalanguage of English (supplemented with some symbols), we may write something along the lines of: `D' is a sentence letter of TFL.
+\end{remark}
+
+
+\begin{definition}
+    We define \Emph{metavariables} for our augmented metalanguage English to talk about any expression of TFL: \begin{equation}
+        \metav{A},\metav{B},\metav{C},\metav{D},...
+    \end{equation}
+    In particular, `$\metav{A}$' is a symbo (called a \Emph{metavariable}) in the augmented English we use to talk about expressions of TFL.
+\end{definition}
+
+\begin{definition}
+    Suppose we wish to symbolize the premises of an argument by $\metav{A}_1,...,\metav{A}_n$, and the conclusion of the argument by $\metav{C}$. Then we will write:\begin{equation}
+        \metav{A}_1,...,\metav{A}_n \therefore \metav{C}
+    \end{equation}
+    The purpose of the `$\therefore$' symbol is to indicate which sentences are premises and which are conclusions. Strictly speaking `$\therefore$' is a part of our metalanguage, but we shall take the convention to not include quotation marks around the TFL sentences which flank it.
+\end{definition}
+
+
+

@@ -1,11 +1,13 @@
 %%%%%%%%%% Ring Defs %%%%%%%%%%
-\chapter{\textsection\textsection Basic Definitions and Examples: Rings}
+\chapter{ Basic Definitions and Examples: Rings}
+\label{RingDefs}
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+\section{ Initial Definitions and Examples}
 
-\section{\textsection Initial Definitions and Examples}
 
 
-
-\begin{defn}
+\begin{definition}
     A set $R$ with two binary operations $+$ (\Emph{addition}) and $\cdot$ (\Emph{multiplication}), is called a unital \Emph{ring} if the following are satisfied:
     \begin{enumerate}
         \item $(R,+)$ is an abelian group with identity $0$
@@ -13,9 +15,9 @@
         \item Distributivity: for all $a,b,c \in R$ $$(a + b)\cdot c = a\cdot c + b\cdot c$$
         and $$a\cdot (b+c) = a\cdot b + a\cdot c$$
     \end{enumerate}
-\end{defn}
+\end{definition}
 
-\begin{rmk}
+\begin{remark}
     \leavevmode
     \begin{enumerate}
         \item The multiplicative identity $1$ is unique for a given ring $R$ and multiplication $\cdot$.
@@ -34,16 +36,16 @@
             n = \left\{\begin{array}{ll} 0, & \text{if } n = 0 \\ \underbrace{1_R+1_R + ... +1_R}_{\text{n-fold times}}, & \text{if } n > 0 \\ \underbrace{(-1_R)+ (-1_R) + ... + (-1_R)}_{\text{-n-fold times}}, & \text{if } n < 0\end{array}\right.
         \end{equation}
     \end{enumerate}
-\end{rmk}
+\end{remark}
 
-\begin{qest}
+\begin{question}
     How small can a ring be?
-\end{qest}
-\begin{ans}
+\end{question}
+\begin{remark}
     The smallest ring is $R = \{0\}$, the zero ring, so $1 = 0$.
-\end{ans}
+\end{remark}
 
-\begin{cons}[Endomorphism Rings]
+\begin{construction}[Endomorphism Rings]
     The best way to obtain rings (which are called \Emph{endomorphism rings}) is to start with an abelian group $(A,+,0)$. Let $R = \en(A) := \{f:A\rightarrow A: f \in \Hom_{\Grp}(A,A)\}$. We define addition on $R$ to be \begin{equation}
         (f+g)(x) := f(x)+g(x), \forall f,g \in R, \forall x \in A
     \end{equation}
@@ -57,26 +59,26 @@
         1_R(a) = a, \forall a \in A
     \end{equation}
     Note that from these definitions, we see that multiplication is not necessarily commutative, and does not necessarily have an inverse, as f has an inverse $\iff$ it is an isomorphism of groups. That is, the group of units of $R$ is $R^{\times} = \aut(A)$ equipped with the multiplication operation of function composition.
-\end{cons}
+\end{construction}
 
-\begin{eg}[Constructing Rings from Endomorphisms on Cyclic Groups]
+\begin{example}[Constructing Rings from Endomorphisms on Cyclic Groups]
         I claim that the ring $(\Z,+,\cdot,1,0) = \en(\Z,+,0)$. Suppose we have a group homomorphism $f:\Z\rightarrow \Z$. Then $f(1) = n \in \Z$ determines everything, since $f(k) = f(1+1+...+1) = f(1)+...+f(1) = kf(1)$. We take $f$, and associate to it the integer $f(1)$, which then gives a multiplication on $\Z$. For example: Suppose $f(1) = n$, and $g(1) = m$, then $f\times g(k) = f(g(k)) = f(k\cdot m) = n(k\cdot m)$, which gives multiplication on $\Z$. Now, suppose $f$ is associated to a negative integer, so $f(1) = n < 0$, then it switches the halfs of the real line. Then, $f\times f(1) = f(f(1)) = f(n) = f(-1-1-...-1) = -f(1)-f(1)-...-f(1) = -n-n-...-n > 0$. Likewise, $\Z/n\Z = End(\Z/n\Z,+,0)$, where we identify $f$ by $f(1)$. This works to give a ring structure on cyclic groups.
-\end{eg}
+\end{example}
 
-\begin{eg}[Constructing Rings from Endomorphisms of other Abelian group]
+\begin{example}[Constructing Rings from Endomorphisms of other Abelian group]
         Take $A = (\Z/p\Z)^2 = \{(a_1,a_2): a_i \in \Z/p\Z$. Then $End(A) = M_2(\Z/p\Z)$. If we have a matrix \begin{equation}
                 B = \begin{bmatrix} \alpha & \beta \\ \gamma & \delta \end{bmatrix}
         \end{equation}
         matrix multiplication gives us the multiplication in our ring. This is an example of a non-commutative ring. In general, if $A = (\Z/p\Z)^n$, then $End(A) = M_n(\Z/p\Z)$.
-\end{eg}
+\end{example}
 
 
-\begin{defn}
+\begin{definition}
     The order of $1$ in $(R,+)$ is called the \Emph{characteristic} of the ring $R$, and denoted $\ch R$, if $o(1_R) < +\infty$. If $o(1) = +\infty$ then $\ch R := 0$. In general, for a non-unital ring $R'$, $\ch R'$ is the smallest positive integer $n$ such that $n\cdot r = 0_{R'}$ for all $r \in R'$. If no such $n$ exists then $\ch R' := 0$. 
-\end{defn}
+\end{definition}
 
 
-\begin{eg}
+\begin{example}
     \leavevmode
     \begin{enumerate}
         \item $\Z, \Q, \R, \C$ with the usual addition and multiplication are all rings of characteristic $0$.
@@ -91,8 +93,8 @@
         \end{equation}
         for some $a_i \in \R$, $0 \leq i \leq n$ and $n \in \Z$, $n \geq 0$.
         \begin{enumerate}
-            \item[$\drsh$] Polynomial functions $\mathcal{P}(\R,\R)$ form a ring for the addition and multiplication in $F(\R,\R)$ - This is a \Emph{subring}
-            \item[$\drsh$] (eg: $f(x) = 2x^2+1$, $g(x) = 6x$, $f\cdot g(x) = 12x^3 + 6x$ is a polynomial)
+            \item[$\rightarrow$] Polynomial functions $\mathcal{P}(\R,\R)$ form a ring for the addition and multiplication in $F(\R,\R)$ - This is a \Emph{subring}
+            \item[$\rightarrow$] (eg: $f(x) = 2x^2+1$, $g(x) = 6x$, $f\cdot g(x) = 12x^3 + 6x$ is a polynomial)
         \end{enumerate}
         \item Let $G$ be an abelian group and let $\en(G)$ be the set of endomorphisms on $G$. Then, $\en(G)$ is a ring with addition defined pointwise and multiplication defined by function composition:
         \begin{equation}
@@ -100,34 +102,34 @@
         \end{equation}
         Moreover, $0(g) = e_G$ and $1(g) = \id(g) = g$ for all $g \in G$.
     \end{enumerate}
-\end{eg}
+\end{example}
 
 \begin{note}
     The multiplication need not be commutative. For instance multiplication is not necessarily commutative in $M_n(\R)$ for $n \geq 2$.
 \end{note}
 
 
-\begin{defn}
+\begin{definition}
     If the multiplication of a ring $R$ is commutative ($ab = ba \forall a,b\in R$) then $R$ is said to be a \Emph{commutative ring}
-\end{defn}
+\end{definition}
 
 
-\begin{defn}
+\begin{definition}
     Let $R$ be a ring, the set of invertible elements for the multiplication is called the \Emph{group of units} of $R$, and is denoted $R^{\times}$.
-\end{defn}
+\end{definition}
 
-\begin{rec}
+\begin{remark}
     For all $a \in R$, $a$ is invertible for $\cdot$ if there exists $b \in R$ such that $ab = ba = 1_R$.
-\end{rec}
+\end{remark}
 
-\begin{xca}
+\begin{exercise}
     $(R^{\times}, \cdot)$ is a group.
     \begin{proof}
         (Left to the reader)
     \end{proof}
-\end{xca}
+\end{exercise}
 
-\begin{eg}
+\begin{example}
     \leavevmode
     \begin{enumerate}
         \item We've seen $\R^{\times} = \R\backslash\{0\}$, $\C^{x} = \C\backslash\{0\}$, and $\Q^{\times} = \Q\backslash\{0\}$. But, in general, this is not enough. For instance, $(\Z/n\Z)^{\times} \neq \Z/n\Z\backslash\{[0]\}$ for all $n \geq 1$.
@@ -136,16 +138,16 @@
         \item $F(X,\R)^{\times} = \{f\in F(X,\R):\forall x \in X, f(x) \neq 0\}$
         \item In general, $F(X,R)^{\times} = \{f \in F(X,R):\forall x \in X, f(x) \in R^{\times}\}$
     \end{enumerate}
-\end{eg}
+\end{example}
 
-\begin{defn}
+\begin{definition}
     If $R$ is a ring such that $R^{\times} = R\backslash\{0_R\}$ (that is every nonzero element is invertible for $\cdot$), then $R$ is called a \Emph{division ring}, or \Emph{skew-field}
     \begin{enumerate}
-        \item[$\drsh$] If $R$ is a \Emph{commutative division ring} then $R$ is called a \Emph{field}. 
+        \item[$\rightarrow$] If $R$ is a \Emph{commutative division ring} then $R$ is called a \Emph{field}. 
     \end{enumerate}
-\end{defn}
+\end{definition}
 
-\begin{eg}
+\begin{example}
     \leavevmode
     \begin{enumerate}
         \item $\Q, \R, \C$ are fields ($\Z$ is \underline{not} a field)
@@ -153,32 +155,32 @@
         \item $\Z/n\Z$ is not a field if $n$ is not a prime
         \item Division rings which are note commutative rings are rare. An example of them are the \Emph{Quaternions}.
     \end{enumerate}
-\end{eg}
+\end{example}
 
-\subsection{\textsection Integral Domains}
+\subsection{ Integral Domains}
 
-\begin{defn}
+\begin{definition}
     For a ring $R$, $a \in R$ is called a \Emph{zero divisor} if there exists $b \in R$, $b \neq 0$, such that $ab = 0$ or $ba = 0$.
-\end{defn}
+\end{definition}
 
-\begin{rmk}
+\begin{remark}
     \leavevmode
     \begin{enumerate}
         \item If $1 \neq 0$, then $0$ is a zero divisor.
         \item $\begin{pmatrix} 1 & 0 \\ 0 & 0\end{pmatrix}$ is a non-zero zero divisor of $M_2(\R)$.
         \item If $r$ is a divisor of $n$ and $r \neq 1$, then $[r]_n \in \Z/n\Z$ is a zero divisor. Indeed, $n = rq$ for $q \in \Z$. If $r = n$, $q = 1$, and $[r]_n[1]_n = [0]_n$, where $[1]_n \neq [0]_n$. Otherwise, if $1 < r < n$, $1 < q < n$, so $[q]_n \neq [0]$. But, $[r]_n[q]_n = [0]_n$ so $[r]_n$ is a zero divisor.
     \end{enumerate}
-\end{rmk}
+\end{remark}
 
-\begin{eg}
+\begin{example}
     \leavevmode
     \begin{enumerate}
         \item The set of zero divisors in a division ring is $K = \{0\}$. Indeed, if $a \in K$, $ab = 0$ for some $b \neq 0$, then $a = abb^{-1} = 0b^{-1} = 0$.
         \item The set of zero divisors of $\Z$ is $\{0\}$, even though $\Z$ is not a division ring.
     \end{enumerate}
-\end{eg}
+\end{example}
 
-\begin{prop}
+\begin{proposition}
     Let $R$ be a ring. The following are equivalent:
     \begin{enumerate}
         \item $0\in R$ is the only zero divisor.
@@ -186,37 +188,37 @@
         \item For all $a,b,c \in R$, $ab = ac$ and $a \neq 0$ implies $b = c$.
         \item For all $a,b,c \in R$, $ba = ca$ and $a \neq 0$ implies $b = c$
         \begin{enumerate}
-            \item[$\drsh$] ((3) and (4) are called \Emph{cancellation laws})
+            \item[$\rightarrow$] ((3) and (4) are called \Emph{cancellation laws})
         \end{enumerate}
     \end{enumerate}
     \begin{proof}
         (Left to the reader)
     \end{proof}
-\end{prop}
+\end{proposition}
 
-\begin{defn}
+\begin{definition}
     If the equivalent conditions of the proposition are satisfied for a ring $R \neq \{0\}$, then $R$ is called a \Emph{domain}. If $R$ is also a commutative ring then $R$ is said to be an \Emph{integral domain}.
-\end{defn}
+\end{definition}
 
-\begin{rmk}
+\begin{remark}
     Every division ring is a domain and every field is an integral domain, but the converse is not true.
     \begin{enumerate}
-        \item[$\drsh$] $\Z$ is an integral domain, but not a field. $\mathcal{P}(\R,\R)$ is an integral domain. 
+        \item[$\rightarrow$] $\Z$ is an integral domain, but not a field. $\mathcal{P}(\R,\R)$ is an integral domain. 
     \end{enumerate}
-\end{rmk}
+\end{remark}
 
-\subsection{\textsection Subrings}
+\subsection{ Subrings}
 
-\begin{defn}
+\begin{definition}
     A subset $S$ of a ring $R$ that is closed under addition, subtraction, multiplication, and contains $1$ is called a \Emph{subring} of $R$.
     \begin{enumerate}
-        \item[$\drsh$] $\forall a,b \in S, \{a+b,a-b,ab,1\} \subseteq S$.
+        \item[$\rightarrow$] $\forall a,b \in S, \{a+b,a-b,ab,1\} \subseteq S$.
     \end{enumerate}
-\end{defn}
+\end{definition}
 
-\begin{rmk}
+\begin{remark}
     In other words, $S$ is a subring of $R$ if and only if $(S,+)$ is a subgroup of $(R,+)$ and $(S,\cdot)$ is a monoid with identity $1 \in R$.
-\end{rmk}
+\end{remark}
 
 \begin{note}
     \leavevmode
@@ -229,14 +231,14 @@
     \end{enumerate}
 \end{note}
 
-\begin{defn}
+\begin{definition}
     The subring generated by a subset $X \subseteq R$ is the intersection of all subrings of $R$ containing $X$.
     \begin{enumerate}
-        \item[$\drsh$] ($R$ is a subring of $R$, so there is always at least one subring of $R$ containing $X$ and the definition is well-defined)
+        \item[$\rightarrow$] ($R$ is a subring of $R$, so there is always at least one subring of $R$ containing $X$ and the definition is well-defined)
     \end{enumerate}
-\end{defn}
+\end{definition}
 
-\begin{eg}
+\begin{example}
     \leavevmode
     \begin{enumerate}
         \item $\Z\subseteq \Q\subseteq \R\subseteq \C$ are all subrings
@@ -246,12 +248,12 @@
             \{a+bi:a,b \in \Z\}=:\Z[i] \subseteq \C
         \end{equation}
         and is called the \Emph{Gaussian integers}.
-        \begin{xca}
+        \begin{exercise}
             $\Z[i]$ is an integral domain.
             \begin{proof}
                     (Left to the reader)
             \end{proof}
-        \end{xca}
+        \end{exercise}
         \item The subring of $\C$ generated by $\frac{1}{2}$ $$\{\frac{a}{2^n}:a \in \Z, n \geq 0\} \subseteq \Q \subseteq \C$$
         it is an integral domain as well
         \item The set of all upper triangular matrices, $T_n(\R)$, is a subring of $M_n(\R)$. In general, $T_n(R)$ is a subring of $M_n(R)$ for an arbitrary ring $R$.
@@ -260,27 +262,27 @@
         \end{equation}
         It is a subring of $R$
         \begin{enumerate}
-            \item[$\drsh$] If $b \in Z(R)$, $b$ is called a \Emph{central element} of $R$.
-            \begin{eg}
+            \item[$\rightarrow$] If $b \in Z(R)$, $b$ is called a \Emph{central element} of $R$.
+            \begin{example}
                 \begin{enumerate}
                     \item $Z(\R) = \R$, and similarly $Z(R) = R$ for any commutative ring $R$
                     \item $Z(M_n(\R)) = \R I_n$
                 \end{enumerate}
-            \end{eg}
+            \end{example}
         \end{enumerate}
         \item A subring of a field which is itself a field is called a \Emph{subfield}.
         \begin{enumerate}
-            \item[$\drsh$] \begin{eg}
+            \item[$\rightarrow$] \begin{example}
                 $\Q\subseteq \R \subseteq \C$ are all subfields
-            \end{eg} 
+            \end{example} 
         \end{enumerate}
     \end{enumerate}
-\end{eg}
+\end{example}
 
 
-\section{\textsection Ring Homomorphisms}
+\section{ Ring Homomorphisms}
 
-\begin{defn}
+\begin{definition}
     Let $R,S$ be rings. A map $$R\xrightarrow{f}S$$
     is called a \Emph{ring homomorphism} if the following conditions are satisfied for all $r,r' \in R$:
     \begin{enumerate}
@@ -290,23 +292,23 @@
     \end{enumerate}
     A bijective ring homomorphism $A\xrightarrow{\phi}B$ is called a \Emph{ring isomorphism}, and $A, B$ are said to be \Emph{isomorphic rings}.
     \begin{enumerate}
-        \item[$\drsh$] (In the case that $f$ is surjective, $f(1_R) = 1_S$ follows from the multiplicative condition) 
+        \item[$\rightarrow$] (In the case that $f$ is surjective, $f(1_R) = 1_S$ follows from the multiplicative condition) 
     \end{enumerate}
-\end{defn}
+\end{definition}
 
-\begin{rmk}
+\begin{remark}
     The image of a ring homomorphism is a subring of the codomain.
-\end{rmk}
+\end{remark}
 
-\begin{eg}
+\begin{example}
     \leavevmode
     \begin{enumerate}
         \item The identity $\id:R \rightarrow R$ is a ring isomorphism
         \item $\map{\Z\rightarrow R}{n\mapsto n\cdot 1_R}$ is a ring homomorphism
         \begin{enumerate}
-            \item[$\drsh$] \begin{eg}
+            \item[$\rightarrow$] \begin{example}
                 $\map{\Z\rightarrow \Z/n\Z}{r \mapsto [r]_n}$
-            \end{eg} 
+            \end{example} 
         \end{enumerate}
         \item The inclusion $S \subseteq R$ of a subring is a ring homomorphism.
         \item Let $a \in X$. Then \begin{equation}
@@ -314,7 +316,7 @@
         \end{equation}
         is a ring homomorphism called the \Emph{evaluation at $a$}
         \begin{enumerate}
-            \item[$\drsh$] Indeed, $\ev_a(f+g) = (f+g)(a) = f(a)+g(a) = \ev_a(f) + \ev_a(g)$, $\ev_a(f\cdot g) = (f\cdot g)(a) = f(a)\cdot g(a) = \ev_a(f)\cdot \ev_a(g)$, and $\ev_a(1) = 1(a) = 1$.
+            \item[$\rightarrow$] Indeed, $\ev_a(f+g) = (f+g)(a) = f(a)+g(a) = \ev_a(f) + \ev_a(g)$, $\ev_a(f\cdot g) = (f\cdot g)(a) = f(a)\cdot g(a) = \ev_a(f)\cdot \ev_a(g)$, and $\ev_a(1) = 1(a) = 1$.
         \end{enumerate}
         \item If $|R| = p$, a prime number, then $R$ is isomorphic to the field $\F_p = \Z/p\Z$.
         \begin{proof}
@@ -323,28 +325,28 @@
         \end{proof}
         \item $\map{\C\xrightarrow{\theta}M_2(\R)}{a+bi\mapsto \begin{bmatrix} a & -b \\ b & a\end{bmatrix}}$ is an injective ring homomorphism.
         \begin{enumerate}
-            \item[$\drsh$] Hence, $\C \xrightarrow{\sim} \left\{\begin{bmatrix} a & -b \\ b & a\end{bmatrix}:a,b \in \R\right\}\subseteq M_2(\R)$ 
+            \item[$\rightarrow$] Hence, $\C \xrightarrow{\sim} \left\{\begin{bmatrix} a & -b \\ b & a\end{bmatrix}:a,b \in \R\right\}\subseteq M_2(\R)$ 
         \end{enumerate}
     \end{enumerate}
-\end{eg}
+\end{example}
 
-\begin{rmk}
+\begin{remark}
     The property of being a field or an integral domain is preserved under ring isomorphism.
-\end{rmk}
+\end{remark}
 
 
-\begin{rmk}[Canonical Map]
+\begin{remark}[Canonical Map]
         If we have a commutative ring $R$, there is a natural ring homomorphism $f:\Z\rightarrow R$ which is completely characterized by $f(1) = 1_R$, so for $n \geq 1$, $f(n) = f(\underbrace{1+1+...+1}_{\text{n-times}}) = \underbrace{1_R+...+1_R}_{\text{n-times}}$ and $f(-n) = -f(n)$. This is the canonical ring homomorphism associated to any commutative ring. Moreover, we know that the kernel of $f$ is an ideal of $\Z$, so it is of the form $n\Z$ for some $n \geq 0$. If $R = \{0\}$, then $\ker(f) =\Z$, and if $R = \Z,\Q,\R,\C$, then $\ker(f) = 0\Z = \{0\}$. Moreover, if $R= \Z/n\Z$, then $\ker(f) = n\Z$.
-\end{rmk}
+\end{remark}
 
-\begin{rmk}[Think about this]
+\begin{remark}[Think about this]
         If $R$ is a field, and $h$ is the natural homomorphism given above, then $\ker h = \{0_R\}$, or $\ker h = p\Z$, where $p$ is prime.
-\end{rmk}
+\end{remark}
 
 
-\begin{prop}
+\begin{proposition}
         If $R$ is a field, then $\ker(f) = \{0\}$ or $\ker(f) = p\Z$ for $p$ a prime.
-\end{prop}
+\end{proposition}
 \begin{proof}
         For the sake of contradiction suppose $\ker(f) = n\Z$ for $n = ab$ composite, so $1 < a,b < n$. Then $f(n) = 0$ in $R$. But, $f(n) = f(a)f(b) = a_Rb_R = 0_R$, so since $R$ is a field, $a_R$ is zero or $b_R$ is zero. However, this contradicts the fact that the $\ker(f)$ is a multiple of $n$, and $a,b \notin n\Z$.
 \end{proof}
@@ -353,31 +355,31 @@
 
 
 
-\section{\textsection Domains and Fields of Fractions}
+\section{ Domains and Fields of Fractions}
 
-\begin{prop}
+\begin{proposition}
     The characteristic of a domain is zero ($o(1) = \infty$) or a prime number $p$.
     \begin{proof}
         Suppose that $R$ is a domain. If $R$ has a zero characteristic we are done, so suppose $\ch R = n$ where $n \in \Z$ and $n \geq 1$. If $n = 1$ then $R = \{0\}$, which contradicts the fact that $R$ is a domain. Thus, $n > 1$. We argue by contradiction and suppose $n$ is not prime. Then there exist $r,s \in \Z$ with $1 < r,s < n$ such that $n = rs$. It follows that $(r\cdot 1_R)(s\cdot 1_R) = rs\cdot 1_R = n\cdot 1_R = 0_R$ by definition of the characteristic of a ring. However, since $R$ is a domain it follows that $r\cdot 1_R = 0_R$ or $s \cdot 1_R = 0_R$. However, $r,s < n$, so either case would contradict the minimality of $n$ in $o(1) = n$. Thus, $n$ being composite leads to a contradiction so we conclude that $n$ must be prime, as claimed.
     \end{proof}
-\end{prop}
+\end{proposition}
 
-\begin{rmk}
+\begin{remark}
     Every subring of a field is an integral domain.
     \begin{enumerate}
-        \item[$\drsh$] ($R\subseteq F_{field}$, then for $a,b \in R$, if $ab = 0$ in $F$ and $b \neq 0$, then $0 = abb^{-1} = a \in F$. Thus $a = 0 \in R$. Hence, $R$ is an integral domain)
+        \item[$\rightarrow$] ($R\subseteq F_{field}$, then for $a,b \in R$, if $ab = 0$ in $F$ and $b \neq 0$, then $0 = abb^{-1} = a \in F$. Thus $a = 0 \in R$. Hence, $R$ is an integral domain)
     \end{enumerate}
-\end{rmk}
+\end{remark}
 
-\begin{rmk}
+\begin{remark}
     Actually, every subring of a division ring, or skew-field, is a domain.
-\end{rmk}
+\end{remark}
 
-\begin{thm}
+\begin{theorem}
     Every integral domain is a subring of a field.
-\end{thm}
+\end{theorem}
 
-\begin{cons}
+\begin{construction}
     Denote $R\backslash\{0\} = R^*$. We start with an integral domain $R$, and consider pairs $(a,b) \in R\times R^*$. We define a relation $\sim$ on $R\times R^*$ by $(a,b) \sim (a',b')$ if and only if $ab' = a'b$.
     \begin{claim}
         $\sim$ is an equivalence relation on $R\times R^*$.
@@ -392,7 +394,7 @@
         Then, we have that $(ab'' - a''b)a' = 0_R$ by distributivity. Note if $a' = 0_R$, then $a''b' = a'b'' = 0_R$, so $a'' = 0_R$ since $R$ is an integral domain, and similarly $ab' = a'b = 0_R$ so $a=0$ and $ab'' = 0_R = a''b$. Now, suppose $a' \neq 0$. Then as $R$ is an integral domain $ab'' = a''b$, so $(a,b) \sim (a'',b'')$ and the relation is transitive, as desired. Therefore, $\sim$ is an equivalence relation of $R\times R^*$.
     \end{proof}
     \begin{enumerate}
-        \item[$\drsh$] We define addition and multiplication on the set \begin{equation}
+        \item[$\rightarrow$] We define addition and multiplication on the set \begin{equation}
             Frac(R) := \{[(a,b)]_{\sim}:(a,b) \in R\times R^*\}
         \end{equation}
         of equivalence classes by \begin{equation}
@@ -403,7 +405,7 @@
         \end{equation}
     \end{enumerate}
     \begin{enumerate}
-        \item[$\drsh$] Let us see that these operations are well-defined. Consider $[(ad+cb,bd)]$ and $[(a'd'+c'b',b'd')]$ for $[(a,b)] = [(a',b')]$ and $[(c,d)] = [(c',d')]$. Then, observe that \begin{align*}
+        \item[$\rightarrow$] Let us see that these operations are well-defined. Consider $[(ad+cb,bd)]$ and $[(a'd'+c'b',b'd')]$ for $[(a,b)] = [(a',b')]$ and $[(c,d)] = [(c',d')]$. Then, observe that \begin{align*}
             (ad+cb)(b'd') - (a'd'+c'b')(bd) &= adb'd'+cbb'd' - a'd'bd - c'b'bd \\
             &= a'bdd' + c'dbb' - a'bdd' - c'dbb' \\
             &= 0_R
@@ -421,9 +423,9 @@
             \end{proof}
         \end{claim}
     \end{enumerate}
-\end{cons}
+\end{construction}
 
-\begin{namthm}[Universal Property of Field of Fractions]
+\begin{theorem}[Universal Property of Field of Fractions]
     Let $R$ be an integral domain.
     \begin{enumerate}
         \item $Frac(R)$ is a field containing $R$ as a subring by the inclusion \begin{equation}
@@ -441,7 +443,7 @@
             \end{tikzpicture}
         \end{center}
     \end{enumerate}
-\end{namthm}
+\end{theorem}
 \begin{proof}
     \begin{enumerate}
         \item Define $i$ as above. Then, observe that $i(1) = [(1,1)] = 1_{Frac(R)}$, $i(a+b) = [(a+b,1)] = [(a,1)] + [(b,1)] = i(a) + i(b)$, and $i(ab) = [(ab,1)] = [(a,1)][(b,1)] = i(a)i(b)$. Moreover, $i(a) = 0_{Frac(R)}$ if and only if $a = 0_R$, so $i$ is an injective ring homomorphism, as desired.
@@ -467,14 +469,14 @@
     \end{enumerate}
 \end{proof}
 
-\begin{lem}
+\begin{lemma}
     Let $K\xrightarrow{f} R$ be a ring homomorphism with $K$ a field and $R \neq \{0\}$. Then $f$ is injective.
     \begin{proof}
         Take $a \neq 0, a \in K$. Then $1_R = f(1_K) = f(aa^{-1}) = f(a)f(a^{-1})$. If $f(a) = 0$ then $1 = 0$, but by assumption $R \neq \{0\}$ so $f(a) \neq 0$. Then $a \notin \ker(f)$, and in particular $\ker(f) = \{0_K\}$. Thus, $f$ is injective.
     \end{proof}
-\end{lem}
+\end{lemma}
 
-\begin{eg}
+\begin{example}
     \leavevmode
     \begin{enumerate}
         \item $Frac(\Z) \cong \Q$
@@ -489,67 +491,67 @@
         \end{equation}
         is called the field of \Emph{rational polynomials}.
     \end{enumerate}
-\end{eg}
+\end{example}
 
 
-\section{\textsection Special Definitions and Facts}
+\section{ Special Definitions and Facts}
 
-\begin{defn}
+\begin{definition}
     A ring $R$ is said to be a \Emph{local ring} if the set of non-units in $R$ is an ideal.
-\end{defn}
+\end{definition}
 
-\begin{prop}
+\begin{proposition}
     If $R$ is a local ring with ideal of non-units $J(R)$, then $R/J(R)$ is a division ring.
     \begin{proof}
         Let $R$ be a local ring with ideal of non-units $J(R)$. Then, let $a+J(R) \in R/J(R)$ such that $a+J(R) \neq 0_{R/J(R)}$, so $a \notin J(R)$. It follows that $a$ is a unit of $R$ so there exists $b \in R$ such that either $ab = 1_R$ or $ba = 1_R$. Without loss of generality suppose $ab = 1_R$. Then it follows that $(a+J(R))(b+J(R)) = ab+J(R) = 1_R + J(R) = 1_{R/J(R)}$ in $R/J(R)$. Thus, every non-zero element in $R/J(R)$ has an inverse so $R/J(R)$ is a division ring.
     \end{proof}
-\end{prop}
+\end{proposition}
 
-\begin{prop}
+\begin{proposition}
     If $R$ is a local ring with ideal of non-units $J(R)$, and $A \subseteq J(R)$ is an ideal of $R$, then $R/A$ is local and $J(R/A) = \{r+A:r \in J(R)\}$.
     \begin{proof}
         Let $R$ be a local ring with ideal of non-units $J(R)$, and let $A \subseteq J(R)$ be an ideal of $R$. Then, by the \ref{thmname:corrring} for quotient rings we have that $J(R)/A = \{r + A: r \in J(R)\}$ is an ideal of $R/A$. I claim that $J(R)/A = J(R/A)$ in the proposition. Let $r+A \in R/A$ be a non-unit. For the sake of contradiction suppose that $r+A \notin J(R)/A$. Then $r \notin J(R)$, so $r$ must be a unit of $r$. Then there exists $r' \in R$ such that $rr' = 1_R$ or $r'r = 1_R$. Without loss of generality suppose $rr' = 1_R$. Then $(r+A)(r'+A) = rr'+A = 1_R+A$, so $(r+A)$ is a unit of $R/A$, which contradicts the assumption that $r+A$ is a non-unit. Thus, $r+A \in J(R)/A$, so $J(R/A) \subseteq J(R)/A$. Next, let $r + A \in J(R)/A$, so $r \in J(R)$. Again towards a contradiction suppose $r + A \notin J(R/A)$. Then there exists $r'+A \in R/A$ such that $(r+A)(r'+A) = 1_R+A$ or $(r'+A)(r+A) = 1_R +A$. Without loss of generality suppose $(r+A)(r'+A) = 1_R +A$, so $rr' + A = 1_R + A$. Note that since $J(R)$ is an ideal, $rr' \in J(R)$ so $rr' + A \in J(R)/A$. Then we have that $rr' - 1_R \in A \subseteq J(R)$, so $1_R = rr' + (-(rr' - 1_R)) \in J(R)$. However, $1_R$ is a unit in $R$, and $J(R)$ is the set of non-units which is a contraction. Thus, we conclude that $r+A \in J(R/A)$, so $J(R)/A \subseteq J(R/A)$. Hence, $J(R/A) = J(R)/A$ is an ideal, so $R/A$ is a local ring as claimed. 
     \end{proof}
-\end{prop}
+\end{proposition}
 
 
-\section{\textsection The Gaussian Integers}
+\section{ The Gaussian Integers}
 
-\begin{eg}
+\begin{example}
         Consider $R = \Z[i]$. What if we want $2+i = 0$? Let $I = (2+i)$ and take $\overline{R} = R/I$. We wish to identify $\overline{R}$. First, let's identify the intersection $I \cap \Z$. Note that $0 = (2+i)(2-i) = 4+1 = 5$, so $5 \in I\cap \Z$. In particular, $5\Z \subset I\cap \Z$, where $5\Z$ is a maximal subgroup of $\Z$, so in fact it is a maximal ideal. Therefore, either $I\cap \Z = \Z$ or $I\cap \Z = 5\Z$. Secondly, observe that if $(2+i)(a+bi) \in \Z$, then $(2a-b)+(2b+a)i \in \Z$. In particular, $2b+a = 0$, so $a = -2b$. It follows that $(2+i)(a+bi) = 2(-2b)-b = -4b - b = 5(-b) \in 5\Z$. Therefore, $I\cap \Z = 5\Z$. Then, if we take the canonical homomorphism $\Z\rightarrow R/I = \overline{R}$, it has kernel $5\Z$, and image $\cong \Z/5\Z$. In fact, $\overline{R} \cong \Z/5\Z$ under this map, or in other words, the map is surjective. Note that since $2+i \equiv 0 \mod I$, $i \equiv -2 \mod I$, and $a+bi \equiv a-2b \mod I$ in $R/I$, but $a-2b \in \Z$. Thus, the map is surjective, so the image of the integers, $\Z/5\Z$, must be isomorphic to $R/I$.
-\end{eg}
+\end{example}
 
-\begin{thm}
+\begin{theorem}
         More generally, if $p$ is a prime number with $p\equiv 1 \mod 4$, there is an ideal $I \subset \Z[i]=R$ with $R/I \cong \Z/p\Z$.
-\end{thm}
+\end{theorem}
 \begin{proof}
         First, note that for the canonical homomorphism $f:R\rightarrow R/I$, if $R/I \cong \Z/p\Z$, then $f(i)$ must have order $4$ multiplicatively since $i^4 = 1$ and $i^2 = -1$, so $f(i)^2 \cong -1 \mod p$. If $f(i)$ has order $4$ in $(\Z/p\Z)^*$, then $p \equiv 1 \mod 4$. Then, recall by Wilson's Theorem that $(p-1)! \equiv -1 \mod p$. Now, consider the element $\left(\frac{p-1}{2}\right)!$, and complete it $1*2*...*\frac{p-1}{2}*\frac{p+3}{2}*...*(p-2)*(p-1) \cong -1 \mod p$. But, the terms in the first half are minus the terms in the second, so the product of the first half is equal to that of the second half times the number of minus signs. Note that the number of minus signs is $(-1)^{\frac{p-1}{2}}$, and since $p \equiv 1 \mod 4$, $\frac{p-1}{2}$ is even. Thus, the product of the first half is equal to the product of the second half. Hence, the square of $a\equiv\left(\frac{p-1}{2}\right)!$ is $-1$, so it is our element of order $4$. Then, let $I$ be the ideal generated by $p$ and $i-a$, so $I = (p,i-a)$. First, note that $I\cap \Z \supset p\Z$. Moreover, $(i-a)(b+ci) = (-ab-c)+(-ac+b)i$, where $-ac +b = 0$, so $-ab-c = -a^2c-c = -c(a^2+1)$. But, $a^2 \cong -1 \mod p$, so $a^2 + 1 \cong 0 \mod p$. Thus, $-c(a^2+1) \in p\Z$. Hence, $\Z\rightarrow R/I$ is surjective, as $i\cong a \in R/I$, with kernel $p\Z$, so $R/I\cong \Z/p\Z$.
 \end{proof}
 
 
-\begin{thm}[Gauss's Theorem]
+\begin{theorem}[Gauss's Theorem]
         For $R = \Z[i]$, every ideal $I \in R$ is principal.
-\end{thm}
+\end{theorem}
 
-\begin{cor}
+\begin{corollary}
         Since every $I \subset \Z[i]$ is principal, so is $(p,i-a)$, which implies $(p,i-a) = (a+bi)$ for some $a+bi \in \Z[i]$, and from above, $R/(a+bi) \cong \Z/p\Z$. This implies that $a^2+b^2 = p$.
-\end{cor}
+\end{corollary}
 
 
-\begin{thm}[Fermat's Theorem]
+\begin{theorem}[Fermat's Theorem]
         For any prime number $p$ such that $p \equiv 1 \mod 4$, $p = a^2 + b^2$ for some $a,b \in \Z$.
-\end{thm}
+\end{theorem}
 
 
-\begin{rmk}
+\begin{remark}
         Gauss showed that if you can write all primes $p\equiv 1 \mod 4$ as $p = a^2 +b^2$, then every ideal $(a+bi) \subset \Z[i]$ must be principal.
-\end{rmk}
+\end{remark}
 
-\begin{rmk}
+\begin{remark}
         The first step to prove Gauss's theorem is to show that for all prime $p\equiv 1 \mod 4$, there is an ideal $(a+bi)$ so that $R/(a+bi) \cong \Z/p\Z$, then the second step is to show that all ideals are principal, and then the third step is to show that if you have a quotient $R/(a+bi) \cong \Z/p\Z$, $a^2+b^2 = p$.
-\end{rmk}
+\end{remark}
 
 
-\begin{rmk}
+\begin{remark}
         More generally, the order of the finite ring $R/(a+bi)$ is $a^2+b^2 = (a+bi)(a-bi)$ providing that $(a+bi) \neq (0)$.
-\end{rmk}
+\end{remark}

@@ -1,0 +1,244 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+\chapter{Higher Order Linear ODEs}
+\label{HighOrder} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+\section{General Theory}
+
+\begin{definition}[n-th Order Linear ODE]
+        We consider an n-th order linear ODE \begin{equation}
+                L[y]=y^{(n)}+a_{n-1}(x)y^{(n-1)}+\hdots +a_1(x)y'+a_0(x)y =f(x)
+        \end{equation}
+        with a corresponding homogeneous equation \begin{equation}
+                L[y] = 0
+        \end{equation}
+        For both ODEs we can describe the initial conditions as \begin{equation}
+                y(x_0) = y_0,\;y'(x_0) = y_0',...,y^{(n-1)}(x_0)=y_0^{(n-1)}
+        \end{equation}
+\end{definition}
+
+
+%{1cm}
+
+
+\begin{theorem}[Existence and Uniqueness]
+        If the functions $a_{n-1},...,a_1,a_0,f$ are continuous in an open interval $(\alpha,\beta)$ containing $x_0$, then the IVP has a unique solution on $(\alpha,\beta)$.
+\end{theorem}
+
+
+%{1cm}
+
+
+\begin{theorem}[Superposition Principle]
+        If $y_1,y_2,...,y_k$ are solutions of the homogeneous ODE $L[y] = 0$, then for any constants $C_1,C_2,...,C_k$, a linear combination \begin{equation}
+                y = C_1y_1+C_2y_2+\hdots + C_ky_k
+        \end{equation}
+        is also a solution. The solutions $y_1,y_2,...,y_k$ are \Emph{linearly independent} on $(\alpha,\beta)$ if $$C_1y_1(x)+\hdots+C_ky_k(x) = 0$$ for any $x \in (\alpha,\beta)$ only for $C_1=...=C_k=0$.
+\end{theorem}
+
+
+%{1cm}
+
+
+\begin{definition}[Fundamental Set]
+        If solutions $y_1,...,y_n$ are linearly independent, they form a \Emph{fundamental set} $\{y_1,...,y_n\}$.
+\end{definition}
+
+
+%{1cm}
+
+
+\begin{theorem}[General Solution]
+        If $\{y_1,...,y_n\}$ is a fundamental set (linearly independent) set of solutions of $L[y] = 0$, then the general solution is \begin{equation}
+                y = C_1y_1 + \hdots + C_ny_n
+        \end{equation}
+        Solutions are linearly independent if the Wronskian \begin{equation}
+                W[y_1,y_2,...,y_n](x) = \begin{vmatrix} y_1 & y_2 & \hdots & y_n \\ y_1' & y_2' & \hdots & y_n' \\ \hdots & \hdots & \hdots & \hdots \\ y_1^{(n-1)} & y_2^{(n-1)} & \hdots & y_n^{(n-1)} \end{vmatrix} \neq 0
+        \end{equation}
+        for some $x$ in the interval where we consider our homogeneous DE.
+\end{theorem}
+
+
+
+%{1cm}
+
+
+\begin{theorem}[Abel's Theorem]
+        The Wronskian of our linear homogeneous DE can be represented by \begin{equation}
+                W(x) = W(x_0)e^{-\int\limits_{x_0}^xa_{n-1}(x)dx}
+        \end{equation}
+        Thus, W is either identically equal to zero or does not vanish.
+\end{theorem}
+
+
+%{1cm}
+
+
+\begin{theorem}[Inhomogeneous General Solution]
+        If $y_{part}$ is a solution of our inhomogeneous linear DE and $y_{hom}$ is the general solution of the homogeneous linear DE, then the general solution of our inhomogeneous linear DE is \begin{equation}
+                y = y_{hom} + y_{part}
+        \end{equation}
+\end{theorem}
+
+
+%{1cm}
+
+
+\section{Constant Coefficients}
+
+
+\begin{definition}[Constant Coefficients]
+        In this section we consider the linear homogeneous DE with constant coefficients \begin{equation}
+                y^{(n)}+a_{n-1}y^{(n-1)}+\hdots+a_1y'+a_0y = 0
+        \end{equation}
+        and the linear inhomogeneous DE with constant coefficients \begin{equation}
+                y^{(n)}+a_{n-1}y^{(n-1)}+\hdots+a_1y'+a_0y = f(t)
+        \end{equation}
+\end{definition}
+
+
+%{1cm}
+
+
+\begin{definition}[Characteristic Equation]
+        For the homogeneous linear DE with constant coefficients, we look for solutions of the form $y = e^{\lambda x}$, which gives the \Emph{characteristic equation} \begin{equation}
+                \lambda^n+a_{n-1}\lambda^{n-1}+...+a_1\lambda+a_0 = 0
+        \end{equation}
+\end{definition}
+
+
+%{1cm}
+
+
+\bgroup
+\def\arraystretch{1.5}
+\begin{table}[H]
+        \centering
+        \caption{Solutions for the linear homogeneous DE with constant coefficients, $y^{(n)}+a_{n-1}y^{(n-1)}+\hdots+a_1y'+a_0y = 0$.}
+        \begin{tabular}{c|c}
+                Roots of the & Fundamental \\ 
+                Characteristic Equation & Solutions \\ \hline
+                $\lambda_1 \neq \lambda_2\neq ...$ & $e^{\lambda_1 x},e^{\lambda_2 x},e^{\lambda_3 x},...$ \\
+                $\lambda_1 = \lambda_2 =...=\lambda_m= \lambda$ & $e^{\lambda x},xe^{\lambda x},x^2e^{\lambda x},...,x^{m-1}e^{\lambda x}$ \\
+                & $e^{\alpha x}cos(\beta x)$, $e^{\alpha x}C_2sin(\beta x),$ \\
+                $\lambda = \alpha \pm \beta i$& $xe^{\alpha x}cos(\beta x)$, $xe^{\alpha x}C_2sin(\beta x),$ \\
+                m times (2m roots) & $xe^{\alpha x}cos(\beta x)$, $xe^{\alpha x}C_2sin(\beta x),$ \\
+                & $\hdots\hdots\hdots$ \\
+                & $x^{m-1}e^{\alpha x}cos(\beta x)$, $x^{m-1}e^{\alpha x}C_2sin(\beta x),$
+        \end{tabular}
+\end{table}
+\egroup
+
+
+%{1cm}
+
+
+\bgroup
+\def\arraystretch{1.5}
+\begin{table}[H]
+        \centering
+        \caption{Solutions for the linear inhomogeneous DE with constant coefficients, $y^{(n)}+a_{n-1}y^{(n-1)}+\hdots+a_1y'+a_0y = f(x)$.}
+        \begin{adjustwidth}{-0.7cm}{}
+                \begin{tabular}{c|c|c}
+                        Right Hand & $\lambda$ is a root of & Particular \\
+                        Side & multiplicity m & Solution \\ \hline
+                        $P_n(x)e^{kx}$ & $\lambda = k$ & $x^mQ_n(x)e^{kx}$ \\
+                        $(k=0 \implies P_n(x))$ & ($m = 0$ if not a root) & \\
+                        $e^{kx}\cos(\beta x)P_n(x)$ or $e^{kx}\sin(\beta x)P_n(x)$ & $\lambda = k \pm \beta i$ & $x^me^{kx}[Q_n(x)\cos(\beta x) + R_n(x)\sin(\beta x)]$ \\
+                \end{tabular}
+        \end{adjustwidth}
+\end{table}
+\egroup
+
+%{1cm}
+
+\section{Variation of Parameters}
+
+\begin{definition}[Variation of Parameters]
+        The method of \Emph{Variation of Parameters} aims to find a particular solution to the linear ODEs of the form \begin{equation}
+                y^{(n)}+a_{n-1}y^{(n-1)}+\hdots+a_1y'+a_0y = 0
+        \end{equation} 
+        of the form \begin{equation}
+                y_{part} = C_1(x)y_1(x) + C_2(x)y_2(x)+...+C_n(x)y_n(x)
+        \end{equation}
+        where $C_1(x), C_2(x), ..., C_n(x)$ are unknown function to be determined, and $\{y_1(x), y_2(x),...,y_n(x)\}$ is a fundamental set of solutions for the complementary homogeneous DE. Our end result is a system of the form \begin{equation}
+                \begin{matrix}
+                        C_1'y_1& +& C_2'y_2&+&\hdots&+&C_n'y_n& =& 0 \\
+                        C_1'y_1'& +& C_2'y_2'&+&\hdots&+&C_n'y_n' &=& 0 \\
+                        \hdots&&\hdots&&\hdots&&\hdots&&\hdots \\
+                        C_1'y_1^{(n-1)}& + &C_2'y_2^{(n-1)}&+&\hdots&+&C_n'y_n^{(n-1)} &=& f(x)
+                \end{matrix}
+        \end{equation}
+\end{definition}
+
+%{1cm}
+
+\section{Cauchy-Euler Equations}
+
+
+\begin{definition}[Cauchy-Euler Equation]
+        We say that a linear homogeneous ODE is a homogeneous \Emph{Cauchy-Euler equation} if it can be written in the form \begin{equation}
+                x^ny^{(n)}+a_{n-1}x^{n-1}y^{(n-1)}+...+a_1xy'+a_0y=0
+        \end{equation}
+        where $a_{n-1},...,a_1$ are constants.
+\end{definition}
+
+
+%{1cm}
+
+
+\begin{definition}[Method of Solution]
+        For a general Cauchy-Euler equation we substitute $x = e^z$ or $z = \ln(x)$ ($x > 0$) and then obtain an associated characteristic equation of \begin{equation}
+                \lambda(\lambda - 1)(\lambda - 2)...(\lambda - (n-1)) + a_{n_1}\lambda(\lambda - 1)(\lambda - 2)...(\lambda - (n-2)) + ... + a_1\lambda + a_0 = 0
+        \end{equation}
+        We then use the methods described previously for the roots of this characteristic equation for $z$ to obtain a solution in terms of $z$, then substitute back in $x$. The inhomogeneous case is handled with either Variation of Parameters or the Method of Undetermined Coefficients.
+\end{definition}
+
+
+%{1cm}
+
+
+\begin{example}[Second Degree Case]
+        We assume $x = e^{z}$, or $z = \ln(x)$ $(x > 0)$. We use the chain rule to find that $$\frac{dy}{dx} = \frac{dy}{dz}\frac{dz}{dx} = y'_z\frac{1}{x}$$
+        and $$\frac{d^2y}{dx^2} = \frac{d}{dx}\left(y'_z\frac{1}{x}\right) = y''_z\frac{1}{x^2} - y'_z\frac{1}{x^2}$$ After substituting we get the equation \begin{equation}
+                y''_z + (b-1)y'_z +cy = 0
+        \end{equation}
+        which gives the characteristic equation\begin{equation}
+                \lambda(\lambda - 1) + b\lambda + c = \lambda^2 + (b-1)\lambda +c = 0
+        \end{equation}
+\end{example}
+
+%{1cm}
+
+
+\bgroup
+\def\arraystretch{1.5}
+\begin{table}[H]
+        \centering
+        \caption{Solutions for the 2nd order homogeneous Cauchy-Euler DE, $x^2y''+bxy'+cy=0$.}
+        \begin{tabular}{c|c|c}
+                Roots of the & \multirow{2}{*}{$y(z)$} & Fundamental \\
+                Characteristic Equation &  & Solutions \\ \hline
+                $\lambda_1 \neq \lambda_2$ & $e^{\lambda_1 z}$, $e^{\lambda_2 z}$ & $x^{\lambda_1}$, $x^{\lambda_2}$ \\
+                $\lambda_1=\lambda_2=\lambda$ & $e^{\lambda z}$, $ze^{\lambda z}$ & $x^{\lambda}$, $x^{\lambda}\ln(x)$ \\
+                $\lambda_{1,2} = \alpha \pm \beta i$ & $e^{\alpha z}\cos(\beta z)$ or $e^{\alpha z}\sin(\beta z)$ & $x^{\alpha}\cos(\beta\ln(x))$ or $x^{\alpha}\sin(\beta\ln(x))$ \\
+        \end{tabular}
+\end{table}
+\egroup
+
+%{1cm}
+
+\begin{remark}[Inhomogeneous Case]
+        For inhomogeneous Cauchy-Euler equations we use either Variation of Parameters, or Undetermined Coefficients applied to $y(z)$.
+\end{remark}
+
+
+

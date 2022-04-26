@@ -1,0 +1,97 @@
+\contentsline {part}{Part\ I\hspace {\betweenumberspace }Basic Notions}{1}{part.1}%
+\contentsline {chapter}{\numberline {1}Arguments}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1} Definitions and Examples: Arguments}{3}{section.1.1}%
+\contentsline {section}{\numberline {1.2} Validity}{3}{section.1.2}%
+\contentsline {section}{\numberline {1.3} Other Notions}{4}{section.1.3}%
+\contentsline {chapter}{\numberline {2}Language and Structure}{5}{chapter.2}%
+\contentsline {chapter}{\numberline {3}Deductions}{7}{chapter.3}%
+\contentsline {part}{Part\ II\hspace {\betweenumberspace }Truth Functional Logic}{9}{part.2}%
+\contentsline {chapter}{\numberline {4}Symbolization and Ambiguity}{11}{chapter.4}%
+\contentsline {section}{\numberline {4.1} Atomic Sentences}{11}{section.4.1}%
+\contentsline {section}{\numberline {4.2} Connectives}{11}{section.4.2}%
+\contentsline {section}{\numberline {4.3} TFL Sentences}{12}{section.4.3}%
+\contentsline {section}{\numberline {4.4} Ambiguity}{12}{section.4.4}%
+\contentsline {section}{\numberline {4.5} Object and Meta languages}{13}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Truth Tables}{15}{chapter.5}%
+\contentsline {section}{\numberline {5.1} Characteristic Truth Tables}{15}{section.5.1}%
+\contentsline {section}{\numberline {5.2} Using Truth Tables}{16}{section.5.2}%
+\contentsline {chapter}{\numberline {6}Semantics}{19}{chapter.6}%
+\contentsline {section}{\numberline {6.1} Truth-functional}{19}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1} Indicative versus Subjunctive Connectives}{19}{subsection.6.1.1}%
+\contentsline {section}{\numberline {6.2} Tautologies and Contradictions}{19}{section.6.2}%
+\contentsline {section}{\numberline {6.3} Equivalence}{20}{section.6.3}%
+\contentsline {section}{\numberline {6.4} Satisfiability}{20}{section.6.4}%
+\contentsline {section}{\numberline {6.5} Entailment and Validity}{20}{section.6.5}%
+\contentsline {subsection}{\numberline {6.5.1} Double Turnstile}{20}{subsection.6.5.1}%
+\contentsline {chapter}{\numberline {7}Natural Deduction}{23}{chapter.7}%
+\contentsline {section}{\numberline {7.1} Initial Definitons and Reasoning}{23}{section.7.1}%
+\contentsline {section}{\numberline {7.2} Rules of Inferences for TFL Natural Deduction}{23}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1} Additional and Derived Rules}{27}{subsection.7.2.1}%
+\contentsline {chapter}{\numberline {8}Soundness and Completeness}{31}{chapter.8}%
+\contentsline {section}{\numberline {8.1} Basic Proof-Theoretic Concepts}{31}{section.8.1}%
+\contentsline {subsection}{\numberline {8.1.1} Other Syntactic Concepts}{32}{subsection.8.1.1}%
+\contentsline {subsection}{\numberline {8.1.2} Semantic versus Syntactic Definitions}{32}{subsection.8.1.2}%
+\contentsline {subsection}{\numberline {8.1.3} Proving Logical Properties}{33}{subsection.8.1.3}%
+\contentsline {section}{\numberline {8.2} Soundness}{33}{section.8.2}%
+\contentsline {subsection}{\numberline {8.2.1} Proof Sketch: Soundness}{33}{subsection.8.2.1}%
+\contentsline {section}{\numberline {8.3} Completeness}{34}{section.8.3}%
+\contentsline {part}{Part\ III\hspace {\betweenumberspace }First Order Logic}{35}{part.3}%
+\contentsline {chapter}{\numberline {9}Building Blocks of FOL}{37}{chapter.9}%
+\contentsline {section}{\numberline {9.1} Names}{37}{section.9.1}%
+\contentsline {section}{\numberline {9.2} Predicates}{37}{section.9.2}%
+\contentsline {section}{\numberline {9.3} Quantifiers}{37}{section.9.3}%
+\contentsline {section}{\numberline {9.4} Domains}{38}{section.9.4}%
+\contentsline {section}{\numberline {9.5} Identity}{38}{section.9.5}%
+\contentsline {chapter}{\numberline {10}Sentences of FOL}{39}{chapter.10}%
+\contentsline {section}{\numberline {10.1} Expressions}{39}{section.10.1}%
+\contentsline {section}{\numberline {10.2} Terms and Formulas}{39}{section.10.2}%
+\contentsline {section}{\numberline {10.3} Sentences and Free Variables}{40}{section.10.3}%
+\contentsline {section}{\numberline {10.4} Definite Descriptions}{40}{section.10.4}%
+\contentsline {chapter}{\numberline {11}Extensionality}{43}{chapter.11}%
+\contentsline {section}{\numberline {11.1} Extensionality}{43}{section.11.1}%
+\contentsline {section}{\numberline {11.2} Interpretations}{43}{section.11.2}%
+\contentsline {chapter}{\numberline {12}Truth Models}{45}{chapter.12}%
+\contentsline {section}{\numberline {12.1} Truth}{45}{section.12.1}%
+\contentsline {subsection}{\numberline {12.1.1} Atomic Sentences}{45}{subsection.12.1.1}%
+\contentsline {subsection}{\numberline {12.1.2} Sentential Connectives}{45}{subsection.12.1.2}%
+\contentsline {subsection}{\numberline {12.1.3} Quantifiers as the Main Logical Operator}{46}{subsection.12.1.3}%
+\contentsline {section}{\numberline {12.2} Semantic Concepts}{46}{section.12.2}%
+\contentsline {section}{\numberline {12.3} Working with Interpretations}{47}{section.12.3}%
+\contentsline {chapter}{\numberline {13}Natural Deduction in FOL}{49}{chapter.13}%
+\contentsline {section}{\numberline {13.1} Basic Rules of FOL}{49}{section.13.1}%
+\contentsline {section}{\numberline {13.2} Derived Rules in FOL}{51}{section.13.2}%
+\contentsline {section}{\numberline {13.3} Proof Theory Semantics in FOL}{52}{section.13.3}%
+\contentsline {chapter}{\numberline {14}Soundness and Completeness}{53}{chapter.14}%
+\contentsline {chapter}{\numberline {15}Models of Theories and Interpretations}{55}{chapter.15}%
+\contentsline {part}{Part\ IV\hspace {\betweenumberspace }Modal Logic}{57}{part.4}%
+\contentsline {chapter}{\numberline {16}General Concepts}{59}{chapter.16}%
+\contentsline {section}{\numberline {16.1} Introduction to Modal Logic}{59}{section.16.1}%
+\contentsline {section}{\numberline {16.2} The Language of Modal Logic}{59}{section.16.2}%
+\contentsline {section}{\numberline {16.3} Natural Deduction for ML}{60}{section.16.3}%
+\contentsline {subsection}{\numberline {16.3.1} System \textbf {K}}{60}{subsection.16.3.1}%
+\contentsline {subsection}{\numberline {16.3.2} Possibility}{62}{subsection.16.3.2}%
+\contentsline {section}{\numberline {16.4} System \textbf {T}}{63}{section.16.4}%
+\contentsline {section}{\numberline {16.5}System \textbf {S4}}{63}{section.16.5}%
+\contentsline {chapter}{\numberline {17}Models}{65}{chapter.17}%
+\contentsline {chapter}{\numberline {18}Frames}{67}{chapter.18}%
+\contentsline {chapter}{\numberline {19}Completeness}{69}{chapter.19}%
+\contentsline {chapter}{\numberline {20}Algebras}{71}{chapter.20}%
+\contentsline {chapter}{\numberline {21}First Order Modal Logic}{73}{chapter.21}%
+\contentsline {part}{Part\ V\hspace {\betweenumberspace }Computability}{75}{part.5}%
+\contentsline {chapter}{\numberline {22}Turing Computability}{77}{chapter.22}%
+\contentsline {chapter}{\numberline {23}Uncomputability}{79}{chapter.23}%
+\contentsline {chapter}{\numberline {24}Recursion and Recursive Functions}{81}{chapter.24}%
+\contentsline {chapter}{\numberline {25}Undecidability}{83}{chapter.25}%
+\contentsline {chapter}{\numberline {26}First-Order Logic Revisited}{85}{chapter.26}%
+\contentsline {chapter}{\numberline {27}Second-Order Logic}{87}{chapter.27}%
+\contentsline {chapter}{\numberline {28}Definability}{89}{chapter.28}%
+\contentsline {part}{Part\ VI\hspace {\betweenumberspace }Metatheory}{91}{part.6}%
+\contentsline {chapter}{\numberline {29}Normal Forms}{93}{chapter.29}%
+\contentsline {section}{\numberline {29.1} Disjunctive Normal Form}{93}{section.29.1}%
+\contentsline {section}{\numberline {29.2} Conjunctive Normal Form}{94}{section.29.2}%
+\contentsline {chapter}{\numberline {30}Functional Completeness}{97}{chapter.30}%
+\contentsline {section}{\numberline {30.1} Definitions and Main Theorem}{97}{section.30.1}%
+\contentsline {section}{\numberline {30.2} Individually Functionally Complete Connectives}{98}{section.30.2}%
+\contentsline {chapter}{\numberline {31}Soundness}{101}{chapter.31}%
+\contentsline {section}{\numberline {31.1} Definitions and Proof}{101}{section.31.1}%
+\contentsfinish 

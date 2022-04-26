@@ -1,0 +1,181 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+\chapter{General Concepts}
+\label{GenCon} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+
+\section{ Introduction to Modal Logic}
+
+Modal logic (ML) is the logic of \Emph{modalities}, ways in which a statement can be true.
+
+\begin{example}
+    \Emph{Necessity} and \Emph{possibility} are two such modalities: a statement can be true, but it can also be necessarily true (true no matter how the world might have been). A possible statement may not actually be true, but it might have been true. We use $\square$ to express necessity, and $\diamond$ to express possibility. So $\square\metav{A}$ can be read as ``\emph{it is necessarily the case that $\metav{A}$}," and $\diamond\metav{A}$ as ``\emph{it is possibly the case that $\metav{A}$}."
+\end{example}
+
+There are also many kinds of necessity. ML is able to deal with any of these kinds of necessary truth. We start with a basic set of rules that govern $\square$ and $\diamond$, and then we add more rules as needed to fit the kind of modality we are interested in. 
+
+
+We actually do not nead to read $\square$ and $\diamond$ as necessity and possibility. All we need is choose the right rules for different readings of $\square$ and $\diamond$.
+
+\begin{definition}
+    A \Emph{modal formula} is one that includes modal operators such as $\square$ and $\diamond$. Depending on the interpretation we assign to $\square$ and $\diamond$, different modal formulas will be provable or valid.
+\end{definition}
+
+
+\section{ The Language of Modal Logic}
+
+The language of ML is an extension of the language of TFL. If we build off of FOL, we would have \Emph{Quantified Modal Logic (QML)}. 
+
+\begin{definition}
+    ML has an infinite stock of \Emph{atoms} (just like in TFL). These are written as capital letters, with or without numerical subscripts: $A,B,...,A_1,B_1,...$.
+\end{definition}
+
+\begin{definition}
+    For the rules of ML we take all of the rules of TFL, and add two more for $\square$ and $\diamond$: \begin{enumerate}
+        \item Every atom of ML is a sentence of ML
+        \item If $\metav{A}$ is a sentence of ML, then $\enot \metav{A}$ is a sentence of ML
+        \item If $\metav{A}$ and $\metav{B}$ are sentences of ML, then $(\metav{A}\eand \metav{B})$ is a sentence of modal logic
+        \item If $\metav{A}$ and $\metav{B}$ are sentences of ML, then $(\metav{A}\eor \metav{B})$ is a sentence of ML
+        \item If $\metav{A}$ and $\metav{B}$ are sentences of ML, then $(\metav{A}\eif \metav{B})$ is a sentence of ML
+        \item If $\metav{A}$ and $\metav{B}$ are sentences of ML, then $(\metav{A}\eiff \metav{B})$ is a sentence of ML
+        \item If $\metav{A}$ is a sentence of ML, then $\square\metav{A}$ is a sentence of ML
+        \item If $\metav{A}$ is a sentence of ML, then $\diamond\metav{A}$ is a sentence of ML
+        \item Nothing else is a sentence of ML
+    \end{enumerate}
+\end{definition}
+
+\begin{example}
+    \begin{align*}
+        &A, (P\eor Q), \square A, (C\eor \square D),\\
+        &\square\square(A\eif R), \square\diamond(S\eand(Z\eiff (\square W\eor \diamond Q)))
+    \end{align*}
+\end{example}
+
+
+\section{ Natural Deduction for ML}
+
+As before, we will write $\metav{A}_1,...,\metav{A}_n \proves \metav{C}$ to express that $\metav{C}$ can be proven from $\metav{A}_1,...,\metav{A}_n$. However, since we will be looking at many different systems of ML, we will add a subscript to `$\proves$' to indicate which system we are working with.
+
+\subsection{ System \textbf{K}}
+
+First, the system \textbf{K} includes all of the natural deduction rules of TFL, including the derived rules as well as the basic ones. We then add two additional rules for $\square$ and a special kind of subproof:
+
+\begin{definition}
+    A \Emph{strict subproof} is one of the form:
+    \begin{fitchproof}
+        \open
+            \hypo[m]{a1}{\square} 
+            \have[n]{a2}{\metav{A}}
+        \close
+        \have[\ ]{a3}{\square\metav{A}} \by{$\square$I}{a1-a2}
+    \end{fitchproof}
+    No line above $m$ may be cited by any rule within the strict subproof begun at line $m$, unless the rule explicitly allows it.
+\end{definition}
+
+These allow us to reason and prove things about alternate possibilities. What we can prove inside a strict subproof holds in any alternate possibility, in particular, in alternate possibilities where the assumptions in force in our proof may not hold. 
+
+Due to this formulation, the idea is that if $\metav{A}$ is a theorem, then $\square\metav{A}$ should be a theorem too.
+
+\begin{definition}
+    The $\square$ elimination rule is given by: 
+    \begin{fitchproof}
+        \have[m]{a1}{\square\metav{A}}
+        \open
+            \hypo[\ ]{a2}{\square}
+            \have[n]{a3}{\metav{A}} \by{$\square$E}{a1}
+        \close
+    \end{fitchproof}
+    $\square E$ can only be applied if the line $m$ (containing $\square \metav{A}$) lies \emph{outside} of the strict subproof in which line $n$ falls, and this strict subproof is not itself part of a strict subproof not containing $m$ (i.e. you can't apply it in nested strict subproofs in which $\square\metav{A}$ is not in the one right before where we apply $\square E$)
+\end{definition}
+
+\begin{example}
+    The following is known as the distribution rule: 
+    \begin{fitchproof}
+        \hypo{a1}{\square(A\eif B)} 
+        \open
+            \hypo{a2}{\square A}
+            \open
+                \hypo{a3}{\square}
+                \have{a4}{A} \by{$\square$E}{a2}
+                \have{a5}{A\eif B} \by{$\square$E}{a1}
+                \have{a6}{B} \ce{a4,a5}
+            \close
+            \have{a7}{\square B}
+        \close
+        \have{a8}{\square A\eif \square B} \ci{a2-a7}
+    \end{fitchproof}
+\end{example}
+
+
+\subsection{ Possibility}
+
+\begin{definition}
+    We can \emph{define} possibility in terms of necessity: \begin{equation*}
+        \diamond \metav{A} =_{df} \enot\square\enot\metav{A}
+    \end{equation*}
+    In other words, to say that $\metav{A}$ is \emph{possibly true}, is to say that $\metav{A}$ is \emph{not necessarily false}.
+\end{definition}
+
+
+\begin{definition}
+    TO introduce $\diamond$ into the system \textbf{K}, we introduce the following definitional rules: 
+    \begin{fitchproof}
+        \have[m]{a1}{\enot\square\enot\metav{A}}
+        \have[\ ]{a2}{\diamond \metav{A}} \by{Def$\diamond$}{a1}
+    \end{fitchproof}
+    \begin{fitchproof}
+        \have[m]{a1}{\diamond \metav{A}}
+        \have[\ ]{a2}{\enot\square\enot\metav{A}} \by{Def$\diamond$}{a1}
+    \end{fitchproof}
+\end{definition}
+
+We could leave our rules for \textbf{K} here, but for convenience we shall add some \emph{Modal Conversion} rules: 
+
+\begin{definition}
+    \begin{fitchproof}
+        \have[m]{a1}{\enot\square\metav{A}}
+        \have[\ ]{a2}{\diamond \enot\metav{A}} \by{MC}{a1}
+    \end{fitchproof}
+    \begin{fitchproof}
+        \have[m]{a1}{\diamond \enot\metav{A}}
+        \have[\ ]{a2}{\enot\square\metav{A}} \by{MC}{a1}
+    \end{fitchproof}
+    \begin{fitchproof}
+        \have[m]{a1}{\enot\diamond\metav{A}}
+        \have[\ ]{a2}{\square \enot\metav{A}} \by{MC}{a1}
+    \end{fitchproof}
+    \begin{fitchproof}
+        \have[m]{a1}{\square \enot\metav{A}}
+        \have[\ ]{a2}{\enot\diamond\metav{A}} \by{MC}{a1}
+    \end{fitchproof}
+\end{definition}
+
+It can be proven that $\diamond A \eiff \enot\square\enot A$. So in particular, we could have started with $\diamond$ and defined $\square$ as $\square \metav{A} =_{df} \enot\diamond\enot \metav{A}$.
+
+In other words, necessity and possibility are exactly as fundamental as each other.
+
+
+\section{ System \textbf{T}}
+
+The system \textbf{T} is obtained by adding the following rule to \textbf{K}:
+
+\begin{definition}
+    \begin{fitchproof}
+        \have[m]{a1}{\square\metav{A}}
+        \have[n]{a2}{\metav{A}} \by{R\textbf{T}}{a1}
+    \end{fitchproof}
+    The lien $n$ on which the rule R\textbf{T} is applied must \Emph{not} lie in a strict subproof that begins after line $m$.
+\end{definition}
+
+Adding this rule allows us to prove things like $\square A \eif A$ in \textbf{T}, which was previously impossible to prove in \textbf{K}.
+
+
+\section{System \textbf{S4}}

@@ -1,0 +1,330 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+\chapter{Line Integrals}
+\label{LineInt} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+
+%%%%%%%%%%%%%%%%%%%% Section 1.3.1
+\section{Line Integrals}
+
+
+\begin{definition}
+    For a complex function $P:\C\rightarrow \C$ and a path $\gamma:[a,b]\rightarrow \C$ in $\C$, the line integral of $Pdx$ along $\gamma$ is defined by \begin{equation*}
+        \int_{\gamma}Pdx = \int_{a}^{b}P(\gamma(t))\frac{dx}{dt}dt
+    \end{equation*}
+    and the line integral of $Pdy$ along $\gamma$ is defined by \begin{equation*}
+        \int_{\gamma}Pdy = \int_{a}^{b}P(\gamma(t))\frac{dy}{dt}dt
+    \end{equation*}
+\end{definition}
+
+
+\begin{proposition}
+    Suppose $P:\C\rightarrow \C$ and $Q:\C\rightarrow \C$ are complex valued functions of $\C$. Then for a path $\gamma$ defined on its way, \begin{equation*}
+        \int_{\gamma}(cP+Q)dx = c\int_{\gamma}Pdx+\int_{\gamma}Qdx
+    \end{equation*}
+    for all $c \in \C$ (and similarly for $dy$).
+\end{proposition}
+
+\begin{definition}
+    For $P:\C\rightarrow \C$ and $Q:\C\rightarrow \C$ complex valued functions of $\C$, if $\gamma$ is a path in $\C$ defined in their shared domain, we define \begin{equation*}
+        \int_{\gamma}(Pdx+Qdy) = \int_{\gamma}Pdx+\int_{\gamma}Qdy
+    \end{equation*}
+\end{definition}
+
+Writing $P = P_1 + iP_2$ and $Q = Q_1+iQ_2$, we can write \begin{align*}
+    \int_{\gamma}(Pdx+Qdy) &= \int_{\gamma}(P_1+iP_2)dx + \int_{\gamma}(Q_1+iQ_2)dy \\
+    &= \int_{\gamma}(P_1dx+Q_1dy)+i\int_{\gamma}(P_2dx+Q_2dy)
+\end{align*}
+
+For $\gamma = \gamma_1\cup...\cup\gamma_n$, a piecewise smooth path, we have that \begin{equation*}
+    \int_{\gamma}(Pdx+Qdy) = \sum_{i=1}^n\int_{\gamma_i}(Pdx+Qdy)
+\end{equation*}
+
+
+For double integrals, we also have \begin{equation*}
+    \int\int_S(F+iG)dA = \int\int_SFdA + i\int\int_SGdA
+\end{equation*}
+for $F$ and $G$ real valued functions, and \begin{equation*}
+    \frac{\partial}{\partial x}(F+iG) = \frac{\partial F}{\partial x}+i\frac{\partial G}{\partial x}
+\end{equation*}
+
+\begin{theorem}[Green's Theorem]
+    Let $D$ be a bounded domain in the plane whose boundary $\partial D$ consists of a finite number of disjoint piecewise smooth closed curves. Let $P$ and $Q$ be continuously differentiable functions on $D\cup \partial D$. Then \begin{equation*}
+        \int_{\partial D}(Pdx+Qdy) = \int\int_D\left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right)dxdy
+    \end{equation*}
+\end{theorem}
+
+\begin{definition}
+    If $h$ is a complex valued function with continuous $h_x$ and $h_y$, then $dh = \frac{\partial h}{\partial x}dx + \frac{\partial h}{\partial y}dy$ is a \Emph{differential form}. Then we say a differential form $Pdx+Qdy = w$ is \Emph{exact} on $U \subseteq \C$ if there exists $h$ such that $dh = w$ on $U$.
+\end{definition}
+
+\begin{theorem}[Fundamental Theorem of Calculus Part I (Complex]
+    If $\gamma$ is a piecewise smooth curve from $A$ to $B$, and if $h(x,y)$ is continuously differentiable on $\gamma$, then \begin{equation*}
+        \int_{\gamma}dh = h(B) - h(A)
+    \end{equation*}
+\end{theorem}
+
+
+\begin{definition}
+    Let $P$ and $Q$ be continuous complex valued functions on a domain $D$. We say that the line integral $\int Pdx+Qdy$ is \Emph{independent of path} in $D$ if for any two points $A$ and $B$ in $D$, the integrals $\int_{\gamma}Pdx+Qdy$ are the same for any path $\gamma$ in $D$ from $A$ to $B$.
+\end{definition}
+
+\begin{lemma}
+    Let $P$ and $Q$ be continuous complex valued functions on a domain $D$. Then $\int Pdx+Qdy$ is independent of path in $D$ if and only if $Pdx+Qdy$ is exact, that is, there exists a continuously differentiable function $h(x,y)$ such that $dh = Pdx+Qdy$ on $D$. Moreover, the function $h$ is unique up to adding a constant.
+\end{lemma}
+
+
+
+\begin{definition}
+    Let $P$ and $Q$ be complex valued functions on some domain $D$. Then $Pdx+Qdy$ is a \Emph{closed form} on a domain $D$ if and only if $\partial_yP = \partial_xQ$ on $D$.
+\end{definition}
+
+\begin{proposition}
+    If $\omega$ is exact on $D \subseteq \C$, then $\omega$ is closed.
+\end{proposition}
+\begin{proof}
+    Let $\omega$ be exact on $D$. Thus, there exists $h:D\rightarrow \C$ such that $\omega = \frac{\partial h}{\partial x}dx+\frac{\partial h}{\partial y}dy$. Moreover, $P = \frac{\partial h}{\partial x}$ and $Q = \frac{\partial h}{\partial y}$. As will will show later, since $h$ is complex differentiable on the domain $D$, it is complex smooth on $D$ and hence has continuous partial derivatives of all orders. Thus, by Clairout's Theorem $$\partial_yP = \partial_y \partial_xh = \partial_x\partial_yh = \partial_xQ$$
+    so indeed $\omega$ is closed.
+\end{proof}
+
+
+\begin{example}
+    Let $\omega = \frac{-ydx + xdy}{x^2+y^2}$ on $\C^{\times}$. Then observe that $$\partial_y\frac{-y}{x^2+y^2} = \frac{-x^2-y^2 + 2y^2}{(x^2+y^2)^2} = \frac{y^2-x^2}{(x^2+y^2)^2}$$ and $$\partial_x\frac{x}{x^2+y^2} = \frac{x^2+y^2 - 2x^2}{(x^2+y^2)^2} = \frac{y^2-x^2}{(x^2+y^2)^2}$$
+    so indeed $\omega$ is a closed form. Recall if $\omega$ is exact, than the integral around a loop in $\C$ is $0$. Observe \begin{align*}
+        \oint_{|z|=1}\omega &= \int_{0}^{2\pi}\left(\frac{-\sin(t)}{1^2}\cdot (-\sin(t))+\frac{\cos(t)}{1^2}\cdot \cos(t)\right)dt \\
+        &= \int_{0}^{2\pi}(\sin^2(t)+\cos^2(t))dt \\
+        &= 2\pi \neq 0
+    \end{align*}
+    so $\omega$ cannot be exact on all of $\C^{\times}$.
+\end{example}
+
+
+\begin{theorem}
+    Let $P$ and $Q$ be continuously differentiable complex valued functions on a domain $D$. Suppose \begin{itemize}
+        \item $D$ is a star-shaped domain, and 
+        \item the differential $Pdx+Qdy$ is closed
+    \end{itemize}
+    Then $Pdx+Qdy$ is exact on $D$.
+\end{theorem}
+\begin{proof}
+    Suppose that $A$ is a star center of $D$. For all $B \in D$, we define \begin{equation*}
+        h(B) = \int_{[A,B]}Pdx+Pdy
+    \end{equation*}
+    where $[A,B]$ is a line-segment and is in $D$ since $D$ is star-shaped with respect to $A$. Fix $B = (x_0, y_0)$, and let $C = (x,y_0)$ lie on the horizontal line through $B$ and close enough to $B$ so that the triangle with vertices $A, B, C$ lies within $D$. We apply Green's Theorem to the triangle to obtain \begin{equation*}
+        \left(\int_{[A,B]} + \int_{[B,C]}+\int_{[C,A]}\right)(Pdx+Qdy) = 0
+    \end{equation*}
+    since the form is closed on $D$. Thus, \begin{equation*}
+        \int_{[A,C]}(Pdx+Qdy)-\int_{[A,B]}(Pdx+Qdy) = \int_{[B,C]}(Pdx+Qdy)
+    \end{equation*}
+    or equivalently \begin{equation*}
+        h(x,y_0) - h(x_0,y_0) = \int_{x_0}^xP(t,y_0)dt
+    \end{equation*}
+    From the fundamental theorem of calculus we obtain \begin{equation*}
+        \frac{\partial h}{\partial x}(x_0,y_0) = P(x_0,y_0)
+    \end{equation*}
+    Similarly, we can obtain \begin{equation*}
+        \frac{\partial h}{\partial y}(x_0,y_0) = Q(x_0,y_0)
+    \end{equation*}
+    (traversing along vertical lines). Consequently, $dh = Pdx+Qdy$, and $Pdx+Qdy$ is exact.
+\end{proof}
+
+
+\begin{theorem}
+    Let $D$ be a domain, and let $\gamma_0(t)$ and $\gamma_1(t)$, $a \leq t \leq b$, be two paths in $D$ from $A$ to $B$. Suppose that $\gamma_0$ can be continuously deformed to $\gamma_1(t)$, in the sense that for $0 \leq s \leq 1$ there are paths $\gamma_s(t)$, $a \leq t \leq b$, from $A$ to $B$ such that $\gamma_s(t)$ depends continuously on $s$ and $t$ for $0 \leq s \leq t$, and $a \leq t \leq b$. Then \begin{equation*}
+        \int_{\gamma_0}Pdx+Qdy = \int_{\gamma_1}Pdx+Qdy
+    \end{equation*}
+    for any closed differential $Pdx+Qdy$ on $D$.
+\end{theorem}
+
+The idea of the proof can be attained from Green's Theorem applied to $D$ using the closedness of the differential. Another idea of this is that if we can continuosly stretch two curves from one into the other over a region for which the form is closed, the integral over the original curve and the deformed curve are equal.
+
+
+%%%%%%%%%%%%%%%%%%%% Section 1.3.2
+\section{Harmonic Conjugates}
+
+\begin{remark}
+    If $f= u+iv$ then $f$ is \Emph{harmonic} on $D$ if and only if $u$ and $v$ are harmonic on $D$: $u_{xx}+u_{yy} = 0$ and $v_{xx}+v_{yy}=0$.
+\end{remark}
+
+
+\begin{lemma}
+    If $u$ is harmonic, then $-\partial_yudx + \partial_xudy$ is closed.
+\end{lemma}
+\begin{proof}
+    Assume $u$ is harmonic. Then $u_{xx}+u_{yy} = 0$. For the form to be closed we need $-\partial_y\partial_yu = \partial_x\partial_xu$, but this is precisely the condition for $u$ being harmonic, with $-u_{yy} = u_{xx}$.
+\end{proof}
+
+Then, if $D$ is star-shaped and $u$ is harmonic, then $-\partial_yudx+\partial_xudy = dv = \partial_xvdx+\partial_yvdy$ is exact. Hence, $-u_y = v_x$ and $u_x = v_y$, so the Cauchy Riemann equations hold and consequently since $u$ and $v$ are continuously real differentiable on $D$ by assumption, $f = u+iv$ is complex differentiable on $D$, so $f = u+iv \in \mathcal{O}(D)$. From our previous argument for closed implies exact on a star shaped domain, explicitly we have \begin{equation*}
+    v(B) = \int_A^B(-\partial_yudx+\partial_xudy)
+\end{equation*}
+where $A$ is fixed and the integral is path independent in $D$.
+
+\begin{example}
+    Consider $u = \ln|z|$ for $D = \C^-$, star-shaped, and we express $u$ in the form \begin{equation*}
+        u(x,y) = \frac{1}{2}\ln(x^2+y^2)
+    \end{equation*}
+    and we compute \begin{equation*}
+        du = \frac{x}{x^2+y^2}dx + \frac{y}{x^2+y^2}dy
+    \end{equation*}
+    our equation in our previous discussion becomes \begin{equation*}
+        dv = \frac{-y}{x^2+y^2}dx + \frac{x}{x^2+y^2}dy
+    \end{equation*}
+    Then we have \begin{equation*}
+        v = \int_1^z\frac{-y}{x^2+y^2}dx + \frac{x}{x^2+y^2}dy, z \in \C^-
+    \end{equation*}
+    and this is in fact the principal branch of the argument function $\text{Arg}(z) = v(z)$ on $\C^-$, normalized to vanish at $z = 1$. This gives the holomorphic function $f = u+iv = \ln|z|+i\text{Arg}(z)=\text{Log}(z)$.
+\end{example}
+
+
+%%%%%%%%%%%%%%%%%%%% Section 1.3.3
+\section{The Mean Value Property}
+
+\begin{definition}
+    Let $h:D\rightarrow \R$ be a continuous real valued function on a domain $D$, $z_0 \in D$ such that the disk $\{z \in \C\vert |z-z_0| < \rho\} = D_{\rho}(z_0)\subseteq D$, then the \Emph{average value} of $h(z)$ on the the circle $\{z \in \C:|z-z_0| < r\} = D_r(z_0)$ to be \begin{equation*}
+        A(r) = \int_0^{2\pi}h(z_0+re^{i\theta})\frac{d\theta}{2\pi}, \;\;\; 0 < r < \rho 
+    \end{equation*}
+\end{definition}
+Note the relation $ds = rd\theta$, for $ds$ infinitesimal arclength, so this formula indeed describes an integral over the circle divided by its one dimensional volume, i.e., circumference.
+
+Since $h(z)$ is continuous, the average value $A(r)$ varies continuously with the radius $r$. Moreover, when $r$ is small, $A(r)$ tends to $h(z_0)$.
+
+\begin{theorem}
+    If $u(z)$ is a harmonic function on a domain $D$, and if the disk $\{z \in \C:|z-z_0| < \rho\} \subseteq D$, then \begin{equation*}
+        u(z_0) = \int_0^{2\pi}u(z_0+re^{i\theta})\frac{d\theta}{2\pi}, \;\;\;\; 0 < r < \rho
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    Note harmonic implies $-u_ydx+u_xdy$ is closed, which implies $\oint_{|z-z_0| = r}(-u_ydx+u_xdy) = 0$. Parametrizing the circle as $x(\theta) = x_0+r\cos(\theta)$ and $y(\theta) = y_0+r\sin(\theta)$, and we obtain \begin{equation*}
+        0 = r\int_{0}^{2\pi}\left[u_x\cos(\theta)+u_y\sin(\theta)\right]d\theta = r\int_0^{2\pi}\frac{\partial u}{\partial r}(z_0+re^{i\theta})d\theta
+    \end{equation*}
+    Since $u(z)$ is smooth, we can interchange the order of integration and differentiation. We obtain after dividing by $2\pi r$ that \begin{equation*}
+        0 = \frac{\partial}{\partial r}\int_0^{2\pi}u(z_0+re^{i\theta})\frac{d\theta}{2\pi} = \frac{dA(r)}{dr}
+    \end{equation*}
+    Thus, $A(r)$ is constant for $0 < r < \rho$, since we are in a connected open set. Since $u(z)$ is continuous at $z_0$, the average value tends to $u(z_0)$, and $A(r) = u(z_0)$.
+\end{proof}
+
+
+In other words, the average value of a harmonic function on the boundary circle of any disk contained in $D$ is its value at the center of the disk.
+
+
+\begin{definition}
+    We say that a function $h(z)$ on a domain $D$ has the \Emph{mean value property} if for each $z_0 \in D$, $h(z_0)$ is the average of its values over any small circle centered at $z_0$. That is, for all $z_0 \in D$, there exists $\varepsilon > 0$ such that \begin{equation*}
+        h(z_0) = \int_0^{2\pi}u(z_0+re^{i\theta})\frac{d\theta}{2\pi},\;\;\;\; 0 < r < \varepsilon
+    \end{equation*}
+\end{definition}
+
+
+Thus, from our theorem we have that harmonic functions have the mean value property.
+
+
+
+%%%%%%%%%%%%%%%%%%%% Section 1.3.4
+\section{The Maximum Principle}
+
+
+\begin{theorem}[Strict Maximum Principle (Real)]
+    Let $u(z)$ be a real-valued harmonic function on a domain $D$ such that $u(z) \leq M$ for all $z \in D$. If $u(z_0) = M$ for some $z_0 \in D$, then $u(z) = M$ for all $z \in D$.
+\end{theorem}
+
+The proof follows from the observation that using the mean value property of harmonic functions, the set $\{u(z) = M\}$ is open, and by continuity of $u$, $\{u(z) < m\}$ is open, so as $D$ is a domain it is in particular connected and hence one of these sets must be empty, since $D$ is the disjoint union of these open sets.
+
+
+\begin{theorem}[Strict Maximum Principle (Complex)]
+    Let $h$ be a bounded complex-valued harmonic function on a domain $D$. If $|h(z)| \leq M$ for all $z \in D$, and $|h(z_0)| = M$ for some $z_0 \in D$, then $h(z)$ is constant on $D$.
+\end{theorem}
+
+The following version of the maximum principle asserts that a complex valued harmonic function on a bounded domain attains its maximum modulus on the boundary:
+
+\begin{theorem}[Maximum Principle]
+    Let $h(z)$ be a complex-valued harmonic function on a bounded domain $D$ such that $h(z)$ extends continuously to the boundary $\partial D$ of $D$. If $|h(z)|\leq M$ for all $z \in \partial D$, then $|h(z)|\leq M$ for all $z \in D$.
+\end{theorem}
+
+The proof of this principle follows from the fact that compact sets remain compact under continuous transformations, along with the fact that $\C$ satisfies the Heine-Borel theorem, stating that the complex sets are precisely the closed and bounded sets. In this case the compact set is the union $D\cup \partial D$. If the harmonic function attains its maximum modulus at some point of $D$, then it is constant. Thus in all cases it attains its maximum modulus on the boundary of $D$.
+
+
+
+
+%%%%%%%%%%%%%%%%%%%% Section 1.3.5
+\section{Applications to Physics}
+
+Recall, for a vector field $V = \langle P,Q\rangle$ in $\R^2 = \C$, we have a few different methods of integration: \begin{equation*}
+    circulation\;of\;V = \int_{\gamma}(V\cdot T)ds = \int_{\gamma}Pdx+Qdy
+\end{equation*}
+\begin{equation*}
+    flux\;of\;V\;through\;\gamma = \int_{\gamma}(V\cdot n)ds = \int_{\gamma}Pdy-Qdx
+\end{equation*}
+where $T = \frac{d\gamma}{dt}/\left|\frac{d\gamma}{dt}\right|$, $ds = \left|\frac{d\gamma}{dt}\right|dt$, and $n = -\langle -\frac{dy}{dt},\frac{dx}{dt}\rangle/\left|\frac{d\gamma}{dt}\right|$.
+
+\begin{example}
+    Let $V = x+iy = \langle x,y\rangle$. Parametrize the unit circl $x = \cos\theta, y = \sin\theta$, $0 \leq \theta \leq 2\pi$. Then 
+    \begin{equation*}
+        \int_{\gamma}(V\cdot n)ds = \int_0^{2\pi}Pdy-Qdx = \int_0^{2\pi}(\cos^2\theta-(-\sin^2\theta))d\theta = 2\pi
+    \end{equation*}
+\end{example}
+
+We consider fluid flow in a 2D domain $D$ in the plane. We associate with the particle at the point $z$ its velocity vector $V(z) = P+iQ$. The direction of $V(z)$ is the direction the particle is moving and the magnitude $|V(z)|$ is its speed. We make the following assumptions: 
+\begin{itemize}
+    \item The flow is independent of time, so $V(z)$ does not change with time.
+    \item There are no sources or sinks in $D$; no fluid is created or destroyed - i.e. flux is zero for small loops in $D$
+    \item The flow is incompressible; that is, the density of the fluid is the same at each point in $D$
+    \item The flow is irrotational; that is, there is no circulation of fluid around small circles in $D$.
+\end{itemize}
+That is, for any $\varepsilon > 0$ and $z_0 \in D$ such that $D_{\varepsilon}(z_0) \subseteq D$, we have \begin{equation*}
+    \int_{\partial D_{\varepsilon}(z_0)}(V\cdot n)ds = \int_{\partial D_{\varepsilon}(z_0)}(Pdy-Qdx)= 0
+\end{equation*}
+and \begin{equation*}
+    \int_{\partial D_{\varepsilon}(z_0)}(V\cdot T)ds = \int_{\partial D_{\varepsilon}(z_0)}(Pdx+Qdy) = 0
+\end{equation*}
+Thus, these conditions imply that the differential forms $Pdy-Qdx$ and $Pdx+Qdy$ are path independent, and hence exact on $D$. So we can write $Pdx+Qdy = d\phi$, which is real, $\phi:D\rightarrow \R$, since $P$ and $Q$ are real valued, and is called the potential. Then $\phi_x = P$ and $\phi_y = Q$. Let $Pdy-Qdx = d\varphi$. Then $\varphi_x = -Q = -\phi_y$ and $\varphi_y = P = \phi_x$, so $\phi$ and $\varphi$ satisfy the Cauchy-Riemann equations. Thus, $\phi+i\varphi$ is complex differentiable on $D$. Thus, from a pre-cursory result $\phi$ and $\varphi$ are harmonic, that is $\phi_{xx}+\phi_{yy} = 0$ and $\varphi_{xx}+\varphi_{yy} = 0$.
+
+\begin{example}
+    Consider the constant flow $V = C$ on the upper half-plane, for $C > 0$. Then $\phi_x = C,\phi_y = 0$, so $\phi = Cx$ is a potential. The harmonic conjugate is given by $\varphi_x = -0 = 0,\varphi_y = C$, so $\varphi= Cy$ is a stream function for the flow. Note the level curves of $\phi$ and $\varphi$ given orthogonal trajectories. Then our complex potential is $f(z) = c(x+iy)=cz$. 
+\end{example}
+The level curves of the \Emph{stream function}, $\varphi$, are streamlines along the flow. On the other hand, the potential function $\phi$, has the velocity field going perpendicular to it.
+
+\begin{example}
+    Consider the velocity field $V(z) = \frac{x+iy}{x^2+y^2}$. Then, we have the potential $\phi(x+iy) = \ln\sqrt{x^2+y^2} = \ln|z|$, so the stream function is $\varphi(z) = \text{Arg}(z)$, so $f(z) = \phi(z)+i\varphi(z) = \ln|z|+i\text{Arg}(z) = \text{Log}(z)$ is the principal logarithm on $\C^-$. 
+\end{example}
+
+
+If we have an electric field $E = \langle P,Q\rangle$, we can express it in terms of an electric potential as $E = -\nabla \alpha$ for $\alpha$, the voltage function. 
+
+\subsection{The Laplace Equation}
+
+We consider the laplace equation $u_{xx}+u_{yy} = 0$. If we want to solve this on the upper half plane with certain boundary conditions $u(z) = -1$ for $x < 0, y = 0$, and $u(z) = 0$ for $x > 0, y = 0$. Then, looking at $\text{Arg}(z)$ we know that it is harmonic on this domain since $\text{Log}(z) = \ln|z| + i\text{Arg}(z)$ is holomorphic on this branch, and $\text{Arg}(z)$ goes to $0$ on the positive $x$ axis and $\pi$ on the negative $x$ axis. Then $u(z) = -\frac{1}{\pi}\text{Arg}(z)$ is a solution to the laplace equations. 
+
+Recall that if $f=u+iv \in \mathcal{O}(D)$, then $\nabla^2u = 0$ and $\nabla^2v = 0$ satisfy the laplace equations. If $f$ and $g$ are both holomorphic, with $f$ holomorphic on a domain containing the image of $g$, then $h(z) = f(g(z))$ is holomorphic. We can think of $w = f(z) = u+iv$ as a function from the $z$ plane to the $w$ plane. Then, if the derivative of $f$ is non-zero we have by the inverse function theorem a local holomorphic inverse $z = f^{-1}(w) = x+iy$ from the $w$ plane to the $z$ plane. Moreover, $u,v$ are harmonic functions of $x,y$, and $x,y$ are harmonic functions of $u,v$ (as an abuse of language). Then, if we have some set of boundary conditions on the domain $D$, i.e. conditions on $\partial D$, in the $z$ plane, we obtain boundary conditions on $\partial f(D) = f(\partial D)$ in the $w$ plane.
+
+\begin{example}
+    Suppose we wish to solve Laplace's equation $\nabla^2\phi$ in the anulus with inner radius $1$ and outer radius $4$, with inner boundary condition $\phi = 3$ and outer boundary condition $\phi = 7$. Then it turns out the general solution is of the form $\phi(z) = A\ln|z| +B$, which is real valued (this can be interpreted as a voltage function). Then, on the inner radius $3 = \phi = A\ln|1| + B = B$. On the outer radius we have $7 = \phi = A\ln|4| + 3$, so $A = 2/\ln(2)$. Thus, our solution to Laplace's equation is $\phi(z) = \frac{2}{\ln(2)}\ln|z| + 3$.
+\end{example}
+
+\begin{example}
+    We can extend the previous example to an anulus centered at a point $z_0$, which gives a general solution $\phi(z) = A\ln|z-z_0|+B$.
+\end{example}
+
+
+\begin{example}
+    Consider the segment of the complex plane between $i5$ and $i8$, with boundary conditions $\phi(x+i5) = 3$ and $\phi(x+i8) = 10$. We consider a solution $\phi(x,y) = Ay+B$. Then, $3 = \phi(x+i5) = 5A+B$ and $10 = \phi(x+i8) = 8A+B$, so $3A = 7$ and $A = 7/3$. Moreover, $B = 3 - 35/3 = -26/3$, so our solution is $\phi(x,y) = \frac{7}{3}y - \frac{26}{3}$.
+\end{example}
+
+General principal in mathematical physics: the presence of a singularity in the field indicates the presence of charge. Topologically speaking, the presence of a singularity in a vector field indicates a non-trivial topology.
+
+
+\begin{example}
+    Consider a unit circle where we want to solve $\nabla^2\phi = 0$ with the boundary conditions $\phi = 1$ on the upper half-sphere, $\phi = -1$ on the lower half-sphere, and undefined on the two connecting points. We map the disk to the vertical half-plane, mapping $i$ to $i$, $-1$ to $0$, and $-i$ to $-i$ (and $1$ to $\infty$). So $f(z) = \frac{z+1}{1-z} = w$ and $f^{-1}(w) = \frac{w-1}{w+1}$. On the $w$ plane, $\theta = \pi/2$ when $\psi = \phi(f^{-1})$ is $1$, and $\theta = -\pi/2$ when $\psi = \phi(f^{-1})$ is $-1$. Then our solution is $\psi(w) = \frac{2}{\pi}\text{Arg}(w)$. Then $\phi(z) = \psi(f(z))$, so \begin{equation*}
+        \phi(z) = \psi(f(z)) = \frac{2}{\pi}\text{Arg}(f(z)) = \frac{2}{\pi}\text{Arg}\left(\frac{x+iy+1}{1-x-iy}\right)
+    \end{equation*}
+    Then simplifying we have \begin{equation*}
+        \phi(z) = \frac{2}{\pi} \text{Arg}\left(\frac{1-x^2-y^2+2iy}{(1-x)^2+y^2}\right) = \frac{2}{\pi}\text{Arg}(1-x^2-y^2+2iy) = \frac{2}{\pi}\tan^{-1}\left(\frac{2y}{1-x^2-y^2}\right)
+    \end{equation*}
+\end{example}
+

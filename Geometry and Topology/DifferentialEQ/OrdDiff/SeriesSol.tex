@@ -1,0 +1,316 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+\chapter{Series Solutions to ODEs}
+\label{SerSol} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+\section{Definitions and Convergence}
+
+\begin{definition}[Series]
+        The infinite sum \begin{equation}
+                \sum\limits_{n=1}^{\infty}a_n
+        \end{equation}
+        where $a_n$ are numbers, is called a \Emph{series}.
+\end{definition}
+
+%{1cm}
+
+
+\begin{definition}[Converges]
+        A series \Emph{converges} if the limit of partial sums \begin{equation}
+                \lim\limits_{N\rightarrow \infty}S_N = \lim\limits_{N\rightarrow \infty}\sum\limits_{n=1}^Na_n
+        \end{equation}
+        exists and is finite.
+\end{definition}
+
+
+%{1cm}
+
+
+\begin{definition}[Absolute Convergence]
+        If $a_n$ can be of different signs and $\sum\limits_{n=1}^{\infty}|a_n|$ converges, then we say that $\sum\limits_{n=1}^{\infty}a_n$ is \Emph{absolutely convergent}.
+\end{definition}
+
+
+%{1cm}
+
+\begin{definition}[Geometric Series]
+        For the \Emph{geometric series} $\sum\limits_{n=0}^{\infty}a_nq^n$, if $|q| \geq 1$ then the series diverges. If $|q| < 1$ then  the series converges and we have that \begin{equation}
+                \sum\limits_{n=0}^{\infty}a_nq^n = \frac{a_0}{1-q}
+        \end{equation}
+\end{definition}
+
+
+%{1cm}
+
+
+
+\begin{theorem}[Ratio Test]
+        The \Emph{ratio test} states that for a series $\sum\limits_{n=1}^{\infty}a_n$, if the limit \begin{equation}
+                \lim\limits_{n\rightarrow \infty}\left|\frac{a_{n+1}}{a_n}\right| = r
+        \end{equation}
+        and $r < 1$, then the series converges (absolutely if $a_n$ have different signs). If $r > 1$ then the series diverges, and if $r=1$ then the test is inconclusive.
+\end{theorem}
+
+
+%{1cm}
+
+
+\begin{theorem}[Integral Test]
+        The \Emph{integral test} states that if the terms $a_n$ of a series are positive and decreasing, then the series $\sum\limits_{n=0}^{\infty}a_n$ converges if and only if the integral \begin{equation}
+                \int\limits_{0}^{\infty}f(x)dx
+        \end{equation}
+        converges, where $f(x)$ is a positive decreasing function coinciding with $a_n$ at integer points, $f(n) = a_n$.
+\end{theorem}
+
+
+\begin{figure}[H]
+        \centering
+        \begin{tikzpicture}
+                \begin{axis}[
+                                axis lines=middle,
+                                samples=200,
+                                xtick={0,...,6},
+                                ytick={-3,...,9}
+                                ]
+                        \addplot[blue,domain=0.15:6] {1/x};
+                        \addplot+[ybar interval,mark=no] plot coordinates { (0.2,5) (0.5, 2) (1, 1) (2, 0.5) (3, 1/3) (4, 1/4) (5, 1/5) };
+                \end{axis}
+        \end{tikzpicture}
+\end{figure}
+
+
+%{1cm}
+
+\begin{theorem}[Divergence Test]
+        If $\lim\limits_{n\rightarrow \infty}a_n \neq 0$ for the terms of some series, then that series diverges.
+\end{theorem}
+
+%{1cm}
+
+
+\begin{theorem}[Leibniz Test for Alternating Series]
+        Let $\{a_n\}$ be a positive decreasing sequence. If $\lim\limits_{n\rightarrow \infty}a_n = 0$ then the alternating series \begin{equation}
+                \sum\limits_{n=0}^{\infty}(-1)^na_n
+        \end{equation}
+        converges.
+\end{theorem}
+
+%{1cm}
+
+
+\section{Power Series}
+
+
+\begin{definition}[Power Series]
+        A series of the form \begin{equation}
+                \sum\limits_{n=0}^{\infty}a_n (x-c)^n
+        \end{equation}
+        is called a \Emph{power series} centered at $c$. By the ration test, the series converges if \begin{equation}
+                |x-c| < \lim\limits_{n\rightarrow \infty}\left|\frac{a_n}{a_{n+1}}\right|
+        \end{equation}
+        The value $R = \lim\limits_{n\rightarrow \infty}\left|\frac{a_n}{a_{n+1}}\right|$ is called the \Emph{radius of convergence} for the power series.
+\end{definition}
+
+
+%{1cm}
+
+\begin{definition}[Interval of Convergence]
+        Given a power series $\sum\limits_{n=0}^{\infty}a_n (x-c)^n$, its \Emph{interval of convergence} is the interval, centered at $c$, in which the series converges.
+\end{definition}
+
+
+
+%{1cm}
+
+\begin{remark}[Radius and Convergence]
+        If the radius of convergence for a power series centered at $c$ is finite and $R \neq 0$, then the series converges absolutely for $x$ in the interval $(c - R, c + R)$. If $R = 0$, then the power series only converges for $x = c$. Finally, if $R = \infty$, then the power series converges everywhere.
+\end{remark}
+
+
+%{1cm}
+
+\begin{remark}[Facts about Power Series]
+        \begin{enumerate}
+                \item Inside the interval of convergence, a power series converges absolutely.
+                \item We can add, subtract, and multiply power series in their common interval of convergence.
+                \item We can differentiate and integrate power series inside their interval of convergence.
+        \end{enumerate}
+\end{remark}
+
+
+%{1cm}
+
+\section{Taylor Series}
+
+
+\begin{definition}[Taylor Series]
+        Given a function $f(x)$, its \Emph{Taylor Series} centered at $c$ is given by \begin{equation}
+                f(x) \sim \sum\limits_{n=0}^{\infty}\frac{f^{(n)}(c)}{n!}(x-c)^n
+        \end{equation}
+\end{definition}
+
+%{1cm}
+
+\begin{theorem}[Power Series]
+        If a power series converges to a function, then the series is the Taylor Series for that function.
+\end{theorem}
+
+
+%{1cm}
+
+
+\begin{theorem}[Common Taylor Series]
+        Below we have four of the most common power series \begin{align}
+                \frac{a_0}{1-q} &= \sum\limits_{n=0}^{\infty}a_nq^n \\
+                e^x &= \sum\limits_{n=0}^{\infty}\frac{x^n}{n!} \\
+                \cos(x) &= \sum\limits_{n=0}^{\infty}\frac{(-1)^n}{(2n)!}x^{2n} \\
+                \sin(x) &= \sum\limits_{n=0}^{\infty}\frac{(-1)^n}{(2n+1)!}x^{2n+1}
+        \end{align}
+\end{theorem}
+
+
+%{1cm}
+
+
+\section{Definitions for Convergence of Solutions}
+
+\begin{definition}[Analytic]
+        A function is called \Emph{analytic} in a domain $D$ if it is infinitely differentiable and its power series converges to it within $D$.
+\end{definition}
+
+
+%{1cm}
+
+
+\begin{theorem}[Analytic Functions]
+        \begin{enumerate}
+                \item All polynomials are analytic on the entirety of their domain.
+                \item The exponential function is analytic on the entirety of its domain.
+                \item Trigonometric functions are analytic on their domains.
+                \item The logarithm is analytic on any open set in its domain.
+                \item All power functions are analytic in open sets in their domain.
+        \end{enumerate}
+\end{theorem}
+
+
+%{1cm}
+
+
+\begin{theorem}[Convergence of Solutions to Linear ODEs]
+        Consider the linear ODE given by \begin{equation}
+                y^{(n)}+a_{n-1}(x)y^{(n-1)}+...+a_1(x)y'+a_0(x)y=f(x)
+        \end{equation}
+        If all component functions, $a_{n-1}(x),...,a_0(x),f(x)$, are analytic on some domain $D$ containing an initial point, then in this domain the series solution of the ODE should converge to a solution of the IVP.
+\end{theorem}
+
+
+
+%{1cm}
+
+
+\begin{theorem}[Domain of Convergence]
+        We have convergence until the denominator of one of the component functions vanishes in the complex domain.
+\end{theorem}
+\begin{example}
+        For example, if one of the component functions is $p(x) = \frac{1}{x^2+25}$, then since the denominator is zero for $x = \pm 5i$, we have that the radius of convergence will be $5$.
+\end{example}
+
+
+
+%{1cm}
+
+
+\begin{definition}[Ordinary Point]
+        If all component functions of our linear ODE are analytic in the neighbourhood of an initial point $x_0$, then $x_0$ is an \Emph{ordinary point}, and there is a Taylor Series solution to our ODE in the form \begin{equation}
+                y = \sum\limits_{n=0}^{\infty}a_n(x-x_0)^n
+        \end{equation}
+\end{definition}
+
+
+%{1cm}
+
+
+\begin{definition}[Singular Points]
+        If the component functions for our linear ODE are not analytic in any neighbourhood of $x_0$, then $x_0$ is \Emph{singular}. Moreover, if all functions $x^na_0(x), x^{n-1}a_1(x),...,xa_{n-1}(x)$ are analytic in some neighbourhood of $x_0$ then $x_0$ is \Emph{regular singular}. Otherwise, if at least one of $x^na_0(x), x^{n-1}a_1(x),...,xa_{n-1}(x)$ is not analytic in any neighbourhood of $x_0$, then $x_0$ is called \Emph{irregular singular}.
+\end{definition}
+
+
+
+
+%{1cm}
+
+
+\section{Frobenius Method}
+
+\begin{definition}[Cauchy-Euler Extension]
+        We now consider second order linear ODEs of the form \begin{equation}
+                x^2y''+xp(x)y'+q(x)y = 0
+        \end{equation}
+        where $x=0$ is a regular singular point and \begin{equation}
+                p(x) = \sum\limits_{n=0}^{\infty}p_nx^n\;\text{and}\;q(x) = \sum\limits_{n=0}^{\infty}q_nx^n
+        \end{equation}
+        are analytic at $x = 0$, we seek solutions to the ODE of the form \begin{equation}
+                y = x^r\sum\limits_{n=0}^{\infty}a_nx^n
+        \end{equation}
+\end{definition}
+
+
+%{1cm}
+
+\begin{definition}[Indicial Equation]
+        We solve for $r$ in the above solution by solving for the roots of the \Emph{indicial equation} \begin{equation}
+                F(r) = r(r-1)+p_0r+q_0 = 0
+        \end{equation}
+        The solutions to this equation are called the \Emph{exponents of singularity}.
+\end{definition}
+
+
+%{1cm}
+
+
+
+\begin{theorem}[Series Form of the ODE]
+        When we substitute in our series solution we obtain an ODE of the form \begin{equation}
+                x^r\left[a_0F(r)+\sum\limits_{n=1}^{\infty}\left(a_nF(r+n)+\sum\limits_{k=0}^{n-1}a_k(p_{n-k}(r+k)+q_{n-k})\right)x^n\right] = 0
+        \end{equation}
+        This gives us the following recurrence relation for $n \geq 1$: \begin{equation}
+                a_n(r) = -\frac{\sum\limits_{k=0}^{n-1}a_k(r)(p_{n-k}(r+k)+q_{n-k})}{F(r+n)}
+        \end{equation}
+\end{theorem}
+
+
+%{1cm}
+
+\begin{theorem}[Cases for the Roots of the Indicial Equation]
+        Let $r_1$ and $r_2$ be roots of the indicial equation and $r_1 \geq r_2$. Then one solution of our ODE will always be \begin{equation}
+                y_1(x) = x^{r_1}\left(1 + \sum\limits_{n=1}^{\infty}a_n(r_1)x^n\right)
+        \end{equation}
+        \begin{enumerate}
+                \item If $r_1 - r_2 \neq n$ for any $n \in \N$, then $r_1 \neq r_2 + n$ for any $n \in \N$, so $F(r_2 + n) \neq 0$ for any $n \in \N$ and the recurrence relation \begin{equation}
+                a_n(r_2) = -\frac{\sum\limits_{k=0}^{n-1}a_k(r_2)(p_{n-k}(r+k)+q_{n-k})}{F(r_2+n)}
+                \end{equation}
+                is well-defined, giving a second solution of \begin{equation}
+                        y_2(x) = x^{r_2}\left(1 + \sum\limits_{n=1}^{\infty}a_n(r_2)x^n\right)
+                \end{equation}
+                \item If $r_1 = r_2$, then our second solution is \begin{equation}
+                                y_2(x) = y_1(x)ln(x) + x^{r_1}\sum\limits_{n=1}^{\infty}a_n'(r_1)x^n                      
+                        \end{equation}
+                \item If $r_1 - r_2 = n$ for some $n \in \N$, then our second solution becomes \begin{equation}
+                                y_2(x) = ay_1(x)ln(x) + x^{r_2}\left(1 + \sum\limits_{n=1}^{\infty}c_n(r_2)x^n\right)
+                        \end{equation}
+                        where \begin{equation}
+                                a =\lim\limits_{r \rightarrow r_2}(r-r_2)a_N(r)\;\text{and}\;c_n(r_2)=\frac{d}{dr}\left[(r-r_2)a_n(r)\right]\bigg\rvert_{r=r_2}
+                        \end{equation}
+        \end{enumerate}
+\end{theorem}
+
+
+

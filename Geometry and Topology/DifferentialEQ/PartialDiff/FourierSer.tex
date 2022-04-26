@@ -1,0 +1,688 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+\chapter{Fourier Series for PDEs}
+\label{FourierPDE} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+%%%%%%%%%%%%%%%%%%%% 2.3.1
+\section{Fourier Coefficients}
+
+\begin{definition}
+    The \Emph{Fourier sine series} in the interval $(0,l)$ is of the form \begin{equation}
+        \phi(x) = \sum_{n=1}^{\infty}A_n\sin\frac{n\pi x}{l}
+    \end{equation}
+\end{definition}
+
+We wish to find coefficients $A_n$ if $\phi(x)$ is a given function. The key observation is the following property: 
+
+\begin{proposition}
+    If $m,n \in \N$, and $m \neq n$, then \begin{equation*}
+        \int_0^l\sin\frac{n\pi x}{l}\sin\frac{m\pi x}{l}dx = 0
+    \end{equation*}
+\end{proposition}
+
+Fixing $m$, let us multiply $\phi(x)$ by $\sin(m\pi x/l)$, and integrate the series term by term to get \begin{align*}
+    \int_0^l\phi(x)\sin\frac{m\pi x}{l}dx &= \int_0^l\sum_{n=1}^{\infty}A_n\sin\frac{n\pi x}{l}\sin\frac{m\pi x}{l}dx \\
+    &= \sum_{n=1}^{\infty}A_n\int_0^l\sin\frac{n\pi x}{l}\sin\frac{m\pi x}{l}dx 
+\end{align*}
+All but the term with $n = m$ vanishes. Then, noting that $\int_0^l\sin^2(m\pi x/l)dx = l/2$, we find that \begin{equation}
+    \boxed{A_m = \frac{2}{l}\int_0^l\phi(x)\sin\frac{m\pi x}{l}dx}
+\end{equation}
+
+
+Next, let's take the case of the cosine series, which corresponds to the Neumann boundary conditions on $(0,l)$: 
+
+\begin{definition}
+    The \Emph{Fourier cosine series} on $(0,l)$ is of the form \begin{equation}
+        \phi(x) = \frac{1}{2}A_0+\sum_{n=1}^{\infty}A_n\cos\frac{n\pi x}{l}
+    \end{equation}
+\end{definition}
+
+Again we have the useful orthogonality condition: 
+
+\begin{proposition}
+    Suppose that $n,m \in \N$ with $n \neq m$. Then \begin{equation}
+        \int_0^l\cos\frac{n\pi x}{l}\cos\frac{m\pi x}{l}dx = 0
+    \end{equation}
+\end{proposition}
+By the same method above but with sines instead of cosines we obtain \begin{equation}
+    \int_0^l\phi(x)\cos\frac{m\pi x}{l}dx = A_m\int_0^l\cos^2\frac{m\pi x}{l}dx = \frac{l}{2}A_m
+\end{equation}
+for $m \neq 0$. If $m = 0$, then we have \begin{align*}
+    \int_0^l\phi(x)dx &= \frac{1}{2}A_0\int_0^l1dx + \sum_{n=1}^{\infty}A_n\int_0^l\cos\frac{n\pi x}{l}dx \\
+    &= \frac{l}{2}A_0 + 0 = \frac{l}{2}A_0
+\end{align*}
+Therefore, for all nonnegative integers $m$, we have the formula for the coefficients of the cosine series \begin{equation}
+    \boxed{A_m = \frac{2}{l}\int_0^l\phi(x)\cos\frac{m\pi x}{k}dx}
+\end{equation}
+
+\subsection{Full Fourier Series}
+
+\begin{definition}
+    The \Emph{Fourier series} of $\phi(x)$ on the interval $(-l,l)$ is defined by \begin{equation}
+        \boxed{\phi(x) = \frac{1}{2}A_0+\sum_{n=1}^{\infty}\left(A_n\cos\frac{n\pi x}{l}+B_n\sin\frac{n\pi x}{l}\right)}
+    \end{equation}
+\end{definition}
+
+\begin{proposition}
+    On the interval $[-l,l]$, our eigenfunctions are of the form \begin{equation*}
+        \left\{1, \cos\left(\frac{n\pi x}{l}\right),\sin\left(\frac{n\pi x}{l}\right)\right\},\;\;n=1,2,3,...
+    \end{equation*}
+    Then, we have the following orthogonality conditions for the eigenfunctions \begin{align*}
+        \int_{-l}^l\cos\frac{n\pi x}{l}\sin\frac{m\pi x}{l}dx &= 0,\;\;\forall n,m \in \N \\
+        \int_{-l}^l\cos\frac{n\pi x}{l}\cos\frac{m\pi x}{l}dx &= 0,\;\;\forall n,m \in \N, n\neq m \\
+        \int_{-l}^l\sin\frac{n\pi x}{l}\sin\frac{m\pi x}{l}dx &= 0,\;\;\forall n,m \in \N, n \neq m \\
+        \int_{-l}^l1\cdot \cos\frac{n\pi x}{l}dx &= 0 = \int_{-l}^l1\cdot \sin\frac{m \pi x}{l}dx
+    \end{align*}
+\end{proposition}
+Moreover, we have that \begin{equation*}
+    \int_{-l}^l\cos^2\frac{n\pi x}{l}dx = l = \int_{-l}^l\sin^2\frac{n\pi x}{l}dx
+\end{equation*}
+and \begin{equation*}
+    \int_{-l}^l1^2dx = 2l
+\end{equation*}
+Then we end up with the formulas \begin{align}
+    A_n &= \frac{1}{l}\int_{-l}^l\phi(x)\cos\frac{n\pi x}{l}dx\;\;\;n=0,1,2,... \\
+    B_n &= \frac{1}{l}\int_{-l}^l\phi(x)\sin\frac{n\pi x}{l}dx\;\;\;n=1,2,3,...
+\end{align}
+for the coefficients of the full Fourier series.
+
+
+%%%%%%%%%%%%%%%%%%%% 2.3.2
+\section{Even, Odd, Periodic, and Complex Functions}
+
+\begin{definition}
+    A function $\phi(x)$ that is defined for $-\infty < x < \infty$ is called \Emph{periodic} if there is a number $p > 0$ such that \begin{equation*}
+        \phi(x+p) = \phi(x),\;\;\forall x \in \R
+    \end{equation*}
+    A number $p$ for which this is true is called a \Emph{period} of $\phi(x)$.
+\end{definition}
+
+Notice that if $\phi(x)$ has period $p$, then \begin{equation*}
+    \int_a^{a+p}\phi(x)dx = \int_b^{b+p}\phi(x)dx
+\end{equation*}
+for all $a,b \in \R$.
+
+\begin{definition}
+    Suppose $\phi(x)$ is a function defined on an interval $-l < x < l$. Then its \Emph{periodic extension} is \begin{equation*}
+        \phi_{per}(x) = \phi(x-2lm)\;\;\;\;\text{ for }\;\;-l + 2lm < x < l+2lm
+    \end{equation*}
+    for all integers $m$.
+\end{definition}
+
+Note that this extension does not specify the endpoints $x = l+2lm$, and indeed there are jumps at the endpoints unless the one-sided limits are equal: $\phi(l-) = \phi(-l+)$.
+
+\begin{definition}
+    An \Emph{even function} is a function defined on a symmetric interval $(-l,l)$ that satisfies \begin{equation*}
+        \phi(-x) = \phi(x),\;\;\;\;\forall x \in (-l,l)
+    \end{equation*}
+    so its graph is symmetric with respect to the $y$-axis.
+\end{definition}
+
+
+
+\begin{definition}
+    An \Emph{odd function} is a function defined on a symmetric interval $(-l,l)$ that satisfies \begin{equation*}
+        \phi(-x) = -\phi(x),\;\;\;\;\forall x \in (-l,l)
+    \end{equation*}
+    so its graph is symmetric with respect to the origin.
+\end{definition}
+
+
+
+We observe that the sum of even and odd functions can be anything. Indeed, if $f(x)$ is a function defined on $(-l,l)$, and we let $\phi(x) = [f(x)+f(-x)]/2$ and $\psi(x) = [f(x)-f(-x)]/2$, then $f(x) = \phi(x)+\psi(x)$, while $\phi(x)$ is even and $\psi(x)$ is odd.
+
+Integration and differentiation change the parity of a function. That is, if $\phi(x)$ is even, then both $d\phi/dx$ and $\int_0^x\phi(s)ds$ are odd. If $\phi(x)$ is odd, then both $d\phi/dx$ and $\int_0^x\phi(s)ds$ are even.
+
+\begin{remark}
+    If $\phi(x)$ is even on $(-l,l)$, then \begin{equation*}
+        \int_{-l}^l\phi(x)dx = 2\int_0^l\phi(x)dx
+    \end{equation*}
+    If $\phi(x)$ is odd on $(-l,l)$, then \begin{equation*}
+        \int_{-l}^l\phi(x)dx = 0
+    \end{equation*}
+\end{remark}
+
+\begin{definition}
+    Let $\phi(x)$ be a function defined on the interval $(0,l)$. Then the \Emph{even extension} of $\phi(x)$ is defined to be \begin{equation*}
+        \phi_{even}(x) = \left\{\begin{array}{lc} \phi(x) & \text{for}\;0<x<l \\ \phi(-x)& \text{for}\;-l < x < 0\end{array}\right.
+    \end{equation*}
+    The \Emph{odd extension} of $\phi(x)$ is \begin{equation*}
+        \phi_{odd}(x) = \left\{\begin{array}{lc} \phi(x) & \text{for}\;0<x<l \\ -\phi(-x)& \text{for}\;-l < x < 0 \\ 0 & \text{for}\; x= 0\end{array}\right.
+    \end{equation*}
+\end{definition}
+
+\subsection{Fourier Series and Boundary Conditions}
+
+Note that in the Fourier sine series, each of its terms, $\sin(n\pi x/l)$, is an odd function. Thus, the series itself, if it converges, also has to be odd. Additionally, each of its terms has a period of $2l$, so that the sum also must have a period of $2l$. Therefore, the Fourier sine series can be regarded as an expansion of an arbitrary function that is odd and has period $2l$ defined on the whole line $-\infty < x < \infty$.
+
+Similarly, since all the terms in the Fourier cosine series, $\cos(n\pi x/l)$, are even with period $2l$, the same must be true of the sum. Hence, the Fourier cosine series may be regarded as an expansion of an arbitrary function which is even and has period $2l$ defined on the whole line $-\infty < x < \infty$.
+
+We then have the following relationship to boundary conditions: \begin{align*}
+    u(0,t) =&u(l,t)=0:\text{ Dirichlet BCs correspond to the odd extension} \\
+    u_x(0,t)=&u_x(l,t)=0:\text{ Neumann BCs correspond to the even extension} \\
+    u(l,t) =&u(-l,t),u_x(l,t) = u_x(-l,t):\text{ Periodic BCs correspond} \\
+    &\text{to the periodic extension}
+\end{align*}
+
+\subsection{The Complex Form of the Full Fourier Series}
+
+The eigenfunctions of $-d^2/dx^2$ on $(-l,l)$ with the periodic boundary conditions are $\sin(n\pi x/l)$ and $\cos(n\pi x/l)$. Recall that we can express sine and cosine in terms of complex exponentials: \begin{equation*}
+    \sin\theta = \frac{e^{i\theta}-e^{-i\theta}}{2i}\;\;and\;\;\cos\theta = \frac{e^{i\theta}+e^{-i\theta}}{2}
+\end{equation*}
+Therefore, instead of sine and cosine we could use $e^{in\pi x/l}$ and $e^{-in\pi x/l}$ as an alternative pair. If we do this, the collection $\{\sin n\pi x/l,\cos n\pi x/l\}$ of eigenfunctions is replaced by the collection of complex exponential eigenfunctions \begin{equation*}
+    \{1,e^{i\pi x/l},e^{-i\pi x/l},e^{i2\pi x/l},e^{-i2\pi x/l},...\}
+\end{equation*}
+In other words $\{e^{in\pi x/l}\}$, where $n \in \Z$. The full Fourier series in complex form can then be written as \begin{equation}
+    \boxed{\phi(x) = \sum_{n=-\infty}^{\infty}c_ne^{in\pi x/l}}
+\end{equation}
+where technically this is the sum of two infinite series; one going from $n = 0$ to $+\infty$, and one going from $n = -1$ to $-\infty$. Now, we observe the orthogonality condition that \begin{align*}
+    \int_{-l}^le^{in\pi x/l}e^{-im\pi x/l}dx &= \int_{-l}^le^{i(n-m)\pi x/l}dx \\
+    &= \frac{l}{i\pi (n-m)}\left[e^{i(n-m)\pi} - e^{i(m-n)\pi}\right] \\
+    &= \frac{1}{i\pi(n-m)}\left[(-1)^{n-m}-(-1)^{m-n}\right] = 0
+\end{align*}
+provided that $n \neq m$. Moreover, when $n = m$ we have \begin{equation*}
+    \int_{-l}^le^{i(n-n)\pi x/l}dx = 2l
+\end{equation*}
+It follows by the methods discussed previously that the coefficients are given by the formula \begin{equation}
+    \boxed{c_n = \frac{1}{2l}\int_{-l}^l\phi(x)e^{-n\pi x/l}dx}
+\end{equation}
+
+
+%%%%%%%%%%%%%%%%%%%% 2.3.3
+\section{Orthogonality and General Fourier Series}
+
+
+\begin{definition}
+    If $f(x)$ and $g(x)$ are two real-valued continuous functions defined on and integrable on an interval $a\leq x \leq b$, we define their \Emph{inner product} to be the integral of their product: \begin{equation}
+        \langle f,g\rangle \equiv \int_a^bf(x)g(x)dx
+    \end{equation}
+\end{definition}
+
+We say that $f(x)$ and $g(x)$ are \Emph{orthogonal} if $\langle f, g\rangle = 0$. We note that as with any inner product, $\langle f, f\rangle = 0$ if and only if $f(x) \equiv 0$. We then observe that in our previous discussions, every eigenfunction is orthogonal to every other eigenfunction. 
+
+Recall we are studying the differential operator $A = -d^2/dx^2$ with some boundary conditions (either Dirichlet or Neumann or ...). Let $X_1(x)$ and $X_2(x)$ be two different eigenfunctions. Thus \begin{align*}
+    -X_1'' &= \frac{-d^2X_1}{dx^2} = \lambda_1X_1 \\
+    -X_2'' &= \frac{-d^2X_2}{dx^2} = \lambda_2X_2
+\end{align*}
+where both functions satisfy the boundary conditions. Let's assume that $\lambda_1 \neq \lambda_2$. We now verify the identity \begin{equation*}
+    -X_1''X_2 + X_1X_2'' = (-X_1'X_2+X_1X_2')'
+\end{equation*}
+We integrate to get \begin{equation}
+    \int_a^b(-X_1''X_2+X_1X_2'')dx = (-X_1'X_2+X_1X_2')\Bigg\rvert_a^b
+\end{equation}
+We now apply the eigenfunction differential equations in the left side inside the integral.
+
+\textbf{Case 1: Dirichlet.} This means that both functions vanish at both ends: $X_1(a) = X_1(b) = X_2(a) = X_2(b) = 0$. So the right of the above equation vanishes.
+
+\textbf{Case 2: Neumann.} The first derivatives vanish at both ends, so once again the integral is zero.
+
+\textbf{Case 3: Periodic.} $X_j(a) = X_j(b)$, $X'_j(a) = X'_j(b)$ for both $j = 1,2$. Again we obtain zero.
+
+
+\textbf{Case 4: Robin.} Again we obtain zero.
+
+Thus in all four cases, the integral reduces to \begin{equation*}
+    (\lambda_1-\lambda_2)\int_a^bX_1X_2dx = 0
+\end{equation*}
+But $\lambda_1 \neq \lambda_2$, so $\langle X_1,X_2\rangle = 0$ and we find that the functions are orthogonal. Note that the boundary conditions need to be right in order for this result to hold, and we require distinct eigenvalues.
+
+\subsection{Symmetric Boundary Conditions}
+
+Consider a pair of boundary conditions \begin{align*}
+    \alpha_1X(a)+\beta_1X(b)+\gamma_1X'(a)+\delta_1X'(b) &= 0 \\
+    \alpha_2X(a)+\beta_2X(b)+\gamma_2X'(a)+\delta_2X'(b) &= 0
+\end{align*}
+involving eight real constants. Such a set of boundary conditions is called \Emph{symmetric} if \begin{equation}
+    \boxed{f'(x)g(x) - f(x)g'(x)\Bigg\rvert_{x=a}^{x=b} = 0}
+\end{equation}
+for any pair of functions $f(x)$ and $g(x)$ both of which satisfy the pair of boundary conditions above. As indicated above, each of the standard boundary conditions (Dirichlet, Neumann, Robin, and Periodic) are symmetric.
+
+Then the identity \begin{equation*}
+    \int_a^b(-X_1''X_2+X_1X_2'')dx = (-X_1'X_2+X_1X_2')\Bigg\rvert_a^b
+\end{equation*}
+implies the following theorem, in which we say eigenfunction to mean a solution of $-X''=\lambda X$ which satisfies the generalized boundary conditions above:
+
+\begin{theorem}
+    If you have \Emph{symmetric} boundary conditions, then any two eigenfunctions that correspond to distinct eigenvalues are orthogonal. Therefore, if any function is expanded in a series of these eigenfunctions, the coefficients are determined.
+\end{theorem}
+
+Now, if $X_n(x)$ denotes the eigenfunction with eigenvalue $\lambda_n$, and if \begin{equation*}
+    \phi(x) = \sum_{n}A_nX_n(x)
+\end{equation*}
+is a convergent series, where the $A_n$ are constants, then \begin{equation*}
+    \langle \phi,X_m\rangle = \left\langle\sum_{n}A_nX_n,X_m\right\rangle = \sum_{n}A_n\langle X_n,X_m\rangle = A_m\langle X_m, X_m\rangle
+\end{equation*}
+by orthogonality, so \begin{equation*}
+    A_m = \frac{\langle \phi,X_m\rangle}{\langle X_m,X_m\rangle}
+\end{equation*}
+is the formula for the Fourier coefficients.
+
+Recall from linear algebra that if we have linearly independent eigenfunctions with the same eigenvalue, we can construct orthogonal eigenfunctions using the Gram-Schmidt orthogonalization procedure. 
+
+\subsection{Complex Eigenvalues}
+
+\begin{definition}
+    If $f(x)$ and $g(x)$ are two complex-valued functions, we defined the \Emph{inner product} on $(a,b)$ as \begin{equation}
+        \boxed{\langle f,g\rangle = \int_a^bf(x)\overline{g(x)}dx}
+    \end{equation}
+    The two functions are called \Emph{orthogonal} if $\langle f,g\rangle = 0$.
+\end{definition}
+
+If we have the boundary conditions given previously, with eight real constants, then they are called \Emph{symmetric} or \Emph{hermitian} if \begin{equation}
+    \boxed{f'(x)\overline{g(x)}-f(x)\overline{g'(x)}\Bigg\rvert_a^b=0}
+\end{equation}
+for all $f,g$ satisfying the boundary conditions. Then the last theorem holds for complex functions without any change. We also have:
+
+\begin{theorem}
+    If you have symmetric boundary conditions, then all eigenvalues are real numbers. Furthermore, all the eigenfunctions can be chosen to be real-valued.
+\end{theorem}
+\begin{proof}
+    Let $\lambda$ be an eigenvalue, possibly complex. Let $X(x)$ be its eigenfunction, also possibly complex. Then $-X'' = \lambda X$ plus boundary conditions. Take the complex conjugate of this equation; thus $-\overline{X}'' = \overline{\lambda}\overline{X}$ plus the boundary conditions. So $\overline{\lambda}$ is also an eigenvalue. Now we use the previous integral identity with the functions $X$ and $\overline{X}$. Thus \begin{equation*}
+        \int_a^b(-X''\overline{X}+X\overline{X}'')dx = (-X'\overline{X}+X\overline{X}')\Bigg\rvert_a^b = 0
+    \end{equation*}
+    since the boundary conditions are symmetric. So \begin{equation*}
+        (\lambda - \overline{\lambda})\int_a^bX\overline{X}dx = 0
+    \end{equation*}
+    But $X\overline{X}=|X|^2 \geq 0$ and $X(x)$ is not allowed to be the zero function. So the integral cannot vanish - a contradiction. Therefore the eigenvalues must not be distinct, so $\lambda = \overline{\lambda}$, so $\lambda$ is real.
+\end{proof}
+
+Now, if $X(x)$ is complex we may write it as $X(x) = Y(x) + iZ(x)$ where $Y(x)$ and $Z(x)$ are real-valued. Then $-Y''-iZ'' = \lambda Y+i\lambda Z$. Equating the real and imaginary parts, we see that $-Y'' = \lambda Y$ and $-Z'' = \lambda Z$. The boundary conditions still hold for both $Y$ and $Z$ because the eight constants are real numbers. So the real eigenvalue $\lambda$ has the real eigenfunctions $Y$ and $Z$, so $X$ and $\overline{X}$ may be replaceable by $Y$ and $Z$. The linear combinations $aX+b\overline{X}$ are the same as the linear combinations $cY+dZ$.
+
+\subsection{Negative Eigenvalues}
+
+An important condition for eigenvalues is whether all of them are positive:
+ 
+\begin{theorem}
+    Assume that we have symmetric boundary conditions. If \begin{equation*}
+        f(x)f'(x)\Bigg\rvert_{x=a}^{x=b}\leq 0
+    \end{equation*}
+    for all real-valued functions $f(x)$ satisfying the boundary conditions, then there is no negative eigenvalue.
+\end{theorem}
+
+This is valid for Dirichlet, Neumann, and periodic boundary conditions, so in these cases there are no negative eigenvalues.
+
+
+
+%%%%%%%%%%%%%%%%%%%% 2.3.4
+\section{Completeness}
+
+In this section we consider the problem of convergence of Fourier series. Throughout we consider the eigenvalue problem \begin{equation*}
+    X'' + \lambda X=0\text{ in } (a,b)\text{ with any symmetric BCs}
+\end{equation*}
+From the last section we know that all eigenvalues $\lambda$ are real.
+
+\begin{theorem}
+    There are an infinite number of eigenvalues. They form a sequence $\lambda_n\rightarrow \infty$.
+\end{theorem}
+From the previous section we may assume that the eigenfunctions $X_n(x)$ are pairwise orthogonal and real-valued. Then, we may list the eigenvalues as $$\lambda_1\leq\lambda_2\leq\lambda_3\leq ...$$ with corresponding eigenfunctions $$X_1,X_2,X_3,...$$ which are pairwise orthogonal.
+
+\begin{definition}
+    For any function $f(x)$ on $(a,b)$, its \Emph{Fourier coefficients} are defined as 
+    \begin{equation}
+        \boxed{A_n = \frac{\langle f,X_n\rangle}{\langle X_n,X_n\rangle} = \frac{\int_a^bf(x)\overline{X_n(x)}dx}{\int_a^b|X_n(x)|^2dx}}
+    \end{equation}
+    Its Fourier series is precisely the series $\sum_nA_nX_n(x)$.
+\end{definition}
+
+\begin{definition}
+    We say that an infinite series $\sum_{n=1}^{\infty}f_n(x)$ converges to $f(x)$ pointwise in $(a,b)$ if it converges to $f(x)$ for each $a < x < b$. That is, for each $a < x < b$ we have \begin{equation*}
+        \left|f(x) - \sum_{n=1}^Nf_n(x)\right| \rightarrow 0\;\text{ as }N\rightarrow \infty
+    \end{equation*}
+\end{definition}
+
+\begin{definition}
+    We say that the series converges uniformly to $f(x)$ in $[a,b]$ if \begin{equation*}
+        \sup\limits_{a\leq x \leq b}\left|f(x) - \sum_{n=1}^Nf_n(x)\right| \rightarrow 0\;\text{ as }N\rightarrow \infty
+    \end{equation*}
+\end{definition}
+
+\begin{definition}
+    We say the series \Emph{converges in the mean square} (or $L^2$) sense to $f(x)$ in $(a,b)$ if \begin{equation*}
+        \int_a^b\left|f(x)-\sum_{n=1}^Nf_n(x)\right|^2dx \rightarrow 0\;\text{ as }N\rightarrow \infty
+    \end{equation*}
+\end{definition}
+
+We note that uniform convergence is stronger than both pointwise and $L^2$ convergence. Now let $f(x)$ be any function defined on $a\leq x \leq b$, and consider the Fourier series for our initial eigenvalue problem with symmetric given boundary conditions.
+
+\begin{theorem}
+    The Fourier series $\sum A_nX_n(x)$ converges to $f(x)$ uniformly on $[a,b]$ provided that \begin{itemize}
+        \item $f(x),f'(x),$ and $f''(x)$ exist and are continuous for $a \leq x \leq b$ and 
+        \item $f(x)$ satisfies the given boundary conditions.
+    \end{itemize}
+\end{theorem}
+
+For the classical Fourier series, it is not required that $f''(x)$ exist.
+
+\begin{theorem}
+    The Fourier series converges to $f(x)$ in the mean-square sense in $(a,b)$ provided only that $f(x)$ is any function for which \begin{equation*}
+        \int_a^b|f(x)|^2dx
+    \end{equation*}
+    is finite.
+\end{theorem}
+
+\begin{definition}
+    A function $f(x)$ has a \Emph{jump discontinuity} at a point $x =c$ if one-sided limits $f(c+)$ and $f(c-)$ exist but are not equal. The \Emph{value} of the jump discontinuity is the number $f(c+) - f(c-)$.
+\end{definition}
+
+\begin{definition}
+    A function $f(x)$ is called \Emph{piecewise continuous} on an interval $[a,b]$ if it is continuous at all but a finite number of points and has jump discontinuities at these points.
+\end{definition}
+
+\begin{theorem}
+    The classical Fourier series (full, sine, or cosine) converges to $f(x)$ pointwise on $(a,b)$ provided that $f(x)$ is a continuous function on $a \leq x \leq b$ and $f'(x)$ is piecewise continuous on $a \leq x \leq b$.
+
+
+    More generally, if $f(x)$ itself is only piecewise continuous on $a \leq x \leq b$ and $f'(x)$ is also piecewise continuous on $a \leq x \leq b$, then the classical Fourier series converges at every point $x$ ($-\infty < x < \infty$). The sum is \begin{equation*}
+        \sum_nA_nX_n(x) = \frac{1}{2}[f(x+)+f(x-)]
+    \end{equation*}
+    for all $a < x < b$. The sum is $\frac{1}{2}[f_{ext}(x+)+f_{ext}(x-)]$ for all $-\infty < x < \infty$, where $f_{ext}(x)$ is the extended function (periodic, odd periodic, or even periodic).
+\end{theorem}
+
+Hence, at a jump discontinuity the series converges to the \Emph{average} of the limits from the right and from the left. For the Fourier sine series on $(0,l)$, the extended function $f_{ext}(x)$ is the odd function of period $2l$. For the Fourier cosine series on $(0,l)$, the extended function $f_{ext}(x)$ is the even function of period $2l$. For the full series on $(-l,l)$, it is the periodic extension. The extension is piecewise continuous with a piecewise continuous derivative on $(-\infty, \infty)$.
+
+\begin{theorem}
+    If $f(x)$ is a function of period $2l$ on the line for which $f(x)$ and $f'(x)$ are piecewise continuous, then the classical full Fourier series converges to $\frac{1}{2}[f(x+)+f(x-)]$ for $-\infty < x < \infty$.
+\end{theorem}
+
+Another important question is whether a Fourier series can be differentiated term by term. This is usual a very delicate matter, although integration term by term is valid much more often.
+
+\subsection{The \texorpdfstring{$L^2$}{L2} Theory}
+
+Recall that the inner product on $(a,b)$ is defined by \begin{equation*}
+    \langle f, g\rangle = \int_a^bf(x)\overline{g(x)}dx
+\end{equation*}
+
+\begin{definition}
+    We define the \Emph{$L^2$ norm} of $f$ on $(a,b)$ by \begin{equation*}
+        ||f|| = \sqrt{\langle f,f\rangle} = \sqrt{\int_a^b|f(x)|^2dx}
+    \end{equation*}
+\end{definition}
+
+Then the quantity $||f-g||$ is a measurement of the ``distance" between two functions $f$ and $g$. We sometimes refer to this as the $L^2$ metric. 
+
+We can then restate the $L^2$ convergence theorem as follows: If $\{X_n\}$ are eigenfunctions associated with a set of symmetric boundary conditions and if $||f|| < \infty$, then \begin{equation}
+    \left|\left|f - \sum_{n\leq N}A_nX_n\right|\right|\rightarrow 0,\;\;\text{ as }N\rightarrow \infty
+\end{equation}
+That is, the partial sums get nearer and nearer to $f$.
+
+\begin{theorem}[Least-Square Approximation]
+    Let $\{X_n\}$ be any orthogonal set of functions. Let $||f|| < \infty$. Let $N$ be a fixed positive integer. Among all possible choices of $N$ constants $c_1,...,c_N$, the choice that minimizes \begin{equation*}
+        \left|\left|f-\sum_{n=1}^Nc_nX_n\right|\right|
+    \end{equation*}
+    is $c_1=A_1,...,C_N=A_N$
+\end{theorem}
+\begin{proof}
+    For the sake of simplicity consider $f(x)$ and $X_n(x)$ real-valued. Denote the remainder by \begin{equation*}
+        E_N = \left|\left|f - \sum_{n\leq N}c_nX_n\right|\right|^2 = \int_a^b\left|f(x) - \sum_{n\leq N}c_nX_n(x)\right|^2dx
+    \end{equation*}
+    Expanding the square we have (assuming the functions are real-valued) \begin{align*}
+        E_n &= \int_a^b|f(x)|^2 - 2\sum_{n\leq N}c_n\int_a^bf(x)X_n(x)dx \\
+        &+\sum_n\sum_mc_nc_m\int_a^bX_n(x)X_m(x)dx
+    \end{align*}
+    Because of orthogonality the last integrals vanish except for $n = m$. Hence, the double sum reduces to \begin{equation*}
+        E_N = ||f||^2 - 2\sum_{n\leq N}c_n\langle f,X_n\rangle + \sum_{n\leq N}c_n^2||X_n||^2
+    \end{equation*}
+    We now complete the square to obtain \begin{equation*}
+        E_N = \sum_{n\leq N}||X_n||^2\left[c_n - \frac{\langle f,X_n\rangle}{||X_n||^2}\right]^2+||f||^2 - \sum_{n\leq N}\frac{\langle f,X_n\rangle^2}{||X_n||^2}
+    \end{equation*}
+    Then since the $c_n$ are localized to one set of terms, the expression is minimized when the term in square brackets is zero, so \begin{equation*}
+        c_n = \frac{\langle f,X_n\rangle}{||X_n||^2} \equiv A_n
+    \end{equation*}
+    which completes the proof.
+\end{proof}
+
+Thus, the linear combination of $X_1,...,X_N$ which approximates $f$ most closely is the Fourier combination.
+
+Further, after minimizing, the expression for the error $E_n$ becomes \begin{equation*}
+    0\leq E_N = ||f||^2 - \sum_{n\leq N}\frac{\langle f,X_n\rangle^2}{||X_n||^2} = ||f||^2 - \sum_{n\leq N}A_n^2||X_n||^2
+\end{equation*}
+Because this is positive we obtain \begin{equation*}
+    \sum_{n\leq N}A_n^2||X_n||^2 \leq ||f||^2
+\end{equation*}
+Since this holds for all partial sums, each of which has positive terms, we have by the monotone convergence theorem that \begin{equation}
+    \boxed{\sum_{n=1}^{\infty}A_n^2\int_a^b|X_n(x)|^2dx \leq \int_a^b|f(x)|^2dx}
+\end{equation}
+which is known as \Emph{Bessel's inequality}, and is valid as long as the integral of $|f|^2$ is finite.
+
+\begin{theorem}
+    The Fourier series of $f(x)$ converges to $f(x)$ in the mean-square sense if and only if \begin{equation}
+        \boxed{\sum_{n=1}^{\infty}A_n^2\int_a^b|X_n(x)|^2dx = \int_a^b|f(x)|^2dx}
+    \end{equation}
+    which is known as \Emph{Parseval's equality}
+\end{theorem}
+\begin{proof}
+    Mean-square convergence means that the remainder $E_N\rightarrow 0$. But from \begin{equation*}
+        0\leq E_N = ||f||^2 - \sum_{n\leq N}\frac{\langle f,X_n\rangle^2}{||X_n||^2} = ||f||^2 - \sum_{n\leq N}A_n^2||X_n||^2
+    \end{equation*}
+    this means that $\sum_{n\leq N}|A_n|^2||X_n||^2\rightarrow ||f||^2$, which in turn means we have Pareseval's equality.
+\end{proof}
+
+\begin{definition}
+    The infinite orthogonal set of functions $\{X_1(x),X_2(x),...\}$ is called \Emph{complete} if Parseval's equality is true for all $f$ with $||f||^2 = \int_a^b|f|^2 < \infty$ finite.
+\end{definition}
+It follows from our previous theorems that the set of eigenfunctions, suitably orthogonalized, for the eigenvalue problem \begin{equation*}
+    X'' + \lambda X=0\text{ in } (a,b)\text{ with any symmetric BCs}
+\end{equation*}
+is complete. That is, if $||f||^2$ is finite, then the Parseval equality is true for this set of eigenfunctions.
+
+
+
+%%%%%%%%%%%%%%%%%%%% 2.3.5
+\section{Completeness Proofs and Gibbs Phenomenon}
+
+
+We consider the whole-line case (functions defined on, or extended periodically to, the whole real line). Begin with letting $f \in C^1(\R)$ be a $2l$ periodic function. We assume that $l = \pi$, which can be arranged by a change of scale to the argument of $f$. Thus, the Fourier series is \begin{equation*}
+    f(x) = \frac{1}{2}A_0 + \sum_{n=1}^{\infty}(A_n\cos nx+B_n\sin nx)
+\end{equation*}
+with the coefficients \begin{equation*}
+    A_n = \frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\cos nxdx,\;\;\;n=0,1,2,...
+\end{equation*}
+and \begin{equation*}
+    B_n = \frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\sin nxdx,\;\;\;n=1,2,3,...
+\end{equation*}
+The $N$th partial sum of the series is \begin{equation*}
+    S_N(x) = \frac{1}{2}A_0 + \sum_{n=1}^{\infty}(A_n\cos nx+B_n\sin nx)
+\end{equation*}
+We wish to prove that $S_N(x)$ converges to $f(x)$ as $N\rightarrow \infty$. Sticking the formula for the coefficients into the partial sum we obtain \begin{equation*}
+    S_N(x)=\int_{-\pi}^{\pi}\left[1+2\sum_{n=1}^N(\cos ny\cos nx + \sin ny\sin nx)\right]f(y)\frac{dy}{2\pi}
+\end{equation*}
+Using the cosine angle addition formula we substitute in the function \begin{equation*}
+    K_N(\theta) = 1+2\sum_{n=1}^N\cos n\theta
+\end{equation*}
+which gives \begin{equation*}
+    S_N(x) = \int_{-\pi}^{\pi}K_N(x-y)f(y)\frac{dy}{2\pi}
+\end{equation*}
+
+$K_n(\theta)$ is called the \Emph{Dirichlet kernel}. We note that $K_N(\theta)$ has period $2\pi$, and that \begin{equation*}
+    \int_{-\pi}^{\pi}K_N(\theta)\frac{d\theta}{2\pi} = 1+0+0+...+0 = 1
+\end{equation*}
+Moreover, the series for $K_N(\theta)$ can be summed, giving \begin{equation*}
+    K_N(\theta) = \frac{\sin[(N+1/2)\theta]}{\sin(\theta/2)}
+\end{equation*}
+Making the substitution $\theta = y-x$ and using the evenness of $K_N$, the integral takes the form \begin{equation*}
+    S_N(x) = \int_{-\pi}^{\pi}K_N(\theta)f(x+\theta)\frac{d\theta}{2\pi}
+\end{equation*}
+The interval of integration should be $[x-\pi,x+\pi]$, but since both $K_N$ and $f$ have period $2\pi$, any interval of length $2\pi$ will do. Subtracting the constant $f(x)$ and using the fact that the integral of $K_N(\theta)$ divided by $2\pi$ is $1$, we have \begin{equation*}
+    S_N(x) - f(x) = \int_{-\pi}^{\pi}K_N(\theta)[f(x+\theta)-f(x)]\frac{d\theta}{2\pi}
+\end{equation*}
+or equivalently \begin{equation*}
+    S_N(x) - f(x) = \int_{-\pi}^{\pi}g(\theta)\sin\left[\left(N+\frac{1}{2}\right)\theta\right]\frac{d\theta}{2\pi}
+\end{equation*}
+where \begin{equation*}
+    g(\theta) = \frac{f(x+\theta)-f(x)}{\sin(\theta/2)}
+\end{equation*}
+We note that the functions \begin{equation*}
+    \phi_N(\theta) = \sin[(N+1/2)\theta],\;\;\;\;N=1,2,3,...
+\end{equation*}
+form an orthogonal set on the interval $(0,\pi)$ because they correspond to mixed boundary conditions. Hence they are also orthogonal on the interval $(-\pi,\pi)$. Therefore, Bessel's inequality is valid: \begin{equation*}
+    \sum_{N=1}^{\infty}\frac{|\langle g,\phi_N\rangle|^2}{||\phi_N||^2} \leq ||g||^2
+\end{equation*}
+By direct calculation $||\phi_N||^2 = \pi$. If $||g|| < \infty$, the series on the left is convergent and its terms tend to zero, so $\langle g,\phi_N\rangle \rightarrow 0$, which says exactly that the integral $S_N(x) - f(x)$ tends to zero.
+
+Now, we have \begin{equation*}
+    ||g||^2 = \int_{-\pi}^{\pi}\frac{[f(x+\theta)-f(x)]^2}{\sin^2(\theta/2)}d\theta
+\end{equation*}
+Since the numerator is continuous, the only possible issue could occur where the sine vanishes, so at $\theta = 0$. At that point we have \begin{equation*}
+    \lim\limits_{\theta\rightarrow 0}g(\theta) = \lim\limits_{\theta\rightarrow 0}\frac{f(x+\theta)-f(x)}{\theta}\cdot\frac{\theta}{\sin(\theta/2)} = 2f'(x)
+\end{equation*}
+by L'Hopital's rule. Thus, $g(\theta)$ is everywhere continuous, so that the integral $||g||$ is finite. This shows that we have pointwise convergence of Fourier series of any $C^1$ function.
+
+\subsection{Proof for Discontinuous Functions}
+
+We now suppose the periodic function $f(x)$ is only piecewise continuous and $f'(x)$ is also piecewise continuous on $-\infty < x < \infty$. We wish to show that the Fourier series converges and that its sum is $\frac{1}{2}[f(x+)+f(x-)]$. This means that we assume $f(x)$ and $f'(x)$ are continuous except at a finite number of points, and at these points they have jump discontinuities. 
+
+We proceed as before, but instead of subtracting $f(x)$ we subtract $\frac{1}{2}[f(x+)+f(x-)]$: \begin{align*}
+    S_N(x) - \frac{1}{2}[f(x+)+f(x-)] &= \int_0^{\pi}K_N(\theta)[f(x+\theta)-f(x+)]\frac{d\theta}{2\pi} \\
+    &+ \int_{-\pi}^0K_N(\theta)[f(x+\theta)-f(x-)]\frac{d\theta}{2\pi} \\
+    &= \int_0^{\pi}g_+(\theta)\sin[(N+1/2)\theta]d\theta \\
+    &+\int_{-\pi}^0g_-(\theta)\sin[(N+1/2)\theta]d\theta
+\end{align*}
+where \begin{equation*}
+    g_{\pm}(\theta) = \frac{f(x+\theta)-f(x\pm)}{\sin(\theta/2)}
+\end{equation*}
+We observe that the functions $\sin[(N+1/2)\theta], N = 1,2,3,...$ form an orthogonal set on the interval $(-\pi,0)$ and $(0,\pi)$. Using Bessel's inequality like before, we find that both integrals tend to $0$ as $N\rightarrow \infty$, provided that $||g_+||^2 = \int_0^{\pi}|g_+(\theta)|^2d\theta$ and $||g_-||^2 = \int_{-\pi}^0|g_-(\theta)|^2d\theta$ are finite. 
+
+We once again check where $\sin(\theta/2)$ vanishes, at $\theta = 0$. We take the one-sided limit: \begin{equation*}
+    \lim\limits_{\theta\rightarrow 0^+}g_+(\theta) = \lim\limits_{\theta\rightarrow 0^+}\frac{f(x+\theta)-f(x+)}{\theta} \cdot \frac{\theta}{\sin(\theta/2)} = 2f'(x+)
+\end{equation*}
+if $x$ is a point where the one-sided derivative $f'(x+)$ exists . If it doesn't exist, then $f$ is still differentiable at nearby points. By the mean value theorem $[f(x+\theta)-f(x+)]/\theta = f'(\theta^*)$ for some point $\theta^* \in (x,x+\theta)$. Since the derivative is bounded, it follows that $[f(x+\theta)-f(x+)]/\theta$ is bounded as well for $\theta$ small and positive. Hence, $g_+(\theta)$ is bounded and the norm $||g_+||^2$ is finite. THe same applies for $g_-$.
+
+
+\subsection{Proof of Uniform Convergence}
+
+We consider the case of the classical Fourier series, so we don't require the existence of $f''(x)$. But, we do assume that $f(x)$ and $f'(x)$ are continuous functions of period $2\pi$. Let $A_n$ and $B_n$ be the Fourier coefficients of $f(x)$ and $A_n'$ and $B_n'$ denote the Fourier coefficients of $f'(x)$. We integrate by parts to obtain \begin{align*}
+    A_n &= \int_{-\pi}^{\pi}f(x)\cos(nx)\frac{dx}{\pi} \\
+    &= \frac{1}{n\pi}f(x)\sin(nx)\Bigg\rvert_{-\pi}^{\pi} - \int_{-\pi}^{\pi}f'(x)\sin(nx)\frac{dx}{n\pi} \\
+    = - \frac{1}{n}B_n'
+\end{align*}
+for $n \neq 0$. Similarly, \begin{equation*}
+    B_n = \frac{1}{n}A_n'
+\end{equation*}
+On the other hand, we know from Bessel's Inequality for the derivative $f'(x)$ that \begin{equation*}
+    \sum_{n=1}^{\infty}(|A_n'|^2+|B_n'|^2) \leq ||f'(x)|| < \infty
+\end{equation*}
+Thus, we have \begin{align*}
+    \sum_{n=1}^{\infty}(|A_n\cos nx| + |B_n\sin nx|) &\leq \sum_{n=1}^{\infty}(|A_n|+|B_n|) \\
+    &= \sym_{n=1}^{\infty}\frac{1}{n}(|B_n'|+|A_n'|) \\
+    &< \left[\sum_{n=1}^{\infty}\frac{1}{n^2}\right]^{1/2}\left[\sum_{n=1}^{\infty}2(|A_n'|^2+|B_n'|^2)\right]^{1/2} < \infty
+\end{align*}
+using Schwarz's inequality. Thus, the Fourier series converges absolutely. From our result with piecewise continuous functions we know the Fourier series converges, at least pointwise, to $f(x)$. So, again denoting $S_N(x)$, the partial sum, we can write \begin{align*}
+    \sup|f(x) - S_N(x)| &\leq \sup\sum_{n=N+1}^{\infty}|A_n\cos nx+B_n\sin nx| \\
+    &\leq \sum_{n=N+1}^{\infty}(|A_n|+|B_n|) < \infty
+\end{align*}
+The last sum is the tail of a convergent series of numbers, so it tends to zero as $N\rightarrow \infty$. Therefore, the Fourier series converges to $f(x)$ both absolutely and uniformly. 
+
+We note that this is valid even if $f'(x)$ is only piecewise continuous.
+
+\subsection{The Gibbs Phenomenon}
+
+The Gibbs phenomenon is what happens to Fourier series at jump discontinuities. For a function with a jump, the partial sum $S_N(x)$ approximates the jump for a large value of $N$. Gibbs showed that $S_N(x)$ always differs from $f(x)$ near the jump by an ``overshoot" of about $9\%$. The width of the overshoot goes to zero as $N\rightarrow \infty$ while the extra height remains at $9\%$, top and bottom. Thus \begin{equation*}
+    \lim\limits_{N\rightarrow \infty}\sup|S_N(x) - f(x)| \neq 0
+\end{equation*}
+although $S_N(x)-f(x)$ does tend to zero for each $x$ where $f(x)$ does not jump.
+
+
+
+%%%%%%%%%%%%%%%%%%%% 2.3.6
+\section{Inhomogeneous Boundary Conditions}
+
+
+We now consider problems with sources given at the boundary. Let us begin with the diffusion equation with sources at both endpoints: \begin{align*}
+    u_t=ku_{xx}&\;\;\;0 < x < l,\;\;t > 0 \\
+    u(0,t)=h(t)&\;\;\;u(l,t) = j(t) \\
+    u(x,0) \equiv 0&
+\end{align*}
+A separated solution $u=X(x)T(t)$ will not fit the boundary conditions, so we try a different approach.
+
+\subsection{Expansion Method}
+
+For the homogeneous problem the correct expansion is the Fourier sine series, and for each $t$ we can expand \begin{equation}
+    u(x,t) = \sum_{n=1}^{\infty}u_n(t)\sin\frac{n\pi x}{l}
+\end{equation}
+for some coefficients $u_n(t)$, because the completeness theorems guarantee that any function in $(0,l)$ can be so expanded. The coefficients are necessarily given by \begin{equation*}
+    u_n(t) = \frac{2}{l}\int_0^lu(x,t)\sin\frac{n\pi x}{l}dx
+\end{equation*}
+Now, we only insist that the series converge inside the interval. Differentiating the series term by term we obtain \begin{equation*}
+    0 = u_t - ku_{xx} = \sum\left[\frac{d u_n}{dt} + ku_n(t)\left(\frac{n\pi}{l}\right)^2\right]\sin\frac{n\pi x}{l}
+\end{equation*}
+But, the PDE seems to require that $du_n/dt + k\lambda_nu_n = 0$, so that $u_n(t) = A_ne^{k\lambda_n t}$, but this cannot fit the boundary conditions so our method fails. This further illustrates that we cannot in general differentiate term by term.
+
+Now, going back the initial condition requires that $u_n(0) = 0$. If the derivatives of $u$ are also continuous, let us expand them in terms of Fourier series. Thus \begin{equation*}
+    u_t = \sum_{n=1}^{\infty}v_n(t)\sin\frac{n\pi x}{l}
+\end{equation*}
+with \begin{equation*}
+    v_n(t) = \frac{2}{l}\int_0^lu_t\sin\frac{n\pi x}{l}dx = \frac{du_n}{dt}
+\end{equation*}
+where this equality is valid since we can differentiate under an integral sign if the new integrand is continuous. We also expand \begin{equation*}
+    u_{xx} = \sum_{n=1}^{\infty}w_n(t)\sin\frac{n\pi x}{l}
+\end{equation*}
+with coefficients \begin{equation*}
+    w_n(t) = \frac{2}{l}\int_0^lu_{xx}\sin\frac{n\pi x}{l}dx
+\end{equation*}
+Then by Green's second identity the last expression equals \begin{equation*}
+    \frac{-2}{l}\int_0^l\left(\frac{n\pi}{l}\right)^2u(x,t)\sin\frac{n\pi x}{l}dx + \frac{2}{l}\left(u_x\sin\frac{n\pi x}{l} - \frac{n\pi}{l}u\cos\frac{n\pi x}{l}\right)\Bigg\rvert_0^l
+\end{equation*}
+The sine factor vanishes at both ends, and the last term will involve the boundary conditions, so \begin{equation*}
+    w_n(t) = -\lambda_nu_n(t) - 2\frac{n\pi}{l^2}(-1)^nj(t) + 2\frac{n\pi}{l^2}h(t)
+\end{equation*}
+where $\lambda_n = (n\pi/l)^2$. Now the PDE requires \begin{equation*}
+    v_n(t) - kw_n(t) = \frac{2}{l}\int_0^l(u_t - ku_{xx})\sin\frac{n\pi x}{l}dx = \int_0^l0 = 0
+\end{equation*}
+So we deduce that $u_n(t)$ satisfies \begin{equation*}
+    \frac{du_n}{dt} = k\left\{-\lambda_nu_n(t) - \frac{2n\pi}{l^2}\left[(-1)^nj(t) - h(t)\right]\right\}
+\end{equation*}
+which is simply a first order ODE, so be solved together with the initial condition $u_n(0)$. The solution is then \begin{equation}
+    \boxed{u_n(t) = Ce^{-\lambda_nkt} - \frac{2n\pi}{l^2}k\int_0^te^{-\lambda_nk(t-s)}\left[(-1)^nj(s)-h(s)\right]ds}
+\end{equation}
+
+
+As a second case, consider the inhomogeneous wave problem \begin{align*}
+    u_{tt}-c^2u_{xx}&=f(x,t) \\
+    u(0,t) = h(t)\;&\;u(l,t) = k(t) \\
+    u(x,0) = \phi(x)\;&\;u_t(x,0) = \psi(x)
+\end{align*}
+Expanding in the eigenfunctions of the corresponding homogeneous problem we have \begin{equation*}
+    u(x,t) = \sum_{n=1}^{\infty}u_n(t)\sin\frac{n\pi x}{l}
+\end{equation*}
+and we take expand $u_{tt}$ with coefficients $v_n(t)$, $u_{xx}$ with coefficients $w_n(t)$, $f(x,t)$ with coefficients $f_n(t)$, $\phi(x)$ with coefficients $\phi_n$, and $\psi(x)$ with coefficients $\psi_n$. Then \begin{equation*}
+    v_n(t) = \frac{2}{l}\int_0^lu_{tt}\sin\frac{n\pi x}{l}dx = \frac{d^2u_n}{dt^2}
+\end{equation*}
+and as before \begin{align*}
+    w_n(t) &= \frac{2}{l}\int_0^lu_{xx}\sin\frac{n\pi x}{l}dx \\
+    &= -\lambda_nu_n(t) + \frac{2n\pi}{l^2}\left[h(t) - (-1)^nk(t)\right]
+\end{align*}
+From the PDE we also have \begin{equation*}
+    v_n(t) = c^2w_n(t) = \frac{2}{l}\int_0^l(u_{tt}-c^2u_{xx})\sin\frac{n\pi x}{l}dx = f_n(t)
+\end{equation*}
+Therefore, we have the second order ODE \begin{equation*}
+    \frac{d^2u_n}{dt^2} + c^2\lambda_nu_n(t) = -\frac{2n\pi}{l^2}\left[(-1)^nk(t) - h(t)\right] + f_n(t)
+\end{equation*}
+with the initial conditions \begin{equation*}
+    u_n(0) = \phi_n,\;\;\;u_n'(0) = \psi_n
+\end{equation*}
+
+\subsection{Method of Shifting the Data}
+
+The boundary conditions can be made homogeneous by subtracting any known function that satisfies them. Thus, for the wave equation problem treated above, the function \begin{equation*}
+    \mathscr{u}(x,t) = \left(1-\frac{x}{l}\right)h(t) + \frac{x}{l}k(t)
+\end{equation*}
+satisfies the boundary conditions. If we let \begin{equation*}
+    v(x,t) = u(x,t) - \mathscr{u}(x,t)
+\end{equation*}
+then $v(x,t)$ satisfies the same problem but with zero boundary data, with initial data $\phi(x) - \mathscr{u}(x,0)$ and $\psi(x) - \mathscr{u}_t(x,0)$, and with right hand side $f$ replaced by $f-\mathscr{u}_{tt}$. 
+
+The boundary conditions and the differential equation can simultaneously be made homogeneous by subtracting any known function that satisfies them. One case when this can surely be accomplished is the case of stationary data, when $h,k,$ and $f(x)$ are all independent of time. Then it is simple to find a solution of \begin{equation*}
+    -c^2\mathscr{u}_{xx} = f(x)\;\;\;\mathscr{u}(0) = h\;\;\;\mathscr{u}(l) = k
+\end{equation*}
+Then $v(x,t) = u(x,t) - \mathscr{u}(x)$ solves the problem with zero boundary data, zero right hand size, and initial data $\phi(x) - \mathscr{x}$ and $\psi(x)$.
+
+
+

@@ -1,0 +1,150 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+\chapter{Soundness and Completeness}
+\label{SoundComp} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+\section{ Basic Proof-Theoretic Concepts}
+
+\begin{definition}
+    The following expression: \begin{equation*}
+        \metav{A}_1,\metav{A}_2,...,\metav{A}_n\proves\metav{C}
+    \end{equation*}
+    means that there \Emph{exists} some proof which ends with $\metav{C}$ whose undischarged assumptions are among $\metav{A}_1,\metav{A}_2,...,\metav{A}_n$. When we want to say that no such proof exists, we write \begin{equation*}
+        \metav{A}_1,\metav{A}_2,...,\metav{A}_n\nproves\metav{C}
+    \end{equation*}
+    The symbol `$\proves$' is called the \Emph{single turnstile}.
+\end{definition}
+
+\begin{remark}
+    Note that `$\proves$' and `$\entails$' are \emph{very} different things: `$\proves$' concerns with the existence of proofs, while `$\entails$' concerns the existence of valuations.
+\end{remark}
+
+\begin{definition}
+    $\metav{A}$ is a \Emph{theorem} if and only if $\proves \metav{A}$; that is, there is a proof of $\metav{A}$ with no undischarged assumptions.
+\end{definition}
+
+
+\begin{definition}
+    Two sentences $\metav{A}$ and $\metav{B}$ are \Emph{provably equivalent} if and only if each can be proved from the other; i.e., both $\metav{A} \proves \metav{B}$ and $\metav{B}\proves\metav{A}$.
+\end{definition}
+
+\begin{definition}
+    The sentences $\metav{A}_1,\metav{A}_2,...,\metav{A}_n$ are \Emph{provably inconsistent} if and only if a contradiction can be proved from the, i.e., $\metav{A}_1,\metav{A}_2,...,\metav{A}_n\proves\ered$. If they are not \Emph{inconsistent}, we call them \Emph{provably consistent}.
+\end{definition}
+
+
+In summary we have the following table:
+
+\begin{table}[H]
+    \centering
+    \caption{Proof requirements for demonstrating proof theoretic properties}
+    \begin{tabular}{c|cc}
+        & \textbf{Yes} & \textbf{No} \\ \hline
+        Theorem? & one proof & all possible proofs \\
+        Inconsistent? & one proof & all possible proofs \\
+        Equivalent? & two proofs & all possible proofs \\
+        consistent? & all possible proofs & one proof 
+    \end{tabular}
+\end{table}
+
+
+\subsection{ Other Syntactic Concepts}
+
+\begin{definition}
+    A sentence $\metav{A}$ is a \Emph{syntactic contradiction} in TFL if $\enot\metav{A}$ is a \Emph{theorem} (or syntactic tautology).
+\end{definition}
+
+\begin{definition}
+    A sentence $\metav{A}$ is \Emph{syntactically contingent} in TFL if it is not a theorem or a contradiction.
+\end{definition}
+
+\begin{definition}
+    An argument $\metav{A}_1,\metav{A}_2,...,\metav{A}_n,\therefore \metav{C}$ is \Emph{provably valid} in TFL if and only if there is a derivation of its conclusion from its premises.
+\end{definition}
+
+\subsection{ Semantic versus Syntactic Definitions}
+
+\begin{table}[H]
+\tabulinesep=1ex
+\begin{tabu}{X[.5,c,m] ||X[1,l,m] |X[1,l,m]}
+\textbf{Concept} 		&	\textbf{Truth table (semantic) definition} 	&	\textbf{Proof-theoretic (syntactic) definition} \\ \hline \hline
+
+Tautology   &	A sentence whose truth table only has Ts under the main connective & A sentence that can be derived without any premises.	 \\ \hline
+ 
+Contradiction		&	A sentence whose truth table only has Fs under the main connective  &	A sentence whose negation can be derived without any premises\\ \hline
+
+Contingent sentence	&	A sentence whose truth table contains both Ts and Fs under the main connective & A sentence that is not a theorem or contradiction \\ \hline
+
+Equivalent sentences &	The columns under the main connectives are identical.& The sentences can be derived from each other	\\ \hline
+
+Unsatisfiable/ inconsistent sentences	&	Sentences which do not have a single line in their truth table where they are all true.	& Sentences  from which one can derive a contradiction \\ \hline
+
+Satisfiable/ Consistent sentences	&	Sentences which have at least one line in their truth table where they are all true. & Sentences from which one cannot derive a contradiction	\\ \hline
+
+Valid argument		&	An argument whose truth table has no lines where there are all Ts under main connectives for the premises and an F under the main connective for the conclusion.  & An argument where one can derive the conclusion from the premises	\\ 
+\end{tabu}
+\caption{Two ways to define logical concepts.}
+\label{table:truth_tables_or_derivations}
+\end{table}
+
+\subsection{ Proving Logical Properties}
+
+\begin{table}[H]
+\tabulinesep=1ex
+\begin{tabu}{X[.5,c,m] ||X[1,l,m] |X[1,l,m]}
+\textbf{Logical Property} 		&	\textbf{To prove it present} 	&	\textbf{To prove it absent} \\ \hline \hline
+
+Being a Theorem   &	Derive the sentence & Find a false line in the truth table for the sentence	 \\ \hline
+ 
+Being a Contradiction		&	Derive the negation of the sentence  & Find a true line in the truth table for the sentence \\ \hline
+
+Contingency &	Find a false line and a true line in the truth table for the sentence & Prove the sentence or its negation \\ \hline
+
+Equivalence &	Derive each sentence from the other & Find a line in the truth tables for the sentences where they have different values	\\ \hline
+
+Consistency &	Find a line in the truth table for the sentences where they are all true	& Derive a contradiction from the sentences \\ \hline
+
+Validity	&	Derive the conclusion from the premises & Find a line in the truth table where the premises are true and the conclusion false \\ 
+\end{tabu}
+\caption{When to provide a truth table and when to provide a proof.}
+\label{table:prove_present_or_absent}
+\end{table}
+
+
+
+\section{ Soundness}
+
+\begin{definition}
+    A proof system is \Emph{sound} if there are no derivations of arguments that can be shown to be invalid by truth tables. Demonstrating that a proof system is sound consists of showing that every possible proof is the proof of a valid argument. Symbolically, we wish to show valid$_{\proves}$ implies valid$_{\entails}$.
+\end{definition}
+
+
+\subsection{ Proof Sketch: Soundness}
+
+
+Consider a base class of one-line proofs, one for each of our eleven rules of inference. The members of this class would look like $\metav{A},\metav{B}\proves\metav{A}\eand\metav{B}; \metav{A}\eand\metav{B}\proves\metav{A};\metav{A}\eor\metav{B},\enot\metav{A}\proves\metav{B},...$ etc. Note that this proof is in our metalanguage, since TFL does not have the capability to talk about itself. 
+
+One can use truth tables to show that each of these one-line proofs in this base class are valid$_{\entails}$.
+
+Next, we must show that adding lines to a valid$_{\entails}$ proof will not change it into a invalid$_{\entails}$ one. This would need to be done for each of our eleven rules of inference. Completing this process also completes are proof that valid$_{\proves}$ implies valid$_{\entails}$. 
+
+
+\section{ Completeness}
+
+\begin{definition}
+    A proof system has the property of \Emph{completeness} if and only if there is a derivation of every semantically valid argument. This is in general very difficult to prove, and amounts to showing that the rules of inference we have defined for our proof system are sufficient.
+\end{definition}
+
+\begin{remark}
+    TFL is an example of a proof system which has both the property of soundness and the property of completeness.
+\end{remark}
+
+
