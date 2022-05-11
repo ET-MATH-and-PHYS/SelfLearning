@@ -24,6 +24,8 @@
 \newcommand{\alsoindex}[2]{\index{#1!zzzz@\protect\gobbleone|also{#2}}}
 \newcommand{\Alsoindex}[2]{\index{#1!zzzz@\protect\gobbleone|Also{#2}}}
 
+\usepackage{quiver}
+
 % see the list of further useful packages
 % in the Reference Guide
 
@@ -55,8 +57,50 @@
 
 
 \mainmatter%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\include{Part/part}
-\include{Part/chapter1}
+\include{Preliminaries/part}
+\include{Preliminaries/CatTheory}
+\include{Preliminaries/Sheaves}
+
+
+\include{Schemes/part}
+\include{Schemes/AffScheme}
+\include{Schemes/StructSheaf}
+\include{Schemes/SchemProp}
+
+\include{Morphisms/part}
+\include{Morphisms/MorphSchem}
+\include{Morphisms/ClassMorph}
+\include{Morphisms/ClosedEmbed}
+\include{Morphisms/FiberedProd}
+\include{Morphisms/Varieties}
+
+\include{GeomProps/part}
+\include{GeomProps/Dimension}
+\include{GeomProps/RegSmooth}
+
+
+\include{QuasicoSheave/part}
+\include{QuasicoSheave/QuasicoSheave}
+\include{QuasicoSheave/LineBundle}
+\include{QuasicoSheave/ProjectSchem}
+\include{QuasicoSheave/PushPullQuasiSchem}
+\include{QuasicoSheave/RelSpecProj}
+\include{QuasicoSheave/CechCohom}
+\include{QuasicoSheave/Curves}
+\include{QuasicoSheave/IntersectTheory}
+\include{QuasicoSheave/Differentials}
+\include{QuasicoSheave/BlowingUp}
+
+
+\include{Additional/part}
+\include{Additional/DerivedFunc}
+\include{Additional/Flatness}
+\include{Additional/SmoothEtal}
+\include{Additional/DepthCohen}
+\include{Additional/TwentyLine}
+\include{Additional/CohomBaseChange}
+\include{Additional/FormalFunc}
+\include{Additional/SerreDuality}
 
 
 \backmatter%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

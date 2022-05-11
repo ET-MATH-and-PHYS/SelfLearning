@@ -1,0 +1,721 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+\chapter{Basic Category Theory}
+\label{Cat} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+In this chapter we cover the basics of Category Theory necessary to discuss algebraic geometry.
+
+\section{Categories}
+
+Recall a \textbf{category} consists of a collection of \textbf{objects} and for each pair of objects a collection of \textbf{morphisms} or \textbf{arrows} between them. We denote the collection of objects in a category $\mathscr{C}$ by $\text{obj}(\mathscr{C})$, or simply $\mathscr{C}$. We denote the collection of arrows between $A,B \in \mathscr{C}$ by $\Hom(A,B)$, or simply $\mathscr{C}(A,B)$. We have composition of morphisms with equivalent domains and codomains which is associative and unital. We have a sensible notion of \textbf{isomorphism} between objects of a category, simply being arrows with inverses. If the domain and codomain of an isomorphism are the same we say that it is an \textbf{automorphism}. 
+
+\begin{example}
+    The prototypical example of a category is the category of all small sets, $\Set$, with objects small sets and arrows set-functions.
+\end{example}
+
+\begin{example}
+    Another common example is the category $\Vect$ of vector spaces over a given field $k$. Objects are $k$-vector spaces and morphisms are linear transformations.
+\end{example}
+
+A category in which each morphism is an isomorphism is referred to as a \textbf{groupoid}. Consequently, it is simple to see that a group is simply a groupoid of one object. A groupoid which is not a group contains more than one object, so the composition rule is a partial function on the collection of isomorphisms of the category. Generally for $A \in \mathscr{C}$ the subcollection of invertible elements of $\Hom(A,A)$ form a group, the automorphism group of $A$. 
+
+\begin{remark}
+    If $A,B \in \mathscr{C}$ are isomorphic objects, with $f:A\rightarrow B$ such an isomorphism, then $\aut(A)\cong \aut(B)$ with isomorphism mapping $\varphi\mapsto f\circ \varphi\circ f^{-1}$, with inverse $\psi\mapsto f^{-1}\circ \psi\circ f$.
+\end{remark}
+
+\begin{example}
+    If $X$ is a topological space, the fundamental groupoid is the category where the objects are points of $X$ and the morphisms $x\rightarrow y$ are paths from $x$ to $y$, up to homotopy. Then the automorphism group of $x_0$ is the pointed fundamental group $\pi_1(X,x_0)$. In the case where $X$ is connected and $\pi_1(X)$ is not abelian, this illustrates the fact that for a connected groupoind, the automorphism groups of the objects are all isomorphic but not canonically isomorphic.
+\end{example}
+
+\begin{example}
+    The abelian groups along with group homomorphisms form a category $\Ab$.
+\end{example}
+
+\begin{example}
+    If $R$ is a ring, then the (left) $R$-modules form a category $\Rmod$. Taking $R = k$ we obtain $\Vect$ and taking $R = \Z$ we obtain $\Ab$.
+\end{example}
+
+\begin{example}
+    There is a category of Rings, where the objects are rings and the morphisms are ring homomorphisms.
+\end{example}
+
+\begin{example}
+    The topological spaces with continuous maps form a category $\Topp$ with isomorphisms being homeomorphisms.
+\end{example}
+
+All of the examples thus far were categories where the objects are sets with additional structure; so-called \textbf{concrete categories}. This needn't hold in general.
+
+\begin{example}
+    A \textbf{partially ordered set} or \textbf{poset} is a set $S$ with a reflexive, transitive, and antisymmetric binary relation $\leq$. The partially ordered set $(S,\leq)$ can be interpreted as a category whose objects are the elements of $S$ with a single morphisms from $x$ to $y$ if and only if $x \leq y$.
+\end{example}
+
+\begin{example}
+    If $X$ is a set, then the subsets form a partially ordered set, where the order is given by inclusion. Informally, if $U \subseteq V$, then we have exactly one morphism $U\rightarrow V$ in the category, and otherwise none. Similarly, if $X$ is a topological space, then the open sets form a partially ordered set, where the order is again given by inclusion.
+\end{example}
+
+\begin{definition}
+    A \textbf{subcategory} $\mathscr{A}$ of a category $\mathscr{B}$ has as its objects some of the objects of $\mathscr{B}$ and some of the morphisms such that the morphisms of $\mathscr{A}$ include all identity morphisms for objects in $\mathscr{A}$, and are closed under operations of composition, tail, and head. 
+\end{definition}
+
+\subsection{Functors}
+
+A \textbf{covariant functor} $F$ from a category $\mathscr{A}$ to a category $\mathscr{B}$, denoted $F:\mathscr{A}\rightarrow \mathscr{B}$, consists of the following data: \begin{itemize}
+    \item We have a map of objects, $F:\text{Obj}\mathscr{A}\rightarrow \text{Obj}\mathscr{B}$
+    \item For each $A,A' \in \mathscr{A}$, a map of arrows $F:\mathscr{A}(A,A')\rightarrow \mathscr{B}(FA,FA')$ which satisfies \begin{align*}
+            F(g\circ f) &= Fg\circ Ff \\
+            F(\id_A) = \id_{FA}
+    \end{align*}
+        for all $f:A\rightarrow A', g:A'\rightarrow A''$ in $\mathscr{A}$. That is the map of arrows preserves composition and identity.
+\end{itemize}
+
+A trivial example is the identity functor $\id_{\mathscr{A}}:\mathscr{A}\rightarrow \mathscr{A}$. Here are some notable examples.
+
+\begin{example}
+    Consider the functor from $\Vect$ to $\Set$ associating to each vector space its underlying set and each linear transformation its underlying set-function. This is an example of a \textbf{forgetful functor}, where some additional structure is forgotten. We have similar functors such as $\Rmod\rightarrow \Ab$.
+\end{example}
+
+\begin{example}
+    The fundamental group functor $\pi_1$ is covariant, sending a topological space $X$ with a choice of a point $x_0 \in X$ to a group $\pi_1(X,x_0)$. This is not simply a functor from $\Topp$ but from $\Topp_*$, the collection of all vector spaces with a distinguished base point and pointed continuous maps as morphisms. The ith homomoly functor $\Topp\rightarrow \Ab$ sends a topological space $X$ to its ith homology group $H_i(X,\Z)$. The covariance corresponds to the fact that a continuous morphism of pointed topological spaces $\phi:X\rightarrow Y$ with $\phi(x_0) = y_0$ induces a map of fundamental groups $\pi_1(X,x_0)\rightarrow \pi_1(Y,y_0)$, and similarly for homology groups.
+\end{example}
+
+\begin{example}
+    Suppose $A \in \mathscr{A}$. Then there is a functor $H^A:\mathscr{C}\rightarrow \Set$ sending $B \in \mathscr{C}$ to $\Hom(A,B)$, and sending $f:B\rightarrow B'$ to $f_*:\Hom(A,B)\rightarrow \Hom(A,B')$ given by post-composition.
+\end{example}
+
+\begin{definition}
+    If $F:\mathscr{A}\rightarrow \mathscr{B}$ and $G:\mathscr{B}\rightarrow \mathscr{C}$ are covariant functors, then we define a functor $G\circ F:\mathscr{A}\rightarrow \mathscr{C}$ in the sensible way. Note this operation is associative with identities the identity functors.
+\end{definition}
+
+A covariant functor $F:\mathscr{A}\rightarrow \mathscr{B}$ is \textbf{faithful} if for all $A,A' \in \mathscr{A}$, the map $\mathscr{A}(A,A')\rightarrow \mathscr{B}(FA,FA')$ is injective, and \textbf{full} if it is surjective. A functor that is full and faithful is \textbf{fully faithful}. A subcategory $\iota:\mathscr{A}\hookrightarrow \mathscr{B}$ is a \textbf{full subcategory} if $\iota$ is full. As an example the forgetful functor $\Vect\rightarrow \Set$ is faithful but not full. If $R$ is a ring the category of finitely generated $R$-modules is a full subcategory of the category $\Rmod$.
+
+\begin{definition}
+    A \textbf{contravariant functor} is defined in the same way as a covariant functor, except the arrows switch direction. In other words, $F:\mathscr{A}\rightarrow \mathscr{B}$ satisfies for all $A,A' \in \mathscr{A}$ that the arrow map is $F:\mathscr{A}(A,A')\rightarrow \mathscr{B}(FA',FA)$, and for all $A\xrightarrow{f}A'\xrightarrow{g}A''$, $F(g\circ f) = Ff\circ Fg$.
+\end{definition}
+
+Contravariant functors are really covariant functors out of the \textbf{opposite category}, $\mathscr{A}^{op}$, which has the same objects as $\mathscr{A}$ but all arrows are reversed.
+
+\begin{example}
+    A well known example is the contravariant dual functor $(\cdot)^*:\Vect\rightarrow \Vect$, sending each vector space to its dual and each linear transformation $T:V\rightarrow W$ to its dual $f^*:W^*\rightarrow V^*$ given by pre-composition.
+\end{example}
+
+\begin{example}
+    There is a contravariant functor $\Topp\rightarrow \catname{Ring}$ taking a topological space $X$ to the ring of real-valued continuous functions on $X$. A morphism of topological spaces $X\rightarrow Y$ induces a pullback map from functions on $Y$ to functions on $X$ (pre-composition).
+\end{example}
+
+\begin{example}
+    If $A \in \mathscr{C}$, we have a contravariant functor $H_A:\mathscr{C}\rightarrow \Set$ sending $B \in \mathscr{C}$ to $\Hom(B,A)$, and sending $f:B\rightarrow B'$ to $f^*:\Hom(B',A)\rightarrow \Hom(B,A)$ given by pre-composition.
+\end{example}
+
+\subsection{Natural Transformations}
+
+Suppose $F,G:\mathscr{A}\rightarrow \mathscr{B}$ are functors. A \textbf{natural transformation} $\eta:F\Rightarrow G$ consists of the following data: for each $A \in \mathscr{A}$ a morphism $\eta_A:FA\rightarrow GA$ such that for any $f:A\rightarrow A'$ in $\mathscr{A}$ the following diagram commutes:
+\begin{center}
+\begin{tikzcd}
+	FA & {FA'} \\
+	GA & {GA'}
+	\arrow["Ff", from=1-1, to=1-2]
+	\arrow["Gf"', from=2-1, to=2-2]
+	\arrow["{\eta_A}"', from=1-1, to=2-1]
+	\arrow["{\eta_{A'}}", from=1-2, to=2-2]
+\end{tikzcd}
+\end{center}
+A \textbf{natural isomorphism} is a natural transformation in which each component map is an isomorphism. Analogous definitions hold for $F$ and $G$ both contravariant.
+
+The data of functors $F:\mathscr{A}\rightarrow \mathscr{B}$ and $F':\mathscr{B}\rightarrow\mathscr{A}$ such that $F\circ F'$ is naturally isomorphic to the identity functor $\id_{\mathscr{B}}$ on $\mathscr{B}$ and $F'\circ F$ is naturally isomorphic to $\id_{\mathscr{A}}$ is said to be an \textbf{equivalence of catogories}. 
+
+\begin{example}
+    Let $f.d.\Vect$ denote the category of finite-dimensional vector spaces over $k$. Then the double dual functor $(\cdot)^{**}:f.d.\Vect\rightarrow f.d.\Vect$ is naturally isomorphic to the identity functor on $f.d.\Vect$. Since in the case of finite dimensional vector spaces $V^{**}\cong V$, we can define a natural transformation $\eta:\id\Rightarrow (\cdot)^{**}$ such that for each $V \in f.d.\Vect$. $\eta_V:V\rightarrow V^{**}$ is defined by sending $v \in V$ to $\text{ev}_v$. This is a linear isomorphism so all we need show is naturality. Let $f:V\rightarrow W$. Then we need show $\eta_W\circ f$ is equal to $f^{**}\circ \eta_V$. Indeed, $f^{**}$ is given on $\varphi \in V^{**}$ by $f^{**}(\varphi)(\phi) = \varphi(\phi\circ f)$ for any $\phi \in W^{*}$. For $v \in V$ we have $\eta_W\circ f(v) = \text{ev}_{f(v)}$ and $f^{**}\circ\eta_V(v) = f^{**}(\text{ev}_v)$. Then for any $\phi \in W^*$, we have \begin{equation*}
+        f^{**}(\text{ev}_v)(\phi) = \text{ev}_v(\phi\circ f) = \phi(f(v)) = \text{ev}_{f(v)}(\phi)
+    \end{equation*}
+    In sum we find that $\eta_W\circ f = f^{**}\circ \eta_V$, so $\eta$ is indeed a natural isomorphism.
+\end{example}
+
+Ignoring set-theoretic issues, we can show that the category $\mathscr{V}$ of $k$-vector spaces $k^n$ for each $n \geq 0$ and morphisms linear transformations is equivalent to $f.d.\Vect$. In particular, if we take the inclusion functor $\iota:\mathscr{V}\rightarrow f.d.\Vect$ we can construct a suitable inverse like functor. For each $V,W \in f.d.\Vect$ we can choose bases $\beta_V,\beta_W$, which induces an isomorphism $[\cdot]^{\beta_W}_{\beta_V}:\mathscr{L}(V,W)\rightarrow \mathscr{L}(k^{\dim(V)},k^{\dim(W)})$. We then define a functor $\dim:f.d.\Vect\rightarrow \mathscr{V}$ by $\dim(V) = k^{\dim V}$ and with component arrow maps given by the isomorphisms $[\cdot]_{\beta_V}^{\beta_W}$. Then we define a natural isomorphism $\eta:\id_{\mathscr{V}}\Rightarrow \dim\circ \iota$ by defining $\eta_{k^n}:k^n\rightarrow k^n$ to be the appropriate change of basis for our choice in the previous part. Then $k^n\xrightarrow{A}k^m\xrightarrow{\eta_{k^m}}\dim(\iota(k^n))$ is equivalent to $k^n\xrightarrow{\eta_{k^n}}\dim(\iota(k^n))\xrightarrow{[A]_{\beta_{k^n}}^{\beta_{k^m}}}\dim(\iota(k^m))$ given the composition properties of basis changes. On the other hand we have a natural isomorphism $\varepsilon:\id_{f.d.\Vect}\rightarrow \iota\circ \dim$ such that $\varepsilon_V:V\rightarrow k^{\dim(V)}$ is the coordinate map $[\cdot]_{\beta_V}$.
+
+\section{Universal Properties}
+
+Universal properties are the ideal method of constructing objects in categories. They give us objects which satisfy some property that characterizes them uniquely up to unique isomorphism. Then as long as we can construct a single example of such an object to show existence we can obfiscate the technical construction moving forward, only caring about its property.
+
+A canonical example of this type of construction is the notion of a product, which as we shall see later is a type of limit. Explicitly, for $A,B \in \mathscr{C}$, a product object, if it exists, is a triple $(A\times B,\pi_1,\pi_2)$ with projections $\pi_1:A\times B\rightarrow A$ and $\pi_2:A\times B\rightarrow B$ which is universal in this property. That is for any other triple $(P,p_1,p_2)$, there exists a unique arrow from $P$ to $A\times B$ for which the following diagram commutes.
+
+\begin{center}
+    \begin{tikzcd}
+	P \\
+	& {A\times B} & B \\
+	& A
+	\arrow["{\pi_1}", from=2-2, to=3-2]
+	\arrow["{\pi_2}"', from=2-2, to=2-3]
+	\arrow["{p_2}", curve={height=-12pt}, from=1-1, to=2-3]
+	\arrow["{p_1}"', curve={height=12pt}, from=1-1, to=3-2]
+	\arrow["{\exists!}"{description}, dashed, from=1-1, to=2-2]
+\end{tikzcd}
+\end{center}
+
+We begine with some simple but useful examples of universal objects. An object of $\mathscr{C}$ is an \textbf{initial object} if it has precisely one map to every object. It is a \textbf{final object} if it has precisely one map from every object. It is a \textbf{zero object} if it is both an initial object and a final object. Note these notions are dual in the sense that an initial object in $\mathscr{C}$ is a final object in $\mathscr{C}^{op}$ and vice-versa. Naturally, these constructions are universal in their property, being unique up to unique isomorphisms.
+
+\begin{example}
+    The initial object in $\Set$ is the empty set, and the final object is any one-point set $\{*\}$. The initial object in $\catname{Ring}$ is $\Z$, and the final object the zero ring. In $\Topp$ the initial object is the empty set and the final object is any one point space.
+\end{example}
+
+\subsection{Localization of Rings and Modules}
+
+Localization of a ring is another important example of a definition by universal property. First for a constructive definition. Recall a \textbf{multiplicative subset} $S$ of a ring $A$ is a subset closed under multiplication containing $1$. We define a ring $S^{-1}A$. The elements of $S^{-1}A$ are of the form $a/s$ where $a \in A$ and $s \in S$, and where $a_1/s_1 = a_2/s_2$ if and only if there exists $u \in S$ such that $u(a_1s_1-a_2s_2) = 0$. We define $(a_1/s_1)+(a_2/s_2) = (a_1s_2+s_1a_2)/(s_1s_2)$ and $(a_1/s_1)(a_2/s_2) = (a_1a_2)/(s_1s_2)$. As in the case of the construction of $\Q$ these operations are independent of representative and hence well-defined with properties making $S^{-1}A$ into a ring. We have a canonical map $A\rightarrow S^{-1}A$ sending $a\mapsto a/1$. Note that if $0 \in S$, $S^{-1}A$ is the $0$-ring (all points are equivalent).
+
+We have two primary examples of multiplicative subsets. First, for $f \in A$, the set $\{1,f,f^2,...\}$ is multiplicative with localization denoted by $A_f$. The second is $A-\mathfrak{p}$ for $\mathfrak{p}$ a prime ideal. This localization is denoted by $A_{\mathfrak{p}}$. Note, if $\mathfrak{p}$ is a prime ideal then $A_{\mathfrak{p}}$ means you're allowed to divide by elements \textbf{not} in $\mathfrak{p}$. However, if $f \in A$, $A_f$ means you're allowed to divide by $f$, and this is the minimal case where this can be done. In particular, if $(f)$ is a prime ideal, $A_f \neq A_{(f)}$.
+
+The localization map need not be injective. Indeed we have the following result.
+
+\begin{claim}
+    The natural map $A\rightarrow S^{-1}A$ is injective if and only if $S$ contains no zerodivisors.
+\end{claim}
+\begin{proof}
+    To prove the claim first suppose that the map is injective. That is if $a/1 = 0/1$ if and only if $a = 0$. In particular, by construction of $S^{-1}$, we have that if $a \neq 0$, then $ua \neq 0$ for all $u \in S$. Hence $0 \notin S$, and no element of $S$ is a zero divisor.
+
+    Conversely, if $S$ has no zero divisors, then $ua = 0$ only if $a = 0$, for any $u \in S$. In particular, $A\rightarrow S^{-1}A$ is injective.
+\end{proof}
+
+If $A$ is an integral domain and $S = A-\{0\}$, then $S^{-1}A$ is called the \textbf{fraction field} of $A$, which we denote by $K(A)$. The previous exercise shows that $A$ is a subring of its fractional field $K(A)$. We now turn to the case of $A$ being a general commutative ring.
+
+\begin{theorem}[Universal Property of Localization]
+    Let $A$ be a general commutative ring with multiplicative set $S$. Then $S^{-1}A$ is initial among $A$-algebras $B$ where every element of $S$ is sent to an invertible element in $B$. (Recall: the data of an $A$-algebra $B$ and a ring map $A\rightarrow B$ are the same)
+\end{theorem}
+\begin{proof}
+    First let $B$ be an $A$-algebra. Let $\varphi:A\rightarrow B$ be the associated ring map. Define a map $f:S^{-1}A\rightarrow B$ by $f(a/s) = \varphi(a)\varphi(s)^{-1}$. Note if $a/s = a'/s'$, so we have $u \in S$ such that $u(as'-a's) = 0$, we have $\varphi(u)(\varphi(a)\varphi(s')-\varphi(a')\varphi(s)) = 0$. But $\varphi(u)$ is invertible so in particular it is not a zero-divisor, which means this equality can only hold if $\varphi(a)\varphi(s') = \varphi(a')\varphi(s)$. Then using the invertibility of $\varphi(S)$ and the fact $B$ is commutative we have $\varphi(a)\varphi(s)^{-1} = \varphi(a')\varphi(s')^{-1}$ so the map is well-defined. As $\varphi$ is a ring map so is $f$. In particular, $f(aa'/s) = \varphi(aa')\varphi(s)^{-1} = \varphi(a)\varphi(a')\varphi(s)^{-1}= a\cdot f(a'/s)$, so $f$ is an $A$-algebra homorphism. For uniqueness if we have any other $A$-algebra homomorphism, $g$, $g(a/1_A) = a\cdot g(1_{S^{-1}A}) = \varphi(a)$, and for any $s \in S$, $\varphi(s)g(1_A/s) = g(s/s) = g(1_{S^{-1}A}) = 1_B$, so by uniqueness of inverses $g(1_A/s) = \varphi(s)^{-1}$. Thus by multiplicativity of ring maps $g$ is given by $g(a/s) = \varphi(a)\varphi(s)^{-1} = f(a/s)$, so we have uniqueness and hence $S^{-1}A$ is initial.
+\end{proof}
+This result implies that an $S^{-1}A$-module is the same thing as an $A$-module for which $s\cdot -:M\rightarrow M$ is an $A$-module isomorphism for all $s \in S$.
+
+We now use this as inspiration to define localization of modules by a universal property. Suppose $M$ is an $A$-module. We define the $A$-module map $\phi:M\rightarrow S^{-1}M$ as being initial among $A$-module maps $M\rightarrow N$ such that elements of $S$ are invertible in $N$ ($s\cdot -:N\rightarrow N$ is an isomorphism for all $s \in S$). More precisely, any such map $\alpha:M\rightarrow N$ factors uniquely through $\phi$.
+
+\begin{center}
+\begin{tikzcd}
+	M & {S^{-1}M} \\
+	& N
+	\arrow["\alpha", from=1-1, to=2-2]
+	\arrow["\phi", from=1-1, to=1-2]
+	\arrow["{\exists!}", dashed, from=1-2, to=2-2]
+\end{tikzcd}
+\end{center}
+This is known as a \textbf{universal arrow} in the language of category theory. Precisely the category here is the 
+\begin{center}
+    \begin{tikzcd}
+	& {S^{-1}AMod} \\
+	1 & AMod
+	\arrow["Res_A", from=1-2, to=2-2]
+	\arrow["M"', from=2-1, to=2-2]
+\end{tikzcd}
+\end{center}
+with objects being pairs $(\mu,N)$ where $\mu:M\rightarrow Res_{A}(N)$, $N$ is an $S^{-1}A$-module, and $Res_A$ is the restriction of scalars functor induced by the canonical ring homomorphism $A\rightarrow S^{-1}A$.
+
+This determines $(\phi:M\rightarrow S^{-1}M,S^{-1}M)$ up to unique isomorphism, and essentially by definition the $A$-module structure on $S^{-1}M$ extends to an $S^{-1}A$-module structure. Explicitly we can construct $\phi:M\rightarrow S^{-1}M$ by defining $S^{-1}M$ to consist of elements $m/s$ for $s \in S$, with $m_1/s_1 = m_2/s_2$ if and only if $u(s_2m_1-s_1m_2) = 0$ for some $u \in S$, and addition and scalar multiplication defined similarly to $S^{-1}A$. Then $\phi$ is simply the map sending $m$ to $m/1$.
+
+\begin{claim}
+    Localization commutes with arbitrary direct sums. If $\{M_i:i \in I\}$ is a family of $A$-modules, then $S^{-1}\bigoplus_{i \in I}M_i \cong \bigoplus_{i \in I}S^{-1}M_i$.
+\end{claim}
+\begin{proof}
+    We show that $\bigoplus_{i \in I}S^{-1}M_i$ is also initial in the specified comma category. For each $i \in I$ we have a unique map $\varphi_i:M_i\xrightarrow{\phi_i} S^{-1}M_i\xrightarrow{\iota'_i} \bigoplus_{i\in I}S^{-1}M_i$ combining our two universal properties, where $(\phi_i,S^{-1}M_i)$ is initial in the appropriate comma category, and $\iota'_i:S^{-1}M_i\rightarrow \bigoplus_{i \in I}S^{-1}M_i$ is the canonical injection. This implies we have a unique map $$\Phi:\bigoplus_{i \in I}M_i\rightarrow \bigoplus_{i \in I}S^{-1}M_i$$
+    such that $\Phi\circ \iota_i = \varphi_i:M_i\rightarrow \bigoplus_{i\in I}S^{-1}M_i$ for each $i \in I$.
+
+    I claim this pair is initial in our comma category. Let $\mu:\bigoplus_{i\in I}M_i\rightarrow N$ be any pair in the comma category (note we drop $Res_A$ here). Then for each $i \in I$ we have $\mu\circ \iota_i:M_i\rightarrow N$. As $N$ is an $S^{-1}A$-module, by the universal property there exists a unique map $f_i:S^{-1}M_i\rightarrow N$ such that $\mu\circ \iota_i = f_i \circ \phi_i$. Then by the universal property of direct sums we have a unique map $f:\bigoplus_{i\in I}S^{-1}M_i\rightarrow N$ such that $f\circ \iota_i' = f_i$. It follows that $f\circ \Phi:\bigoplus_{i \in I}M_i\rightarrow N$ satisfies \begin{align*}
+        f\circ \Phi\circ \iota_j &= f\circ  \varphi_j \tag{as $\Phi\circ \iota_j = \varphi_j$} \\
+        &= f\circ \iota'_j\circ \phi_j \tag{as $\varphi_j := \iota'_j \circ \phi_j$} \\
+        &= f_j\circ \phi_j \\
+        &= \mu\circ \iota_j
+    \end{align*}
+    Then by uniqueness of the map from $\bigoplus_{i \in I}M_i\rightarrow N$ making our triangles commute, we must have that $\mu = f\circ \Phi$. Thus, as $f$ had to be unique by the universal property of the direct sum $\bigoplus_{i \in I}S^{-1}M_i$, we have that $\left(\Phi,\bigoplus_{i \in I}S^{-1}M_i\right)$ is indeed initial in the comma category 
+    \begin{center}
+    \begin{tikzcd}
+	& {S^{-1}AMod} \\
+	1 & AMod
+	\arrow["Res_A", from=1-2, to=2-2]
+        \arrow["\bigoplus_{i\in I}M_i"', from=2-1, to=2-2]
+\end{tikzcd}
+\end{center}
+    Hence, it is uniquely isomorphic to the pair $\left(\Psi,S^{-1}\bigoplus_{i \in I}M_i\right)$ for $\Psi:\bigoplus_{i \in I}M_i\rightarrow S^{-1}\bigoplus_{i \in I}M_i$.
+\end{proof}
+
+This result, however, does not hold for infinite products. Consider $\Z^{\omega}$ as a $\Z$-module and $S = \Z-\{0\}$. Then the map induced by the universal property of localization, $S^{-1}\Z^{\omega}\rightarrow (S^{-1}\Z)^{\omega}$ is not an isomorphism. Indeed, note $S^{-1}\Z = \Q$, so this is a $\Q$-algebra homomorphism $S^{-1}\Z^{\omega}\rightarrow \Q^{\omega}$ sending $(a_1,...,a_n,...)/s \mapsto (a_1/s,...,a_n/s,...)$. Consider the element $(1,1/2,1/3,...)$ in $\Q^{\omega}$. Then at some point we have $1/(s+1)$ in the sequence. However, for all $a \in \Z$, $a/s > 1/(s+1)$, and so cannot be equal to it. Thus the map cannot be surjective, and hence can't be an isomorphism.
+
+\begin{remark}
+    We will see later that localization also does not always commute with $\Hom$, but in situations where the first argument is finitely presented we do get commutivity.
+\end{remark}
+
+\subsection{Tensor Products}
+
+Another notable example of a universal property construction is the notion of a \textbf{tensor product} of $A$-modules \begin{align*}
+    \otimes_A:\text{obj}(\catname{Mod}_A)\times \text{obj}(\catname{Mod}_A)&\rightarrow \text{obj}(\catname{Mod}_A) \\
+    (M,N)&\mapsto M\otimes_AN
+\end{align*}
+If $M,N$ are $A$-modules, then $M\otimes_AN$ is the free $A$-module generated by $M\times N$ which is quotiented by the sumbodule generated by elements of the from $$(m_1+m_2,n)-(m_1,n)-(m_2,n),(m,n_1+n_2)-(m,n_1)-(m,n_2),a(m,n)-(am,n),a(m,n)-(m,an)$$
+The image of $(m,n)$ in this quotient is denoted by $m\otimes n$. If $A$ is a field $k$, this is the tensor product of vector spaces.
+
+\begin{theorem}
+    For any $A$ module $N$, the covariant function $-\otimes_AN:\catname{Mod}_A\rightarrow \catname{Mod}_A$ is \textbf{right-exact}.
+\end{theorem}
+\begin{proof}
+    To begin, let $$M'\xrightarrow{f} M\xrightarrow{g} M''\rightarrow 0$$ be an exact sequence of $A$-modules. Then we have the induced sequence $$M'\otimes_AN\xrightarrow{f\otimes_A\id_N}M\otimes_AN\xrightarrow{g\otimes_A\id_N}M''\otimes_AN\rightarrow 0$$
+    First note that for any $m''\otimes n \in M''\otimes_AN$, by exactness of our original sequence there exists $m \in M$ such that $g(m) = m''$ so $g\otimes_A \id_N(m\otimes n) = m''\otimes n$. Thus $\ran g$ contains a generating set for $M''\otimes_AN$, implying that $\ran g = M''\otimes_AN$.
+
+    Next, we observe that $g\otimes_A\id_N\circ f\otimes_A\id_N = g\circ f\otimes_A\id_N = 0\otimes_A\id_N = 0:M'\otimes_AN\rightarrow M''\otimes_AN$ as $\ker g = \ran f$. This implies that $\ran f\otimes_A\id_N \subseteq \ker g\otimes_A\id_N$. 
+
+    To prove the reverse inclusion consider the canonical quotient map $\pi:(M\otimes_AN)/\ran f\circ\id_N\rightarrow M''\otimes_AN$ which exists since $\ran f\circ \id_A \subseteq \ker g\otimes_A\id_N$. We aim to show this map is injective by construction of an inverse. Note that for each $m'' \in M''$, $g^{-1}(m'') \neq \emptyset$. Let $m_1,m_2 \in g^{-1}(m'')$. Then $m_1-m_2 \in \ker g = \ran f$, so there exists $m' \in M'$ such that $m_1 = f(m') + m_2$. Define $\varphi:M''\otimes_AN\rightarrow (M\otimes_A N)/\ran f\circ \id_N$ by sending $m''\otimes n$ to $[m\otimes n]$ for $m \in g^{-1}(m'')$. By our previous remark this is independent of the choice of representative in $g^{-1}$. Now we need only show it is independent of the choice of representative for $m''\otimes n$. We can show this by showing that elements of the generating set of our quotient submodule are sent to zero. Indeed, if $\rho$ is one of the generating elements of our quotient submodule, then $\rho = (m_1''+m_2'',n) - (m_1'',n)-(m_2'',n), (m'',n_1+n_2)-(m'',n_1)-(m'',n_2),(am'',n)-a(m'',n),(m'',an)-a(m'',n)$. In any case, $\rho$ is again sent to an element of this form with $m_1'',m_2'',$ and $m''$ being replaced by some $m_1,m_2,m$ in $M$. Thus the map is indeed well-defined, and by construction an inverse to $\pi$. Hence, $\pi$ is an isomorphism so we must have that $\ran f\circ \id_N = \ker g\circ \id_N$. In conclusion $-\otimes_AN$ is indeed a right-exact functor for any $N$.
+\end{proof}
+
+In contrast, the tensor product is not left-exact: a counter-example is given by tensoring the exact sequence of $\Z$-modules \begin{equation*}
+    0\rightarrow \Z\xrightarrow{\times 2}\Z\rightarrow \Z/2\Z\rightarrow 0
+\end{equation*}
+by $\Z/2\Z$.
+
+We now move away from this awkward construction to our universal property.
+
+\begin{theorem}
+    If $M,N,P$ are $A$-modules, then for any $A$-bilinear mapping $M\times N\rightarrow P$, there exists a unique linear map $M\otimes_AN\rightarrow P$ which it factors through.
+\end{theorem}
+\begin{proof}
+    Let $p:M\times N\rightarrow M\otimes_AN$ be the canonical projection, noting that $p$ is bilinear by construction of the quotient. Now, if $f:M\times N\rightarrow P$ is bilinear, define $\overline{f}:M\otimes_AN\rightarrow P$ by $\overline{f}\left(\sum_im_i\otimes n_i\right) = \sum_if(m_i,n_i)$. Note that any bilinear mapping sends the submodule generating the quotient $M\otimes_AN$ to zero, so $\overline{f}$ is well-defined. Additionally, by construction $\overline{f}$ is linear and $\overline{f}\circ p = f$. Finally, if $g$ is any other linear mapping satisfying this property, $\overline{f} \circ p = g \circ p$, so as they will be equal on a generating set of $M\otimes_AN$, they must in fact be equivalent $A$-linear maps.
+\end{proof}
+
+We can of course take this as the definition of the tensor product. That is a tensor of $M$ and $N$ is an $A$-module $T$ equipped with an $A$-bilinear map $t:M\times N\rightarrow T$ such that for any $A$-bilinear map $t':M\times N\rightarrow T'$, there is a unique $A$-linear map $f:T\rightarrow T'$ such that $t' = f\circ t$. 
+\begin{center}
+    \begin{tikzcd}
+	{M\times N} && T \\
+	& {T'}
+	\arrow["{t'}"', Rightarrow, from=1-1, to=2-2]
+	\arrow["{\exists!}", dashed, from=1-3, to=2-2]
+	\arrow["t", Rightarrow, from=1-1, to=1-3]
+\end{tikzcd}
+\end{center}
+Here we use double arrows to simply represent bilinear maps. We can also formulate this in terms of initial objects. In particular, $(t,T)$ is an initial object in the comma category:
+
+\begin{tikzcd}
+    & \catname{Mod}_A \\
+    {\mathbb{1}} & \Set
+	\arrow["{Bilin(M,N;-)}", from=1-2, to=2-2]
+    \arrow["\{*\}"', from=2-1, to=2-2]
+\end{tikzcd}
+That is to say for any pair $(f,L)$, so $f \in Bilin(M,N;L)$, there exists a unique map $T \in \Hom(M\otimes_AN,L)$ such that $Bilin(M,N;T)\circ \otimes = f$, where $\otimes:M\times N\rightarrow M\otimes_AN$ is the canonical bilinear mapping. Consequently $(M\otimes_AN,\otimes)$ is unique up to unique isomorphism.
+
+
+\subsection{Fibered Products}
+
+Suppose we have morphisms $\alpha:X\rightarrow Z$ and $\beta:Y\rightarrow Z$ in some category $\mathscr{C}$. Then the \textbf{fibered product} is an object $X\times_ZY$ along with morphisms $\text{pr}_X:X\times_ZY\rightarrow X$ and $\text{pr}_Y:X\times_ZY\rightarrow Y$, where the two compositions $\alpha\circ \text{pr}_X,\beta \circ \text{pr}_Y:X\times_ZY\rightarrow Z$ agree, such that given any object $W$ with maps to $X$ and $Y$ whose compositions to $Z$ agree, these maps factor through some unique $W\rightarrow X\times_ZY$. This is also known as a pullback along $\alpha$ and $\beta$, and can be illustrated as follows.
+
+\begin{center}
+    \begin{tikzcd}
+	W \\
+	& {X\times_ZY} & Y \\
+	& X & Z
+	\arrow["\alpha"', from=3-2, to=3-3]
+	\arrow["\beta", from=2-3, to=3-3]
+	\arrow["{\text{pr}_Y}", from=2-2, to=2-3]
+	\arrow["{\text{pr}_X}"', from=2-2, to=3-2]
+	\arrow["{p_X}"', curve={height=12pt}, from=1-1, to=3-2]
+	\arrow["{p_Y}"', curve={height=-18pt}, from=1-1, to=2-3]
+	\arrow["{\exists!}"{description}, dashed, from=1-1, to=2-2]
+\end{tikzcd}
+\end{center}
+
+By the usual universal property argument, if it exists, it is unique up to unique isomorphism. Additionally, we know what maps to it are: they are precisely maps to $X$ and maps to $Y$ that agree as maps to $Z$.
+
+\begin{example}
+    In $\Set$, the fibered product for $\alpha:X\rightarrow Z$ and $\beta:Y\rightarrow Z$ is $$X\times_ZY = \{(x,y) \in X\times Y: \alpha(x) = \beta(y)\}$$
+    Indeed, to show this is true, we consider the right side with its corresponding restricted projections onto $X$ and $Y$. Let $B$ be any set with associated projection $p_X$ and $p_Y$ that agree as maps to $Z$. By the universal property of the product we have a unique map $p_X\times p_Y:B\rightarrow X\times Y$, such that $p_X = \pi_X\circ p_X\times p_Y$ and $p_Y = \pi_Y\circ p_X\times p_Y$. I claim $p_X\times p_Y(B) \subseteq$ the right hand side of our proposed fibered product. Indeed, if $(x,y) \in p_X\times p_Y(B)$ for some $b \in B$, we have that $\alpha(p_X(b)) = \alpha(x)$ and $\beta(p_Y(b)) = \beta(y)$ are equivalent. In other words $(x,y) \in X\times_ZY$, so restricting the codomain $p_X\times p_Y:B\rightarrow X\times_ZY$, so by uniqueness of the map $X\times_ZY$ satisfies the universal property of the fibered product.
+\end{example}
+
+This example motivates the interpretation of a fibered product as a sub-object of the product satisfying a particular equation, or in other words the solution to some map equation or diagram.
+
+\begin{example}
+    If $X$ is a topological space and we consider the category $\mathscr{O}(X)$ of open sets, and $U, V, W \in \mathscr{O}(X)$, with maps $\iota_{U,W}:U\rightarrow W,\iota_{V,W}:V\rightarrow W$, the fibered product is simply the intersection $U\cap V$, since all maps are unique and exist based on inclusions.
+\end{example}
+
+\begin{example}
+    If $Z$ is the final object in a category $\mathscr{C}$, and $X,Y \in \mathscr{C}$, then $X\times_ZY$ and $X\times Y$ are equivalent. Indeed, consider $X\times Y$ with its projections $\pi_X,\pi_Y$. Then there exist unique maps from $X$ and $Y$ to $Z$, $f_X$ and $f_Y$, and a unique map $f_{X\times Y}$. Additionally, by uniqueness, $f_{X\times Y} = f_X\circ \pi_X = f_Y\circ \pi_Y$, so the projections make the square commute. Suppose $(B,p_X,p_Y)$ is a candidate fibered product. Then by the universal property of products there exists a unique map $g:B\rightarrow X\times Y$ such taht $\pi_X\circ g = p_X$ and $\pi_Y\circ g = p_Y$. Thus as it satisfies the universal property, $X\times Y$ is the fibered product of $X$ and $Y$ along $Z$ in $\mathscr{C}$ with respect to the unique maps from $X$ and $Y$ to $Z$.
+\end{example}
+
+\begin{definition}
+    We define the \textbf{coproduct} in a category by reversing all the arrows in the definition of a product:
+    \begin{center}
+        \begin{tikzcd}
+	& Z \\
+	X & {X\times_{co}Y} & Y
+	\arrow["{i_X}"', from=2-1, to=2-2]
+	\arrow["{i_Y}", from=2-3, to=2-2]
+	\arrow[from=2-1, to=1-2]
+	\arrow[from=2-3, to=1-2]
+	\arrow["{\exists!}"{description}, dashed, from=2-2, to=1-2]
+\end{tikzcd}
+    \end{center}
+    Similarly, the \textbf{fibered coproduct} in a category is defined by reversing all the arrows in the definition of a fibered product:
+    \begin{center}
+        \begin{tikzcd}
+	Z & Y \\
+	X & {X\times_Z^{co}Y} \\
+	&& M
+	\arrow["{f_X}"', from=1-1, to=2-1]
+	\arrow["{f_Y}", from=1-1, to=1-2]
+	\arrow["{\iota_X}"', from=2-1, to=2-2]
+	\arrow["{\iota_Y}", from=1-2, to=2-2]
+	\arrow[curve={height=12pt}, from=2-1, to=3-3]
+	\arrow[curve={height=-12pt}, from=1-2, to=3-3]
+	\arrow["{\exists!}"{description}, dashed, from=2-2, to=3-3]
+\end{tikzcd}
+    \end{center}
+\end{definition}
+
+\begin{example}
+    The coproduct for $\Set$ is the disjoint union. Let $X,Y$ be sets with disjoint union $X\amalg Y$. Then we have natural injections $i_X:X\rightarrow X\amalg Y$ and $i_Y:Y\rightarrow X\amalg Y$, sending $x$ to $x$ and $y$ to $y$. We claim the triple $(X\amalg Y,i_X,i_Y)$ is the coproduct. Indeed, if $(N,f_X,f_Y)$ is another candidate triple, with $f_X:X\rightarrow N$ and $f_Y:Y\rightarrow N$, we define $F:X\amalg Y\rightarrow N$ by $F(x) = F\circ i_X(x) = f_X(x)$ and $F(y) = F\circ i_Y(y) = f_Y(y)$. As this determines the action of $F$ on all of $X\amalg Y$ and by definition satisfies commutivity we have existence. Now for uniqueness, if $g:X\amalg Y\rightarrow N$ making the diagram commute was another such map, then for all $x \in X$, $g(x) = g\circ i_X(x) = f_X(x) = F(x)$ and for all $y \in Y$, $g(y) = g\circ i_Y(y) = f_Y(y) = F(y)$. Thus $F = G$ so the map is unique.
+\end{example}
+
+\begin{example}
+    If $A,B,C$ are rings with ring morphisms $A\rightarrow B$ and $A\rightarrow C$, then the corresponding fibered coproduct is $B\otimes_AC$. Recall $B\otimes_AC$ has a ring structure. Then we define maps $\iota_B:B\rightarrow B\otimes_AC$ and $\iota_C:C\rightarrow B\otimes_AC$ by $b\mapsto b\otimes 1_C$ and $c\mapsto 1_B\otimes c$. Observe $bb'+b'' \mapsto (bb'+b'')\otimes 1_C = bb'\otimes 1_C+b''\otimes 1_C = (b\otimes 1_C)(b'\otimes 1_C) + b''\otimes 1_C$, and similarly for the map $C\rightarrow B\otimes_AC$. Thus both are morphisms of rings, and by definition of $B\otimes_AC$ we have $a\mapsto a\cdot 1_B\mapsto (a\cdot 1_B)\otimes 1_C = a\cdot(1_B\otimes 1_C) = 1_B\otimes a\cdot 1_C$, so we having that $B\otimes_AC$ with these canonical maps gives a candidate for the fibered coproduct. Suppose $(M,i_B,i_C)$ is another such candidate. Then $F := i_B\circ f = i_C\circ g:A\rightarrow M$ gives $M$ an $A$ module structure with $a\cdot m = F(a)m$. We define a map $B\times C$ to $M$ by $(b,c)\mapsto i_B(b)i_C(c)$. Observe that $$(f(a)b+b',c) \mapsto i_B(f(a)b+b')i_C(c) = (i_B(f(a))i_B(b)+i_B(b'))i_C(c) = F(a)i_B(b)i_C(c) + i_B(b')i_C(c)$$
+    and identically for the second component. Hence the map is $A$-bilinear, and so by the universal property of the tensor product we have a unique map $B\otimes_AC\rightarrow M$ acting on generators by $b\otimes c \mapsto i_B(b)i_C(c)$. By construction we have $b\mapsto b\otimes 1_C \mapsto i_B(b)i_C(1_C) = i_B(b)$, and similarly for $c$, so it makes our diagram commute. 
+
+    Finally, we need only show uniqueness of this map. Suppose $G:B\otimes_AC\rightarrow M$ is another such ring map making our diagram commute; that is $G\circ \iota_B = i_B$ and $G\circ \iota_C = i_C$. Then $$G(b\otimes c) = G(b\otimes 1_C)G(1_B\otimes c) = G(\iota_B(b))G(\iota_C(c)) = i_B(b)i_C(c)$$
+    Thus, as they act identically on simple tensors $G$ is equal to our previously defined map, and we have uniqueness. 
+\end{example}
+
+\subsection{Monomorphisms and Epimorphisms}
+
+\begin{definition}
+    A morphism $\pi:X\rightarrow Y$ is a \textbf{monomorphism} if any two morphisms $\mu_1:Z\rightarrow X$ and $\mu_2:Z\rightarrow X$ such that $\pi\circ \mu_1 = \pi\circ \mu_2$ must satisfy $\mu_1 = \mu_2$. In other words, there is at most one way of filling in the dotted arrow so that the diagram
+    \begin{center}
+        \begin{tikzcd}
+	Z \\
+	X & Y
+	\arrow["\pi"', from=2-1, to=2-2]
+	\arrow["\leq1"', dotted, from=1-1, to=2-1]
+	\arrow[from=1-1, to=2-2]
+\end{tikzcd}
+    \end{center}
+    commutes --- for any object $Z$, the natural map $\Hom(Z,X)\rightarrow \Hom(Z,Y)$ is an injection.
+\end{definition}
+
+\begin{proposition}
+    The morphism $\pi:X\rightarrow Y$ is a monomorphism if and only if the fibered product $X\times_YX$ exists, and the induced morphism $X\rightarrow X\times_YX$ is an isomorphism.
+\end{proposition}
+\begin{proof}
+    If $\pi$ is a monomorphism, we first consider $(X,\id_X,\id_X)$ as a candidate fibered product. Indeed, if $(M,p_1,p_2)$ is a candidate fibered product so $\pi\circ p_1 = \pi\circ p_2$, then $p := p_1=p_2$ is the unique map from $M$ to $X$ for which $p\circ \id_X = p$. Thus we have existence of the fibered product. Additionally, for any other fibered product $X\times_YX$ we have that the unique induced map $X\rightarrow X\times_YX$ is an isomorphism.
+
+    On the other hand, if the induced map $X\rightarrow X\times_YX$ is an isomorphism, we have that $p_X:X\times_YX\rightarrow X$ is its inverse, and hence also an isomorphism. Thus $(X,\id_X,\id_X)$ is the fibered product for $\pi:X\rightarrow Y$, which by inverting our previous argument yields that $\pi$ is a monomorphism.
+\end{proof}
+
+The notion of an \textbf{epimorphism} is dual to the definition of monomorphism, where all the arrows are reversed.
+
+\subsection{Representable Functors and Yoneda's Lemma}
+
+Much of our discussion about universal properties can be neatly expressed in terms of representable functors, under the rubric of \textbf{Yoneda's Lemma}. Informally speaking, Yoneda's lemma says that you can essentially recover an object in a category by knowing the maps into (dually out of) it. For example, we have seen that the data of maps to $X\times Y$ are naturally (canonically) the data of maps to $X$ and to $Y$.
+
+Recall the functors $H_A:\mathscr{C}^{op}\rightarrow \Set$ and $H^A:\mathscr{C}\rightarrow \Set$ for $A \in \mathscr{C}$. Yoneda's Lemma states that the functor $H_A$ determines $A$ up to unique isomorphism.
+
+\begin{theorem}[Yoneda's Lemma]
+    Let $\mathscr{C}$ be a locally small category with $A \in \mathscr{C}$. Then $[\mathscr{C}^{op},\Set](H_A,X)\cong X(A)$ naturally in $X$ and $A$.
+\end{theorem}
+Naturally in $X$ and $A$ means the functors $\mathscr{C}^{op}\times[\mathscr{C}^{op},\Set]\rightarrow \Set$ given by $(A,X)\mapsto [\mathscr{C}^{op},\Set](H_A,X)$ and $(A,X)\mapsto X(A)$ are naturally isomorphic. In our proof we shall use the well known fact that we can show naturality in each component individually, while the other is fixed.
+\begin{proof}[Yoneda's Lemma]
+    We begin by defining for each $A$ and $X$ a bijection between our sets, and then showing the bijection is natural. To begin let $\hat{(\;)}:[\mathscr{C}^{op},\Set](H_A,X)\rightarrow X(A)$ be defined by $\hat{\eta} = \eta_A(\id_A) \in X(A)$. Then, we construct an inverse for $\hat{(\;)}$ to show it is bijective. We define $\tilde{(\;)}:X(A)\rightarrow [\mathscr{C}^{op},\Set](H_A,X)$ by stating that for each $x \in X(A)$, the natural transformation $\tilde{x}$ is given for each $B \in \mathscr{C}$ by $\tilde{x}_B:\Hom(B,A)\rightarrow X(B)$, which sends $(f:B\rightarrow A)\mapsto X(f)(x)$. 
+
+    We now show that $\tilde{x}$ is indeed a natural transformation. Let $B,C \in \mathscr{C}$ with $f:C\rightarrow B$. Then we need to show the diagram
+    \begin{center}
+        \begin{tikzcd}
+	{H_A(B)} & {H_A(C)} \\
+	{X(B)} & {X(C)}
+	\arrow["{H_A(f)}", from=1-1, to=1-2]
+	\arrow["{\tilde{x}_C}", from=1-2, to=2-2]
+	\arrow["{\tilde{x}_B}"', from=1-1, to=2-1]
+	\arrow["{X(f)}"', from=2-1, to=2-2]
+\end{tikzcd}
+    \end{center}
+    commutes. So we show the maps $\tilde{x}_C\circ H_A(f)$ and $X(f)\circ \tilde{x}_B$ are equivalent. Let $g:B\rightarrow A$ by in $H_A(B)$. Then \begin{equation*}
+        \tilde{x}_C\circ H_A(f)(g) = \tilde{x}_C(g\circ f) = X(g\circ f)(x)
+    \end{equation*}
+    while \begin{equation*}
+        X(f)\circ \tilde{x}_B(g) = X(f)(X(g)(x)) = X(g\circ f)(x)
+    \end{equation*}
+    since $X$ is a contravariant functor. Hence $\tilde{x}$ is indeed a natural transformation. Now we show they are bijective. Indeed, if $x \in X$, then $\hat{\tilde{x}} = \tilde{x}_A(\id_A) = X(\id_A)(x) = \id_{X(A)}(x) = x$, and for any $B \in \mathscr{C}$ and $g:B\rightarrow A$, \begin{equation*}
+        \tilde{\hat{\eta}}_B(g) = \tilde{\eta_A(\id_A)}_B(g) = X(g)(\eta_A(\id_A))
+    \end{equation*}
+    By naturality of $\eta$ we have $$X(g)(\eta_A(\id_A)) = \eta_B(H_A(g))(\id_A) = \eta_B(\id_A\circ g) = \eta_B(g)$$
+    THus $\tilde{\hat{\eta}} = \eta$, and so $\tilde{(\;)}$ and $\hat{(\;)}$ are inverse.
+
+    Finally we show naturality of $\tilde{(\;)}$ and $\hat{(\;)}$ in $A$ and $X$. It is sufficient to show naturality of one since their component maps are inverse. First fix $X$ and consider $f:A'\rightarrow A$. We require the commutivity of the diagram
+    \begin{center}
+        \begin{tikzcd}
+	{[\mathscr{C}^{op},\Set](H_A,X)} & {[\mathscr{C}^{op},\Set](H_{A'},X)} \\
+	{X(A)} & {X(A')}
+	\arrow["{X(f)}"', from=2-1, to=2-2]
+	\arrow["{-\circ H_f}", from=1-1, to=1-2]
+	\arrow["{\hat{(\;)}}", from=1-2, to=2-2]
+	\arrow["{\hat{(\;)}}"', from=1-1, to=2-1]
+\end{tikzcd}
+    \end{center}
+    where $H_f:H_{A'}\Rightarrow H_{A}$ is defined by $H_f(B):H_{A'}(B)\rightarrow H_{A}(B)$ by post composition, $H_f = f\circ -$. Then for any $\eta \in [\mathscr{C}^{op},\Set](H_A,X)$, \begin{equation*}
+        \widehat{-\circ H_f(\eta)} = \widehat{\eta\circ H_f} = \eta_{A'}\circ H_f(A')(\id_{A'}) = \eta_{A'}(f)
+    \end{equation*}
+    and \begin{equation*}
+        X(f)(\hat{\eta}) = X(f)(\eta_A(\id_A)) = \eta_{A'}(H_A(f)(\id_A)) = \eta_{A'}(f)
+    \end{equation*}
+    by the naturality of $\eta$. Thus the isomorphism is natural in $A$. Next, fix $A$ and consider $\mu:X\Rightarrow X'$ contravariant functors. We need to show the commutivity of the diagram
+    \begin{center}
+        \begin{tikzcd}
+	{[\mathscr{C}^{op},\Set](H_A,X)} & {[\mathscr{C}^{op},\Set](H_{A},X')} \\
+	{X(A)} & {X'(A)}
+	\arrow["{\mu_A}"', from=2-1, to=2-2]
+	\arrow["{\mu\circ -}", from=1-1, to=1-2]
+	\arrow["{\hat{(\;)}}", from=1-2, to=2-2]
+	\arrow["{\hat{(\;)}}"', from=1-1, to=2-1]
+\end{tikzcd}
+    \end{center}
+    To show commutivity as usual let $\eta:H_A\Rightarrow X$. Then \begin{equation*}
+        \widehat{\mu\circ-(\eta)} = \widehat{\mu\circ \eta} = \mu_A\circ \eta_A(\id_A)
+    \end{equation*}
+    and \begin{equation*}
+        \mu_A(\hat{\eta}) = \mu_A(\eta_A(\id_A)) = \mu_A\circ\eta_A(\id_A)
+    \end{equation*}
+    Thus again we have commutivity, and hence naturality in $X$.
+
+    Therefore $\hat{(\;)}$ is a natural isomorphism with inverse $\tilde{(\;)}$.
+\end{proof}
+
+There is an analogous statement with all arrows reversed, where instead of maps into $A$ we consider maps from $A$.
+
+\begin{definition}
+    A contravariant functor $F:\mathscr{C}^{op}\rightarrow \Set$ is said to be \textbf{representable} if there is a natural isomorphism $\xi:F\xrightarrow{\sim}H_A$ for some $A \in \mathscr{C}$. $A$ is determined up to isomorphism by $(F,\xi)$. A similar definition holds for covariant functors.
+\end{definition}
+
+Yoneda's lemma also tells us that the functor $H_{-}$ sending $A$ to $H_A$ is a fully faithful functor, called the \textbf{Yoneda embedding}.
+
+\section{Limits and Colimits}
+
+Limits and colimits are important definitions determined by universal properties which generalize a number of the constructions we have seen thus far. 
+
+\subsection{Limits}
+
+We say that a category is a \textbf{small cateogry} if the objects and the morphisms are sets. Suppose $\mathscr{D}$ is a small category, and $\mathscr{C}$ is any other category. Then a functor $F:\mathscr{D}\rightarrow \mathscr{C}$ is said to be a \textbf{diagram indexed by $\mathscr{D}$}. We call $\mathscr{D}$ an \textbf{index category}. Our index categories will usually be partially ordered sets, in which there is at most one morphism between any two objects. For example if $\square$ is the category 
+\begin{center}
+    \begin{tikzcd}
+	\bullet & \bullet \\
+	\bullet & \bullet
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=2-1, to=2-2]
+	\arrow[from=1-2, to=2-2]
+\end{tikzcd}
+\end{center}
+and $\mathscr{A}$ is a category, then a functor $\square\rightarrow \mathscr{A}$ is precisely the data of a commuting square in $\mathscr{A}$.
+
+Then the \textbf{limit of the diagram} is an object $\lim\limits_{\overleftarrow{\mathscr{D}}}A_i$ of $\mathscr{C}$ along with morphisms $f_j:\lim\limits_{\overleftarrow{\mathscr{D}}}A_i\rightarrow A_j$ for each $j \in \mathscr{D}$, such that if $m:j\rightarrow k$ is a morphism in $\mathscr{D}$, then 
+\begin{center}
+    \begin{tikzcd}
+	{\lim\limits_{\overleftarrow{\mathscr{D}}}A_i} \\
+	{A_j} & {A_k}
+        \arrow["F(m)"', from=2-1, to=2-2]
+	\arrow["{f_j}"', from=1-1, to=2-1]
+	\arrow["{f_k}", from=1-1, to=2-2]
+\end{tikzcd}
+\end{center}
+commutes, and this object and maps to each $A_i$ are universal (final) with respect to this property. More precisely, given any other object $W$ along with maps $g_i:W\rightarrow A_i$ commuting with the $F(m)$, then there is a unique map $$g:W\rightarrow \lim\limits_{\overleftarrow{\mathscr{D}}}A_i$$
+so that $g_i = f_i\circ g$ for all $i$. In some cases this is called the \textbf{inverse limit} or \textbf{projective limit}. By the usual universal property argument, if the limit exists, it is unique up to unique isomorphism.
+
+\begin{example}
+    For example, if $\mathscr{D}$ is the partially ordered set 
+    \begin{center}
+        \begin{tikzcd}
+	& \bullet \\
+	\bullet & \bullet
+	\arrow[from=2-1, to=2-2]
+	\arrow[from=1-2, to=2-2]
+\end{tikzcd}
+    \end{center}
+    we obtain the fibered product. If $\mathscr{D}$ is \begin{center}
+        \begin{tikzcd}
+	\bullet & \bullet
+\end{tikzcd}
+    \end{center}
+    we obtain the product. 
+    
+    If $\mathscr{D}$ is a set (i.e., the only morphisms are the identity maps), then the limit is called the \textbf{product} of the $A_i$, and is denoted $\prod_{i \in \mathscr{D}}A_i$. 
+\end{example}
+
+\begin{example}
+    For a prime number $p$, the \textbf{$p$-adic integers}, $\Z_p$, are often described informally as being of the form $\Z_p = a_0+a_1p+a_2p^2+\cdots$, where $0 \leq a_i < p$. They are an example of a limit in the category of rings:
+    \begin{center}
+        \begin{tikzcd}
+	{\Z_p} \\
+	\cdots & {\Z/p^3\Z} & {\Z/p^2\Z} & {\Z/p\Z}
+	\arrow[from=1-1, to=2-2]
+	\arrow[from=1-1, to=2-3]
+	\arrow[from=1-1, to=2-4]
+\end{tikzcd}
+    \end{center}
+    In particular, they are an example of a \textbf{completion} which we shall explore much later.
+\end{example}
+Limits need not always exist for any index category $\mathscr{D}$. However, you can often check that limits exist if the objects of your category can be interpreted as sets with additional structure, and arbitrary products exist (respecting the set-like structure).
+
+\begin{example}
+    In the category $\Set$, for $F:\mathscr{D}\rightarrow \Set$, the set \begin{equation*}
+        \left\{(a_i)_{i \in \mathscr{D}} \in \prod_{i \in \mathscr{D}}A_i:F(m)(a_j) = a_k\text{ for all } m \in \Hom_{\mathscr{D}}(j,k)\right\}
+    \end{equation*}
+    along with the natural projection maps to each $A_i$, is the limit $\lim\limits_{\overleftarrow{\mathscr{D}}}A_i$.
+
+    Indeed, by construction the set with the projections commutes with all $F(m)$, making it a \textbf{cone} of the diagram. Additionally, if $(B,f_i; i \in \mathscr{D})$ is another cone, commuting with all $F(m)$, then we can define a map $g$ from $B$ to our candidate, sending $b \in B$ to $(f_i(b))_{i \in \mathscr{D}}$. Since $B$ is a cone this indeed is an element of our set for each $b \in B$, so $g$ is a well-defined map. Additionally, by construction if $\pi_i$ denote the projections for our map, $\pi_i\circ g = f_i$. Finally, if any other map $p$ existed which satisfied these commuting triangles, then $p(b) = (f_i(b))_{i \in \mathscr{D}}$, and hence be the same map.
+
+    The uniqueness of this map gives us that our claimed set is indeed our desired limit.
+\end{example}
+
+Note that this construction also works in $\catname{Mod}_A$, $\Vect$, $\Ab$, and $\catname{Ring}$. Going back to our example on $p$-adics, a point $2+3p+2p^2+\cdots \in \Z_p$ can be understood as a sequence $(2,2+3p,2+3p+2p^2,...)$.
+
+\subsection{Colimits}
+
+More immediately relevant for our work will be the dual of the notion of limit. We just flip the arrows $f_i$ in our definition and get the notion of a \textbf{colimit}, which is denoted $\lim\limits_{\overrightarrow{\mathscr{D}}}A_i$, and is universal (initial) with this property.
+\begin{center}
+    \begin{tikzcd}
+	{\lim\limits_{\overrightarrow{\mathscr{D}}}A_i} \\
+	{A_j} & {A_k}
+	\arrow["{\iota_j}", from=2-1, to=1-1]
+	\arrow["{\iota_k}"', from=2-2, to=1-1]
+	\arrow["{F(m)}"', from=2-1, to=2-2]
+\end{tikzcd}
+\end{center}
+Again, if it exists it is unique up to unique isomorphism. The colimit is sometimes referred to as the \textbf{direct limit}, \textbf{inductive limit}, or \textbf{injective limit}.
+
+\begin{example}
+    The set $5^{-\infty}\Z$ of rational numbers whose denominators are powers of $5$ is a colimit $\lim\limits_{\rightarrow}5^{-i}\Z$. More precisely, $5^{-\infty}\Z$ is the colimit of the diagram \begin{equation*}
+        \Z\rightarrow 5^{-1}\Z\rightarrow 5^{-2}\Z\rightarrow \cdots
+    \end{equation*}
+\end{example}
+The colimit over an index set $I$ is called the \textbf{coproduct}, denoted $\amalg_{i \in I}A_i$, and is the dual notion to the product.
+
+Colimits do not always exist, but we have two useful large classes of examples for which they do.
+
+\begin{definition}
+    A nonempty partially ordered set $(S,\leq)$ is \textbf{filtered} or said to be a \textbf{filtered set} if for each $x,y \in S$, there is a $z$ such that $x \leq z$ and $y \leq z$. More generally, a nonempty category $\mathscr{D}$ is \textbf{filtered} if: \begin{itemize}
+        \item[(i)] for each $x,y \in \mathscr{D}$, there is $z \in \mathscr{D}$ and arrows $x\rightarrow z$ and $y\rightarrow z$, and 
+        \item[(ii)] for every two arrows $u:x\rightarrow y$ and $v:x\rightarrow y$, there is an arrow $w:y\rightarrow z$ such that $w\circ u = w\circ v$
+    \end{itemize}
+\end{definition}
+The second condition is known as the existence of a cofork.
+
+\begin{example}
+    Suppose $\mathscr{D}$ is filtered. Then any diagram in $\Set$ indexed by $\mathscr{D}$ has the following as a colimit: \begin{equation*}
+        L = \left\{(a_i,i) \in \amalg_{i \in \mathscr{D}}A_i\right\}\backslash\left(\begin{array}{c} (a_i,i)\sim (a_j,j)\text{ if and only if there are } f:A_i\rightarrow A_k \text{ and } \\ g:A_j\rightarrow A_k\text{ in the diagram for which $f(a_i) = g(a_j)$ in $A_k$}\end{array}\right)
+    \end{equation*}
+    where for each $j \in \mathscr{D}$ we have the map $\iota_j:A_j\rightarrow L$ given sending $a_j \in A_j$ to the equivalence class of $(a_j,j)$ in $L$. First we show that $\sim$ is indeed an equivalence relation. First, choosing any $f:A_i\rightarrow A_k$ in the diagram, we observe that $(a_i,i) \sim (a_i,i)$ for all $a_i \in A_i$ and all $i$. By definition the relation is independent of the ordering of the terms, so it is symmetric. Finally, suppose $(a_i,i)\sim(a_j,j)\sim(a_k,k)$ with maps $f_i:A_i\rightarrow A_l,f_j:A_j\rightarrow A_l$ and $g_j:A_j\rightarrow A_r,g_k:A_k\rightarrow A_r$ satisfying the relations. As $\mathscr{D}$ is filtered there exists $t \in \mathscr{D}$ and maps $h_l:A_l\rightarrow A_t$ and $h_r:A_r\rightarrow A_t$ in the diagram. Then, by the filtered condition we have that for $h_l\circ f_j:A_j\rightarrow A_t$ and $h_r\circ g_j:A_j\rightarrow A_t$ we have a map $w:A_t\rightarrow A_r$ in the diagram such that $w\circ h_l\circ f_j = w\circ h_r\circ g_j$. It follows that \begin{equation*}
+        w\circ h_l\circ f_i(a_i) = w\circ h_l\circ f_j(a_j) = w\circ h_r\circ g_j(a_j) = w\circ h_r\circ g_k(a_k)
+    \end{equation*}
+    so $(a_i,i)\sim(a_k,k)$. Thus $\sim$ is indeed an equivalence relation on $\amalg_{i \in \mathscr{D}}A_i$ and the quotient is well-defined. If $f:A_i\rightarrow A_k$ is a map in the diagram and $a_i \in A_i$, then for any other map $g:A_k\rightarrow A_l$ in the diagram, which exists by the fact that the $\mathscr{D}$ is filtered, we have $g\circ f(a_i) = g(f(a_i))$, so $a_i$ and $f(a_i)$ are in the same equivalence class. Thus $\iota_i(a_i) = \iota_k(f(a_i))$. Thus $L$ and its associated maps form a cocone of the diagram. Let $B$ with associated maps $\rho_j:A_j\rightarrow B$ be another cocone of our diagram. We define a map $F:L\rightarrow B$ by $L([(a_i,i)]) = \rho_i(a_i)$. We must show this is independent of representative. Suppose $(a_i,i)\sim(a_j,j)$. Then there exist maps $f:A_i\rightarrow A_k$ and $g:A_j\rightarrow A_k$ in the diagram such that $f(a_i) = g(a_j)$. Then since $B$ is a cocone, $\rho_i(a_i) = \rho_k(f(a_i))$ and $\rho_j(a_j) = \rho_k(g(a_j))$. Thus, as $\rho_k(f(a_i)) = \rho_k(g(a_j))$, the map $F$ is well-defined. Additionally, by definition $F\circ \iota_i(a_i) = \rho_i(a_i)$ so $F$ is a map of cocones.
+
+    Finally, suppose $G:L\rightarrow B$ is another map of cocones. Then $G([(a_i,i)]) = G\circ f_i(a_i) = \rho_i(a_i)$ for all $i \in \mathscr{D}$ and $a_i \in A_i$. Hence $G = F$, so the map is unique and $L$ with its associated component maps is the colimit.
+\end{example}
+
+
+
+
+\section{Adjoints}
+
+
+Just as a universal property ``essentially" determines an object in a category, ``adjoint" essentially determine a functor (assuming it exists). Two \textbf{covariant} functors $F:\mathscr{A}\rightarrow \mathscr{B}$ and $G:\mathscr{B}\rightarrow \mathscr{A}$ are \textbf{adjoint} if there is a natural bijection for all $A \in \mathscr{A}$ and $B \in \mathscr{B}$ $$\tau_{AB}:\Hom_{\mathscr{B}}(F(A),B)\rightarrow \Hom_{\mathscr{A}}(A,G(B))$$
+We say $(F,G)$ form an \textbf{adjoint pair}, and that $F$ is \textbf{left-adjoint} to $G$, and $G$ is \textbf{right-adjoint} to $F$. We say $F$ is \textbf{left adjoint}, and $G$ is \textbf{right adjoint}. By natural we mean $\tau:\Hom_{\mathscr{B}}(F(-),-)\Rightarrow \Hom_{\mathscr{A}}(-,G(-))$ is a natural isomorphism. In other words, for all $f:A\rightarrow A'$ in $\mathscr{A}$ and $g:B\rightarrow B'$ in $\mathscr{B}$, the diagrams
+\begin{center}
+    \begin{tikzcd}
+	{\Hom(F(A'),B)} & {\Hom(F(A),B)} \\
+	{\Hom(A',G(B))} & {\Hom(A,G(B))}
+	\arrow["{-\circ F(f)}", from=1-1, to=1-2]
+	\arrow["{-\circ f}"', from=2-1, to=2-2]
+	\arrow["{\tau_{A'B}}"', from=1-1, to=2-1]
+	\arrow["{\tau_{AB}}", from=1-2, to=2-2]
+\end{tikzcd}
+\end{center}
+and \begin{center}
+    \begin{tikzcd}
+	{\Hom(F(A),B)} & {\Hom(F(A),B')} \\
+	{\Hom(A,G(B))} & {\Hom(A,G(B'))}
+	\arrow["{f\circ -}", from=1-1, to=1-2]
+	\arrow["{G(f)\circ -}"', from=2-1, to=2-2]
+	\arrow["{\tau_{AB}}"', from=1-1, to=2-1]
+	\arrow["{\tau_{AB'}}", from=1-2, to=2-2]
+    \end{tikzcd}
+\end{center}
+commute. 
+
+\begin{proposition}
+    There exist natural transformations $\eta:\id_{\mathscr{A}}\rightarrow G\circ F$ and $\epsilon:F\circ G\rightarrow \id_{\mathscr{B}}$, called the \textbf{unit} and \textbf{counit} respectively, such that for any $g:F(A)\rightarrow B$ and $f:A\rightarrow G(B)$, $\tau_{AB}(g) = G(g)\circ \eta_A:A\rightarrow G(B)$, and $\tau_{AB}^{-1}(f) = \epsilon_B\circ F(f):F(A)\rightarrow B$.
+\end{proposition}
+\begin{proof}
+    For this set $\eta_A = \tau_{AF(A)}(\id_{F(A)})$ and $\epsilon_B = \tau_{G(B)B}^{-1}(\id_{G(B)})$. Now let $f:A\rightarrow G(B)$ and $g:F(A)\rightarrow B$. It follows by naturality of $\tau$ that \begin{equation*}
+        \tau_{AB}(g) = \tau_{AB}(g\circ \id_{F(A)}) = G(g)\circ\tau_{AF(A)}(\id_{F(A)}) = G(g)\circ \eta_A
+    \end{equation*}
+    and \begin{equation*}
+        \tau_{AB}^{-1}(f) = \tau_{AB}^{-1}(\id_{G(B)}\circ f) = \tau^{-1}_{G(B)B}(\id_{G(B)})\circ F(f) = \epsilon_B\circ F(f)
+    \end{equation*}
+    Thus $\eta$ and $\epsilon$ satisfy our needed conditions, so now we need only show naturality.
+
+    Let now $f:A\rightarrow A'$ and $g:B\rightarrow B'$. Then we have $$GF(f)\circ \eta_A = \tau_{AF(A')}(F(f)) = \tau_{AF(A')}(\id_{F(A')}\circ F(f)) = \tau_{A'F(A')}(\id_{F(A')})\circ f = \eta_{A'}\circ f$$
+    using our property for $\eta$ and naturality of $\tau$. Similarly, $$\epsilon_{B'}\circ FG(g) = \tau_{G(B)B'}^{-1}(G(g)) = g\circ \tau^{-1}_{G(B)B}(\id_{G(B)}) = g\circ \epsilon_B$$
+    as desired.
+\end{proof}
+
+The left adjoint determines the right adjoint up to natural isomorphis, and vice-versa. If we endow additional conditions on the unit and counit, in particular $G\epsilon\circ \eta G = \id_G$ and $\epsilon F\circ F\eta = \id_F$ (the triangle identities), then we can recover the adjunction.
+
+
+\section{Abelian Categories}
+
+We now define the notion of an \textbf{abelian category}, which is the right general setting in which one can do ``homological algebra", in which kernels, cokernels, etcetera are defined, and one can work with complexes and exact sequences.
+
+Two central examples of abelian categories are the category of abelian groups, $\Ab$, and the category of $A$-modules, $\catname{Mod}_A$. The first is a special case of the second with $A  =\Z$. 
+
+We first define what an \textbf{additive category} is.
+
+\begin{definition}
+    A category $\mathscr{C}$ is said to be \textbf{additive} if it satisfies the following properties\begin{itemize}
+        \item[Ad1.] For each $A,B \in \mathscr{C}$, $\Hom(A,B)$ is an abelian group such that composition of morphisms distributes over addition 
+        \item[Ad2.] $\mathscr{C}$ has a zero object, denoted $0$. (this is an object that is simultaneously an initial object and a final object)
+        \item[Ad3.] It has products of two objects, and hence by induction, products of any finite number of objects.
+    \end{itemize}
+\end{definition}
+
+A functor between additive categories preserving the additive structure of the hom set is called an \textbf{additive functor}.
+
+\begin{definition}
+    Let $\mathscr{C}$ be a category with a $0$-object (and thus $0$-morphisms). A \textbf{kernel} of a morphism $f:B\rightarrow C$ is a map $i:A\rightarrow B$ such that $f\circ i = 0$, and that is universal with respect to this property. Diagramatically: \begin{center}
+       \begin{tikzcd}
+	Z \\
+	A & B & C
+	\arrow["f"', from=2-2, to=2-3]
+	\arrow["i"', from=2-1, to=2-2]
+	\arrow["0", from=1-1, to=2-3]
+	\arrow["g"', from=1-1, to=2-2]
+	\arrow["{\exists!}"', dashed, from=1-1, to=2-1]
+	\arrow["0"', curve={height=18pt}, from=2-1, to=2-3]
+\end{tikzcd}
+    \end{center}
+    Hence it is unique up to unique isomorphism. THe kernal is writte $\ker f\rightarrow B$. A \textbf{cokernal} is defined dually by reversing the arrows.
+\end{definition}
+
+
+If $i:A\rightarrow B$ is a monomorphism, then we say that $A$ is a \textbf{subobject} of $B$, where the map $i$ is implicit. There is also the notion of a \textbf{quotient object}, defined dually to subobject.
+
+An \textbf{abelian category} is an additive category satisfyingn three additional properties. \begin{itemize}
+    \item[(1)] Every map has a kernel and cokernel
+    \item[(2)] Every monomorphism is the kernel of its cokernel 
+    \item[(3)] Every epimorphism is the cokernel of its kernel
+\end{itemize}
+The \textbf{image} of a morphism $f:A\rightarrow B$ is defined as $\ran f = \ker(\coker f)$, whenever it exists. The morphism $f:A\rightarrow B$ factors uniquely through $\ran f\rightarrow B$ whenever $\ran f$ exists, and $A \rightarrow \ran f$ is an epimorphism and a cokernel of $\ker f\rightarrow A$ in every abelian category.
+
+The cokernel of a monomorphism is called the \textbf{quotient}. The quotient of a monomorphism $A\rightarrow B$ is often denoted $B/A$.
+
+\subsection{Complexes, Exactness, and Homology}
+
+Throughout we consider an abelian category. We say a sequence \begin{equation*}
+    \cdots\rightarrow A\xrightarrow{f}B\xrightarrow{g}C\rightarrow\cdots
+\end{equation*}
+is a \textbf{complex at $B$} if $g\circ f = 0$, and is \textbf{exact at $B$} if $\ker g = \ran f$.\textbf{To be finished}
+
+
+\section{Spectral Sequences}

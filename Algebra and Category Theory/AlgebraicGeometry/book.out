@@ -1,15 +1,50 @@
-\BOOKMARK [-1][-]{part.1}{Part I Part Title}{}% 1
-\BOOKMARK [0][-]{chapter.1}{Chapter Heading}{part.1}% 2
-\BOOKMARK [1][-]{section.1.1}{Section Heading}{chapter.1}% 3
-\BOOKMARK [1][-]{section.1.2}{Section Heading}{chapter.1}% 4
-\BOOKMARK [2][-]{subsection.1.2.1}{Subsection Heading}{section.1.2}% 5
-\BOOKMARK [1][-]{section.1.3}{Section Heading}{chapter.1}% 6
-\BOOKMARK [2][-]{subsection.1.3.1}{Subsection Heading}{section.1.3}% 7
-\BOOKMARK [1][-]{proof.2}{Appendix}{chapter.1}% 8
-\BOOKMARK [1][-]{equation.1.3.1}{Problems}{chapter.1}% 9
-\BOOKMARK [1][-]{prob.1.2}{References}{chapter.1}% 10
-\BOOKMARK [0][-]{appendix.A}{Chapter Heading}{part.1}% 11
-\BOOKMARK [1][-]{section.A.1}{Section Heading}{appendix.A}% 12
-\BOOKMARK [2][-]{subsection.A.1.1}{Subsection Heading}{section.A.1}% 13
-\BOOKMARK [0][-]{appendix*.9}{Glossary}{part.1}% 14
-\BOOKMARK [0][-]{appendix*.15}{Solutions}{part.1}% 15
+\BOOKMARK [-1][-]{part.1}{Part I Preliminaries}{}% 1
+\BOOKMARK [0][-]{chapter.1}{Basic Category Theory}{part.1}% 2
+\BOOKMARK [1][-]{section.1.1}{Categories}{chapter.1}% 3
+\BOOKMARK [2][-]{subsection.1.1.1}{Functors}{section.1.1}% 4
+\BOOKMARK [2][-]{subsection.1.1.2}{Natural Transformations}{section.1.1}% 5
+\BOOKMARK [1][-]{section.1.2}{Universal Properties}{chapter.1}% 6
+\BOOKMARK [2][-]{subsection.1.2.1}{Localization of Rings and Modules}{section.1.2}% 7
+\BOOKMARK [2][-]{subsection.1.2.2}{Tensor Products}{section.1.2}% 8
+\BOOKMARK [2][-]{subsection.1.2.3}{Fibered Products}{section.1.2}% 9
+\BOOKMARK [2][-]{subsection.1.2.4}{Monomorphisms and Epimorphisms}{section.1.2}% 10
+\BOOKMARK [2][-]{subsection.1.2.5}{Representable Functors and Yoneda's Lemma}{section.1.2}% 11
+\BOOKMARK [1][-]{section.1.3}{Limits and Colimits}{chapter.1}% 12
+\BOOKMARK [2][-]{subsection.1.3.1}{Limits}{section.1.3}% 13
+\BOOKMARK [2][-]{subsection.1.3.2}{Colimits}{section.1.3}% 14
+\BOOKMARK [1][-]{section.1.4}{Adjoints}{chapter.1}% 15
+\BOOKMARK [1][-]{section.1.5}{Abelian Categories}{chapter.1}% 16
+\BOOKMARK [0][-]{chapter.2}{Sheaves}{part.1}% 17
+\BOOKMARK [-1][-]{part.2}{Part II Scheme Theory}{}% 18
+\BOOKMARK [0][-]{chapter.3}{Toward Affine Schemes}{part.2}% 19
+\BOOKMARK [0][-]{chapter.4}{The Structure Sheaf}{part.2}% 20
+\BOOKMARK [0][-]{chapter.5}{Properties of Schemes}{part.2}% 21
+\BOOKMARK [-1][-]{part.3}{Part III Morphisms}{}% 22
+\BOOKMARK [0][-]{chapter.6}{Morphisms of Schemes}{part.3}% 23
+\BOOKMARK [0][-]{chapter.7}{Important Classes of Morphisms of Schemes}{part.3}% 24
+\BOOKMARK [0][-]{chapter.8}{Closed Embeddings}{part.3}% 25
+\BOOKMARK [0][-]{chapter.9}{Fibered Products of Schemes}{part.3}% 26
+\BOOKMARK [0][-]{chapter.10}{Separated and Proper Morphisms and Varieties}{part.3}% 27
+\BOOKMARK [-1][-]{part.4}{Part IV Geometric Properties}{}% 28
+\BOOKMARK [0][-]{chapter.11}{Dimension}{part.4}% 29
+\BOOKMARK [0][-]{chapter.12}{Regularity and Smoothness}{part.4}% 30
+\BOOKMARK [-1][-]{part.5}{Part V Quasicoherent Sheaves}{}% 31
+\BOOKMARK [0][-]{chapter.13}{Quasicoherent and Coherent Sheaves}{part.5}% 32
+\BOOKMARK [0][-]{chapter.14}{Line Bundles: Invertible Sheaves and Divisors}{part.5}% 33
+\BOOKMARK [0][-]{chapter.15}{Quasicoherent Sheaves and Projective A-Schemes}{part.5}% 34
+\BOOKMARK [0][-]{chapter.16}{Pushforwards and Pullbacks of Quasicoherent Sheaves}{part.5}% 35
+\BOOKMARK [0][-]{chapter.17}{Relative Versions of Spec and Proj}{part.5}% 36
+\BOOKMARK [0][-]{chapter.18}{Cech Cohomology of Quasicoherent Sheaves}{part.5}% 37
+\BOOKMARK [0][-]{chapter.19}{Applications to Curves}{part.5}% 38
+\BOOKMARK [0][-]{chapter.20}{Applications to Intersection Theory}{part.5}% 39
+\BOOKMARK [0][-]{chapter.21}{Differentials}{part.5}% 40
+\BOOKMARK [0][-]{chapter.22}{Blowing Up}{part.5}% 41
+\BOOKMARK [-1][-]{part.6}{Part VI Additional Topics In Algebraic Geometry}{}% 42
+\BOOKMARK [0][-]{chapter.23}{Derived Functors}{part.6}% 43
+\BOOKMARK [0][-]{chapter.24}{Flatness}{part.6}% 44
+\BOOKMARK [0][-]{chapter.25}{Smooth and \351tale Morphisms}{part.6}% 45
+\BOOKMARK [0][-]{chapter.26}{Depth and Cohen-Macaulayness}{part.6}% 46
+\BOOKMARK [0][-]{chapter.27}{Twenty-Seven Lines}{part.6}% 47
+\BOOKMARK [0][-]{chapter.28}{Cohomology and Base Change Theorems}{part.6}% 48
+\BOOKMARK [0][-]{chapter.29}{Power Series and Theorem on Formal Functions}{part.6}% 49
+\BOOKMARK [0][-]{chapter.30}{Proof of Serre Duality}{part.6}% 50

@@ -1,0 +1,179 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+\chapter{Type Theory}
+\label{types} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+\section{Type Theory versus Set Theory}
+
+Homotopy type theory, among other things, is a foundational language for mathematics. We compare and contrast with the set-theoretic Zermelo-Fraenkel construction. The set-theoretic foundation has two ``layers": the deductive system of first-order logic, and, formulated inside this system, the axioms of a particular theory, such as ZFC. Thus, set theory is an interplay between sets (the objects of the second layer) and propositions (the objects of the first layer).
+
+By constrast, type theory is its own deductive system: it need not be formulated inside any superstructure, such as first-order logic. Type theory has one basic notion: \textbf{types}. Propositions (i.e. statements which we can prove, disprove, assume, negate, and so on) are identified with particular types. The mathematical activity of proving atheorem is thus identified with a special case of the mathematical activity of constructing an object.
+
+This leads to another difference. First, informally a deductive system is a collection of \textbf{rules} for deriving things called \textbf{judgments}. Thinking of a deductive system as a formal game, the judgments are ``position" in the game which we read by following the game rules. We can also think of a deductive system as a kind of algebraic theory, in which case the judgments are the elements and the deductive rules are the operations. From a logical point of view, the judgements can be considered to be the external statements, living in the metatheory, as opposed to the internal statements of the theory itself. 
+
+For example, in first-order logic there is only one kind of judgment: that a given proposition has a proof. A rule of first-order logic is a rule of proof construction, which derives judgments from other judgments. The basic judgment of type theory, which in certain cases can be interpreted as ``$A$ has a proof", is written ``$a : A"$ and pronounced as ``the term $a$ has type $A$"m or in HoTT ``$a$ is a point of $A$". When $A$ is a type representing a proposition, then $a$ may be called a \textbf{witness} to the provability of $A$, or \textbf{evidence} of the truth of $A$. In this case the judgment $a : A$ is derivable in type theory for som $a$ precisely when the analogous judgment ``$A$ has a proof" is derivable in first order logic.
+
+Note, internally in type theory we cannot ``prove" statements about judgments, nor can we ``disprove" a judgment. Additionally, we cannot talk about an element ``$a$" in isolation: every element by its very nature is a term of some type, and that type is uniquely determined, generally speaking. That is, ``$a:A$" is an \textbf{atomic statement} in type theory.
+
+A last major difference between set and type theory is the treatment of equality. The classical notion of equality is a proposition (we can disprove or assume an equality). Since in type theory propositions are types, this means that equality is a type: for elements $a,b:A$, we have a type ``$a=_Ab$". When $a=_Ab$ is inhabited (i.e. has terms), we say that $a$ and $b$ are \textbf{(propositionally) equal}.
+
+However, we also need in type theory an equality judgment, existing at the same level as the judgment ``$x:A$". This is called \textbf{judgmental equality} or \textbf{definitional equality}, and we write it as $a \equiv b:A$ or simply $a\equiv b:A$. This can be thought of as meaning ``equal by definition". Whether or not two expressions are equal by definition is a matter of expanding out the definitions; in particular, it is algorithmically decidable (though the algorithm is meta-theoretic, not internal to the theory).
+
+If we interpret a deductive system as an algebraic theory, judgmental equality is equality in that theory. A judgmental notion of equality allows us to control the other form of judgment, ``$a:A$". Then we should have a rule saying that given the judgments $a:A$ and $A\equiv B$, we may derive the judgment $a:B$. For us type theory will be a deductive system based on two forms of judgment: \begin{itemize}
+    \item $a:A$ - ``$a$ is an object of type $A$"
+    \item $a\equiv b:A$ - ``$a$ and $b$ are definitially equal objects of type $A$"
+\end{itemize}
+As we shall see later, for types $A$ and $B$ we use ``$A\rightarrow B$" as notation for the type of functions from $A$ to $B$. Then $f:A\rightarrow B$ can be interpreted as a typing judgment.
+
+Judgments may depend on assumptions of the form $x:A$, where $x$ is a variable and $A$ is a type. For example, assuming $A$ is a type, $x,y :A$, and $p:x=_Ay$, we may construct an element $p^{-1}:y=_Ax$. The collection of all such assumptions is called the \textbf{context}; from a topological point of view this is analogous to a parameter space. Technically the context must be an ordered list of assumptions since we can have later assumptions depend on previous ones.
+
+If the type $A$ in an assumption $x:A$ represents a proposition, then the assumption is a type theoretic version of a hypothesis. Under this meaning of the word assumption, we can assume a propositional equality, by assuming a variable $p:x=y$, but we cannot assume a judgmental equality $x\equiv y:A$, since it is not a type that can have an element. However, if we have a type or an element which involves a variable $x:A$, then we can substitute any particular element $a:A$ for $x$ to obtain a more specific type or element. By the same token we cannot \textbf{prove} a judgmental equality either, since it is not a type in which we can exhibit a witness. Nonetheless, we will sometimes state judgmental equalities as part of a theorem, for example ``there exists $f:A\rightarrow B$ such that $f(x) \equiv y$".
+
+\section{Function Types}
+
+Given types $A$ and $B$, we can construct the type $A\rightarrow B$ of \textbf{functions} with domain $A$ and codomain $B$. Unlike in set theory, functions in type theory are a primitive concept. We explain the function type by describing what we can do with functions, how to construct them, and what equalities they induce.
+
+Given a function $f:A\rightarrow B$ and an element of the domain $a: A$, we can \textbf{apply} the function to obtain an element of the codomain $B$, denoted $f(a):B$, and called the \textbf{value} of $f$ at $a$. But how can we construct elements of type $A\rightarrow B$? There are two equivalent ways: either by direct definition or by using $\lambda$-abstraction. Introducing a function by definition means that we introduce a function by giving it a name, let's say $f$, and saying we define $f:A\rightarrow B$ by giving an equation $$f(x) :\equiv \Phi$$ where $x$ is a variable and $\Phi$ is an expression which may use $x$. In order for this to be valid, we have to check that $\Phi:B$ assuming $x:A$.
+
+We can compute $f(a)$ by replacing the variable $x$ in $\Phi$ with $a$. For example, consider $f:\N\rightarrow \N$, which is defined by $f(x):\equiv x+x$. Then $f(2)$ is judgmentally equal to $2+2$.
+
+If we don't want to introduce a name for the function, we can use $\lambda$-\textbf{abstraction}. Given an expression $\Phi$ of type $B$ which may use $x:A$, as above, we write $\lambda(x:A).\Phi$ to indicate the same function defined previously as $f$. Thus we have $$(\lambda(x:A).\Phi):A\rightarrow B$$
+For example we have the typing judgment \begin{equation*}
+    (\lambda(x:\N).x+x):\N\rightarrow \N
+\end{equation*}
+As another example, for any types $A$ and $B$ and any $y:B$, we have a constant function $(\lambda(x:A).y):A\rightarrow B$. The type of the variable $x$ in the $\lambda$-abstraction is often ommitted, and infered from context. The scope of the variable binding ``$\lambda x.$" is the entire rest of the expression, unless delimited with parentheses. Another equivalent notation is $$(x\mapsto \Phi):A\rightarrow B$$
+We may also write something like $g(x,-)$ for $\lambda y.g(x,y)$. For $\lambda$-abstraction we have the following \textbf{computation rule}, which is definitional equality: $$(\lambda x.\Phi)(a) \equiv \Phi'$$ 
+where $\Phi'$ is the expression $\Phi$ in which all occurrences of $x$ have been replaced by $a$. For any function $f:A\rightarrow B$ we can also construct a lambda abstraction function $\lambda x.f(x)$. Since this is by definition the function that applies $f$ to its argument, we consider it to be definitionally equal to $f$: $$f\equiv (\lambda x.f(x))$$
+This equality is the \textbf{uniqueness principle for function types}. We can then read a definition of $f:A\rightarrow B$ by $f(x) :\equiv \Phi$ as $f :\equiv \lambda x.\Phi$. 
+
+As a matter of analogy, a $\lambda$-abstraction binds a dummy variable in exactly the same way that an integral does. Now, to define a function in several variables we could use the cartesian product, to be introduced later. A function with aprameters $A$ and $B$ and results in $C$ would be given the type $f:A\times B\rightarrow C$. However, we have another choice that avoids product types which is called \textbf{currying}. Currying involves representing a function of two inputs $a:A$ and $b:B$ as a function which takes one input, $a:A$, and returns another function which then takes a second input $b:B$ and returns the result. That is, we consider two-variable functions to belong to an iterated function type, $f:A\rightarrow (B\rightarrow C)$.
+
+We can define a named function $f:A\rightarrow (B\rightarrow C)$ by giving an equation $$f(x)(y):\equiv \Phi$$ 
+where $\Phi:C$ assuming $x:A$ and $y:B$. Using $\lambda$-abstraction this corresponds to $$f:\equiv \lambda x.\lambda y.\Phi$$
+which may also be written as \begin{equation*}
+    f : \equiv x\mapsot (y\mapsto \Phi)
+\end{equation*}
+
+
+\section{Universes and Families}
+
+So far we have been using the expression ``$A$ is a type" informally. We now make this precise with \textbf{universes}.
+
+\begin{definition}
+    A \textbf{universe} is a type whose elements are types. To avoid Russell's paradox we introduce a hierarchy of universes, $$U_0:U_1:U_2:\cdots$$
+    where every universe $U_i$ is an element of the next universe $U_{i+1}$. Moreover, we assume that our universes are \textbf{cumulative}, so all elements of the $i$th universe are also elements of the $(i+1)$th universe. This implies that elements no longer have unique types.
+\end{definition}
+When we say $A$ is a type, we mean it inhabits some universe $U_i$. We often write the universes just as $U$, with $U:U$ meaning $U_i:U_{i+1}$, creating a kind of \textbf{typical ambiguity}.
+
+To model a collection of types varying over a given type $A$, we use function $B:A\rightarrow U$ whose codomain is a universe. These functionar are called \textbf{families of types} (or sometimes \textbf{dependent types}). An example of a type family is the family of finite sets $\text{Fin}:\N\rightarrow U$.
+
+A simpler example of a type family is the \textbf{constant} type family at a type $B:U$, which is of course the constant function $(\lambda(x:A).B):A\rightarrow U$.
+
+\section{Dependent Function Types}
+
+In type theory we often use a more general version of function types, called $\prod$-\textbf{type} or \textbf{dependent function type}. The elements of a $\prod$-type are functions whose codomain type can vary depending on the element of the domain to which the function is applied, called \textbf{dependent functions}. The name ``$\prod$-type" is used because this type can also be regarded as the cartesian product over a given type.
+
+\begin{definition}
+    Given a type $A:U$, and a family $B:A\rightarrow U$, we may construct the type of dependent functions $\prod_{(x:A)}B(x):U$.If $B$ is a constant family, then the dependent product type is the ordinary function type: $$\prod_{(x:A)}B\equiv (A\rightarrow B)$$
+\end{definition}
+
+To define $f:\prod_{(x:A)}B(x)$, where $f$ is the name of a dependent function to be defined, we need an expression $\Phi:B(x)$ possibly involving the variable $x:A$, and we write $$f(x) :\equiv \Phi,\;\;\text{for }x:A$$
+Alternatively, we can use $\lambda$-abstraction $$\lambda x.\Phi:\prod_{x:A}B(x)$$
+As with non-dependent functions, we can \textbf{apply} a dependent function $f:\prod_{(x:A)}B(x)$ to an argument $a :A$ to obtain an element $f(a):B(a)$. The equalities are the same as the ordinary function type in the sense that for $a:A$, we have $f(a) \equiv \Phi'$ and $(\lambda x.\Phi)(a) \equiv \Phi'$, where $\Phi'$ is obtained by replacing all occurrences of $x$ in $\Phi$ by $a$. Similarly we have the uniqueness principle $f \equiv (\lambda x.f(x))$.
+
+An important class of dependent functions types are functions which are \textbf{polymorphic} over a given universe.
+
+\begin{definition}
+    A function is polymorphic if it takes a type as one of its arguments, and then acts on elements of that type (or of other types constructed from it).
+\end{definition}
+An example is the polymorphic identity function $\id:\prod_{(A:U)}A\rightarrow A$, which we define by $\id :\lambda(A:U).\lambda(x:A).x$.
+
+We sometimes will write arguments of a dependent function type as subscripts, so $\id(A,x) = \id_A(x) :\equiv x$.
+
+\begin{example}
+    A non-trivial example is the ``swap" operation which switches the order of arguments of a curried two-argument function: $$\text{swap}:\prod_{(A:U)}\prod_{(B:U)}\prod_{(C:U)}(A\rightarrow B\rightarrow C)\rightarrow (B\rightarrow A\rightarrow C)$$
+    We define this by \begin{equation*}
+        \text{swap}(A,B,C,g) :\equiv \lambda b.\lambda a.g(a)(b)
+    \end{equation*}
+    We can also write $$\text{swap}_{A,B,C}(g)(b,a) :\equiv g(a,b)$$
+\end{example}
+
+Note as with ordinary functions we use currying to define dependent functions of several arguments. However, the second domain in the dependent case may depend on the first one, and the codomain may depend on both.
+
+\section{Product Types}
+
+Given types $A,B:U$ we introduce the type $A\times B:U$, which we call their \textbf{cartesian product}. We also introduce a nullary product type, called the \textbf{unit type} $\mathbf{1}:U$. A term of $A\times B$ is a pair $(a,b) : A\times B$, where $a:A$ and $b:B$, and the only term of $\mathbf{1}$ is some particular object $\star:\mathbf{1}$. As with functions, ordered pairs are a primitive concept in Type theory.
+
+\begin{remark}
+    We have a general pattern for introducing a new kind of type in Type theory. To specify a type, we specify: \begin{itemize}
+        \item[(i)] how to form new types of this kind, via \textbf{formation rules}. (Example: we can form the dependent function type $\prod_{(x:A)}B(x)$ when $A$ is a type and $B(x)$ is a type for $x \in A$).
+        \item[(ii)] how to construct elements of that type. These are called the type's \textbf{constructors} or \texstbf{introduction rules}. (Example: A function type has one constructor, $\lambda$-abstraction)
+        \item[(iii)] how to use elements of that type. These are called the type's \textbf{eliminators} or \textbf{elimination rules}. (Example: Function application for function types)
+        \item[(iv)] a \textbf{computation rule} (i.e. $\beta$-\textbf{reduction}), which expresses how an eliminator acts on a constructor. (Example: For functions, the computation rule states that $(\lambda x.\Phi)(a)$ is judmentally equal to the substitution of $a$ for $x$ in $\Phi$.)
+        \item[(v)] an optional \textbf{uniqueness principle} (i.e. $\eta$-\textbf{expansion}), which expresses uniqueness of maps into or out of that type. For some types, the uniqueness principle characterizes maps into the type, by stating that every element of the type is uniquely determined by the results of applying eliminators to it, and can be reconstructed from these results by applying a constructor. (Example: For functions, the uniqueness principle says that any function $f$ is judgmentally equal to the expanded function $\lambda x.f(x)$, and thus is uniquely determined by its values) For other types the uniqueness principle says that every map from that type is uniquely determined by some data.
+    \end{itemize}
+
+    When the uniqueness principle is not taken as a rule of judgmental equality, iti s often nevertheless provable as a propositional equality from the other rules for the type. In this case we call it a \textbf{propositional uniqueness principle}.
+\end{remark}
+
+We will assert the uniqueness principle for products, ``every element of $A\times B$ is a pair," as a propositional equality later. Now, how can we use pairs? Consider the definition of a non-dependent function $f:A\times B\rightarrow C$. Since we intend the only elements of $A \times B$ to be pairs, we expect to be able to define a function by prescribing the result when $f$ is applied to a pair $(a,b)$. We can prescribe these results by using currying, $g:A\rightarrow (B\rightarrow C)$. Thus we introduce the elimination rule for products, which says that for any such $g$, we can define a function $f:A\times B\rightarrow C$ by $$f((a,b)) :\equiv g(a)(b)$$
+
+Unlike in set theory, type theory assumes that a function on $A\tiems B$ is well-defined as soon as we specify its values on pairs, and from this we will be able to prove that every element of $A\times B$ is a pair. From a category-theoretic perspective we can say that we define the product $A\times B$ to be the left adjoint to the ``exponential" $B\rightarrow C$.
+
+As an example, we can derive the \textbf{projection} functions \begin{align*}
+    &\text{pr}_1:A\times B\rightarrow A \\
+    &\text{pr}_2:A\times B\rightarrow B
+\end{align*}
+with the defining equations \begin{align*}
+    &\text{pr}_1((a,b)) :\equiv a \\
+    &\text{pr}_2((a,b)) :\equiv b 
+\end{align*}
+Rather than invoking the principle of function definition, every time we want to define a function, an alternative approach is to invoke it once in a universal case, and then apply the resulting function in all other cases. That is we may define a function of type \begin{equation}
+    \text{rec}_{A\times B}:\prod_{C:U}(A\rightarrow B\rightarrow C)\rightarrow A\times B\rightarrow C
+\end{equation}
+with the defining equation $$\text{rec}_{A\times B}(C,g,(a,b)) :\equiv g(a)(b)$$
+Then, we can define these functions by \begin{align*}
+    &\text{pr}_1 :\equiv \text{rec}_{A\times B}(A,\lambda a.\lambda b.a) \\
+    &\text{pr}_2 :\equiv \text{rec}_{A\times B}(B,\lambda a.\lambda b.b)
+\end{align*}
+We refer to the function $\text{rec}_{A\times B}$ as the \textbf{recursor} for the product types. We also speak of the \textbf{recursion principle} for cartesian products, meaning the fact that we can define a function $f:A\times B\rightarrow C$ as above by its value on pairs.
+
+We also have a recursor for the unit type \begin{equation*}
+    \text{rec}_{\mathbf{1}}:\prod_{C:U}C\rightarrow \mathbf{1}\rightarrow C
+\end{equation*}
+with the defining equation \begin{equation*}
+    \text{rec}_{\mathbf{1}}(C,c,\star) :\equiv c
+\end{equation*}
+To define dependent functions over the product type, we have to generalize the recursor. Given $C:A\times B\rightarrow U$, we may define a function $f:\prod_{(x:A\times B)}C(x)$ by providing a function $g:\prod_{(x:A)}\prod_{(y:B)}C((x,y))$ with defining equation $$f((x,y)) :\equiv g(x)(y)$$
+Then we can prove the propositional uniqueness principle. Specifically, we can construct a function \begin{equation*}
+    \text{uniq}_{A\times B}:\prod_{x:A\times B}((\text{pr}_1(x),\text{pr}_2(x)) =_{A\times B}x)
+\end{equation*}
+We will see later that the identity type has a reflexivity element $\text{refl}_x:x=_Ax$ for any $x:A$. Given this, we can define $$\text{uniq}_{A\times B}((a,b)) :\equiv \text{refl}_{(a,b)}$$
+This construction works, because in the case that $x:\equiv (a,b)$, we can calculate $$(\text{pr}_1((a,b)),\text{pr}_2((a,b))) \equiv (a,b)$$
+using the defining equations for the projections. Therefore, $$\text{refl}_{(a,b)}:(\text{pr}_1((a,b)),\text{pr}_2((a,b))) = (a,b)$$
+is well-typed, since both sides of the equality are judgmentally equal.
+
+The ability to define dependent functions in this way means that to prove a property for all elements of a product, it is enough to prove it for its canonical elements. Applying this principle in the universal case, we call the resulting function \textbf{induction} for product types: given $A,B:U$ we have $$\text{ind}_{A\times B}:\prod_{C:A\times B\rightarrow U}\left(\prod_{(x:A)}\prod_{(y:B)}C((x,y))\right)\rightarrow \prod_{x:A\times B}C(x)$$
+with the defining equation $$\text{ind}_{A\times B}(C,g,(a,b)) :\equiv g(a)(b)$$
+Similarly, we may speak of a dependent function defined on pairs being obtained from the \textbf{induction principle} of the cartesian product. Induction is also called the \textbf{dependent eliminator} since it describes how to use an element of the product type, and recursion is the \textbf{non-dependent eliminator}.
+
+Induction for the unit type is \begin{equation*}
+    \text{ind}_{\mathbf{1}}:\prod_{C:\mathbf{1}\rightarrow U}C(\star)\rightarrow \prod_{x:\mathbf{1}}C(x)
+\end{equation*}
+with the defining equation $$\text{ind}_{\mathbf{1}}(C,c,\star) :\equiv c$$
+This enables us to prove the propositional uniqueness principle for $\mathbf{1}$, which asserts that its only inhabitant is $\star$. That is, we can construct $$\text{uniq}_{\mathbf{1}}:\prod_{x:\mathbf{1}}x=\star$$
+by using the defining equations $$\text{uniq}_{\mathbf{1}}(\star):\equiv \text{refl}_{\star}$$
+or equivalently using induction $$\text{uniq}_{\mathbf{1}} :\equiv \text{ind}_{\mathbf{1}}(\lambda x.x = \star,\text{refl}_{\star})$$
+
+
+\section{Dependent Pair Types}
+
+

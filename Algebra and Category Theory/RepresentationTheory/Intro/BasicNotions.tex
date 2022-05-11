@@ -1,0 +1,127 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+\chapter{Basic Notions of Representation Theory}
+\label{basic} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+In this chapter we cover some of the basic notions and results related to representation theory, and try to motivative them to a limited degree.
+
+\section{What is Representation Theory?}
+
+Representation theory is, for our purposes, the study of representations of groups. A \textbf{representation}\index{representation} of such a group $G$, often called a \textbf{left $G$-module}, is a vector space $V \in \Vect$ equipped with an group homomorphism $\rho:G\rightarrow \GL V$. Most often we consider the special case of $k = \C$. We call the dimension of $V$ the \textbf{degree} of the representation.
+
+Note that a representation is really a functor from the one-element groupoid to the category $\Vect$. It follows naturally then that a map of representations is simply a natural transformation between the associated functors.
+
+\begin{definition}\index{Equivariant map}
+    A map $\varphi:V\rightarrow W$ between two representations $(V,\rho)$ and $(W,\sigma)$ of $G$ is a linear map such that for any $g\in G$,
+    \begin{center}
+        \begin{tikzcd}
+	V & V \\
+	W & W
+	\arrow["{\rho(g)}", from=1-1, to=1-2]
+	\arrow["\varphi"', from=1-1, to=2-1]
+	\arrow["{\sigma(g)}"', from=2-1, to=2-2]
+	\arrow["\varphi", from=1-2, to=2-2]
+\end{tikzcd}
+    \end{center}
+    commutes. Then $\ker\varphi,\ran\varphi,$ and $\text{coker}\varphi$ are all $G$-modules as well in the natural way.
+\end{definition}
+
+As with all algebraic objects we have a sensible notion of a subobject.
+
+\begin{definition}\index{Subrepresentation}
+    A \textbf{subrepresentation} of a representation $(V,\rho)$ is a subspace $(U\subseteq V)$ which is invariant under all operators $\rho(g)$, for $g \in G$.
+\end{definition}
+
+If we have two representations $(V_1,\rho_1)$ and $(V_2,\rho_2)$, then we can form new representations in various ways.
+
+\begin{definition}
+    Let $(V_1,\rho_1)$ and $(V_2,\rho_2)$ be two representations of $A$. Then the pair $(V_1\oplus V_2,\rho)$ where $\rho:A\rightarrow \text{End}(V_1\oplus V_2)$ defined by $\rho(a) = (\rho_1(a),\rho_2(a))$ for all $a \in A$ is a representation of $A$.
+\end{definition}
+
+Most often a representation by itself is far to complicated to study efficiently. Instead we look to decompose it into simpler chunks which we can analyze and then put back together to understand the whole.
+
+\begin{definition}\index{Irreducible}\index{Indecomposable}
+    A nonzero representation $(V,\rho)$ of $A$ is said to be \textbf{irreducible} if its only subrepresentations are $0$ and $V$ itself. It is said to be \textbf{indecomposable} if it cannot be written as a direct sum of two nonzero subrepresentations.
+\end{definition}
+
+Evidently irreducible implies indecomposable, but not vice-versa in general. Another useful construction of a representation is done through the tensor product. We recall the tensor of two vector spaces briefly here.
+
+\begin{definition}\index{Tensor product}
+    If $V,W \in \Vect$, the tensor product $V\otimes_kW =: V\otimes W$ is formally the quotient space of the free vector space on $V\times W$ by the subspace spanned by elements of the following form \begin{align*}
+        &((v_1+v_2),w)-(v_1,w)-(v_2,w) \\
+        &(v,(w_1+w_2)) - (v,w_1) - (v,w_2) \\
+        &(av,w) - a(v,w) \\
+        &(v,aw) - a(v,w)
+    \end{align*}
+    where $v \in V,w \in W, a \in k$.
+\end{definition}
+Recall this explicit construction is not necessarily important, but rather the universal property that the resulting tensor space satisfies is what is relevant. Inductively we can define $V_1\otimes \cdots \otimes V_n$, where brackets are excluded since the tensor operation is associative up to natural isomorphism. In particular we denote $V^{\otimes n} := V\otimes \cdots \otimes V$ ($n$ times) for a given $V \in \Vect$. More generally we define the space of tensors of type $(m,n)$ on $V$ by $V^{\otimes n}\otimes (V^*)^{\otimes m}$. 
+
+If $V$ is finite dimensional with basis $\{e_1,...,e_N\}$, and $\{e_1^*,...,e_N^*\}$ is the dual basis, then a basis of the space of $(m,n)$ tensors is the set of vectors of the form \begin{equation*}
+    e_{i_1}\otimes\cdots \otimes e_{i_n}\otimes e_{j_1}^*\otimes \cdots \otimes e_{j_m}^*
+\end{equation*}
+The tensor product is in fact a bifunctor $\otimes:\Vect\times \Vect\rightarrow \Vect$, and hence we obtain the natural tensor products of linear maps. In general we characterize tensors by their universal property.
+
+\begin{theorem}
+    Let $V,W,U \in \Vect$. For any bilinear map $\varphi:V\times W\rightarrow U$ there exists a unique linear map $\overline{\varphi}:V\otimes W\rightarrow U$ such that $\varphi = \overline{\varphi}\circ \iota$ where $\iota$ is the natural map $V\times W\rightarrow V\otimes W$.
+\end{theorem}
+
+As basic results obtained from the previous discussions we have that if $\{v_i\}$ is a basis of $V$ and $\{w_j\}$ is a basis of $W$, $\{v_i\otimes w_j\}$ is a basis of $V\otimes W$. Additionally, we have a natural isomorphism $V^*\otimes W\rightarrow \Hom(V,W)$ in the case when $V$ is finite dimensional.
+
+Important quotients of the tensor product space $V^{\otimes n}$ are the spaces of $n$th \textbf{symmetric powers}, $\text{Sym}^nV$, and the spaces of $n$th \textbf{alternating powers} $\text{Alt}^nV = \wedge^nV$. $\text{Sym}^nV$ is given by the quotient of $V^{\otimes n}$ with the subspace generated by elements of the form $T-S(T)$ where $ T \in V^{\otimes n}$ and $s$ is a transposition of the arguments. $\wedge^nV$ is given by the quotient of $V^{\otimes n}$ with the subspace of all $T \in V^{\otimes n}$ such that $T = s(T)$ for some transposition $s$ of the arguments.
+\textbf{To be continued}
+
+Then if $(V,\rho)$ and $(W,\sigma)$ are representations of $G$, we have a representation $(V\otimes W, \rho\otimes \sigma)$, so $(\rho(g)\otimes \sigma(g))(v\otimes w) = \rho(g)v\otimes \sigma(g)w$. Similarly the $n$th tensor power $V^{\otimes n}$ is again a representation of $G$, as well as $\wedge^n(V)$ and $\text{Sym}^n(V)$, which over fields of characteristic $0$ are subrepresentations of $V^{\otimes n}$.
+
+We also have that the dual $V^* = \Hom(V,k)$ of $V$ is also a representation. We require the two representations of $G$, $V^*$ and $V$, to respect the natural pairing $\langle ,\rangle$ given by $\langle f,v\rangle = f(v)$. So if $\rho^*$ denotes the dual representation, we should have $$\langle \rho^*(g)(f),\rho(g)(v)\rangle = \langle f,v\rangle$$
+for all $g \in G,v \in V$, and $f \in V^*$. A map which satisfies this is the operator adjoint of $\rho(g^{-1})$, $\rho(g^{-1})^{\times}:V^*\rightarrow V^*$ given by precomposition. Indeed \begin{equation*}
+    \langle \rho^*(g)(f),\rho(g)(v)\rangle = f\circ \rho(g^{-1})(\rho(g)(v)) = f(\rho(g^{-1}g)(v)) = f(v) = \langle f,v\rangle
+\end{equation*}
+
+Now if $(V,\rho)$ and $(W,\sigma)$ are representations of $G$, $\Hom(V,W)$ is a representation of $G$ under the natural identification $\Hom(V,W)\cong V^*\otimes W$. Let's unravel how this action would work. Let $\{v_1,...,v_n\}$ be a basis of $\Hom(V,W)$ and $\varphi \in \Hom(V,W)$. Then under our identification we can write $\varphi = \sum_{i=1}^nv_i^*\otimes \varphi(v_i)$. Then $g\cdot \varphi = \sum_{i=1}^n\rho^*(g)(v_i^*)\otimes \sigma(g)(\varphi(v_i))$. Recall $\rho^*(g) = \rho(g^{-1})^{\times}$, so $\rho^*(g)(v_i^*) = v_i^*\circ\rho(g^{-1})$. Then for any $v \in V$, \begin{align*}
+    (g\varphi)(v) &=\sum_{i=1}^nv_i^*(\rho(g)^{-1}(v))\otimes \sigma(g)(\varphi(v_i)) \\
+    &= \sum_{i=1}^n1\otimes \sigma(g)(\varphi(v_i^*(\rho(g)^{-1}(v))v_i)) \\
+    &= 1\otimes \sigma(g)\left(\varphi\left(\sum_{i=1}^nv_i^*(\rho(g)^{-1}(v))v_i\right)\right) \\
+    &= 1\otimes \sigma(g)\left(\varphi\left(\rho(g)^{-1}(v)\right)\right)
+\end{align*}
+so $(g\varphi) = g\varphi g^{-1}$. In other words, the definition is such that the following diagram commutes.
+\begin{center}
+    \begin{tikzcd}
+	V & V \\
+	W & W
+	\arrow["{\rho(g)}", from=1-1, to=1-2]
+	\arrow["\varphi"', from=1-1, to=2-1]
+	\arrow["{\sigma(g)}"', from=2-1, to=2-2]
+	\arrow["g\varphi", from=1-2, to=2-2]
+\end{tikzcd}
+\end{center}
+We can also consider the dual representation to be a special case of this as $V^*\otimes k \cong V^*$.
+
+\begin{proposition}
+    The space of $G$-linear maps, $\Hom(V,W)^G$, is a subspace of $\Hom(V,W)$ fixed under the action of $G$.
+\end{proposition}
+\begin{proof}
+    First, we indeed have $\Hom(V,W)^G \subseteq \Hom(V,W)$, since all $G$-linear maps are linear. Now, suppose $\varphi \in \Hom(V,W)$ is fixed by $G$. Then $g\varphi = \varphi$, so the previous commuting diagram simplifies to the case of a $G$-linear map and $\varphi \in \Hom(V,W)^G$. Conversely, if $\psi \in \Hom(V,W)^G$, then the commuting diagram for $G$-linear maps combined with the commuting diagram for $g\psi$ implies $g\psi(gv) = \psi(gv)$ for all $g \in G$ and all $v \in V$. But the $g$ act by automorphisms, so $gv$ spans the whole space as $v$ ranges over $V$. Thus $g\psi = \psi$, so $\psi$ is fixed by the action of $G$.
+\end{proof}
+
+We recall a number of important identities for tensor products, with the representation structure preserved over the isomorphism between the spaces: \begin{align*}
+    V\otimes(U\oplus W) &= (V\otimes U)\oplus(V\otimes W) \\
+    \wedge^k(V\oplus W) &= \bigoplus_{a+b=k}\wedge^aV\otimes \wedge^bW \\
+    \wedge^k(V^*) &= (\wedge^kV)^*
+\end{align*}
+
+If $X$ is a finite set and $G$ acts on the left on $X$, there is an associated permutation representation; let $V$ be the vector space with basis $\{e_x:x \in X\}$, and let $G$ act on $V$ by \begin{equation*}
+    g\cdot\sum a_xe_x = \sum a_xe_{gx}
+\end{equation*}
+The \textbf{regular representation}, denoted $R_G$, corresponds to the left action of $G$ on itself. Alternatively, $R_G$ is the space of complex valued function on $G$, where an element $g \in G$ acts on a function $\alpha$ by $(g\alpha)(h) = \alpha(g^{-1}h)$.
+
+
+

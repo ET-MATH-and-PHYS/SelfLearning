@@ -1,0 +1,102 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+\chapter{Representations of Finite Groups Basics}
+\label{BasicsFin} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+We continue off of our last chapter with introducing representation theory, but here in the context of finite groups.
+
+\section{Complete Reducibility}
+
+Before we try to classify the representations of a finite group $G$, we should try to simplify our study by restricting our search somewhat. In particular we have seen we can build up representations using linear algebraic operations, simplest being the direct sum. We look for representations that are ``atomic" with respect to the direct sum. As mentioned previously these are \textbf{indecomposable} representations. For complex representations of finite groups these are equivalent to irreducible representations. Thus every representation is a direct sum of irreducibles. THe key to this is the following result.
+
+\begin{proposition}
+    If $W$ is a subrepresentation of a representation $V$ of a finite group $G$, then there is a complementary invariant subspace $W'$ of $V$ so that $V = W\oplus W'$.
+\end{proposition}
+\begin{proof}
+    Note we can induce a Hermitian inner product $H_0$ on $V$ through an isomorphism with the appropriate $\C^{\dim V}$. Then we can define a Hermitian inner product $H$ which is preserved by each $g \in G$ by averaging over $G$ since $G$ is finite: \begin{equation*}
+        H(v,w) = \sum_{g \in G}H_0(gv,gw)
+    \end{equation*}
+    Then consider the perpendicular subspace $W^{\perp}$ which is complementary to $W$ in $V$. Since $H$ is preserved under the action by $G$ $W^{\perp}$ is also $G$ invariant and we have our result.
+
+    Alternatively, we can choose an arbitrary subspace $U$ complementary to $W$, let $\pi_0:V\rightarrow W$ be the projection given by the direct sum decomposition $V = W\oplus U$, and average the map $\pi_0$ over $G$: that is, take \begin{equation*}
+        \pi(v) = \sum_{g \in G}g(\pi_0(g^{-1}v))
+    \end{equation*}
+    This will then be a $G$-linear map from $V$ onto $W$, which is multiplication by $|G|$ on $W$; its kernel will, therefore, be a subspace of $V$ invariant under $G$ and complementary to $W$. 
+\end{proof}
+
+\begin{corollary}
+    Any representation is a direct sum of irreducible representations.
+\end{corollary}
+
+This property is known as \textbf{complete reducibility} or \textbf{semisimplicity}\index{Complete reducibility}\index{Semisimplicity}. We will see later that for continuous representations, the circle $S^1$, or any compact group, has this property; integration over the group (with respect to an invariant measure on the group) plays the role of averaging in the above proof. Note this argument would fail if the vector space $V$ was over a field of finite characteristic since it might then be the case that $\pi(v) = 0$ for $v \in W$. This yields the complexity we see in the theory of \textbf{modular representations}, or representations on vector spaces over finite fields.
+
+We have a notion of uniqueness in our decomposition into irreducible representations through the following result.
+
+\begin{lemma}[Schur's Lemma]\index{Schur's Lemma}
+    If $V$ and $W$ are irreducible representations of $G$ and $\varphi:V\rightarrow W$ is a $G$-module homomorphism, then \begin{itemize}
+        \item Either $\varphi$ is an isomorphism, or $\varphi = 0$
+        \item If $V = W$, then $\varphi = \lambda\cdot I_V$ for some $\lambda \in \C$.
+    \end{itemize}
+\end{lemma}
+\begin{proof}
+    The first claim follows from the fact that $\ker\varphi$ and $\ran\varphi$ are invariant subspaces, and hence subrepresentations. For the second, since $\C$ is algebraically closed, $\varphi$ must have an eigenvalue $\lambda$, so for some $\lambda \in \C$, $\varphi - \lambda I_V$ has a nonzero kernel. Then by the first point we must have that $\varphi - \lambda I_V = 0$, so $\varphi =\lambda I_V$.
+\end{proof}
+In summary we have the following.
+
+\begin{proposition}
+    For any representation $V$ of a finite group $G$, there is a decomposition \begin{equation*}
+        V = V_1^{\oplus a_1}\oplus\cdots \oplus V_k^{\oplus a_k}
+    \end{equation*}
+    where the $V_i$ are distinct irreducible representations. The decomposition of $V$ into a direct sum of the $k$ factors is unique, as are the $V_i$ that occur and their multiplicities $a_i$.
+\end{proposition}
+\begin{proof}
+    From Schur's lemma we have that if $W$ is another representation of $G$, with a decomposition $W = \bigoplus_j W_j^{\oplus b_j}$, and $\varphi:V\rightarrow W$ is a map of representations, then $\varphi$ must map the factor $V_i^{\oplus a_i}$ into that factor $W_j^{\oplus b_j}$ for which $W_j\cong V_i$; when applied to the identity map of $V$ to $V$, the stated uniqueness follows.
+\end{proof}
+
+The decomposition of the $i$th summand into a direct sum of $a_i$ copies of $V_i$ is not unique if $a_i > 1$, however.
+
+Occasionally we write the decomposition as $V = a_1V_1\oplus\cdots\oplus a_kV_k = a_1V_1+\cdots+a_kV_k$, especially if one is concerned only about the isomorphism classes and multiplicities of the $V_i$.
+
+We will see soon that a finite group only admits a finite number of irreducible representations up to isomorphism. Once we have described the irreducible representations of $G$ we can describe an arbitrary representation as a linear combination of these. Our first goal will be hence to describe all of $G$'s irreducible representations. Then our second goal will be to find techniques for giving the direct sum decomposition, and in particular determining the multiplicities $a_i$ of an arbitrary representation $V$. We then need to find how these decompositions mingle with our linear algebraic operations. 
+
+\section{Abelian Groups and Examples}
+
+We start by looking for examples in abelian groups. Surprisingly this is quite a simple case. We observe that in general if $V$ is a representation of a finite group $G$, abelian or not, each $g \in G$ gives a map $\rho(g):V\rightarrow V$; but this map is not generally a $G$-module homomorphism: for general $h \in G$ we will have $g(h(v)) \neq h(g(v))$. Indeed, $\rho(g):V\rightarrow V$ will be $G$-linear for every $\rho$ if and only if $g$ is in the center $Z(G)$ of $G$. In particular, if $G$ is abelian all such maps are $G$-linear. If $V$ is an irreducible representation of $G$, then by Schur's lemma every element $g \in G$ acts on $V$ by a scalar multiple of the identity. Hence every subspace of $V$ is invariant, so for $V$ to be irreducible it must be one dimensional. The irreducible representations of an abelian group $G$ are thus simply elements of the dual group, that is, homomorphisms $$\rho:G\rightarrow \C^*$$
+
+Since this case is settled we now consider the simplest non-ableian group, the symmetric group on three letters $G = \mathfrak{S}_3$. As with any nontrivial symmetric group we have two one-dimensional representations: we have the trivial representatinos, which we will denote by $U$, and the alternating representation $U'$, defined by setting \begin{equation*}
+    gv = \text{sgn}(g)v
+\end{equation*}
+for $g \in G$ and $v \in \C$. Since $G$ comes to us as a permutation group, we have a natural permutation representation, in which $G$ acts on $\C^3$ by permuting the coordinates. Explicitly, if $\{e_1,...,e_3\}$ is the standard basis, then $g\cdot e_i = e_{g(i)}$ or, equivalently, $$g\cdot(z_1,z_2,z_3) = (z_{g^{-1}(1)},z_{g^{-1}(2)},z_{g^{-1}(3)})$$
+This representation, like any permutation representation, is not irreducible: the line spanned by the sum $(1,1,1)$ of the basis vectors is invariant with complementary subspace \begin{equation*}
+    V = \{(z_1,z_2,z_3) \in \C^3:z_1+z_2+z_3 = 0\}
+\end{equation*}
+This two dimensional representation $V$ can be seen to be irreducible; we call it the \textbf{standard representation} of $\mathfrak{S}_3$.
+
+We now seek to describe an arbitrary representation of $\mathfrak{S}_3$. We shall see better methods and tools for this shortly. Since we have seen that the representation theory of a finite abelian group is virtually trivial, we start our analysis of an arbitrary representation $W$ of $\mathfrak{S}_3$ by looking just at the action of the abelian subgroup $\mathfrak{A}_3 = \Z/3\Z \subset \mathfrak{S}_3$ on $W$. If we take $\tau$ to be any generator of $\mathfrak{A}_3$ (that is, any other three-cycle), the space $W$ is spanned by eigenvectors $v_i$ for the action of $\tau$, whose eigenvalues are of course all powers of a cube root of unity, $\omega = e^{2\pi i/3}$. Thus \begin{equation*}
+    W = \bigoplus V_i
+\end{equation*}
+where $V_i = \C v_i$ and $\tau v_i = \omega^{\alpha_i}v_i$.
+
+Next we see how the remaining elements of $\mathfrak{S}_3$ act on $W$ in terms of this decomposition. Let $\sigma$ by any transposition, so that $\tau$ and $\sigma$ together generate $\mathfrak{S}_3$, with the relation $\sigma\tau\sigma = \tau^2$. We need to know where $\sigma$ sends an eigenvector $v$ for the action of $\tau$ with eigenvalue $\omega^i$; to answer this we can look at how $\tau$ acts on $\sigma(v)$. Using the basic relation above we can write \begin{align*}
+    \tau(\sigma(v)) &= \sigma(\tau^2(v)) \\
+    &= \sigma(\omega^{2i}v) \\
+    &= \omega^{2i}\sigma(v)
+\end{align*}
+Consequently, if $v$ is an eigenvector for $\tau$ with eigenvalue $\omega^i$, then $\sigma(v)$ is again an eigenvector for $\tau$ but with eigenvalue $\omega^{2i}$. 
+
+Suppose now we start with such an eigenvector $v$ for $\tau$. If $\omega^i \neq 1$, then $\sigma(v)$ is an eigenvector with eigenvalue $\omega^{2i}\neq \omega^i$, and so is independent of $v$; and $v$ and $\sigma(v)$ together span a two-dimensional subspace $V'$ of $W$ invariant under $\mathfrak{S}_3$. In fact, $V'$ is isomorphic to the standard representation. If, on the other hand, the eigenvalue of $v$ is $1$, then $\sigma(v)$ may or may not be independent of $v$. If it is not, then $v$ spans a one-dimensional subrepresentation of $W$, isomorphic to the trivial representation if $\sigma(v) = v$ and to the alternating representation if $\sigma(v) = -v$. If $\sigma(v)$ and $v$ are independent, then $v+\sigma(v)$ and $v-\sigma(v)$ span one-dimensional representations of $W$ isomorphic to the trivial and alternating representations, respectively.
+
+In summary, the only three irreducible representations of $\mathfrak{S}_3$ are the trivial, alternating, and standard representations $U$, $U'$, and $V$. Moreover, for an arbitrary representation $W$ of $\mathfrak{S}_3$ we can write \begin{equation*}
+    W = U^{\oplus a}\oplus {U'}^{\oplus b}\oplus V^{\oplus c};
+\end{equation*}
+and we have a way to determine the multiplicities $a,b$, and $c$; $c$, for example, is the number of independent eigenvectors for $\tau$ with eigenvalue $\omega$, whereas $a+c$ is the multiplicity of $1$ as an eigenvalue of $\sigma$, and $b+c$ is the multiplicity of $-1$ as an eigenvalue of $\sigma$. 
+
+We can also use this information to find the deompositions of symmetric, alternating, or tensor powers of a given representation $W$, because if we know the eigenvalues of $\tau$ on such a representation, we know the eigenvalues of $\tau$ on the various tensor powers of $W$. For example, let us decompose $V\otimes V$, where $V$ is the standard two-dimensional representation. For $V\otimes V$ is spanned by the vectors $\alpha\otimes\alpha,\alpha\otimes\beta,\beta\otimes\alpha,$ and $\beta\otimes \beta$; these are eigenvectors for $\tau$ with eigenvalues $\omega^2$, $1$, $1$, and $\omega$, respectively, and $\sigma$ interchanges $\alpha\otimes\alpha$ with $\beta\otimes\beta$ and $\alpha\otimes\beta$ with $\beta\otimes \alpha$. Thus $\alpha\otimes\alpha$ and $\beta\otimes \beta$ span a subrepresentation isomorphic to $V$, $\alpha\otimes \beta+\beta\otimes\alpha$ spans a trivial representation $U$, and $\alpha\otimes\beta-\beta\otimes\alpha$ spans $U'$, so $V\otimes V\cong U\oplus U'\oplus V$

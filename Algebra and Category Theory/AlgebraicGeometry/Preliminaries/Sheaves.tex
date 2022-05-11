@@ -1,0 +1,110 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+\chapter{Sheaves}
+\label{sheaves} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+Recall that geometric spaces are often best understood in terms of structure preserving functions on them. For example, a differentiable manifold that is a subset of $\R^n$ can be studied in terms of its differentiable functions. Since geometric spaces can have few everywhere-defined functions, a more precise insight is that the structure of the space can be well understood by considering all functions on all open subsets of the space.
+
+\section{Motivation: The Sheaf of Differentiable Functions}
+
+Consider differentiable functions on a differentiable manifold $M$. The sheaf of differentiable functions on $M$ is the data of all differentiable functions on all open subsets on $M$. On each open set $U \subseteq M$, we have a ring of differentiable functions, denoted by $\mathscr{O}(U)$. Given a differentiable function on an open set, you can restrict it to a smaller open set, obtaining a differentiable function there. That is, if $U \subseteq V$ is an inclusion of open sets, we have a ``restriction map" $\text{res}_{V,U}:\mathscr{O}(V)\rightarrow \mathscr{O}(U)$.
+
+Note if we have $U \subseteq V \subseteq W$, we can restrict functions step-wise or all at once, yielding the same result. This is codified in the commutivity of the following diagram: 
+\begin{center}
+    \begin{tikzcd}
+	{\mathscr{O}(W)} & {} & {\mathscr{O}(V)} \\
+	& {\mathscr{O}(U)}
+	\arrow["{\text{res}_{W,U}}"', from=1-1, to=2-2]
+	\arrow["{\text{res}_{W,V}}", from=1-1, to=1-3]
+	\arrow["{\text{res}_{V,U}}", from=1-3, to=2-2]
+\end{tikzcd}
+\end{center}
+
+Another property is that if we have two differentiable functions $f_1$ and $f_2$ on an open set $U$, and an open cover of $U$, $\{U_i\}_{i \in I}$ such that $\text{res}_{U,U_i}f_1 = \text{res}_{U,U_i}f_2$ for all $i$, then we must have that $f_1 = f_2$. Thus we can identify functions on an open set by looking at them on a covering by small open sets.
+
+Finally, suppose you are given the same $U$ and cover $\{U_i\}_{i \in I}$ with associated differentiable functions $f_i$. If the functions agree on their overlap, $\text{res}_{U_i,U_i\cap U_j}f_i = \text{res}_{U_j,U_i\cap U_j}f_j$, for all $i$ and $j$, then they can be glued together to make one differentiable function on all of $U$. In other words, there exists $f \in \mathscr{O}(U)$ such that $\text{res}_{U,U_i}f = f_i$ for all $i$.
+
+
+\subsection{The Germ of a Differentiable Function}
+
+We now define the germ of a differentiable function at a point $p \in M$. Intuitively it is a ``shred" of a differentiable function at $p$.
+
+\begin{definition}\index{Germ of functions}
+    The germ of a function $f$ on $M$ is an object of the form $$\{(f,U):p\in U,f \in\mathscr{O}(U),U \in \tau_M\}/\{(f,U)\sim(g,U)\text{ if there exists } W \subseteq U\cap V\text{ containing $p$ such that }\text{res}_{U,W}f = \text{res}_{V,W}g\}$$
+    In other words, two functions that are the same in an open neighborhood of $p$ have the same germ at that point. We call the set of germs at the point $p$ the \textbf{stalk} at $p$, and denote it $\mathscr{O}_p$.
+\end{definition}
+
+Notice that the stalk is a ring and you can add two germs to get another germ. Additionally, notice that if $p \in U$ and you get a map $\mathscr{O}(U)\rightarrow \mathscr{O}_p$ sending a function to its germ. Note that this is given germs as colimits.
+
+We can see that $\mathscr{O}_p$ is a local ring as follows. Consider those germs vanashing at $p$ which we denote by $\mathfrak{m}_p \subseteq \mathscr{O}_p$. They certainly form an ideal. This is in fact maximal, as we have the exact sequence \begin{equation*}
+    0\rightarrow \mathfrak{m}_p \rightarrow \mathscr{O}_p\rightarrow \R\rightarrow 0
+\end{equation*}
+Now, if $f \in \mathscr{O}_p\backslash\mathfrak{m}_p$. Then $f$ doesn't vanish at $p$, so by continuity there is some neighborhood $U$ of $p$ for which $f$ is non-zero. In particular its inverse function $1/f$ is defined and differentiable on $U$ since $f$ is non-zero. Then the product of the germ of $f$ with the germ of $1/f$ will be the germ of the constant function $1$. Hence the germ of $f$ is invertible, so $\mathfrak{m}_p$ is indeed a maximal ideal.
+
+Note that we can interpret the value of a function at a point, or the value of a germ at a point, as an element of the local ring modulo the maximal ideal, $\mathscr{O}_p/\mathfrak{m}_p$.
+
+\section{Sheaf and Presheaf}
+
+\begin{definition}\index{Presheaf}
+    A \textbf{presheaf} $\mathscr{F}$ of sets on a topological space $X$ is the following data. \begin{itemize}
+        \item To each open set $U \subseteq X$, we have a set $\mathscr{F}(U)$. The elements of $\mathscr{F}(U)$ are called \textbf{sections of $\mathscr{F}$ over $U$}. Sections of $\mathscr{F}$ mean sections of $\mathscr{F}$ over $X$, which are called \textbf{global sections}.
+        \item For each inclusion $U \subseteq V$ of open sets, we have a \textbf{restriction map}, $\text{res}_{V,U}:\mathscr{F}(V)\rightarrow \mathscr{F}(U)$.
+        \item The map $\text{res}_{U,U}$ is the identity $\id_{\mathscr{F}(U)}$.
+        \item If $U \subseteq V \subseteq W$ are inclusions of open sets, then the restriction maps commute, i.e.
+\begin{center}
+    \begin{tikzcd}
+        {\mathscr{F}(W)} & {} & {\mathscr{F}(V)} \\
+	& {\mathscr{F}(U)}
+	\arrow["{\text{res}_{W,U}}"', from=1-1, to=2-2]
+	\arrow["{\text{res}_{W,V}}", from=1-1, to=1-3]
+	\arrow["{\text{res}_{V,U}}", from=1-3, to=2-2]
+\end{tikzcd}
+\end{center}
+commutes.
+    \end{itemize}
+\end{definition}
+
+In particular, if $\mathcal{O}(X)$ is the category of open sets of $X$, then a presheaf of objects of type $\mathscr{C}$ is simply a contravariant functor $\mathscr{F}:\mathcal{O}(X)^{op}\rightarrow \mathscr{C}$.
+
+We now look to the \textbf{stalk} of a presheaf.
+
+\begin{definition}
+    Let $\mathscr{F}$ be a presheaf of $X$. We define the \textbf{stalk} of $\mathscr{F}$ at $p \in X$ to be the set of $\textbf{germs}$ of $\mathscr{F}$ at $p$, denoted $\mathscr{F}_p$. Germs correspond to sections over some open set containing $p$, and two of these sections are considered equivalent if they agree on some smaller open set. More precisely, the stalk can be defined as $$\{(f,U):p \in U,f \in \mathscr{F}(U), U \in \tau_X\}/\{(f,U)\sim(g,V) \iff \exists W \subseteq U\cap V$\text{ where }p in W\text{ and }\text{res}_{U,W}f = \text{res}_{V,W}$$
+\end{definition}
+A useful equivalent categorical definition of a stalk is as a colimit of all $\mathscr{F}(U)$ over all open sets $U$ containing $p$. \begin{equation*}
+    \mathscr{F}_p := \lim\limits_{\overrightarrow{p \in U}}\mathscr{F}(U)
+\end{equation*}
+As the index category is a filtered set, our previously defined stalk is also a colimit, and they are hence naturally isomorphic.If $p \in U$ and $f \in \mathscr{F}(U)$, then the image of $f$ in $\mathscr{F}_p$ is called the \textbf{germ of $f$ at $p$}. 
+
+\begin{definition}\index{Sheaf}
+    A presheaf is a \textbf{sheaf} if it satisfies two more axioms. Let $\{U_i\}_{i \in I}$ be an open cover of $U$. \begin{itemize}
+        \item (\textbf{identity axiom}) If $f_1,f_2 \in \mathscr{F}(U)$ and $\texst{res}_{U,U_i}f_1 = \text{res}_{U,U_i}f_2$ for all $i$, then $f_1 = f_2$.
+        \item (\textbf{Gluability axiom}) If $f_i \in \mathscr{F}(U_i)$ for all $i$, such that $\text{res}_{U_i,U_i\cap U_j}f_i = \text{res}_{U_j,U_i\cap U_j}$ for all $i,j$, then there exists $f \in \mathscr{F}(U)$ such that $\text{res}_{U,U_i}f = f_i$ for all $i$.
+    \end{itemize}
+\end{definition}
+
+The two axioms for a presheaf to be a sheaf can be interpreted as ``exactness" of the ``equilizer exact sequence": $$0\rightarrow \mathscr{F}(U)\rightarrow \prod_i\mathscr{F}(U_i)\rightrightarrows\prod_{i,j}\mathscr{F}(U_i\cap U_j)$$
+Identity is exactness at $\mathscr{F}(U)$, and gluability is exactness at $\prod_i\mathscr{F}(U_i)$.
+
+\begin{example}
+    Suppose $\mathscr{F}$ is a sheaf on $X$ and $U$ is an open subset of $X$. Define the \textbf{restriction of $\mathscr{F}$ to $U$}, denoted $\mathscr{F}\vert_U$, to be the functor $\mathscr{F}\vert_U:\mathcal{U}^{op}\rightarrow \Set$ defined by $\mathscr{F}\vert_U(V) = \mathscr{F}(V)$ for $V \subseteq U$ open, and restrictions don't change.
+\end{example}
+
+\begin{example}
+    Suppose $X$ is a topological space, with $p \in X$, and $S$ is a set. Let $i_p:p\rightarrow X$ be the inclusion. Then $i_{p,*}S$ defined by $$i_{p,*}S(U) = \left\{\begin{array}{lc} S & \text{if } p \in U, \\ \{e\}&\text{if }p \notin U\end{array}\right.$$
+    forms a sheaf. Here $\{e\}$ is any one-element set. This is called the \textbf{skyscraper sheaf}. There is an analogous definition for sheaves of abelian groups, except $i_{p,*}(S)(U) = \{0\}$ if $p \notin U$; and for sheaves with values in a more general category, $i_{p,*}S(U)$ should be a final object if $p \notin U$.
+\end{example}
+
+\begin{example}
+    Let $X$ be a topological space and $S$ a set. Define $\underline{S}_{pre}(U) = S$ for all open sets $U$. Then $\underline{S}_{pre}$ is a pre-sheaf with restriction maps simply the identity. This is called the \textbf{constant presheaf associated to $S$}. This isn't in general a sheaf.
+\end{example}
+
+

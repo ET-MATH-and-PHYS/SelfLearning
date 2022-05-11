@@ -1,0 +1,140 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+\chapter{Character Theory}
+\label{Char} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+\section{Characters}
+
+We now move to the study of the tool of character theory for understanding and computing representations of finite groups, which we hinted at previously. As seen with our work in $\mathfrak{S}_3$ previously, knowing all the eigenvalues of each element of a finite group $G$ should suffice to describe its representations. Of course this is quite an unwieldy task in general, but fortunately redundant as well. In particular, if we know the eigenvalues $\{\lambda_i\}$ of an element $g \in G$, then we know the eigenvalues $\{\lambda_i^k\}$ of $g^k$ for each $k$ as well.
+
+The key observation here is it is enough to give just the sum of the eigenvalues of each element of $G$, since knowing the sums $\sum \lambda_i^k$ of the $k$th powers of the eigenvalues of a given element $g\in G$ is equivalent to knowing the eigenvalues $\{\lambda_i\}$ of $g$ themselves. This then suggests the following.
+
+\begin{definition}
+    If $V$ is a representation of $G$, its \textbf{character} $\chi_V$ is the complex-valued function on the group defined by $$\chi_V(g) = \text{Tr}(g\vert_V)$$
+    the trace of $g$ on $V$.
+\end{definition}
+In particular, we have \begin{equation*}
+    \chi_V(hgh^{-1}) = \chi_V(g)
+\end{equation*}
+Using the property that $\text{Tr}(AB) = \text{Tr}(BA)$, so $\chi_V$ is constant on the conjugacy classes of $G$; such a function is called a \textbf{class function}. Note that since $\C$ has characteristic zero, $\chi_V(1) = \dim V$.
+
+\begin{proposition}
+    Let $V$ and $W$ be representations of $G$. Then \begin{align*}
+        \chi_{V\oplus W} &= \chi_V+\chi_W &\chi_{V\otimes W} = \chi_V\cdot \chi_W \\
+        \chi_{V^*} &= \overline{\chi}_V &\chi_{\wedge^2V}(g) = \frac{1}{2}[\chi_V(g)^2 - \chi_V(g^2)]
+    \end{align*}
+\end{proposition}
+\begin{proof}
+    We compute the values of these characters on a fixed element $g \in G$. For the action of $g$, $V$ has eigenvalues $\{\lambda_i\}$ and $W$ has eigenvalues $\{\mu_i\}$. Then $\{\lambda_i\}\cup\{\mu_j\}$ and $\{\lambda_i\cdot\mu_j\}$ are eigenvalues of $V\oplus W$ and $V\otimes W$, from which the first two formulas follow. Similarly, $\{\lambda_i^{-1} = \overline{\lambda}_i\}$ are the eigenvalues for $g$ on $V^*$, since all eigenvalues are $n$th roots of unity, with $n$ the order of $g$. Finally, $\{\lambda_i\lambda_j|i < j\}$ are the eigenvalues for $g$ on $\wedge^2V$, and \begin{equation*}
+        \sum_{i<j}\lambda_i\lambda_j = \frac{\left(\sum\lambda_i\right)^2 - \sum\lambda_i^2
+    \end{equation*}
+    and since $g^2$ has eigenvalues $\{\lambda_i^2\}$, the last formula follows.
+\end{proof}
+
+As we have said, the cahracter of a representation of a group $G$ is really a function on the set of conjugacy classes of $G$. This suggests expressing the basic information about the irreducible representations of a group $G$ in the form of a \textbf{character table}. This is a table with the conjugacy classes $[g]$ of $G$ listed across the top, usually given by a representative $g$, with the number of elements in each conjugacy class over it; the irreducible representations $V$ of $G$ listed on the left; and, in the appropriate box, the value of the character $\chi_V$ on the conjugacy class $[g]$.
+
+\begin{example}
+    We compute the character table of $\mathfrak{S}_3$. The trivial takes the values values $(1,1,1)$ on the three conjugacy classes $[1]$, $[(1\,2)]$, and $[(1\,2\,3)]$, whereas the alternating representation has values $(1,-1,1)$. To see the character of the standard representation note that the permutation representation decomposes $\C^3 = U\oplus V$. Since the character of the permutation representation has the values $(3,1,0)$, we have $\chi_V = \chi_{\C^3} - \chi_U = (3,1,0) - (1,1,1) = (2,0,-1)$. In sum, then the character table of $\mathfrak{S}_3$ is 
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{r|ccc}
+            & $1$ & $3$ & $2$ \\
+            $\mathfrak{S}_3$ & $(1)$ & $(12)$ & $(123)$ \\ \hline
+            trivial $U$ & $1$ & $1$ & $1$ \\ 
+            alternating $U'$ & $1$ & $-1$ & $1$ \\
+            standard $V$ & $2$ & $0$ & $-14$ \\
+        \end{tabular}
+    \end{table}
+    If $W$ is any representation of $\mathfrak{S}_3$ and we decompose $W$ into irreducible representations $W \cong U^{\oplus a}\oplus {U'}^{\oplus b}\oplus V^{\oplus c}$, then $\chi_W = a\chi_U + b\chi_{U'} + c\chi_V$. In particular, since the functions $\chi_U,\chi_{U'},$ and $\chi_V$ are independent, we see that $W$ is determined up to isomorphism by its character $\chi_W$.
+\end{example}
+
+Continuing the last example, consider $V\otimes V$. Its character is $(\chi_V)^2$, which has values $4, 0,$ and $1$ on the three conjugacy classes. Since $V\oplus U\oplus U'$ has the same character. this implies that $V\otimes V$ decomposes into $V\oplus U\oplus U'$ as we have seen directly. Similarly, $V\otimes U'$ has values $2, 0, -1$, so $V\otimes U'\cong V$.
+
+\section{The First Projection Formula and Its Consequences}
+
+In this section we start by giving an explicit formula for the projection of a representation onto the direct sum of the trivial factors in this decomposition. We shall also see a number of consequences of this formula.
+
+To start, for any representation $V$ of a group $G$ we set \begin{equation*}
+    V^G := \{v \in V:gv = v\;\;\forall g \in G\}
+\end{equation*}
+or in other words the set of fixed points under the action. We ask for a way of finding $V^G$ explicitly. Recall that for any representation $V$ of $G$ and any $g \in G$, the endomorphism $g:V\rightarrow V$ is, in general, not a $G$-module homomorphism. On the other hand, if we take the average of all these endomorphisms, that is, we set \begin{equation*}
+    \varphi = \frac{1}{|G|}\sum_{g\in G}g \in \text{End}(V)
+\end{equation*}
+then the endomorphism $\varphi$ will be $G$-linear since $\sum g = \sum hgh^{-1}$ for any $h$ since conjugation is an automorphism of the group. In fact we have the following.
+
+\begin{proposition}
+    The map $\varphi$ is a projection of $V$ onto $V^G$.
+\end{proposition}
+\begin{proof}
+    First, suppose $v = \varphi(w) = \frac{1}{|G|}\sum gw$. Then for any $h \in G$, $$hv = \frac{1}{|G|}\sum hgw = \frac{1}{|G|}\sum gw$$
+    since left translation is an automorphism of a group. So the image of $\varphi$ is contained in $V^G$. Conversely, if $v \in V^G$, then $\varphi(v) = \frac{1}{|G|}\sum v = v$, so $V^G \subseteq \ran(\varphi)$, and $\varphi \circ \varphi = \varphi$.
+\end{proof}
+We thus have a way of finding explicitly the direct sum of the trivial subrepresentations of a given representation. If we just want to know the number $m$ of copies of the trivial representation appearing in the decomposition of $V$, we can do this numerically, since this number will be just the trace of the projection $\varphi$. We have \begin{align*}
+    m &= \dim V^G = \text{Tr}(\varphi) \\
+    &= \frac{1}{|G|}\sum_{g \in G}\text{Tr}(g) = \frac{1}{|G|}\sum_{g \in G}\chi_V(g)
+\end{align*}
+In particular, this implies that for any irreducible representation $V$ other than the trivial one, the sum over all $g \in G$ of the values of the character $\chi_V$ is zero.
+
+Recall that if $V$ and $W$ are representation of $G$, and if we take the natural representation structure on $\Hom(V,W)$, then \begin{equation*}
+    \Hom(V,W)^G = \{G\text{-module homomorphisms from $V$ to $W$}\}
+\end{equation*}
+If $V$ is irreducible then by Schur's lemma $\dim \Hom(V,W)^G$ is the multiplicity of $V$ in $W$; similarly, if $W$ is irreducible, $\dim \Hom(V,W)^G$ is the multiplicity of $W$ in $V$, and in the case where both $V$ and $W$ are irreducible, we have $$\dim\Hom_G(V,W) =\left\{\begin{array}{lc} 1 & \text{if }V\cong W \\ 0 & \text{if }V\ncong W\end{array}\right.$$
+But now the character $\chi_{\Hom(V,W)}$ of the representation $\Hom(V,W) = V^*\otimes W$ is given by \begin{equation*}
+    \chi_{\Hom(V,W)}(g) = \overline{\chi_V(g)}\cdot\chi_W(g)
+\end{equation*}
+Applying our projection formula we find that \begin{equation}\label{eq:HomChar}
+    \frac{1}{|G|}\sum_{g \in G}\overline{\chi_V(g)}\chi_W(g) = \left\{\begin{array}{lc} 1 & \text{if }V\cong W \\ 0 & \text{if }V\ncong W\end{array}\right.
+\end{equation}
+To express this let $$\C_{class}(G) = \{\text{class functions on }G\}$$ and define an Hermitian inner product on $\C_{class}(G)$ by \begin{equation}\label{eq:classHerm}
+    (\alpha,\beta) = \frac{1}{|G|}\sum_{g\in G}\overline{\alpha(g)}\beta(g)
+\end{equation}
+Formula \ref{eq:HomChar} then amounts to 
+
+\begin{theorem}
+    In terms of this inner product, the characters of the irreducible representations of $G$ are orthonormal.
+\end{theorem}
+For example the orthonormality of the three irreducible representations of $\mathfrak{S}_3$ can be read from its character table in our previous example. The numbers over each conjugacy class, denoting their size, tells how many times to count entries in that column in the sum.
+
+\begin{corollary}
+    The number of irreducible representations of $G$ is less than or equal to the number of conjugacy classes.
+\end{corollary}
+We will soon show that there are no nonzero class functions orthogonal to the characters, so that equality holds in this corollary.
+
+\begin{corollary}
+    Any representation is determined by its character.
+\end{corollary}
+Indeed, if $V\cong V_1^{\oplus a_1}\oplus \cdots \oplus V_k^{\oplus a_k}$, with the $V_i$ distinct irreducible representations, then $\chi_V = \sum a_i\chi_{V_i}$, and the $\chi_{V_i}$ are linearly independent.
+
+\begin{corollary}
+     A representation is irreducible if and only if $(\chi_V,\chi_V) = 1$.
+\end{corollary}
+In fact, if $V \cong V_1^{\oplus a_1}\oplus \cdots \oplus V_k^{\oplus a_k}$ as above, then $(\chi_V,\chi_V) = \sum_ia_i^2$. The multiplicities $a_i$ can be calculated via the following.
+
+\begin{corollary}
+    The multiplicity $a_i$ fo $V_i$ in $V$ is the inner product of $\chi_V$ with $\chi_{V_i}$, i.e., $a_i = (\chi_V,\chi_{V_i})$.
+\end{corollary}
+
+We can obtain further results by applying this to the regular representation $R$ of $G$. First, we know the character of $R$; it is simply \begin{equation*}
+    \chi_R(g) = \left\{\begin{array}{lc} 0 & \text{if } g\neq e \\ |G| & \text{if } g= e\end{array}\right.
+\end{equation*}
+since $\chi_R(g)$ will give the number of fixed points of $g$ in the underlying set generating the free vector space $R$, but as the underlying set is $G$ and the action is left translation which is free, $g$ only fixes a point in $G$ if $g = e$. Thus we see that $R$ is not irreducible if $G \neq \{e\}$. In fact, if we set $R = \bigoplus V_i^{\oplus a_i}$, with $V_i$ distinct irreducibles, then \begin{equation*}
+    a_i = (\chi_{V_i},\chi_R) = \frac{1}{|G|}\chi_{V_i}(e)\cdot|G| = \dim V_i
+\end{equation*}
+\begin{corollary}
+    Any irreducible representation $V$ of $G$ appears in the regular representation $\dim V$ times.
+\end{corollary}
+In particular, this proves that there are only finitely many irreducible representations. As a numerical consequence of this we have the formula \begin{equation}
+    |G| = \dim(R) = \sum_i\dim(V_i)^2
+\end{equation}
+Applying this to the value of the character of the regular representation on an element $g \in G$ other than the identity, we have \begin{equation}
+    0 = \sum_i(\dim V_i)\cdot \chi_{V_i}(g),\;\text{if }g\neq e
+\end{equation}
+
