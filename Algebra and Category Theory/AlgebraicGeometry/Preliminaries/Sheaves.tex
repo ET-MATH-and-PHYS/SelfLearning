@@ -77,7 +77,7 @@ In particular, if $\mathcal{O}(X)$ is the category of open sets of $X$, then a p
 We now look to the \textbf{stalk} of a presheaf.
 
 \begin{definition}
-    Let $\mathscr{F}$ be a presheaf of $X$. We define the \textbf{stalk} of $\mathscr{F}$ at $p \in X$ to be the set of $\textbf{germs}$ of $\mathscr{F}$ at $p$, denoted $\mathscr{F}_p$. Germs correspond to sections over some open set containing $p$, and two of these sections are considered equivalent if they agree on some smaller open set. More precisely, the stalk can be defined as $$\{(f,U):p \in U,f \in \mathscr{F}(U), U \in \tau_X\}/\{(f,U)\sim(g,V) \iff \exists W \subseteq U\cap V$\text{ where }p in W\text{ and }\text{res}_{U,W}f = \text{res}_{V,W}$$
+    Let $\mathscr{F}$ be a presheaf of $X$. We define the \textbf{stalk} of $\mathscr{F}$ at $p \in X$ to be the set of $\textbf{germs}$ of $\mathscr{F}$ at $p$, denoted $\mathscr{F}_p$. Germs correspond to sections over some open set containing $p$, and two of these sections are considered equivalent if they agree on some smaller open set. More precisely, the stalk can be defined as $$\{(f,U):p \in U,f \in \mathscr{F}(U), U \in \tau_X\}/\{(f,U)\sim(g,V) \iff \exists W \subseteq U\cap V\text{ where }p in W\text{ and }\text{res}_{U,W}f = \text{res}_{V,W}$$
 \end{definition}
 A useful equivalent categorical definition of a stalk is as a colimit of all $\mathscr{F}(U)$ over all open sets $U$ containing $p$. \begin{equation*}
     \mathscr{F}_p := \lim\limits_{\overrightarrow{p \in U}}\mathscr{F}(U)
@@ -86,7 +86,7 @@ As the index category is a filtered set, our previously defined stalk is also a 
 
 \begin{definition}\index{Sheaf}
     A presheaf is a \textbf{sheaf} if it satisfies two more axioms. Let $\{U_i\}_{i \in I}$ be an open cover of $U$. \begin{itemize}
-        \item (\textbf{identity axiom}) If $f_1,f_2 \in \mathscr{F}(U)$ and $\texst{res}_{U,U_i}f_1 = \text{res}_{U,U_i}f_2$ for all $i$, then $f_1 = f_2$.
+        \item (\textbf{identity axiom}) If $f_1,f_2 \in \mathscr{F}(U)$ and $\text{res}_{U,U_i}f_1 = \text{res}_{U,U_i}f_2$ for all $i$, then $f_1 = f_2$.
         \item (\textbf{Gluability axiom}) If $f_i \in \mathscr{F}(U_i)$ for all $i$, such that $\text{res}_{U_i,U_i\cap U_j}f_i = \text{res}_{U_j,U_i\cap U_j}$ for all $i,j$, then there exists $f \in \mathscr{F}(U)$ such that $\text{res}_{U,U_i}f = f_i$ for all $i$.
     \end{itemize}
 \end{definition}
@@ -107,4 +107,257 @@ Identity is exactness at $\mathscr{F}(U)$, and gluability is exactness at $\prod
     Let $X$ be a topological space and $S$ a set. Define $\underline{S}_{pre}(U) = S$ for all open sets $U$. Then $\underline{S}_{pre}$ is a pre-sheaf with restriction maps simply the identity. This is called the \textbf{constant presheaf associated to $S$}. This isn't in general a sheaf.
 \end{example}
 
+Another important perspective of sheaves is in terms of their space of section (\textbf{espace \'{e}tal\'{e}}). Suppose $\mathscr{F}$ is a presheaf on a topological space $X$. Construct a topological space $F$ along with a continuous map $\pi:F\rightarrow X$ as follows: as a set, $F$ is the disjoint union of all the stalks of $\mathscr{F}$. This naturally gives a map of sets $\pi:F\rightarrow X$. We topologize $F$ as follows. Each $s$ in $\mathscr{F}(U)$ determines a subset $\{(x,s_x):x \in U\}$ of $F$ ($s_x \in \mathscr{F}_x$ is the image of $s$ in the stalk). The topology on $F$ is the weakest topology such that these subsets are open (i.e. they form a base for the topology). For each $y \in F$, there is an open neighborhood $V$ of $y$ and an open neighborhood $U$ of $\pi(y)$ such that $\pi\vert_V$ is a homeomorphism from $V$ to $U$. In particular, if $y = (x,s_x)$ and $U$ is an open neighborhood of $x$, then for $V = \{(x,s_x):x \in U\}$ we have that $\pi\vert_V$ is a homeomorphism from $V$ to $U$. Its inverse is given by sending $x \in U$ to $(x,s_x)$ in $V$. Then $F = \amalg_{x \in X}\mathscr{F}_x$ is the \textbf{space of sections} of $\mathscr{F}$, and in French is the \textbf{espace \'{e}tal\'{e}} of $\mathscr{F}$.
+
+\begin{definition}
+    Suppose $\pi:X\rightarrow Y$ is a continuous map, and $\mathscr{F}$ is a presheaf on $X$. Then define $\pi_*\mathscr{F}$ by $\pi_*\mathscr{F}(V) = \mathscr{F}(\pi^{-1}(V))$, where $V$ is an open subset of $Y$. Then $\pi_*\mathscr{F}$ is a presheaf on $Y$, and is a sheaf if $\mathscr{F}$ is. This is called the \textbf{pushforward} or \textbf{direct image} of $\mathscr{F}$ by $\pi$.
+\end{definition}
+ 
+As the notation suggests, the skyscraper sheaf can be interpreted as the pushforward of the constant sheaf on a one-point spcae $p$, under the inclusion morphism $i_p:\{p\}\rightarrow X$.
+
+\begin{example}[Ringed Spaces]\index{Ringed Space}
+    Suppose $\mathscr{O}_X$ is a sheaf of rings on a topological space $X$. Then $(X,\mathscr{O}_X)$ is called a \textbf{ringed space}. The sheaf of rings is often denoted by $\mathscr{O}_X$. This sheaf is called the \textbf{structure sheaf} of the ringed space. Sections of the structure sheaf $\mathscr{O}_X$ over an open subset $U$ are called \textbf{regular functions on $U$}.
+\end{example}
+
+We denote the restriction $\mathscr{O}_X\vert_U$ of $\mathscr{O}_X$ to an open subset $U \subseteq X$ by $\mathscr{O}_U$. The stalk of $\mathscr{O}_X$ at a point $p$ is written $\mathscr{O}_{X,p}$. Now, just as we have modules over a ring, we have $\mathscr{O}_X$-modules over a sheaf of rings $\mathscr{O}_X$. The definition associated with the name \textbf{$\mathscr{O}_X$-module} is a sheaf of abelian groups $\mathscr{F}$ with the following additional structure. For each $U,\mathscr{F}(U)$ is an $\mathscr{O}_X(U)$-module. Furthermore, this structure should behave well with respect to restriction maps: if $U\subseteq V$, then 
+\begin{center}
+    \begin{tikzcd}
+	{\mathscr{O}_X(V)\times \mathscr{F}(V)} & {\mathscr{F}(V)} \\
+	{\mathscr{O}_X(U)\times \mathscr{F}(U)} & {\mathscr{F}(U)}
+	\arrow["action"', from=2-1, to=2-2]
+	\arrow["action", from=1-1, to=1-2]
+	\arrow["{\text{res}_{V,U}\times \text{res}_{V,U}}"', from=1-1, to=2-1]
+	\arrow["{\text{res}_{V,U}}", from=1-2, to=2-2]
+\end{tikzcd}
+\end{center}
+commutes
+
+Note a sheaf of abelian groups is the same thing as a $\underline{\Z}$-module, where $\underline{\Z}$ is the constant sheaf associated to $\Z$. Hence, when we are proving things about $\mathscr{O}_X$-modules, we are also proving things about sheaves of abelian groups.
+
+Let $(X,\mathscr{O}_X)$ be a ringed space and $\mathscr{F}$ an $\mathscr{O}_X$-module. For each $p \in X$, we have that $\mathscr{F}_p$ is an abelian group and $\mathscr{O}_{X,p}$ is a ring. We act $\mathscr{O}_{X,p}$ on $\mathscr{F}_p$ by $[(o,U)]\cdot[(f,V)] := [(\text{res}_{U,U\cap V}o\cdot\text{res}_{V,U\cap V}f,U\cap V)]$. If well defined this will turn $\mathscr{F}_p$ into a $\mathscr{O}_{X,p}$-module. Indeed, if $(o,U)\sim(s,W)$ and $(f,V)\sim(g,Y)$, then we have $E \subseteq U\cap W$ and $E' \subseteq V\cap Y$ containing $p$ for which the restrictions of $o$ and $s$, and $f$ and $g$ agree, respectively. Set $K =E\cap E'$ which again contains $p$. Then \begin{equation*}
+    (\text{res}_{U,U\cap V}o\cdot\text{res}_{V,U\cap V}f,U\cap V) \sim (\text{res}_{U,K}o\cdot\text{res}_{V,K}f,K) = (\text{res}_{W,K}s\cdot\text{res}_{Y,K}g,K)
+\end{equation*}
+so the action is well-defined.
+
+
+\section{Morphisms of Presheaves and Sheaves}
+
+We now define morphisms of presheaves and similarly for sheaves. A \textbf{morphism of presheaves} of value in a category $\mathscr{C}$ on $X$, $\Phi:\mathscr{F}\Rightarrow \mathscr{G}$, is the data of maps $\Phi(U):\mathscr{F}(U)\rightarrow \mathscr{G}(U)$ for all $U$ behaving well with respect to restriction: If $U\hookrightarrow V$, then  
+\begin{center}
+    \begin{tikzcd}
+	{\mathscr{F}(V)} & {\mathscr{F}(U)} \\
+	{\mathscr{G}(V)} & {\mathscr{G}(U)}
+	\arrow["{\text{res}_{V,U}}", from=1-1, to=1-2]
+	\arrow["{\text{res}_{V,U}}"', from=2-1, to=2-2]
+	\arrow["{\Phi_V}"', from=1-1, to=2-1]
+	\arrow["{\Phi_U}", from=1-2, to=2-2]
+\end{tikzcd}
+\end{center}
+commutes. \textbf{Morphisms of sheaves} are identical to morphisms of the underlying presheavers. That is the category of sheaves on $X$ is a full subcategory of the category of presheaves on $X$. Note that a morphism of sheaves is simply a natural transformation between the underlying functors. 
+
+If $(X,\mathscr{O}_X)$ is a ringed space, then morphisms of $\mathscr{O}_X$-modules are given by functors between the underlying sheaves of abelian groups which preserves the module structure.
+
+We shall write $\Set_X,\Ab_X$, etcetera, for the category of sheaves of sets, abelian groups, etcetera on a topological space $X$. We also write $\catname{Mod}_{\mathscr{O}_X}$ for the category of $\mathscr{O}_X$-modules on a ringed space $(X,\mathscr{O}_X)$. Let $\Set_X^{pre}$, etcetera, denote the category of presheaves on sets, etcetera, on $X$.
+\begin{definition}
+    Suppose $\mathscr{F}$ and $\mathscr{G}$ are two sheaves of sets on $X$. Let $\Hom(\mathscr{F},\mathscr{G})$ be the collection of data $$\Hom(\mathscr{F},\mathscr{G})(U) := \Hom(\mathscr{F}\vert_U,\mathscr{G}\vert_U)$$
+    This is again a sheaf of sets on $X$
+\end{definition}
+
+If $\mathscr{F}$ and $\mathscr{G}$ are sheavers of abelian groups, then $\Hom_{\Ab_X}(\mathscr{F},\mathscr{G})$ is defined by taking $\Hom_{\Ab_X}(\mathscr{F},\mathscr{G})(U)$ to be the maps as sheaves of abelian groups, $\mathscr{F}\vert_U\rightarrow \mathscr{G}\vert_U$. Similarly, if $\mathscr{F}$ nad $\mathscr{G}$ are $\mathscr{O}_X$-modules, we define $\Hom_{\catname{Mod}_{\mathscr{O}_X}}(\mathscr{F},\mathscr{G})$ in the analogous way. 
+
+
+We can make module-like constructions using presheavers of abelian groups on a topological space $X$. For example, we can add maps of presheaves nad get another map of presheaves: if $\phi,\psi:\mathscr{F}\Rightarrow \mathscr{G}$, then we define the map $\phi+\psi:\mathscr{F}\rightarrow \mathscr{G}$ by $(\phi+\psi)_V = \phi_V+\psi_V$. In this way, presheaves of abelian groups form an additive category.
+
+If $\phi:\mathscr{F}\Rightarrow \mathscr{G}$ is a morphism of presheaves, define the \textbf{presheaf kernel} $\ker_{pre}\phi$ by $(\ker_{pre}\phi)_U := \ker \phi_U$. Similarly, we define the \textbf{presheaf cokernel}$ \text{coker}_{pre}\phi$ similarly. Both are presheafs. It then follows that presheaves of abelian groups form an abelian category. In particular we can define terms such as \textbf{subpresheaf}, \textbf{image presheaf}, and \textbf{quotient presheaf}, and they behave as one would expect.
+
+\section{Properties at the Level of Stalks and Sheafification}
+
+\subsection{Properties at the Level of Stalks}
+
+We shall now see that numerous facts about sheaves can be checked using the language of stalks. This reflects the local nature of sheaves. 
+
+\begin{claim}
+    A section of a sheaf of sets is determined by its germs. That is, the natural map $$\mathscr{F}(U)\rightarrow \prod_{p \in U}\mathscr{F}_p$$ is injective.
+\end{claim}
+\begin{proof}
+    The natural map is given by $s \in \mathscr{F}(U)\mapsto ([s]_p)_{p \in U}$. To show injectivity we suppose that there is another section $t$ which is mapped to the same point. In other words, $[s]_p = [t]_p$ for all $p \in U$. That is, there exist $p \in V_p \subseteq U$ such that $s\vert_{V_p} = t\vert_{V_p}$. However, $\{V_p\}_{p \in U}$ is an open cover of $U$. Hence, as they agree on all restrictions of the open cover, we have by the identity axiom for sheaves that $s = t$.
+\end{proof}
+
+\begin{definition}
+    Suppose $\mathscr{F}$ is a sheaf of abelian groups on $X$, and $s$ is a global section of $\mathscr{F}$. Then let the \texstbf{support of $s$}, denoted $\text{Supp}(s)$, be the points $p$ of $X$ where $s$ has a nonzero germ: $$\text{Supp}(s) := \{p \in X:[s]_p \neq 0\text{ in }\mathscr{F}_p\}$$
+    We think of this as the subset of $X$ where the section ``lives"--- the complement is the locus where $s$ is the $0$-section.
+\end{definition}
+
+The previous claim assures us that all non-zero section ``live somewhere," or in other words, are not sent to the zero product under the map $\mathscr{F}(X)\rightarrow \prod_{x \in X}\mathscr{F}_x$. For any global section $s \in \mathscr{F}(X)$, $\text{Supp}(s)$ is a closed subset. First, consider the map $X\rightarrow \amalg_{p \in X}\mathscr{F}_p$ given by $p\mapsto [s]_p$. Then the support of $s$ is the inverse image of $\amalg_{p \in X}\mathscr{F}_p\backslash\{[0]_p:p \in X\}$. But $\{[x]_p:p \in X\}$ is an open set by definition of the topology on the disjoint union of $\mathscr{F}_p$, so as the map is a homeomorphism the preimage of this closed set is closed.
+
+\begin{definition}
+    We say that an element $(s_p)_{p \in U}$ of $\prod_{p \in U}\mathscr{F}_p$ consists of \textbf{compatible germs} if for all $p \in U$, there is some representative $(p \in U_p \subseteq U,\tilde{s}_p \in \mathscr{F}(U_p))$ for $s_p$ such that the germ of $\tilde{s}_p$ at all $q \in U_p$ is $s_q$. Equivalently, there is an open cover $\{U_i\}_{i \in I}$ of $U$, and sections $f_i \in \mathscr{F}(U_i)$, such that if $p \in U_i$, then $s_p$ is the germ of $f_i$ at $p$. Note any section $s$ of $\mathscr{F}$ over $U$ gives a choice of compatible germs for $U$.
+\end{definition}
+
+The image of our previous map consists precisely of elements which consist of compatible germs. 
+
+\subsection{Sheafification}
+
+Recall every sheaf is a presheaf. Just as groupification gives an abelian group that best approximates an abelian semigroup, sheafification gives the sheaf that best approximates a presheaf, with an analogous universal property.
+
+\begin{definition}
+    If $\mathscr{F}$ is a presheaf on $X$, then a morphism of presheaves $sh:\mathscr{F}\rightarrow \mathscr{F}^{sh}$ on $X$ is a \textbf{sheafification of $\mathscr{F}$} if $\mathscr{F}^{sh}$ is a sheaf, and for any sheaf $\mathscr{G}$, and any presheaf morphism $g:\mathscr{F}\rightarrow \mathscr{G}$, there exists a unique morphism of sheaves $f:\mathscr{F}^{sh}\rightarrow \mathscr{G}$ making the diagram: 
+    \begin{center}
+        \begin{tikzcd}
+	{\mathscr{F}} & {\mathscr{F}^{sh}} \\
+	& {\mathscr{G}}
+	\arrow["g"', from=1-1, to=2-2]
+	\arrow["sh", from=1-1, to=1-2]
+	\arrow["f", from=1-2, to=2-2]
+\end{tikzcd}
+    \end{center}
+    commute. This is an initial object in the comma category 
+    \begin{center}
+        \begin{tikzcd}
+	& {\text{Shf}(X)} \\
+	{\mathbf{1}} & {\text{PrShf}(X)}
+	\arrow["\iota", from=1-2, to=2-2]
+	\arrow["{\mathscr{F}}"', from=2-1, to=2-2]
+\end{tikzcd}
+    \end{center}
+\end{definition}
+
+We still need to show that initial objects exist in this category. A consequence of this definition is that sheafification is unique up to unique isomorphism, as initial objects in a category are unique up to unique isomorphism. In particular, this implies that sheafification is functorial. Indeed, for any morphism of presheaves $\phi:\mathscr{F}\rightarrow \mathscr{G}$, we have the following commuting diagram, with the unique map be a naturally induced morphism of sheaves $\phi^{sh}:\mathscr{F}^{sh}\rightarrow \mathscr{G}^{sh}$.
+
+\begin{center}
+    \begin{tikzcd}
+	{\mathscr{F}} && {\mathscr{F}^{sh}} \\
+	& {\mathscr{G}} \\
+	&& {\mathscr{G}^{sh}}
+	\arrow["\phi"', from=1-1, to=2-2]
+	\arrow["{\text{sh}_{\mathscr{G}}}"', from=2-2, to=3-3]
+	\arrow["{\text{sh}_{\mathscr{F}}}", from=1-1, to=1-3]
+	\arrow["{\exists!\phi^{sh}}", dashed, from=1-3, to=3-3]
+\end{tikzcd}
+\end{center}
+This is functorial since uniqueness implies that compositions for $\Phi:\mathscr{F}\xrightarrow{\phi}\mathscr{G}\xrightarrow{\psi}\mathscr{H}$ satisfy $\Phi^{sh} = \psi^{sh}\circ \phi^{sh}$ since both sides will make the appropriate diagram commute.
+
+\begin{rmk}[Construction]
+    Suppose $\mathscr{F}$ is a presheaf. Define $\mathscr{F}^{sh}$ by defining $\mathscr{F}^{sh}(U)$ as the set of compatible germs of the presheaf $\mathscr{F}$ over $U$. Explicitly, \begin{align*}
+        \mathscr{F}^{sh}(U) := &\Bigg\{(f_p \in \mathscr{F}_p)_{p \in U}:\text{for all }p \in U\text{, there exists an open} \\
+        &\text{neighborhood $V$ of $p$, contained in $U$,} \\
+        &\text{and $s \in \mathscr{F}(V)$ with $s_q = f_q$ for all $q \in V$} 
+    \end{align*}
+    Here $s_q$ means the germ of $s$ at $q$.
+\end{rmk}
+
+\begin{rmk}
+    The espace \'{e}tal\'{e} construction yields a different description of sheafification. The main idea is identical: if $\mathscr{F}$ is a presheaf, let $F$ be the space of sections, or espace \'{e}tal\'{e}, of $\mathscr{F}$. Then the sheafification of $\mathscr{F}$ is the sheaf of sections of $F\rightarrow X$.
+\end{rmk}
+
+\subsection{Subsheaves and Quotient Sheaves}
+
+\begin{definition}
+    Suppose $\Phi:\mathscr{F}\rightarrow \mathscr{G}$ is a morphism of sheaves of sets on a topological space $X$. If any of the following equivalent conditions hold, then we say that $\mathscr{F}$ is a \textbf{subsheaf} of $\mathscr{G}$: \begin{itemize}
+        \item $\Phi$ is a monomorphism in the category of sheaves
+        \item $\Phi$ is injective on the level of stalks
+        \item $\Phi$ is injective on the level of open sets
+    \end{itemize}
+\end{definition}
+
+\begin{definition}
+    Suppose $\Phi:\mathscr{F}\rightarrow \mathscr{G}$ is a morphism of sheaves of sets on a topological space $X$. If any of the following equivalent conditions hold, then we say that $\mathscr{G}$ is a \textbf{quotient sheaf} of $\mathscr{F}$: \begin{itemize}
+        \item $\Phi$ is a epimorphism in the category of sheaves
+        \item $\Phi$ is surjective on the level of stalks
+    \end{itemize}
+\end{definition}
+
+
+\begin{example}
+    Let $X = \C$ with the classical topology, and define $\mathscr{O}_X$ to be the sheaf of holomorphic functions, and $\mathscr{O}_X^*$ to be the sheaf of invertible (nowhere zero) holomorphic functions. This is a sheaf of abelian groups under multiplication. We have maps of sheaves $$0\rightarrow \underline{\Z}\xrightarrow{\times 2\pi i}\mathscr{O}_X\xrightarrow{\text{exp}}\mathscr{O}_X^*\rightarrow 1$$
+    where $\underline{\Z}$ is the constant sheaf associated to $\Z$.
+\end{example}
+
+
+\section{Recovering Sheaves from a Sheaf on a Base}
+
+\begin{definition}
+    Suppose we have a topological space $(X,\tau)$. Then a base of $\tau$ is a subcollection $\{B_j\}_{j \in J} \subseteq \tau$ such that for all $U \in \tau$, $U = \bigcup_{B_j \subseteq U}B_j$.
+\end{definition}
+
+Suppose $X = \R^n$. Then we have the classical countable base of rationally centered open balls, $\{B_r(q):q \in \Q^n, r \in \Q_{> 0}\}$. Such bases are useful as we need only check continuity at base open sets to find continuity of a map. Now, suppose we have a sheaf $\mathscr{F}$ on a topological space $X$, and a base $\{B_i\}_{i \in I}$ of open sets on $X$. Then consider the information $$(\{\mathscr{F}(B_i)\},\{\text{res}_{B_i,B_j}:\mathscr{F}(B_i)\rightarrow \mathscr{F}(B_j):B_j \subseteq B_i\})$$
+which is a subset of the information contained in the sheaf.
+
+We can recover the entire sheaf from this information. This follows from the fact that we can determine the stalks from this information, and we can determine when germs are compatible.
+
+\begin{definition}
+    A sheaf of a concrete category on a base $\{B_i\}_{i \in I}$ is the following. For each $B_i$ in the base we have a set $F(B_i)$. If $B_i \subseteq B_j$, we have maps $\text{res}_{B_j,B_i}:F(B_j)\rightarrow F(B_i)$, with $\text{res}_{B_i,B_i} = \text{id}_{F(B_i)}$. If $B_i \subseteq B_j \subseteq B_k$, then $\text{res}_{B_k,B_i} = \text{res}_{B_j,B_i}\circ \text{res}_{B_k,B_j}$. So far this is a \textbf{presheaf on a base $\{B_i\}_{i \in I}$}. We also require two axioms: \begin{itemize}
+        \item \textbf{Base Identity}: If $B = \bigcup B_i$ and $f,g \in F(B)$ are such that $\text{res}_{B,B_i}f = \text{res}_{B,B_i}g$ for all $i$, then $f = g$.
+        \item \textbf{Base Gluability}: If $B = \bigcup B_i$, and we have $f_i \in F(B_i)$ such that $f_i$ agrees with $f_j$ on any basic open set contained in $B_i \cap B_j$, then there exists $f \in F(B)$ such that $\text{res}_{B,B_i}f = f_i$ for all $i$.
+    \end{itemize}
+\end{definition}
+
+
+\begin{theorem}
+    Suppose $\{B_i\}_{i \in I}$ is a base on $X$, and $F$ is a sheaf of sets on this base. Then there is a sheaf $\mathscr{F}$ extending $F$ (with isomorphisms $\mathscr{F}(B_i)\cong F(B_i)$ agreeng with restriction maps). This sheaf $\mathscr{F}$ is unique up to unique isomorphism.
+\end{theorem}
+\begin{proof}
+    We will define $\mathscr{F}$ as the sheaf of compatible germs of $F$. Define the \textbf{stalk} of a presheaf $F$ on a base at $p \in X$ by $$F_p = \lim\limits_{\rightarrow}F(B_i)$$
+    where the colimit is over all $B_i$ containing $p$.
+
+    We say a family of germs in an open set $U$ is compatible near $p$ if there is a section $s$ of $F$ over some $B_i$ containing $p$ such that the germs over $B_i$ are precisely the germs of $s$. More formally, define \begin{align*}
+        \mathscr{F}(U) := \{(f_p\in F_p)_{p \in U}&: \text{for all $p \in U$, there exists $B$ with $p \in B \subseteq U$} \\
+        &s \in F(B) \text{ with } s_q = F_q\text{ for all }q \in B\}
+    \end{align*}
+    where each $B$ is in our base. This is a sheaf with the natural map $F(B)\rightarrow \mathscr{F}(B)$ being an isomorphism. Indeed, first to show injectivity suppose $f,g \in F(B)$ with $(f_p)_{p \in B} = (g_p)_{p \in B}$. Then $f_p = g_p$ for all $p \in B$. Thus we have a cover $B = \bigcup_{p \in B}B_p$ with $B_p$ in the base for which $\text{res}_{B,B_p}f = \text{res}_{B,B_p}g$. By the base identity axiom we have that $f = g$.
+
+    Next, for surjectivity suppose $(f_p)_{p \in B} \in \mathscr{F}(B)$. Then for each $p \in B$ there exists $B_p$ in the base containing $p$ and contained in $B$, as well as $s^p \in F(B_p)$ such that $s^p_q = f_q$ for all $q \in B_p$. Then for all $q \in B_p \cap B_{p'}$ there exists $B'_q$ in the base such that $s^p\vert_{B'_q} = s^{p'}\vert_{B'_q}$. By the gluability axiom of the sheaf on a base, there exists a unique $s \in F(B)$ such that $s\vert_{B_p} = s^p$ for all $p \in B$. In particular, $(s_p)_{p \in B} = (f_p)_{p \in B}$, so the map is surjective.
+\end{proof}
+
+\begin{theorem}
+Suppose $\{B_i\}_{i \in I}$ is a base for the topology of $X$. A morphism $F\rightarrow G$ of sheaves on the base is a collection of map $F(B_k)\rightarrow G(B_k)$ commuting with restrictions. A morphism of sheaves is determined by the induced morphism of sheaves on the base. Further, a morphism of sheaves on the base gives a morphism of the induced sheaves.\end{theorem}
+
+The above constructions and arguments describe an equivalence of categories between sheaves on $X$ and sheaves on a given base of $X$. Further, it will be useful to extend these notions to $\mathscr{O}_X$-modules. We will obtain the analogous result of an equivalence of categories between $\mathscr{O}_X$-modules and $\mathscr{O}_X$-modules on a base.
+
+\section{Sheaves of Abelian Groups and Modules Form Abelian Categories}
+
+We shall see that kernels, cokernels, exactness, and so forth can be understood at the level of stalks, which are just abelian groups, and that compatibility of germs will come for free.
+
+Note that the category of sheaves of abelian groups on a topological space $X$ is evidently an additive category (its enriched over $\Ab$ with zero objects and finite products). We now need to show that any morphism $\Phi:\mathscr{F}\rightarrow \mathscr{G}$ has a kernel and a cokernel. Recall that the presheaf kernel is a sheaf (since the forgetful functor from sheaves to presheaves is a right adjoint and hence commutes with limits), and is a kernel in the cateogry of sheaves, so $\Phi$ has a kernel.
+
+Next, recall that $\Phi:\mathscr{F}\rightarrow \mathscr{G}$ has a cokernel in the category of presheaves; call it $\mathscr{H}_{pre}$. Let $\text{sh}:\mathscr{H}_{pre}\rightarrow \mathscr{H}$ be its sheafification. 
+
+\begin{proposition}
+    The composition $\mathscr{G}\rightarrow \mathscr{H}$ is the cokernel of $\Phi$ in the category of sheaves.
+\end{proposition}
+\begin{proof}
+    We show that it satisfies the universal property. Given any sheaf $\mathscr{E}$ and a commutative diagram 
+    \begin{center}
+        \begin{tikzcd}
+	{\mathscr{F}} & {\mathscr{G}} \\
+	0 & {\mathscr{E}}
+	\arrow[from=1-1, to=2-1]
+	\arrow["\Phi", from=1-1, to=1-2]
+	\arrow[from=1-2, to=2-2]
+	\arrow[from=2-1, to=2-2]
+\end{tikzcd}
+    \end{center}
+    we construct
+    \begin{center}
+        \begin{tikzcd}
+	{\mathscr{F}} & {\mathscr{G}} \\
+	0 & {\mathscr{H}_{pre}} & {\mathscr{H}} \\
+	&&& {\mathscr{E}}
+	\arrow[from=1-1, to=2-1]
+	\arrow["\Phi", from=1-1, to=1-2]
+	\arrow[curve={height=-12pt}, from=1-2, to=3-4]
+	\arrow[from=2-1, to=3-4]
+	\arrow[from=1-2, to=2-2]
+	\arrow[from=2-1, to=2-2]
+	\arrow["sh", from=2-2, to=2-3]
+\end{tikzcd}
+    \end{center}
+    Then there exists a unique morphism of presheaves $\Psi:\mathscr{H}_{pre}\rightarrow \mathscr{E}$ making the diagram commute. Further, by the universality of sheafification there exists a unique map $\varphi:\mathscr{H}\rightarrow \mathscr{E}$ for which $\Psi = \varphi \circ\text{sh}$.
+\end{proof}
+
+Recall that monomorphisms and epimorphisms can be checked at the level of stalks, which is in an abelian category, so we obtain the result:
+
+\begin{theorem}
+    Sheaves of abelian groups on a topological space $X$ form an abelian category.
+\end{theorem}
 

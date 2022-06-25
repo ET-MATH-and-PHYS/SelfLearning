@@ -176,4 +176,118 @@ or equivalently using induction $$\text{uniq}_{\mathbf{1}} :\equiv \text{ind}_{\
 
 \section{Dependent Pair Types}
 
+We now look at generalizing the product type to allow the type of the second component of a pair to vary depending on the choice of the first component. This is called a \textbf{dependent pair type} or \textbf{$\sum$-type}, because it corresponds to an indexed sum (disjoint union or coproduct) in set thoery.
+
+Given a type $A:U$ and a family $B:A\rightarrow U$, the dependent pair type is written as $\sum_{(x:A)}B(x):U$. The way to construct elements of a dependent pair type is by pairing: we have $(a,b) : \sum_{(x:A)}B(x)$ given $a :A$ and $b:B(a)$. If $B$ is constant, then the dependent pair type is the ordinary cartesian product type: $$\left(\sum_{x:A}B\right) \equiv (A\times B)$$
+All the constructions on $\sum$-types arise as generalizations of the ones for product types, with dependent functions often replacing non-dependent ones.
+
+For instance, the recursion principle says that to define a non-dependent function out of a $\sum$-type $f:\left(\sum_{(x:A)}B(x))\rightarrow C$, we provide a function $g:\prod_{(x:A)}B(x)\rightarrow C$, and then we can define $f$ via the defining equation $$f((a,b)) :\equiv g(a)(b)$$
+For instance, we can derive the first projectino from a $\sum$-type: $$\text{pr}_1:\left(\sum_{x:A}B(x)\right)\rightarrow A$$
+by the defining equation $\text{pr}_1((a,b)) :\equiv a$. However, since the type of the second component of the pair is $B(a)$, the second projection must be a dependent function, whose type involves the first projection function: $$\text{pr}_2:\prod_{p:\sum_{(x:A)}B(x)}B(\text{pr}_1(p))$$
+Thus we need the induction principle for $\sum$-types. This says that to construct a dependent function out of a $\sum$-type into a family $C:\left(\sum_{(x:A)}B(x))\rightarrow U$, we need a function $$g:\prod_{(a:A)}\prod_{(b:B(a))}C((a,b))$$
+We can then derive a function $$f:\prod_{p:\sum_{(x:A)}B(x)}C(p)$$
+with defining equation $$f((a,b)) :\equiv g(a)(b)$$
+Applying this with $C(p) :\equiv B(\text{pr}_1(p))$, we can define $\text{pr}_2:\prod_{(p:\sum_{(x:A)}B(x))}B(\text{pr}_1(p))$ with the equation $\text{pr}_2((a,b)) :\equiv b$.
+
+\begin{definition}
+    The recursor for $\sum$ is \begin{equation*}
+        \text{rec}_{\sum_{(x:A)}B(x)}:\prod_{(C:U)}\left(\prod_{(x:A)}B(x)\rightarrow C\right)\rightarrow \left(\sum_{(x:A)}B(x)\right)\rightarrow C
+    \end{equation*}
+    with defining equation \begin{equation*}
+        \text{rec}_{\sum_{(x:A)}B(x)}(C,g,(a,b)) :\equiv g(a)(b)
+    \end{equation*}
+    and the corresponding induction operation \begin{equation*}
+        \text{ind}_{\sum_{(x:A)}B(x)}:\prod_{(C:(\sum_{(x:A)}B(x))\rightarrow U)}\left(\prod_{(a:A)}\prod_{(b:B(a))}C((a,b))\right)\rightarrow \prod_{(p:\sum_{(x:A)}B(x))}C(p)
+    \end{equation*}
+    with the defining equation \begin{equation*}
+        \text{ind}_{\sum_{(x:A)}B(x)}(C,g,(a,b)) :\equiv g(a)(b)
+    \end{equation*}
+\end{definition}
+
+
+\section{Coproduct Types}
+
+Given $A,B : U$, we introduce the \textbf{coproduct type} $A+B:U$.
+
+\section{The type of booleans}
+
+
+\section{The natural numbers}
+
+
+The rules we have introduced so far do not allow us to construct any infinite types. The simplest infinite type is the type $\N:U$ of natural numbers. The elements of $\N$ are constructed using $0:\N$ and the successor operation $\text{succ}:\N\rightarrow \N$. When denoting natural numbers we write $1 :\equiv \text{succ}(0), 2:\equiv \text{succ}(1),3:\equiv \text{succ}(2)$,...
+
+The essential property of the naturals is that we can define functions by recursion and perform proofs by induction. To construct a non-dependent function $f:\N \rightarrow C$ out of the natural numbers by recursion, it is enough to provide a starting point $c_0:C$ and a ``next step" function $c_s:\N\rightarrow C\rightarrow C$. This gives rise to $f$ with the defining equations \begin{align*}
+    f(0) &:\equiv c_0, \\
+    f(\text{succ}(n)) &:\equiv c_s(n,f(n))
+\end{align*}
+We say that $f$ is defined by \textbf{primitive recursion}. 
+
+We can define multi-variable functions by primitive recursion as well, by currying and allowing $C$ to be a function type. As in the previous cases we can package the principle of primitive recursion into a recursor: $$\text{rec}_{\N}:\prod_{(C:U)}C\rightarrow (\N\rightarrow C\rightarrow C)\rightarrow \N\rightarrow C$$
+with defining equations \begin{align*}
+    \text{rec}_{\N}(C,c_0,c_s,0) &:\equiv c_0 \\
+    \text{rec}_{\N}(C,c_0,c_s,\text{succ}(n)) &:\equiv c_s(n,\text{rec}_{\N}(C,c_0,c_s,n))
+\end{align*}
+Note all functions definable only using the primitive recursion principle will be \textbf{computable}.
+
+\section{Pattern Matching and Recursion}
+
+
+\section{Propositions as Types}
+
+
+\section{Identity Types}
+
+By the propositions-as-types conception, the proposition that two elements of the same type $a,b:A$ are equal must correspond to some type. These \textbf{equality types} or \textbf{identity types} must be type families dependent on two copies of $A$.
+
+We may write the family as $\text{Id}_A:A\rightarrow A\rightarrow U$, so that $\text{Id}_A(a,b)$ is the type representing the proposition of equality between $a$ and $b$, written previously as ``$a =_A b$" to specify the type $A$. If we have an term of $a=_Ab$, we say that it is evidence of the equality of $a$ and $b$, or that $a$ and $b$ are \textbf{propositionally equal}. The type $a=_Ab$ can contain more information than just equality. In the homotopical interpretation, terms of $a=_Ab$ are paths or equivalences between $a$ and $b$ in the space $A$. In this way we can interpret $a=_Ab$ as the type of identifications of $a$ and $b$.
+
+The formation rule for the identity type says that given a type $A:U$, and two elements $a,b:A$, we can form the type $(a=_Ab):U$ in the same universe. The basic way to construct an element of $a=_Ab$ is to know that $a$ and $b$ are the same. Thus, the introduction rule is a dependent function $$\text{refl}:\prod_{a:A}(a=_Aa)$$
+called \textbf{reflexivity}, which says that every element of $A$ is equal to itself (in a specified way). We regard $\text{refl}_a$ as being the constant path at the point $a$.
+
+If $a$ and $b$ are judgmentally equal, $a \equiv b$, then we also have an element $\text{refl}_a: a=_Ab$. This is well-typed because $a \equiv b$ means that also the type $a =_A b$ is judgmentally equal to $a =_Aa$, which is the type of $\text{refl}_a$.
+
+The induction principle (i.e. elimination rule) for the identity types is one of the subtlest parts of type theory, and crucial to homotopy interpretation. We begin by consiering an important consequence of it.
+
+\begin{theorem}[Indiscernability of Identicals]
+    For every family $C:A\rightarrow U$, there is a function $$f:\prod_{(x,y:A)}\prod_{(p:x=_Ay)}C(x)\rightarrow C(y)$$
+    such that $$f(x,x,\text{refl}_x) :\equiv \text{id}_{C(x)}$$
+\end{theorem}
+
+This says that every family of types $C$ respects equality, in the sense $C$ to equal elements of $A$ also results in a function between the resulting types. The displayed equality states that the function associated to reflexivity is the identity function. This can be regarded as a recursion principle for the identity type. Just as $\text{rec}_{\N}$ gives a specified map $\N\rightarrow C$ for any other type $C$ of a certain sort, indiscernability of identicals gives a specified map from $x=_Ay$ to certain other reflexive, binary relations on $A$, namely those of the form $C(x)\rightarrow C(y)$ for some unary predicate $C(x)$.
+
+\subsection{Path Induction}
+
+The induction principle for the identity type is called \textbf{path induction}. It can be seen as stating that the family of identity types is freely generated by the elements of the form $\text{refl}_x:x=x$.
+
+\begin{definition}[Path Induction]
+    Given a family $C:\prod_{x,y:A}(x=_Ay)\rightarrow U$ and a function $c:\prod_{x:A}C(x,x,\text{refl}_x)$, there is a function $$f:\prod_{(x,y:A)}\prod_{(p:x=_Ay)}C(x,y,p)$$
+    such that $f(x,x,\text{refl}_x):\equiv c(x)$.
+\end{definition}
+
+Path induction allows us to define specified functions which exhibit appropriate computational behaviour. Consider the case when $C$ does not depend on $p$, so $:A\rightarrow A\rightarrow U$, which can be regarded as a predicate depending on two elements of $A$. We are interesting in when $C(x,y)$ holds for some $x,y:A$. The hypotheses of path induction say that we know $C(x,x)$ holds for all $x:A$, so $C$ is a reflexive relation. The conclusion then tells us that $C(x,y)$ holds whenever $x=y$.
+
+Packaging up path induction into a single function gives \begin{equation*}
+    \text{ind}_{=_A}:\prod_{(C:\prod_{(x,y:A)}(x=_Ay)\rightarrow U)}\left(\prod_{(x:A)}C(x,x,\text{refl_x})\right)\rightarrow \prod_{(x,y:A)}\prod_{(p:x=_Ay)}C(x,y,p)
+\end{equation*}
+with the equality \begin{equation*}
+    \text{ind}_{=_A}(C,c,x,x,\text{refl}_x) :\equiv c(x)
+\end{equation*}
+
+\begin{theorem}[Based Path Induction]
+    Fix an element $a:A$, and suppose we are given a family $C:\prod_{x:A}(a=_Ax)\rightarrow U$, and an element $c:C(a,\text{refl}_a)$. Then we obtain a function $$f:\prod_{(x:A)}\prod_{(p:a=x)}C(x,p)$$
+    such that $f(a,\text{refl}_a) :\equiv c$.
+\end{theorem}
+
+Packaged as a function, based path induction becomes: \begin{equation*}
+    \text{ind}'_{=_A}:\prod_{(a:A)}\prod_{(C:\prod_{(x:A)}(a=_Ax)\rightarrow U)}C(a,\text{refl}_a)\rightarrow \prod_{(x:A)}\prod_{(p:a=_Ax)}C(x,p)
+\end{equation*}
+with the equality $$\text{ind}'_{=_A}(a,C,c,a,\text{refl}_a) :\equiv c$$
+This is equivalent to path induction. 
+
+
+\begin{remark}
+    Note it is not the identity type that is inductively defined, but the identity family. In particular, path induction says that the family of types $(x=_Ay)$, as $x,y$ vary over all elements of $A$, is inductively defined by the elements of the form $\text{refl}_x$. This means that to give an element of any other family $C(x,y,p)$ dependent on a generic element $(x,y,p)$ of the identity type, it suffices to consider the cases of the form $(x,x,\text{refl}_x)$. This says that triples $(x,y,p)$ of endpoints of the path $p$, is inductively generated by the constant loops at each point $x$.
+\end{remark}
+
 
