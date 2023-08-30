@@ -21,6 +21,13 @@
     \end{enumerate}
 \end{definition}
 
+
+\begin{definition}
+    The \textbf{degree} of a nonzero polynomial $f(x)  = \sum_{i\geq 0}a_ix^i$ in $R[x]$ is the leargest integer $n$ such that $a_n \neq 0$.
+\end{definition}
+
+
+
 \begin{remark}
     Formally, the polynomial is determined by a sequence of coefficients $a_i$ \begin{equation}
                 \mathbf{a} = (a_0,a_1,a_2,...)
@@ -138,6 +145,23 @@
         (Left to the reader)
     \end{proof}
 \end{definition}
+
+
+\section{Monoid Rings}
+
+Given a monoid $(M,\cdot)$ and a ring $R$, we can form the ring $R[M]$ as the formal linear combinations of elements in $M$ with coefficients in $R$, with addition given component wise and multiplication given by $$\left(\sum_{m \in M}a_m\cdot m\right) \cdot \left(\sum_{m \in M}b_m\cdot m\right) = \sum_{m \in M}\sum_{m_1m_2=m}(a_{m_1}b_{m_2})\cdot m$$
+with identity $1_R\cdot 1_M$.
+
+Then $R[x]$ may be viewed as $R[\N]$.
+
+
+
+\subsection{Universal Property of Polynomial Rings}
+
+Let $A = \{a_1,...,a_n\}$ be a set of order $n$ and $R$ a commutative ring. The pair $(i,\Z[x_1,...,x_n])$, where $i:A\rightarrow \Z[x_1,...,x_n]$ sends $a_i$ to $x_i$, is initial in the comma category over $A$. That is, given any choice of $n$ elements in a ring $R$, there exists a unique ring homomorphism $f:\Z[x_1,...,x_n]\rightarrow R$, evaluating $x_i$ at the $i$th such element.
+
+In particular, we have an evaluation map for polynomials over commutative rings
+
 
 \section{ Division Algorithm}
 

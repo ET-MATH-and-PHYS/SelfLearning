@@ -61,6 +61,12 @@
     Note that from these definitions, we see that multiplication is not necessarily commutative, and does not necessarily have an inverse, as f has an inverse $\iff$ it is an isomorphism of groups. That is, the group of units of $R$ is $R^{\times} = \aut(A)$ equipped with the multiplication operation of function composition.
 \end{construction}
 
+\begin{proposition}
+    $\en(\Z) \cong \Z$ as rings.
+\end{proposition}
+
+
+
 \begin{example}[Constructing Rings from Endomorphisms on Cyclic Groups]
         I claim that the ring $(\Z,+,\cdot,1,0) = \en(\Z,+,0)$. Suppose we have a group homomorphism $f:\Z\rightarrow \Z$. Then $f(1) = n \in \Z$ determines everything, since $f(k) = f(1+1+...+1) = f(1)+...+f(1) = kf(1)$. We take $f$, and associate to it the integer $f(1)$, which then gives a multiplication on $\Z$. For example: Suppose $f(1) = n$, and $g(1) = m$, then $f\times g(k) = f(g(k)) = f(k\cdot m) = n(k\cdot m)$, which gives multiplication on $\Z$. Now, suppose $f$ is associated to a negative integer, so $f(1) = n < 0$, then it switches the halfs of the real line. Then, $f\times f(1) = f(f(1)) = f(n) = f(-1-1-...-1) = -f(1)-f(1)-...-f(1) = -n-n-...-n > 0$. Likewise, $\Z/n\Z = End(\Z/n\Z,+,0)$, where we identify $f$ by $f(1)$. This works to give a ring structure on cyclic groups.
 \end{example}
@@ -71,6 +77,11 @@
         \end{equation}
         matrix multiplication gives us the multiplication in our ring. This is an example of a non-commutative ring. In general, if $A = (\Z/p\Z)^n$, then $End(A) = M_n(\Z/p\Z)$.
 \end{example}
+
+\begin{proposition}
+    Let $R$ be a ring. Then the function $r\mapsto \lambda_r$ is an injective ring homomorphism $$\lambda:R\rightarrow \en(R)$$
+\end{proposition}
+
 
 
 \begin{definition}
@@ -160,7 +171,7 @@
 \subsection{ Integral Domains}
 
 \begin{definition}
-    For a ring $R$, $a \in R$ is called a \Emph{zero divisor} if there exists $b \in R$, $b \neq 0$, such that $ab = 0$ or $ba = 0$.
+    For a ring $R$, $a \in R$ is called a (left-)\Emph{zero divisor} if there exists $b \in R$, $b \neq 0$, such that $ab = 0$.
 \end{definition}
 
 \begin{remark}
@@ -207,6 +218,18 @@
     \end{enumerate}
 \end{remark}
 
+
+\begin{proposition}
+    In a ring $R$, $a \in R$ is not a left- (resp., right-) zero-divisor if and only if left (resp., right) multiplication by $a$ is an injective function $R\rightarrow R$.
+\end{proposition}
+
+
+\begin{proposition}
+    Let $R$ be a finite commutative ring. Then $R$ is an integral domain if and only if it is a field.
+\end{proposition}
+
+This follows from the fact that any injection from a finite set to itself must necessarily be a surjection.
+
 \subsection{ Subrings}
 
 \begin{definition}
@@ -219,6 +242,8 @@
 \begin{remark}
     In other words, $S$ is a subring of $R$ if and only if $(S,+)$ is a subgroup of $(R,+)$ and $(S,\cdot)$ is a monoid with identity $1 \in R$.
 \end{remark}
+
+We also consider a subring $S$ of a ring $R$ to be a ring whose underlying set is a subset of $R$ and such that the natural inclusion $S\hookrightarrow R$ is a ring homomorphism.
 
 \begin{note}
     \leavevmode
@@ -351,6 +376,14 @@
         For the sake of contradiction suppose $\ker(f) = n\Z$ for $n = ab$ composite, so $1 < a,b < n$. Then $f(n) = 0$ in $R$. But, $f(n) = f(a)f(b) = a_Rb_R = 0_R$, so since $R$ is a field, $a_R$ is zero or $b_R$ is zero. However, this contradicts the fact that the $\ker(f)$ is a multiple of $n$, and $a,b \notin n\Z$.
 \end{proof}
 
+
+\begin{proposition}
+    For a ring homomorphism $\varphi:R\rightarrow S$, the following are equivalent: \begin{itemize}
+        \item $\varphi$ is a monomorphism
+        \item $\ker\varphi = \{0\}$
+        \item $\varphi$ is injective
+    \end{itemize}
+\end{proposition}
 
 
 
@@ -515,6 +548,16 @@
 \end{proposition}
 
 
+
+\begin{proposition}
+    The ring $\Z$ is initial in the category of unital rings.
+\end{proposition}
+
+
+It also turns out that the inclusion $\iota:\Z\hookrightarrow \Q$ is an epimorphism which is not a surjection.
+
+
+
 \section{ The Gaussian Integers}
 
 \begin{example}
@@ -555,3 +598,8 @@
 \begin{remark}
         More generally, the order of the finite ring $R/(a+bi)$ is $a^2+b^2 = (a+bi)(a-bi)$ providing that $(a+bi) \neq (0)$.
 \end{remark}
+
+
+\section{Products}
+
+If $R_1$ and $R_2$ are rings, then $R_1\times R_2$ has a natural ring structure given by applying operations component-wise.
