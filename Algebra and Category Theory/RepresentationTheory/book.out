@@ -1,16 +1,18 @@
-\BOOKMARK [-1][-]{part.1}{Part I Introduction to Representation Theory}{}% 1
-\BOOKMARK [0][-]{chapter.1}{Basic Notions of Representation Theory}{part.1}% 2
-\BOOKMARK [1][-]{section.1.1}{What is Representation Theory?}{chapter.1}% 3
-\BOOKMARK [-1][-]{part.2}{Part II Representations of Finite Groups}{}% 4
-\BOOKMARK [0][-]{chapter.2}{Representations of Finite Groups Basics}{part.2}% 5
-\BOOKMARK [1][-]{section.2.1}{Complete Reducibility}{chapter.2}% 6
-\BOOKMARK [1][-]{section.2.2}{Abelian Groups and Examples}{chapter.2}% 7
-\BOOKMARK [0][-]{chapter.3}{Character Theory}{part.2}% 8
-\BOOKMARK [0][-]{chapter.4}{Induced Representations}{part.2}% 9
-\BOOKMARK [-1][-]{part.3}{Part III Lie Groups and their Representations}{}% 10
-\BOOKMARK [0][-]{chapter.5}{Lie Groups}{part.3}% 11
-\BOOKMARK [0][-]{chapter.6}{Lie Algebras}{part.3}% 12
-\BOOKMARK [0][-]{chapter.7}{Representations of Semisimple Lie Groups}{part.3}% 13
-\BOOKMARK [-1][-]{part.4}{Part IV Algebra and Quiver Representations}{}% 14
-\BOOKMARK [0][-]{chapter.8}{Quiver Representations}{part.4}% 15
-\BOOKMARK [0][-]{chapter.9}{Group Algebras}{part.4}% 16
+\BOOKMARK [-1][-]{part.1}{\376\377\000P\000a\000r\000t\000\040\000I\000\040\000I\000n\000t\000r\000o\000d\000u\000c\000t\000i\000o\000n\000\040\000t\000o\000\040\000R\000e\000p\000r\000e\000s\000e\000n\000t\000a\000t\000i\000o\000n\000\040\000T\000h\000e\000o\000r\000y}{}% 1
+\BOOKMARK [0][-]{chapter.1}{\376\377\000B\000a\000s\000i\000c\000\040\000N\000o\000t\000i\000o\000n\000s\000\040\000o\000f\000\040\000R\000e\000p\000r\000e\000s\000e\000n\000t\000a\000t\000i\000o\000n\000\040\000T\000h\000e\000o\000r\000y}{part.1}% 2
+\BOOKMARK [1][-]{section.1.1}{\376\377\000W\000h\000a\000t\000\040\000i\000s\000\040\000R\000e\000p\000r\000e\000s\000e\000n\000t\000a\000t\000i\000o\000n\000\040\000T\000h\000e\000o\000r\000y\000?}{chapter.1}% 3
+\BOOKMARK [-1][-]{part.2}{\376\377\000P\000a\000r\000t\000\040\000I\000I\000\040\000R\000e\000p\000r\000e\000s\000e\000n\000t\000a\000t\000i\000o\000n\000s\000\040\000o\000f\000\040\000F\000i\000n\000i\000t\000e\000\040\000G\000r\000o\000u\000p\000s}{}% 4
+\BOOKMARK [0][-]{chapter.2}{\376\377\000R\000e\000p\000r\000e\000s\000e\000n\000t\000a\000t\000i\000o\000n\000s\000\040\000o\000f\000\040\000F\000i\000n\000i\000t\000e\000\040\000G\000r\000o\000u\000p\000s\000\040\000B\000a\000s\000i\000c\000s}{part.2}% 5
+\BOOKMARK [1][-]{section.2.1}{\376\377\000C\000o\000m\000p\000l\000e\000t\000e\000\040\000R\000e\000d\000u\000c\000i\000b\000i\000l\000i\000t\000y}{chapter.2}% 6
+\BOOKMARK [1][-]{section.2.2}{\376\377\000A\000b\000e\000l\000i\000a\000n\000\040\000G\000r\000o\000u\000p\000s\000\040\000a\000n\000d\000\040\000E\000x\000a\000m\000p\000l\000e\000s}{chapter.2}% 7
+\BOOKMARK [0][-]{chapter.3}{\376\377\000C\000h\000a\000r\000a\000c\000t\000e\000r\000\040\000T\000h\000e\000o\000r\000y}{part.2}% 8
+\BOOKMARK [1][-]{section.3.1}{\376\377\000C\000h\000a\000r\000a\000c\000t\000e\000r\000s}{chapter.3}% 9
+\BOOKMARK [1][-]{section.3.2}{\376\377\000T\000h\000e\000\040\000F\000i\000r\000s\000t\000\040\000P\000r\000o\000j\000e\000c\000t\000i\000o\000n\000\040\000F\000o\000r\000m\000u\000l\000a\000\040\000a\000n\000d\000\040\000I\000t\000s\000\040\000C\000o\000n\000s\000e\000q\000u\000e\000n\000c\000e\000s}{chapter.3}% 10
+\BOOKMARK [0][-]{chapter.4}{\376\377\000I\000n\000d\000u\000c\000e\000d\000\040\000R\000e\000p\000r\000e\000s\000e\000n\000t\000a\000t\000i\000o\000n\000s}{part.2}% 11
+\BOOKMARK [-1][-]{part.3}{\376\377\000P\000a\000r\000t\000\040\000I\000I\000I\000\040\000L\000i\000e\000\040\000G\000r\000o\000u\000p\000s\000\040\000a\000n\000d\000\040\000t\000h\000e\000i\000r\000\040\000R\000e\000p\000r\000e\000s\000e\000n\000t\000a\000t\000i\000o\000n\000s}{}% 12
+\BOOKMARK [0][-]{chapter.5}{\376\377\000L\000i\000e\000\040\000G\000r\000o\000u\000p\000s}{part.3}% 13
+\BOOKMARK [0][-]{chapter.6}{\376\377\000L\000i\000e\000\040\000A\000l\000g\000e\000b\000r\000a\000s}{part.3}% 14
+\BOOKMARK [0][-]{chapter.7}{\376\377\000R\000e\000p\000r\000e\000s\000e\000n\000t\000a\000t\000i\000o\000n\000s\000\040\000o\000f\000\040\000S\000e\000m\000i\000s\000i\000m\000p\000l\000e\000\040\000L\000i\000e\000\040\000G\000r\000o\000u\000p\000s}{part.3}% 15
+\BOOKMARK [-1][-]{part.4}{\376\377\000P\000a\000r\000t\000\040\000I\000V\000\040\000A\000l\000g\000e\000b\000r\000a\000\040\000a\000n\000d\000\040\000Q\000u\000i\000v\000e\000r\000\040\000R\000e\000p\000r\000e\000s\000e\000n\000t\000a\000t\000i\000o\000n\000s}{}% 16
+\BOOKMARK [0][-]{chapter.8}{\376\377\000Q\000u\000i\000v\000e\000r\000\040\000R\000e\000p\000r\000e\000s\000e\000n\000t\000a\000t\000i\000o\000n\000s}{part.4}% 17
+\BOOKMARK [0][-]{chapter.9}{\376\377\000G\000r\000o\000u\000p\000\040\000A\000l\000g\000e\000b\000r\000a\000s}{part.4}% 18

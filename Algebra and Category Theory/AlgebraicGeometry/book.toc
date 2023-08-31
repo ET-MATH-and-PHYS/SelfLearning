@@ -2,58 +2,65 @@
 \contentsline {chapter}{\numberline {1}Basic Category Theory}{3}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Categories}{3}{section.1.1}%
 \contentsline {subsection}{\numberline {1.1.1}Functors}{4}{subsection.1.1.1}%
-\contentsline {subsection}{\numberline {1.1.2}Natural Transformations}{6}{subsection.1.1.2}%
-\contentsline {section}{\numberline {1.2}Universal Properties}{7}{section.1.2}%
-\contentsline {subsection}{\numberline {1.2.1}Localization of Rings and Modules}{8}{subsection.1.2.1}%
-\contentsline {subsection}{\numberline {1.2.2}Tensor Products}{10}{subsection.1.2.2}%
-\contentsline {subsection}{\numberline {1.2.3}Fibered Products}{12}{subsection.1.2.3}%
-\contentsline {subsection}{\numberline {1.2.4}Monomorphisms and Epimorphisms}{14}{subsection.1.2.4}%
-\contentsline {subsection}{\numberline {1.2.5}Representable Functors and Yoneda's Lemma}{15}{subsection.1.2.5}%
-\contentsline {section}{\numberline {1.3}Limits and Colimits}{17}{section.1.3}%
-\contentsline {subsection}{\numberline {1.3.1}Limits}{17}{subsection.1.3.1}%
-\contentsline {subsection}{\numberline {1.3.2}Colimits}{19}{subsection.1.3.2}%
-\contentsline {section}{\numberline {1.4}Adjoints}{21}{section.1.4}%
-\contentsline {section}{\numberline {1.5}Abelian Categories}{22}{section.1.5}%
-\contentsline {subsection}{\numberline {1.5.1}Complexes, Exactness, and Homology}{23}{subsection.1.5.1}%
-\contentsline {section}{\numberline {1.6}Spectral Sequences}{23}{section.1.6}%
-\contentsline {chapter}{\numberline {2}Sheaves}{25}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Motivation: The Sheaf of Differentiable Functions}{25}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}The Germ of a Differentiable Function}{26}{subsection.2.1.1}%
-\contentsline {section}{\numberline {2.2}Sheaf and Presheaf}{26}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Morphisms of Presheaves and Sheaves}{29}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Properties at the Level of Stalks and Sheafification}{30}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}Properties at the Level of Stalks}{30}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {1.1.2}Natural Transformations}{5}{subsection.1.1.2}%
+\contentsline {section}{\numberline {1.2}Universal Properties}{6}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Localization of Rings and Modules}{7}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Tensor Products}{9}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}Fibered Products}{10}{subsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.2.4}Monomorphisms and Epimorphisms}{12}{subsection.1.2.4}%
+\contentsline {subsection}{\numberline {1.2.5}Representable Functors and Yoneda's Lemma}{13}{subsection.1.2.5}%
+\contentsline {section}{\numberline {1.3}Limits and Colimits}{14}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Limits}{15}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}Colimits}{16}{subsection.1.3.2}%
+\contentsline {section}{\numberline {1.4}Adjoints}{17}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Abelian Categories}{18}{section.1.5}%
+\contentsline {subsection}{\numberline {1.5.1}Complexes, Exactness, and Homology}{19}{subsection.1.5.1}%
+\contentsline {section}{\numberline {1.6}Spectral Sequences}{20}{section.1.6}%
+\contentsline {chapter}{\numberline {2}Sheaves}{21}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Motivation: The Sheaf of Differentiable Functions}{21}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}The Germ of a Differentiable Function}{22}{subsection.2.1.1}%
+\contentsline {section}{\numberline {2.2}Sheaf and Presheaf}{22}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Morphisms of Presheaves and Sheaves}{24}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Properties at the Level of Stalks and Sheafification}{25}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Properties at the Level of Stalks}{25}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Sheafification}{26}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.3}Subsheaves and Quotient Sheaves}{27}{subsection.2.4.3}%
+\contentsline {section}{\numberline {2.5}Recovering Sheaves from a Sheaf on a Base}{28}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Sheaves of Abelian Groups and Modules Form Abelian Categories}{29}{section.2.6}%
 \contentsline {part}{Part\ II\hspace {\betweenumberspace }Scheme Theory}{31}{part.2}%
 \contentsline {chapter}{\numberline {3}Toward Affine Schemes}{33}{chapter.3}%
-\contentsline {chapter}{\numberline {4}The Structure Sheaf}{35}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Properties of Schemes}{37}{chapter.5}%
-\contentsline {part}{Part\ III\hspace {\betweenumberspace }Morphisms}{39}{part.3}%
-\contentsline {chapter}{\numberline {6}Morphisms of Schemes}{41}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Important Classes of Morphisms of Schemes}{43}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Closed Embeddings}{45}{chapter.8}%
-\contentsline {chapter}{\numberline {9}Fibered Products of Schemes}{47}{chapter.9}%
-\contentsline {chapter}{\numberline {10}Separated and Proper Morphisms and Varieties}{49}{chapter.10}%
-\contentsline {part}{Part\ IV\hspace {\betweenumberspace }Geometric Properties}{51}{part.4}%
-\contentsline {chapter}{\numberline {11}Dimension}{53}{chapter.11}%
-\contentsline {chapter}{\numberline {12}Regularity and Smoothness}{55}{chapter.12}%
-\contentsline {part}{Part\ V\hspace {\betweenumberspace }Quasicoherent Sheaves}{57}{part.5}%
-\contentsline {chapter}{\numberline {13}Quasicoherent and Coherent Sheaves}{59}{chapter.13}%
-\contentsline {chapter}{\numberline {14}Line Bundles: Invertible Sheaves and Divisors}{61}{chapter.14}%
-\contentsline {chapter}{\numberline {15}Quasicoherent Sheaves and Projective A-Schemes}{63}{chapter.15}%
-\contentsline {chapter}{\numberline {16}Pushforwards and Pullbacks of Quasicoherent Sheaves}{65}{chapter.16}%
-\contentsline {chapter}{\numberline {17}Relative Versions of Spec and Proj}{67}{chapter.17}%
-\contentsline {chapter}{\numberline {18}\v {C}ech Cohomology of Quasicoherent Sheaves}{69}{chapter.18}%
-\contentsline {chapter}{\numberline {19}Applications to Curves}{71}{chapter.19}%
-\contentsline {chapter}{\numberline {20}Applications to Intersection Theory}{73}{chapter.20}%
-\contentsline {chapter}{\numberline {21}Differentials}{75}{chapter.21}%
-\contentsline {chapter}{\numberline {22}Blowing Up}{77}{chapter.22}%
-\contentsline {part}{Part\ VI\hspace {\betweenumberspace }Additional Topics In Algebraic Geometry}{79}{part.6}%
-\contentsline {chapter}{\numberline {23}Derived Functors}{81}{chapter.23}%
-\contentsline {chapter}{\numberline {24}Flatness}{83}{chapter.24}%
-\contentsline {chapter}{\numberline {25}Smooth and \'{e}tale Morphisms}{85}{chapter.25}%
-\contentsline {chapter}{\numberline {26}Depth and Cohen-Macaulayness}{87}{chapter.26}%
-\contentsline {chapter}{\numberline {27}Twenty-Seven Lines}{89}{chapter.27}%
-\contentsline {chapter}{\numberline {28}Cohomology and Base Change Theorems}{91}{chapter.28}%
-\contentsline {chapter}{\numberline {29}Power Series and Theorem on Formal Functions}{93}{chapter.29}%
-\contentsline {chapter}{\numberline {30}Proof of Serre Duality}{95}{chapter.30}%
+\contentsline {section}{\numberline {3.1}Toward Schemes}{33}{section.3.1}%
+\contentsline {section}{\numberline {3.2}The Underlying Set of Affine Schemes}{34}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Quotients and Localizations}{35}{subsection.3.2.1}%
+\contentsline {chapter}{\numberline {4}The Structure Sheaf}{37}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Properties of Schemes}{39}{chapter.5}%
+\contentsline {part}{Part\ III\hspace {\betweenumberspace }Morphisms}{41}{part.3}%
+\contentsline {chapter}{\numberline {6}Morphisms of Schemes}{43}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Important Classes of Morphisms of Schemes}{45}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Closed Embeddings}{47}{chapter.8}%
+\contentsline {chapter}{\numberline {9}Fibered Products of Schemes}{49}{chapter.9}%
+\contentsline {chapter}{\numberline {10}Separated and Proper Morphisms and Varieties}{51}{chapter.10}%
+\contentsline {part}{Part\ IV\hspace {\betweenumberspace }Geometric Properties}{53}{part.4}%
+\contentsline {chapter}{\numberline {11}Dimension}{55}{chapter.11}%
+\contentsline {chapter}{\numberline {12}Regularity and Smoothness}{57}{chapter.12}%
+\contentsline {part}{Part\ V\hspace {\betweenumberspace }Quasicoherent Sheaves}{59}{part.5}%
+\contentsline {chapter}{\numberline {13}Quasicoherent and Coherent Sheaves}{61}{chapter.13}%
+\contentsline {chapter}{\numberline {14}Line Bundles: Invertible Sheaves and Divisors}{63}{chapter.14}%
+\contentsline {chapter}{\numberline {15}Quasicoherent Sheaves and Projective A-Schemes}{65}{chapter.15}%
+\contentsline {chapter}{\numberline {16}Pushforwards and Pullbacks of Quasicoherent Sheaves}{67}{chapter.16}%
+\contentsline {chapter}{\numberline {17}Relative Versions of Spec and Proj}{69}{chapter.17}%
+\contentsline {chapter}{\numberline {18}\v {C}ech Cohomology of Quasicoherent Sheaves}{71}{chapter.18}%
+\contentsline {chapter}{\numberline {19}Applications to Curves}{73}{chapter.19}%
+\contentsline {chapter}{\numberline {20}Applications to Intersection Theory}{75}{chapter.20}%
+\contentsline {chapter}{\numberline {21}Differentials}{77}{chapter.21}%
+\contentsline {chapter}{\numberline {22}Blowing Up}{79}{chapter.22}%
+\contentsline {part}{Part\ VI\hspace {\betweenumberspace }Additional Topics In Algebraic Geometry}{81}{part.6}%
+\contentsline {chapter}{\numberline {23}Derived Functors}{83}{chapter.23}%
+\contentsline {chapter}{\numberline {24}Flatness}{85}{chapter.24}%
+\contentsline {chapter}{\numberline {25}Smooth and \'{e}tale Morphisms}{87}{chapter.25}%
+\contentsline {chapter}{\numberline {26}Depth and Cohen-Macaulayness}{89}{chapter.26}%
+\contentsline {chapter}{\numberline {27}Twenty-Seven Lines}{91}{chapter.27}%
+\contentsline {chapter}{\numberline {28}Cohomology and Base Change Theorems}{93}{chapter.28}%
+\contentsline {chapter}{\numberline {29}Power Series and Theorem on Formal Functions}{95}{chapter.29}%
+\contentsline {chapter}{\numberline {30}Proof of Serre Duality}{97}{chapter.30}%
 \contentsfinish 

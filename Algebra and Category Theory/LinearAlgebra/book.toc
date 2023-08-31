@@ -11,7 +11,7 @@
 \contentsline {section}{\numberline {2.3}Matrix Representations}{13}{section.2.3}%
 \contentsline {section}{\numberline {2.4}Dual Space}{14}{section.2.4}%
 \contentsline {subsection}{\numberline {2.4.1}Operator Adjoints}{15}{subsection.2.4.1}%
-\contentsline {section}{Appendix A: Multilinear Maps}{15}{proof.9}%
+\contentsline {section}{Appendix A: Multilinear Maps}{16}{proof.9}%
 \contentsline {subsection}{\numberline {2.4.2}Matrix Representations of Bilinear Forms}{17}{subsection.2.4.2}%
 \contentsline {section}{Appendix B: Quadratic Forms}{19}{corollary.2.2}%
 \contentsline {chapter}{\numberline {3}Matrix Algebra}{21}{chapter.3}%

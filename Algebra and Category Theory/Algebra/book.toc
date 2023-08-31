@@ -50,71 +50,74 @@
 \contentsline {section}{\numberline {9.1} Initial Definitions and Examples}{87}{section.9.1}%
 \contentsline {subsection}{\numberline {9.1.1} Integral Domains}{91}{subsection.9.1.1}%
 \contentsline {subsection}{\numberline {9.1.2} Subrings}{92}{subsection.9.1.2}%
-\contentsline {section}{\numberline {9.2} Ring Homomorphisms}{93}{section.9.2}%
-\contentsline {section}{\numberline {9.3} Domains and Fields of Fractions}{95}{section.9.3}%
+\contentsline {section}{\numberline {9.2} Ring Homomorphisms}{94}{section.9.2}%
+\contentsline {section}{\numberline {9.3} Domains and Fields of Fractions}{96}{section.9.3}%
 \contentsline {section}{\numberline {9.4} Special Definitions and Facts}{99}{section.9.4}%
-\contentsline {section}{\numberline {9.5} The Gaussian Integers}{99}{section.9.5}%
-\contentsline {chapter}{\numberline {10} Ideals and Quotient Rings}{101}{chapter.10}%
-\contentsline {section}{\numberline {10.1} Basic Definitions and Examples: Ideals}{101}{section.10.1}%
-\contentsline {subsection}{\numberline {10.1.1} Simple Ideals}{103}{subsection.10.1.1}%
-\contentsline {subsection}{\numberline {10.1.2} Maximal and Prime Ideals}{104}{subsection.10.1.2}%
-\contentsline {section}{\numberline {10.2} Ideal Arithmetic and the Chinese Remainder Theorem}{105}{section.10.2}%
-\contentsline {section}{\numberline {10.3} Adjunctions}{109}{section.10.3}%
-\contentsline {section}{\numberline {10.4} Isomorphism Theorems and Correspondence}{109}{section.10.4}%
-\contentsline {chapter}{\numberline {11} Unique Factorization Domains}{113}{chapter.11}%
-\contentsline {section}{\numberline {11.1} Basic Definitions and Examples: UFDs}{113}{section.11.1}%
-\contentsline {section}{\numberline {11.2} Unique Factorization in F[x]}{113}{section.11.2}%
-\contentsline {chapter}{\numberline {12} Principal Ideal Domains}{115}{chapter.12}%
-\contentsline {section}{\numberline {12.1} Basic Definitions and Examples: PIDs}{115}{section.12.1}%
-\contentsline {chapter}{\numberline {13} Euclidean Domains}{117}{chapter.13}%
-\contentsline {section}{\numberline {13.1} Basic Definitions and Examples: Euclidean Domains}{117}{section.13.1}%
-\contentsline {chapter}{\numberline {14} Polynomial Rings}{121}{chapter.14}%
-\contentsline {section}{\numberline {14.1} Basic Definitions and Examples: Polynomial Rings}{121}{section.14.1}%
-\contentsline {section}{\numberline {14.2} Division Algorithm}{125}{section.14.2}%
-\contentsline {subsection}{\numberline {14.2.1} Solutions to Polynomials}{128}{subsection.14.2.1}%
-\contentsline {section}{\numberline {14.3} Substitution Principle}{129}{section.14.3}%
-\contentsline {section}{\numberline {14.4} Roots and Factorization}{130}{section.14.4}%
-\contentsline {subsection}{\numberline {14.4.1} Polynomials over $\mathbb Q$ and $\mathbb Z$}{133}{subsection.14.4.1}%
-\contentsline {subsection}{\numberline {14.4.2} Parallels between the Integers and Polynomials over a Field}{136}{subsection.14.4.2}%
-\contentsline {section}{\numberline {14.5} Polynomials over a Field}{137}{section.14.5}%
-\contentsline {subsection}{\numberline {14.5.1} Field Extensions}{139}{subsection.14.5.1}%
-\contentsline {section}{\numberline {14.6} GCD of Polynomials}{140}{section.14.6}%
-\contentsline {part}{Part\ III\hspace {\betweenumberspace }Field Theory}{141}{part.3}%
-\contentsline {chapter}{\numberline {15} Basic Definitions and Examples: Fields}{143}{chapter.15}%
-\contentsline {chapter}{\numberline {16} Field Extensions}{145}{chapter.16}%
-\contentsline {section}{\numberline {16.1} Initial Definitions and Examples}{145}{section.16.1}%
-\contentsline {section}{\numberline {16.2} Algebraic Extensions}{149}{section.16.2}%
-\contentsline {section}{\numberline {16.3} Classical Straightedge and Compass Constructions}{154}{section.16.3}%
-\contentsline {section}{\numberline {16.4} Splitting Fields}{156}{section.16.4}%
-\contentsline {subsection}{\numberline {16.4.1}Cyclotomic Fields}{158}{subsection.16.4.1}%
-\contentsline {section}{\numberline {16.5} Separable and Inseparable Extensions}{159}{section.16.5}%
-\contentsline {section}{\numberline {16.6}Cyclotomic Polynomials and Extensions}{163}{section.16.6}%
-\contentsline {chapter}{\numberline {17} Galois Theory}{167}{chapter.17}%
-\contentsline {section}{\numberline {17.1} Basics Definitions and Examples: Galois Theory}{167}{section.17.1}%
-\contentsline {subsection}{\numberline {17.1.1}The Galois Correspondence}{169}{subsection.17.1.1}%
-\contentsline {section}{\numberline {17.2} The Fundamental Theorem of Galois Theory}{172}{section.17.2}%
-\contentsline {section}{\numberline {17.3} Finite Fields}{180}{section.17.3}%
-\contentsline {section}{\numberline {17.4} Composite Extensions and Simple Extensions}{182}{section.17.4}%
-\contentsline {section}{\numberline {17.5} Cyclotomic Extensions and Abelian Extensions}{186}{section.17.5}%
-\contentsline {subsection}{\numberline {17.5.1}Constructability of the n-gon}{187}{subsection.17.5.1}%
-\contentsline {section}{\numberline {17.6} Galois Group of Polynomials}{188}{section.17.6}%
-\contentsline {subsection}{\numberline {17.6.1}Polynomials of Degree 2}{191}{subsection.17.6.1}%
-\contentsline {subsection}{\numberline {17.6.2}Polynomials of Degree 3}{192}{subsection.17.6.2}%
-\contentsline {subsection}{\numberline {17.6.3}Polynomials of Degree 4}{193}{subsection.17.6.3}%
-\contentsline {section}{\numberline {17.7} Solvable and Radical Extensions}{194}{section.17.7}%
-\contentsline {part}{Part\ IV\hspace {\betweenumberspace }Module Theory}{199}{part.4}%
-\contentsline {chapter}{\numberline {18} General Definitions and Examples: Modules}{201}{chapter.18}%
-\contentsline {section}{\numberline {18.1} Basic Definitions and Examples: Modules}{201}{section.18.1}%
-\contentsline {section}{\numberline {18.2} Module Homomorphisms}{205}{section.18.2}%
-\contentsline {subsection}{\numberline {18.2.1} Isomorphism Theorems for Modules}{210}{subsection.18.2.1}%
-\contentsline {subsection}{\numberline {18.2.2} Evaluation Bijections}{211}{subsection.18.2.2}%
-\contentsline {section}{\numberline {18.3} Submodules}{212}{section.18.3}%
-\contentsline {section}{\numberline {18.4} Free Modules and Generators}{212}{section.18.4}%
-\contentsline {chapter}{\numberline {19}\textsection \textsection Linear Transformations}{217}{chapter.19}%
-\contentsline {chapter}{\numberline {20}\textsection \textsection Matrix Theory for Free Modules}{219}{chapter.20}%
-\contentsline {chapter}{\numberline {21}\textsection \textsection Modules over PIDs}{221}{chapter.21}%
-\contentsline {chapter}{\numberline {22} Tensor Products}{223}{chapter.22}%
-\contentsline {section}{\numberline {22.1} Module Tensor Products}{223}{section.22.1}%
-\contentsline {subsection}{\numberline {22.1.1}Motivation/Special Case}{223}{subsection.22.1.1}%
-\contentsline {subsection}{\numberline {22.1.2}General Construction}{226}{subsection.22.1.2}%
+\contentsline {section}{\numberline {9.5} The Gaussian Integers}{100}{section.9.5}%
+\contentsline {section}{\numberline {9.6}Products}{101}{section.9.6}%
+\contentsline {chapter}{\numberline {10} Ideals and Quotient Rings}{103}{chapter.10}%
+\contentsline {section}{\numberline {10.1} Basic Definitions and Examples: Ideals}{103}{section.10.1}%
+\contentsline {subsection}{\numberline {10.1.1} Simple Ideals}{105}{subsection.10.1.1}%
+\contentsline {subsection}{\numberline {10.1.2} Maximal and Prime Ideals}{106}{subsection.10.1.2}%
+\contentsline {section}{\numberline {10.2} Ideal Arithmetic and the Chinese Remainder Theorem}{107}{section.10.2}%
+\contentsline {section}{\numberline {10.3} Adjunctions}{111}{section.10.3}%
+\contentsline {section}{\numberline {10.4} Isomorphism Theorems and Correspondence}{112}{section.10.4}%
+\contentsline {chapter}{\numberline {11} Unique Factorization Domains}{115}{chapter.11}%
+\contentsline {section}{\numberline {11.1} Basic Definitions and Examples: UFDs}{115}{section.11.1}%
+\contentsline {section}{\numberline {11.2} Unique Factorization in F[x]}{115}{section.11.2}%
+\contentsline {chapter}{\numberline {12} Principal Ideal Domains}{117}{chapter.12}%
+\contentsline {section}{\numberline {12.1} Basic Definitions and Examples: PIDs}{117}{section.12.1}%
+\contentsline {chapter}{\numberline {13} Euclidean Domains}{119}{chapter.13}%
+\contentsline {section}{\numberline {13.1} Basic Definitions and Examples: Euclidean Domains}{119}{section.13.1}%
+\contentsline {chapter}{\numberline {14} Polynomial Rings}{123}{chapter.14}%
+\contentsline {section}{\numberline {14.1} Basic Definitions and Examples: Polynomial Rings}{123}{section.14.1}%
+\contentsline {section}{\numberline {14.2}Monoid Rings}{127}{section.14.2}%
+\contentsline {subsection}{\numberline {14.2.1}Universal Property of Polynomial Rings}{127}{subsection.14.2.1}%
+\contentsline {section}{\numberline {14.3} Division Algorithm}{127}{section.14.3}%
+\contentsline {subsection}{\numberline {14.3.1} Solutions to Polynomials}{131}{subsection.14.3.1}%
+\contentsline {section}{\numberline {14.4} Substitution Principle}{131}{section.14.4}%
+\contentsline {section}{\numberline {14.5} Roots and Factorization}{133}{section.14.5}%
+\contentsline {subsection}{\numberline {14.5.1} Polynomials over $\mathbb Q$ and $\mathbb Z$}{135}{subsection.14.5.1}%
+\contentsline {subsection}{\numberline {14.5.2} Parallels between the Integers and Polynomials over a Field}{139}{subsection.14.5.2}%
+\contentsline {section}{\numberline {14.6} Polynomials over a Field}{140}{section.14.6}%
+\contentsline {subsection}{\numberline {14.6.1} Field Extensions}{142}{subsection.14.6.1}%
+\contentsline {section}{\numberline {14.7} GCD of Polynomials}{142}{section.14.7}%
+\contentsline {part}{Part\ III\hspace {\betweenumberspace }Field Theory}{145}{part.3}%
+\contentsline {chapter}{\numberline {15} Basic Definitions and Examples: Fields}{147}{chapter.15}%
+\contentsline {chapter}{\numberline {16} Field Extensions}{149}{chapter.16}%
+\contentsline {section}{\numberline {16.1} Initial Definitions and Examples}{149}{section.16.1}%
+\contentsline {section}{\numberline {16.2} Algebraic Extensions}{153}{section.16.2}%
+\contentsline {section}{\numberline {16.3} Classical Straightedge and Compass Constructions}{158}{section.16.3}%
+\contentsline {section}{\numberline {16.4} Splitting Fields}{160}{section.16.4}%
+\contentsline {subsection}{\numberline {16.4.1}Cyclotomic Fields}{162}{subsection.16.4.1}%
+\contentsline {section}{\numberline {16.5} Separable and Inseparable Extensions}{163}{section.16.5}%
+\contentsline {section}{\numberline {16.6}Cyclotomic Polynomials and Extensions}{167}{section.16.6}%
+\contentsline {chapter}{\numberline {17} Galois Theory}{171}{chapter.17}%
+\contentsline {section}{\numberline {17.1} Basics Definitions and Examples: Galois Theory}{171}{section.17.1}%
+\contentsline {subsection}{\numberline {17.1.1}The Galois Correspondence}{173}{subsection.17.1.1}%
+\contentsline {section}{\numberline {17.2} The Fundamental Theorem of Galois Theory}{176}{section.17.2}%
+\contentsline {section}{\numberline {17.3} Finite Fields}{185}{section.17.3}%
+\contentsline {section}{\numberline {17.4} Composite Extensions and Simple Extensions}{186}{section.17.4}%
+\contentsline {section}{\numberline {17.5} Cyclotomic Extensions and Abelian Extensions}{190}{section.17.5}%
+\contentsline {subsection}{\numberline {17.5.1}Constructability of the n-gon}{191}{subsection.17.5.1}%
+\contentsline {section}{\numberline {17.6} Galois Group of Polynomials}{192}{section.17.6}%
+\contentsline {subsection}{\numberline {17.6.1}Polynomials of Degree 2}{195}{subsection.17.6.1}%
+\contentsline {subsection}{\numberline {17.6.2}Polynomials of Degree 3}{196}{subsection.17.6.2}%
+\contentsline {subsection}{\numberline {17.6.3}Polynomials of Degree 4}{197}{subsection.17.6.3}%
+\contentsline {section}{\numberline {17.7} Solvable and Radical Extensions}{198}{section.17.7}%
+\contentsline {part}{Part\ IV\hspace {\betweenumberspace }Module Theory}{203}{part.4}%
+\contentsline {chapter}{\numberline {18} General Definitions and Examples: Modules}{205}{chapter.18}%
+\contentsline {section}{\numberline {18.1} Basic Definitions and Examples: Modules}{205}{section.18.1}%
+\contentsline {section}{\numberline {18.2} Module Homomorphisms}{209}{section.18.2}%
+\contentsline {subsection}{\numberline {18.2.1} Isomorphism Theorems for Modules}{214}{subsection.18.2.1}%
+\contentsline {subsection}{\numberline {18.2.2} Evaluation Bijections}{215}{subsection.18.2.2}%
+\contentsline {section}{\numberline {18.3} Submodules}{216}{section.18.3}%
+\contentsline {section}{\numberline {18.4} Free Modules and Generators}{216}{section.18.4}%
+\contentsline {chapter}{\numberline {19}\textsection \textsection Linear Transformations}{221}{chapter.19}%
+\contentsline {chapter}{\numberline {20}\textsection \textsection Matrix Theory for Free Modules}{223}{chapter.20}%
+\contentsline {chapter}{\numberline {21}\textsection \textsection Modules over PIDs}{225}{chapter.21}%
+\contentsline {chapter}{\numberline {22} Tensor Products}{227}{chapter.22}%
+\contentsline {section}{\numberline {22.1} Module Tensor Products}{227}{section.22.1}%
+\contentsline {subsection}{\numberline {22.1.1}Motivation/Special Case}{227}{subsection.22.1.1}%
+\contentsline {subsection}{\numberline {22.1.2}General Construction}{230}{subsection.22.1.2}%
 \contentsfinish 

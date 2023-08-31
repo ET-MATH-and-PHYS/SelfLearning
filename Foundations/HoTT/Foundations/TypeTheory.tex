@@ -59,7 +59,7 @@ As a matter of analogy, a $\lambda$-abstraction binds a dummy variable in exactl
 We can define a named function $f:A\rightarrow (B\rightarrow C)$ by giving an equation $$f(x)(y):\equiv \Phi$$ 
 where $\Phi:C$ assuming $x:A$ and $y:B$. Using $\lambda$-abstraction this corresponds to $$f:\equiv \lambda x.\lambda y.\Phi$$
 which may also be written as \begin{equation*}
-    f : \equiv x\mapsot (y\mapsto \Phi)
+    f : \equiv x\mapsto (y\mapsto \Phi)
 \end{equation*}
 
 
@@ -115,7 +115,7 @@ Given types $A,B:U$ we introduce the type $A\times B:U$, which we call their \te
 \begin{remark}
     We have a general pattern for introducing a new kind of type in Type theory. To specify a type, we specify: \begin{itemize}
         \item[(i)] how to form new types of this kind, via \textbf{formation rules}. (Example: we can form the dependent function type $\prod_{(x:A)}B(x)$ when $A$ is a type and $B(x)$ is a type for $x \in A$).
-        \item[(ii)] how to construct elements of that type. These are called the type's \textbf{constructors} or \texstbf{introduction rules}. (Example: A function type has one constructor, $\lambda$-abstraction)
+        \item[(ii)] how to construct elements of that type. These are called the type's \textbf{constructors} or \textbf{introduction rules}. (Example: A function type has one constructor, $\lambda$-abstraction)
         \item[(iii)] how to use elements of that type. These are called the type's \textbf{eliminators} or \textbf{elimination rules}. (Example: Function application for function types)
         \item[(iv)] a \textbf{computation rule} (i.e. $\beta$-\textbf{reduction}), which expresses how an eliminator acts on a constructor. (Example: For functions, the computation rule states that $(\lambda x.\Phi)(a)$ is judmentally equal to the substitution of $a$ for $x$ in $\Phi$.)
         \item[(v)] an optional \textbf{uniqueness principle} (i.e. $\eta$-\textbf{expansion}), which expresses uniqueness of maps into or out of that type. For some types, the uniqueness principle characterizes maps into the type, by stating that every element of the type is uniquely determined by the results of applying eliminators to it, and can be reconstructed from these results by applying a constructor. (Example: For functions, the uniqueness principle says that any function $f$ is judgmentally equal to the expanded function $\lambda x.f(x)$, and thus is uniquely determined by its values) For other types the uniqueness principle says that every map from that type is uniquely determined by some data.
@@ -126,7 +126,7 @@ Given types $A,B:U$ we introduce the type $A\times B:U$, which we call their \te
 
 We will assert the uniqueness principle for products, ``every element of $A\times B$ is a pair," as a propositional equality later. Now, how can we use pairs? Consider the definition of a non-dependent function $f:A\times B\rightarrow C$. Since we intend the only elements of $A \times B$ to be pairs, we expect to be able to define a function by prescribing the result when $f$ is applied to a pair $(a,b)$. We can prescribe these results by using currying, $g:A\rightarrow (B\rightarrow C)$. Thus we introduce the elimination rule for products, which says that for any such $g$, we can define a function $f:A\times B\rightarrow C$ by $$f((a,b)) :\equiv g(a)(b)$$
 
-Unlike in set theory, type theory assumes that a function on $A\tiems B$ is well-defined as soon as we specify its values on pairs, and from this we will be able to prove that every element of $A\times B$ is a pair. From a category-theoretic perspective we can say that we define the product $A\times B$ to be the left adjoint to the ``exponential" $B\rightarrow C$.
+Unlike in set theory, type theory assumes that a function on $A\times B$ is well-defined as soon as we specify its values on pairs, and from this we will be able to prove that every element of $A\times B$ is a pair. From a category-theoretic perspective we can say that we define the product $A\times B$ to be the left adjoint to the ``exponential" $B\rightarrow C$.
 
 As an example, we can derive the \textbf{projection} functions \begin{align*}
     &\text{pr}_1:A\times B\rightarrow A \\
@@ -181,10 +181,10 @@ We now look at generalizing the product type to allow the type of the second com
 Given a type $A:U$ and a family $B:A\rightarrow U$, the dependent pair type is written as $\sum_{(x:A)}B(x):U$. The way to construct elements of a dependent pair type is by pairing: we have $(a,b) : \sum_{(x:A)}B(x)$ given $a :A$ and $b:B(a)$. If $B$ is constant, then the dependent pair type is the ordinary cartesian product type: $$\left(\sum_{x:A}B\right) \equiv (A\times B)$$
 All the constructions on $\sum$-types arise as generalizations of the ones for product types, with dependent functions often replacing non-dependent ones.
 
-For instance, the recursion principle says that to define a non-dependent function out of a $\sum$-type $f:\left(\sum_{(x:A)}B(x))\rightarrow C$, we provide a function $g:\prod_{(x:A)}B(x)\rightarrow C$, and then we can define $f$ via the defining equation $$f((a,b)) :\equiv g(a)(b)$$
+For instance, the recursion principle says that to define a non-dependent function out of a $\sum$-type $f:\left(\sum_{(x:A)}B(x)\right)\rightarrow C$, we provide a function $g:\prod_{(x:A)}B(x)\rightarrow C$, and then we can define $f$ via the defining equation $$f((a,b)) :\equiv g(a)(b)$$
 For instance, we can derive the first projectino from a $\sum$-type: $$\text{pr}_1:\left(\sum_{x:A}B(x)\right)\rightarrow A$$
 by the defining equation $\text{pr}_1((a,b)) :\equiv a$. However, since the type of the second component of the pair is $B(a)$, the second projection must be a dependent function, whose type involves the first projection function: $$\text{pr}_2:\prod_{p:\sum_{(x:A)}B(x)}B(\text{pr}_1(p))$$
-Thus we need the induction principle for $\sum$-types. This says that to construct a dependent function out of a $\sum$-type into a family $C:\left(\sum_{(x:A)}B(x))\rightarrow U$, we need a function $$g:\prod_{(a:A)}\prod_{(b:B(a))}C((a,b))$$
+Thus we need the induction principle for $\sum$-types. This says that to construct a dependent function out of a $\sum$-type into a family $C:\left(\sum_{(x:A)}B(x)\right)\rightarrow U$, we need a function $$g:\prod_{(a:A)}\prod_{(b:B(a))}C((a,b))$$
 We can then derive a function $$f:\prod_{p:\sum_{(x:A)}B(x)}C(p)$$
 with defining equation $$f((a,b)) :\equiv g(a)(b)$$
 Applying this with $C(p) :\equiv B(\text{pr}_1(p))$, we can define $\text{pr}_2:\prod_{(p:\sum_{(x:A)}B(x))}B(\text{pr}_1(p))$ with the equation $\text{pr}_2((a,b)) :\equiv b$.
@@ -268,7 +268,7 @@ The induction principle for the identity type is called \textbf{path induction}.
 Path induction allows us to define specified functions which exhibit appropriate computational behaviour. Consider the case when $C$ does not depend on $p$, so $:A\rightarrow A\rightarrow U$, which can be regarded as a predicate depending on two elements of $A$. We are interesting in when $C(x,y)$ holds for some $x,y:A$. The hypotheses of path induction say that we know $C(x,x)$ holds for all $x:A$, so $C$ is a reflexive relation. The conclusion then tells us that $C(x,y)$ holds whenever $x=y$.
 
 Packaging up path induction into a single function gives \begin{equation*}
-    \text{ind}_{=_A}:\prod_{(C:\prod_{(x,y:A)}(x=_Ay)\rightarrow U)}\left(\prod_{(x:A)}C(x,x,\text{refl_x})\right)\rightarrow \prod_{(x,y:A)}\prod_{(p:x=_Ay)}C(x,y,p)
+    \text{ind}_{=_A}:\prod_{(C:\prod_{(x,y:A)}(x=_Ay)\rightarrow U)}\left(\prod_{(x:A)}C(x,x,\text{refl}_x)\right)\rightarrow \prod_{(x,y:A)}\prod_{(p:x=_Ay)}C(x,y,p)
 \end{equation*}
 with the equality \begin{equation*}
     \text{ind}_{=_A}(C,c,x,x,\text{refl}_x) :\equiv c(x)

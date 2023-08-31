@@ -1,43 +1,43 @@
-\BOOKMARK [-1][-]{part.1}{Part I General Topological Spaces}{}% 1
-\BOOKMARK [0][-]{chapter.1}{Examples and Constructions of Topological Spaces}{part.1}% 2
-\BOOKMARK [1][-]{section.1.1}{Basic Definitions and Examples: Topological Spaces}{chapter.1}% 3
-\BOOKMARK [2][-]{subsection.1.1.1}{Comparing Topologies}{section.1.1}% 4
-\BOOKMARK [1][-]{section.1.2}{Bases of a Topology}{chapter.1}% 5
-\BOOKMARK [1][-]{section.1.3}{Closed Sets and Closures}{chapter.1}% 6
-\BOOKMARK [2][-]{subsection.1.3.1}{Closures}{section.1.3}% 7
-\BOOKMARK [2][-]{subsection.1.3.2}{Closed Sets}{section.1.3}% 8
-\BOOKMARK [2][-]{subsection.1.3.3}{Density}{section.1.3}% 9
-\BOOKMARK [1][-]{section.1.4}{The Order Topology}{chapter.1}% 10
-\BOOKMARK [1][-]{section.1.5}{The Product Topology}{chapter.1}% 11
-\BOOKMARK [2][-]{subsection.1.5.1}{Special Case of Two Topological Spaces}{section.1.5}% 12
-\BOOKMARK [2][-]{subsection.1.5.2}{Arbitrary Product Spaces}{section.1.5}% 13
-\BOOKMARK [1][-]{section.1.6}{The Subspace Topology}{chapter.1}% 14
-\BOOKMARK [1][-]{section.1.7}{Continuous Functions}{chapter.1}% 15
-\BOOKMARK [1][-]{section.1.8}{The Quotient Topology}{chapter.1}% 16
-\BOOKMARK [0][-]{chapter.2}{Connectedness and Compactness}{part.1}% 17
-\BOOKMARK [1][-]{section.2.1}{Connected Spaces}{chapter.2}% 18
-\BOOKMARK [1][-]{section.2.2}{Connected Subspaces of the Real Line}{chapter.2}% 19
-\BOOKMARK [1][-]{section.2.3}{Components and Local Connectedness}{chapter.2}% 20
-\BOOKMARK [1][-]{section.2.4}{Compact Spaces}{chapter.2}% 21
-\BOOKMARK [1][-]{section.2.5}{Compact subspaces of the Real Line}{chapter.2}% 22
-\BOOKMARK [1][-]{section.2.6}{Limit Point Compactness}{chapter.2}% 23
-\BOOKMARK [1][-]{section.2.7}{Local Compactness}{chapter.2}% 24
-\BOOKMARK [0][-]{chapter.3}{Countability and Separation Axioms}{part.1}% 25
-\BOOKMARK [1][-]{section.3.1}{The Countability Axioms}{chapter.3}% 26
-\BOOKMARK [1][-]{section.3.2}{The Separation Axioms}{chapter.3}% 27
-\BOOKMARK [0][-]{chapter.4}{Tychonoff's Theorem}{part.1}% 28
-\BOOKMARK [-1][-]{part.2}{Part II Metric Spaces and Metrizability}{}% 29
-\BOOKMARK [0][-]{chapter.5}{Metrization and Paracompactness}{part.2}% 30
-\BOOKMARK [0][-]{chapter.6}{Complete Metric Spaces}{part.2}% 31
-\BOOKMARK [0][-]{chapter.7}{Baire Spaces}{part.2}% 32
-\BOOKMARK [0][-]{appendix.A}{Appendix A: Set Theory}{part.2}% 33
-\BOOKMARK [1][-]{section.A.1}{Relations}{appendix.A}% 34
-\BOOKMARK [2][-]{subsection.A.1.1}{Order Relations}{section.A.1}% 35
-\BOOKMARK [1][-]{section.A.2}{Properties of the Integers and Reals}{appendix.A}% 36
-\BOOKMARK [1][-]{section.A.3}{Cartesian Products}{appendix.A}% 37
-\BOOKMARK [1][-]{section.A.4}{Finite Sets}{appendix.A}% 38
-\BOOKMARK [1][-]{section.A.5}{Countable and Uncountable Sets}{appendix.A}% 39
-\BOOKMARK [1][-]{section.A.6}{Principle of Recursive Definition}{appendix.A}% 40
-\BOOKMARK [1][-]{section.A.7}{Infinite Sets and the Axiom of Choice}{appendix.A}% 41
-\BOOKMARK [1][-]{section.A.8}{Well-Ordered Sets}{appendix.A}% 42
-\BOOKMARK [1][-]{section.A.9}{The Maximum Principle}{appendix.A}% 43
+\BOOKMARK [-1][-]{part.1}{\376\377\000P\000a\000r\000t\000\040\000I\000\040\000G\000e\000n\000e\000r\000a\000l\000\040\000T\000o\000p\000o\000l\000o\000g\000i\000c\000a\000l\000\040\000S\000p\000a\000c\000e\000s}{}% 1
+\BOOKMARK [0][-]{chapter.1}{\376\377\000E\000x\000a\000m\000p\000l\000e\000s\000\040\000a\000n\000d\000\040\000C\000o\000n\000s\000t\000r\000u\000c\000t\000i\000o\000n\000s\000\040\000o\000f\000\040\000T\000o\000p\000o\000l\000o\000g\000i\000c\000a\000l\000\040\000S\000p\000a\000c\000e\000s}{part.1}% 2
+\BOOKMARK [1][-]{section.1.1}{\376\377\000B\000a\000s\000i\000c\000\040\000D\000e\000f\000i\000n\000i\000t\000i\000o\000n\000s\000\040\000a\000n\000d\000\040\000E\000x\000a\000m\000p\000l\000e\000s\000:\000\040\000T\000o\000p\000o\000l\000o\000g\000i\000c\000a\000l\000\040\000S\000p\000a\000c\000e\000s}{chapter.1}% 3
+\BOOKMARK [2][-]{subsection.1.1.1}{\376\377\000C\000o\000m\000p\000a\000r\000i\000n\000g\000\040\000T\000o\000p\000o\000l\000o\000g\000i\000e\000s}{section.1.1}% 4
+\BOOKMARK [1][-]{section.1.2}{\376\377\000B\000a\000s\000e\000s\000\040\000o\000f\000\040\000a\000\040\000T\000o\000p\000o\000l\000o\000g\000y}{chapter.1}% 5
+\BOOKMARK [1][-]{section.1.3}{\376\377\000C\000l\000o\000s\000e\000d\000\040\000S\000e\000t\000s\000\040\000a\000n\000d\000\040\000C\000l\000o\000s\000u\000r\000e\000s}{chapter.1}% 6
+\BOOKMARK [2][-]{subsection.1.3.1}{\376\377\000C\000l\000o\000s\000u\000r\000e\000s}{section.1.3}% 7
+\BOOKMARK [2][-]{subsection.1.3.2}{\376\377\000C\000l\000o\000s\000e\000d\000\040\000S\000e\000t\000s}{section.1.3}% 8
+\BOOKMARK [2][-]{subsection.1.3.3}{\376\377\000D\000e\000n\000s\000i\000t\000y}{section.1.3}% 9
+\BOOKMARK [1][-]{section.1.4}{\376\377\000T\000h\000e\000\040\000O\000r\000d\000e\000r\000\040\000T\000o\000p\000o\000l\000o\000g\000y}{chapter.1}% 10
+\BOOKMARK [1][-]{section.1.5}{\376\377\000T\000h\000e\000\040\000P\000r\000o\000d\000u\000c\000t\000\040\000T\000o\000p\000o\000l\000o\000g\000y}{chapter.1}% 11
+\BOOKMARK [2][-]{subsection.1.5.1}{\376\377\000S\000p\000e\000c\000i\000a\000l\000\040\000C\000a\000s\000e\000\040\000o\000f\000\040\000T\000w\000o\000\040\000T\000o\000p\000o\000l\000o\000g\000i\000c\000a\000l\000\040\000S\000p\000a\000c\000e\000s}{section.1.5}% 12
+\BOOKMARK [2][-]{subsection.1.5.2}{\376\377\000A\000r\000b\000i\000t\000r\000a\000r\000y\000\040\000P\000r\000o\000d\000u\000c\000t\000\040\000S\000p\000a\000c\000e\000s}{section.1.5}% 13
+\BOOKMARK [1][-]{section.1.6}{\376\377\000T\000h\000e\000\040\000S\000u\000b\000s\000p\000a\000c\000e\000\040\000T\000o\000p\000o\000l\000o\000g\000y}{chapter.1}% 14
+\BOOKMARK [1][-]{section.1.7}{\376\377\000C\000o\000n\000t\000i\000n\000u\000o\000u\000s\000\040\000F\000u\000n\000c\000t\000i\000o\000n\000s}{chapter.1}% 15
+\BOOKMARK [1][-]{section.1.8}{\376\377\000T\000h\000e\000\040\000Q\000u\000o\000t\000i\000e\000n\000t\000\040\000T\000o\000p\000o\000l\000o\000g\000y}{chapter.1}% 16
+\BOOKMARK [0][-]{chapter.2}{\376\377\000C\000o\000n\000n\000e\000c\000t\000e\000d\000n\000e\000s\000s\000\040\000a\000n\000d\000\040\000C\000o\000m\000p\000a\000c\000t\000n\000e\000s\000s}{part.1}% 17
+\BOOKMARK [1][-]{section.2.1}{\376\377\000C\000o\000n\000n\000e\000c\000t\000e\000d\000\040\000S\000p\000a\000c\000e\000s}{chapter.2}% 18
+\BOOKMARK [1][-]{section.2.2}{\376\377\000C\000o\000n\000n\000e\000c\000t\000e\000d\000\040\000S\000u\000b\000s\000p\000a\000c\000e\000s\000\040\000o\000f\000\040\000t\000h\000e\000\040\000R\000e\000a\000l\000\040\000L\000i\000n\000e}{chapter.2}% 19
+\BOOKMARK [1][-]{section.2.3}{\376\377\000C\000o\000m\000p\000o\000n\000e\000n\000t\000s\000\040\000a\000n\000d\000\040\000L\000o\000c\000a\000l\000\040\000C\000o\000n\000n\000e\000c\000t\000e\000d\000n\000e\000s\000s}{chapter.2}% 20
+\BOOKMARK [1][-]{section.2.4}{\376\377\000C\000o\000m\000p\000a\000c\000t\000\040\000S\000p\000a\000c\000e\000s}{chapter.2}% 21
+\BOOKMARK [1][-]{section.2.5}{\376\377\000C\000o\000m\000p\000a\000c\000t\000\040\000s\000u\000b\000s\000p\000a\000c\000e\000s\000\040\000o\000f\000\040\000t\000h\000e\000\040\000R\000e\000a\000l\000\040\000L\000i\000n\000e}{chapter.2}% 22
+\BOOKMARK [1][-]{section.2.6}{\376\377\000L\000i\000m\000i\000t\000\040\000P\000o\000i\000n\000t\000\040\000C\000o\000m\000p\000a\000c\000t\000n\000e\000s\000s}{chapter.2}% 23
+\BOOKMARK [1][-]{section.2.7}{\376\377\000L\000o\000c\000a\000l\000\040\000C\000o\000m\000p\000a\000c\000t\000n\000e\000s\000s}{chapter.2}% 24
+\BOOKMARK [0][-]{chapter.3}{\376\377\000C\000o\000u\000n\000t\000a\000b\000i\000l\000i\000t\000y\000\040\000a\000n\000d\000\040\000S\000e\000p\000a\000r\000a\000t\000i\000o\000n\000\040\000A\000x\000i\000o\000m\000s}{part.1}% 25
+\BOOKMARK [1][-]{section.3.1}{\376\377\000T\000h\000e\000\040\000C\000o\000u\000n\000t\000a\000b\000i\000l\000i\000t\000y\000\040\000A\000x\000i\000o\000m\000s}{chapter.3}% 26
+\BOOKMARK [1][-]{section.3.2}{\376\377\000T\000h\000e\000\040\000S\000e\000p\000a\000r\000a\000t\000i\000o\000n\000\040\000A\000x\000i\000o\000m\000s}{chapter.3}% 27
+\BOOKMARK [0][-]{chapter.4}{\376\377\000T\000y\000c\000h\000o\000n\000o\000f\000f\000'\000s\000\040\000T\000h\000e\000o\000r\000e\000m}{part.1}% 28
+\BOOKMARK [-1][-]{part.2}{\376\377\000P\000a\000r\000t\000\040\000I\000I\000\040\000M\000e\000t\000r\000i\000c\000\040\000S\000p\000a\000c\000e\000s\000\040\000a\000n\000d\000\040\000M\000e\000t\000r\000i\000z\000a\000b\000i\000l\000i\000t\000y}{}% 29
+\BOOKMARK [0][-]{chapter.5}{\376\377\000M\000e\000t\000r\000i\000z\000a\000t\000i\000o\000n\000\040\000a\000n\000d\000\040\000P\000a\000r\000a\000c\000o\000m\000p\000a\000c\000t\000n\000e\000s\000s}{part.2}% 30
+\BOOKMARK [0][-]{chapter.6}{\376\377\000C\000o\000m\000p\000l\000e\000t\000e\000\040\000M\000e\000t\000r\000i\000c\000\040\000S\000p\000a\000c\000e\000s}{part.2}% 31
+\BOOKMARK [0][-]{chapter.7}{\376\377\000B\000a\000i\000r\000e\000\040\000S\000p\000a\000c\000e\000s}{part.2}% 32
+\BOOKMARK [0][-]{appendix.A}{\376\377\000A\000p\000p\000e\000n\000d\000i\000x\000\040\000A\000:\000\040\000S\000e\000t\000\040\000T\000h\000e\000o\000r\000y}{part.2}% 33
+\BOOKMARK [1][-]{section.A.1}{\376\377\000R\000e\000l\000a\000t\000i\000o\000n\000s}{appendix.A}% 34
+\BOOKMARK [2][-]{subsection.A.1.1}{\376\377\000O\000r\000d\000e\000r\000\040\000R\000e\000l\000a\000t\000i\000o\000n\000s}{section.A.1}% 35
+\BOOKMARK [1][-]{section.A.2}{\376\377\000P\000r\000o\000p\000e\000r\000t\000i\000e\000s\000\040\000o\000f\000\040\000t\000h\000e\000\040\000I\000n\000t\000e\000g\000e\000r\000s\000\040\000a\000n\000d\000\040\000R\000e\000a\000l\000s}{appendix.A}% 36
+\BOOKMARK [1][-]{section.A.3}{\376\377\000C\000a\000r\000t\000e\000s\000i\000a\000n\000\040\000P\000r\000o\000d\000u\000c\000t\000s}{appendix.A}% 37
+\BOOKMARK [1][-]{section.A.4}{\376\377\000F\000i\000n\000i\000t\000e\000\040\000S\000e\000t\000s}{appendix.A}% 38
+\BOOKMARK [1][-]{section.A.5}{\376\377\000C\000o\000u\000n\000t\000a\000b\000l\000e\000\040\000a\000n\000d\000\040\000U\000n\000c\000o\000u\000n\000t\000a\000b\000l\000e\000\040\000S\000e\000t\000s}{appendix.A}% 39
+\BOOKMARK [1][-]{section.A.6}{\376\377\000P\000r\000i\000n\000c\000i\000p\000l\000e\000\040\000o\000f\000\040\000R\000e\000c\000u\000r\000s\000i\000v\000e\000\040\000D\000e\000f\000i\000n\000i\000t\000i\000o\000n}{appendix.A}% 40
+\BOOKMARK [1][-]{section.A.7}{\376\377\000I\000n\000f\000i\000n\000i\000t\000e\000\040\000S\000e\000t\000s\000\040\000a\000n\000d\000\040\000t\000h\000e\000\040\000A\000x\000i\000o\000m\000\040\000o\000f\000\040\000C\000h\000o\000i\000c\000e}{appendix.A}% 41
+\BOOKMARK [1][-]{section.A.8}{\376\377\000W\000e\000l\000l\000-\000O\000r\000d\000e\000r\000e\000d\000\040\000S\000e\000t\000s}{appendix.A}% 42
+\BOOKMARK [1][-]{section.A.9}{\376\377\000T\000h\000e\000\040\000M\000a\000x\000i\000m\000u\000m\000\040\000P\000r\000i\000n\000c\000i\000p\000l\000e}{appendix.A}% 43

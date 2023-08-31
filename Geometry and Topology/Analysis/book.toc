@@ -15,7 +15,7 @@
 \contentsline {section}{Appendix A: Alternative Differentiation Formulation}{40}{proof.72}%
 \contentsline {section}{Appendix B: Functional Sequences and Series}{44}{proof.79}%
 \contentsline {subsection}{\numberline {2.4.1}Power Series}{56}{subsection.2.4.1}%
-\contentsline {subsection}{\numberline {2.4.2}Products of Series}{64}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.2}Products of Series}{63}{subsection.2.4.2}%
 \contentsline {chapter}{\numberline {3}Integration}{67}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Introduction to Definite Integrals}{67}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Reimann Sums}{75}{section.3.2}%
