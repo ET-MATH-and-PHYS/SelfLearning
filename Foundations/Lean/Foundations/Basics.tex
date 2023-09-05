@@ -1,0 +1,54 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+\chapter{Basics}
+\label{Basic} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+
+
+\section{Types}
+
+Informally, types are ``things" that ``contain" terms. In dependent type theory, everything is a \textbf{term}, and every term has a \textbf{type}. Notationally, we write $t\;:\;\tau$ to denote the fact that $t$ is a \textbf{term} of \textbf{type} $\tau$.
+
+\begin{eg}
+    We have the type of natural numbers, $\N$, as well as the type of rationals, $\Q$, reals, $\R$, etc.
+\end{eg}
+
+As all types are terms, what is the type of $\N$? Well it is $\catname{Type}$! (well technically $\catname{Type}\;0$) This means we need a heirarchy of types, so that $\catname{Type}\;0$ can also be a term of the type, $\catname{Type}\;1$, etc. 
+
+We can also put types together to form \textbf{function types}, such as $\N\rightarrow \N, \N\rightarrow \Q$, and $\N\rightarrow \R$. In type theory, the function constructor on types is a \textbf{primitive object}. 
+
+\begin{eg}
+    If we want a squaring function, for example, in Lean4 we can specify it by:
+    %%
+    \begin{equation*}
+        \text{fun}\;n\;:\;\N\mapsto n^2
+    \end{equation*}
+    %%
+    The ``fun" keyword in Lean4 can be used as a lambda syntax, but it also has a lambda syntax as well.
+\end{eg}
+
+
+\subsection{Propositions}
+
+In dependent type theory, and Lean4 specifically, propositions are also modeled by types. In order to discuss this we introduce the type hierarchy ``$\text{Sort}\;n\;:\;\text{Sort}\;(n+1)$" where $\text{Type}\;u\;:=\;\text{Sort}\;(u+1)$. In this hierarchy, $\text{Sort}\;0$ is given the special notation $\text{Prop}$, and denotes the type of propositions.
+
+Lean's type theory has a special feature known as \textbf{proof irrelevance}, which is inconsistent with HoTT. Proof irrelevance means that all proofs are equal in Lean4. 
+
+Note that dependent type theory is useful for propositions, and mathematics generally, so that we can perform quantification in our propositions.
+
+
+\section{Curry-Howard-Correspondence}
+
+
+
+
+
+
